@@ -73,7 +73,8 @@ and open the template in the editor.
             <div class="dcm top"> <a class="scrollto" href="#top">Scroll to top</a>
                 <div class="clear"></div>
                 <div class="scroll">
-                    <p>Top-https://dribbble.com/shots/663860-Circular-Menu-2</p>
+                    <p>Top-https://dribbble.com/shots/663860-Circular-Menu-2
+                        https://github.com/beaucollins/radial-menu/blob/master/style.css</p>
                 </div>
             </div>
 
@@ -91,10 +92,10 @@ and open the template in the editor.
                         <li><a href="#">8</a></li>
                         <li><a href="#">9</a></li>
                         <li><a href="#">10</a></li>
-                       
+
                     </ul>
                 </nav>
-                
+
                 <style>
                     #top{
                         height: 400px;
@@ -120,16 +121,16 @@ and open the template in the editor.
                         color:white;
                     }
 
-                    
+
                     nav#full {
                         position: relative;
                         margin-left: 50%;
                         top:50%;
                     }
-                     nav#full a {
+                    nav#full a {
                         -webkit-tap-highlight-color:hsla(0,0%,0%,0.0);
                     }
-                     nav#full > a {
+                    nav#full > a {
                         position: absolute;
                         width: 40px;
                         height: 40px;
@@ -150,17 +151,17 @@ and open the template in the editor.
                         border:3px solid #FFF;
                         box-shadow: 0 0 2px hsla(0,0%,0%,0.6);
                     }
-                     nav#full ul {
+                    nav#full ul {
                         padding:0;
                         margin:0;
                         list-style-type:none;
                     }
-                     nav#full li {
+                    nav#full li {
                         position:absolute;
                         left:-16px;
                         top:-16px;
                     }
-                     nav#full li a {
+                    nav#full li a {
                         font-size: 18px;
                         font-weight:normal;
                         border: 3px solid #FFF;
@@ -224,7 +225,16 @@ and open the template in the editor.
                                 [65, "-moz-transform: translate(" + (x * 0.95) + "px, " + (y * 0.95) + "px); -moz-transition-timing-function:ease-in-out;"],
                                 [100, "-moz-transform: translate(" + x + "px, " + y + "px);"]
                             ];
-                            var open = "", reverse = "", open_moz = "", reverse_moz = "";
+
+                            var rules_ms = [
+                                [0, "-ms-transform: translate(0px, 0px); -ms-transition-timing-function: ease-out;"],
+                                [(delay + 15), "-ms-transform: translate(0px, 0px);"],
+                                [(45 + delay2), "-ms-transform: translate(" + (x * 1.2) + "px, " + (y * 1.2) + "px); -ms-transition-timing-function: ease-in;"],
+                                [65, "-ms-transform: translate(" + (x * 0.95) + "px, " + (y * 0.95) + "px); -ms-transition-timing-function:ease-in-out;"],
+                                [100, "-ms-transform: translate(" + x + "px, " + y + "px);"]
+                            ];
+
+                            var open = "", reverse = "", open_moz = "", reverse_moz = "", open_ms = "", reverse_ms = "";
                             rules.forEach(function(rule) {
                                 open += rule[0] + '% {' + rule[1] + "}\n";
                                 reverse = (100 - rule[0]) + '% {' + rule[1] + " }\n" + reverse;
@@ -233,20 +243,37 @@ and open the template in the editor.
                                 open_moz += rule[0] + '% {' + rule[1] + "}\n";
                                 reverse_moz = (100 - rule[0]) + '% {' + rule[1] + " }\n" + reverse_moz;
                             }, this);
+
+                            rules_ms.forEach(function(rule) {
+                                open_ms += rule[0] + '% {' + rule[1] + "}\n";
+                                reverse_ms = (100 - rule[0]) + '% {' + rule[1] + " }\n" + reverse_ms;
+                            }, this);
                             open_moz = "@-moz-keyframes " + guid + "open {\n " + open_moz + "} ";
                             reverse_moz = "@-moz-keyframes " + guid + "close {\n " + reverse_moz + "}";
                             open = "@-webkit-keyframes " + guid + "open { " + open + "} ";
                             reverse = "@-webkit-keyframes " + guid + "close { " + reverse + "}";
+
+                            open_ms = "@-ms-keyframes " + guid + "open {\n " + open_ms + "} ";
+                            reverse_ms = "@-ms-keyframes " + guid + "close {\n " + reverse_ms + "}";
+
                             try {
                                 sheet.insertRule(open, 0);
                                 sheet.insertRule(reverse, 0);
                             } catch (e) {
-                                sheet.insertRule(open_moz, 0);
-                                sheet.insertRule(reverse_moz, 0);
+                                try {
+                                    sheet.insertRule(open_moz, 0);
+                                    sheet.insertRule(reverse_moz, 0);
+                                } catch (e) {
+                                    sheet.insertRule(open_ms, 0);
+                                    sheet.insertRule(reverse_ms, 0);
+                                }
                             }
                             var link = item.querySelector('a');
                             link.style.webkitTransition = '-webkit-transform 500ms ease-in-out';
                             link.style.MozTransition = "-moz-transform 500ms ease-in-out";
+                            link.style.msTransition = "-ms-transform 500ms ease-in-out";
+                            link.style.transition = "transform 500ms ease-in-out";
+                            
                             this.animations.push([item, guid + 'open', guid + "close"]);
                         });
                         this.button.style.webkitTransition = "-webkit-transform 100ms linear";
@@ -300,8 +327,13 @@ and open the template in the editor.
                         if (this.isClosed())
                             return;
                         this.state = 'closed';
-                        this.button.style.webkitTransform = 'rotate(0deg)';
-                        this.button.style.MozTransform = 'rotate(0deg)';
+
+                        this.button.style.webkitTransform = "rotate(0deg)";
+                        this.button.style.MozTransform = "rotate(0deg)";
+                        this.button.style.msTransform = "rotate(0deg)";
+                        this.button.style.OTransform = "rotate(0deg)";
+                        this.button.style.transform = "rotate(0deg)";
+
                         this.eachAnimation(function(animation) {
                             var item = animation[0];
                             var closed = animation[2];
@@ -309,16 +341,29 @@ and open the template in the editor.
                             item.style.webkitAnimation = closed + " 700ms";
                             item.style.webkitAnimationFillMode = 'both';
                             link.style.webkitTransform = "rotate(360deg)";
+
                             item.style.MozAnimation = '700ms ease 0s normal both 1 ' + closed;
                             link.style.MozTransform = "rotate(360deg)";
+
+                            item.style.animation = '700ms ease 0s normal both 1 ' + closed;
+                            link.style.transform = "rotate(360deg)";
+
+                            item.style.msAnimation = '700ms ease 0s normal both 1 ' + closed;
+                            link.style.msTransform = "rotate(360deg)";
+
                         })
                     }
                     Menu.prototype.open = function() {
                         if (this.isOpen())
                             return;
                         this.state = 'open';
+
                         this.button.style.webkitTransform = 'rotate(-45deg)';
                         this.button.style.MozTransform = 'rotate(-45deg)';
+                        this.button.style.msTransform = 'rotate(-45deg)';
+                        this.button.style.OTransform = 'rotate(-45deg)';
+                        this.button.style.transform = 'rotate(-45deg)';
+
                         this.eachAnimation(function(animation) {
                             var item = animation[0],
                                     open = animation[1],
@@ -326,9 +371,18 @@ and open the template in the editor.
                             item.style.webkitAnimation = open + " 800ms";
                             item.style.webkitAnimationFillMode = 'both';
                             link.style.webkitTransform = 'rotate(-360deg)';
+
                             item.style.MozAnimation = open + " 800ms";
                             item.style.MozAnimationFillMode = 'both';
                             link.style.MozTransform = 'rotate(-360deg)';
+
+                            item.style.msAnimation = open + " 800ms";
+                            item.style.msAnimationFillMode = 'both';
+                            link.style.msTransform = 'rotate(-360deg)';
+
+                            item.style.animation = open + " 800ms";
+                            item.style.animationFillMode = 'both';
+                            link.style.transform = 'rotate(-360deg)';
                         });
                     }
                     Menu.prototype.isOpen = function() {
