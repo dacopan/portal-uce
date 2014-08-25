@@ -81,17 +81,19 @@ and open the template in the editor.
             <div id="top" style="min-height: 200px;">
 
                 <nav id="full">
-                    <a href="#"><i class="icon-facebook"></i></a>
+                    <a href="#" class="main"><i class="icon-facebook"></i></a>
                     <ul>
-                        <li><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#">7</a></li>
-                        <li><a href="#">8</a></li>
-                        <li><a href="#">9</a></li>
-                        <li><a href="#">10</a></li>
+                        <li class="item"><a href="#">1</a></li>
+                        <li class="item"><a href="#">2</a></li>
+                        <li class="item"><a href="#">3</a></li>
+                        <li class="item"><a href="#">4</a></li>
+                        <li class="item"><a href="#">5</a></li>
+                        <li class="item"><a href="#">7</a></li>
+                        <li class="item"><a href="#">8</a></li>
+                        <li class="item"><a href="#">9</a></li>
+                        <li class="item"><a href="#">10</a></li>
+
+
 
                     </ul>
                 </nav>
@@ -192,7 +194,8 @@ and open the template in the editor.
                             radius: options.radius || 150
                         }
                         this.node = element;
-                        this.menu_items = element.querySelectorAll('li');
+                        this.menu_items = element.querySelectorAll('li.item');
+
                         this.button = element.querySelector('a');
                         this.state = 'closed';
                         this.animations = [];
@@ -203,14 +206,35 @@ and open the template in the editor.
                         var menu = this;
                         var positions = degrees == 360 ? this.menu_items.length : this.menu_items.length - 1;
                         this.guid = Menu.guid();
+                        var off2 = [];
+                        for (var i = 0; i < this.menu_items.length; i++) {
+                            off2[i] = i * 50 * Math.floor((Math.random() * 10) + 1);
+                            ;
+
+                        }
+
                         this.eachItem(function(item, index, items) {
-                            var degree = (((degrees / positions) * index) + offset) % 360,
+                            var ulm = offset;
+                            // var ulm=offset*index-offset*index/2;
+                            var degree = (((degrees / positions) * index) + ulm) % 360,
                                     position = Menu.degreeToPosition(degree),
                                     x = Math.round((position.x * radius)),
                                     y = Math.round((position.y * radius)),
                                     guid = this.guid + '-' + index,
                                     delay = (30 / items.length) * index,
-                                    delay2 = (20 / items.length) * index
+                                    delay2 = (20 / items.length) * index;
+//+""+
+
+                            var ox = 0, oy = 0;
+                            var angle = (y - oy) / (x - ox);
+                            var div = document.createElement('div');
+                            // alert("x: " + x + " y:" + y);
+                            var div = "<div class='line' style='opacity:0;position:absolute;line-height:0px;-moz-transform-origin: left;" + "-moz-transform: rotate(" + Math.atan2(y, x) + "rad) ;" + "width:80px;min-width:" + 20 + "px;border: 3px solid red; " + " " + "'></div>";
+                            //element.appendChild(line);
+                            $('#full').append(div);
+
+
+
                             var rules = [
                                 [0, "-webkit-transform: translate3d(0px, 0px, 0px); -webkit-transition-timing-function: ease-out;"],
                                 [(delay + 15), "-webkit-transform: translate3d(0px, 0px, 0px);"],
@@ -273,7 +297,7 @@ and open the template in the editor.
                             link.style.MozTransition = "-moz-transform 500ms ease-in-out";
                             link.style.msTransition = "-ms-transform 500ms ease-in-out";
                             link.style.transition = "transform 500ms ease-in-out";
-                            
+
                             this.animations.push([item, guid + 'open', guid + "close"]);
                         });
                         this.button.style.webkitTransition = "-webkit-transform 100ms linear";
@@ -351,7 +375,10 @@ and open the template in the editor.
                             item.style.msAnimation = '700ms ease 0s normal both 1 ' + closed;
                             link.style.msTransform = "rotate(360deg)";
 
-                        })
+                        });
+                        $('#full .line').removeClass("animated fadeOut fadeIn");
+                        $('#full .line').addClass("animated fadeOut");
+
                     }
                     Menu.prototype.open = function() {
                         if (this.isOpen())
@@ -384,6 +411,9 @@ and open the template in the editor.
                             item.style.animationFillMode = 'both';
                             link.style.transform = 'rotate(-360deg)';
                         });
+                       $('#full .line').removeClass("animated fadeOut fadeIn");
+                        $('#full .line').addClass("animated fadeIn");
+
                     }
                     Menu.prototype.isOpen = function() {
                         return this.state == 'open';
