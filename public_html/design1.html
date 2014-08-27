@@ -67,7 +67,7 @@ and open the template in the editor.
             </ul>
         </nav>
         <!--Layout start-->
-        <div id="main-content" role="main">
+        <div id="main-content" role="main" class="mm-page">
             <div class="dcm top"> <a class="scrollto" href="#main-content">Scroll to top</a>
                 <div class="clear"></div>
                 <div class="scroll">
@@ -76,48 +76,68 @@ and open the template in the editor.
             </div>
 
 
-            <!--drag start-->
-            <div class="portlet-layout row-fluid" style="min-height: 300px;">
-                <div class="portlet-column portlet-column-only" id="topx">
+            <!--drag start http://www.teapot-creation.com/#/page/travaux-->
+            <div class="portlet-layout row-fluid" style="min-height: 300px;height: 100%;">
+                <div class="portlet-column portlet-column-only" id="porletwrap">
 
-                    <div id="wrapperx">
+                    <div id="wrapperscroll">
                         <div id="navigation">
                             <ul id="navBar">
-                                <li data-slide="1" class="current"></li>
-                                <li data-slide="2"></li>
-                                <li data-slide="3"></li>
-                                <li data-slide="4"></li>
+                                <li data-slide="1" class="current">
+                                    <div class="menutxt">
+                                        <span>Sección 1</span>
+                                        <img src="images/menu-arrow.png" alt="">
+                                    </div>
+                                </li>
+                                <li data-slide="2">
+                                    <div class="menutxt">
+                                        <span>Sección 2</span>
+                                        <img src="images/menu-arrow.png" alt="">
+                                    </div>
+                                </li>
+                                <li data-slide="3">
+                                    <div class="menutxt">
+                                        <span>Sección 3</span>
+                                        <img src="images/menu-arrow.png" alt="">
+                                    </div>
+                                </li>
+                                <li data-slide="4">
+                                    <div class="menutxt">
+                                        <span>Sección 4</span>
+                                        <img src="images/menu-arrow.png" alt="">
+                                    </div>
+                                </li>
                             </ul>
                         </div>
 
 
                         <h1 data-stellar-ratio="0">Parallax Scrolling<br>Website</h1>
 
-                        <div class="slide" id="slide1" data-slide="1" data-stellar-background-ratio="0.5">
+                        <div class="slide" id="slide1" data-slide="1" data-stellar-background-ratio="0">
                             <div data-stellar-ratio="0.7" data-stellar-vertical-offset="-450" id="ball1"></div>
                             <div data-stellar-ratio="2.6" data-stellar-vertical-offset="-350" id="ball2"></div>
                             <div data-stellar-ratio="0.9" data-stellar-vertical-offset="-230" id="ball3"></div>
                             <div data-stellar-ratio="2.9" data-stellar-vertical-offset="-380" id="ball4"></div>
-                            <a class="button" data-slide="2" title=""></a>
+                            <a class="scrollbut" data-slide="2" title=""></a>
                         </div>
                         <div class="slide" id="slide2" data-slide="2" data-stellar-background-ratio="0.5">
                             <div data-stellar-ratio="2.6" data-stellar-vertical-offset="-350" id="ball2"></div>
                             <div data-stellar-ratio="2.9" data-stellar-vertical-offset="-380" id="ball4"></div>
-                            <a class="button" data-slide="3" title=""></a>
+                            <a class="scrollbut" data-slide="3" title=""></a>
                         </div>
                         <div class="slide" id="slide3" data-slide="3" data-stellar-background-ratio="0.5">
                             <div data-stellar-ratio="0.7" data-stellar-vertical-offset="-450" id="ball1"></div>
                             <div data-stellar-ratio="2.6" data-stellar-vertical-offset="-350" id="ball2"></div>
                             <div data-stellar-ratio="0.9" data-stellar-vertical-offset="-230" id="ball3"></div>
                             <div data-stellar-ratio="2.9" data-stellar-vertical-offset="-380" id="ball4"></div>
-                            <a class="button" data-slide="4" title=""></a>
+                            <a class="scrollbut" data-slide="4" title=""></a>
                         </div>
                         <div class="slide" id="slide4" data-slide="4" data-stellar-background-ratio="0.5">
                             <div data-stellar-ratio="0.7" data-stellar-vertical-offset="-450" id="ball1"></div>
                             <div data-stellar-ratio="2.6" data-stellar-vertical-offset="-350" id="ball2"></div>
                             <div data-stellar-ratio="0.9" data-stellar-vertical-offset="-230" id="ball3"></div>
                             <div data-stellar-ratio="2.9" data-stellar-vertical-offset="-380" id="ball4"></div>
-                            <a class="button last" data-slide="1" title=""></a>
+                            <a class="scrollbut last" data-slide="1" title="mayra"></a>
                         </div>
                         <style>
                             /*CSS Document*/
@@ -127,7 +147,7 @@ and open the template in the editor.
                                 padding: 0;
                             }
 
-                            html, body{
+                            html, body,#wrapperscroll,#porletwrap,.metro .mm-page{
                                 width: 100%;
                                 height: 100%;
                                 background-color: #333;
@@ -155,28 +175,91 @@ and open the template in the editor.
                                 height: 15px;
                                 background-color: ghostwhite;
                                 border: 5px solid ghostwhite;
-                                margin: 12.5px;
+                                margin-bottom: 12.5px;
+                                margin-right: 12.5px;
                                 cursor: pointer;
                                 border-radius: 20px;
                                 transition-duration: 0.7s;
                                 -webkit-transition-duration: 0.7s;
+                                position: relative;
                             }
                             #navBar li:hover, #navBar .current{
                                 transition-duration: 0.7s;
                                 -webkit-transition-duration: 0.7s;
                                 background-color: transparent;
                             }
+                            /**me**/
+                            #navBar li div.bloc {
+                                position: absolute;
+                                right: 23px;
+                                background-color: #3E3E3E;
+                                height: 51px;
+                                width: 6px;
+                            }
+
+                            #navBar li.current div.bloc {
+                                right: 20px;
+                                background-color: #FFF;
+                                width: 12px;
+                            }
+
+
+
+                            #navBar li span {
+                                position: absolute;
+                                background-color: #3E3E3E;
+                                color: #fff;
+                                border-radius: 3px 0 0 3px;
+                                padding: 6px 5px 4px 8px;
+                                height: 9px;
+                                right: 35px;
+                                /*top: 15px;*/
+                                line-height: 9px;
+                                text-transform: uppercase;
+                            }
+
+                            #navBar li img {
+                                position: absolute;
+                                right: 27px;
+                                /*  top: 15px;*/
+                            }
+
+                            #navBar li .menutxt {
+                                position: absolute;
+                                opacity: 0;
+                                right: 0px;
+                                top: 0;
+                                width: 130px;
+                                height: 51px;
+                                z-index: 1;
+
+                                -moz-transition: all 0.3s ease 0s;
+                                -webkit-transition: all 0.3s ease 0s;
+                                -o-transition: all 0.3s ease 0s;
+                                transition: all 0.3s ease 0s;
+                                -ms-transition: all 0.3s ease 0s;
+                            }
+
+                            #navBar li.current .menutxt,#navBar li:hover .menutxt  {
+                                opacity: 1;
+                                right: 10px;
+                            }
+
+
 
                             /* FOR ALL SLIDES */
 
-                            .slide{
+                            #wrapperscroll .slide{
                                 background-attachment: fixed;
                                 width:100%;
                                 height:100%;
                                 position: relative;
                             }
 
-                            .button{
+                            #wrapperscroll .scrollbut:before {
+                                content: "\f078";
+                            }
+                            #wrapperscroll  .scrollbut{                                
                                 display:block;
                                 width:50px;
                                 height:50px;
@@ -185,31 +268,51 @@ and open the template in the editor.
                                 left:50%;
                                 margin-left: -25px;
                                 background-color: transparent;
-                                background-image:url(img/arrow.png);
+                                background-image:url(images/arrow.png);
                                 background-repeat:no-repeat;
                                 background-position: center center;
                                 transition-duration: 0.7s;
                                 -webkit-transition-duration: 0.7s; /* Safari */
+
+                                font-family: 'fontawesome-alloy';
+                                speak: none;
+                                font-style: normal;
+                                font-weight: normal;
+                                font-variant: normal;
+                                text-transform: none;
+                                line-height: 1;
+                                -webkit-font-smoothing: antialiased;
+
+                                color:white!important;
+                                font-size: 200%;
+                                line-height: 200%;
+                                vertical-align: middle;
+                                text-align: center;
                             }
-                            .button:hover{
+                            #wrapperscroll  .scrollbut:hover{
                                 background-color: rgba(255,255,255,0.6);
                                 cursor:pointer;
                                 transition-duration: 0.7s;
                                 -webkit-transition-duration: 0.7s; /* Safari */
+                                text-decoration: none!important;
                             }
-                            .button.last{
+                            #wrapperscroll .scrollbut.last{
                                 transform:rotate(180deg);
                                 -ms-transform:rotate(180deg); /* IE 9 */
                                 -webkit-transform:rotate(180deg); /* Safari and Chrome */
                             }
 
                             /* SLIDES */
-
-                            #slide1{
+                            #slide2{
                                 background-color: #2474a9;
                             }
-                            #slide2{
-                                background-color: #b33921;
+                            #slide1{
+                                background-image: url(images/6.jpg);
+                                background-attachment: fixed;
+                                background-position: 50% 0px;
+                                background-repeat: no-repeat;                                
+                                position: relative;
+                                
                             }
                             #slide3{
                                 background-color: #1aaf5d;
@@ -294,11 +397,18 @@ and open the template in the editor.
                         </style>
                         <script>
                             jQuery(document).ready(function($) {
-                                $('#wrapperx').stellar();
+                                $(window).stellar({
+                                    horizontalScrolling: false,
+                                    verticalOffset: -40,
+                                    verticalScrolling: true,
+                                    // Enable or disable the two types of parallax
+                                    parallaxBackgrounds: true,
+                                    parallaxElements: true
+                                });
 
                                 var links = $('#navigation').find('li');
                                 slide = $('.slide');
-                                button = $('.button');
+                                button = $('.scrollbut');
                                 mywindow = $(window);
                                 htmlbody = $('html,body');
 
