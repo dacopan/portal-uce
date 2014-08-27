@@ -320,6 +320,9 @@ and open the template in the editor.
                                             $(canvas).attr('width', WIDTH).attr('height', HEIGHT);
                                             con = canvas.getContext('2d');
                                             
+                                            for (var i = 0; i < pxs.length; i++) {
+                                                pxs[i].reset();                                                
+                                            }
                                         });
                                     });
                                 </script>
