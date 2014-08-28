@@ -96,42 +96,66 @@ and open the template in the editor.
                     <div id="wrapperscroll">
                         <div id="navigation">
                             <ul id="navBar">
-                                <li data-slide="1" class="current">
-                                    <div class="menutxt">
-                                        <span>Sección 1</span>
-                                        <img src="images/menu-arrow.png" alt="">
-                                    </div>
+                                <li>
+                                    <a href="#" data-slide="1" >  
+                                        <div class="menutxt">
+                                            <span>Sección 1</span>
+                                            <img src="images/menu-arrow.png" alt="">
+                                        </div>
+                                        <div class="bloc"></div>
+                                    </a>
                                 </li>
-                                <li data-slide="2">
-                                    <div class="menutxt">
-                                        <span>Sección 2</span>
-                                        <img src="images/menu-arrow.png" alt="">
-                                    </div>
+
+                                <li>
+                                    <a href="#" data-slide="2" >  
+                                        <div class="menutxt">
+                                            <span>Sección 2</span>
+                                            <img src="images/menu-arrow.png" alt="">
+                                        </div>
+                                        <div class="bloc"></div>
+                                    </a>
                                 </li>
-                                <li data-slide="3">
-                                    <div class="menutxt">
-                                        <span>Sección 3</span>
-                                        <img src="images/menu-arrow.png" alt="">
-                                    </div>
+
+                                <li>
+                                    <a href="#" data-slide="3" >  
+                                        <div class="menutxt">
+                                            <span>Sección 3</span>
+                                            <img src="images/menu-arrow.png" alt="">
+                                        </div>
+                                        <div class="bloc"></div>
+                                    </a>
                                 </li>
-                                <li data-slide="4">
-                                    <div class="menutxt">
-                                        <span>Sección 4</span>
-                                        <img src="images/menu-arrow.png" alt="">
-                                    </div>
+
+                                <li>
+                                    <a href="#" data-slide="4" >  
+                                        <div class="menutxt">
+                                            <span>Sección 4</span>
+                                            <img src="images/menu-arrow.png" alt="">
+                                        </div>
+                                        <div class="bloc"></div>
+                                    </a>
                                 </li>
-                                <li data-slide="5">
-                                    <div class="menutxt">
-                                        <span>Login</span>
-                                        <img src="images/menu-arrow.png" alt="">
-                                    </div>
+
+                                <li>
+                                    <a href="#" data-slide="5" >  
+                                        <div class="menutxt">
+                                            <span>Login</span>
+                                            <img src="images/menu-arrow.png" alt="">
+                                        </div>
+                                        <div class="bloc"></div>
+                                    </a>
                                 </li>
-                                <li data-slide="6">
-                                    <div class="menutxt">
-                                        <span>Footer</span>
-                                        <img src="images/menu-arrow.png" alt="">
-                                    </div>
-                                </li>
+
+                                <li>
+                                    <a href="#" data-slide="6" >  
+                                        <div class="menutxt">
+                                            <span>Sección 6</span>
+                                            <img src="images/menu-arrow.png" alt="">
+                                        </div>
+                                        <div class="bloc"></div>
+                                    </a>
+                                </li>                                                                
+
                             </ul>
                         </div>
 
@@ -327,12 +351,11 @@ and open the template in the editor.
                                     });
                                 </script>
                             </div>
-                            <div class="contentwrap" style="position: relative;width: 100%;height: 100%; padding-top: 120px;">
-
+                            <div class="contentwrap" style="position: relative;width: 100%; padding-top: 20px;padding-bottom: 20px;">
 
 
                                 <!-- BEGIN LOGIN -->
-                                <div class="content" data-stellar-ratio="0.7" data-stellar-vertical-offset="-450">
+                                <div class="content" data-stellar-ratio="1" data-stellar-vertical-offset="-50">
                                     <!-- BEGIN LOGIN FORM -->
                                     <form method="POST"
                                           class="form-vertical login-form preloader-submit"
@@ -607,50 +630,49 @@ and open the template in the editor.
                                 height: 100%;
                                 float: left;
                             }
-                            #navBar{
-                                width: 50px;
-                                height: 165px;
+
+
+                            #navBar {
                                 position: fixed;
+                                right: 40px;
                                 top: 50%;
-                                right: 0;
-                                margin-top: -82.5px;
-                                z-index:1;
+                                margin-top: -135px;
+                                z-index: 1;
+                                font-size: 9px; /* 18px - 10px */
+                                font-family: Arial, sans-serif;
+                                text-transform: uppercase;
                                 list-style: none;
                             }
-                            #navBar li{
-                                width: 15px;
-                                height: 15px;
-                                background-color: ghostwhite;
-                                border: 5px solid ghostwhite;
-                                margin-bottom: 12.5px;
-                                margin-right: 12.5px;
-                                cursor: pointer;
-                                border-radius: 20px;
-                                transition-duration: 0.7s;
-                                -webkit-transition-duration: 0.7s;
-                                position: relative;
-                            }
-                            #navBar li:hover, #navBar .current{
-                                transition-duration: 0.7s;
-                                -webkit-transition-duration: 0.7s;
-                                background-color: transparent;
-                            }
-                            /**me**/
-                            #navBar li div.bloc {
+
+                            #navBar li a div.bloc {
                                 position: absolute;
-                                right: 23px;
+                                right: 2px;
                                 background-color: #3E3E3E;
                                 height: 51px;
                                 width: 6px;
+
+                                transition: all 0.3s linear;
+                                -ms-transition: all 0.3s linear;
+                                -moz-transition: all 0.3s linear;
+                                -webkit-transition: all 0.3s linear;
+                                -o-transition: all 0.3s linear;
                             }
 
-                            #navBar li.current div.bloc {
-                                right: 20px;
+                            #navBar li.current a div.bloc,#navBar li a:hover div.bloc {
+                                right: -2px;
                                 background-color: #FFF;
                                 width: 12px;
                             }
 
-
+                            #navBar li a {
+                                position: relative;
+                                display: block;
+                                width: 105px;
+                                height: 51px;
+                                margin: 3px;
+                                text-decoration: none;
+                                text-align: right;
+                            }
 
                             #navBar li span {
                                 position: absolute;
@@ -659,39 +681,37 @@ and open the template in the editor.
                                 border-radius: 3px 0 0 3px;
                                 padding: 6px 5px 4px 8px;
                                 height: 9px;
-                                right: 35px;
-                                /*top: 15px;*/
                                 line-height: 9px;
-                                text-transform: uppercase;
+                                right: 25px;
+                                top: 15px;
                             }
 
                             #navBar li img {
                                 position: absolute;
-                                right: 27px;
-                                /*  top: 15px;*/
+                                right: 17px;
+                                top: 15px;
                             }
 
                             #navBar li .menutxt {
                                 position: absolute;
                                 opacity: 0;
-                                right: 0px;
+                                right: 0;
                                 top: 0;
                                 width: 130px;
                                 height: 51px;
                                 z-index: 1;
 
-                                -moz-transition: all 0.3s ease 0s;
-                                -webkit-transition: all 0.3s ease 0s;
-                                -o-transition: all 0.3s ease 0s;
-                                transition: all 0.3s ease 0s;
-                                -ms-transition: all 0.3s ease 0s;
+                                transition: all 0.4s linear;
+                                -ms-transition: all 0.4s linear;
+                                -moz-transition: all 0.4s linear;
+                                -webkit-transition: all 0.4s linear;
+                                -o-transition: all 0.4s linear;
                             }
 
-                            #navBar li.current .menutxt,#navBar li:hover .menutxt  {
+                            #navBar li.current .menutxt,#navBar li a:hover .menutxt {
                                 opacity: 1;
-                                right: 10px;
+                                right: 5px;
                             }
-
 
 
                             /* FOR ALL SLIDES */
@@ -852,12 +872,14 @@ and open the template in the editor.
                                     parallaxElements: true
                                 });
 
-                                var links = $('#navigation').find('li');
+                                var links = $('#navigation').find('li a');
                                 slide = $('.slide');
                                 button = $('.scrollbut');
+                                //mywindow = $('#wrapperscroll');
                                 mywindow = $(window);
                                 htmlbody = $('html,body');
 
+                                $(links).removeClass('current');
                                 //Setup waypoints plugin
                                 slide.waypoint(function(event, direction) {
                                     //cache the variable of the data-slide attribute associated with each slide
@@ -865,33 +887,44 @@ and open the template in the editor.
                                     //If the user scrolls up change the navigation link that has the same data-slide attribute as the slide to active and
                                     //remove the active class from the previous navigation link
                                     if (direction === 'down') {
-                                        $('#navigation li[data-slide="' + dataslide + '"]').addClass('current').prev().removeClass('current');
+                                        $('#navigation li a[data-slide="' + dataslide + '"]').parent().addClass('current').prev().removeClass('current');
                                     }
                                     // else If the user scrolls down change the navigation link that has the same data-slide attribute as the slide to active and
                                     //remove the active class from the next navigation link
                                     else {
-                                        $('#navigation li[data-slide="' + dataslide + '"]').addClass('current').next().removeClass('current');
+                                        $('#navigation li a[data-slide="' + dataslide + '"]').parent().addClass('current').next().removeClass('current');
+                                        if (mywindow.scrollTop() < 80) {
+                                            //alert(" in if");
+                                            $('#navigation li a[data-slide="1"]').parent().addClass('current');
+                                            $('#navigation li a[data-slide="2"]').parent().removeClass('current');
+                                        }
                                     }
+
                                 });
                                 //waypoints doesnt detect the first slide when user scrolls back up to the top so we add this little bit of code, that removes the class
                                 //from navigation link slide 2 and adds it to navigation link slide 1.
                                 mywindow.scroll(function() {
-                                    if (mywindow.scrollTop() == 0) {
-                                        $('#navigation li[data-slide="1"]').addClass('current');
-                                        $('#navigation li[data-slide="2"]').removeClass('current');
+                                    if (mywindow.scrollTop() < 80) {
+                                        //alert(" in if");
+                                        $('#navigation li a[data-slide="1"]').parent().addClass('current');
+                                        $('#navigation li a[data-slide="2"]').parent().removeClass('current');
                                     }
                                 });
                                 //Create a function that will be passed a slide number and then will scroll to that slide using jquerys animate. The Jquery
                                 //easing plugin is also used, so we passed in the easing method of 'easeInOutQuint' which is available throught the plugin.
                                 function goToByScroll(dataslide) {
+                                    //alert(dataslide);
                                     htmlbody.animate({
                                         scrollTop: $('.slide[data-slide="' + dataslide + '"]').offset().top
                                     }, 2000, 'easeInOutExpo');
+
+
                                 }
                                 //When the user clicks on the navigation links, get the data-slide attribute value of the link and pass that variable to the goToByScroll function
                                 links.click(function(e) {
                                     e.preventDefault();
-                                    dataslide = $(this).attr('data-slide');
+                                    var dataslide = $(this).attr('data-slide');
+                                    //alert(dataslide);
                                     goToByScroll(dataslide);
                                 });
                                 //When the user clicks on the button, get the get the data-slide attribute value of the button and pass that variable to the goToByScroll function
