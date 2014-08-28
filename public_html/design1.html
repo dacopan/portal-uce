@@ -109,7 +109,7 @@ and open the template in the editor.
                                 <li>
                                     <a href="#" data-slide="2" >  
                                         <div class="menutxt">
-                                            <span>Sección 2</span>
+                                            <span>Azul 2</span>
                                             <img src="images/menu-arrow.png" alt="">
                                         </div>
                                         <div class="bloc"></div>
@@ -119,7 +119,7 @@ and open the template in the editor.
                                 <li>
                                     <a href="#" data-slide="3" >  
                                         <div class="menutxt">
-                                            <span>Sección 3</span>
+                                            <span>Verde 3</span>
                                             <img src="images/menu-arrow.png" alt="">
                                         </div>
                                         <div class="bloc"></div>
@@ -129,7 +129,7 @@ and open the template in the editor.
                                 <li>
                                     <a href="#" data-slide="4" >  
                                         <div class="menutxt">
-                                            <span>Sección 4</span>
+                                            <span>Morado 4</span>
                                             <img src="images/menu-arrow.png" alt="">
                                         </div>
                                         <div class="bloc"></div>
@@ -149,7 +149,7 @@ and open the template in the editor.
                                 <li>
                                     <a href="#" data-slide="6" >  
                                         <div class="menutxt">
-                                            <span>Sección 6</span>
+                                            <span>Verde 6</span>
                                             <img src="images/menu-arrow.png" alt="">
                                         </div>
                                         <div class="bloc"></div>
@@ -892,7 +892,8 @@ and open the template in the editor.
                                     // else If the user scrolls down change the navigation link that has the same data-slide attribute as the slide to active and
                                     //remove the active class from the next navigation link
                                     else {
-                                        $('#navigation li a[data-slide="' + dataslide + '"]').parent().addClass('current').next().removeClass('current');
+                                        //alert(parseInt(dataslide)-1);
+                                        $('#navigation li a[data-slide="' +(parseInt(dataslide)-1) + '"]').parent().addClass('current').next().removeClass('current');
                                         if (mywindow.scrollTop() < 80) {
                                             //alert(" in if");
                                             $('#navigation li a[data-slide="1"]').parent().addClass('current');
@@ -923,7 +924,7 @@ and open the template in the editor.
                                 //When the user clicks on the navigation links, get the data-slide attribute value of the link and pass that variable to the goToByScroll function
                                 links.click(function(e) {
                                     e.preventDefault();
-                                    var dataslide = $(this).attr('data-slide');
+                                    dataslide = $(this).attr('data-slide');
                                     //alert(dataslide);
                                     goToByScroll(dataslide);
                                 });
