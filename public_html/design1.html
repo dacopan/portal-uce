@@ -173,7 +173,7 @@ and open the template in the editor.
 
                             <div class="starcontainer" id="starcontainer" style="position: absolute;width: 100%;height: 100%;">
 
-                                
+
                                 <div id="mountains"></div>
                                 <div id="grass"></div>
                                 <style>
@@ -207,11 +207,11 @@ and open the template in the editor.
                                             HEIGHT = $('#starcontainer').outerHeight();
                                             //$('#starcontainer').width(WIDTH).height(HEIGHT);
                                             //canvas = document.getElementById('pixie');
-                                            if(canvas!==null){
+                                            if (canvas !== null) {
                                                 $(canvas).remove();
                                             }
                                             $('#starcontainer').append('<canvas id="pixie"></canvas>');
-                                            canvas=document.getElementById('pixie');
+                                            canvas = document.getElementById('pixie');
                                             $(canvas).attr('width', WIDTH).attr('height', HEIGHT);
                                             con = canvas.getContext('2d');
                                             for (var i = 0; i < 100; i++) {
@@ -305,29 +305,29 @@ and open the template in the editor.
                                         }
                                         starts();
                                         $(window).resize(function() {
-                                           // starts();
+                                            // starts();
                                             //alert("resize");
                                             WIDTH = $('#starcontainer').outerWidth();//window.innerWidth;
                                             //  alert(WIDTH);
                                             HEIGHT = $('#starcontainer').outerHeight();
                                             //$('#starcontainer').width(WIDTH).height(HEIGHT);
                                             //canvas = document.getElementById('pixie');
-                                            if(canvas!==null){
+                                            if (canvas !== null) {
                                                 $(canvas).remove();
                                             }
                                             $('#starcontainer').append('<canvas id="pixie"></canvas>');
-                                            canvas=document.getElementById('pixie');
+                                            canvas = document.getElementById('pixie');
                                             $(canvas).attr('width', WIDTH).attr('height', HEIGHT);
                                             con = canvas.getContext('2d');
-                                            
+
                                             for (var i = 0; i < pxs.length; i++) {
-                                                pxs[i].reset();                                                
+                                                pxs[i].reset();
                                             }
                                         });
                                     });
                                 </script>
                             </div>
-                            <div class="contentwrap" style="position: absolute;width: 100%;height: 100%; padding-top: 120px;">
+                            <div class="contentwrap" style="position: relative;width: 100%;height: 100%; padding-top: 120px;">
 
 
 
@@ -408,6 +408,7 @@ and open the template in the editor.
                                             padding: 30px;  
                                             padding-top: 20px;  
                                             padding-bottom: 15px;  
+                                            position: relative;
                                         }
 
                                         .login .content h3 {
@@ -574,7 +575,7 @@ and open the template in the editor.
 
                                 </div>
                             </div>
-                            <a class="scrollbut" data-slide="1"></a>
+                            <a class="scrollbut" data-slide="6"></a>
                         </div>
                         <footer class="footer slide" id="footer" data-slide="6" data-stellar-background-ratio="0.5" style="background-color: green;">
                             <div class="recentcomments">
@@ -698,7 +699,8 @@ and open the template in the editor.
                             #wrapperscroll .slide{
                                 background-attachment: fixed;
                                 width:100%;
-                                height:100%;
+                                min-height:100%;
+                                height: auto;
                                 position: relative;
                                 box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.3) inset;
                             }
@@ -769,17 +771,6 @@ and open the template in the editor.
                             }
                             #slide5{
                                 background-color: #775c93;                                
-                            }
-                            h1{
-                                font-family: Verdana, Geneva, sans-serif;
-                                color: rgba(0,0,0,0.3);
-                                font-size: 3em;
-                                position: relative;
-                                top: 50%;
-                                left: 50%;
-                                margin-left: -235px;
-                                margin-top: -59px;
-                                z-index: 1;
                             }
                             #ball1{
                                 width: 200px;
