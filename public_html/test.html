@@ -323,6 +323,10 @@ and open the template in the editor.
                         });
                         this.button.style.webkitTransition = "-webkit-transform 100ms linear";
                         this.button.style.MozTransition = "-moz-transform 100ms linear";
+                        this.button.style.msTransition = "-ms-transform 100ms linear";
+                        this.button.style.transition = "transform 100ms linear";
+
+
                         if (this.button.ontouchstart !== undefined) {
                             this.button.addEventListener('touchstart', function(e) {
                                 e.stopPropagation();
