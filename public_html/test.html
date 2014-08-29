@@ -252,12 +252,7 @@ and open the template in the editor.
                             var angle = (y - oy) / (x - ox);
                             var div = document.createElement('div');
                             var grad = Math.atan2(y, x);
-                            /* var div = "<div class='line' data-rotate='"+grad+"' style='"
-                             + "-moz-transform: rotate(" + grad + "rad) ;"
-                             + "-ms-transform: rotate(" + grad + "rad) ;"
-                             + "-webkit-transform: rotate(" + grad + "rad) ;"
-                             + "-transform: rotate(" + grad + "rad) ;"
-                             + "width:80px;min-width:" + 20 + "px;border: 3px solid red; " + " " + "'></div>";*/
+
                             var div = "<div class='line' data-rotate='" + grad + "'"
                                     + "'></div>";
                             //element.appendChild(line);
