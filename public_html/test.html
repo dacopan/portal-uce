@@ -190,6 +190,23 @@ and open the template in the editor.
                         z-index: 8;                        
                         overflow: hidden;
                         outline: 1px solid transparent;
+
+                        opacity:0;
+                        position:absolute;
+                        line-height:0px;
+                        transform-origin: left;
+                        -moz-transform-origin: left;
+                        -ms-transform-origin: left;                        
+                        -webkit-transform-origin: left;
+
+                        width:80px;min-width:20px;
+                        border: 3px solid red; 
+
+                        transition: all 0.3s linear;
+                        -ms-transition: all 0.3s linear;
+                        -moz-transition: all 0.3s linear;
+                        -webkit-transition: all 0.3s linear;
+                        -o-transition: all 0.3s linear;
                     }
                 </style>
                 <script>
@@ -203,7 +220,6 @@ and open the template in the editor.
                         }
                         this.node = element;
                         this.menu_items = element.querySelectorAll('li.item');
-
                         this.button = element.querySelector('a');
                         this.state = 'closed';
                         this.animations = [];
@@ -218,7 +234,6 @@ and open the template in the editor.
                         for (var i = 0; i < this.menu_items.length; i++) {
                             off2[i] = i * 50 * Math.floor((Math.random() * 10) + 1);
                             ;
-
                         }
 
                         this.eachItem(function(item, index, items) {
@@ -237,17 +252,16 @@ and open the template in the editor.
                             var angle = (y - oy) / (x - ox);
                             var div = document.createElement('div');
                             var grad = Math.atan2(y, x);
-                            var div = "<div class='line' style='opacity:0;position:absolute;line-height:0px;-moz-transform-origin: left;-ms-transform-origin: left;transform-origin: left;-webkit-transform-origin: left;"
-                                    + "-moz-transform: rotate(" + grad + "rad) ;"
-                                    + "-ms-transform: rotate(" + grad + "rad) ;"
-                                    + "-webkit-transform: rotate(" + grad + "rad) ;"
-                                    + "-transform: rotate(" + grad + "rad) ;"
-                                    + "width:80px;min-width:" + 20 + "px;border: 3px solid red; " + " " + "'></div>";
+                            /* var div = "<div class='line' data-rotate='"+grad+"' style='"
+                             + "-moz-transform: rotate(" + grad + "rad) ;"
+                             + "-ms-transform: rotate(" + grad + "rad) ;"
+                             + "-webkit-transform: rotate(" + grad + "rad) ;"
+                             + "-transform: rotate(" + grad + "rad) ;"
+                             + "width:80px;min-width:" + 20 + "px;border: 3px solid red; " + " " + "'></div>";*/
+                            var div = "<div class='line' data-rotate='" + grad + "'"
+                                    + "'></div>";
                             //element.appendChild(line);
                             $('#full').append(div);
-
-
-
                             var rules = [
                                 [0, "-webkit-transform: translate3d(0px, 0px, 0px); -webkit-transition-timing-function: ease-out;"],
                                 [(delay + 15), "-webkit-transform: translate3d(0px, 0px, 0px);"],
@@ -262,7 +276,6 @@ and open the template in the editor.
                                 [65, "-moz-transform: translate(" + (x * 0.95) + "px, " + (y * 0.95) + "px); -moz-transition-timing-function:ease-in-out;"],
                                 [100, "-moz-transform: translate(" + x + "px, " + y + "px);"]
                             ];
-
                             var rules_ms = [
                                 [0, "-ms-transform: translate(0px, 0px); -ms-transition-timing-function: ease-out;"],
                                 [(delay + 15), "-ms-transform: translate(0px, 0px);"],
@@ -270,7 +283,6 @@ and open the template in the editor.
                                 [65, "-ms-transform: translate(" + (x * 0.95) + "px, " + (y * 0.95) + "px); -ms-transition-timing-function:ease-in-out;"],
                                 [100, "-ms-transform: translate(" + x + "px, " + y + "px);"]
                             ];
-
                             var open = "", reverse = "", open_moz = "", reverse_moz = "", open_ms = "", reverse_ms = "";
                             rules.forEach(function(rule) {
                                 open += rule[0] + '% {' + rule[1] + "}\n";
@@ -280,7 +292,6 @@ and open the template in the editor.
                                 open_moz += rule[0] + '% {' + rule[1] + "}\n";
                                 reverse_moz = (100 - rule[0]) + '% {' + rule[1] + " }\n" + reverse_moz;
                             }, this);
-
                             rules_ms.forEach(function(rule) {
                                 open_ms += rule[0] + '% {' + rule[1] + "}\n";
                                 reverse_ms = (100 - rule[0]) + '% {' + rule[1] + " }\n" + reverse_ms;
@@ -289,10 +300,8 @@ and open the template in the editor.
                             reverse_moz = "@-moz-keyframes " + guid + "close {\n " + reverse_moz + "}";
                             open = "@-webkit-keyframes " + guid + "open { " + open + "} ";
                             reverse = "@-webkit-keyframes " + guid + "close { " + reverse + "}";
-
                             open_ms = "@-ms-keyframes " + guid + "open {\n " + open_ms + "} ";
                             reverse_ms = "@-ms-keyframes " + guid + "close {\n " + reverse_ms + "}";
-
                             try {
                                 sheet.insertRule(open, 0);
                                 sheet.insertRule(reverse, 0);
@@ -310,7 +319,6 @@ and open the template in the editor.
                             link.style.MozTransition = "-moz-transform 500ms ease-in-out";
                             link.style.msTransition = "-ms-transform 500ms ease-in-out";
                             link.style.transition = "transform 500ms ease-in-out";
-
                             this.animations.push([item, guid + 'open', guid + "close"]);
                         });
                         this.button.style.webkitTransition = "-webkit-transform 100ms linear";
@@ -364,13 +372,11 @@ and open the template in the editor.
                         if (this.isClosed())
                             return;
                         this.state = 'closed';
-
                         this.button.style.webkitTransform = "rotate(0deg)";
                         this.button.style.MozTransform = "rotate(0deg)";
                         this.button.style.msTransform = "rotate(0deg)";
                         this.button.style.OTransform = "rotate(0deg)";
                         this.button.style.transform = "rotate(0deg)";
-
                         this.eachAnimation(function(animation) {
                             var item = animation[0];
                             var closed = animation[2];
@@ -378,32 +384,29 @@ and open the template in the editor.
                             item.style.webkitAnimation = closed + " 700ms";
                             item.style.webkitAnimationFillMode = 'both';
                             link.style.webkitTransform = "rotate(360deg)";
-
                             item.style.MozAnimation = '700ms ease 0s normal both 1 ' + closed;
                             link.style.MozTransform = "rotate(360deg)";
-
                             item.style.animation = '700ms ease 0s normal both 1 ' + closed;
                             link.style.transform = "rotate(360deg)";
-
                             item.style.msAnimation = '700ms ease 0s normal both 1 ' + closed;
                             link.style.msTransform = "rotate(360deg)";
-
                         });
-                        $('#full .line').removeClass("animated fadeOut fadeIn");
-                        $('#full .line').addClass("animated fadeOut");
 
+                        $('#full .line').each(function(i) {
+                            $(this).removeClass("animated fadeOut fadeIn");
+                            $(this).addClass("animated fadeOut");
+                            $(this).css({transform: 'rotate(0rad)'});
+                        });
                     }
                     Menu.prototype.open = function() {
                         if (this.isOpen())
                             return;
                         this.state = 'open';
-
                         this.button.style.webkitTransform = 'rotate(-45deg)';
                         this.button.style.MozTransform = 'rotate(-45deg)';
                         this.button.style.msTransform = 'rotate(-45deg)';
                         this.button.style.OTransform = 'rotate(-45deg)';
                         this.button.style.transform = 'rotate(-45deg)';
-
                         this.eachAnimation(function(animation) {
                             var item = animation[0],
                                     open = animation[1],
@@ -411,22 +414,22 @@ and open the template in the editor.
                             item.style.webkitAnimation = open + " 800ms";
                             item.style.webkitAnimationFillMode = 'both';
                             link.style.webkitTransform = 'rotate(-360deg)';
-
                             item.style.MozAnimation = open + " 800ms";
                             item.style.MozAnimationFillMode = 'both';
                             link.style.MozTransform = 'rotate(-360deg)';
-
                             item.style.msAnimation = open + " 800ms";
                             item.style.msAnimationFillMode = 'both';
                             link.style.msTransform = 'rotate(-360deg)';
-
                             item.style.animation = open + " 800ms";
                             item.style.animationFillMode = 'both';
                             link.style.transform = 'rotate(-360deg)';
                         });
-                        $('#full .line').removeClass("animated fadeOut fadeIn");
-                        $('#full .line').addClass("animated fadeIn");
 
+                        $('#full .line').each(function(i) {
+                            $(this).removeClass("animated fadeOut fadeIn");
+                            $(this).addClass("animated fadeIn");
+                            $(this).css({transform: 'rotate(' + $(this).data("rotate") + 'rad)'});
+                        });
                     }
                     Menu.prototype.isOpen = function() {
                         return this.state == 'open';
@@ -461,452 +464,447 @@ and open the template in the editor.
                         degrees: 360,
                         offset: 180,
                         radius: 100
-                    });
-                </script>
+                    });</script>
 
 
 
-                 <div class="news-wrapper" id="snews">
-                                    <div class="news">
-                                        <div class="headline">
-                                            <a href="#" title="TOKYO: Workers at Japan’s stricken nuclear plant on Thursday pumped nitrogen into a crippled reactor in a bid to prevent a possible explosion and contain the world’s worst atomic accident for 25 years. With the crisis at the ">
-                                                Japan using gas to avoid explosion at nuclear plant.</a>
-                                        </div>
-                                        <div class="headline">
-                                            <a href="#" title="'ASK a Stupid Question Day' is a holiday and celebrated in the United States schools. The day falls on Sept 28, but practically it is observed on the last school day each year. Dating way back to 1980s, this day is a regular feature in ">
-                                                Of stupid questions and the significance of census.</a>
-                                        </div>
-                                        <div class="headline">
-                                            <a href="#" title="Archaeologists are unearthing a 2,000-year-old tunnel at Teotihuacan, the largest pyramid structures built in the pre-Columbian era, in the Basin of Mexico, searching for clues to the region’s most influential former ancient">
-                                                Digging deep into Teotihuacan’s mystery.</a>
-                                        </div>
-                                    </div>
-                                </div>
+                <div class="news-wrapper" id="snews">
+                    <div class="news">
+                        <div class="headline">
+                            <a href="#" title="TOKYO: Workers at Japan’s stricken nuclear plant on Thursday pumped nitrogen into a crippled reactor in a bid to prevent a possible explosion and contain the world’s worst atomic accident for 25 years. With the crisis at the ">
+                                Japan using gas to avoid explosion at nuclear plant.</a>
+                        </div>
+                        <div class="headline">
+                            <a href="#" title="'ASK a Stupid Question Day' is a holiday and celebrated in the United States schools. The day falls on Sept 28, but practically it is observed on the last school day each year. Dating way back to 1980s, this day is a regular feature in ">
+                                Of stupid questions and the significance of census.</a>
+                        </div>
+                        <div class="headline">
+                            <a href="#" title="Archaeologists are unearthing a 2,000-year-old tunnel at Teotihuacan, the largest pyramid structures built in the pre-Columbian era, in the Basin of Mexico, searching for clues to the region’s most influential former ancient">
+                                Digging deep into Teotihuacan’s mystery.</a>
+                        </div>
+                    </div>
+                </div>
 
-                                <style>
-                                    .news-wrapper
-                                    {
-                                        width: 660px;
-                                        position: relative;
-                                        overflow: hidden;
+                <style>
+                    .news-wrapper
+                    {
+                        width: 660px;
+                        position: relative;
+                        overflow: hidden;
+                    }
+                    .news-wrapper .news-title
+                    {
+                        float: left;
+                        background-image: url(title-news.png);
+                        background-color: #2f2f2f;
+                        width: 18px;
+                        height: 36px;
+                        z-index: 11;
+                        border-radius-topleft: 3px;
+                        border-radius-bottomleft: 3px;
+                        -moz-border-radius-topleft: 3px;
+                        -moz-border-radius-bottomleft: 3px;
+                        -webkit-border-top-left-radius: 3px;
+                        -webkit-border-bottom-left-radius: 3px;
+                    }
+                    .news-wrapper .news
+                    {
+                        background-color: #aed0ec;
+                        width: 640px;
+                        height: 36px;
+                        border-radius-topright: 4px;
+                        border-radius-bottomright: 4px;
+                        -moz-border-radius-topright: 4px;
+                        -moz-border-radius-bottomright: 4px;
+                        -webkit-border-top-right-radius: 4px;
+                        -webkit-border-bottom-right-radius: 4px;
+                        overflow: hidden;
+                    }
+                    .news-wrapper .headline
+                    {
+                        position: absolute;
+                        font-size: 10pt;
+                        height: 10px;
+                        padding: 8px 12px 8px 8px;
+                        overflow: hidden;
+                        z-index: 1;
+                        /*overflow: hidden;*/
+                    }
+                    .news-wrapper .headline a
+                    {
+                        background-image: url(gaindi.png);
+                        background-repeat: no-repeat;
+                        background-position: right bottom;
+                        padding-right: 16px;	
+                    }
+                    .news-wrapper .headline a, .news-wrapper .headline a:active, .news-wrapper .headline a:visited
+                    {
+                        color: #1e1e1e;
+                        text-decoration: none;
+                    }
+                    .news-wrapper .headline a:hover
+                    {
+                        color: #163b5b;
+                        text-decoration: none;
+                    }
+                    .news-wrapper .control-bar
+                    {
+                        background-image: url(control-bar.png);
+                        background-repeat: no-repeat;
+                        width: 97px;
+                        height: 21px;
+                        position: absolute;
+                        z-index: -1;
+                        top: 35px;
+                    }
+                    .controls-wrapper
+                    {
+                        position: relative;
+                        width: 48px;
+                        height: 12px;
+                        margin-left: 24px;
+                    }
+                    .controls-wrapper div
+                    {
+                        position: relative;
+                        width: 7px;
+                        height: 8px;
+                        margin-left: 6px;
+                        margin-top: 4px;
+                        float: left;
+                    }
+                    .controls-wrapper div.next
+                    {
+                        background: url(next.png) no-repeat;
+                        cursor: pointer;
+                    }
+                    .controls-wrapper div.prev
+                    {
+                        background: url(prev.png) no-repeat;
+                        cursor: pointer;
+                    }
+                    .controls-wrapper div.play
+                    {
+                        background: url(play.png) no-repeat;
+                        cursor: pointer;
+                    }
+                    .controls-wrapper div.pause
+                    {
+                        background: url(pause.png) no-repeat;
+                        cursor: pointer;
+                    }
+                    .preview-wrapper
+                    {
+                        font-size: 10pt;
+                        padding-top: 8px;
+                        width: 308px;
+                        height: 85px;
+                        position: absolute; /*margin: auto;*/
+                        z-index: 1000;
+                    }
+                    .preview-wrapper .preview
+                    {
+                        width: 292px;
+                        height: 61px;
+                        background-color: #2c2c2c;
+                        border-radius: 8px;
+                        -moz-border-radius: 8px;
+                        -webkit-border-radius: 8px;
+                        border: solid 1px #212121;
+                        padding: 8px;
+                        font-size: 9pt; /*overflow: hidden;*/ /*background: url(bg.jpg) repeat-x repeat-y;*/
+                    }
+                    .preview-wrapper .preview h4,.preview-wrapper .preview p
+                    {
+                        margin: 0;
+                        padding: 0;
+                        overflow: hidden;
+                    }
+                    .preview-wrapper .preview h4
+                    {
+                        font-size: 10pt;
+                        color: White;
+                        font-weight: normal;
+                        width: 290px;
+                        height: 16px;
+                    }
+                    .preview-wrapper .preview p
+                    {
+                        color: #9f9e9e;
+                        width: 290px;
+                        height: 54px;
+                    }
+                    .preview-wrapper .preview a
+                    {
+                        font-size: 11px;
+                        color: #9f9e9e;
+                        text-decoration: none;
+                        margin-left: 4px;
+                    }
+                    .preview-wrapper .preview a:hover
+                    {
+                        text-decoration: underline;
+                        color: Yellow;
+                    }
+                    .preview-wrapper .tip
+                    {
+                        margin: auto;
+                        width: 13px;
+                        height: 9px;
+                        background-image: url(cor.png);
+                    }
+                    .news-wrapper .multiple
+                    {
+                        width: 680px;
+                        overflow: hidden;
+                    }
+                    .news-wrapper.multiple .news-title
+                    {
+                        float: left;
+                    }
+                    .news-wrapper.multiple .news
+                    {
+                        float: left;
+                        width: 2000px;
+                    }
+                    .news-wrapper.multiple .headline
+                    {
+                        position: relative;
+                        float: left;
+                        margin-left: 0px;
+                    }
+                </style>
+                <script>
+                    (function($) {
+                        $.fn.extend({
+                            dnews: function(options) {
+                                var settings = $.extend({
+                                    controls: true,
+                                    switchInterval: 5000,
+                                    feedurl: '',
+                                    showdetail: true,
+                                    moretext: '[...]',
+                                    controlsalwaysvisible: true,
+                                    entries: 10,
+                                    target: "",
+                                    headlineLength: 80
+                                }, options);
+                                return this.each(function() {
+                                    var direction = "forward";
+                                    var wrapper = $(this);
+                                    var interval;
+                                    var prevIndex = 0;
+                                    var curIndex = 0;
+                                    var mode = 'auto'; //auto, manual
+                                    var next, prev, play, pause;
+                                    var containerWidth;
+                                    var left;
+                                    var total;
+                                    var allHeadlines;
+                                    var controlbar;
+                                    var previewWraper;
+                                    var mouseEntered = 0;
+                                    function setPlayingStatus(isPlaying) {
+                                        if (isPlaying) {
+                                            play.css('display', 'none');
+                                            pause.css('display', '');
+                                        }
+                                        else {
+                                            play.css('display', '');
+                                            pause.css('display', 'none');
+                                        }
                                     }
-                                    .news-wrapper .news-title
-                                    {
-                                        float: left;
-                                        background-image: url(title-news.png);
-                                        background-color: #2f2f2f;
-                                        width: 18px;
-                                        height: 36px;
-                                        z-index: 11;
-                                        border-radius-topleft: 3px;
-                                        border-radius-bottomleft: 3px;
-                                        -moz-border-radius-topleft: 3px;
-                                        -moz-border-radius-bottomleft: 3px;
-                                        -webkit-border-top-left-radius: 3px;
-                                        -webkit-border-bottom-left-radius: 3px;
+                                    if (settings.showdetail) {
+                                        previewWraper = $('<div/>').attr('id', wrapper.attr('id') + '-' + 'preview').addClass('preview-wrapper').css('opacity', '0').css('visibility', 'hidden');
+                                        previewWraper.append($('<div/>').addClass('preview')
+                                                .append($('<h4/>'))
+                                                .append($('<p/>'))).append($('<div/>').addClass('tip'));
+                                        wrapper.before(previewWraper);
                                     }
-                                    .news-wrapper .news
-                                    {
-                                        background-color: #aed0ec;
-                                        width: 640px;
-                                        height: 36px;
-                                        border-radius-topright: 4px;
-                                        border-radius-bottomright: 4px;
-                                        -moz-border-radius-topright: 4px;
-                                        -moz-border-radius-bottomright: 4px;
-                                        -webkit-border-top-right-radius: 4px;
-                                        -webkit-border-bottom-right-radius: 4px;
-                                        overflow: hidden;
+                                    if (settings.controls) {
+                                        controlbar = $('<div/>').addClass('control-bar').css('display', 'none');
+                                        wrapper.after(controlbar);
+                                        next = $('<div><i class="icon-arrow-right"></i></div>').addClass('next');
+                                        prev = $('<div><i class="icon-arrow-left"></i></div>').addClass('prev');
+                                        play = $('<div><i class="icon-play"></i></div>').addClass('play');
+                                        pause = $('<div><i class="icon-pause"></i></div>').addClass('pause');
+                                        var left = $('.news', wrapper).width() / 2 - controlbar.width() / 2;
+                                        controlbar.css('left', left);
+                                        controlbar.append($('<div/>').addClass('controls-wrapper').append(prev).append(pause).append(play).append(next));
+                                        setPlayingStatus(true);
+                                        next.click(function() {
+                                            mode = 'manual';
+                                            setPlayingStatus(false);
+                                            stopAnimation();
+                                            direction = "forward";
+                                            if (prevIndex > curIndex) {
+                                                var temp = curIndex;
+                                                curIndex = prevIndex;
+                                                prevIndex = temp;
+                                            }
+                                            switchNews();
+                                        });
+                                        prev.click(function() {
+                                            mode = 'manual';
+                                            setPlayingStatus(false);
+                                            stopAnimation();
+                                            direction = "backward";
+                                            if (prevIndex < curIndex) {
+                                                var temp = curIndex;
+                                                curIndex = prevIndex;
+                                                prevIndex = temp;
+                                            }
+                                            switchNews();
+                                        });
+                                        play.click(function() {
+                                            mode = 'manual';
+                                            setPlayingStatus(true);
+                                            startAnimation();
+                                        });
+                                        pause.click(function() {
+                                            mode = 'manual';
+                                            setPlayingStatus(false);
+                                            stopAnimation();
+                                        });
                                     }
-                                    .news-wrapper .headline
-                                    {
-                                        position: absolute;
-                                        font-size: 10pt;
-                                        height: 10px;
-                                        padding: 8px 12px 8px 8px;
-                                        overflow: hidden;
-                                        z-index: 1;
-                                        /*overflow: hidden;*/
-                                    }
-                                    .news-wrapper .headline a
-                                    {
-                                        background-image: url(gaindi.png);
-                                        background-repeat: no-repeat;
-                                        background-position: right bottom;
-                                        padding-right: 16px;	
-                                    }
-                                    .news-wrapper .headline a, .news-wrapper .headline a:active, .news-wrapper .headline a:visited
-                                    {
-                                        color: #1e1e1e;
-                                        text-decoration: none;
-                                    }
-                                    .news-wrapper .headline a:hover
-                                    {
-                                        color: #163b5b;
-                                        text-decoration: none;
-                                    }
-                                    .news-wrapper .control-bar
-                                    {
-                                        background-image: url(control-bar.png);
-                                        background-repeat: no-repeat;
-                                        width: 97px;
-                                        height: 21px;
-                                        position: absolute;
-                                        z-index: -1;
-                                        top: 35px;
-                                    }
-                                    .controls-wrapper
-                                    {
-                                        position: relative;
-                                        width: 48px;
-                                        height: 12px;
-                                        margin-left: 24px;
-                                    }
-                                    .controls-wrapper div
-                                    {
-                                        position: relative;
-                                        width: 7px;
-                                        height: 8px;
-                                        margin-left: 6px;
-                                        margin-top: 4px;
-                                        float: left;
-                                    }
-                                    .controls-wrapper div.next
-                                    {
-                                        background: url(next.png) no-repeat;
-                                        cursor: pointer;
-                                    }
-                                    .controls-wrapper div.prev
-                                    {
-                                        background: url(prev.png) no-repeat;
-                                        cursor: pointer;
-                                    }
-                                    .controls-wrapper div.play
-                                    {
-                                        background: url(play.png) no-repeat;
-                                        cursor: pointer;
-                                    }
-                                    .controls-wrapper div.pause
-                                    {
-                                        background: url(pause.png) no-repeat;
-                                        cursor: pointer;
-                                    }
-                                    .preview-wrapper
-                                    {
-                                        font-size: 10pt;
-                                        padding-top: 8px;
-                                        width: 308px;
-                                        height: 85px;
-                                        position: absolute; /*margin: auto;*/
-                                        z-index: 1000;
-                                    }
-                                    .preview-wrapper .preview
-                                    {
-                                        width: 292px;
-                                        height: 61px;
-                                        background-color: #2c2c2c;
-                                        border-radius: 8px;
-                                        -moz-border-radius: 8px;
-                                        -webkit-border-radius: 8px;
-                                        border: solid 1px #212121;
-                                        padding: 8px;
-                                        font-size: 9pt; /*overflow: hidden;*/ /*background: url(bg.jpg) repeat-x repeat-y;*/
-                                    }
-                                    .preview-wrapper .preview h4,.preview-wrapper .preview p
-                                    {
-                                        margin: 0;
-                                        padding: 0;
-                                        overflow: hidden;
-                                    }
-                                    .preview-wrapper .preview h4
-                                    {
-                                        font-size: 10pt;
-                                        color: White;
-                                        font-weight: normal;
-                                        width: 290px;
-                                        height: 16px;
-                                    }
-                                    .preview-wrapper .preview p
-                                    {
-                                        color: #9f9e9e;
-                                        width: 290px;
-                                        height: 54px;
-                                    }
-                                    .preview-wrapper .preview a
-                                    {
-                                        font-size: 11px;
-                                        color: #9f9e9e;
-                                        text-decoration: none;
-                                        margin-left: 4px;
-                                    }
-                                    .preview-wrapper .preview a:hover
-                                    {
-                                        text-decoration: underline;
-                                        color: Yellow;
-                                    }
-                                    .preview-wrapper .tip
-                                    {
-                                        margin: auto;
-                                        width: 13px;
-                                        height: 9px;
-                                        background-image: url(cor.png);
-                                    }
-                                    .news-wrapper .multiple
-                                    {
-                                        width: 680px;
-                                        overflow: hidden;
-                                    }
-                                    .news-wrapper.multiple .news-title
-                                    {
-                                        float: left;
-                                    }
-                                    .news-wrapper.multiple .news
-                                    {
-                                        float: left;
-                                        width: 2000px;
-                                    }
-                                    .news-wrapper.multiple .headline
-                                    {
-                                        position: relative;
-                                        float: left;
-                                        margin-left: 0px;
-                                    }
-                                </style>
-                                <script>
-                                    (function($) {
-                                        $.fn.extend({
-                                            dnews: function(options) {
-                                                var settings = $.extend({
-                                                    controls: true,
-                                                    switchInterval: 5000,
-                                                    feedurl: '',
-                                                    showdetail: true,
-                                                    moretext: '[...]',
-                                                    controlsalwaysvisible: true,
-                                                    entries: 10,
-                                                    target: "",
-                                                    headlineLength: 80
-                                                }, options);
-                                                return this.each(function() {
-                                                    var direction = "forward";
-                                                    var wrapper = $(this);
-                                                    var interval;
-                                                    var prevIndex = 0;
-                                                    var curIndex = 0;
-                                                    var mode = 'auto'; //auto, manual
-                                                    var next, prev, play, pause;
-                                                    var containerWidth;
-                                                    var left;
-                                                    var total;
-                                                    var allHeadlines;
-                                                    var controlbar;
-                                                    var previewWraper;
-                                                    var mouseEntered = 0;
-                                                    function setPlayingStatus(isPlaying) {
-                                                        if (isPlaying) {
-                                                            play.css('display', 'none');
-                                                            pause.css('display', '');
-                                                        }
-                                                        else {
-                                                            play.css('display', '');
-                                                            pause.css('display', 'none');
-                                                        }
-                                                    }
-                                                    if (settings.showdetail) {
-                                                        previewWraper = $('<div/>').attr('id', wrapper.attr('id') + '-' + 'preview').addClass('preview-wrapper').css('opacity', '0').css('visibility', 'hidden');
-                                                        previewWraper.append($('<div/>').addClass('preview')
-                                                                .append($('<h4/>'))
-                                                                .append($('<p/>'))).append($('<div/>').addClass('tip'));
-                                                        wrapper.before(previewWraper);
-                                                    }
-                                                    if (settings.controls) {
-                                                        controlbar = $('<div/>').addClass('control-bar').css('display', 'none');
-                                                        wrapper.after(controlbar);
-                                                        next = $('<div><i class="icon-arrow-right"></i></div>').addClass('next');
-                                                        prev = $('<div><i class="icon-arrow-left"></i></div>').addClass('prev');
-                                                        play = $('<div><i class="icon-play"></i></div>').addClass('play');
-                                                        pause = $('<div><i class="icon-pause"></i></div>').addClass('pause');
-                                                        var left = $('.news', wrapper).width() / 2 - controlbar.width() / 2;
-                                                        controlbar.css('left', left);
-                                                        controlbar.append($('<div/>').addClass('controls-wrapper').append(prev).append(pause).append(play).append(next));
-                                                        setPlayingStatus(true);
-                                                        next.click(function() {
-                                                            mode = 'manual';
-                                                            setPlayingStatus(false);
-                                                            stopAnimation();
-                                                            direction = "forward";
-                                                            if (prevIndex > curIndex) {
-                                                                var temp = curIndex;
-                                                                curIndex = prevIndex;
-                                                                prevIndex = temp;
-                                                            }
-                                                            switchNews();
-                                                        });
-                                                        prev.click(function() {
-                                                            mode = 'manual';
-                                                            setPlayingStatus(false);
-                                                            stopAnimation();
-                                                            direction = "backward";
-                                                            if (prevIndex < curIndex) {
-                                                                var temp = curIndex;
-                                                                curIndex = prevIndex;
-                                                                prevIndex = temp;
-                                                            }
-                                                            switchNews();
-                                                        });
-                                                        play.click(function() {
-                                                            mode = 'manual';
-                                                            setPlayingStatus(true);
-                                                            startAnimation();
-                                                        });
-                                                        pause.click(function() {
-                                                            mode = 'manual';
-                                                            setPlayingStatus(false);
-                                                            stopAnimation();
-                                                        });
-                                                    }
-                                                    var id = 0;
-                                                    var descriptions = new Array();
-                //build news headlines from feed
+                                    var id = 0;
+                                    var descriptions = new Array();
+                                    //build news headlines from feed
 
 
-                                                    $('.news a', wrapper).each(function(index, news) {
-                                                        id++;
-                                                        descriptions.push($(news).attr('title'));
-                                                        $(news).attr('id', id).removeAttr('title');
+                                    $('.news a', wrapper).each(function(index, news) {
+                                        id++;
+                                        descriptions.push($(news).attr('title'));
+                                        $(news).attr('id', id).removeAttr('title');
+                                    });
+                                    setupHeadlines();
+                                    /*wrapper.find('.news').hover(stopAnimation, function() { if (mode == 'auto') startAnimation(); });*/
+                                    function stopAnimation() {
+                                        clearInterval(interval);
+                                    }
+                                    function startAnimation() {
+                                        interval = setInterval(switchNews, settings.switchInterval);
+                                    }
+                                    function setupHeadlines() {
+                                        if (settings.controls)
+                                            controlbar.css('display', '');
+                                        wrapper.prepend($('<div/>').addClass('news-title'));
+                                        containerWidth = $('.news', wrapper).width() + $('.news-title', wrapper).width();
+                                        allHeadlines = $('.headline', wrapper);
+                                        left = wrapper.find('.news').css('left');
+                                        if (left == 'auto')
+                                            left = $('.news-title').width() + 'px';
+                                        allHeadlines.css('left', '-' + containerWidth + 'px');
+                                        total = allHeadlines.length;
+                                        $(allHeadlines[curIndex]).css('left', left);
+                                        interval = setInterval(switchNews, settings.switchInterval);
+                                        if (previewWraper != null) {
+                                            var previewWrapperLeft = previewWraper.offset().left;
+                                            previewWraper.animate({opacity: 0}, 1000, function() {
+                                                $(this).css('visibility', 'hidden');
+                                            });
+                                        }
+                                        if (!settings.controlsalwaysvisible)
+                                            controlbar.slideUp("fast");
+                                        wrapper.mouseenter(function(e) {
+                                            stopAnimation();
+                                            mouseEntered = getMousePosition(e, wrapper);
+                                            if (!settings.controlsalwaysvisible)
+                                                controlbar.slideDown("fast");
+                                        });
+                                        wrapper.mouseleave(function(e) {
+                                            if (mode == 'auto')
+                                                startAnimation();
+                                            var mpos = getMousePosition(e, wrapper);
+                                            var direction = mouseEntered[1] > mpos[1] ? "u" : "d";
+                                            if (direction == 'u') {
+                                                if (!settings.controlsalwaysvisible)
+                                                    controlbar.slideUp("fast");
+                                            }
+                                            if (direction == 'd') {
+                                                if (previewWraper != null)
+                                                    previewWraper.animate({opacity: 0}, 500, function() {
+                                                        $(this).css('visibility', 'hidden');
                                                     });
-                                                    setupHeadlines();
-
-                                                    /*wrapper.find('.news').hover(stopAnimation, function() { if (mode == 'auto') startAnimation(); });*/
-                                                    function stopAnimation() {
-                                                        clearInterval(interval);
-                                                    }
-                                                    function startAnimation() {
-                                                        interval = setInterval(switchNews, settings.switchInterval);
-                                                    }
-                                                    function setupHeadlines() {
-                                                        if (settings.controls)
-                                                            controlbar.css('display', '');
-                                                        wrapper.prepend($('<div/>').addClass('news-title'));
-                                                        containerWidth = $('.news', wrapper).width() + $('.news-title', wrapper).width();
-                                                        allHeadlines = $('.headline', wrapper);
-                                                        left = wrapper.find('.news').css('left');
-                                                        if (left == 'auto')
-                                                            left = $('.news-title').width() + 'px';
-                                                        allHeadlines.css('left', '-' + containerWidth + 'px');
-                                                        total = allHeadlines.length;
-                                                        $(allHeadlines[curIndex]).css('left', left);
-                                                        interval = setInterval(switchNews, settings.switchInterval);
-                                                        if (previewWraper != null) {
-                                                            var previewWrapperLeft = previewWraper.offset().left;
-                                                            previewWraper.animate({opacity: 0}, 1000, function() {
-                                                                $(this).css('visibility', 'hidden');
-                                                            });
-                                                        }
-                                                        if (!settings.controlsalwaysvisible)
-                                                            controlbar.slideUp("fast");
-                                                        wrapper.mouseenter(function(e) {
-                                                            stopAnimation();
-                                                            mouseEntered = getMousePosition(e, wrapper);
-                                                            if (!settings.controlsalwaysvisible)
-                                                                controlbar.slideDown("fast");
-                                                        });
-                                                        wrapper.mouseleave(function(e) {
-                                                            if (mode == 'auto')
-                                                                startAnimation();
-                                                            var mpos = getMousePosition(e, wrapper);
-                                                            var direction = mouseEntered[1] > mpos[1] ? "u" : "d";
-                                                            if (direction == 'u') {
-                                                                if (!settings.controlsalwaysvisible)
-                                                                    controlbar.slideUp("fast");
-                                                            }
-                                                            if (direction == 'd') {
-                                                                if (previewWraper != null)
-                                                                    previewWraper.animate({opacity: 0}, 500, function() {
-                                                                        $(this).css('visibility', 'hidden');
-                                                                    });
-                                                            }
-                                                        });
-                                                        if (settings.controls) {
-                                                            controlbar.mouseleave(function() {
-                                                                if (!settings.controlsalwaysvisible)
-                                                                    controlbar.slideUp("fast");
-                                                                if (previewWraper != null)
-                                                                    previewWraper.animate({opacity: 0}, 500, function() {
-                                                                        $(this).css('visibility', 'hidden');
-                                                                    });
-                                                            });
-                                                        }
-                                                        previewWraper.mouseleave(function() {
-                                                            if (!settings.controlsalwaysvisible)
-                                                                controlbar.slideUp("fast");
-                                                            if (previewWraper != null)
-                                                                previewWraper.animate({opacity: 0}, 500, function() {
-                                                                    $(this).css('visibility', 'hidden');
-                                                                });
-                                                        });
-                                                        if (settings.showdetail) {
-                                                            $('.headline', wrapper).mouseenter(function(e) {
-                                                                var top = -(previewWraper.height() + $('.tip').height() + 2);
-                                                                previewWraper.css('top', top);
-                                                                var description = descriptions[parseInt($(this).find('a').attr('id')) - 1];
-                                                                if (description == '')
-                                                                    description = $(this).find('a').html();
-                                                                if (description.length > 120)
-                                                                    description = description.substr(0, 120);
-                                                                description += '<a href="' + $(this).find('a').attr('href') + '" target="' + settings.target + '" >' + settings.moretext + '</a>';
-                                                                var previewId = wrapper.attr('id') + '-' + 'preview';
-                                                                $('#' + previewId + ' p').html(description);
-                                                                $('#' + previewId + ' h4').html($(this).find('a').html());
-                                                                var previewleft = $(this).offset().left - previewWrapperLeft;
-                                                                previewWraper.css('left', previewleft + 'px')
-                                                                        .css('visibility', 'visible')
-                                                                        .stop()
-                                                                        .animate({opacity: 1.0}, 1000, function() {
-                                                                        });
-                                                            });
-                                                        }
-                                                    }
-                                                    function switchNews() {
-                                                        if (direction == 'forward') {
-                                                            curIndex = (prevIndex + 1) % total;
-                                                            $(allHeadlines[prevIndex]).stop().animate({'left': containerWidth + 'px'}, "slow", function() {
-                                                                $(this).css('left', '-' + containerWidth + 'px');
-                                                            });
-                                                            $(allHeadlines[curIndex]).stop().animate({'left': left}, "slow");
-                                                        }
-                                                        else {
-                                                            curIndex = (prevIndex > 0 ? prevIndex - 1 : total - 1) % total;
-                                                            $(allHeadlines[prevIndex]).stop().animate({'left': -containerWidth + 'px'}, "slow");
-                                                            $(allHeadlines[curIndex]).css({'left': containerWidth + 'px'}).stop().animate({'left': left}, "slow");
-                                                        }
-                                                        prevIndex = curIndex;
-                                                    }
-                                                    function getMousePosition(e, el) {
-                                                        var x = 0;
-                                                        var y = 0;
-                                                        if (e.offsetX || e.offsetY) {
-                                                            x = e.offsetX;
-                                                            y = e.offsetY;
-                                                        }
-                                                        else if (e.pageX || e.pageY) {
-                                                            x = e.pageX - parseInt($(el).css('left'));
-                                                            y = e.pageY - parseInt($(el).css('top'));
-                                                        }
-                                                        else if (e.clientX || e.clientY) {
-                                                            x = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
-                                                            y = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
-                                                        }
-                                                        return [x, y];
-                                                    }
-                                                });
                                             }
                                         });
-                                    })(jQuery);
-
-                                    $('#snews').dnews({showdetail: true, controlsalwaysvisible: true, entries: 10, controls: true, target: "_blank"});
-
-                                </script>
+                                        if (settings.controls) {
+                                            controlbar.mouseleave(function() {
+                                                if (!settings.controlsalwaysvisible)
+                                                    controlbar.slideUp("fast");
+                                                if (previewWraper != null)
+                                                    previewWraper.animate({opacity: 0}, 500, function() {
+                                                        $(this).css('visibility', 'hidden');
+                                                    });
+                                            });
+                                        }
+                                        previewWraper.mouseleave(function() {
+                                            if (!settings.controlsalwaysvisible)
+                                                controlbar.slideUp("fast");
+                                            if (previewWraper != null)
+                                                previewWraper.animate({opacity: 0}, 500, function() {
+                                                    $(this).css('visibility', 'hidden');
+                                                });
+                                        });
+                                        if (settings.showdetail) {
+                                            $('.headline', wrapper).mouseenter(function(e) {
+                                                var top = -(previewWraper.height() + $('.tip').height() + 2);
+                                                previewWraper.css('top', top);
+                                                var description = descriptions[parseInt($(this).find('a').attr('id')) - 1];
+                                                if (description == '')
+                                                    description = $(this).find('a').html();
+                                                if (description.length > 120)
+                                                    description = description.substr(0, 120);
+                                                description += '<a href="' + $(this).find('a').attr('href') + '" target="' + settings.target + '" >' + settings.moretext + '</a>';
+                                                var previewId = wrapper.attr('id') + '-' + 'preview';
+                                                $('#' + previewId + ' p').html(description);
+                                                $('#' + previewId + ' h4').html($(this).find('a').html());
+                                                var previewleft = $(this).offset().left - previewWrapperLeft;
+                                                previewWraper.css('left', previewleft + 'px')
+                                                        .css('visibility', 'visible')
+                                                        .stop()
+                                                        .animate({opacity: 1.0}, 1000, function() {
+                                                        });
+                                            });
+                                        }
+                                    }
+                                    function switchNews() {
+                                        if (direction == 'forward') {
+                                            curIndex = (prevIndex + 1) % total;
+                                            $(allHeadlines[prevIndex]).stop().animate({'left': containerWidth + 'px'}, "slow", function() {
+                                                $(this).css('left', '-' + containerWidth + 'px');
+                                            });
+                                            $(allHeadlines[curIndex]).stop().animate({'left': left}, "slow");
+                                        }
+                                        else {
+                                            curIndex = (prevIndex > 0 ? prevIndex - 1 : total - 1) % total;
+                                            $(allHeadlines[prevIndex]).stop().animate({'left': -containerWidth + 'px'}, "slow");
+                                            $(allHeadlines[curIndex]).css({'left': containerWidth + 'px'}).stop().animate({'left': left}, "slow");
+                                        }
+                                        prevIndex = curIndex;
+                                    }
+                                    function getMousePosition(e, el) {
+                                        var x = 0;
+                                        var y = 0;
+                                        if (e.offsetX || e.offsetY) {
+                                            x = e.offsetX;
+                                            y = e.offsetY;
+                                        }
+                                        else if (e.pageX || e.pageY) {
+                                            x = e.pageX - parseInt($(el).css('left'));
+                                            y = e.pageY - parseInt($(el).css('top'));
+                                        }
+                                        else if (e.clientX || e.clientY) {
+                                            x = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
+                                            y = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
+                                        }
+                                        return [x, y];
+                                    }
+                                });
+                            }
+                        });
+                    })(jQuery);
+                    $('#snews').dnews({showdetail: true, controlsalwaysvisible: true, entries: 10, controls: true, target: "_blank"});</script>
 
 
             </div>
