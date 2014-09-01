@@ -4276,6 +4276,21 @@ $(document).ready(function() {
     $("#dcmmenu").mmenu({
         classes: "mm-slide"
     });
+
+    $('#userlaunch').click(function(e) {
+        // alert('mayra');
+        var dockbar = $('#dcmdockbar');
+        if (dockbar.css('display') === 'none') {
+            dockbar.css('display', 'block');
+            dockbar.addClass('animated fadeIn');
+
+        } else {
+            dockbar.addClass('fadeOut');
+            dockbar.removeClass('animated fadeIn fadeOut');
+            dockbar.css('display', 'none');
+        }
+        e.preventDefault();
+    });
 });
 
 

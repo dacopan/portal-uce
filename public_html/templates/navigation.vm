@@ -19,12 +19,12 @@
 					#end
 
 					<li class="$nav_item_css_class" id="layout_$nav_item.getLayoutId()">
-						<a class="$nav_item_link_css_class" href="$nav_item.getURL()" $nav_item.getTarget()>
+						<a class="$nav_item_link_css_class" href="$nav_item.getURL()">
 							$nav_item.getName()
 						</a>
 
 						#if ($nav_item.hasChildren())
-							<ul class="fixnavbar dropdown-menu" data-role="dropdown">
+							<ul class="fixnavbar">
 								#foreach ($nav_child in $nav_item.getChildren())
 									#set ($nav_child_attr_selected="")
 									#set ($nav_child_css_class="")

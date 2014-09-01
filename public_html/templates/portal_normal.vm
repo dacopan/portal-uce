@@ -11,9 +11,9 @@
 
 	$theme.include($top_head_include)
 
-<link rel="stylesheet" href="$css_folder/metro-bootstrap.css" type="text/css"/>
-        <link rel="stylesheet" href="$css_folder/dcmtheme.css" type="text/css"/>
-        <link rel="stylesheet" href="$css_folder/extranews.css" type="text/css"/>
+<link rel="stylesheet" href="$css_folder/dcmtheme.css" type="text/css"/>
+        <link rel="stylesheet" href="$css_folder/dcmtheme-responsive.css" type="text/css"/>
+        <link rel="stylesheet" href="$css_folder/dcm-color.css" type="text/css"/>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 
@@ -26,75 +26,49 @@
 <meta http-equiv="Cache-Control" content="no-cache">
 </head>
 
-<body class="$css_class metro">
-
-<a href="#main-content" id="skip-to-content">#language ("skip-to-content")</a>
-
+<body class="$css_class container-fluid metro">
+ <a href="#main-content" id="skip-to-content">#language ("skip-to-content")</a>
 $theme.include($body_top_include)
 
- <header class="bg-dark" style="width: 100%;">
+     <a id="hamburger" class="mm-fixed-top" href="#dcmmenu"><span></span></a>
+        <nav id="dcmmenu">
+            <ul>
+                <li><a href="/">Home</a></li>
+<li><a id="userlaunch" title="Nuget.org" href="#mmm" class="element place-right"><span class="icon-user"></span></a>
+</li>
+                <li>
+                    <a href="/about/">About us</a>
+                    <ul>
+                        <li><a href="/about/history/">History</a></li>
+                        <li><a href="/about/team/">The team</a></li>
+                        <li><a href="/about/address/">Our address</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <span>Tutorial</span>
+                    <div>
+                        <ul>
+                            <li><a href="/tutorial">Getting started</a></li>
+                            <li><a href="/tutorial/setting-up-the-html.html">Setting up the html</a></li>
+                            <li><a href="/tutorial/fire-the-plugin.html">Fire the plugin</a></li>
+                            <li><a href="/tutorial/open-and-close-the-menu.html">Open and close the menu</a></li>
+                            <li><a href="/tutorial/styling-lists.html">Styling lists</a></li>
+                            <li><a href="/tutorial/fixed-elements.html">Fixed elements</a></li>
+                            <li><a href="/tutorial/learn-more.html">Learn more</a></li>
+                        </ul>
+                    </div>
+                </li>
 
-            <div class="navigation-bar fixed-top shadow">
-                <div class="navigation-bar-content">
-                    <a href="$site_default_url" class="element" title="#language_format ("go-to-x", [$site_name])"><span class="icon-grid-view"></span> UCE <sup>B</sup></a>
-                    <span class="element-divider"></span>
-
-                    <a class="element1 pull-menu" href="#"></a>
-                   			<ul aria-label="#language ("site-pages")" class="element-menu">
 #if ($has_navigation || $is_signed_in)
 			#parse ("$full_templates_path/navigation.vm")
 		#end
 
 
-                                <li id="dcmdockbar" style="display:none">#dockbar()</li>
-                                 <a id="userlaunch" title="Nuget.org" href="#" class="element place-right"><span class="icon-user"></span></a>
-                                    
-                              
-<a title="Nuget.org" href="https://www.nuget.org/packages/Metro.UI.CSS/" class="element place-right"><span class="icon-mail"></span></a>
-                        <span class="element-divider place-right"></span>
-                        <a title="GitHub" href="https://github.com/olton/Metro-UI-CSS" class="element place-right"><span class="icon-music"></span></a>
-                        <span class="element-divider place-right"></span>
-                        <a title="CSS3 validator" href="http://jigsaw.w3.org/css-validator/validator?uri=metroui.org.ua&profile=css3&usermedium=all&warning=no&vextwarning=" class="element place-right"><span class="icon-calendar"></span></a>
-                        <span class="element-divider place-right"></span>
-                        <div class="element place-right" title="GitHub Stars"><span class="icon-location"></span> <span class="github-watchers">0</span></div>
-                        <!--<span class="element-divider place-right"></span>-->
-                        <!--<div class="element place-right" title="GitHub Forks"><span class="icon-share-2"></span> <span class="github-forks">0</span></div>-->
+            </ul>
+        </nav>        
+<div id="dcmdockbar" style="display:none">#dockbar()</div>
 
-<div class="element place-right" id="pos-search">                                                 
-                                <div class="search ">
-    <form action="/web/" method="post" class="form-inline">
-        <div class="input-control text"><input name="searchword" id="mod-search-searchword" maxlength="20" class="inputbox search-query" size="20" value="Buscar..." onblur="if (this.value=='') this.value='Buscar...';" onfocus="if (this.value=='Buscar...') this.value='';" type="text"><button class="btn-search"></button></div>        <input name="task" value="search" type="hidden">
-        <input name="option" value="com_search" type="hidden">
-        <input name="Itemid" value="101" type="hidden">
-    </form>
-</div>
-                                             
-                            </div>
-                 
-</ul>
- 
-
-
-                  
-                        
-
-                    
-                </div>
-            </div>
-
-        </header>
-
-<div class="dcm top"> <a class="scrollto" href="#top">Scroll to top</a>
-            <div class="clear"></div>
-            <div class="scroll">
-                <p>Top</p>
-            </div>
-        </div>
-
-	<div id="wrapper_mayra">
-		<nav id="breadcrumbs">#breadcrumbs()</nav>
-
-		#if ($selectable)
+            #if ($selectable)
 			$theme.include($content_include)
 		#else
 			$portletDisplay.recycle()
@@ -103,19 +77,8 @@ $theme.include($body_top_include)
 
 			$theme.wrapPortlet("portlet.vm", $content_include)
 		#end
-	</div>
-    
-	<footer class="footer">
-            <div class="recentcomments" id="pos-footer">
-                <div class="text-left text-justify" style="text-align: center;">
-                    &copy;&nbsp;2014&nbsp;dacopanCM web
-                    |&nbsp;designed by <a href="http://www.dacopancm.hol.es" class="fg-white fg-hover-amber fg-active-black">dacopanCM</a> con <a href="http://www.metroui.org.ua" class="fg-white fg-hover-amber fg-active-black">metrouicss</a>
-                </div>
-            </div>
-        </footer>
-        
-<script src="$javascript_folder/dcmtheme.js" type="text/javascript" ></script>
-</div>
+	
+<script src="$javascript_folder/dcmtheme.js?v=1.0.3" type="text/javascript" ></script>
 
 $theme.include($body_bottom_include)
 
