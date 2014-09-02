@@ -3039,72 +3039,72 @@ html.mm-opening .mm-fixed-bottom {
 /*</editor-fold>*/
 /*<editor-fold defaultstate="collapsed" desc="MM menu slide">*/
 /*
-	jQuery.mmenu effects extension CSS
+        jQuery.mmenu effects extension CSS
 */
 html.mm-slide .mm-menu {
-  -webkit-transition: -webkit-transform 0.4s ease;
-  -moz-transition: -moz-transform 0.4s ease;
-  -o-transition: -o-transform 0.4s ease;
-  transition: transform 0.4s ease; }
+    -webkit-transition: -webkit-transform 0.4s ease;
+    -moz-transition: -moz-transform 0.4s ease;
+    -o-transition: -o-transform 0.4s ease;
+    transition: transform 0.4s ease; }
 html.mm-slide.mm-opened .mm-menu {
-  -webkit-transform: translateX(-30%);
-  transform: translateX(-30%); }
+    -webkit-transform: translateX(-30%);
+    transform: translateX(-30%); }
 html.mm-slide.mm-opening .mm-menu {
-  -webkit-transform: translateX(0%);
-  transform: translateX(0%); }
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%); }
 html.mm-slide.mm-right.mm-opened .mm-menu {
-  -webkit-transform: translateX(30%);
-  transform: translateX(30%); }
+    -webkit-transform: translateX(30%);
+    transform: translateX(30%); }
 html.mm-slide.mm-right.mm-opening .mm-menu {
-  -webkit-transform: translateX(0%);
-  transform: translateX(0%); }
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%); }
 html.mm-slide.mm-top.mm-opened .mm-menu {
-  -webkit-transform: translateY(-30%);
-  transform: translateY(-30%); }
+    -webkit-transform: translateY(-30%);
+    transform: translateY(-30%); }
 html.mm-slide.mm-top.mm-opening .mm-menu {
-  -webkit-transform: translateY(0%);
-  transform: translateY(0%); }
+    -webkit-transform: translateY(0%);
+    transform: translateY(0%); }
 html.mm-slide.mm-bottom.mm-opened .mm-menu {
-  -webkit-transform: translateY(30%);
-  transform: translateY(30%); }
+    -webkit-transform: translateY(30%);
+    transform: translateY(30%); }
 html.mm-slide.mm-bottom.mm-opening .mm-menu {
-  -webkit-transform: translateY(0%);
-  transform: translateY(0%); }
+    -webkit-transform: translateY(0%);
+    transform: translateY(0%); }
 /*</editor-fold>*/
 /*<editor-fold defaultstate="collapsed" desc="MM menu hamburger">*/
 #hamburger
 {
-	display: block;
-	width: 40px;
-	height: 36px;
-	margin: 20px;
-	position: fixed;
-	z-index: 2;
+    display: block;
+    width: 40px;
+    height: 36px;
+    margin: 20px;
+    position: fixed;
+    z-index: 2;
 }
 #hamburger:before,
 #hamburger:after,
 #hamburger span
 {
-	background: #5BC5FF;
-	content: '';
-	display: block;
-	width: 30px;
-	height: 6px;
-	position: absolute;
-	left: 5px;
+    background: #5BC5FF;
+    content: '';
+    display: block;
+    width: 30px;
+    height: 6px;
+    position: absolute;
+    left: 5px;
 }
 #hamburger:before
 {
-	top: 5px;
+    top: 5px;
 }
 #hamburger:after
 {
-	bottom: 5px;
+    bottom: 5px;
 }
 #hamburger span
 {
-	top: 50%;
-	margin-top: -3px;
+    top: 50%;
+    margin-top: -3px;
 }
 
 /*@media all and (min-width: 1430px)
@@ -3119,28 +3119,32 @@ html.mm-slide.mm-bottom.mm-opening .mm-menu {
 #hamburger:after,
 #hamburger span
 {
-	transition: none 0.5s ease 0.5s;
-	transition-property: transform, top, bottom, left, opacity;
+    transition: none 0.5s ease 0.5s;
+    transition-property: transform, top, bottom, left, opacity;
 }
 html.mm-opening #hamburger span
 {
-	left: -50px;
-	opacity: 0;
+    left: -50px;
+    opacity: 0;
 }
 html.mm-opening #hamburger:before
 {
-	transform: rotate( 45deg );
-	top: 15px;
+    transform: rotate( 45deg );
+    top: 15px;
 }
 html.mm-opening #hamburger:after
 {
-	transform: rotate( -45deg );
-	bottom: 15px;
+    transform: rotate( -45deg );
+    bottom: 15px;
 }
 /*</editor-fold>*/
 
 /* #Liferay article add overrides/ drop cogs 
 ================================================== */
+.dcmLayout1{
+    width: 100%;
+    height: 100%;
+}
 .aui .columns-max {
     padding-left: 80px;
 }
@@ -3157,7 +3161,55 @@ html.mm-opening #hamburger:after
     margin-left: -290px;
     margin-top: 4px;
 }
+#dcmdockbar{
+    z-index: 999999;
+    position: absolute;
+}
+/* #Porlet header
+================================================== */
+.portlet-dropzone.portlet-column-content.portlet-column-only,.portlet-boundary,.portlet,.portlet-content,.portlet-content-container,.portlet-body,.journal-content-article{
+    height: 100%!important;
+    min-height: 100%;
+}
 
+.aui .portlet-content, .aui .portlet-minimized .portlet-content-container{
+    padding: 0px!important;
+    border:  none!important;
+}
+.portlet-title-text,.taglib-text.hide-accessible{
+    max-height: 1px;
+}
+
+.aui .portlet-topper .portlet-topper-toolbar a i {
+    font-size: 23px;
+    padding: 8px;
+    border-radius: 50%;
+    background: #00a498;
+    color: #fff !important;
+    margin-left: -80px;
+    -moz-transition: all 0.3s ease 0s;
+    -webkit-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+    -ms-transition: all 0.3s ease 0s;
+    -moz-transition: all 0.3s ease 0s; }
+
+.aui .portlet-topper .portlet-topper-toolbar a i:hover {
+    background: #333333 !important; }
+
+.aui .portlet-topper, .aui .portlet, .aui .portlet-borderless-container {
+    background: transparent !important;
+    margin-bottom:0px!important;
+}
+.aui .portlet-topper {
+    padding: 0;
+    position: absolute;
+    width: 100%;
+    z-index: 99;
+}
+.aui input.search-query{
+    border-radius:  0px!important;
+}
 /* #Title
 ================================================== */
 /*<editor-fold defaultstate="collapsed" desc="title">*/

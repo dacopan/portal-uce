@@ -1,5 +1,5 @@
 <!--Layout start-->
-<div id="main-content" role="main" class="dcmLayout1 mm-page">
+<div id="main-content" role="main" class="dcmLayout1">
     <div class="dcm top"> <a class="scrollto" href="#main-content">Scroll to top</a>
         <div class="clear"></div>
         <div class="scroll">

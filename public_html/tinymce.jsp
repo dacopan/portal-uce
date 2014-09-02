@@ -51,7 +51,7 @@ boolean skipEditorLoading = GetterUtil.getBoolean((String)request.getAttribute("
 	<textarea id="<%= name %>" name="<%= name %>" style="height: 100%; width: 100%;"></textarea>
 </div>
 
-<!--<aui:script>
+<aui:script>
 	window['<%= name %>'] = {
 		onChangeCallbackCounter: 0,
 
@@ -129,7 +129,7 @@ boolean skipEditorLoading = GetterUtil.getBoolean((String)request.getAttribute("
 		{
 			convert_urls: false,
 			elements: '<%= name %>',
-			extended_valid_elements: 'a[name|id|href|target|title|onclick|class|style|data-map-lat|data-map-long|data-map-title|data-map-description],img[class|src|border=0|alt|title|hspace|vspace|width|height|align|onmouseover|onmouseout|name|usemap|onload],hr[class|width|size|noshade],font[face|size|color|style],span[class|align|style],*[*]',
+			extended_valid_elements: 'a[name|id|href|target|title|onclick|class|style|data-map-lat|data-map-long|data-map-title|data-map-description],img[class|src|border=0|alt|title|hspace|vspace|width|height|align|onmouseover|onmouseout|name|usemap|onload],hr[class|width|size|noshade],font[face|size|color|style],span[class|align|style],div[id|style|data-*|class|*],*[*]',
 			file_browser_callback: window['<%= name %>'].fileBrowserCallback,
 			init_instance_callback: window['<%= name %>'].initInstanceCallback,
 			invalid_elements: '',
@@ -159,44 +159,13 @@ boolean skipEditorLoading = GetterUtil.getBoolean((String)request.getAttribute("
 			theme_advanced_toolbar_location: 'bottom',
 verify_html: false,
 cleanup: false,
-valid_children : 'a[div|span|script|i|small],*[*],',
+valid_children : 'a[div|span|script|i|small|p],+div[a|span|p|div|i|style|script|ul|li|form|input|h1|h2|h3|h4|h5|h6|h7|label|img|button|nav|canvas|footer|*],*[*]',
 setup : function(ed) {
         // Add a custom button
         ed.addButton('mybutton', {
             title : 'My button',
             image : '/html/js/editor/tiny_mce/plugins/example/img/example.gif',
-            onclick : function() {
-                
-
-            	
-            	 
-                     $.Dialog({
-                         overlay: true,
-                         shadow: true,
-                         flat: true,
-                         draggable: true,
-                         icon: '<img src="images/excel2013icon.png">',
-                         title: 'Flat window',
-                         content: '',
-                         padding: 10,
-                         onShow: function(_dialog){
-                             var content = 
-                                     '<label>Login</label>' +
-                                     '<div class="input-control text"><input type="text" name="login" id="xhtmlm"><button class="btn-clear"></button></div>' +
-                                     '<label>Password</label>'+
-                                     '<div class="input-control password"><input type="password" name="password"><button class="btn-reveal"></button></div>' +
-                                     '<div class="input-control checkbox"><label><input type="checkbox" name="c1" checked/><span class="check"></span>Check me out</label></div>'+
-                                     '<div class="form-actions">' +
-                                     '<button class="button primary" onclick="xxx();$.Dialog.close();">Login to...</button>&nbsp;'+
-                                     '<button class="button" type="button" onclick="$.Dialog.close()">Cancel</button> '+
-                                     '</div>'+
-                                     '';
-
-                             $.Dialog.title("User login");
-                             $.Dialog.content(content);
-                         }
-                     });
-                 
+            onclick : function() {                            	                                 
             	
             	
             	
@@ -207,11 +176,5 @@ setup : function(ed) {
 					}
 		
 });
-function xxx(){
-	var htm=$('#xhtmlm').val();
-	$('#<%= name %>_ifr').contents().find('#tinymce').html(htm);
-alert(' mayra'+$('#xhtmlm').val());
 
-	
-}
-</aui:script>-->
+</aui:script>

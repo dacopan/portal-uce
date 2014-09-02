@@ -11,9 +11,9 @@
 
 	$theme.include($top_head_include)
 
-<link rel="stylesheet" href="$css_folder/dcmtheme.css" type="text/css"/>
-        <link rel="stylesheet" href="$css_folder/dcmtheme-responsive.css" type="text/css"/>
-        <link rel="stylesheet" href="$css_folder/dcm-color.css" type="text/css"/>
+<link rel="stylesheet" href="$css_folder/dcmtheme.css?v=1.0.2" type="text/css"/>
+        <link rel="stylesheet" href="$css_folder/dcmtheme-responsive.css?v=1.0.0" type="text/css"/>
+        <link rel="stylesheet" href="$css_folder/dcm-color.css?v=1.0.0" type="text/css"/>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 
@@ -26,7 +26,7 @@
 <meta http-equiv="Cache-Control" content="no-cache">
 </head>
 
-<body class="$css_class container-fluid metro">
+<body class="$css_class metro">
  <a href="#main-content" id="skip-to-content">#language ("skip-to-content")</a>
 $theme.include($body_top_include)
 
