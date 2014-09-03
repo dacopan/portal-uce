@@ -11,7 +11,7 @@
 
 	$theme.include($top_head_include)
 
-<link rel="stylesheet" href="$css_folder/dcmtheme.css?v=1.0.2" type="text/css"/>
+<link rel="stylesheet" href="$css_folder/dcmtheme.css?v=2.0.2" type="text/css"/>
         <link rel="stylesheet" href="$css_folder/dcmtheme-responsive.css?v=1.0.0" type="text/css"/>
         <link rel="stylesheet" href="$css_folder/dcm-color.css?v=1.0.0" type="text/css"/>
 
@@ -78,7 +78,7 @@ $theme.include($body_top_include)
 			$theme.wrapPortlet("portlet.vm", $content_include)
 		#end
 	
-<script src="$javascript_folder/dcmtheme.js?v=1.0.3" type="text/javascript" ></script>
+<script src="$javascript_folder/dcmtheme.js?v=1.0.5" type="text/javascript" ></script>
 
 $theme.include($body_bottom_include)
 

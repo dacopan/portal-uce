@@ -3165,6 +3165,10 @@ html.mm-opening #hamburger:after
     z-index: 999999;
     position: absolute;
 }
+.aui body.yui3-skin-sam .yui3-widget-mask{
+    background-color: black;
+
+}
 /* #Porlet header
 ================================================== */
 .portlet-dropzone.portlet-column-content.portlet-column-only,.portlet-boundary,.portlet,.portlet-content,.portlet-content-container,.portlet-body,.journal-content-article{
@@ -3207,12 +3211,25 @@ html.mm-opening #hamburger:after
     width: 100%;
     z-index: 99;
 }
+.aui .portlet-content .icons-container {
+    clear: both;
+    height: auto;
+    margin-top: -3em;
+    overflow: hidden;
+    width: auto;
+    z-index: 99999;
+    position: absolute;
+    padding: 0px;
+}
 .aui input.search-query{
     border-radius:  0px!important;
 }
-/* #Title
+/* #General Styles
 ================================================== */
-/*<editor-fold defaultstate="collapsed" desc="title">*/
-
+/*<editor-fold defaultstate="collapsed" desc="General styles">*/
+.aui body {
+    padding-left: 0px;
+    padding-right: 0px;
+}
 
 /*</editor-fold>*/
