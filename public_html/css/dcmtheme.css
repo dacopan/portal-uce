@@ -3211,6 +3211,7 @@ html.mm-opening #hamburger:after
     width: 100%;
     z-index: 99;
 }
+
 .aui .portlet-content .icons-container {
     clear: both;
     height: auto;

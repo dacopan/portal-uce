@@ -47,7 +47,7 @@ and open the template in the editor.
 
 
     </head>
-    <body class="aui container-fluid metro" style="background-color: ">
+    <body class="aui container-fluid metro js" style="background-color: ">
 
 
 
@@ -80,392 +80,399 @@ and open the template in the editor.
 
             <div id="top" style="min-height: 800px;">
 
-                <nav id="full">
-                    <a href="#" class="main"><i class="icon-facebook"></i></a>
-                    <ul>
-                        <li class="item"><a href="#">1</a></li>
-                        <li class="item"><a href="#">2</a></li>
-                        <li class="item"><a href="#">3</a></li>
-                        <li class="item"><a href="#">4</a></li>
-                        <li class="item"><a href="#">5</a></li>
-                        <li class="item"><a href="#">7</a></li>
-                        <li class="item"><a href="#">8</a></li>
-                        <li class="item"><a href="#">9</a></li>
-                        <li class="item"><a href="#">10</a></li>
+
+                <!--Start radial Menu-->
+                <div class="radial-wrapper">
+                    <nav class="radial-menu">
+                        <a href="#" class="main-radial"><i class="icon-facebook"></i></a>
+                        <ul>
+                            <li class="item"><a href="#">1</a></li>
+                            <li class="item"><a href="#">2</a></li>
+                            <li class="item"><a href="#">3</a></li>
+                            <li class="item"><a href="#">4</a></li>
+                            <li class="item"><a href="#">5</a></li>
+                            <li class="item"><a href="#">7</a></li>
+                            <li class="item"><a href="#">8</a></li>
+                            <li class="item"><a href="#">9</a></li>
+                            <li class="item"><a href="#">10</a></li>
 
 
 
-                    </ul>
-                </nav>
+                        </ul>
+                    </nav>
 
-                <style>
-                    #top{
-                        height: 400px;
-                    }
-                    .bubblewrap{
-                        width: 500px;
-                        height: 500px;
-                        position: relative;
-                    }
-                    .mainBubble{
-                        width: 50px;
-                        height: 50px;
-                        border-radius: 50%;
-                        background: red;
-                        color:white;
-                    }
-                    .bubble{
-                        position: relative;
-                        width: 50px;
-                        height: 50px;
-                        border-radius: 50%;
-                        background: red;
-                        color:white;
-                    }
-
-
-                    nav#full {
-                        position: relative;
-                        margin-left: 50%;
-                        top:50%;
-                    }
-                    nav#full a {
-                        -webkit-tap-highlight-color:hsla(0,0%,0%,0.0);
-                        z-index: 11;
-                    }
-                    nav#full > a {
-                        position: absolute;
-                        width: 40px;
-                        height: 40px;
-                        background: #F00;
-                        background: -webkit-linear-gradient(hsla(0,100%,50%,1.0), hsla(0,100%,43%,1.0) 50%, hsla(0,100%,37%,1.0) 50%, hsla(0,100%,30%,1.0));
-                        background: -moz-linear-gradient(hsla(0,100%,50%,1.0), hsla(0,100%,43%,1.0) 50%, hsla(0,100%,37%,1.0) 50%, hsla(0,100%,30%,1.0));
-                        bottom: -23px;
-                        left: -23px;
-                        z-index: 11;
-                        border-radius:40px;
-                        font-size: 38px;
-                        font-weight:bold;
-                        font-family: "Helvetica Neue", HelveticaNeue;
-                        text-align:center;
-                        line-height:30px;
-                        color:#FFF;
-                        text-decoration:none;
-                        border:3px solid #FFF;
-                        box-shadow: 0 0 2px hsla(0,0%,0%,0.6);
-                    }
-                    nav#full ul {
-                        padding:0;
-                        margin:0;
-                        list-style-type:none;
-                    }
-                    nav#full li {
-                        position:absolute;
-                        left:-16px;
-                        top:-16px;
-                        z-index: 10;
-                    }
-                    nav#full li a {
-                        font-size: 18px;
-                        font-weight:normal;
-                        border: 3px solid #FFF;
-                        box-shadow: inset 0 0 4px hsla(0,0%,0%,1.0), 0 0 2px hsla(0,0%,0%,0.6);
-                        text-shadow: 0 0 2px hsla(0,0%,0%,1.0);
-                        width: 27px;
-                        height: 27px;
-                        background:#444;
-                        position: absolute;
-                        top:0;
-                        left:0;
-                        overflow:hidden;
-                        color:#FFF;
-                        border-radius:26px;
-                        line-height: 24px;
-                        text-align: center;
-                        text-decoration:none;
-                        font-weight:bold;
-                        z-index: 10;
-                    }
-                    nav#full .line{
-                        z-index: 8;                        
-                        overflow: hidden;
-                        outline: 1px solid transparent;
-
-                        opacity:0;
-                        position:absolute;
-                        line-height:0px;
-                        transform-origin: left;
-                        -moz-transform-origin: left;
-                        -ms-transform-origin: left;                        
-                        -webkit-transform-origin: left;
-
-                        width:80px;min-width:20px;
-                        border: 3px solid red; 
-
-                        transition: all 0.3s linear;
-                        -ms-transition: all 0.3s linear;
-                        -moz-transition: all 0.3s linear;
-                        -webkit-transition: all 0.3s linear;
-                        -o-transition: all 0.3s linear;
-                    }
-                </style>
-                <script>
-                    var Menu = function(element, options) {
-                        if (!options)
-                            options = {};
-                        options = {
-                            degrees: options.degrees || 90,
-                            offset: options.offset || -90,
-                            radius: options.radius || 150
+                    <style>
+                        #top,#top .radial-wrapper {
+                            height: 400px;
                         }
-                        this.node = element;
-                        this.menu_items = element.querySelectorAll('li.item');
-                        this.button = element.querySelector('a');
-                        this.state = 'closed';
-                        this.animations = [];
-                        var sheet = document.styleSheets[0];
-                        var degrees = Math.max(Math.min(360, options.degrees), 0);
-                        var radius = options.radius;
-                        var offset = options.offset;
-                        var menu = this;
-                        var positions = degrees == 360 ? this.menu_items.length : this.menu_items.length - 1;
-                        this.guid = Menu.guid();
-                        var off2 = [];
-                        for (var i = 0; i < this.menu_items.length; i++) {
-                            off2[i] = i * 50 * Math.floor((Math.random() * 10) + 1);
+                        .bubblewrap{
+                            width: 500px;
+                            height: 500px;
+                            position: relative;
+                        }
+                        .mainBubble{
+                            width: 50px;
+                            height: 50px;
+                            border-radius: 50%;
+                            background: red;
+                            color:white;
+                        }
+                        .bubble{
+                            position: relative;
+                            width: 50px;
+                            height: 50px;
+                            border-radius: 50%;
+                            background: red;
+                            color:white;
+                        }
+
+
+                        nav.radial-menu {
+                            position: relative;
+                            margin-left: 50%;
+                            top:50%;
+                        }
+                        nav.radial-menu a {
+                            -webkit-tap-highlight-color:hsla(0,0%,0%,0.0);
+                            z-index: 11;
+                        }
+                        nav.radial-menu > a {
+                            position: absolute;
+                            width: 40px;
+                            height: 40px;
+                            background: #F00;
+                            background: -webkit-linear-gradient(hsla(0,100%,50%,1.0), hsla(0,100%,43%,1.0) 50%, hsla(0,100%,37%,1.0) 50%, hsla(0,100%,30%,1.0));
+                            background: -moz-linear-gradient(hsla(0,100%,50%,1.0), hsla(0,100%,43%,1.0) 50%, hsla(0,100%,37%,1.0) 50%, hsla(0,100%,30%,1.0));
+                            bottom: -23px;
+                            left: -23px;
+                            z-index: 11;
+                            border-radius:40px;
+                            font-size: 38px;
+                            font-weight:bold;
+                            font-family: "Helvetica Neue", HelveticaNeue;
+                            text-align:center;
+                            line-height:30px;
+                            color:#FFF;
+                            text-decoration:none;
+                            border:3px solid #FFF;
+                            box-shadow: 0 0 2px hsla(0,0%,0%,0.6);
+                        }
+                        nav.radial-menu ul {
+                            padding:0;
+                            margin:0;
+                            list-style-type:none;
+                        }
+                        nav.radial-menu li {
+                            position:absolute;
+                            left:-16px;
+                            top:-16px;
+                            z-index: 10;
+                        }
+                        nav.radial-menu li a {
+                            font-size: 18px;
+                            font-weight:normal;
+                            border: 3px solid #FFF;
+                            box-shadow: inset 0 0 4px hsla(0,0%,0%,1.0), 0 0 2px hsla(0,0%,0%,0.6);
+                            text-shadow: 0 0 2px hsla(0,0%,0%,1.0);
+                            width: 27px;
+                            height: 27px;
+                            background:#444;
+                            position: absolute;
+                            top:0;
+                            left:0;
+                            overflow:hidden;
+                            color:#FFF;
+                            border-radius:26px;
+                            line-height: 24px;
+                            text-align: center;
+                            text-decoration:none;
+                            font-weight:bold;
+                            z-index: 10;
+                        }
+                        nav.radial-menu .line{
+                            z-index: 8;                        
+                            overflow: hidden;
+                            outline: 1px solid transparent;
+
+                            opacity:0;
+                            position:absolute;
+                            line-height:0px;
+                            transform-origin: left;
+                            -moz-transform-origin: left;
+                            -ms-transform-origin: left;                        
+                            -webkit-transform-origin: left;
+
+                            width:80px;min-width:20px;
+                            border: 3px solid red; 
+
+                            transition: all 0.3s linear;
+                            -ms-transition: all 0.3s linear;
+                            -moz-transition: all 0.3s linear;
+                            -webkit-transition: all 0.3s linear;
+                            -o-transition: all 0.3s linear;
+                        }
+                    </style>
+                    <script>
+                        var Menu = function(element, options) {
+                            if (!options)
+                                options = {};
+                            options = {
+                                degrees: options.degrees || 90,
+                                offset: options.offset || -90,
+                                radius: options.radius || 150
+                            }
+                            this.node = element;
+                            this.menu_items = element.querySelectorAll('li.item');
+                            this.button = element.querySelector('a');
+                            this.state = 'closed';
+                            this.animations = [];
+                            var sheet = document.styleSheets[0];
+                            var degrees = Math.max(Math.min(360, options.degrees), 0);
+                            var radius = options.radius;
+                            var offset = options.offset;
+                            var menu = this;
+                            var positions = degrees == 360 ? this.menu_items.length : this.menu_items.length - 1;
+                            this.guid = Menu.guid();
+                            var off2 = [];
+                            for (var i = 0; i < this.menu_items.length; i++) {
+                                off2[i] = i * 50 * Math.floor((Math.random() * 10) + 1);
+                                ;
+                            }
+
+                            this.eachItem(function(item, index, items) {
+                                var ulm = offset;
+                                // var ulm=offset*index-offset*index/2;
+                                var degree = (((degrees / positions) * index) + ulm) % 360,
+                                        position = Menu.degreeToPosition(degree),
+                                        x = Math.round((position.x * radius)),
+                                        y = Math.round((position.y * radius)),
+                                        guid = this.guid + '-' + index,
+                                        delay = (30 / items.length) * index,
+                                        delay2 = (20 / items.length) * index;
+                                //+""+
+
+                                var ox = 0, oy = 0;
+                                var angle = (y - oy) / (x - ox);
+                                var div = document.createElement('div');
+                                var grad = Math.atan2(y, x);
+
+                                var div = "<div class='line' data-rotate='" + grad + "'"
+                                        + "'></div>";
+                                //element.appendChild(line);
+                                $('.radial-menu').append(div);
+                                var rules = [
+                                    [0, "-webkit-transform: translate3d(0px, 0px, 0px); -webkit-transition-timing-function: ease-out;"],
+                                    [(delay + 15), "-webkit-transform: translate3d(0px, 0px, 0px);"],
+                                    [(45 + delay2), "-webkit-transform: translate3d(" + (x * 1.2) + "px, " + (y * 1.2) + "px, 0px); -webkit-transition-timing-function: ease-in;"],
+                                    [65, "-webkit-transform: translate3d(" + (x * 0.95) + "px, " + (y * 0.95) + "px, 0px); -webkit-transition-timing-function:ease-in-out;"],
+                                    [100, "-webkit-transform: translate3d(" + x + "px, " + y + "px, 0px);"]
+                                ];
+                                var rules_moz = [
+                                    [0, "-moz-transform: translate(0px, 0px); -moz-transition-timing-function: ease-out;"],
+                                    [(delay + 15), "-moz-transform: translate(0px, 0px);"],
+                                    [(45 + delay2), "-moz-transform: translate(" + (x * 1.2) + "px, " + (y * 1.2) + "px); -moz-transition-timing-function: ease-in;"],
+                                    [65, "-moz-transform: translate(" + (x * 0.95) + "px, " + (y * 0.95) + "px); -moz-transition-timing-function:ease-in-out;"],
+                                    [100, "-moz-transform: translate(" + x + "px, " + y + "px);"]
+                                ];
+                                var rules_ms = [
+                                    [0, "-ms-transform: translate(0px, 0px); -ms-transition-timing-function: ease-out;"],
+                                    [(delay + 15), "-ms-transform: translate(0px, 0px);"],
+                                    [(45 + delay2), "-ms-transform: translate(" + (x * 1.2) + "px, " + (y * 1.2) + "px); -ms-transition-timing-function: ease-in;"],
+                                    [65, "-ms-transform: translate(" + (x * 0.95) + "px, " + (y * 0.95) + "px); -ms-transition-timing-function:ease-in-out;"],
+                                    [100, "-ms-transform: translate(" + x + "px, " + y + "px);"]
+                                ];
+                                var open = "", reverse = "", open_moz = "", reverse_moz = "", open_ms = "", reverse_ms = "";
+                                rules.forEach(function(rule) {
+                                    open += rule[0] + '% {' + rule[1] + "}\n";
+                                    reverse = (100 - rule[0]) + '% {' + rule[1] + " }\n" + reverse;
+                                }, this);
+                                rules_moz.forEach(function(rule) {
+                                    open_moz += rule[0] + '% {' + rule[1] + "}\n";
+                                    reverse_moz = (100 - rule[0]) + '% {' + rule[1] + " }\n" + reverse_moz;
+                                }, this);
+                                rules_ms.forEach(function(rule) {
+                                    open_ms += rule[0] + '% {' + rule[1] + "}\n";
+                                    reverse_ms = (100 - rule[0]) + '% {' + rule[1] + " }\n" + reverse_ms;
+                                }, this);
+                                open_moz = "@-moz-keyframes " + guid + "open {\n " + open_moz + "} ";
+                                reverse_moz = "@-moz-keyframes " + guid + "close {\n " + reverse_moz + "}";
+                                open = "@-webkit-keyframes " + guid + "open { " + open + "} ";
+                                reverse = "@-webkit-keyframes " + guid + "close { " + reverse + "}";
+                                open_ms = "@-ms-keyframes " + guid + "open {\n " + open_ms + "} ";
+                                reverse_ms = "@-ms-keyframes " + guid + "close {\n " + reverse_ms + "}";
+                                try {
+                                    sheet.insertRule(open, 0);
+                                    sheet.insertRule(reverse, 0);
+                                } catch (e) {
+                                    try {
+                                        sheet.insertRule(open_moz, 0);
+                                        sheet.insertRule(reverse_moz, 0);
+                                    } catch (e) {
+                                        sheet.insertRule(open_ms, 0);
+                                        sheet.insertRule(reverse_ms, 0);
+                                    }
+                                }
+                                var link = item.querySelector('a');
+                                link.style.webkitTransition = '-webkit-transform 500ms ease-in-out';
+                                link.style.MozTransition = "-moz-transform 500ms ease-in-out";
+                                link.style.msTransition = "-ms-transform 500ms ease-in-out";
+                                link.style.transition = "transform 500ms ease-in-out";
+                                this.animations.push([item, guid + 'open', guid + "close"]);
+                            });
+                            this.button.style.webkitTransition = "-webkit-transform 100ms linear";
+                            this.button.style.MozTransition = "-moz-transform 100ms linear";
+                            this.button.style.msTransition = "-ms-transform 100ms linear";
+                            this.button.style.transition = "transform 100ms linear";
+
+
+                            if (this.button.ontouchstart !== undefined) {
+                                this.button.addEventListener('touchstart', function(e) {
+                                    e.stopPropagation();
+                                    e.preventDefault();
+                                    menu.toggle();
+                                });
+                                this.button.addEventListener('touchmove', function(e) {
+                                    e.stopPropagation();
+                                    e.preventDefault();
+                                });
+                                this.button.addEventListener('touchend', function(e) {
+                                    e.stopPropagation();
+                                    e.preventDefault();
+                                });
+                            } else {
+                                this.button.addEventListener('mousedown', function() {
+                                    menu.toggle();
+                                })
+                            }
+                            this.button.addEventListener('click', function(e) {
+                                e.preventDefault();
+                            });
+                            var links = this.node.querySelectorAll('li a');
+                            for (var i = 0; i < links.length; i++) {
+                                links[i].addEventListener('click', function(e) {
+                                    e.preventDefault();
+                                })
+                            }
                             ;
                         }
-
-                        this.eachItem(function(item, index, items) {
-                            var ulm = offset;
-                            // var ulm=offset*index-offset*index/2;
-                            var degree = (((degrees / positions) * index) + ulm) % 360,
-                                    position = Menu.degreeToPosition(degree),
-                                    x = Math.round((position.x * radius)),
-                                    y = Math.round((position.y * radius)),
-                                    guid = this.guid + '-' + index,
-                                    delay = (30 / items.length) * index,
-                                    delay2 = (20 / items.length) * index;
-//+""+
-
-                            var ox = 0, oy = 0;
-                            var angle = (y - oy) / (x - ox);
-                            var div = document.createElement('div');
-                            var grad = Math.atan2(y, x);
-
-                            var div = "<div class='line' data-rotate='" + grad + "'"
-                                    + "'></div>";
-                            //element.appendChild(line);
-                            $('#full').append(div);
-                            var rules = [
-                                [0, "-webkit-transform: translate3d(0px, 0px, 0px); -webkit-transition-timing-function: ease-out;"],
-                                [(delay + 15), "-webkit-transform: translate3d(0px, 0px, 0px);"],
-                                [(45 + delay2), "-webkit-transform: translate3d(" + (x * 1.2) + "px, " + (y * 1.2) + "px, 0px); -webkit-transition-timing-function: ease-in;"],
-                                [65, "-webkit-transform: translate3d(" + (x * 0.95) + "px, " + (y * 0.95) + "px, 0px); -webkit-transition-timing-function:ease-in-out;"],
-                                [100, "-webkit-transform: translate3d(" + x + "px, " + y + "px, 0px);"]
-                            ];
-                            var rules_moz = [
-                                [0, "-moz-transform: translate(0px, 0px); -moz-transition-timing-function: ease-out;"],
-                                [(delay + 15), "-moz-transform: translate(0px, 0px);"],
-                                [(45 + delay2), "-moz-transform: translate(" + (x * 1.2) + "px, " + (y * 1.2) + "px); -moz-transition-timing-function: ease-in;"],
-                                [65, "-moz-transform: translate(" + (x * 0.95) + "px, " + (y * 0.95) + "px); -moz-transition-timing-function:ease-in-out;"],
-                                [100, "-moz-transform: translate(" + x + "px, " + y + "px);"]
-                            ];
-                            var rules_ms = [
-                                [0, "-ms-transform: translate(0px, 0px); -ms-transition-timing-function: ease-out;"],
-                                [(delay + 15), "-ms-transform: translate(0px, 0px);"],
-                                [(45 + delay2), "-ms-transform: translate(" + (x * 1.2) + "px, " + (y * 1.2) + "px); -ms-transition-timing-function: ease-in;"],
-                                [65, "-ms-transform: translate(" + (x * 0.95) + "px, " + (y * 0.95) + "px); -ms-transition-timing-function:ease-in-out;"],
-                                [100, "-ms-transform: translate(" + x + "px, " + y + "px);"]
-                            ];
-                            var open = "", reverse = "", open_moz = "", reverse_moz = "", open_ms = "", reverse_ms = "";
-                            rules.forEach(function(rule) {
-                                open += rule[0] + '% {' + rule[1] + "}\n";
-                                reverse = (100 - rule[0]) + '% {' + rule[1] + " }\n" + reverse;
-                            }, this);
-                            rules_moz.forEach(function(rule) {
-                                open_moz += rule[0] + '% {' + rule[1] + "}\n";
-                                reverse_moz = (100 - rule[0]) + '% {' + rule[1] + " }\n" + reverse_moz;
-                            }, this);
-                            rules_ms.forEach(function(rule) {
-                                open_ms += rule[0] + '% {' + rule[1] + "}\n";
-                                reverse_ms = (100 - rule[0]) + '% {' + rule[1] + " }\n" + reverse_ms;
-                            }, this);
-                            open_moz = "@-moz-keyframes " + guid + "open {\n " + open_moz + "} ";
-                            reverse_moz = "@-moz-keyframes " + guid + "close {\n " + reverse_moz + "}";
-                            open = "@-webkit-keyframes " + guid + "open { " + open + "} ";
-                            reverse = "@-webkit-keyframes " + guid + "close { " + reverse + "}";
-                            open_ms = "@-ms-keyframes " + guid + "open {\n " + open_ms + "} ";
-                            reverse_ms = "@-ms-keyframes " + guid + "close {\n " + reverse_ms + "}";
-                            try {
-                                sheet.insertRule(open, 0);
-                                sheet.insertRule(reverse, 0);
-                            } catch (e) {
-                                try {
-                                    sheet.insertRule(open_moz, 0);
-                                    sheet.insertRule(reverse_moz, 0);
-                                } catch (e) {
-                                    sheet.insertRule(open_ms, 0);
-                                    sheet.insertRule(reverse_ms, 0);
-                                }
+                        Menu.guid = function() {
+                            if (this.menu_count === undefined) {
+                                this.menu_count = 0;
+                            } else {
+                                this.menu_count++;
                             }
-                            var link = item.querySelector('a');
-                            link.style.webkitTransition = '-webkit-transform 500ms ease-in-out';
-                            link.style.MozTransition = "-moz-transform 500ms ease-in-out";
-                            link.style.msTransition = "-ms-transform 500ms ease-in-out";
-                            link.style.transition = "transform 500ms ease-in-out";
-                            this.animations.push([item, guid + 'open', guid + "close"]);
-                        });
-                        this.button.style.webkitTransition = "-webkit-transform 100ms linear";
-                        this.button.style.MozTransition = "-moz-transform 100ms linear";
-                        this.button.style.msTransition = "-ms-transform 100ms linear";
-                        this.button.style.transition = "transform 100ms linear";
-
-
-                        if (this.button.ontouchstart !== undefined) {
-                            this.button.addEventListener('touchstart', function(e) {
-                                e.stopPropagation();
-                                e.preventDefault();
-                                menu.toggle();
+                            return "ani" + this.menu_count;
+                        }
+                        Menu.prototype.toggle = function() {
+                            if (this.isOpen()) {
+                                this.close();
+                            } else {
+                                this.open();
+                            }
+                        }
+                        Menu.prototype.close = function() {
+                            if (this.isClosed())
+                                return;
+                            this.state = 'closed';
+                            this.button.style.webkitTransform = "rotate(0deg)";
+                            this.button.style.MozTransform = "rotate(0deg)";
+                            this.button.style.msTransform = "rotate(0deg)";
+                            this.button.style.OTransform = "rotate(0deg)";
+                            this.button.style.transform = "rotate(0deg)";
+                            this.eachAnimation(function(animation) {
+                                var item = animation[0];
+                                var closed = animation[2];
+                                var link = item.querySelector('a');
+                                item.style.webkitAnimation = closed + " 700ms";
+                                item.style.webkitAnimationFillMode = 'both';
+                                link.style.webkitTransform = "rotate(360deg)";
+                                item.style.MozAnimation = '700ms ease 0s normal both 1 ' + closed;
+                                link.style.MozTransform = "rotate(360deg)";
+                                item.style.animation = '700ms ease 0s normal both 1 ' + closed;
+                                link.style.transform = "rotate(360deg)";
+                                item.style.msAnimation = '700ms ease 0s normal both 1 ' + closed;
+                                link.style.msTransform = "rotate(360deg)";
                             });
-                            this.button.addEventListener('touchmove', function(e) {
-                                e.stopPropagation();
-                                e.preventDefault();
+
+                            $('.radial-menu .line').each(function(i) {
+                                $(this).removeClass("animated fadeOut fadeIn");
+                                $(this).addClass("animated fadeOut");
+                                $(this).css({transform: 'rotate(0rad)'});
                             });
-                            this.button.addEventListener('touchend', function(e) {
-                                e.stopPropagation();
-                                e.preventDefault();
+                        }
+                        Menu.prototype.open = function() {
+                            if (this.isOpen())
+                                return;
+                            this.state = 'open';
+                            this.button.style.webkitTransform = 'rotate(-45deg)';
+                            this.button.style.MozTransform = 'rotate(-45deg)';
+                            this.button.style.msTransform = 'rotate(-45deg)';
+                            this.button.style.OTransform = 'rotate(-45deg)';
+                            this.button.style.transform = 'rotate(-45deg)';
+                            this.eachAnimation(function(animation) {
+                                var item = animation[0],
+                                        open = animation[1],
+                                        link = item.querySelector('a');
+                                item.style.webkitAnimation = open + " 800ms";
+                                item.style.webkitAnimationFillMode = 'both';
+                                link.style.webkitTransform = 'rotate(-360deg)';
+                                item.style.MozAnimation = open + " 800ms";
+                                item.style.MozAnimationFillMode = 'both';
+                                link.style.MozTransform = 'rotate(-360deg)';
+                                item.style.msAnimation = open + " 800ms";
+                                item.style.msAnimationFillMode = 'both';
+                                link.style.msTransform = 'rotate(-360deg)';
+                                item.style.animation = open + " 800ms";
+                                item.style.animationFillMode = 'both';
+                                link.style.transform = 'rotate(-360deg)';
                             });
-                        } else {
-                            this.button.addEventListener('mousedown', function() {
-                                menu.toggle();
-                            })
-                        }
-                        this.button.addEventListener('click', function(e) {
-                            e.preventDefault();
-                        });
-                        var links = this.node.querySelectorAll('li a');
-                        for (var i = 0; i < links.length; i++) {
-                            links[i].addEventListener('click', function(e) {
-                                e.preventDefault();
-                            })
-                        }
-                        ;
-                    }
-                    Menu.guid = function() {
-                        if (this.menu_count === undefined) {
-                            this.menu_count = 0;
-                        } else {
-                            this.menu_count++;
-                        }
-                        return "ani" + this.menu_count;
-                    }
-                    Menu.prototype.toggle = function() {
-                        if (this.isOpen()) {
-                            this.close();
-                        } else {
-                            this.open();
-                        }
-                    }
-                    Menu.prototype.close = function() {
-                        if (this.isClosed())
-                            return;
-                        this.state = 'closed';
-                        this.button.style.webkitTransform = "rotate(0deg)";
-                        this.button.style.MozTransform = "rotate(0deg)";
-                        this.button.style.msTransform = "rotate(0deg)";
-                        this.button.style.OTransform = "rotate(0deg)";
-                        this.button.style.transform = "rotate(0deg)";
-                        this.eachAnimation(function(animation) {
-                            var item = animation[0];
-                            var closed = animation[2];
-                            var link = item.querySelector('a');
-                            item.style.webkitAnimation = closed + " 700ms";
-                            item.style.webkitAnimationFillMode = 'both';
-                            link.style.webkitTransform = "rotate(360deg)";
-                            item.style.MozAnimation = '700ms ease 0s normal both 1 ' + closed;
-                            link.style.MozTransform = "rotate(360deg)";
-                            item.style.animation = '700ms ease 0s normal both 1 ' + closed;
-                            link.style.transform = "rotate(360deg)";
-                            item.style.msAnimation = '700ms ease 0s normal both 1 ' + closed;
-                            link.style.msTransform = "rotate(360deg)";
-                        });
 
-                        $('#full .line').each(function(i) {
-                            $(this).removeClass("animated fadeOut fadeIn");
-                            $(this).addClass("animated fadeOut");
-                            $(this).css({transform: 'rotate(0rad)'});
-                        });
-                    }
-                    Menu.prototype.open = function() {
-                        if (this.isOpen())
-                            return;
-                        this.state = 'open';
-                        this.button.style.webkitTransform = 'rotate(-45deg)';
-                        this.button.style.MozTransform = 'rotate(-45deg)';
-                        this.button.style.msTransform = 'rotate(-45deg)';
-                        this.button.style.OTransform = 'rotate(-45deg)';
-                        this.button.style.transform = 'rotate(-45deg)';
-                        this.eachAnimation(function(animation) {
-                            var item = animation[0],
-                                    open = animation[1],
-                                    link = item.querySelector('a');
-                            item.style.webkitAnimation = open + " 800ms";
-                            item.style.webkitAnimationFillMode = 'both';
-                            link.style.webkitTransform = 'rotate(-360deg)';
-                            item.style.MozAnimation = open + " 800ms";
-                            item.style.MozAnimationFillMode = 'both';
-                            link.style.MozTransform = 'rotate(-360deg)';
-                            item.style.msAnimation = open + " 800ms";
-                            item.style.msAnimationFillMode = 'both';
-                            link.style.msTransform = 'rotate(-360deg)';
-                            item.style.animation = open + " 800ms";
-                            item.style.animationFillMode = 'both';
-                            link.style.transform = 'rotate(-360deg)';
-                        });
-
-                        $('#full .line').each(function(i) {
-                            $(this).removeClass("animated fadeOut fadeIn");
-                            $(this).addClass("animated fadeIn");
-                            $(this).css({transform: 'rotate(' + $(this).data("rotate") + 'rad)'});
-                        });
-                    }
-                    Menu.prototype.isOpen = function() {
-                        return this.state == 'open';
-                    }
-                    Menu.prototype.isClosed = function() {
-                        return !this.isOpen();
-                    }
-                    Menu.prototype.eachItem = function(callback) {
-                        Array.prototype.forEach.call(this.menu_items, callback, this);
-                    }
-                    Menu.prototype.eachAnimation = function(callback) {
-                        this.animations.forEach(callback, this);
-                    }
-                    Menu.degreeToRadian = function(degree) {
-// radians = (180/Pi) / degrees
-                        degree = degree == 0 ? 360 : degree;
-                        var rad = (Math.PI / 180) * degree;
-                        return rad;
-                    }
-                    Menu.radianToPosition = function(radian) {
-                        return {
-                            x: Math.cos(radian),
-                            y: Math.sin(radian)
+                            $('.radial-menu .line').each(function(i) {
+                                $(this).removeClass("animated fadeOut fadeIn");
+                                $(this).addClass("animated fadeIn");
+                                $(this).css({transform: 'rotate(' + $(this).data("rotate") + 'rad)'});
+                            });
                         }
-                    }
-                    Menu.degreeToPosition = function(degree) {
-                        return Menu.radianToPosition(Menu.degreeToRadian(degree));
-                    }
-                </script> 
-                <script type="text/javascript" charset="utf-8">
-                    var full = new Menu(document.querySelector('#full'), {
-                        degrees: 360,
-                        offset: 180,
-                        radius: 100
-                    });
-                </script>
+                        Menu.prototype.isOpen = function() {
+                            return this.state == 'open';
+                        }
+                        Menu.prototype.isClosed = function() {
+                            return !this.isOpen();
+                        }
+                        Menu.prototype.eachItem = function(callback) {
+                            Array.prototype.forEach.call(this.menu_items, callback, this);
+                        }
+                        Menu.prototype.eachAnimation = function(callback) {
+                            this.animations.forEach(callback, this);
+                        }
+                        Menu.degreeToRadian = function(degree) {
+                            // radians = (180/Pi) / degrees
+                            degree = degree == 0 ? 360 : degree;
+                            var rad = (Math.PI / 180) * degree;
+                            return rad;
+                        }
+                        Menu.radianToPosition = function(radian) {
+                            return {
+                                x: Math.cos(radian),
+                                y: Math.sin(radian)
+                            }
+                        }
+                        Menu.degreeToPosition = function(degree) {
+                            return Menu.radianToPosition(Menu.degreeToRadian(degree));
+                        }
+                    </script> 
+                    <script type="text/javascript" charset="utf-8">
+                        var full = new Menu(document.querySelector('.radial-menu'), {
+                            degrees: 360,
+                            offset: 180,
+                            radius: 100
+                        });
+                    </script>
+                </div>
+                <!--Fin radial Menu-->
 
+
+                <!--Start news Menu-->
                 <div class="news-wrapper" id="snews">
                     <div class="news">
                         <div class="headline">
@@ -481,475 +488,805 @@ and open the template in the editor.
                                 Digging deep into Teotihuacan’s mystery.</a>
                         </div>
                     </div>
-                </div>
-
-                <style>
-                    .news-wrapper
-                    {
-                        width: 660px;
-                        position: relative;
-                        overflow: hidden;
-                    }
-                    .news-wrapper .news-title
-                    {
-                        float: left;
-                        background-image: url(title-news.png);
-                        background-color: #2f2f2f;
-                        width: 18px;
-                        height: 36px;
-                        z-index: 11;
-                        border-radius-topleft: 3px;
-                        border-radius-bottomleft: 3px;
-                        -moz-border-radius-topleft: 3px;
-                        -moz-border-radius-bottomleft: 3px;
-                        -webkit-border-top-left-radius: 3px;
-                        -webkit-border-bottom-left-radius: 3px;
-                    }
-                    .news-wrapper .news
-                    {
-                        background-color: #aed0ec;
-                        width: 640px;
-                        height: 36px;
-                        border-radius-topright: 4px;
-                        border-radius-bottomright: 4px;
-                        -moz-border-radius-topright: 4px;
-                        -moz-border-radius-bottomright: 4px;
-                        -webkit-border-top-right-radius: 4px;
-                        -webkit-border-bottom-right-radius: 4px;
-                        overflow: hidden;
-                    }
-                    .news-wrapper .headline
-                    {
-                        position: absolute;
-                        font-size: 10pt;
-                        height: 10px;
-                        padding: 8px 12px 8px 8px;
-                        overflow: hidden;
-                        z-index: 1;
-                        /*overflow: hidden;*/
-                    }
-                    .news-wrapper .headline a
-                    {
-                        background-image: url(gaindi.png);
-                        background-repeat: no-repeat;
-                        background-position: right bottom;
-                        padding-right: 16px;	
-                    }
-                    .news-wrapper .headline a, .news-wrapper .headline a:active, .news-wrapper .headline a:visited
-                    {
-                        color: #1e1e1e;
-                        text-decoration: none;
-                    }
-                    .news-wrapper .headline a:hover
-                    {
-                        color: #163b5b;
-                        text-decoration: none;
-                    }
-                    .news-wrapper .control-bar
-                    {
-                        background-image: url(control-bar.png);
-                        background-repeat: no-repeat;
-                        width: 97px;
-                        height: 21px;
-                        position: absolute;
-                        z-index: -1;
-                        top: 35px;
-                    }
-                    .controls-wrapper
-                    {
-                        position: relative;
-                        width: 48px;
-                        height: 12px;
-                        margin-left: 24px;
-                    }
-                    .controls-wrapper div
-                    {
-                        position: relative;
-                        width: 7px;
-                        height: 8px;
-                        margin-left: 6px;
-                        margin-top: 4px;
-                        float: left;
-                    }
-                    .controls-wrapper div.next
-                    {
-                        background: url(next.png) no-repeat;
-                        cursor: pointer;
-                    }
-                    .controls-wrapper div.prev
-                    {
-                        background: url(prev.png) no-repeat;
-                        cursor: pointer;
-                    }
-                    .controls-wrapper div.play
-                    {
-                        background: url(play.png) no-repeat;
-                        cursor: pointer;
-                    }
-                    .controls-wrapper div.pause
-                    {
-                        background: url(pause.png) no-repeat;
-                        cursor: pointer;
-                    }
-                    .preview-wrapper
-                    {
-                        font-size: 10pt;
-                        padding-top: 8px;
-                        width: 308px;
-                        height: 85px;
-                        position: absolute; /*margin: auto;*/
-                        z-index: 1000;
-                    }
-                    .preview-wrapper .preview
-                    {
-                        width: 292px;
-                        height: 61px;
-                        background-color: #2c2c2c;
-                        border-radius: 8px;
-                        -moz-border-radius: 8px;
-                        -webkit-border-radius: 8px;
-                        border: solid 1px #212121;
-                        padding: 8px;
-                        font-size: 9pt; /*overflow: hidden;*/ /*background: url(bg.jpg) repeat-x repeat-y;*/
-                    }
-                    .preview-wrapper .preview h4,.preview-wrapper .preview p
-                    {
-                        margin: 0;
-                        padding: 0;
-                        overflow: hidden;
-                    }
-                    .preview-wrapper .preview h4
-                    {
-                        font-size: 10pt;
-                        color: White;
-                        font-weight: normal;
-                        width: 290px;
-                        height: 16px;
-                    }
-                    .preview-wrapper .preview p
-                    {
-                        color: #9f9e9e;
-                        width: 290px;
-                        height: 54px;
-                    }
-                    .preview-wrapper .preview a
-                    {
-                        font-size: 11px;
-                        color: #9f9e9e;
-                        text-decoration: none;
-                        margin-left: 4px;
-                    }
-                    .preview-wrapper .preview a:hover
-                    {
-                        text-decoration: underline;
-                        color: Yellow;
-                    }
-                    .preview-wrapper .tip
-                    {
-                        margin: auto;
-                        width: 13px;
-                        height: 9px;
-                        background-image: url(cor.png);
-                    }
-                    .news-wrapper .multiple
-                    {
-                        width: 680px;
-                        overflow: hidden;
-                    }
-                    .news-wrapper.multiple .news-title
-                    {
-                        float: left;
-                    }
-                    .news-wrapper.multiple .news
-                    {
-                        float: left;
-                        width: 2000px;
-                    }
-                    .news-wrapper.multiple .headline
-                    {
-                        position: relative;
-                        float: left;
-                        margin-left: 0px;
-                    }
-                </style>
-                <script>
-                    (function($) {
-                        $.fn.extend({
-                            dnews: function(options) {
-                                var settings = $.extend({
-                                    controls: true,
-                                    switchInterval: 5000,
-                                    feedurl: '',
-                                    showdetail: true,
-                                    moretext: '[...]',
-                                    controlsalwaysvisible: true,
-                                    entries: 10,
-                                    target: "",
-                                    headlineLength: 80
-                                }, options);
-                                return this.each(function() {
-                                    var direction = "forward";
-                                    var wrapper = $(this);
-                                    var interval;
-                                    var prevIndex = 0;
-                                    var curIndex = 0;
-                                    var mode = 'auto'; //auto, manual
-                                    var next, prev, play, pause;
-                                    var containerWidth;
-                                    var left;
-                                    var total;
-                                    var allHeadlines;
-                                    var controlbar;
-                                    var previewWraper;
-                                    var mouseEntered = 0;
-                                    function setPlayingStatus(isPlaying) {
-                                        if (isPlaying) {
-                                            play.css('display', 'none');
-                                            pause.css('display', '');
-                                        }
-                                        else {
-                                            play.css('display', '');
-                                            pause.css('display', 'none');
-                                        }
-                                    }
-                                    if (settings.showdetail) {
-                                        previewWraper = $('<div/>').attr('id', wrapper.attr('id') + '-' + 'preview').addClass('preview-wrapper').css('opacity', '0').css('visibility', 'hidden');
-                                        previewWraper.append($('<div/>').addClass('preview')
-                                                .append($('<h4/>'))
-                                                .append($('<p/>'))).append($('<div/>').addClass('tip'));
-                                        wrapper.before(previewWraper);
-                                    }
-                                    if (settings.controls) {
-                                        controlbar = $('<div/>').addClass('control-bar').css('display', 'none');
-                                        wrapper.after(controlbar);
-                                        next = $('<div><i class="icon-arrow-right"></i></div>').addClass('next');
-                                        prev = $('<div><i class="icon-arrow-left"></i></div>').addClass('prev');
-                                        play = $('<div><i class="icon-play"></i></div>').addClass('play');
-                                        pause = $('<div><i class="icon-pause"></i></div>').addClass('pause');
-                                        var left = $('.news', wrapper).width() / 2 - controlbar.width() / 2;
-                                        controlbar.css('left', left);
-                                        controlbar.append($('<div/>').addClass('controls-wrapper').append(prev).append(pause).append(play).append(next));
-                                        setPlayingStatus(true);
-                                        next.click(function() {
-                                            mode = 'manual';
-                                            setPlayingStatus(false);
-                                            stopAnimation();
-                                            direction = "forward";
-                                            if (prevIndex > curIndex) {
-                                                var temp = curIndex;
-                                                curIndex = prevIndex;
-                                                prevIndex = temp;
-                                            }
-                                            switchNews();
-                                        });
-                                        prev.click(function() {
-                                            mode = 'manual';
-                                            setPlayingStatus(false);
-                                            stopAnimation();
-                                            direction = "backward";
-                                            if (prevIndex < curIndex) {
-                                                var temp = curIndex;
-                                                curIndex = prevIndex;
-                                                prevIndex = temp;
-                                            }
-                                            switchNews();
-                                        });
-                                        play.click(function() {
-                                            mode = 'manual';
-                                            setPlayingStatus(true);
-                                            startAnimation();
-                                        });
-                                        pause.click(function() {
-                                            mode = 'manual';
-                                            setPlayingStatus(false);
-                                            stopAnimation();
-                                        });
-                                    }
-                                    var id = 0;
-                                    var descriptions = new Array();
-                                    //build news headlines from feed
 
 
-                                    $('.news a', wrapper).each(function(index, news) {
-                                        id++;
-                                        descriptions.push($(news).attr('title'));
-                                        $(news).attr('id', id).removeAttr('title');
-                                    });
-                                    setupHeadlines();
-                                    /*wrapper.find('.news').hover(stopAnimation, function() { if (mode == 'auto') startAnimation(); });*/
-                                    function stopAnimation() {
-                                        clearInterval(interval);
-                                    }
-                                    function startAnimation() {
-                                        interval = setInterval(switchNews, settings.switchInterval);
-                                    }
-                                    function setupHeadlines() {
-                                        if (settings.controls)
-                                            controlbar.css('display', '');
-                                        wrapper.prepend($('<div/>').addClass('news-title'));
-                                        containerWidth = $('.news', wrapper).width() + $('.news-title', wrapper).width();
-                                        allHeadlines = $('.headline', wrapper);
-                                        left = wrapper.find('.news').css('left');
-                                        if (left == 'auto')
-                                            left = $('.news-title').width() + 'px';
-                                        allHeadlines.css('left', '-' + containerWidth + 'px');
-                                        total = allHeadlines.length;
-                                        $(allHeadlines[curIndex]).css('left', left);
-                                        interval = setInterval(switchNews, settings.switchInterval);
-                                        if (previewWraper != null) {
-                                            var previewWrapperLeft = previewWraper.offset().left;
-                                            previewWraper.animate({opacity: 0}, 1000, function() {
-                                                $(this).css('visibility', 'hidden');
-                                            });
+                    <style>
+                        .news-wrapper
+                        {
+                            width: 660px;
+                            position: relative;
+                            overflow: hidden;
+                        }
+                        .news-wrapper .news-title
+                        {
+                            float: left;
+                            background-image: url(title-news.png);
+                            background-color: #2f2f2f;
+                            width: 18px;
+                            height: 36px;
+                            z-index: 11;
+                            border-radius-topleft: 3px;
+                            border-radius-bottomleft: 3px;
+                            -moz-border-radius-topleft: 3px;
+                            -moz-border-radius-bottomleft: 3px;
+                            -webkit-border-top-left-radius: 3px;
+                            -webkit-border-bottom-left-radius: 3px;
+                        }
+                        .news-wrapper .news
+                        {
+                            background-color: #aed0ec;
+                            width: 640px;
+                            height: 36px;
+                            border-radius-topright: 4px;
+                            border-radius-bottomright: 4px;
+                            -moz-border-radius-topright: 4px;
+                            -moz-border-radius-bottomright: 4px;
+                            -webkit-border-top-right-radius: 4px;
+                            -webkit-border-bottom-right-radius: 4px;
+                            overflow: hidden;
+                        }
+                        .news-wrapper .headline
+                        {
+                            position: absolute;
+                            font-size: 10pt;
+                            height: 10px;
+                            padding: 8px 12px 8px 8px;
+                            overflow: hidden;
+                            z-index: 1;
+                            /*overflow: hidden;*/
+                        }
+                        .news-wrapper .headline a
+                        {
+                            background-image: url(gaindi.png);
+                            background-repeat: no-repeat;
+                            background-position: right bottom;
+                            padding-right: 16px;	
+                        }
+                        .news-wrapper .headline a, .news-wrapper .headline a:active, .news-wrapper .headline a:visited
+                        {
+                            color: #1e1e1e;
+                            text-decoration: none;
+                        }
+                        .news-wrapper .headline a:hover
+                        {
+                            color: #163b5b;
+                            text-decoration: none;
+                        }
+                        .news-wrapper .control-bar
+                        {
+                            background-image: url(control-bar.png);
+                            background-repeat: no-repeat;
+                            width: 97px;
+                            height: 21px;
+                            position: absolute;
+                            z-index: -1;
+                            top: 35px;
+                        }
+                        .controls-wrapper
+                        {
+                            position: relative;
+                            width: 48px;
+                            height: 12px;
+                            margin-left: 24px;
+                        }
+                        .controls-wrapper div
+                        {
+                            position: relative;
+                            width: 7px;
+                            height: 8px;
+                            margin-left: 6px;
+                            margin-top: 4px;
+                            float: left;
+                        }
+                        .controls-wrapper div.next
+                        {
+                            background: url(next.png) no-repeat;
+                            cursor: pointer;
+                        }
+                        .controls-wrapper div.prev
+                        {
+                            background: url(prev.png) no-repeat;
+                            cursor: pointer;
+                        }
+                        .controls-wrapper div.play
+                        {
+                            background: url(play.png) no-repeat;
+                            cursor: pointer;
+                        }
+                        .controls-wrapper div.pause
+                        {
+                            background: url(pause.png) no-repeat;
+                            cursor: pointer;
+                        }
+                        .preview-wrapper
+                        {
+                            font-size: 10pt;
+                            padding-top: 8px;
+                            width: 308px;
+                            height: 85px;
+                            position: absolute; /*margin: auto;*/
+                            z-index: 1000;
+                        }
+                        .preview-wrapper .preview
+                        {
+                            width: 292px;
+                            height: 61px;
+                            background-color: #2c2c2c;
+                            border-radius: 8px;
+                            -moz-border-radius: 8px;
+                            -webkit-border-radius: 8px;
+                            border: solid 1px #212121;
+                            padding: 8px;
+                            font-size: 9pt; /*overflow: hidden;*/ /*background: url(bg.jpg) repeat-x repeat-y;*/
+                        }
+                        .preview-wrapper .preview h4,.preview-wrapper .preview p
+                        {
+                            margin: 0;
+                            padding: 0;
+                            overflow: hidden;
+                        }
+                        .preview-wrapper .preview h4
+                        {
+                            font-size: 10pt;
+                            color: White;
+                            font-weight: normal;
+                            width: 290px;
+                            height: 16px;
+                        }
+                        .preview-wrapper .preview p
+                        {
+                            color: #9f9e9e;
+                            width: 290px;
+                            height: 54px;
+                        }
+                        .preview-wrapper .preview a
+                        {
+                            font-size: 11px;
+                            color: #9f9e9e;
+                            text-decoration: none;
+                            margin-left: 4px;
+                        }
+                        .preview-wrapper .preview a:hover
+                        {
+                            text-decoration: underline;
+                            color: Yellow;
+                        }
+                        .preview-wrapper .tip
+                        {
+                            margin: auto;
+                            width: 13px;
+                            height: 9px;
+                            background-image: url(cor.png);
+                        }
+                        .news-wrapper .multiple
+                        {
+                            width: 680px;
+                            overflow: hidden;
+                        }
+                        .news-wrapper.multiple .news-title
+                        {
+                            float: left;
+                        }
+                        .news-wrapper.multiple .news
+                        {
+                            float: left;
+                            width: 2000px;
+                        }
+                        .news-wrapper.multiple .headline
+                        {
+                            position: relative;
+                            float: left;
+                            margin-left: 0px;
+                        }
+                    </style>
+                    <script>
+                        (function($) {
+                            $.fn.extend({
+                                dnews: function(options) {
+                                    var settings = $.extend({
+                                        controls: true,
+                                        switchInterval: 5000,
+                                        feedurl: '',
+                                        showdetail: true,
+                                        moretext: '[...]',
+                                        controlsalwaysvisible: true,
+                                        entries: 10,
+                                        target: "",
+                                        headlineLength: 80
+                                    }, options);
+                                    return this.each(function() {
+                                        var direction = "forward";
+                                        var wrapper = $(this);
+                                        var interval;
+                                        var prevIndex = 0;
+                                        var curIndex = 0;
+                                        var mode = 'auto'; //auto, manual
+                                        var next, prev, play, pause;
+                                        var containerWidth;
+                                        var left;
+                                        var total;
+                                        var allHeadlines;
+                                        var controlbar;
+                                        var previewWraper;
+                                        var mouseEntered = 0;
+                                        function setPlayingStatus(isPlaying) {
+                                            if (isPlaying) {
+                                                play.css('display', 'none');
+                                                pause.css('display', '');
+                                            }
+                                            else {
+                                                play.css('display', '');
+                                                pause.css('display', 'none');
+                                            }
                                         }
-                                        if (!settings.controlsalwaysvisible)
-                                            controlbar.slideUp("fast");
-                                        wrapper.mouseenter(function(e) {
-                                            stopAnimation();
-                                            mouseEntered = getMousePosition(e, wrapper);
-                                            if (!settings.controlsalwaysvisible)
-                                                controlbar.slideDown("fast");
-                                        });
-                                        wrapper.mouseleave(function(e) {
-                                            if (mode == 'auto')
-                                                startAnimation();
-                                            var mpos = getMousePosition(e, wrapper);
-                                            var direction = mouseEntered[1] > mpos[1] ? "u" : "d";
-                                            if (direction == 'u') {
-                                                if (!settings.controlsalwaysvisible)
-                                                    controlbar.slideUp("fast");
-                                            }
-                                            if (direction == 'd') {
-                                                if (previewWraper != null)
-                                                    previewWraper.animate({opacity: 0}, 500, function() {
-                                                        $(this).css('visibility', 'hidden');
-                                                    });
-                                            }
-                                        });
+                                        if (settings.showdetail) {
+                                            previewWraper = $('<div/>').attr('id', wrapper.attr('id') + '-' + 'preview').addClass('preview-wrapper').css('opacity', '0').css('visibility', 'hidden');
+                                            previewWraper.append($('<div/>').addClass('preview')
+                                                    .append($('<h4/>'))
+                                                    .append($('<p/>'))).append($('<div/>').addClass('tip'));
+                                            wrapper.before(previewWraper);
+                                        }
                                         if (settings.controls) {
-                                            controlbar.mouseleave(function() {
-                                                if (!settings.controlsalwaysvisible)
-                                                    controlbar.slideUp("fast");
-                                                if (previewWraper != null)
-                                                    previewWraper.animate({opacity: 0}, 500, function() {
-                                                        $(this).css('visibility', 'hidden');
-                                                    });
+                                            controlbar = $('<div/>').addClass('control-bar').css('display', 'none');
+                                            wrapper.after(controlbar);
+                                            next = $('<div><i class="icon-arrow-right"></i></div>').addClass('next');
+                                            prev = $('<div><i class="icon-arrow-left"></i></div>').addClass('prev');
+                                            play = $('<div><i class="icon-play"></i></div>').addClass('play');
+                                            pause = $('<div><i class="icon-pause"></i></div>').addClass('pause');
+                                            var left = $('.news', wrapper).width() / 2 - controlbar.width() / 2;
+                                            controlbar.css('left', left);
+                                            controlbar.append($('<div/>').addClass('controls-wrapper').append(prev).append(pause).append(play).append(next));
+                                            setPlayingStatus(true);
+                                            next.click(function() {
+                                                mode = 'manual';
+                                                setPlayingStatus(false);
+                                                stopAnimation();
+                                                direction = "forward";
+                                                if (prevIndex > curIndex) {
+                                                    var temp = curIndex;
+                                                    curIndex = prevIndex;
+                                                    prevIndex = temp;
+                                                }
+                                                switchNews();
+                                            });
+                                            prev.click(function() {
+                                                mode = 'manual';
+                                                setPlayingStatus(false);
+                                                stopAnimation();
+                                                direction = "backward";
+                                                if (prevIndex < curIndex) {
+                                                    var temp = curIndex;
+                                                    curIndex = prevIndex;
+                                                    prevIndex = temp;
+                                                }
+                                                switchNews();
+                                            });
+                                            play.click(function() {
+                                                mode = 'manual';
+                                                setPlayingStatus(true);
+                                                startAnimation();
+                                            });
+                                            pause.click(function() {
+                                                mode = 'manual';
+                                                setPlayingStatus(false);
+                                                stopAnimation();
                                             });
                                         }
-                                        previewWraper.mouseleave(function() {
-                                            if (!settings.controlsalwaysvisible)
-                                                controlbar.slideUp("fast");
-                                            if (previewWraper != null)
-                                                previewWraper.animate({opacity: 0}, 500, function() {
+                                        var id = 0;
+                                        var descriptions = new Array();
+                                        //build news headlines from feed
+
+
+                                        $('.news a', wrapper).each(function(index, news) {
+                                            id++;
+                                            descriptions.push($(news).attr('title'));
+                                            $(news).attr('id', id).removeAttr('title');
+                                        });
+                                        setupHeadlines();
+                                        /*wrapper.find('.news').hover(stopAnimation, function() { if (mode == 'auto') startAnimation(); });*/
+                                        function stopAnimation() {
+                                            clearInterval(interval);
+                                        }
+                                        function startAnimation() {
+                                            interval = setInterval(switchNews, settings.switchInterval);
+                                        }
+                                        function setupHeadlines() {
+                                            if (settings.controls)
+                                                controlbar.css('display', '');
+                                            wrapper.prepend($('<div/>').addClass('news-title'));
+                                            containerWidth = $('.news', wrapper).width() + $('.news-title', wrapper).width();
+                                            allHeadlines = $('.headline', wrapper);
+                                            left = wrapper.find('.news').css('left');
+                                            if (left == 'auto')
+                                                left = $('.news-title').width() + 'px';
+                                            allHeadlines.css('left', '-' + containerWidth + 'px');
+                                            total = allHeadlines.length;
+                                            $(allHeadlines[curIndex]).css('left', left);
+                                            interval = setInterval(switchNews, settings.switchInterval);
+                                            if (previewWraper != null) {
+                                                var previewWrapperLeft = previewWraper.offset().left;
+                                                previewWraper.animate({opacity: 0}, 1000, function() {
                                                     $(this).css('visibility', 'hidden');
                                                 });
-                                        });
-                                        if (settings.showdetail) {
-                                            $('.headline', wrapper).mouseenter(function(e) {
-                                                var top = -(previewWraper.height() + $('.tip').height() + 2);
-                                                previewWraper.css('top', top);
-                                                var description = descriptions[parseInt($(this).find('a').attr('id')) - 1];
-                                                if (description == '')
-                                                    description = $(this).find('a').html();
-                                                if (description.length > 120)
-                                                    description = description.substr(0, 120);
-                                                description += '<a href="' + $(this).find('a').attr('href') + '" target="' + settings.target + '" >' + settings.moretext + '</a>';
-                                                var previewId = wrapper.attr('id') + '-' + 'preview';
-                                                $('#' + previewId + ' p').html(description);
-                                                $('#' + previewId + ' h4').html($(this).find('a').html());
-                                                var previewleft = $(this).offset().left - previewWrapperLeft;
-                                                previewWraper.css('left', previewleft + 'px')
-                                                        .css('visibility', 'visible')
-                                                        .stop()
-                                                        .animate({opacity: 1.0}, 1000, function() {
+                                            }
+                                            if (!settings.controlsalwaysvisible)
+                                                controlbar.slideUp("fast");
+                                            wrapper.mouseenter(function(e) {
+                                                stopAnimation();
+                                                mouseEntered = getMousePosition(e, wrapper);
+                                                if (!settings.controlsalwaysvisible)
+                                                    controlbar.slideDown("fast");
+                                            });
+                                            wrapper.mouseleave(function(e) {
+                                                if (mode == 'auto')
+                                                    startAnimation();
+                                                var mpos = getMousePosition(e, wrapper);
+                                                var direction = mouseEntered[1] > mpos[1] ? "u" : "d";
+                                                if (direction == 'u') {
+                                                    if (!settings.controlsalwaysvisible)
+                                                        controlbar.slideUp("fast");
+                                                }
+                                                if (direction == 'd') {
+                                                    if (previewWraper != null)
+                                                        previewWraper.animate({opacity: 0}, 500, function() {
+                                                            $(this).css('visibility', 'hidden');
                                                         });
+                                                }
                                             });
-                                        }
-                                    }
-                                    function switchNews() {
-                                        if (direction == 'forward') {
-                                            curIndex = (prevIndex + 1) % total;
-                                            $(allHeadlines[prevIndex]).stop().animate({'left': containerWidth + 'px'}, "slow", function() {
-                                                $(this).css('left', '-' + containerWidth + 'px');
+                                            if (settings.controls) {
+                                                controlbar.mouseleave(function() {
+                                                    if (!settings.controlsalwaysvisible)
+                                                        controlbar.slideUp("fast");
+                                                    if (previewWraper != null)
+                                                        previewWraper.animate({opacity: 0}, 500, function() {
+                                                            $(this).css('visibility', 'hidden');
+                                                        });
+                                                });
+                                            }
+                                            previewWraper.mouseleave(function() {
+                                                if (!settings.controlsalwaysvisible)
+                                                    controlbar.slideUp("fast");
+                                                if (previewWraper != null)
+                                                    previewWraper.animate({opacity: 0}, 500, function() {
+                                                        $(this).css('visibility', 'hidden');
+                                                    });
                                             });
-                                            $(allHeadlines[curIndex]).stop().animate({'left': left}, "slow");
+                                            if (settings.showdetail) {
+                                                $('.headline', wrapper).mouseenter(function(e) {
+                                                    var top = -(previewWraper.height() + $('.tip').height() + 2);
+                                                    previewWraper.css('top', top);
+                                                    var description = descriptions[parseInt($(this).find('a').attr('id')) - 1];
+                                                    if (description == '')
+                                                        description = $(this).find('a').html();
+                                                    if (description.length > 120)
+                                                        description = description.substr(0, 120);
+                                                    description += '<a href="' + $(this).find('a').attr('href') + '" target="' + settings.target + '" >' + settings.moretext + '</a>';
+                                                    var previewId = wrapper.attr('id') + '-' + 'preview';
+                                                    $('#' + previewId + ' p').html(description);
+                                                    $('#' + previewId + ' h4').html($(this).find('a').html());
+                                                    var previewleft = $(this).offset().left - previewWrapperLeft;
+                                                    previewWraper.css('left', previewleft + 'px')
+                                                            .css('visibility', 'visible')
+                                                            .stop()
+                                                            .animate({opacity: 1.0}, 1000, function() {
+                                                            });
+                                                });
+                                            }
                                         }
-                                        else {
-                                            curIndex = (prevIndex > 0 ? prevIndex - 1 : total - 1) % total;
-                                            $(allHeadlines[prevIndex]).stop().animate({'left': -containerWidth + 'px'}, "slow");
-                                            $(allHeadlines[curIndex]).css({'left': containerWidth + 'px'}).stop().animate({'left': left}, "slow");
+                                        function switchNews() {
+                                            if (direction == 'forward') {
+                                                curIndex = (prevIndex + 1) % total;
+                                                $(allHeadlines[prevIndex]).stop().animate({'left': containerWidth + 'px'}, "slow", function() {
+                                                    $(this).css('left', '-' + containerWidth + 'px');
+                                                });
+                                                $(allHeadlines[curIndex]).stop().animate({'left': left}, "slow");
+                                            }
+                                            else {
+                                                curIndex = (prevIndex > 0 ? prevIndex - 1 : total - 1) % total;
+                                                $(allHeadlines[prevIndex]).stop().animate({'left': -containerWidth + 'px'}, "slow");
+                                                $(allHeadlines[curIndex]).css({'left': containerWidth + 'px'}).stop().animate({'left': left}, "slow");
+                                            }
+                                            prevIndex = curIndex;
                                         }
-                                        prevIndex = curIndex;
-                                    }
-                                    function getMousePosition(e, el) {
-                                        var x = 0;
-                                        var y = 0;
-                                        if (e.offsetX || e.offsetY) {
-                                            x = e.offsetX;
-                                            y = e.offsetY;
+                                        function getMousePosition(e, el) {
+                                            var x = 0;
+                                            var y = 0;
+                                            if (e.offsetX || e.offsetY) {
+                                                x = e.offsetX;
+                                                y = e.offsetY;
+                                            }
+                                            else if (e.pageX || e.pageY) {
+                                                x = e.pageX - parseInt($(el).css('left'));
+                                                y = e.pageY - parseInt($(el).css('top'));
+                                            }
+                                            else if (e.clientX || e.clientY) {
+                                                x = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
+                                                y = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
+                                            }
+                                            return [x, y];
                                         }
-                                        else if (e.pageX || e.pageY) {
-                                            x = e.pageX - parseInt($(el).css('left'));
-                                            y = e.pageY - parseInt($(el).css('top'));
-                                        }
-                                        else if (e.clientX || e.clientY) {
-                                            x = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
-                                            y = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
-                                        }
-                                        return [x, y];
-                                    }
-                                });
-                            }
-                        });
-                    })(jQuery);
-                    $('#snews').dnews({showdetail: true, controlsalwaysvisible: true, entries: 10, controls: true, target: "_blank"});</script>
+                                    });
+                                }
+                            });
+                        })(jQuery);
+                        $('#snews').dnews({showdetail: true, controlsalwaysvisible: true, entries: 10, controls: true, target: "_blank"});</script>
+                </div>
+
+
 
 
             </div>
-
-
-
-
         </div>
 
 
-
         <div id="tmpMayra">
-              <!--drag start http://www.teapot-creation.com/#/page/travaux-->
-            
-                    <div id="wrapperscroll">
-                        <!--drag start http://www.teapot-creation.com/#/page/travaux-->
-                        <div class="portlet-layout row-fluid" style="min-height: 300px;height: 100%;">
-                            <div class="portlet-column portlet-column-only" id="porletwrap">
+           
+            <div id="parallax" class="">
+                <div class="paraindex1 parallax-layer">
+                    <img src="http://www.batman-3d.de/wp-content/themes/vigilant-neu/images/batcave-dark.jpg" width="810" height="310" alt="Dark Batcave" />
+                </div>
+                <div class="paraindex1a parallax-layer">
+                    <img src="http://www.batman-3d.de/wp-content/themes/vigilant-neu/images/jokercard.png" width="170" height="278" alt="Joker Playing card" />
+                </div>
+                <div class="paraindex2 parallax-layer">
+                    <img src="http://www.batman-3d.de/wp-content/themes/vigilant-neu/images/t-rex.png" width="354" height="322" alt="Animatronic Tyrannosaurus Rex" />
+                </div>
+                <div class="paraindex3 parallax-layer">
+                    <img src="http://www.batman-3d.de/wp-content/themes/vigilant-neu/images/penny.png" width="202" height="344" alt="Giant Lincoln Penny" />
+                </div>
+                <div class="paraindex4 parallax-layer">
+                    <img src="http://www.batman-3d.de/wp-content/themes/vigilant-neu/images/batman-angry.png" width="559" height="401" alt="Batman angry" />
+                </div>
+            </div>
 
-                                <div class="portlet-dropzone portlet-column-content portlet-column-only" id="layout-column_porletwrap">
-                                    <div class="portlet-boundary portlet-boundary_56_ portlet-journal-content  portlet-draggable yui3-dd-drop" id="p_p_id_56_INSTANCE_pj61NYUAG2TG_">
-                                        <span id="p_56_INSTANCE_pj61NYUAG2TG"></span> 
-                                        <section class="portlet" id="portlet_56_INSTANCE_pj61NYUAG2TG"> 
-                                           
-                                            <div class="portlet-content"> 
-                                                <div class=" portlet-content-container" style=""> 
-                                                    <div class="portlet-body"> 
-                                                        <div class="journal-content-article"> 
+            <style>
+                .parallax-viewport {
+                    position: relative; /* relative, absolute, fixed */
+                    overflow: hidden;
+                    width: 100%;
+                    max-width: 60em;
+                    height: 20em;
+                    background-color: #aebcc9;
+                }
+                .parallax-layer {
+                    // position: absolute;
+                }
 
+                #parallax {
+                    border-top: 1px solid #202328;
+                    height: 300px;
+                    margin-top: 9px;
+                    overflow: hidden;
+                    padding-left: 3px;
+                    position: relative;
+                    width: 100%;
+                    background-color: red;
+                     
+                }
 
-                                                        </div> 
-                                                        <div class="lfr-meta-actions icons-container"> <div class="lfr-icon-actions"> <span class="lfr-icon-action lfr-icon-action-edit"> <a href="http://localhost:8080/web/guest/pag2?p_p_auth=oZ0FijWu&amp;p_p_id=15&amp;p_p_lifecycle=0&amp;p_p_state=maximized&amp;p_p_mode=view&amp;p_p_col_id=porletwrap&amp;p_p_col_count=1&amp;_15_groupId=10184&amp;_15_redirect=http%3A%2F%2Flocalhost%3A8080%2Fweb%2Fguest%2Fpag2%3Fp_p_id%3D56_INSTANCE_pj61NYUAG2TG%26p_p_lifecycle%3D0%26p_p_state%3Dnormal%26p_p_mode%3Dview%26p_p_col_id%3Dporletwrap%26p_p_col_count%3D1&amp;_15_struts_action=%2Fjournal%2Fedit_article&amp;_15_articleId=11927&amp;_15_version=1.4" class=" taglib-icon" id="_56_INSTANCE_pj61NYUAG2TG_rjus_porletwrap_0"> <img id="rjus_porletwrap_0" src="http://localhost:8080/html/themes/dcmtheme/images/spacer.png" alt="" style="background-image: url('http://localhost:8080/sprite/html/themes/dcmtheme/images/common/_sprite.png'); background-position: 50% -608px; background-repeat: no-repeat; height: 16px; width: 16px;"> <span class="taglib-text ">Editar</span> </a> </span> <span class="lfr-icon-action lfr-icon-action-configuration"> <a href="http://localhost:8080/web/guest/pag2?p_p_id=86&amp;p_p_lifecycle=0&amp;p_p_state=pop_up&amp;p_p_col_id=porletwrap&amp;p_p_col_count=1&amp;_86_struts_action=%2Fportlet_configuration%2Fedit_configuration&amp;_86_redirect=%2Fweb%2Fguest%2Fpag2%3Fp_p_id%3D56_INSTANCE_pj61NYUAG2TG%26p_p_lifecycle%3D0%26p_p_state%3Dnormal%26p_p_mode%3Dview%26p_p_col_id%3Dporletwrap%26p_p_col_count%3D1&amp;_86_returnToFullPageURL=%2Fweb%2Fguest%2Fpag2%3Fp_p_id%3D56_INSTANCE_pj61NYUAG2TG%26p_p_lifecycle%3D0%26p_p_state%3Dnormal%26p_p_mode%3Dview%26p_p_col_id%3Dporletwrap%26p_p_col_count%3D1&amp;_86_portletResource=56_INSTANCE_pj61NYUAG2TG&amp;_86_resourcePrimKey=11801_LAYOUT_56_INSTANCE_pj61NYUAG2TG&amp;_86_" class=" taglib-icon" id="_56_INSTANCE_pj61NYUAG2TG_ctvk_porletwrap_0" onclick="Liferay.Portlet.openWindow('#p_p_id_56_INSTANCE_pj61NYUAG2TG_', '56_INSTANCE_pj61NYUAG2TG', 'http://localhost:8080/web/guest/pag2?p_p_id=86&amp;p_p_lifecycle=0&amp;p_p_state=pop_up&amp;p_p_col_id=porletwrap&amp;p_p_col_count=1&amp;_86_struts_action=%2Fportlet_configuration%2Fedit_configuration&amp;_86_redirect=%2Fweb%2Fguest%2Fpag2%3Fp_p_id%3D56_INSTANCE_pj61NYUAG2TG%26p_p_lifecycle%3D0%26p_p_state%3Dnormal%26p_p_mode%3Dview%26p_p_col_id%3Dporletwrap%26p_p_col_count%3D1&amp;_86_returnToFullPageURL=%2Fweb%2Fguest%2Fpag2%3Fp_p_id%3D56_INSTANCE_pj61NYUAG2TG%26p_p_lifecycle%3D0%26p_p_state%3Dnormal%26p_p_mode%3Dview%26p_p_col_id%3Dporletwrap%26p_p_col_count%3D1&amp;_86_portletResource=56_INSTANCE_pj61NYUAG2TG&amp;_86_resourcePrimKey=11801_LAYOUT_56_INSTANCE_pj61NYUAG2TG&amp;_86_ ', '_56_INSTANCE_pj61NYUAG2TG_ ', 'Configuración');
-                                                                return false;"> <img id="ctvk_porletwrap_0" src="http://localhost:8080/html/themes/dcmtheme/images/spacer.png" alt="" style="background-image: url('http://localhost:8080/sprite/html/themes/dcmtheme/images/common/_sprite.png'); background-position: 50% -384px; background-repeat: no-repeat; height: 16px; width: 16px;"> <span class="taglib-text ">Seleccionar contenido web</span> </a> </span> <span class="lfr-icon-action lfr-icon-action-add"> <a href="http://localhost:8080/web/guest/pag2?p_p_auth=oZ0FijWu&amp;p_p_id=15&amp;p_p_lifecycle=0&amp;p_p_state=maximized&amp;p_p_mode=view&amp;p_p_col_id=porletwrap&amp;p_p_col_count=1&amp;_15_groupId=10184&amp;_15_portletResource=56_INSTANCE_pj61NYUAG2TG&amp;_15_redirect=http%3A%2F%2Flocalhost%3A8080%2Fweb%2Fguest%2Fpag2%3Fp_p_id%3D56_INSTANCE_pj61NYUAG2TG%26p_p_lifecycle%3D0%26p_p_state%3Dnormal%26p_p_mode%3Dview%26p_p_col_id%3Dporletwrap%26p_p_col_count%3D1&amp;_15_struts_action=%2Fjournal%2Fedit_article" class=" taglib-icon" id="_56_INSTANCE_pj61NYUAG2TG_suxb_porletwrap_0"> <img id="suxb_porletwrap_0" src="http://localhost:8080/html/themes/dcmtheme/images/spacer.png" alt="" style="background-image: url('http://localhost:8080/sprite/html/themes/dcmtheme/images/common/_sprite.png'); background-position: 50% -32px; background-repeat: no-repeat; height: 16px; width: 16px;"> <span class="taglib-text ">Añadir</span> </a> </span> </div> </div> <div class="entry-links"> </div> </div>
-                                                    
-                                                </div> 
-                                            </div> 
-                                        </section> 
-                                    </div> 
-                                </div>
+                div.paraindex1{
+                    height:310px;
+                    position: absolute;
+                    width:810px
+                }
+                div.paraindex1a{
+                    height:315px;
+                    position: absolute;
+                    width:825px;
+                    padding-left:10%;
+                    padding-top:95px
+                }
+                div.paraindex2{
+                    height:320px;
+                    padding-left:500px;
+                    padding-top:8px;
+                    position: absolute;
+                    width:835px
+                }
+                div.paraindex3{
+                    height:325px;
+                    position: absolute;
+                    width:860px;
+                    margin-left:-90px
+                }
+                div.paraindex4{
+                    height:365px;
+                    padding-left:210px;
+                    position: absolute;
+                    width:915px
+                }
+            </style>
+            <script>
+                if (!jQuery.event.special.frame) {
+// jquery.events.frame.js
+// 1.1 - lite
+// Stephen Band
+//
+// Project home:
+// webdev.stephband.info/events/frame/
+//
+// Source:
+// http://github.com/stephband/jquery.event.frame
+                    (function(d, h) {
+                        function i(a, b) {
+                            function e() {
+                                f.frameCount++;
+                                a.call(f)
+                            }
+                            var f = this, g;
+                            this.frameDuration = b || 25;
+                            this.frameCount = -1;
+                            this.start = function() {
+                                e();
+                                g = setInterval(e, this.frameDuration)
+                            };
+                            this.stop = function() {
+                                clearInterval(g);
+                                g = null
+                            }
+                        }
+                        function j() {
+                            var a = d.event.special.frame.handler, b = d.Event("frame"), e = this.array, f = e.length;
+                            for (b.frameCount = this.frameCount; f--; )
+                                a.call(e[f], b)
+                        }
+                        var c;
+                        if (!d.event.special.frame)
+                            d.event.special.frame = {setup: function(a) {
+                                    if (c)
+                                        c.array.push(this);
+                                    else {
+                                        c = new i(j, a && a.frameDuration);
+                                        c.array = [this];
+                                        var b = setTimeout(function() {
+                                            c.start();
+                                            clearTimeout(b);
+                                            b = null
+                                        }, 0)
+                                    }
+                                }, teardown: function() {
+                                    for (var a = c.array, b = a.length; b--; )
+                                        if (a[b] === this) {
+                                            a.splice(b, 1);
+                                            break
+                                        }
+                                    if (a.length === 0) {
+                                        c.stop();
+                                        c = h
+                                    }
+                                }, handler: function() {
+                                    // d.event.handle.apply(this, arguments)
+                                    d.event.dispatch.apply(this, arguments);
+                                }}
+                    })(jQuery);
+                }
+// jquery.jparallax.js
+// 1.0
+// Stephen Band
+//
+// Project and documentation site:
+// webdev.stephband.info/jparallax/
+//
+// Repository:
+// github.com/stephband/jparallax
+//
+// Dependencies:
+// jquery.event.frame
+                (function(l, t) {
+                    function y(i) {
+                        return this.lib[i]
+                    }
+                    function q(i) {
+                        return typeof i === "boolean" ? i : !!parseFloat(i)
+                    }
+                    function r(i, b) {
+                        var k = [q(i.xparallax), q(i.yparallax)];
+                        this.ontarget = false;
+                        this.decay = i.decay;
+                        this.pointer = b || [0.5, 0.5];
+                        this.update = function(e, a) {
+                            if (this.ontarget)
+                                this.pointer = e;
+                            else if ((!k[0] || u(e[0] - this.pointer[0]) < a[0]) && (!k[1] || u(e[1] - this.pointer[1]) < a[1])) {
+                                this.ontarget = true;
+                                this.pointer = e
+                            } else {
+                                a = [];
+                                for (var g = 2; g--; )
+                                    if (k[g])
+                                        a[g] = e[g] + this.decay * (this.pointer[g] - e[g]);
+                                this.pointer = a
+                            }
+                        }
+                    }
+                    function z(i, b) {
+                        var k = this, e = i instanceof l ? i : l(i), a = [q(b.xparallax), q(b.yparallax)], g = 0, d;
+                        this.pointer = [0, 0];
+                        this.active = false;
+                        this.activeOutside = b && b.activeOutside || false;
+                        this.update = function(h) {
+                            var j = this.pos, c = this.size, f = [], m = 2;
+                            if (g > 0) {
+                                if (g === 2) {
+                                    g = 0;
+                                    if (d)
+                                        h = d
+                                }
+                                for (; m--; )
+                                    if (a[m]) {
+                                        f[m] = (h[m] - j[m]) / c[m];
+                                        f[m] = f[m] < 0 ? 0 : f[m] > 1 ? 1 : f[m]
+                                    }
+                                this.active = true;
+                                this.pointer = f
+                            } else
+                                this.active = false
+                        };
+                        this.updateSize = function() {
+                            var h = e.width(), j = e.height();
+                            k.size = [h, j];
+                            k.threshold = [1 / h, 1 / j]
+                        };
+                        this.updatePos = function() {
+                            var h =
+                                    e.offset() || {left: 0, top: 0}, j = parseInt(e.css("borderLeftWidth")) + parseInt(e.css("paddingLeft")), c = parseInt(e.css("borderTopWidth")) + parseInt(e.css("paddingTop"));
+                            k.pos = [h.left + j, h.top + c]
+                        };
+                        l(window).bind("resize", k.updateSize).bind("resize", k.updatePos);
+                        e.bind("mouseenter", function() {
+                            g = 1
+                        }).bind("mouseleave", function(h) {
+                            g = 2;
+                            d = [h.pageX, h.pageY]
+                        });
+                        this.updateSize();
+                        this.updatePos()
+                    }
+                    function A(i, b) {
+                        var k = [], e = [], a = [], g = [];
+                        this.update = function(d) {
+                            for (var h = [], j, c, f = 2, m = {}; f--; )
+                                if (e[f]) {
+                                    h[f] = e[f] * d[f] + a[f];
+                                    if (k[f]) {
+                                        j = g[f];
+                                        c = h[f] * -1
+                                    } else {
+                                        j = h[f] * 100 + "%";
+                                        c = h[f] * this.size[f] * -1
+                                    }
+                                    if (f === 0) {
+                                        m.left = j;
+                                        m.marginLeft = c
+                                    } else {
+                                        m.top = j;
+                                        m.marginTop = c
+                                    }
+                                }
+                            i.css(m)
+                        };
+                        this.setParallax = function(d, h, j, c) {
+                            d = [d || b.xparallax, h || b.yparallax];
+                            j = [j || b.xorigin, c || b.yorigin];
+                            for (c = 2; c--; ) {
+                                k[c] = o.px.test(d[c]);
+                                if (typeof j[c] === "string")
+                                    j[c] = o.percent.test(j[c]) ? parseFloat(j[c]) / 100 : v[j[c]] || 1;
+                                if (k[c]) {
+                                    e[c] = parseInt(d[c]);
+                                    a[c] = j[c] * (this.size[c] - e[c]);
+                                    g[c] = j[c] * 100 + "%"
+                                } else {
+                                    e[c] = d[c] === true ? 1 : o.percent.test(d[c]) ? parseFloat(d[c]) / 100 :
+                                            d[c];
+                                    a[c] = e[c] ? j[c] * (1 - e[c]) : 0
+                                }
+                            }
+                        };
+                        this.getPointer = function() {
+                            for (var d = i.offsetParent(), h = i.position(), j = [], c = [], f = 2; f--; ) {
+                                j[f] = k[f] ? 0 : h[f === 0 ? "left" : "top"] / (d[f === 0 ? "outerWidth" : "outerHeight"]() - this.size[f]);
+                                c[f] = (j[f] - a[f]) / e[f]
+                            }
+                            return c
+                        };
+                        this.setSize = function(d, h) {
+                            this.size = [d || i.outerWidth(), h || i.outerHeight()]
+                        };
+                        this.setSize(b.width, b.height);
+                        this.setParallax(b.xparallax, b.yparallax, b.xorigin, b.yorigin)
+                    }
+                    function s(i) {
+                        var b = l(this), k = i.data, e = b.data(n), a = k.port, g = k.mouse, d = e.mouse;
+                        if (k.timeStamp !==
+                                i.timeStamp) {
+                            k.timeStamp = i.timeStamp;
+                            a.update(w);
+                            if (a.active || !g.ontarget)
+                                g.update(a.pointer, a.threshold)
+                        }
+                        if (d) {
+                            d.update(e.freeze ? e.freeze.pointer : a.pointer, a.threshold);
+                            if (d.ontarget) {
+                                delete e.mouse;
+                                e.freeze && b.unbind(p).addClass(k.freezeClass)
+                            }
+                            g = d
+                        } else
+                            g.ontarget && !a.active && b.unbind(p);
+                        e.layer.update(g.pointer)
+                    }
+                    var n = "parallax", x = {mouseport: "body", xparallax: true, yparallax: true, xorigin: 0.5, yorigin: 0.5, decay: 0.66, frameDuration: 30, freezeClass: "freeze"}, v = {left: 0, top: 0, middle: 0.5, center: 0.5, right: 1,
+                        bottom: 1}, o = {px: /^\d+\s?px$/, percent: /^\d+\s?%$/}, p = "frame." + n, u = Math.abs, w = [0, 0];
+                    y.lib = v;
+                    l.fn[n] = function(i) {
+                        var b = l.extend({}, l.fn[n].options, i), k = arguments, e = this;
+                        if (!(b.mouseport instanceof l))
+                            b.mouseport = l(b.mouseport);
+                        b.port = new z(b.mouseport, b);
+                        b.mouse = new r(b);
+                        b.mouseport.bind("mouseenter", function() {
+                            b.mouse.ontarget = false;
+                            e.each(function() {
+                                var a = l(this);
+                                a.data(n).freeze || a.bind(p, b, s)
+                            })
+                        });
+                        return e.bind("freeze", function(a) {
+                            var g = l(this), d =
+                                    g.data(n), h = d.mouse || d.freeze || b.mouse, j = o.percent.exec(a.x) ? parseFloat(a.x.replace(/%$/, "")) / 100 : a.x || h.pointer[0], c = o.percent.exec(a.y) ? parseFloat(a.y.replace(/%$/, "")) / 100 : a.y || h.pointer[1];
+                            a = a.decay;
+                            d.freeze = {pointer: [j, c]};
+                            d.mouse = new r(b, h.pointer);
+                            if (a !== t)
+                                d.mouse.decay = a;
+                            g.bind(p, b, s)
+                        }).bind("unfreeze", function(a) {
+                            var g = l(this), d = g.data(n);
+                            a = a.decay;
+                            var h;
+                            if (d.freeze) {
+                                h = d.mouse ? d.mouse.pointer : d.freeze.pointer;
+                                d.mouse = new r(b);
+                                d.mouse.pointer = h;
+                                if (a !== t)
+                                    d.mouse.decay = a;
+                                delete d.freeze;
+                                g.removeClass(x.freezeClass).bind(p,
+                                        b, s)
+                            }
+                        }).each(function(a) {
+                            var g = l(this);
+                            a = k[a + 1] ? l.extend({}, b, k[a + 1]) : b;
+                            var d = new A(g, a);
+                            g.data(n, {layer: d, mouse: new r(a, d.getPointer())})
+                        })
+                    };
+                    l.fn[n].options = x;
+                    l(document).ready(function() {
+                        l(document).mousemove(function(i) {
+                            w = [i.pageX, i.pageY]
+                        })
+                    })
+                })(jQuery);
+            </script>
 
+            <script>
+                /*jQuery(document).ready(function() {
+                 jQuery('#parallax')
+                 .parallax({
+                 mouseport: jQuery('#parallax')
+                 });
+                 });*/
 
-                            </div></div>
-
-                    </div>
-                
-
-            <!--drag end-->
+                jQuery(document).ready(function() {
+                    jQuery('#parallax .parallax-layer').parallax({
+                       mouseport: $('#parallax')
+                        // ,xorigin:'middle'
+                        // ,xparallax:'-1px'
+                    });
+                });
+            </script>
         </div>
 
 
