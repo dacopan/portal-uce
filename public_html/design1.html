@@ -583,6 +583,26 @@ and open the template in the editor.
                                                     </div>
                                                     <div class="slide" id="slide3" data-slide="3" data-stellar-background-ratio="0.5">
 
+                                                        <div id="screen1" class="assetoverview-item"></div>
+            <div id="screen2" class="assetoverview-item"></div>
+            <style>
+                .assetoverview-item {
+                    width: 29%;
+                    float: left;
+                    margin: 50px 0% 5px 3%;
+                    background-color: #222;
+                    text-align: center;
+                    padding: 30px 0 30px 1%;
+                    height: 30%;
+                }
+            </style>
+            <script>
+               jQuery(document).ready(function() {     TweenMax.to($("#screen1"), 1.5, {delay: 0, scaleX: "-=0.02", scaleY: "-=0.02", repeat: -1, yoyo: true, ease: Linear.easeNone});
+                    TweenMax.to($("#screen2"), 1.5, {delay:0.2, scaleX:"-=0.02", scaleY:"-=0.02", repeat:-1, yoyo:true, ease:Linear.easeNone});
+                    //TweenMax.set($("#screen1"), {x:400, y:-1000, scaleX:0, scaleY:0});
+                });
+            </script>
+            
                                                         <a class="scrollbut" data-slide="4" title=""></a>
                                                     </div>
 
@@ -1629,6 +1649,11 @@ and open the template in the editor.
                                                         }
                                                         #slide3{
                                                             background-color: #1aaf5d;
+                                                            background-image: url(images/7.jpg);
+                                                            background-attachment: fixed;
+                                                            background-position: 50% 0px;
+                                                            background-repeat: no-repeat;                                
+                                                            position: relative;
                                                         }
                                                         #slide4{
                                                             background-color: #775c93;

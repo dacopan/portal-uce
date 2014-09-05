@@ -78,7 +78,7 @@ and open the template in the editor.
                 </div>
             </div>
 
-            <div id="top" style="min-height: 800px;">
+            <div id="top" style="min-height: 500px;">
 
 
                 <!--Start radial Menu-->
@@ -918,9 +918,9 @@ and open the template in the editor.
             </div>
         </div>
 
-
+<!--
         <div id="tmpMayra">
-           
+
             <div id="parallax" class="">
                 <div class="paraindex1 parallax-layer">
                     <img src="http://www.batman-3d.de/wp-content/themes/vigilant-neu/images/batcave-dark.jpg" width="810" height="310" alt="Dark Batcave" />
@@ -961,7 +961,7 @@ and open the template in the editor.
                     position: relative;
                     width: 100%;
                     background-color: red;
-                     
+
                 }
 
                 div.paraindex1{
@@ -1281,16 +1281,39 @@ and open the template in the editor.
 
                 jQuery(document).ready(function() {
                     jQuery('#parallax .parallax-layer').parallax({
-                       mouseport: $('#parallax')
-                        // ,xorigin:'middle'
-                        // ,xparallax:'-1px'
+                        mouseport: $('#parallax')
+                                // ,xorigin:'middle'
+                                // ,xparallax:'-1px'
                     });
                 });
             </script>
         </div>
-
-
+-->
+        <div id="tmpMayra2">
+            <!--http://static9.cdn.ubi.com/resource/es-ES/game/tomclancy-thedivision/game/tc_thedivision_homepage.js-->
+          
+            <div id="screen1" class="assetoverview-item"></div>
+            <div id="screen2" class="assetoverview-item"></div>
+            <style>
+                .assetoverview-item {
+                    width: 29%;
+                    float: left;
+                    margin: 5px 0% 5px 3%;
+                    background-color: green;
+                    text-align: center;
+                    padding: 30px 0 30px 1%;
+                    height: 30%;
+                }
+            </style>
+            <script>
+               jQuery(document).ready(function() {     TweenMax.to($("#screen1"), 1.5, {delay: 0, scaleX: "-=0.02", scaleY: "-=0.02", repeat: -1, yoyo: true, ease: Linear.easeNone});
+                    TweenMax.to($("#screen2"), 1.5, {delay:0.2, scaleX:"-=0.02", scaleY:"-=0.02", repeat:-1, yoyo:true, ease:Linear.easeNone});
+                    //TweenMax.set($("#screen1"), {x:400, y:-1000, scaleX:0, scaleY:0});
+                });
+            </script>
+        </div>
 
         <script src="js/dcmtheme.js"></script>
+        
     </body>
 </html>
