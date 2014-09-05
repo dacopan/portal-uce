@@ -202,7 +202,7 @@ and open the template in the editor.
                                                                     left: 80%!important;
                                                                     width: 35%;
                                                                     height: 811px;
-                                                                    
+
                                                                     top: 175px;
                                                                 }
                                                                 .img2{/*left*/
@@ -583,26 +583,59 @@ and open the template in the editor.
                                                     </div>
                                                     <div class="slide" id="slide3" data-slide="3" data-stellar-background-ratio="0.5">
 
-                                                        <div id="screen1" class="assetoverview-item"></div>
-            <div id="screen2" class="assetoverview-item"></div>
-            <style>
-                .assetoverview-item {
-                    width: 29%;
-                    float: left;
-                    margin: 50px 0% 5px 3%;
-                    background-color: #222;
-                    text-align: center;
-                    padding: 30px 0 30px 1%;
-                    height: 30%;
-                }
-            </style>
-            <script>
-               jQuery(document).ready(function() {     TweenMax.to($("#screen1"), 1.5, {delay: 0, scaleX: "-=0.02", scaleY: "-=0.02", repeat: -1, yoyo: true, ease: Linear.easeNone});
-                    TweenMax.to($("#screen2"), 1.5, {delay:0.2, scaleX:"-=0.02", scaleY:"-=0.02", repeat:-1, yoyo:true, ease:Linear.easeNone});
-                    //TweenMax.set($("#screen1"), {x:400, y:-1000, scaleX:0, scaleY:0});
-                });
-            </script>
-            
+                                                        <div id="screen1" class="assetoverview-item">
+                                                            <a href="#" id="157147801" data-fancybox-group="157142684" class="fancybox">
+                                                                <span>
+                                                                    <img src="http://static9.cdn.ubi.com/resource/es-ES/game/tomclancy-thedivision/game/FINAL_TCTD_E314_screenshot_contagion_thumb_147795.jpg" alt="FINAL_TCTD_E314_screenshot_night_thumb">
+                                                                </span>
+                                                            </a>
+                                                        </div>
+                                                        <div id="screen2" class="assetoverview-item">
+                                                            <a href="#" id="157147801" data-fancybox-group="157142684" class="fancybox">
+                                                                <span>
+                                                                    <img src="http://static9.cdn.ubi.com/resource/es-ES/game/tomclancy-thedivision/game/FINAL_TCTD_E314_screenshot_contagion_thumb_147795.jpg" alt="FINAL_TCTD_E314_screenshot_night_thumb">
+                                                                </span>
+                                                            </a>
+                                                        </div>
+                                                        <style>
+                                                            .assetoverview-item {
+                                                                width: 29%;
+                                                                float: left;
+                                                                margin: 350px 0% 5px 3%;
+                                                                background-color: #222;
+                                                                text-align: center;
+                                                                padding: 30px 0 30px 1%;
+                                                                height: 30%;
+                                                            }
+                                                            .assetoverview-item{ width: 29%; float: left; margin: 150px 0% 5px 3%; background: url('http://static9.cdn.ubi.com/resource/es-ES/game/tomclancy-thedivision/game/bg_50.png') repeat; text-align: center; padding: 30px 0 30px 1%; }
+                                                            .homepage_screenshots_section, .row_e3_video .wrap-tagline{ width: 1280px; margin: 0 auto; position: relative; }
+                                                            .homepage_screenshots_section .tagline, .row_e3_video .tagline{ position: absolute; right: 0; top: 220px; }
+
+                                                            .assetoverview{ width: 100% !important; }
+                                                            .assetoverview-item a{ display: block; position: relative; }
+                                                            .assetoverview img{ width: 90%; position: relative; display: inline-block; }
+                                                            .assetoverview a span:before, .assetoverview a span:after, .assetoverview-item a:before, .assetoverview-item a:after{ width: 13px; height: 13px; content: ''; display: block; position: absolute; }
+                                                            .assetoverview a span:before{ background: url('http://static9.cdn.ubi.com/resource/es-ES/game/tomclancy-thedivision/game/coin_top_left.png') no-repeat; left: 4%; top: -4px; }
+                                                            .assetoverview a span:after{ background: url('http://static9.cdn.ubi.com/resource/es-ES/game/tomclancy-thedivision/game/coin_top_right.png') no-repeat; right: 4%; top: -4px; }
+
+                                                            .assetoverview-item a:before{ background: url('http://static9.cdn.ubi.com/resource/es-ES/game/tomclancy-thedivision/game/coin_bottom_left.png') no-repeat; left: 4%; bottom: -4px; }
+                                                            .assetoverview-item a:after{ background: url('http://static9.cdn.ubi.com/resource/es-ES/game/tomclancy-thedivision/game/coin_bottom_right.png') no-repeat; right: 4%; bottom: -4px; }
+                                                            .assetoverview-item{ position: relative; }
+                                                            .assetoverview-item:nth-child(3n+1){ clear: both; }
+                                                            .assetoverview-item:before, .assetoverview-item:after{ content: ''; display: block; position: absolute; background: #ec901e; top: 26px; }
+                                                            .assetoverview-item:before{ width: 12px; height: 12px; left:1%; }
+                                                            .assetoverview-item:after{ width: 3px; height: calc(100% - 52px); left: 5%; }
+                                                        </style>
+                                                        <script>
+                                                            jQuery(document).ready(function() {
+                                                                TweenMax.to($("#screen1"), 1.5, {delay: 0, scaleX: "-=0.02", scaleY: "-=0.02", repeat: -1, yoyo: true, ease: Linear.easeNone});
+                                                                TweenMax.to($("#screen2"), 1.5, {delay: 0.2, scaleX: "-=0.02", scaleY: "-=0.02", repeat: -1, yoyo: true, ease: Linear.easeNone});
+                                                                TweenMax.to($(".img1"), 1.5, {delay: 0, scaleX: "-=0.01", scaleY: "-=0.01", repeat: -1, yoyo: true, ease: Linear.easeNone});
+                                                                TweenMax.to($(".img2"), 1.5, {delay: 0.2, scaleX: "-=0.01", scaleY: "-=0.01", repeat: -1, yoyo: true, ease: Linear.easeNone});
+                                                                //TweenMax.set($("#screen1"), {x:400, y:-1000, scaleX:0, scaleY:0});
+                                                            });
+                                                        </script>
+
                                                         <a class="scrollbut" data-slide="4" title=""></a>
                                                     </div>
 
@@ -1647,6 +1680,34 @@ and open the template in the editor.
                                                             position: relative;
 
                                                         }
+                                                        #slide3:before,#slide2:after{
+                                                            content: '';
+                                                            display: block;
+                                                            position: absolute;
+                                                            left: 0;
+                                                            width: 100%;
+                                                        }
+                                                        div#slide3.slide:before {
+                                                            top: 0;
+                                                            background: url('http://static9.cdn.ubi.com/resource/es-ES/game/tomclancy-thedivision/game/cache_top_agents.png') no-repeat 0 -35px;
+                                                            height: 160px;
+
+                                                        }
+                                                        #slide2:after {
+                                                            bottom: 0;
+                                                            background: url('http://static9.cdn.ubi.com/resource/es-ES/game/tomclancy-thedivision/game/cache_bottom_agents.png') no-repeat;
+                                                            height: 214px;
+
+                                                            content: '';
+                                                            width: 100%;
+                                                            height: 77px;
+                                                            display: block;
+                                                            position: absolute;
+                                                            bottom: 0px;
+                                                            left: 0;
+                                                            background: url('http://static9.cdn.ubi.com/resource/es-ES/game/tomclancy-thedivision/game/cache_bottom_bloc_top.png') no-repeat;
+                                                            
+                                                        }
                                                         #slide3{
                                                             background-color: #1aaf5d;
                                                             background-image: url(images/7.jpg);
@@ -1655,6 +1716,7 @@ and open the template in the editor.
                                                             background-repeat: no-repeat;                                
                                                             position: relative;
                                                         }
+
                                                         #slide4{
                                                             background-color: #775c93;
                                                         }
