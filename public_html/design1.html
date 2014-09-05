@@ -632,6 +632,7 @@ and open the template in the editor.
                                                                 TweenMax.to($("#screen2"), 1.5, {delay: 0.2, scaleX: "-=0.02", scaleY: "-=0.02", repeat: -1, yoyo: true, ease: Linear.easeNone});
                                                                 TweenMax.to($(".img1"), 1.5, {delay: 0, scaleX: "-=0.01", scaleY: "-=0.01", repeat: -1, yoyo: true, ease: Linear.easeNone});
                                                                 TweenMax.to($(".img2"), 1.5, {delay: 0.2, scaleX: "-=0.01", scaleY: "-=0.01", repeat: -1, yoyo: true, ease: Linear.easeNone});
+                                                                
                                                                 //TweenMax.set($("#screen1"), {x:400, y:-1000, scaleX:0, scaleY:0});
                                                             });
                                                         </script>
@@ -1534,7 +1535,7 @@ and open the template in the editor.
                                                             right: 40px;
                                                             top: 50%;
                                                             margin-top: -135px;
-                                                            z-index: 1;
+                                                            z-index: 99999999;
                                                             font-size: 9px; /* 18px - 10px */
                                                             font-family: Arial, sans-serif;
                                                             text-transform: uppercase;
@@ -1706,7 +1707,7 @@ and open the template in the editor.
                                                             bottom: 0px;
                                                             left: 0;
                                                             background: url('http://static9.cdn.ubi.com/resource/es-ES/game/tomclancy-thedivision/game/cache_bottom_bloc_top.png') no-repeat;
-                                                            
+
                                                         }
                                                         #slide3{
                                                             background-color: #1aaf5d;
@@ -1854,10 +1855,10 @@ and open the template in the editor.
                                                                 }, 2000, 'easeInOutExpo');
                                                                 htmlbody.animate({
                                                                     scrollTop: q - 10
-                                                                }, 500, 'easeInOutExpo');
+                                                                }, 1000, 'easeInOutExpo');
                                                                 htmlbody.animate({
                                                                     scrollTop: q
-                                                                }, 500, 'easeInOutExpo');
+                                                                }, 1000, 'easeInOutExpo');
                                                             }
                                                             //When the user clicks on the navigation links, get the data-slide attribute value of the link and pass that variable to the goToByScroll function
                                                             links.click(function(e) {
@@ -1873,6 +1874,8 @@ and open the template in the editor.
                                                                 dataslide = $(this).attr('data-slide');
                                                                 goToByScroll(dataslide);
                                                             });
+                                                            
+                                                            TweenMax.to($("#navBar"), 1.5, {delay: 0.2, scaleX: "-=0.02", scaleY: "-=0.02", repeat: -1, yoyo: true, ease: Linear.easeNone});
                                                         });
                                                     </script>
 
