@@ -4315,10 +4315,17 @@ $(document).ready(function() {
 // Parallax
 ///////////////////////////////
 $(window).scroll(function() {
-
+    var y_scroll_pos = window.pageYOffset;
+    var scroll_pos_test = 50;
+    if (y_scroll_pos > scroll_pos_test) {
+        jQuery('.top').fadeIn(1000);
+        jQuery('.iphone').children('.top').css('display', 'none !important');
+    } else {
+        jQuery('.top').fadeOut(500);
+    }
 });
 jQuery('.top').click(function() {
-    jQuery('html, body').animate({scrollTop: 0}, 500, 'easeOutCubic');//return false;
+    jQuery('html, body').animate({scrollTop: 0}, 1000, 'easeOutCubic');//return false;
 });
 
 function hover_overlay() {
