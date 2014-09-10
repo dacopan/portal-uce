@@ -4278,7 +4278,6 @@ $(document).ready(function() {
     });
 
     $('#userlaunch').click(function(e) {
-        // alert('mayra');
         var dockbar = $('#dcmdockbar');
         if (dockbar.css('display') === 'none') {
             dockbar.css('display', 'block');
