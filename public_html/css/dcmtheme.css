@@ -3359,6 +3359,7 @@ input[type=url]::-ms-clear,
 input[type=tel]::-ms-clear,
 input[type=number]::-ms-clear,
 input[type=time]::-ms-clear {
+
     display: none;
 }
 input[type=password]::-ms-reveal {
@@ -3713,6 +3714,30 @@ a {
   -ms-transform: rotateY(360deg);
   -o-transform: rotateY(360deg);
   transform: rotateY(360deg);
+}
+
+.metro .grid {
+  margin-bottom: 20px;
+}
+.metro .grid .row {
+  display: block;
+  margin-top: 20px;
+}
+.metro .grid .row:before,
+.metro .grid .row:after {
+  display: table;
+  content: "";
+}
+.metro .grid .row:after {
+  clear: both;
+}
+.metro .grid .row [class*="span"] {
+  float: left;
+  min-height: 1px;
+  margin-left: 20px;
+}
+.metro .grid .row [class*="span"]:first-child {
+  margin-left: 0;
 }
 /*</editor-fold>*/
 
