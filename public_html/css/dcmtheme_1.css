@@ -3137,11 +3137,6 @@ html.mm-opening #hamburger:after
     transform: rotate( -45deg );
     bottom: 15px;
 }
-.metro .full-screen{
-    width:100%;
-    height: 100%;
-}
-
 /*</editor-fold>*/
 
 /* #Liferay article add overrides/ drop cogs 

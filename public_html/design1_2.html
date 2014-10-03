@@ -50,40 +50,36 @@ and open the template in the editor.
     <body class="aui container-fluid metro" style="background-color:transparent; ">      
 
 
-        <div class="topBar" style="position:absolute;">
-            <a id="hamburger" class="" href="#dcmmenu"><span></span></a>
-
-            <nav id="dcmmenu">
-                <ul>
-                    <li><a href="/">Home</a></li>
-                    <li>
-                        <a href="/about/">About us</a>
+        <a id="hamburger" class="mm-fixed-top" href="#dcmmenu"><span></span></a>
+        <nav id="dcmmenu">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li>
+                    <a href="/about/">About us</a>
+                    <ul>
+                        <li><a href="/about/history/">History</a></li>
+                        <li><a href="/about/team/">The team</a></li>
+                        <li><a href="/about/address/">Our address</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <span>Tutorial</span>
+                    <div>
                         <ul>
-                            <li><a href="/about/history/">History</a></li>
-                            <li><a href="/about/team/">The team</a></li>
-                            <li><a href="/about/address/">Our address</a></li>
+                            <li><a href="/tutorial">Getting started</a></li>
+                            <li><a href="/tutorial/setting-up-the-html.html">Setting up the html</a></li>
+                            <li><a href="/tutorial/fire-the-plugin.html">Fire the plugin</a></li>
+                            <li><a href="/tutorial/open-and-close-the-menu.html">Open and close the menu</a></li>
+                            <li><a href="/tutorial/styling-lists.html">Styling lists</a></li>
+                            <li><a href="/tutorial/fixed-elements.html">Fixed elements</a></li>
+                            <li><a href="/tutorial/learn-more.html">Learn more</a></li>
                         </ul>
-                    </li>
-                    <li>
-                        <span>Tutorial</span>
-                        <div>
-                            <ul>
-                                <li><a href="/tutorial">Getting started</a></li>
-                                <li><a href="/tutorial/setting-up-the-html.html">Setting up the html</a></li>
-                                <li><a href="/tutorial/fire-the-plugin.html">Fire the plugin</a></li>
-                                <li><a href="/tutorial/open-and-close-the-menu.html">Open and close the menu</a></li>
-                                <li><a href="/tutorial/styling-lists.html">Styling lists</a></li>
-                                <li><a href="/tutorial/fixed-elements.html">Fixed elements</a></li>
-                                <li><a href="/tutorial/learn-more.html">Learn more</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-
+                    </div>
+                </li>
+            </ul>
+        </nav>
         <!--Layout start-->
-        <div id="main-content" role="main" class="full-screen">
+        <div id="main-content" role="main" class="mm-page">
             <div class="dcm top"> <a class="scrollto" href="#main-content">Scroll to top</a>
                 <div class="clear"></div>
                 <div class="scroll">
@@ -108,7 +104,6 @@ and open the template in the editor.
 
 
                                                     <div id="navigation">
-
                                                         <ul id="navBar">
                                                             <li>
                                                                 <a href="#" data-slide="1" >  
@@ -244,8 +239,8 @@ and open the template in the editor.
                                                                     -webkit-transition: all 1s ease 0s;
                                                                     border-radius: 50%;
                                                                     margin-left: 0px;
-
-                                                                    /*-webkit-transform: rotate(180deg);*/
+                                                                    
+                                                                     /*-webkit-transform: rotate(180deg);*/
                                                                 }
                                                             </style>
                                                         </div>
@@ -583,20 +578,20 @@ and open the template in the editor.
                                                     </style>
                                                     <script>
                                                         jQuery(document).ready(function($) {
-                                                            /* $(window).stellar({
-                                                             // Set scrolling to be in either one or both directions
-                                                             horizontalScrolling: false,
-                                                             verticalScrolling: true,
-                                                             // Set the global alignment offsets
-                                                             //horizontalOffset: -40,
-                                                             verticalOffset: -40,
-                                                             // Refreshes parallax content on window load and resize
-                                                             responsive: true,
-                                                             // Enable or disable the two types of parallax
-                                                             parallaxBackgrounds: true,
-                                                             parallaxElements: true
-                                                             });
-                                                             */
+                                                           /* $(window).stellar({
+                                                                // Set scrolling to be in either one or both directions
+                                                                horizontalScrolling: false,
+                                                                verticalScrolling: true,
+                                                                // Set the global alignment offsets
+                                                                //horizontalOffset: -40,
+                                                                verticalOffset: -40,
+                                                                // Refreshes parallax content on window load and resize
+                                                                responsive: true,
+                                                                // Enable or disable the two types of parallax
+                                                                parallaxBackgrounds: true,
+                                                                parallaxElements: true
+                                                            });
+*/
                                                             var links = $('#navigation').find('li a');
                                                             slide = $('.slide');
                                                             button = $('.scrollbut');
