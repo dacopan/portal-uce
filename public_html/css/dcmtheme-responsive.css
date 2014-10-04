@@ -1,1 +1,120 @@
+/* #Media Queries================================================== */
+/*  Portrait size to standard 960 (devices and browsers) */
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+    /* #General Layout Changes ================================================== */
+    .metro .container {
+        width: 754px; }
 
+    .metro .featuredcontainer {
+        width: 756px; }
+
+    .featured .one_col {
+        width: 250px;
+        height: 246px; }
+
+    .featured .one_col.half {
+        height: 122px; }
+
+    .featured .two_col {
+        width: 501px;
+        height: 246px; }
+
+    /* #Font Changes ================================================== */
+    .nivo-caption h3.title {
+        font-size: 22px;
+        line-height: 24px; }
+}
+/* All Mobile Sizes (devices and browser) */
+@media only screen and (max-width: 767px) {
+    /* #General Layout Changes
+    ================================================== */
+    .metro .featuredcontainer {
+        width: 420px;
+        margin: 0 0 30px 0;
+        padding: 0;
+        margin: auto; }
+
+    .metro .featured {
+        margin: 0; }
+
+
+    /* #Featured Area 
+    ================================================== */
+    .featured .one_col {
+        width: 208px;
+        height: 204px; }
+
+    .featured .two_col {
+        width: 418px;
+        height: 206px; }
+
+    .featured .one_col.half {
+        height: 101px; }
+
+    .featured h2, .featured h2 a {
+        font-size: 22px;
+        line-height: 24px;
+        left: 15px;
+        bottom: 8px; }
+
+    .featured .half h2, .featured .half h2 a {
+        font-size: 14px;
+        line-height: 16px; }
+
+    .featured.articlecontainer.isotope#isofeatured {
+        width: 420px; }
+
+    .nivo-caption {
+        position: static;
+        background: #222; }
+
+    .nivo-caption h1, .nivo-caption h2, .nivo-caption h3, .nivo-caption h4, .nivo-caption h5, .nivo-caption h6, .nivo-caption p {
+        display: none; }
+
+    .nivo-caption h3.title {
+        font-size: 22px;
+        line-height: 24px;
+        display: block;
+        padding-top: 0; }
+
+    .theme-default .nivo-controlNav {
+        display: none; }
+
+    .theme-default .nivo-directionNav a {
+        opacity: 1;
+        filter: alpha(opacity=100); }
+
+    .theme-default a.nivo-nextNav {
+        right: 0; }
+
+    .theme-default a.nivo-prevNav {
+        left: 0; }
+
+}
+/* Mobile Landscape Size to Portrait (devices and browsers) */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+
+}
+/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+@media only screen and (max-width: 479px) {
+    .metro .container {
+        width: 300px; }
+
+    .featured.articlecontainer.isotope#isofeatured {
+        width: 300px; }
+
+
+    .metro .featuredcontainer {
+        width: 300px;
+        margin: 0 0 30px 0;
+        padding: 0;
+        margin-left: auto;
+        margin-right: auto; }
+
+    .featured .one_col, .featured .two_col, .nonfeatured .one_col, .maincontent {
+        width: 299px;
+        margin-right: 0; }
+
+    .featured .two_col {
+        height: 148px; }
+}

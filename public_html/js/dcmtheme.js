@@ -1,4 +1,267 @@
-//<editor-fold defaultstate="collapsed" desc="isotope">//
+//<editor-fold defaultstate="collapsed" desc="modernizer">
+/* Modernizr 2.6.2 (Custom Build) | MIT & BSD
+ * Build: http://modernizr.com/download/#-csstransitions-shiv-cssclasses-prefixed-testprop-testallprops-domprefixes-load
+ */
+;
+window.Modernizr = function(a, b, c) {
+    function x(a) {
+        j.cssText = a
+    }
+    function y(a, b) {
+        return x(prefixes.join(a + ";") + (b || ""))
+    }
+    function z(a, b) {
+        return typeof a === b
+    }
+    function A(a, b) {
+        return!!~("" + a).indexOf(b)
+    }
+    function B(a, b) {
+        for (var d in a) {
+            var e = a[d];
+            if (!A(e, "-") && j[e] !== c)
+                return b == "pfx" ? e : !0
+        }
+        return!1
+    }
+    function C(a, b, d) {
+        for (var e in a) {
+            var f = b[a[e]];
+            if (f !== c)
+                return d === !1 ? a[e] : z(f, "function") ? f.bind(d || b) : f
+        }
+        return!1
+    }
+    function D(a, b, c) {
+        var d = a.charAt(0).toUpperCase() + a.slice(1), e = (a + " " + n.join(d + " ") + d).split(" ");
+        return z(b, "string") || z(b, "undefined") ? B(e, b) : (e = (a + " " + o.join(d + " ") + d).split(" "), C(e, b, c))
+    }
+    var d = "2.6.2", e = {}, f = !0, g = b.documentElement, h = "modernizr", i = b.createElement(h), j = i.style, k, l = {}.toString, m = "Webkit Moz O ms", n = m.split(" "), o = m.toLowerCase().split(" "), p = {}, q = {}, r = {}, s = [], t = s.slice, u, v = {}.hasOwnProperty, w;
+    !z(v, "undefined") && !z(v.call, "undefined") ? w = function(a, b) {
+        return v.call(a, b)
+    } : w = function(a, b) {
+        return b in a && z(a.constructor.prototype[b], "undefined")
+    }, Function.prototype.bind || (Function.prototype.bind = function(b) {
+        var c = this;
+        if (typeof c != "function")
+            throw new TypeError;
+        var d = t.call(arguments, 1), e = function() {
+            if (this instanceof e) {
+                var a = function() {
+                };
+                a.prototype = c.prototype;
+                var f = new a, g = c.apply(f, d.concat(t.call(arguments)));
+                return Object(g) === g ? g : f
+            }
+            return c.apply(b, d.concat(t.call(arguments)))
+        };
+        return e
+    }), p.csstransitions = function() {
+        return D("transition")
+    };
+    for (var E in p)
+        w(p, E) && (u = E.toLowerCase(), e[u] = p[E](), s.push((e[u] ? "" : "no-") + u));
+    return e.addTest = function(a, b) {
+        if (typeof a == "object")
+            for (var d in a)
+                w(a, d) && e.addTest(d, a[d]);
+        else {
+            a = a.toLowerCase();
+            if (e[a] !== c)
+                return e;
+            b = typeof b == "function" ? b() : b, typeof f != "undefined" && f && (g.className += " " + (b ? "" : "no-") + a), e[a] = b
+        }
+        return e
+    }, x(""), i = k = null, function(a, b) {
+        function k(a, b) {
+            var c = a.createElement("p"), d = a.getElementsByTagName("head")[0] || a.documentElement;
+            return c.innerHTML = "x<style>" + b + "</style>", d.insertBefore(c.lastChild, d.firstChild)
+        }
+        function l() {
+            var a = r.elements;
+            return typeof a == "string" ? a.split(" ") : a
+        }
+        function m(a) {
+            var b = i[a[g]];
+            return b || (b = {}, h++, a[g] = h, i[h] = b), b
+        }
+        function n(a, c, f) {
+            c || (c = b);
+            if (j)
+                return c.createElement(a);
+            f || (f = m(c));
+            var g;
+            return f.cache[a] ? g = f.cache[a].cloneNode() : e.test(a) ? g = (f.cache[a] = f.createElem(a)).cloneNode() : g = f.createElem(a), g.canHaveChildren && !d.test(a) ? f.frag.appendChild(g) : g
+        }
+        function o(a, c) {
+            a || (a = b);
+            if (j)
+                return a.createDocumentFragment();
+            c = c || m(a);
+            var d = c.frag.cloneNode(), e = 0, f = l(), g = f.length;
+            for (; e < g; e++)
+                d.createElement(f[e]);
+            return d
+        }
+        function p(a, b) {
+            b.cache || (b.cache = {}, b.createElem = a.createElement, b.createFrag = a.createDocumentFragment, b.frag = b.createFrag()), a.createElement = function(c) {
+                return r.shivMethods ? n(c, a, b) : b.createElem(c)
+            }, a.createDocumentFragment = Function("h,f", "return function(){var n=f.cloneNode(),c=n.createElement;h.shivMethods&&(" + l().join().replace(/\w+/g, function(a) {
+                return b.createElem(a), b.frag.createElement(a), 'c("' + a + '")'
+            }) + ");return n}")(r, b.frag)
+        }
+        function q(a) {
+            a || (a = b);
+            var c = m(a);
+            return r.shivCSS && !f && !c.hasCSS && (c.hasCSS = !!k(a, "article,aside,figcaption,figure,footer,header,hgroup,nav,section{display:block}mark{background:#FF0;color:#000}")), j || p(a, c), a
+        }
+        var c = a.html5 || {}, d = /^<|^(?:button|map|select|textarea|object|iframe|option|optgroup)$/i, e = /^(?:a|b|code|div|fieldset|h1|h2|h3|h4|h5|h6|i|label|li|ol|p|q|span|strong|style|table|tbody|td|th|tr|ul)$/i, f, g = "_html5shiv", h = 0, i = {}, j;
+        (function() {
+            try {
+                var a = b.createElement("a");
+                a.innerHTML = "<xyz></xyz>", f = "hidden"in a, j = a.childNodes.length == 1 || function() {
+                    b.createElement("a");
+                    var a = b.createDocumentFragment();
+                    return typeof a.cloneNode == "undefined" || typeof a.createDocumentFragment == "undefined" || typeof a.createElement == "undefined"
+                }()
+            } catch (c) {
+                f = !0, j = !0
+            }
+        })();
+        var r = {elements: c.elements || "abbr article aside audio bdi canvas data datalist details figcaption figure footer header hgroup mark meter nav output progress section summary time video", shivCSS: c.shivCSS !== !1, supportsUnknownElements: j, shivMethods: c.shivMethods !== !1, type: "default", shivDocument: q, createElement: n, createDocumentFragment: o};
+        a.html5 = r, q(b)
+    }(this, b), e._version = d, e._domPrefixes = o, e._cssomPrefixes = n, e.testProp = function(a) {
+        return B([a])
+    }, e.testAllProps = D, e.prefixed = function(a, b, c) {
+        return b ? D(a, b, c) : D(a, "pfx")
+    }, g.className = g.className.replace(/(^|\s)no-js(\s|$)/, "$1$2") + (f ? " js " + s.join(" ") : ""), e
+}(this, this.document), function(a, b, c) {
+    function d(a) {
+        return"[object Function]" == o.call(a)
+    }
+    function e(a) {
+        return"string" == typeof a
+    }
+    function f() {
+    }
+    function g(a) {
+        return!a || "loaded" == a || "complete" == a || "uninitialized" == a
+    }
+    function h() {
+        var a = p.shift();
+        q = 1, a ? a.t ? m(function() {
+            ("c" == a.t ? B.injectCss : B.injectJs)(a.s, 0, a.a, a.x, a.e, 1)
+        }, 0) : (a(), h()) : q = 0
+    }
+    function i(a, c, d, e, f, i, j) {
+        function k(b) {
+            if (!o && g(l.readyState) && (u.r = o = 1, !q && h(), l.onload = l.onreadystatechange = null, b)) {
+                "img" != a && m(function() {
+                    t.removeChild(l)
+                }, 50);
+                for (var d in y[c])
+                    y[c].hasOwnProperty(d) && y[c][d].onload()
+            }
+        }
+        var j = j || B.errorTimeout, l = b.createElement(a), o = 0, r = 0, u = {t: d, s: c, e: f, a: i, x: j};
+        1 === y[c] && (r = 1, y[c] = []), "object" == a ? l.data = c : (l.src = c, l.type = a), l.width = l.height = "0", l.onerror = l.onload = l.onreadystatechange = function() {
+            k.call(this, r)
+        }, p.splice(e, 0, u), "img" != a && (r || 2 === y[c] ? (t.insertBefore(l, s ? null : n), m(k, j)) : y[c].push(l))
+    }
+    function j(a, b, c, d, f) {
+        return q = 0, b = b || "j", e(a) ? i("c" == b ? v : u, a, b, this.i++, c, d, f) : (p.splice(this.i++, 0, a), 1 == p.length && h()), this
+    }
+    function k() {
+        var a = B;
+        return a.loader = {load: j, i: 0}, a
+    }
+    var l = b.documentElement, m = a.setTimeout, n = b.getElementsByTagName("script")[0], o = {}.toString, p = [], q = 0, r = "MozAppearance"in l.style, s = r && !!b.createRange().compareNode, t = s ? l : n.parentNode, l = a.opera && "[object Opera]" == o.call(a.opera), l = !!b.attachEvent && !l, u = r ? "object" : l ? "script" : "img", v = l ? "script" : u, w = Array.isArray || function(a) {
+        return"[object Array]" == o.call(a)
+    }, x = [], y = {}, z = {timeout: function(a, b) {
+            return b.length && (a.timeout = b[0]), a
+        }}, A, B;
+    B = function(a) {
+        function b(a) {
+            var a = a.split("!"), b = x.length, c = a.pop(), d = a.length, c = {url: c, origUrl: c, prefixes: a}, e, f, g;
+            for (f = 0; f < d; f++)
+                g = a[f].split("="), (e = z[g.shift()]) && (c = e(c, g));
+            for (f = 0; f < b; f++)
+                c = x[f](c);
+            return c
+        }
+        function g(a, e, f, g, h) {
+            var i = b(a), j = i.autoCallback;
+            i.url.split(".").pop().split("?").shift(), i.bypass || (e && (e = d(e) ? e : e[a] || e[g] || e[a.split("/").pop().split("?")[0]]), i.instead ? i.instead(a, e, f, g, h) : (y[i.url] ? i.noexec = !0 : y[i.url] = 1, f.load(i.url, i.forceCSS || !i.forceJS && "css" == i.url.split(".").pop().split("?").shift() ? "c" : c, i.noexec, i.attrs, i.timeout), (d(e) || d(j)) && f.load(function() {
+                k(), e && e(i.origUrl, h, g), j && j(i.origUrl, h, g), y[i.url] = 2
+            })))
+        }
+        function h(a, b) {
+            function c(a, c) {
+                if (a) {
+                    if (e(a))
+                        c || (j = function() {
+                            var a = [].slice.call(arguments);
+                            k.apply(this, a), l()
+                        }), g(a, j, b, 0, h);
+                    else if (Object(a) === a)
+                        for (n in m = function() {
+                            var b = 0, c;
+                            for (c in a)
+                                a.hasOwnProperty(c) && b++;
+                            return b
+                        }(), a)
+                            a.hasOwnProperty(n) && (!c && !--m && (d(j) ? j = function() {
+                                var a = [].slice.call(arguments);
+                                k.apply(this, a), l()
+                            } : j[n] = function(a) {
+                                return function() {
+                                    var b = [].slice.call(arguments);
+                                    a && a.apply(this, b), l()
+                                }
+                            }(k[n])), g(a[n], j, b, n, h))
+                } else
+                    !c && l()
+            }
+            var h = !!a.test, i = a.load || a.both, j = a.callback || f, k = j, l = a.complete || f, m, n;
+            c(h ? a.yep : a.nope, !!i), i && c(i)
+        }
+        var i, j, l = this.yepnope.loader;
+        if (e(a))
+            g(a, 0, l, 0);
+        else if (w(a))
+            for (i = 0; i < a.length; i++)
+                j = a[i], e(j) ? g(j, 0, l, 0) : w(j) ? B(j) : Object(j) === j && h(j, l);
+        else
+            Object(a) === a && h(a, l)
+    }, B.addPrefix = function(a, b) {
+        z[a] = b
+    }, B.addFilter = function(a) {
+        x.push(a)
+    }, B.errorTimeout = 1e4, null == b.readyState && b.addEventListener && (b.readyState = "loading", b.addEventListener("DOMContentLoaded", A = function() {
+        b.removeEventListener("DOMContentLoaded", A, 0), b.readyState = "complete"
+    }, 0)), a.yepnope = k(), a.yepnope.executeStack = h, a.yepnope.injectJs = function(a, c, d, e, i, j) {
+        var k = b.createElement("script"), l, o, e = e || B.errorTimeout;
+        k.src = a;
+        for (o in d)
+            k.setAttribute(o, d[o]);
+        c = j ? h : c || f, k.onreadystatechange = k.onload = function() {
+            !l && g(k.readyState) && (l = 1, c(), k.onload = k.onreadystatechange = null)
+        }, m(function() {
+            l || (l = 1, c(1))
+        }, e), i ? k.onload() : n.parentNode.insertBefore(k, n)
+    }, a.yepnope.injectCss = function(a, c, d, e, g, i) {
+        var e = b.createElement("link"), j, c = i ? h : c || f;
+        e.href = a, e.rel = "stylesheet", e.type = "text/css";
+        for (j in d)
+            e.setAttribute(j, d[j]);
+        g || (n.parentNode.insertBefore(e, n), m(c, 0))
+    }
+}(this, document), Modernizr.load = function() {
+    yepnope.apply(window, [].slice.call(arguments, 0))
+};
+//</editor-fold>
+
+//<editor-fold defaultstate="collapsed" desc="isotope">
 /*!
  * Isotope PACKAGED v2.0.0
  * Filter & sort magical layouts
@@ -4081,6 +4344,1127 @@ jQuery.extend(jQuery.easing,
         });
 //</editor-fold>
 
+//<editor-fold defaultstate="collapsed" desc="nivo slider">
+/*
+ * jQuery Nivo Slider v3.2
+ * http://nivo.dev7studios.com
+ *
+ * Copyright 2012, Dev7studios
+ * Free to use and abuse under the MIT license.
+ * http://www.opensource.org/licenses/mit-license.php
+ */
+
+(function(e) {
+    var t = function(t, n) {
+        var r = e.extend({}, e.fn.nivoSlider.defaults, n);
+        var i = {currentSlide: 0, currentImage: "", totalSlides: 0, running: false, paused: false, stop: false, controlNavEl: false};
+        var s = e(t);
+        s.data("nivo:vars", i).addClass("nivoSlider");
+        var o = s.children();
+        o.each(function() {
+            var t = e(this);
+            var n = "";
+            if (!t.is("img")) {
+                if (t.is("a")) {
+                    t.addClass("nivo-imageLink");
+                    n = t
+                }
+                t = t.find("img:first")
+            }
+            var r = r === 0 ? t.attr("width") : t.width(), s = s === 0 ? t.attr("height") : t.height();
+            if (n !== "") {
+                n.css("display", "none")
+            }
+            t.css("display", "none");
+            i.totalSlides++
+        });
+        if (r.randomStart) {
+            r.startSlide = Math.floor(Math.random() * i.totalSlides)
+        }
+        if (r.startSlide > 0) {
+            if (r.startSlide >= i.totalSlides) {
+                r.startSlide = i.totalSlides - 1
+            }
+            i.currentSlide = r.startSlide
+        }
+        if (e(o[i.currentSlide]).is("img")) {
+            i.currentImage = e(o[i.currentSlide])
+        } else {
+            i.currentImage = e(o[i.currentSlide]).find("img:first")
+        }
+        if (e(o[i.currentSlide]).is("a")) {
+            e(o[i.currentSlide]).css("display", "block")
+        }
+        var u = e("<img/>").addClass("nivo-main-image");
+        u.attr("src", i.currentImage.attr("src")).show();
+        s.append(u);
+        e(window).resize(function() {
+            s.children("img").width(s.width());
+            u.attr("src", i.currentImage.attr("src"));
+            u.stop().height("auto");
+            e(".nivo-slice").remove();
+            e(".nivo-box").remove()
+        });
+        s.append(e('<div class="nivo-caption"></div>'));
+        var a = function(t) {
+            var n = e(".nivo-caption", s);
+            if (i.currentImage.attr("title") != "" && i.currentImage.attr("title") != undefined) {
+                var r = i.currentImage.attr("title");
+                if (r.substr(0, 1) == "#")
+                    r = e(r).html();
+                if (n.css("display") == "block") {
+                    setTimeout(function() {
+                        n.html(r)
+                    }, t.animSpeed)
+                } else {
+                    n.html(r);
+                    n.stop().fadeIn(t.animSpeed)
+                }
+            } else {
+                n.stop().fadeOut(t.animSpeed)
+            }
+        };
+        a(r);
+        var f = 0;
+        if (!r.manualAdvance && o.length > 1) {
+            f = setInterval(function() {
+                d(s, o, r, false)
+            }, r.pauseTime)
+        }
+        if (r.directionNav) {
+            s.append('<div class="nivo-directionNav"><a class="nivo-prevNav">' + r.prevText + '</a><a class="nivo-nextNav">' + r.nextText + "</a></div>");
+            e(s).on("click", "a.nivo-prevNav", function() {
+                if (i.running) {
+                    return false
+                }
+                clearInterval(f);
+                f = "";
+                i.currentSlide -= 2;
+                d(s, o, r, "prev")
+            });
+            e(s).on("click", "a.nivo-nextNav", function() {
+                if (i.running) {
+                    return false
+                }
+                clearInterval(f);
+                f = "";
+                d(s, o, r, "next")
+            })
+        }
+        if (r.controlNav) {
+            i.controlNavEl = e('<div class="nivo-controlNav"></div>');
+            s.after(i.controlNavEl);
+            for (var l = 0; l < o.length; l++) {
+                if (r.controlNavThumbs) {
+                    i.controlNavEl.addClass("nivo-thumbs-enabled");
+                    var c = o.eq(l);
+                    if (!c.is("img")) {
+                        c = c.find("img:first")
+                    }
+                    if (c.attr("data-thumb"))
+                        i.controlNavEl.append('<a class="nivo-control" rel="' + l + '"><img src="' + c.attr("data-thumb") + '" alt="" /></a>')
+                } else {
+                    i.controlNavEl.append('<a class="nivo-control" rel="' + l + '">' + (l + 1) + "</a>")
+                }
+            }
+            e("a:eq(" + i.currentSlide + ")", i.controlNavEl).addClass("active");
+            e("a", i.controlNavEl).bind("click", function() {
+                if (i.running)
+                    return false;
+                if (e(this).hasClass("active"))
+                    return false;
+                clearInterval(f);
+                f = "";
+                u.attr("src", i.currentImage.attr("src"));
+                i.currentSlide = e(this).attr("rel") - 1;
+                d(s, o, r, "control")
+            })
+        }
+        if (r.pauseOnHover) {
+            s.hover(function() {
+                i.paused = true;
+                clearInterval(f);
+                f = ""
+            }, function() {
+                i.paused = false;
+                if (f === "" && !r.manualAdvance) {
+                    f = setInterval(function() {
+                        d(s, o, r, false)
+                    }, r.pauseTime)
+                }
+            })
+        }
+        s.bind("nivo:animFinished", function() {
+            u.attr("src", i.currentImage.attr("src"));
+            i.running = false;
+            e(o).each(function() {
+                if (e(this).is("a")) {
+                    e(this).css("display", "none")
+                }
+            });
+            if (e(o[i.currentSlide]).is("a")) {
+                e(o[i.currentSlide]).css("display", "block")
+            }
+            if (f === "" && !i.paused && !r.manualAdvance) {
+                f = setInterval(function() {
+                    d(s, o, r, false)
+                }, r.pauseTime)
+            }
+            r.afterChange.call(this)
+        });
+        var h = function(t, n, r) {
+            if (e(r.currentImage).parent().is("a"))
+                e(r.currentImage).parent().css("display", "block");
+            e('img[src="' + r.currentImage.attr("src") + '"]', t).not(".nivo-main-image,.nivo-control img").width(t.width()).css("visibility", "hidden").show();
+            var i = e('img[src="' + r.currentImage.attr("src") + '"]', t).not(".nivo-main-image,.nivo-control img").parent().is("a") ? e('img[src="' + r.currentImage.attr("src") + '"]', t).not(".nivo-main-image,.nivo-control img").parent().height() : e('img[src="' + r.currentImage.attr("src") + '"]', t).not(".nivo-main-image,.nivo-control img").height();
+            for (var s = 0; s < n.slices; s++) {
+                var o = Math.round(t.width() / n.slices);
+                if (s === n.slices - 1) {
+                    t.append(e('<div class="nivo-slice" name="' + s + '"><img src="' + r.currentImage.attr("src") + '" style="position:absolute; width:' + t.width() + "px; height:auto; display:block !important; top:0; left:-" + (o + s * o - o) + 'px;" /></div>').css({left: o * s + "px", width: t.width() - o * s + "px", height: i + "px", opacity: "0", overflow: "hidden"}))
+                } else {
+                    t.append(e('<div class="nivo-slice" name="' + s + '"><img src="' + r.currentImage.attr("src") + '" style="position:absolute; width:' + t.width() + "px; height:auto; display:block !important; top:0; left:-" + (o + s * o - o) + 'px;" /></div>').css({left: o * s + "px", width: o + "px", height: i + "px", opacity: "0", overflow: "hidden"}))
+                }
+            }
+            e(".nivo-slice", t).height(i);
+            u.stop().animate({height: e(r.currentImage).height()}, n.animSpeed)
+        };
+        var p = function(t, n, r) {
+            if (e(r.currentImage).parent().is("a"))
+                e(r.currentImage).parent().css("display", "block");
+            e('img[src="' + r.currentImage.attr("src") + '"]', t).not(".nivo-main-image,.nivo-control img").width(t.width()).css("visibility", "hidden").show();
+            var i = Math.round(t.width() / n.boxCols), s = Math.round(e('img[src="' + r.currentImage.attr("src") + '"]', t).not(".nivo-main-image,.nivo-control img").height() / n.boxRows);
+            for (var o = 0; o < n.boxRows; o++) {
+                for (var a = 0; a < n.boxCols; a++) {
+                    if (a === n.boxCols - 1) {
+                        t.append(e('<div class="nivo-box" name="' + a + '" rel="' + o + '"><img src="' + r.currentImage.attr("src") + '" style="position:absolute; width:' + t.width() + "px; height:auto; display:block; top:-" + s * o + "px; left:-" + i * a + 'px;" /></div>').css({opacity: 0, left: i * a + "px", top: s * o + "px", width: t.width() - i * a + "px"}));
+                        e('.nivo-box[name="' + a + '"]', t).height(e('.nivo-box[name="' + a + '"] img', t).height() + "px")
+                    } else {
+                        t.append(e('<div class="nivo-box" name="' + a + '" rel="' + o + '"><img src="' + r.currentImage.attr("src") + '" style="position:absolute; width:' + t.width() + "px; height:auto; display:block; top:-" + s * o + "px; left:-" + i * a + 'px;" /></div>').css({opacity: 0, left: i * a + "px", top: s * o + "px", width: i + "px"}));
+                        e('.nivo-box[name="' + a + '"]', t).height(e('.nivo-box[name="' + a + '"] img', t).height() + "px")
+                    }
+                }
+            }
+            u.stop().animate({height: e(r.currentImage).height()}, n.animSpeed)
+        };
+        var d = function(t, n, r, i) {
+            var s = t.data("nivo:vars");
+            if (s && s.currentSlide === s.totalSlides - 1) {
+                r.lastSlide.call(this)
+            }
+            if ((!s || s.stop) && !i) {
+                return false
+            }
+            r.beforeChange.call(this);
+            if (!i) {
+                u.attr("src", s.currentImage.attr("src"))
+            } else {
+                if (i === "prev") {
+                    u.attr("src", s.currentImage.attr("src"))
+                }
+                if (i === "next") {
+                    u.attr("src", s.currentImage.attr("src"))
+                }
+            }
+            s.currentSlide++;
+            if (s.currentSlide === s.totalSlides) {
+                s.currentSlide = 0;
+                r.slideshowEnd.call(this)
+            }
+            if (s.currentSlide < 0) {
+                s.currentSlide = s.totalSlides - 1
+            }
+            if (e(n[s.currentSlide]).is("img")) {
+                s.currentImage = e(n[s.currentSlide])
+            } else {
+                s.currentImage = e(n[s.currentSlide]).find("img:first")
+            }
+            if (r.controlNav) {
+                e("a", s.controlNavEl).removeClass("active");
+                e("a:eq(" + s.currentSlide + ")", s.controlNavEl).addClass("active")
+            }
+            a(r);
+            e(".nivo-slice", t).remove();
+            e(".nivo-box", t).remove();
+            var o = r.effect, f = "";
+            if (r.effect === "random") {
+                f = new Array("sliceDownRight", "sliceDownLeft", "sliceUpRight", "sliceUpLeft", "sliceUpDown", "sliceUpDownLeft", "fold", "fade", "boxRandom", "boxRain", "boxRainReverse", "boxRainGrow", "boxRainGrowReverse");
+                o = f[Math.floor(Math.random() * (f.length + 1))];
+                if (o === undefined) {
+                    o = "fade"
+                }
+            }
+            if (r.effect.indexOf(",") !== -1) {
+                f = r.effect.split(",");
+                o = f[Math.floor(Math.random() * f.length)];
+                if (o === undefined) {
+                    o = "fade"
+                }
+            }
+            if (s.currentImage.attr("data-transition")) {
+                o = s.currentImage.attr("data-transition")
+            }
+            s.running = true;
+            var l = 0, c = 0, d = "", m = "", g = "", y = "";
+            if (o === "sliceDown" || o === "sliceDownRight" || o === "sliceDownLeft") {
+                h(t, r, s);
+                l = 0;
+                c = 0;
+                d = e(".nivo-slice", t);
+                if (o === "sliceDownLeft") {
+                    d = e(".nivo-slice", t)._reverse()
+                }
+                d.each(function() {
+                    var n = e(this);
+                    n.css({top: "0px"});
+                    if (c === r.slices - 1) {
+                        setTimeout(function() {
+                            n.animate({opacity: "1.0"}, r.animSpeed, "", function() {
+                                t.trigger("nivo:animFinished")
+                            })
+                        }, 100 + l)
+                    } else {
+                        setTimeout(function() {
+                            n.animate({opacity: "1.0"}, r.animSpeed)
+                        }, 100 + l)
+                    }
+                    l += 50;
+                    c++
+                })
+            } else if (o === "sliceUp" || o === "sliceUpRight" || o === "sliceUpLeft") {
+                h(t, r, s);
+                l = 0;
+                c = 0;
+                d = e(".nivo-slice", t);
+                if (o === "sliceUpLeft") {
+                    d = e(".nivo-slice", t)._reverse()
+                }
+                d.each(function() {
+                    var n = e(this);
+                    n.css({bottom: "0px"});
+                    if (c === r.slices - 1) {
+                        setTimeout(function() {
+                            n.animate({opacity: "1.0"}, r.animSpeed, "", function() {
+                                t.trigger("nivo:animFinished")
+                            })
+                        }, 100 + l)
+                    } else {
+                        setTimeout(function() {
+                            n.animate({opacity: "1.0"}, r.animSpeed)
+                        }, 100 + l)
+                    }
+                    l += 50;
+                    c++
+                })
+            } else if (o === "sliceUpDown" || o === "sliceUpDownRight" || o === "sliceUpDownLeft") {
+                h(t, r, s);
+                l = 0;
+                c = 0;
+                var b = 0;
+                d = e(".nivo-slice", t);
+                if (o === "sliceUpDownLeft") {
+                    d = e(".nivo-slice", t)._reverse()
+                }
+                d.each(function() {
+                    var n = e(this);
+                    if (c === 0) {
+                        n.css("top", "0px");
+                        c++
+                    } else {
+                        n.css("bottom", "0px");
+                        c = 0
+                    }
+                    if (b === r.slices - 1) {
+                        setTimeout(function() {
+                            n.animate({opacity: "1.0"}, r.animSpeed, "", function() {
+                                t.trigger("nivo:animFinished")
+                            })
+                        }, 100 + l)
+                    } else {
+                        setTimeout(function() {
+                            n.animate({opacity: "1.0"}, r.animSpeed)
+                        }, 100 + l)
+                    }
+                    l += 50;
+                    b++
+                })
+            } else if (o === "fold") {
+                h(t, r, s);
+                l = 0;
+                c = 0;
+                e(".nivo-slice", t).each(function() {
+                    var n = e(this);
+                    var i = n.width();
+                    n.css({top: "0px", width: "0px"});
+                    if (c === r.slices - 1) {
+                        setTimeout(function() {
+                            n.animate({width: i, opacity: "1.0"}, r.animSpeed, "", function() {
+                                t.trigger("nivo:animFinished")
+                            })
+                        }, 100 + l)
+                    } else {
+                        setTimeout(function() {
+                            n.animate({width: i, opacity: "1.0"}, r.animSpeed)
+                        }, 100 + l)
+                    }
+                    l += 50;
+                    c++
+                })
+            } else if (o === "fade") {
+                h(t, r, s);
+                m = e(".nivo-slice:first", t);
+                m.css({width: t.width() + "px"});
+                m.animate({opacity: "1.0"}, r.animSpeed * 2, "", function() {
+                    t.trigger("nivo:animFinished")
+                })
+            } else if (o === "slideInRight") {
+                h(t, r, s);
+                m = e(".nivo-slice:first", t);
+                m.css({width: "0px", opacity: "1"});
+                m.animate({width: t.width() + "px"}, r.animSpeed * 2, "", function() {
+                    t.trigger("nivo:animFinished")
+                })
+            } else if (o === "slideInLeft") {
+                h(t, r, s);
+                m = e(".nivo-slice:first", t);
+                m.css({width: "0px", opacity: "1", left: "", right: "0px"});
+                m.animate({width: t.width() + "px"}, r.animSpeed * 2, "", function() {
+                    m.css({left: "0px", right: ""});
+                    t.trigger("nivo:animFinished")
+                })
+            } else if (o === "boxRandom") {
+                p(t, r, s);
+                g = r.boxCols * r.boxRows;
+                c = 0;
+                l = 0;
+                y = v(e(".nivo-box", t));
+                y.each(function() {
+                    var n = e(this);
+                    if (c === g - 1) {
+                        setTimeout(function() {
+                            n.animate({opacity: "1"}, r.animSpeed, "", function() {
+                                t.trigger("nivo:animFinished")
+                            })
+                        }, 100 + l)
+                    } else {
+                        setTimeout(function() {
+                            n.animate({opacity: "1"}, r.animSpeed)
+                        }, 100 + l)
+                    }
+                    l += 20;
+                    c++
+                })
+            } else if (o === "boxRain" || o === "boxRainReverse" || o === "boxRainGrow" || o === "boxRainGrowReverse") {
+                p(t, r, s);
+                g = r.boxCols * r.boxRows;
+                c = 0;
+                l = 0;
+                var w = 0;
+                var E = 0;
+                var S = [];
+                S[w] = [];
+                y = e(".nivo-box", t);
+                if (o === "boxRainReverse" || o === "boxRainGrowReverse") {
+                    y = e(".nivo-box", t)._reverse()
+                }
+                y.each(function() {
+                    S[w][E] = e(this);
+                    E++;
+                    if (E === r.boxCols) {
+                        w++;
+                        E = 0;
+                        S[w] = []
+                    }
+                });
+                for (var x = 0; x < r.boxCols * 2; x++) {
+                    var T = x;
+                    for (var N = 0; N < r.boxRows; N++) {
+                        if (T >= 0 && T < r.boxCols) {
+                            (function(n, i, s, u, a) {
+                                var f = e(S[n][i]);
+                                var l = f.width();
+                                var c = f.height();
+                                if (o === "boxRainGrow" || o === "boxRainGrowReverse") {
+                                    f.width(0).height(0)
+                                }
+                                if (u === a - 1) {
+                                    setTimeout(function() {
+                                        f.animate({opacity: "1", width: l, height: c}, r.animSpeed / 1.3, "", function() {
+                                            t.trigger("nivo:animFinished")
+                                        })
+                                    }, 100 + s)
+                                } else {
+                                    setTimeout(function() {
+                                        f.animate({opacity: "1", width: l, height: c}, r.animSpeed / 1.3)
+                                    }, 100 + s)
+                                }
+                            })(N, T, l, c, g);
+                            c++
+                        }
+                        T--
+                    }
+                    l += 100
+                }
+            }
+        };
+        var v = function(e) {
+            for (var t, n, r = e.length; r; t = parseInt(Math.random() * r, 10), n = e[--r], e[r] = e[t], e[t] = n)
+                ;
+            return e
+        };
+        var m = function(e) {
+            if (this.console && typeof console.log !== "undefined") {
+                console.log(e)
+            }
+        };
+        this.stop = function() {
+            if (!e(t).data("nivo:vars").stop) {
+                e(t).data("nivo:vars").stop = true;
+                m("Stop Slider")
+            }
+        };
+        this.start = function() {
+            if (e(t).data("nivo:vars").stop) {
+                e(t).data("nivo:vars").stop = false;
+                m("Start Slider")
+            }
+        };
+        r.afterLoad.call(this);
+        return this
+    };
+    e.fn.nivoSlider = function(n) {
+        return this.each(function(r, i) {
+            var s = e(this);
+            if (s.data("nivoslider")) {
+                return s.data("nivoslider")
+            }
+            var o = new t(this, n);
+            s.data("nivoslider", o)
+        })
+    };
+    e.fn.nivoSlider.defaults = {effect: "random", slices: 15, boxCols: 8, boxRows: 4, animSpeed: 500, pauseTime: 3e3, startSlide: 0, directionNav: true, controlNav: true, controlNavThumbs: false, pauseOnHover: true, manualAdvance: false, prevText: "Prev", nextText: "Next", randomStart: false, beforeChange: function() {
+        }, afterChange: function() {
+        }, slideshowEnd: function() {
+        }, lastSlide: function() {
+        }, afterLoad: function() {
+        }};
+    e.fn._reverse = [].reverse
+})(jQuery);
+//</editor-fold>
+
+//<editor-fold defaultstate="collapsed" desc="vacordion">
+(function($) {
+
+    // cache some values
+    var cache = {
+        idx_expanded: -1, // the index of the current expanded slice
+        sliceH: 0, // the default slice's height	
+        current: 0, // controls the current slider position
+        totalSlices: 0	  // total number of slices
+    },
+    aux = {
+        // triggered when we click a slice. If the slice is expanded,
+        // we close it, otherwise we open it..
+        selectSlice: function($el, $slices, $navNext, $navPrev, settings) {
+
+            return $.Deferred(
+                    function(dfd) {
+
+                        var expanded = $el.data('expanded'),
+                                pos = $el.data('position'),
+                                itemHeight, othersHeight,
+                                $others = $slices.not($el);
+
+                        // if it's opened..	
+                        if (expanded) {
+                            $el.data('expanded', false);
+                            cache.idx_expanded = -1;
+
+                            // the default values of each slices's height
+                            itemHeight = cache.sliceH;
+                            othersHeight = cache.sliceH;
+
+                            // hide the content div
+                            $el.find('.va-content').hide();
+
+                            // control the navigation buttons visibility
+                            if (aux.canSlideUp($slices, settings))
+                                $navPrev.fadeIn();
+                            else
+                                $navPrev.fadeOut();
+
+                            if (aux.canSlideDown($slices, settings))
+                                $navNext.fadeIn();
+                            else
+                                $navNext.fadeOut();
+                        }
+                        // if it's closed..
+                        else {
+                            $el.data('expanded', true);
+                            cache.idx_expanded = $el.index();
+                            $others.data('expanded', false);
+                            // the current slice's height
+                            itemHeight = settings.expandedHeight;
+                            // the height the other slices will have
+                            othersHeight = Math.ceil((settings.accordionH - settings.expandedHeight) / (settings.visibleSlices - 1));
+
+                            // control the navigation buttons visibility
+                            if (cache.idx_expanded > 0)
+                                $navPrev.fadeIn();
+                            else
+                                $navPrev.fadeOut();
+
+                            if (cache.idx_expanded < cache.totalSlices - 1)
+                                $navNext.fadeIn();
+                            else
+                                $navNext.fadeOut();
+                        }
+
+                        // the animation parameters for the clicked slice
+                        var animParam = {
+                            height: itemHeight + 'px',
+                            opacity: 1,
+                            top: (pos - 1) * othersHeight + 'px'
+                        };
+
+                        // animate the clicked slice and also its title (<h3>)
+                        $el.stop()
+                                .animate(animParam, settings.animSpeed, settings.animEasing, function() {
+                                    if (!expanded)
+                                        $el.find('.va-content').fadeIn(settings.contentAnimSpeed);
+                                })
+                                .find('.va-title')
+                                .stop()
+                                .animate({
+                                    lineHeight: cache.sliceH + 'px'
+                                }, settings.animSpeed, settings.animEasing).hide();
+
+                        // animate all the others
+                        $others.each(function(i) {
+                            var $other = $(this),
+                                    posother = $other.data('position'),
+                                    t;
+
+                            if (expanded)
+                                t = (posother - 1) * othersHeight;
+                            else {
+                                if (posother < pos)
+                                    t = (posother - 1) * othersHeight;
+                                else
+                                    t = ((posother - 2) * othersHeight) + settings.expandedHeight;
+                            }
+
+                            $other.stop()
+                                    .animate({
+                                        top: t + 'px',
+                                        height: othersHeight + 'px',
+                                        opacity: (expanded) ? 1 : settings.animOpacity
+                                    }, settings.animSpeed, settings.animEasing, dfd.resolve)
+                                    .find('.va-title')
+                                    .stop().show()
+                                    .animate({
+                                        lineHeight: othersHeight + 'px'
+                                    }, settings.animSpeed, settings.animEasing)
+                                    .end()
+                                    .find('.va-content')
+                                    .hide();
+                        });
+                    }
+            ).promise();
+
+        },
+        // triggered when clicking the navigation buttons / mouse scrolling
+        navigate: function(dir, $slices, $navNext, $navPrev, settings) {
+            // if animating return
+            if ($slices.is(':animated'))
+                return false;
+
+            // all move up / down one position
+            // if settings.savePositions is false, then we need to close any expanded slice before sliding
+            // otherwise we slide, and the next one will open automatically
+            var $el;
+
+            if (cache.idx_expanded != -1 && !settings.savePositions) {
+                $el = $slices.eq(cache.idx_expanded);
+
+                $.when(aux.selectSlice($el, $slices, $navNext, $navPrev, settings)).done(function() {
+                    setTimeout(function() {
+                        aux.slide(dir, $slices, $navNext, $navPrev, settings);
+                    }, 10);
+                });
+            }
+            else {
+                aux.slide(dir, $slices, $navNext, $navPrev, settings);
+            }
+        },
+        slide: function(dir, $slices, $navNext, $navPrev, settings) {
+            // control if we can navigate.
+            // control the navigation buttons visibility.
+            // the navigation will behave differently for the cases we have all the slices closed, 
+            // and when one is opened. It will also depend on settings.savePositions 
+            if (cache.idx_expanded === -1 || !settings.savePositions) {
+                if (dir === 1 && cache.current + settings.visibleSlices >= cache.totalSlices)
+                    return false;
+                else if (dir === -1 && cache.current === 0)
+                    return false;
+
+                if (dir === -1 && cache.current === 1)
+                    $navPrev.fadeOut();
+                else
+                    $navPrev.fadeIn();
+
+                if (dir === 1 && cache.current + settings.visibleSlices === cache.totalSlices - 1)
+                    $navNext.fadeOut();
+                else
+                    $navNext.fadeIn();
+            }
+            else {
+                if (dir === 1 && cache.idx_expanded === cache.totalSlices - 1)
+                    return false;
+                else if (dir === -1 && cache.idx_expanded === 0)
+                    return false;
+
+                if (dir === -1 && cache.idx_expanded === 1)
+                    $navPrev.fadeOut();
+                else
+                    $navPrev.fadeIn();
+
+                if (dir === 1 && cache.idx_expanded === cache.totalSlices - 2)
+                    $navNext.fadeOut();
+                else
+                    $navNext.fadeIn();
+            }
+
+            var $currentSlice = $slices.eq(cache.idx_expanded),
+                    $nextSlice,
+                    t;
+
+            (dir === 1) ? $nextSlice = $currentSlice.next() : $nextSlice = $currentSlice.prev();
+
+            // if we cannot slide up / down, then we just call the selectSlice for the previous / next slice
+            if ((dir === 1 && !aux.canSlideDown($slices, settings)) ||
+                    (dir === -1 && !aux.canSlideUp($slices, settings))) {
+                aux.selectSlice($nextSlice, $slices, $navNext, $navPrev, settings);
+                return false;
+            }
+
+            // if we slide down, the top and position of each slice will decrease
+            if (dir === 1) {
+                cache.current++;
+                t = '-=' + cache.sliceH;
+                pos_increment = -1;
+            }
+            else {
+                cache.current--;
+                t = '+=' + cache.sliceH;
+                pos_increment = 1;
+            }
+
+            $slices.each(function(i) {
+                var $slice = $(this),
+                        pos = $slice.data('position');
+
+                // all closed or savePositions is false
+                if (!settings.savePositions || cache.idx_expanded === -1)
+                    $slice.stop().animate({top: t}, settings.animSpeed, settings.animEasing);
+                else {
+                    var itemHeight, othersHeight;
+
+                    // if the slice is the one we should open..
+                    if (i === $nextSlice.index()) {
+                        $slice.data('expanded', true);
+                        cache.idx_expanded = $slice.index();
+                        itemHeight = settings.expandedHeight;
+                        othersHeight = (settings.accordionH - settings.expandedHeight) / (settings.visibleSlices - 1);
+
+                        $slice.stop()
+                                .animate({
+                                    height: itemHeight + 'px',
+                                    opacity: 1,
+                                    top: (dir === 1) ? (pos - 2) * othersHeight + 'px' : pos * othersHeight + 'px'
+                                }, settings.animSpeed, settings.animEasing, function() {
+                                    $slice.find('.va-content').fadeIn(settings.contentAnimSpeed);
+                                })
+                                .find('.va-title')
+                                .stop()
+                                .animate({
+                                    lineHeight: cache.sliceH + 'px'
+                                }, settings.animSpeed, settings.animEasing);
+                    }
+                    // if the slice is the one opened, lets close it
+                    else if ($slice.data('expanded')) {
+                        // collapse
+
+                        $slice.data('expanded', false);
+                        othersHeight = (settings.accordionH - settings.expandedHeight) / (settings.visibleSlices - 1);
+
+                        $slice.stop()
+                                .animate({
+                                    height: othersHeight + 'px',
+                                    opacity: settings.animOpacity,
+                                    top: (dir === 1) ? '-=' + othersHeight : '+=' + settings.expandedHeight
+                                }, settings.animSpeed, settings.animEasing)
+                                .find('.va-title')
+                                .stop()
+                                .animate({
+                                    lineHeight: othersHeight + 'px'
+                                }, settings.animSpeed, settings.animEasing)
+                                .end()
+                                .find('.va-content')
+                                .hide();
+                    }
+                    // all the others..
+                    else {
+                        $slice.data('expanded', false);
+                        othersHeight = (settings.accordionH - settings.expandedHeight) / (settings.visibleSlices - 1);
+
+                        $slice.stop()
+                                .animate({
+                                    top: (dir === 1) ? '-=' + othersHeight : '+=' + othersHeight
+                                }, settings.animSpeed, settings.animEasing);
+                    }
+                }
+                // change the slice's position
+                $slice.data().position += pos_increment;
+            });
+        },
+        canSlideUp: function($slices, settings) {
+            var $first = $slices.eq(cache.current);
+
+            if ($first.index() !== 0)
+                return true;
+        },
+        canSlideDown: function($slices, settings) {
+            var $last = $slices.eq(cache.current + settings.visibleSlices - 1);
+
+            if ($last.index() !== cache.totalSlices - 1)
+                return true;
+        }
+    },
+    methods = {
+        init: function(options) {
+
+            if (this.length) {
+
+                var settings = {
+                    // the accordion's width
+                    accordionW: 1000,
+                    // the accordion's height
+                    accordionH: 450,
+                    // number of visible slices
+                    visibleSlices: 3,
+                    // the height of a opened slice
+                    // should not be more than accordionH
+                    expandedHeight: 350,
+                    // speed when opening / closing a slice
+                    animSpeed: 250,
+                    // easing when opening / closing a slice
+                    animEasing: 'jswing',
+                    // opacity value for the collapsed slices
+                    animOpacity: 0.2,
+                    // time to fade in the slice's content
+                    contentAnimSpeed: 900,
+                    // if this is set to false, then before
+                    // sliding we collapse any opened slice
+                    savePositions: true
+                };
+
+                return this.each(function() {
+
+                    // if options exist, lets merge them with our default settings
+                    if (options) {
+                        $.extend(settings, options);
+                    }
+
+                    var $el = $(this),
+                            // the accordion's slices
+                            $slices = $el.find('div.va-slice'),
+                            // the navigation buttons
+                            $navNext = $el.find('span.va-nav-next'),
+                            $navPrev = $el.find('span.va-nav-prev');
+
+                    // each slice's height
+                    cache.sliceH = Math.ceil(settings.accordionH / settings.visibleSlices);
+
+                    // total slices
+                    cache.totalSlices = $slices.length;
+
+                    // control some user config parameters
+                    if (settings.expandedHeight > settings.accordionH)
+                        settings.expandedHeight = settings.accordionH;
+                    else if (settings.expandedHeight <= cache.sliceH)
+                        settings.expandedHeight = cache.sliceH + 50; // give it a minimum
+
+                    // set the accordion's width & height
+                    $el.css({
+                        width: settings.accordionW + 'px',
+                        height: settings.accordionH + 'px'
+                    });
+
+                    // show / hide $navNext 
+                    if (settings.visibleSlices < cache.totalSlices)
+                        $navNext.show();
+
+                    // set the top & height for each slice.
+                    // also save the position of each one.
+                    // as we navigate, the first one in the accordion
+                    // will have position 1 and the last settings.visibleSlices.
+                    // finally set line-height of the title (<h3>)
+                    $slices.each(function(i) {
+                        var $slice = $(this);
+                        $slice.css({
+                            top: i * cache.sliceH + 'px',
+                            height: cache.sliceH + 'px'
+                        }).data('position', (i + 1));
+                    })
+                            .children('.va-title')
+                            .css('line-height', cache.sliceH + 'px');
+
+                    // click event
+                    $slices.bind('click.vaccordion', function(e) {
+                        // only if we have more than 1 visible slice. 
+                        // otherwise we will just be able to slide.
+                        if (settings.visibleSlices > 1) {
+                            var $el = $(this);
+                            aux.selectSlice($el, $slices, $navNext, $navPrev, settings);
+                        }
+                    });
+
+                    // navigation events
+                    $navNext.bind('click.vaccordion', function(e) {
+                        aux.navigate(1, $slices, $navNext, $navPrev, settings);
+                    });
+
+                    $navPrev.bind('click.vaccordion', function(e) {
+                        aux.navigate(-1, $slices, $navNext, $navPrev, settings);
+                    });
+
+                    // adds events to the mouse
+                    $el.bind('mousewheel.vaccordion', function(e, delta) {
+                        if (delta > 0) {
+                            aux.navigate(-1, $slices, $navNext, $navPrev, settings);
+                        }
+                        else {
+                            aux.navigate(1, $slices, $navNext, $navPrev, settings);
+                        }
+                        return false;
+                    });
+
+                });
+            }
+        }
+    };
+
+    $.fn.vaccordion = function(method) {
+        if (methods[method]) {
+            return methods[method].apply(this, Array.prototype.slice.call(arguments, 1));
+        } else if (typeof method === 'object' || !method) {
+            return methods.init.apply(this, arguments);
+        } else {
+            $.error('Method ' + method + ' does not exist on jQuery.vaccordion');
+        }
+    };
+
+})(jQuery);
+//</editor-fold>
+
+//<editor-fold defaultstate="collapsed" desc="notices full">
+/*
+ * debouncedresize: special jQuery event that happens once after a window resize
+ *
+ * latest version and complete README available on Github:
+ * https://github.com/louisremi/jquery-smartresize/blob/master/jquery.debouncedresize.js
+ *
+ * Copyright 2011 @louis_remi
+ * Licensed under the MIT license.
+ */
+var $event = $.event,
+        $special,
+        resizeTimeout;
+
+$special = $event.special.debouncedresize = {
+    setup: function() {
+        $(this).on("resize", $special.handler);
+    },
+    teardown: function() {
+        $(this).off("resize", $special.handler);
+    },
+    handler: function(event, execAsap) {
+        // Save the context
+        var context = this,
+                args = arguments,
+                dispatch = function() {
+                    // set correct event type
+                    event.type = "debouncedresize";
+                    $event.dispatch.apply(context, args);
+                };
+
+        if (resizeTimeout) {
+            clearTimeout(resizeTimeout);
+        }
+
+        execAsap ?
+                dispatch() :
+                resizeTimeout = setTimeout(dispatch, $special.threshold);
+    },
+    threshold: 50
+};
+
+var Boxgrid = (function() {
+
+    var $items = $('.noticeX'),
+            transEndEventNames = {
+                'WebkitTransition': 'webkitTransitionEnd',
+                'MozTransition': 'transitionend',
+                'OTransition': 'oTransitionEnd',
+                'msTransition': 'MSTransitionEnd',
+                'transition': 'transitionend'
+            },
+    // transition end event name
+    transEndEventName = transEndEventNames[ Modernizr.prefixed('transition') ],
+            // window and body elements
+            $window = $(window),
+            $body = $('BODY'),
+            // transitions support
+            supportTransitions = Modernizr.csstransitions,
+            // current item's index
+            current = -1,
+            // window width and height
+            winsize = getWindowSize();
+
+    function init(options) {
+        // apply fittext plugin
+        //$items.find( 'div.rb-week > div span' ).fitText( 0.3 ).end().find( 'span.rb-city' ).fitText( 0.5 );
+        initEvents();
+    }
+
+    function initEvents() {
+
+        $items.each(function() {
+
+            var $item = $(this),
+                    $close = $item.find('span.rb-close'),
+                    $overlay = $item.find('div.rb-overlay');
+            
+            $item.on('click', function(event) {
+                event.preventDefault();
+                if ($item.data('isExpanded')) {
+                    return false;
+                }
+                $item.data('isExpanded', true);
+                // save current item's index
+                current = $item.index();
+
+                var layoutProp = getItemLayoutProp($item),
+                        clipPropFirst = 'rect(' + layoutProp.top + 'px ' + (layoutProp.left + layoutProp.width) + 'px ' + (layoutProp.top + layoutProp.height) + 'px ' + layoutProp.left + 'px)',
+                        clipPropLast = 'rect(0px ' + winsize.width + 'px ' + winsize.height + 'px 0px)';
+
+
+                $overlay.css({
+                    clip: supportTransitions ? clipPropFirst : clipPropLast,
+                    opacity: 1,
+                    zIndex: 9999,
+                    pointerEvents: 'auto'
+                });
+
+                if (supportTransitions) {
+                    $overlay.on(transEndEventName, function() {
+
+                        $overlay.off(transEndEventName);
+
+                        setTimeout(function() {
+                            $overlay.css('clip', clipPropLast).on(transEndEventName, function() {
+                                $overlay.off(transEndEventName);
+                                $body.css('overflow-y', 'hidden');
+                            });
+                        }, 25);
+
+                    });
+                }
+                else {
+                    $body.css('overflow-y', 'hidden');
+                }
+
+            });
+
+            $close.on('click', function() {
+
+                $body.css('overflow-y', 'auto');
+
+                var layoutProp = getItemLayoutProp($item),
+                        clipPropFirst = 'rect(' + layoutProp.top + 'px ' + (layoutProp.left + layoutProp.width) + 'px ' + (layoutProp.top + layoutProp.height) + 'px ' + layoutProp.left + 'px)',
+                        clipPropLast = 'auto';
+
+                // reset current
+                current = -1;
+
+                $overlay.css({
+                    clip: supportTransitions ? clipPropFirst : clipPropLast,
+                    opacity: supportTransitions ? 1 : 0,
+                    pointerEvents: 'none'
+                });
+
+                if (supportTransitions) {
+                    $overlay.on(transEndEventName, function() {
+
+                        $overlay.off(transEndEventName);
+                        setTimeout(function() {
+                            $overlay.css('opacity', 0).on(transEndEventName, function() {
+                                $overlay.off(transEndEventName).css({clip: clipPropLast, zIndex: -1});
+                                $item.data('isExpanded', false);
+                            });
+                        }, 25);
+
+                    });
+                }
+                else {
+                    $overlay.css('z-index', -1);
+                    $item.data('isExpanded', false);
+                }
+
+                return false;
+
+            });
+
+        });
+
+        $(window).on('debouncedresize', function() {
+            winsize = getWindowSize();
+            // todo : cache the current item
+            if (current !== -1) {
+                $items.eq(current).children('div.rb-overlay').css('clip', 'rect(0px ' + winsize.width + 'px ' + winsize.height + 'px 0px)');
+            }
+        });
+
+    }
+
+    function getItemLayoutProp($item) {
+
+        var scrollT = $window.scrollTop(),
+                scrollL = $window.scrollLeft(),
+                itemOffset = $item.offset();
+
+        return {
+            left: itemOffset.left - scrollL,
+            top: itemOffset.top - scrollT,
+            width: $item.outerWidth(),
+            height: $item.outerHeight()
+        };
+
+    }
+
+    function getWindowSize() {
+        $body.css('overflow-y', 'hidden');
+        var w = $window.width(), h = $window.height();
+        if (current === -1) {
+            $body.css('overflow-y', 'auto');
+        }
+        return {width: w, height: h};
+    }
+
+    return {init: init};
+
+})();
+//</editor-fold>
 $(window).load(function() {
 
 
@@ -4191,10 +5575,22 @@ function headerPosition() {
     }
 }
 
-
+var destroyCrappyPlugin = function($elem, eventNamespace) {
+    var isInstantiated = !!$.data($elem.get(0));
+    //alert(isInstantiated);
+    if (isInstantiated) {
+        $.removeData($elem.get(0));
+        $elem.off(eventNamespace);
+        $elem.unbind('.' + eventNamespace);
+    }
+    console.log(
+            '$element events:',
+            $._data($elem.get(0), 'events')
+            );
+};
 /* #Override aui
  ======================================================*/
 $(function() {
-
+    //destroyCrappyPlugin($('.va-container'), 'vaccordion');
 
 });

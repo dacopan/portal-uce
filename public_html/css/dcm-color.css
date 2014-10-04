@@ -96,25 +96,25 @@
 /*<editor-fold defaultstate="collapsed" desc="Acromaticos">*/
 /*Background*/
 .metro .bg-black,.metro .bg-hover-black:hover,.metro .bg-focus-black:focus,.metro .bg-active-black:active{
-    background-color: #FFFFFF!important;
+    background-color: #000000!important;
 }
 .metro .bg-white,.metro .bg-hover-white:hover,.metro .bg-focus-white:focus,.metro .bg-active-white:active{
-    background-color: #000000!important;
+    background-color: #FFFFFF!important;
 }
 
 /*Border*/
 .metro .bd-black,.metro .bd-hover-black:hover,.metro .bd-focus-black:focus,.metro .bd-active-black:active{
-    border-color: #FFFFFF!important;
+    border-color: #000000!important;
 }
 .metro .bd-white,.metro .bd-hover-white:hover,.metro .bd-focus-white:focus,.metro .bd-active-white:active{
-    border-color: #000000!important;
+    border-color: #FFFFFF!important;
 }
 
 /*Foreground*/
 .metro .fg-black,.metro .fg-hover-black:hover,.metro .fg-focus-black:focus,.metro .fg-active-black:active{
-    color: #FFFFFF!important;
+    color: #000000!important;
 }
 .metro .fg-white,.metro .fg-hover-white:hover,.metro .fg-focus-white:focus,.metro .fg-active-white:active{
-    color: #000000!important;
+    color: #FFFFFF!important;
 }
 /*</editor-fold>*/

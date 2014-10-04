@@ -3239,9 +3239,9 @@ html.mm-opening #hamburger:after
 ================================================== */
 /*<editor-fold defaultstate="collapsed" desc="Metro copy&paste">*/
 html {
-    font-size: 62.5%;
+    font-size: 70%;
 }
-body {
+body,body.metro {
     font-size: 1.4rem;
 }
 html,
@@ -3554,405 +3554,405 @@ a {
 /**paste2**/
 .metro .clearfix:before,
 .metro .clearfix:after {
-  display: table;
-  content: "";
+    display: table;
+    content: "";
 }
 .metro .clearfix:after {
-  clear: both;
+    clear: both;
 }
 .metro #element .selected {
-  border: 4px #4390df solid;
+    border: 4px #4390df solid;
 }
 .metro #element .selected:after {
-  position: absolute;
-  display: block;
-  border-top: 28px solid #4390df;
-  border-left: 28px solid transparent;
-  right: 0;
-  content: "";
-  top: 0;
-  z-index: 101;
+    position: absolute;
+    display: block;
+    border-top: 28px solid #4390df;
+    border-left: 28px solid transparent;
+    right: 0;
+    content: "";
+    top: 0;
+    z-index: 101;
 }
 .metro .rotate45 {
-  -webkit-transform: rotate(45deg);
-  -moz-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  -o-transform: rotate(45deg);
-  transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
 }
 .metro .rotate90 {
-  -webkit-transform: rotate(90deg);
-  -moz-transform: rotate(90deg);
-  -ms-transform: rotate(90deg);
-  -o-transform: rotate(90deg);
-  transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg);
 }
 .metro .rotate135 {
-  -webkit-transform: rotate(135deg);
-  -moz-transform: rotate(135deg);
-  -ms-transform: rotate(135deg);
-  -o-transform: rotate(135deg);
-  transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+    -moz-transform: rotate(135deg);
+    -ms-transform: rotate(135deg);
+    -o-transform: rotate(135deg);
+    transform: rotate(135deg);
 }
 .metro .rotate180 {
-  -webkit-transform: rotate(180deg);
-  -moz-transform: rotate(180deg);
-  -ms-transform: rotate(180deg);
-  -o-transform: rotate(180deg);
-  transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
 }
 .metro .rotate225 {
-  -webkit-transform: rotate(225deg);
-  -moz-transform: rotate(225deg);
-  -ms-transform: rotate(225deg);
-  -o-transform: rotate(225deg);
-  transform: rotate(225deg);
+    -webkit-transform: rotate(225deg);
+    -moz-transform: rotate(225deg);
+    -ms-transform: rotate(225deg);
+    -o-transform: rotate(225deg);
+    transform: rotate(225deg);
 }
 .metro .rotate270 {
-  -webkit-transform: rotate(270deg);
-  -moz-transform: rotate(270deg);
-  -ms-transform: rotate(270deg);
-  -o-transform: rotate(270deg);
-  transform: rotate(270deg);
+    -webkit-transform: rotate(270deg);
+    -moz-transform: rotate(270deg);
+    -ms-transform: rotate(270deg);
+    -o-transform: rotate(270deg);
+    transform: rotate(270deg);
 }
 .metro .rotate360 {
-  -webkit-transform: rotate(360deg);
-  -moz-transform: rotate(360deg);
-  -ms-transform: rotate(360deg);
-  -o-transform: rotate(360deg);
-  transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
 }
 .metro .rotateX45 {
-  -webkit-transform: rotateX(45deg);
-  -moz-transform: rotateX(45deg);
-  -ms-transform: rotateX(45deg);
-  -o-transform: rotateX(45deg);
-  transform: rotateX(45deg);
+    -webkit-transform: rotateX(45deg);
+    -moz-transform: rotateX(45deg);
+    -ms-transform: rotateX(45deg);
+    -o-transform: rotateX(45deg);
+    transform: rotateX(45deg);
 }
 .metro .rotateX90 {
-  -webkit-transform: rotateX(90deg);
-  -moz-transform: rotateX(90deg);
-  -ms-transform: rotateX(90deg);
-  -o-transform: rotateX(90deg);
-  transform: rotateX(90deg);
+    -webkit-transform: rotateX(90deg);
+    -moz-transform: rotateX(90deg);
+    -ms-transform: rotateX(90deg);
+    -o-transform: rotateX(90deg);
+    transform: rotateX(90deg);
 }
 .metro .rotateX135 {
-  -webkit-transform: rotateX(135deg);
-  -moz-transform: rotateX(135deg);
-  -ms-transform: rotateX(135deg);
-  -o-transform: rotateX(135deg);
-  transform: rotateX(135deg);
+    -webkit-transform: rotateX(135deg);
+    -moz-transform: rotateX(135deg);
+    -ms-transform: rotateX(135deg);
+    -o-transform: rotateX(135deg);
+    transform: rotateX(135deg);
 }
 .metro .rotateX180 {
-  -webkit-transform: rotateX(180deg);
-  -moz-transform: rotateX(180deg);
-  -ms-transform: rotateX(180deg);
-  -o-transform: rotateX(180deg);
-  transform: rotateX(180deg);
+    -webkit-transform: rotateX(180deg);
+    -moz-transform: rotateX(180deg);
+    -ms-transform: rotateX(180deg);
+    -o-transform: rotateX(180deg);
+    transform: rotateX(180deg);
 }
 .metro .rotateX225 {
-  -webkit-transform: rotateX(225deg);
-  -moz-transform: rotateX(225deg);
-  -ms-transform: rotateX(225deg);
-  -o-transform: rotateX(225deg);
-  transform: rotateX(225deg);
+    -webkit-transform: rotateX(225deg);
+    -moz-transform: rotateX(225deg);
+    -ms-transform: rotateX(225deg);
+    -o-transform: rotateX(225deg);
+    transform: rotateX(225deg);
 }
 .metro .rotateX270 {
-  -webkit-transform: rotateX(270deg);
-  -moz-transform: rotateX(270deg);
-  -ms-transform: rotateX(270deg);
-  -o-transform: rotateX(270deg);
-  transform: rotateX(270deg);
+    -webkit-transform: rotateX(270deg);
+    -moz-transform: rotateX(270deg);
+    -ms-transform: rotateX(270deg);
+    -o-transform: rotateX(270deg);
+    transform: rotateX(270deg);
 }
 .metro .rotateX360 {
-  -webkit-transform: rotateX(360deg);
-  -moz-transform: rotateX(360deg);
-  -ms-transform: rotateX(360deg);
-  -o-transform: rotateX(360deg);
-  transform: rotateX(360deg);
+    -webkit-transform: rotateX(360deg);
+    -moz-transform: rotateX(360deg);
+    -ms-transform: rotateX(360deg);
+    -o-transform: rotateX(360deg);
+    transform: rotateX(360deg);
 }
 .metro .rotateY45 {
-  -webkit-transform: rotateY(45deg);
-  -moz-transform: rotateY(45deg);
-  -ms-transform: rotateY(45deg);
-  -o-transform: rotateY(45deg);
-  transform: rotateY(45deg);
+    -webkit-transform: rotateY(45deg);
+    -moz-transform: rotateY(45deg);
+    -ms-transform: rotateY(45deg);
+    -o-transform: rotateY(45deg);
+    transform: rotateY(45deg);
 }
 .metro .rotateY90 {
-  -webkit-transform: rotateY(90deg);
-  -moz-transform: rotateY(90deg);
-  -ms-transform: rotateY(90deg);
-  -o-transform: rotateY(90deg);
-  transform: rotateY(90deg);
+    -webkit-transform: rotateY(90deg);
+    -moz-transform: rotateY(90deg);
+    -ms-transform: rotateY(90deg);
+    -o-transform: rotateY(90deg);
+    transform: rotateY(90deg);
 }
 .metro .rotateY135 {
-  -webkit-transform: rotateY(135deg);
-  -moz-transform: rotateY(135deg);
-  -ms-transform: rotateY(135deg);
-  -o-transform: rotateY(135deg);
-  transform: rotateY(135deg);
+    -webkit-transform: rotateY(135deg);
+    -moz-transform: rotateY(135deg);
+    -ms-transform: rotateY(135deg);
+    -o-transform: rotateY(135deg);
+    transform: rotateY(135deg);
 }
 .metro .rotateY180 {
-  -webkit-transform: rotateY(180deg);
-  -moz-transform: rotateY(180deg);
-  -ms-transform: rotateY(180deg);
-  -o-transform: rotateY(180deg);
-  transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    transform: rotateY(180deg);
 }
 .metro .rotateY225 {
-  -webkit-transform: rotateY(225deg);
-  -moz-transform: rotateY(225deg);
-  -ms-transform: rotateY(225deg);
-  -o-transform: rotateY(225deg);
-  transform: rotateY(225deg);
+    -webkit-transform: rotateY(225deg);
+    -moz-transform: rotateY(225deg);
+    -ms-transform: rotateY(225deg);
+    -o-transform: rotateY(225deg);
+    transform: rotateY(225deg);
 }
 .metro .rotateY270 {
-  -webkit-transform: rotateY(270deg);
-  -moz-transform: rotateY(270deg);
-  -ms-transform: rotateY(270deg);
-  -o-transform: rotateY(270deg);
-  transform: rotateY(270deg);
+    -webkit-transform: rotateY(270deg);
+    -moz-transform: rotateY(270deg);
+    -ms-transform: rotateY(270deg);
+    -o-transform: rotateY(270deg);
+    transform: rotateY(270deg);
 }
 .metro .rotateY360 {
-  -webkit-transform: rotateY(360deg);
-  -moz-transform: rotateY(360deg);
-  -ms-transform: rotateY(360deg);
-  -o-transform: rotateY(360deg);
-  transform: rotateY(360deg);
+    -webkit-transform: rotateY(360deg);
+    -moz-transform: rotateY(360deg);
+    -ms-transform: rotateY(360deg);
+    -o-transform: rotateY(360deg);
+    transform: rotateY(360deg);
 }
 
 .metro .grid {
-  margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 .metro .grid .row {
-  display: block;
-  margin-top: 20px;
+    display: block;
+    margin-top: 20px;
 }
 .metro .grid .row:before,
 .metro .grid .row:after {
-  display: table;
-  content: "";
+    display: table;
+    content: "";
 }
 .metro .grid .row:after {
-  clear: both;
+    clear: both;
 }
 .metro .grid .row [class*="span"] {
-  float: left;
-  min-height: 1px;
-  margin-left: 20px;
+    float: left;
+    min-height: 1px;
+    margin-left: 20px;
 }
 .metro .grid .row [class*="span"]:first-child {
-  margin-left: 0;
+    margin-left: 0;
 }
 /*</editor-fold>*/
 
 /*<editor-fold defaultstate="collpased" description="font styles">*/
 
 @font-face {
-  font-family: "PT Serif Caption";
-  font-style: normal;
-  font-weight: 400;
-  src: local("Cambria"), local("PT Serif Caption"), local("PTSerif-Caption"), url(https://themes.googleusercontent.com/static/fonts/ptserifcaption/v6/7xkFOeTxxO1GMC1suOUYWWhBabBbEjGd1iRmpyoZukE.woff) format('woff');
+    font-family: "PT Serif Caption";
+    font-style: normal;
+    font-weight: 400;
+    src: local("Cambria"), local("PT Serif Caption"), local("PTSerif-Caption"), url(https://themes.googleusercontent.com/static/fonts/ptserifcaption/v6/7xkFOeTxxO1GMC1suOUYWWhBabBbEjGd1iRmpyoZukE.woff) format('woff');
 }
 @font-face {
-  font-family: "Open Sans Light";
-  font-style: normal;
-  font-weight: 300;
-  src: local("Segoe UI Light"), local("Open Sans Light"), local("OpenSans-Light"), url(https://themes.googleusercontent.com/static/fonts/opensans/v8/DXI1ORHCpsQm3Vp6mXoaTZ1r3JsPcQLi8jytr04NNhU.woff) format('woff');
+    font-family: "Open Sans Light";
+    font-style: normal;
+    font-weight: 300;
+    src: local("Segoe UI Light"), local("Open Sans Light"), local("OpenSans-Light"), url(https://themes.googleusercontent.com/static/fonts/opensans/v8/DXI1ORHCpsQm3Vp6mXoaTZ1r3JsPcQLi8jytr04NNhU.woff) format('woff');
 }
 @font-face {
-  font-family: "Open Sans";
-  font-style: normal;
-  font-weight: 400;
-  src: local("Segoe UI"), local("Open Sans"), local("OpenSans"), url(https://themes.googleusercontent.com/static/fonts/opensans/v8/K88pR3goAWT7BTt32Z01mz8E0i7KZn-EPnyo3HZu7kw.woff) format('woff');
+    font-family: "Open Sans";
+    font-style: normal;
+    font-weight: 400;
+    src: local("Segoe UI"), local("Open Sans"), local("OpenSans"), url(https://themes.googleusercontent.com/static/fonts/opensans/v8/K88pR3goAWT7BTt32Z01mz8E0i7KZn-EPnyo3HZu7kw.woff) format('woff');
 }
 @font-face {
-  font-family: "Open Sans Bold";
-  font-style: normal;
-  font-weight: 700;
-  src: local("Segoe UI Bold"), local("Open Sans Bold"), local("OpenSans-Bold"), url(https://themes.googleusercontent.com/static/fonts/opensans/v8/k3k702ZOKiLJc3WVjuplzJ1r3JsPcQLi8jytr04NNhU.woff) format('woff');
+    font-family: "Open Sans Bold";
+    font-style: normal;
+    font-weight: 700;
+    src: local("Segoe UI Bold"), local("Open Sans Bold"), local("OpenSans-Bold"), url(https://themes.googleusercontent.com/static/fonts/opensans/v8/k3k702ZOKiLJc3WVjuplzJ1r3JsPcQLi8jytr04NNhU.woff) format('woff');
 }
 
 @font-face {
-  font-family: "Adequate ExtraLight";
-  font-style: normal;
-  font-weight: 700;
-  src:  url('fonts/Adequate-ExtraLight.ttf') format('truetype'), local("Segoe UI Bold"), local("Open Sans Bold"), local("OpenSans-Bold"), url(https://themes.googleusercontent.com/static/fonts/opensans/v8/k3k702ZOKiLJc3WVjuplzJ1r3JsPcQLi8jytr04NNhU.woff) format('woff');
+    font-family: "Adequate ExtraLight";
+    font-style: normal;
+    font-weight: 700;
+    src:  url('fonts/Adequate-ExtraLight.ttf') format('truetype'), local("Segoe UI Bold"), local("Open Sans Bold"), local("OpenSans-Bold"), url(https://themes.googleusercontent.com/static/fonts/opensans/v8/k3k702ZOKiLJc3WVjuplzJ1r3JsPcQLi8jytr04NNhU.woff) format('woff');
 }
 .metro .adequate{
-     font-family: 'Adequate ExtraLight','Segoe UI_', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
+    font-family: 'Adequate ExtraLight','Segoe UI_', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
 }
 .metro .text-rest-state {
-  color: #000000;
+    color: #000000;
 }
 .metro .text-rest2-state {
-  color: #000000;
+    color: #000000;
 }
 .metro .text-hover-state {
-  color: rgba(0, 0, 0, 0.8);
+    color: rgba(0, 0, 0, 0.8);
 }
 .metro .text-pressed-state {
-  color: rgba(0, 0, 0, 0.4);
+    color: rgba(0, 0, 0, 0.4);
 }
 .metro #font .light {
-  font-weight: 300;
+    font-weight: 300;
 }
 .metro #font .normal {
-  font-weight: normal;
-  font-style: normal;
+    font-weight: normal;
+    font-style: normal;
 }
 .metro #font .bold {
-  font-weight: bold;
+    font-weight: bold;
 }
 .metro #font .italic {
-  font-style: italic;
+    font-style: italic;
 }
 .metro #font .segoe {
-  font-family: 'Segoe UI_', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
+    font-family: 'Segoe UI_', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
 }
 .metro #font .segoe-bold {
-  font-family: 'Segoe UI Semibold_', 'Open Sans Bold', Verdana, Arial, Helvetica, sans-serif;
+    font-family: 'Segoe UI Semibold_', 'Open Sans Bold', Verdana, Arial, Helvetica, sans-serif;
 }
 .metro #font .segoe-light {
-  font-family: 'Segoe UI Light_', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
+    font-family: 'Segoe UI Light_', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
 }
 .metro #font .cambria {
-  font-family: 'Cambria_', 'PT Serif Caption', Verdana, Arial, Helvetica, sans-serif;
+    font-family: 'Cambria_', 'PT Serif Caption', Verdana, Arial, Helvetica, sans-serif;
 }
 .metro #font .mono {
-  font-family: 'Courier New', monospace;
+    font-family: 'Courier New', monospace;
 }
 .metro #font .serif {
-  font-family: Georgia, "Times New Roman", Times, serif;
+    font-family: Georgia, "Times New Roman", Times, serif;
 }
 .metro #font .sans {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .metro .header,
 .metro .subheader {
-  font-family: 'Segoe UI Light_', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
-  font-weight: 300;
-  color: #000000;
-  letter-spacing: 0.00em;
+    font-family: 'Segoe UI Light_', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
+    font-weight: 300;
+    color: #000000;
+    letter-spacing: 0.00em;
 }
 .metro .header {
-  font-size: 4.8rem;
-  line-height: 4.8rem;
+    font-size: 4.8rem;
+    line-height: 4.8rem;
 }
 .metro .subheader {
-  font-size: 2.5rem;
-  line-height: 2.5rem;
-  letter-spacing: 0.01em;
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+    letter-spacing: 0.01em;
 }
 .metro .subheader-secondary {
-  font-family: 'Segoe UI Light_', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
-  font-weight: 300;
-  letter-spacing: 0.00em;
-  font-size: 2.5rem;
-  line-height: 2.5rem;
-  letter-spacing: 0.01em;
-  color: #000000;
-  font-size: 2.2rem;
-  line-height: 2.2rem;
+    font-family: 'Segoe UI Light_', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
+    font-weight: 300;
+    letter-spacing: 0.00em;
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+    letter-spacing: 0.01em;
+    color: #000000;
+    font-size: 2.2rem;
+    line-height: 2.2rem;
 }
 .metro .item-title {
-  font-family: 'Segoe UI Semibold_', 'Open Sans Bold', Verdana, Arial, Helvetica, sans-serif;
-  font-weight: bold;
-  color: #000000;
-  font-size: 1.6rem;
-  line-height: 1.6rem;
-  letter-spacing: 0.02em;
+    font-family: 'Segoe UI Semibold_', 'Open Sans Bold', Verdana, Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: #000000;
+    font-size: 1.6rem;
+    line-height: 1.6rem;
+    letter-spacing: 0.02em;
 }
 .metro .item-title-secondary {
-  font-family: 'Segoe UI Semibold_', 'Open Sans Bold', Verdana, Arial, Helvetica, sans-serif;
-  font-weight: bold;
-  font-size: 1.6rem;
-  line-height: 1.6rem;
-  letter-spacing: 0.02em;
-  color: #000000;
-  font-size: 1.4rem;
-  line-height: 1.4rem;
+    font-family: 'Segoe UI Semibold_', 'Open Sans Bold', Verdana, Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 1.6rem;
+    line-height: 1.6rem;
+    letter-spacing: 0.02em;
+    color: #000000;
+    font-size: 1.4rem;
+    line-height: 1.4rem;
 }
 .metro .navigation {
-  font-family: 'Segoe UI_', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
-  font-weight: normal;
-  font-style: normal;
-  color: #000000;
-  font-size: 1.2rem;
-  line-height: 1.2rem;
-  letter-spacing: 0.02em;
+    font-family: 'Segoe UI_', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    color: #000000;
+    font-size: 1.2rem;
+    line-height: 1.2rem;
+    letter-spacing: 0.02em;
 }
 .metro .body-text {
-  font-family: 'Segoe UI_', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
-  font-weight: normal;
-  font-style: normal;
-  color: #000000;
-  font-size: 11pt;
-  line-height: 15pt;
-  letter-spacing: 0.02em;
+    font-family: 'Segoe UI_', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    color: #000000;
+    font-size: 11pt;
+    line-height: 15pt;
+    letter-spacing: 0.02em;
 }
 .metro .code-text {
-  font-family: 'Segoe UI_', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
-  font-weight: normal;
-  font-style: normal;
-  color: #000000;
-  font-size: 11pt;
-  line-height: 15pt;
-  letter-spacing: 0.02em;
-  font-family: 'Courier New', monospace;
+    font-family: 'Segoe UI_', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    color: #000000;
+    font-size: 11pt;
+    line-height: 15pt;
+    letter-spacing: 0.02em;
+    font-family: 'Courier New', monospace;
 }
 .metro .tertiary-text {
-  font-family: 'Segoe UI_', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
-  color: #000000;
-  font-size: 1.3rem;
-  line-height: 1.5rem;
-  font-weight: normal !important;
+    font-family: 'Segoe UI_', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
+    color: #000000;
+    font-size: 1.3rem;
+    line-height: 1.5rem;
+    font-weight: normal !important;
 }
 .metro .tertiary-text-secondary {
-  font-family: 'Segoe UI_', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
-  font-size: 1.3rem;
-  line-height: 1.5rem;
-  font-weight: normal !important;
-  color: #000000;
+    font-family: 'Segoe UI_', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
+    font-size: 1.3rem;
+    line-height: 1.5rem;
+    font-weight: normal !important;
+    color: #000000;
 }
 .metro .readable-text {
-  font-family: 'Cambria_', 'PT Serif Caption', Verdana, Arial, Helvetica, sans-serif;
-  font-weight: normal;
-  font-style: normal;
-  font-size: 1.8rem;
-  line-height: 2rem;
+    font-family: 'Cambria_', 'PT Serif Caption', Verdana, Arial, Helvetica, sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 1.8rem;
+    line-height: 2rem;
 }
 .metro .menu-title {
-  font-family: 'Segoe UI Light_', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
-  font-weight: 300;
-  color: #000000;
-  letter-spacing: 0.00em;
-  font-size: 2.5rem;
-  line-height: 2.5rem;
-  letter-spacing: 0.01em;
-  font-size: 4rem;
+    font-family: 'Segoe UI Light_', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
+    font-weight: 300;
+    color: #000000;
+    letter-spacing: 0.00em;
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+    letter-spacing: 0.01em;
+    font-size: 4rem;
 }
 .metro .menu-item {
-  font-family: 'Segoe UI Light_', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
-  font-weight: 300;
-  letter-spacing: 0.00em;
-  font-size: 2.5rem;
-  line-height: 2.5rem;
-  letter-spacing: 0.01em;
-  color: #000000;
-  line-height: 2.2rem;
-  font-size: 2.2rem;
+    font-family: 'Segoe UI Light_', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
+    font-weight: 300;
+    letter-spacing: 0.00em;
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+    letter-spacing: 0.01em;
+    color: #000000;
+    line-height: 2.2rem;
+    font-size: 2.2rem;
 }
 .metro .menu-item-secondary {
-  font-family: 'Segoe UI Semibold_', 'Open Sans Bold', Verdana, Arial, Helvetica, sans-serif;
-  font-weight: bold;
-  color: #000000;
-  font-size: 1.6rem;
-  line-height: 1.6rem;
-  letter-spacing: 0.02em;
-  font-weight: normal;
-  font-style: normal;
-  line-height: 1.4rem;
+    font-family: 'Segoe UI Semibold_', 'Open Sans Bold', Verdana, Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: #000000;
+    font-size: 1.6rem;
+    line-height: 1.6rem;
+    letter-spacing: 0.02em;
+    font-weight: normal;
+    font-style: normal;
+    line-height: 1.4rem;
 }
 .metro h1,
 .metro h2,
@@ -3960,78 +3960,78 @@ a {
 .metro h4,
 .metro h5,
 .metro h6 {
-  padding: 0;
-  margin: 10px 0;
+    padding: 0;
+    margin: 10px 0;
 }
 .metro h1 {
-  font-family: 'Segoe UI Light_', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
-  font-weight: 300;
-  color: #000000;
-  letter-spacing: 0.00em;
-  font-size: 4.8rem;
-  line-height: 4.8rem;
+    font-family: 'Segoe UI Light_', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
+    font-weight: 300;
+    color: #000000;
+    letter-spacing: 0.00em;
+    font-size: 4.8rem;
+    line-height: 4.8rem;
 }
 .metro h2 {
-  font-family: 'Segoe UI Light_', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
-  font-weight: 300;
-  color: #000000;
-  letter-spacing: 0.00em;
-  font-size: 2.5rem;
-  line-height: 2.5rem;
-  letter-spacing: 0.01em;
+    font-family: 'Segoe UI Light_', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
+    font-weight: 300;
+    color: #000000;
+    letter-spacing: 0.00em;
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+    letter-spacing: 0.01em;
 }
 .metro h3 {
-  font-family: 'Segoe UI Light_', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
-  font-weight: 300;
-  letter-spacing: 0.00em;
-  font-size: 2.5rem;
-  line-height: 2.5rem;
-  letter-spacing: 0.01em;
-  color: #000000;
-  font-size: 2.2rem;
-  line-height: 2.2rem;
-  font-weight: bold;
+    font-family: 'Segoe UI Light_', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
+    font-weight: 300;
+    letter-spacing: 0.00em;
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+    letter-spacing: 0.01em;
+    color: #000000;
+    font-size: 2.2rem;
+    line-height: 2.2rem;
+    font-weight: bold;
 }
 .metro h4 {
-  font-family: 'Segoe UI Semibold_', 'Open Sans Bold', Verdana, Arial, Helvetica, sans-serif;
-  font-weight: bold;
-  color: #000000;
-  font-size: 1.6rem;
-  line-height: 1.6rem;
-  letter-spacing: 0.02em;
+    font-family: 'Segoe UI Semibold_', 'Open Sans Bold', Verdana, Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: #000000;
+    font-size: 1.6rem;
+    line-height: 1.6rem;
+    letter-spacing: 0.02em;
 }
 .metro h5 {
-  font-family: 'Segoe UI Semibold_', 'Open Sans Bold', Verdana, Arial, Helvetica, sans-serif;
-  font-weight: bold;
-  font-size: 1.6rem;
-  line-height: 1.6rem;
-  letter-spacing: 0.02em;
-  color: #000000;
-  font-size: 1.4rem;
-  line-height: 1.4rem;
+    font-family: 'Segoe UI Semibold_', 'Open Sans Bold', Verdana, Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 1.6rem;
+    line-height: 1.6rem;
+    letter-spacing: 0.02em;
+    color: #000000;
+    font-size: 1.4rem;
+    line-height: 1.4rem;
 }
 .metro h6 {
-  font-family: 'Segoe UI_', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
-  font-weight: normal;
-  font-style: normal;
-  color: #000000;
-  font-size: 11pt;
-  line-height: 15pt;
-  letter-spacing: 0.02em;
-  font-weight: bold;
-  font-size: 9pt;
+    font-family: 'Segoe UI_', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    color: #000000;
+    font-size: 11pt;
+    line-height: 15pt;
+    letter-spacing: 0.02em;
+    font-weight: bold;
+    font-size: 9pt;
 }
 .metro h1 small {
-  font-size: 19.25pt;
+    font-size: 19.25pt;
 }
 .metro h2 small {
-  font-size: 13.75pt;
+    font-size: 13.75pt;
 }
 .metro h3 small {
-  font-size: 11pt;
+    font-size: 11pt;
 }
 .metro h4 small {
-  font-size: 11pt;
+    font-size: 11pt;
 }
 /*</editor-fold>*/
 /* #General Styles
@@ -4045,7 +4045,11 @@ a {
     padding-bottom: 20px;
 }
 
-
+.contentwrap{
+    width: 90%;
+    margin: auto;
+    padding-top:45px; 
+}
 /*</editor-fold>*/
 
 
@@ -4053,10 +4057,404 @@ a {
 ================================================== */
 /*<editor-fold defaultstate="collapsed" desc="Slide1">*/
 
-.contenwrap{
+/*</editor-fold>*/
+
+
+/* #Notices Featured
+======================================================*/
+/*<editor-fold defaultstate="collapsed" desc="Notices Featured">*/
+.container .featured {
+    margin: 1px auto 35px auto;
+    transition: none;
+    -webkit-transition: none;
+    -moz-transition: none;
+    -o-transition: none; }
+
+.blogindex .container .featured {
+    margin-top: 0; }
+
+.blogindex .articlecontainer.featured {
+    width: 706px;
+    float: left;
+    margin-left: -1px;
+    margin-top: 1px;
+    margin-bottom: 15px; }
+
+.isotope {
+    min-width: 300px !important; }
+
+.home .two_third, .home .one_third {
+    margin: 0; }
+
+.featured a.isobrick {
+    background: rgba(0, 0, 0, 0.01) url(../images/small-loading.gif) center no-repeat;
+    -webkit-transition-property: none;
+    -moz-transition-property: none;
+    -ms-transition-property: none;
+    -o-transition-property: none;
+    transition-property: none; }
+
+.featured .featuredinner {
+    opacity: 0;
+    /* IE 8 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=00)";
+    -ms-filter: "alpha(opacity=0)";
+    /* Netscape */
+    -moz-opacity: 0;
+    /* Safari 1.x */
+    -khtml-opacity: 0;
+    /* Good browsers */
+    opacity: 0; }
+
+.featuredinner {
+    display: block;
     position: relative;
-    width: 100%; 
-    padding-top: 20px;
-    padding-bottom: 20px;
+    height: 100%; }
+
+.featuredoverlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 250px;
+    background-image: url(../images/linebg-fade.png);
+    background-position: top;
+    background-repeat: repeat-x;
+    z-index: 8; }
+
+.featured .half .featuredoverlay, .featured .quarter .featuredoverlay {
+    height: 200px; }
+
+.featured h2, .featured h2 a {
+    font-size: 30px;
+    line-height: 32px;
+    margin-bottom: 10px;
+    color: #fff;
+    text-decoration: none;
+    position: absolute;
+    bottom: 15px;
+    left: 20px;
+    width: 80%;
+    z-index: 9; }
+
+span.date {
+    font-size: 10px;
+    line-height: 10px;
+    display: block;
+    opacity: .9;
+    font-weight: normal;
+    position: relative; }
+
+span.date, span.date a {
+    color: #555; }
+
+span.date a.bubble, span.date a.bubble:hover {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    color: #fff !important; }
+
+.featured span.date {
+    margin-top: 5px;
+    color: #fff; }
+
+.featured span.date a {
+    color: #fff; }
+
+.articleinner span.date {
+    margin-bottom: 15px; }
+
+#fullcolumn .articleinner span.date {
+    margin-bottom: 10px; }
+
+.one_col {
+    display: block;
+    float: left;
+    width: 314px;
+    overflow: visible;
+    margin-right: 15px;
+    padding-top: 10px;
+    border-top: 1px solid #dcdcdc; }
+
+.featured .one_col {
+    height: 250px;
+    width: 320px;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    float: left; }
+
+.featured .one_col.half {
+    height: 124px; }
+
+.featured .one_col, .featured .two_col {
+    margin: 1px; }
+
+.featuredcontainer {
+    width: 966px;
+    margin-left: -1px;
+    margin: auto; }
+.comunicWraper{
+    height: 375px!important;
+    background: red;
 }
 /*</editor-fold>*/
+
+/* #Vacordion
+================================================== */
+/*<editor-fold defaultstate="collapsed" desc="Vacordion">*/
+/* Vertical Accordion Style */
+.va-container{
+    position:relative;
+    margin:40px auto 0 auto;
+}
+.va-wrapper{
+    width:100%;
+    height:100%;
+    position:relative;
+    overflow:hidden;
+    background:#000;
+}
+.va-slice{
+    cursor:pointer;
+    position:absolute;
+    width:100%;
+    left:0px;
+    overflow:hidden;
+}
+
+.metro .va-title{
+    font-family: 'Open Sans', sans-serif!important;	
+    font-size:20px;
+    margin-right:20px;
+    color:#fff!important;
+    text-align: right;
+    z-index: 8;
+    position: relative;
+}
+.va-content{
+    display:none;
+    margin-left:0px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(../images/linebg-fade.png);
+    background-position: top;
+    background-repeat: repeat-x;
+    z-index: 8; 
+}
+
+
+.va-nav span{
+    width:40px;
+    height:25px;
+    background:transparent url(../images/prev.png) no-repeat center center;
+    position:absolute;
+    top:-35px;
+    left:50%;
+    margin-left:-20px;
+    text-indent:-9000px;
+    opacity:0.7;
+    cursor:pointer;
+    display:none;
+    z-index:100;
+}
+.va-nav span.va-nav-next{
+    background-image:url(../images/next.png);
+    top:auto;
+    bottom:-35px;
+}
+.va-nav span:hover{
+    opacity:1.0;
+}
+.va-slice:hover{
+    background-size: 110%!important;
+}
+.va-slice img{
+    transition: transform 0.45s, filter 0.45s;
+    -webkit-transition: -webkit-transform 0.45s, -webkit-filter 0.45s;
+    -moz-transition: -moz-transform 0.45s, -moz-filter 0.45s;
+    -o-transition: -o-transform 0.45s, -o-filter 0.45s;
+    -ms-transition: -ms-transform 0.45s, -ms-filter 0.45s;
+    -webkit-transform: translate3d(0, 0, 0);
+    z-index: 7;
+    position: absolute;
+}
+.va-slice:hover img{
+    -webkit-transform:scale(1.1);
+    -moz-transform:scale(1.1);
+    -o-transform:scale(1.1);
+    -ms-transform: scale(1.1); 
+}
+/*</editor-fold>*/
+
+/* #Notices expander
+================================================== */
+.rb-overlay {
+    opacity: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: all 0.4s ease;
+    z-index: -1;
+    pointer-events: none;
+    cursor: default;
+}
+.rb-close {
+    position: absolute;
+    top: 0.4em;
+    right: 0.4em;
+    width: 2em;
+    height: 2em;
+    text-indent: -9000px;
+    cursor: pointer;
+    z-index: 1000;
+}
+ 
+.rb-close:before {
+    content: 'x';
+    font-weight: 100;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 3em;
+    line-height: 0.6;
+    text-align: center;
+    text-indent: 0px;
+}
+.rb-week {
+    width: 100%;
+    height: 100%;
+    background: red;
+}
+.rb-week > div {    
+    position: relative;
+    padding: 3% 0;
+}
+
+/* #The Nivo Slider styles
+================================================== */
+/*<editor-fold defaultstate="collapsed" desc="General styles">*/
+
+.nivoSlider {
+    position:relative;
+    width:100%;
+    height:auto;
+    overflow: hidden;
+}
+.nivoSlider img {
+    position:absolute;
+    top:0px;
+    left:0px;
+    max-width: none;
+}
+.nivo-main-image {
+    display: block !important;
+    position: relative !important; 
+    width: 100% !important;
+}
+
+/* If an image is wrapped in a link */
+.nivoSlider a.nivo-imageLink {
+    position:absolute;
+    top:0px;
+    left:0px;
+    width:100%;
+    height:100%;
+    border:0;
+    padding:0;
+    margin:0;
+    z-index:6;
+    display:none;
+    background:white; 
+    filter:alpha(opacity=0); 
+    opacity:0;
+}
+/* The slices and boxes in the Slider */
+.nivo-slice {
+    display:block;
+    position:absolute;
+    z-index:5;
+    height:100%;
+    top:0;
+}
+.nivo-box {
+    display:block;
+    position:absolute;
+    z-index:5;
+    overflow:hidden;
+}
+.nivo-box img { display:block; }
+
+/* Caption styles */
+.nivo-caption {
+    position:absolute;
+    left:0px;
+    bottom:0px;
+    background:#000;
+    color:#fff;
+    width:100%;
+    z-index:8;
+    padding: 5px 10px;
+    opacity: 0.8;
+    overflow: hidden;
+    display: none;
+    -moz-opacity: 0.8;
+    filter:alpha(opacity=8);
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+}
+.nivo-caption p {
+    padding:5px;
+    margin:0;
+}
+.nivo-caption a {
+    display:inline !important;
+}
+.nivo-html-caption {
+    display:none;
+}
+/* Direction nav styles (e.g. Next & Prev) */
+.nivo-directionNav a {
+    position:absolute;
+    top:45%;
+    z-index:9;
+    cursor:pointer;
+}
+.nivo-prevNav {
+    left:0px;
+}
+.nivo-nextNav {
+    right:0px;
+}
+/* Control nav styles (e.g. 1,2,3...) */
+.nivo-controlNav {
+    text-align:center;
+    padding: 15px 0;
+}
+.nivo-controlNav a {
+    cursor:pointer;
+}
+.nivo-controlNav a.active {
+    font-weight:bold;
+}                                                    
+/*</editor-fold>*/
+
+/* #Facultades
+================================================== */
+/*<editor-fold defaultstate="collapsed" desc="Facultades">*/
+
+/*</editor-fold>*/
+
+
+
+
+
