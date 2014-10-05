@@ -4184,7 +4184,8 @@ a {
     color: #fff;
     text-decoration: none;
     position: absolute;
-    bottom: 15px;
+   /* bottom: 15px;*/
+    top: 15px;
     left: 20px;
     width: 80%;
     z-index: 9; }

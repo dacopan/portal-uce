@@ -6079,101 +6079,115 @@ var DCMGrid = (function() {
 //</editor-fold>
 
 //<editor-fold defaultstate="collapsed" desc="metro tabs control">
-(function($) {
-    $.widget("metro.tabcontrol", {
-        version: "1.0.0",
-        options: {
-            effect: 'none',
-            activateStoredTab: false,
-            tabclick: function(tab) {
-            },
-            tabchange: function(tab) {
-            }
-        },
-        _create: function() {
-            var that = this,
-                    element = this.element,
-                    tabs = $(element.children(".tabs")).children("li"),
-                    frames = $(element.children(".frames")).children(".frame"),
-                    element_id = element.attr("id");
+(function(c) {
+    c.widget("metro.tabcontrol", {version: "1.0.0", options: {effect: "none", activateStoredTab: !1, tabclick: function(a) {
+            }, tabchange: function(a) {
+            }}, _create: function() {
+            var a = this, b = this.element, d = c(b.children(".tabs")).children("li"), e = c(b.children(".frames")).children(".frame"), f = b.attr("id");
+            void 0 != b.data("effect") && (this.options.effect = b.data("effect"));
+            this.init(d, e);
+            d.each(function() {
+                var b = c(this).children("a");
+                b.on("click", function(h) {
+                    h.preventDefault();
+                    a.options.tabclick(this);
+                    if (c(this).parent().hasClass("disabled"))
+                        return!1;
+                    d.removeClass("active");
+                    b.parent("li").addClass("active");
+                    e.hide();
 
-            if (element.data('effect') != undefined) {
-                this.options.effect = element.data('effect');
-            }
+                    var e1 = e.data('anim');
+                    e.find('a').removeClass(e1);
 
-            this.init(tabs, frames);
-
-            element.on("click", ".tabs > li > a", function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-
-                that.options.tabclick(this);
-
-                if ($(this).parent().hasClass('disabled')) {
-                    return false;
-                }
-
-                element.children(".tabs").children("li").removeClass("active");
-                element.children(".frames").children(".frame").hide();
-
-                $(this).parent().addClass("active");
-
-                var current_frame = $($(this).attr("href"));
-                switch (that.options.effect) {
-                    case 'slide':
-                        current_frame.slideDown();
-                        break;
-                    case 'fade':
-                        current_frame.fadeIn();
-                        break;
-                    default:
-                        current_frame.show();
-                }
-
-                that._trigger('change', null, current_frame);
-                that.options.tabchange(this);
-
-                if (element_id != undefined)
-                    window.localStorage.setItem(element_id + "-current-tab", $(this).attr("href"));
-
-                return true;
-            });
-
-            if (this.options.activateStoredTab)
-                this._activateStoredTab(tabs);
-        },
-        init: function(tabs, frames) {
-            var that = this;
-            tabs.each(function() {
-                if ($(this).hasClass("active")) {
-                    var current_frame = $($($(this).children("a")).attr("href"));
-                    frames.hide();
-                    current_frame.show();
-                    that._trigger('change', null, current_frame);
-                }
-            });
-        },
-        _activateStoredTab: function(tabs) {
-            var current_stored_tab = window.localStorage.getItem(this.element.attr('id') + '-current-tab');
-
-            if (current_stored_tab != undefined) {
-                tabs.each(function() {
-                    var a = $(this).children("a");
-                    if (a.attr("href") == current_stored_tab) {
-                        a.click();
+                    h = c(b.attr("href"));
+                    switch (a.options.effect) {
+                        case "slide":
+                            h.slideDown();
+                            break;
+                        case "fade":
+                            h.fadeIn();
+                            break;
+                        default:
+                            h.show()
                     }
-                });
-            }
-        },
-        _destroy: function() {
 
-        },
-        _setOption: function(key, value) {
-            this._super('_setOption', key, value);
-        }
-    })
+                    var e2 = h.data('anim');
+                    var w = h.find('a');
+                    if (e2 !== undefined && w.width() !== null) {
+                        w.addClass('animated ' + e2);
+                        setTimeout(function() {
+                            w.removeClass('animated ' + e2);
+                        }, 1000)
+                    }
+                    a._trigger("change", null, h);
+                    a.options.tabchange(this);
+                    void 0 != f && window.localStorage.setItem(f + "-current-tab", c(this).attr("href"))
+                })
+            });
+            this.options.activateStoredTab && this._activateStoredTab(d)
+        }, init: function(a, b) {
+            var d = this;
+            a.each(function() {
+                if (c(this).hasClass("active")) {
+                    var a = c(c(c(this).children("a")).attr("href"));
+                    b.hide();
+                    a.show();
+                    d._trigger("change", null, a)
+                }
+            })
+        }, _activateStoredTab: function(a) {
+            var b = window.localStorage.getItem(this.element.attr("id") + "-current-tab");
+            void 0 != b && a.each(function() {
+                var a = c(this).children("a");
+                a.attr("href") == b && a.click()
+            })
+        }, _destroy: function() {
+        }, _setOption: function(a, b) {
+            this._super("_setOption", a, b)
+        }})
 })(jQuery);
-
+(function(c) {
+    c.widget("metro.hint", {version: "1.0.0", options: {position: "bottom", background: "#FFFCC0", shadow: !1, border: !1, _hint: void 0}, _create: function() {
+            var a = this, b = this.options;
+            this.element.on("mouseenter", function(c) {
+                a.createHint();
+                b._hint.stop().fadeIn();
+                c.preventDefault()
+            });
+            this.element.on("mouseleave", function(a) {
+                b._hint.stop().fadeOut(function() {
+                    b._hint.remove()
+                });
+                a.preventDefault()
+            })
+        }, createHint: function() {
+            var a = this.element, b = a.data("hint").split("|"), d = this.options;
+            void 0 != a.data("hintPosition") &&
+                    (d.position = a.data("hintPosition"));
+            void 0 != a.data("hintBackground") && (d.background = a.data("hintBackground"));
+            void 0 != a.data("hintShadow") && (d.shadow = a.data("hintShadow"));
+            void 0 != a.data("hintBorder") && (d.border = a.data("hintBorder"));
+            if ("TD" == a[0].tagName || "TH" == a[0].tagName) {
+                var e = c("<div/>").css("display", "inline-block").html(a.html());
+                a.html(e);
+                a = e
+            }
+            var e = 1 < b.length ? b[0] : !1, f = 1 < b.length ? b[1] : b[0], b = c("<div/>").addClass("hint").appendTo("body");
+            e && c("<div/>").addClass("hint-title").html(e).appendTo(b);
+            c("<div/>").addClass("hint-text").html(f).appendTo(b);
+            b.addClass(d.position);
+            d.shadow && b.addClass("shadow");
+            d.background && b.css("background-color", d.background);
+            d.border && b.css("border-color", d.border);
+            "top" == d.position ? b.css({top: a.offset().top - c(window).scrollTop() - b.outerHeight() - 20, left: a.offset().left - c(window).scrollLeft()}) : "bottom" == d.position ? b.css({top: a.offset().top - c(window).scrollTop() + a.outerHeight(), left: a.offset().left - c(window).scrollLeft()}) : "right" == d.position ? b.css({top: a.offset().top -
+                        10 - c(window).scrollTop(), left: a.offset().left + a.outerWidth() + 10 - c(window).scrollLeft()}) : "left" == d.position && b.css({top: a.offset().top - 10 - c(window).scrollTop(), left: a.offset().left - b.outerWidth() - 10 - c(window).scrollLeft()});
+            d._hint = b
+        }, _destroy: function() {
+        }, _setOption: function(a, b) {
+            this._super("_setOption", a, b)
+        }})
+})(jQuery);
 (function($) {
     /*
      * Init or ReInit components
@@ -6203,12 +6217,17 @@ var DCMGrid = (function() {
         }
     };
 
+    $.Metro.initHints = function(a) {
+        void 0 != a ? $(a).find("[data-hint]").hint() : $("[data-hint]").hint()
+    };
+
 
     $.Metro.initAll = function(area) {
 
         //$.Metro.initScrolls(area);
 
         $.Metro.initTabs(area);
+        $.Metro.initHints(area);
     }
 })(jQuery);
 
@@ -6216,7 +6235,7 @@ $(function() {
     $.Metro.initAll();
 });
 
-METRO_AUTO_REINIT=false;
+METRO_AUTO_REINIT = false;
 $(function() {
     if (METRO_AUTO_REINIT) {
         //$(".metro").bind('DOMSubtreeModified', function(){            $.Metro.initAll();        });
@@ -6237,6 +6256,7 @@ $(function() {
 
 
 //</editor-fold>
+
 $(window).load(function() {
 
 
