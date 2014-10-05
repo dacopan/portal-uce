@@ -5344,7 +5344,7 @@ var Boxgrid = (function() {
             var $item = $(this),
                     $close = $item.find('span.rb-close'),
                     $overlay = $item.find('div.rb-overlay');
-            
+
             $item.on('click', function(event) {
                 event.preventDefault();
                 if ($item.data('isExpanded')) {
@@ -5484,465 +5484,758 @@ var Boxgrid = (function() {
 // blank image data-uri bypasses webkit log warning (thx doug jones)
 var BLANK = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==';
 
-$.fn.imagesLoaded = function( callback ) {
-	var $this = this,
-		deferred = $.isFunction($.Deferred) ? $.Deferred() : 0,
-		hasNotify = $.isFunction(deferred.notify),
-		$images = $this.find('img').add( $this.filter('img') ),
-		loaded = [],
-		proper = [],
-		broken = [];
+$.fn.imagesLoaded = function(callback) {
+    var $this = this,
+            deferred = $.isFunction($.Deferred) ? $.Deferred() : 0,
+            hasNotify = $.isFunction(deferred.notify),
+            $images = $this.find('img').add($this.filter('img')),
+            loaded = [],
+            proper = [],
+            broken = [];
 
-	// Register deferred callbacks
-	if ($.isPlainObject(callback)) {
-		$.each(callback, function (key, value) {
-			if (key === 'callback') {
-				callback = value;
-			} else if (deferred) {
-				deferred[key](value);
-			}
-		});
-	}
+    // Register deferred callbacks
+    if ($.isPlainObject(callback)) {
+        $.each(callback, function(key, value) {
+            if (key === 'callback') {
+                callback = value;
+            } else if (deferred) {
+                deferred[key](value);
+            }
+        });
+    }
 
-	function doneLoading() {
-		var $proper = $(proper),
-			$broken = $(broken);
+    function doneLoading() {
+        var $proper = $(proper),
+                $broken = $(broken);
 
-		if ( deferred ) {
-			if ( broken.length ) {
-				deferred.reject( $images, $proper, $broken );
-			} else {
-				deferred.resolve( $images );
-			}
-		}
+        if (deferred) {
+            if (broken.length) {
+                deferred.reject($images, $proper, $broken);
+            } else {
+                deferred.resolve($images);
+            }
+        }
 
-		if ( $.isFunction( callback ) ) {
-			callback.call( $this, $images, $proper, $broken );
-		}
-	}
+        if ($.isFunction(callback)) {
+            callback.call($this, $images, $proper, $broken);
+        }
+    }
 
-	function imgLoaded( img, isBroken ) {
-		// don't proceed if BLANK image, or image is already loaded
-		if ( img.src === BLANK || $.inArray( img, loaded ) !== -1 ) {
-			return;
-		}
+    function imgLoaded(img, isBroken) {
+        // don't proceed if BLANK image, or image is already loaded
+        if (img.src === BLANK || $.inArray(img, loaded) !== -1) {
+            return;
+        }
 
-		// store element in loaded images array
-		loaded.push( img );
+        // store element in loaded images array
+        loaded.push(img);
 
-		// keep track of broken and properly loaded images
-		if ( isBroken ) {
-			broken.push( img );
-		} else {
-			proper.push( img );
-		}
+        // keep track of broken and properly loaded images
+        if (isBroken) {
+            broken.push(img);
+        } else {
+            proper.push(img);
+        }
 
-		// cache image and its state for future calls
-		$.data( img, 'imagesLoaded', { isBroken: isBroken, src: img.src } );
+        // cache image and its state for future calls
+        $.data(img, 'imagesLoaded', {isBroken: isBroken, src: img.src});
 
-		// trigger deferred progress method if present
-		if ( hasNotify ) {
-			deferred.notifyWith( $(img), [ isBroken, $images, $(proper), $(broken) ] );
-		}
+        // trigger deferred progress method if present
+        if (hasNotify) {
+            deferred.notifyWith($(img), [isBroken, $images, $(proper), $(broken)]);
+        }
 
-		// call doneLoading and clean listeners if all images are loaded
-		if ( $images.length === loaded.length ){
-			setTimeout( doneLoading );
-			$images.unbind( '.imagesLoaded' );
-		}
-	}
+        // call doneLoading and clean listeners if all images are loaded
+        if ($images.length === loaded.length) {
+            setTimeout(doneLoading);
+            $images.unbind('.imagesLoaded');
+        }
+    }
 
-	// if no images, trigger immediately
-	if ( !$images.length ) {
-		doneLoading();
-	} else {
-		$images.bind( 'load.imagesLoaded error.imagesLoaded', function( event ){
-			// trigger imgLoaded
-			imgLoaded( event.target, event.type === 'error' );
-		}).each( function( i, el ) {
-			var src = el.src;
+    // if no images, trigger immediately
+    if (!$images.length) {
+        doneLoading();
+    } else {
+        $images.bind('load.imagesLoaded error.imagesLoaded', function(event) {
+            // trigger imgLoaded
+            imgLoaded(event.target, event.type === 'error');
+        }).each(function(i, el) {
+            var src = el.src;
 
-			// find out if this image has been already checked for status
-			// if it was, and src has not changed, call imgLoaded on it
-			var cached = $.data( el, 'imagesLoaded' );
-			if ( cached && cached.src === src ) {
-				imgLoaded( el, cached.isBroken );
-				return;
-			}
+            // find out if this image has been already checked for status
+            // if it was, and src has not changed, call imgLoaded on it
+            var cached = $.data(el, 'imagesLoaded');
+            if (cached && cached.src === src) {
+                imgLoaded(el, cached.isBroken);
+                return;
+            }
 
-			// if complete is true and browser supports natural sizes, try
-			// to check for image status manually
-			if ( el.complete && el.naturalWidth !== undefined ) {
-				imgLoaded( el, el.naturalWidth === 0 || el.naturalHeight === 0 );
-				return;
-			}
+            // if complete is true and browser supports natural sizes, try
+            // to check for image status manually
+            if (el.complete && el.naturalWidth !== undefined) {
+                imgLoaded(el, el.naturalWidth === 0 || el.naturalHeight === 0);
+                return;
+            }
 
-			// cached images don't fire load sometimes, so we reset src, but only when
-			// dealing with IE, or image is complete (loaded) and failed manual check
-			// webkit hack from http://groups.google.com/group/jquery-dev/browse_thread/thread/eee6ab7b2da50e1f
-			if ( el.readyState || el.complete ) {
-				el.src = BLANK;
-				el.src = src;
-			}
-		});
-	}
+            // cached images don't fire load sometimes, so we reset src, but only when
+            // dealing with IE, or image is complete (loaded) and failed manual check
+            // webkit hack from http://groups.google.com/group/jquery-dev/browse_thread/thread/eee6ab7b2da50e1f
+            if (el.readyState || el.complete) {
+                el.src = BLANK;
+                el.src = src;
+            }
+        });
+    }
 
-	return deferred ? deferred.promise( $this ) : $this;
+    return deferred ? deferred.promise($this) : $this;
 };
 
 var DCMGrid = (function() {
 
-		// list of items
-	var $grid = $( '.og-grid' ),
-		// the items
-		$items = $grid.children( 'li' ),
-		// current expanded item's index
-		current = -1,
-		// position (top) of the expanded item
-		// used to know if the preview will expand in a different row
-		previewPos = -1,
-		// extra amount of pixels to scroll the window
-		scrollExtra = 0,
-		// extra margin when expanded (between preview overlay and the next items)
-		marginExpanded = 10,
-		$window = $( window ), winsize,
-		$body = $( 'html, body' ),
-		// transitionend events
-		transEndEventNames = {
-			'WebkitTransition' : 'webkitTransitionEnd',
-			'MozTransition' : 'transitionend',
-			'OTransition' : 'oTransitionEnd',
-			'msTransition' : 'MSTransitionEnd',
-			'transition' : 'transitionend'
-		},
-		transEndEventName = transEndEventNames[ Modernizr.prefixed( 'transition' ) ],
-		// support for csstransitions
-		support = Modernizr.csstransitions,
-		// default settings
-		settings = {
-			minHeight : 500,
-			speed : 350,
-			easing : 'ease'
-		};
+    // list of items
+    var $grid = $('.og-grid'),
+            // the items
+            $items = $grid.children('li'),
+            // current expanded item's index
+            current = -1,
+            // position (top) of the expanded item
+            // used to know if the preview will expand in a different row
+            previewPos = -1,
+            // extra amount of pixels to scroll the window
+            scrollExtra = 0,
+            // extra margin when expanded (between preview overlay and the next items)
+            marginExpanded = 10,
+            $window = $(window), winsize,
+            $body = $('html, body'),
+            // transitionend events
+            transEndEventNames = {
+                'WebkitTransition': 'webkitTransitionEnd',
+                'MozTransition': 'transitionend',
+                'OTransition': 'oTransitionEnd',
+                'msTransition': 'MSTransitionEnd',
+                'transition': 'transitionend'
+            },
+    transEndEventName = transEndEventNames[ Modernizr.prefixed('transition') ],
+            // support for csstransitions
+            support = Modernizr.csstransitions,
+            // default settings
+            settings = {
+                minHeight: 500,
+                speed: 350,
+                easing: 'ease'
+            };
 
-	function init( config ) {
-		
-		// the settings..
-		settings = $.extend( true, {}, settings, config );
+    function init(config) {
 
-		// preload all images
-		$grid.imagesLoaded( function() {
+        // the settings..
+        settings = $.extend(true, {}, settings, config);
 
-			// save itemÂ´s size and offset
-			saveItemInfo( true );
-			// get windowÂ´s size
-			getWinSize();
-			// initialize some events
-			initEvents();
+        // preload all images
+        $grid.imagesLoaded(function() {
 
-		} );
+            // save itemÂ´s size and offset
+            saveItemInfo(true);
+            // get windowÂ´s size
+            getWinSize();
+            // initialize some events
+            initEvents();
 
-	}
+        });
 
-	// add more items to the grid.
-	// the new items need to appended to the grid.
-	// after that call Grid.addItems(theItems);
-	function addItems( $newitems ) {
+    }
 
-		$items = $items.add( $newitems );
+    // add more items to the grid.
+    // the new items need to appended to the grid.
+    // after that call Grid.addItems(theItems);
+    function addItems($newitems) {
 
-		$newitems.each( function() {
-			var $item = $( this );
-			$item.data( {
-				offsetTop : $item.offset().top,
-				height : $item.height()
-			} );
-		} );
+        $items = $items.add($newitems);
 
-		initItemsEvents( $newitems );
+        $newitems.each(function() {
+            var $item = $(this);
+            $item.data({
+                offsetTop: $item.offset().top,
+                height: $item.height()
+            });
+        });
 
-	}
+        initItemsEvents($newitems);
 
-	// saves the itemÂ´s offset top and height (if saveheight is true)
-	function saveItemInfo( saveheight ) {
-		$items.each( function() {
-			var $item = $( this );
-			$item.data( 'offsetTop', $item.offset().top );
-			if( saveheight ) {
-				$item.data( 'height', $item.height() );
-			}
-		} );
-	}
+    }
 
-	function initEvents() {
-		
-		// when clicking an item, show the preview with the itemÂ´s info and large image.
-		// close the item if already expanded.
-		// also close if clicking on the itemÂ´s cross
-		initItemsEvents( $items );
-		
-		// on window resize get the windowÂ´s size again
-		// reset some values..
-		$window.on( 'debouncedresize', function() {
-			
-			scrollExtra = 0;
-			previewPos = -1;
-			// save itemÂ´s offset
-			saveItemInfo();
-			getWinSize();
-			var preview = $.data( this, 'preview' );
-			if( typeof preview != 'undefined' ) {
-				hidePreview();
-			}
+    // saves the itemÂ´s offset top and height (if saveheight is true)
+    function saveItemInfo(saveheight) {
+        $items.each(function() {
+            var $item = $(this);
+            $item.data('offsetTop', $item.offset().top);
+            if (saveheight) {
+                $item.data('height', $item.height());
+            }
+        });
+    }
 
-		} );
+    function initEvents() {
 
-	}
+        // when clicking an item, show the preview with the itemÂ´s info and large image.
+        // close the item if already expanded.
+        // also close if clicking on the itemÂ´s cross
+        initItemsEvents($items);
 
-	function initItemsEvents( $items ) {
-		$items.on( 'click', 'span.og-close', function() {
-			hidePreview();
-			return false;
-		} ).children( 'a' ).on( 'click', function(e) {
+        // on window resize get the windowÂ´s size again
+        // reset some values..
+        $window.on('debouncedresize', function() {
 
-			var $item = $( this ).parent();
-			// check if item already opened
-			current === $item.index() ? hidePreview() : showPreview( $item );
-			return false;
+            scrollExtra = 0;
+            previewPos = -1;
+            // save itemÂ´s offset
+            saveItemInfo();
+            getWinSize();
+            var preview = $.data(this, 'preview');
+            if (typeof preview != 'undefined') {
+                hidePreview();
+            }
 
-		} );
-	}
+        });
 
-	function getWinSize() {
-		winsize = { width : $window.width(), height : $window.height() };
-	}
+    }
 
-	function showPreview( $item ) {
+    function initItemsEvents($items) {
+        $items.on('click', 'span.og-close', function() {
+            hidePreview();
+            return false;
+        }).children('a').on('click', function(e) {
 
-		var preview = $.data( this, 'preview' ),
-			// itemÂ´s offset top
-			position = $item.data( 'offsetTop' );
+            var $item = $(this).parent();
+            // check if item already opened
+            current === $item.index() ? hidePreview() : showPreview($item);
+            return false;
 
-		scrollExtra = 0;
+        });
+    }
 
-		// if a preview exists and previewPos is different (different row) from itemÂ´s top then close it
-		if( typeof preview != 'undefined' ) {
+    function getWinSize() {
+        winsize = {width: $window.width(), height: $window.height()};
+    }
 
-			// not in the same row
-			if( previewPos !== position ) {
-				// if position > previewPos then we need to take te current previewÂ´s height in consideration when scrolling the window
-				if( position > previewPos ) {
-					scrollExtra = preview.height;
-				}
-				hidePreview();
-			}
-			// same row
-			else {
-				preview.update( $item );
-				return false;
-			}
-			
-		}
+    function showPreview($item) {
 
-		// update previewPos
-		previewPos = position;
-		// initialize new preview for the clicked item
-		preview = $.data( this, 'preview', new Preview( $item ) );
-		// expand preview overlay
-		preview.open();
+        var preview = $.data(this, 'preview'),
+                // itemÂ´s offset top
+                position = $item.data('offsetTop');
 
-	}
+        scrollExtra = 0;
 
-	function hidePreview() {
-		current = -1;
-		var preview = $.data( this, 'preview' );
-		preview.close();
-		$.removeData( this, 'preview' );
-	}
+        // if a preview exists and previewPos is different (different row) from itemÂ´s top then close it
+        if (typeof preview != 'undefined') {
 
-	// the preview obj / overlay
-	function Preview( $item ) {
-		this.$item = $item;
-		this.expandedIdx = this.$item.index();
-		this.create();
-		this.update();
-	}
+            // not in the same row
+            if (previewPos !== position) {
+                // if position > previewPos then we need to take te current previewÂ´s height in consideration when scrolling the window
+                if (position > previewPos) {
+                    scrollExtra = preview.height;
+                }
+                hidePreview();
+            }
+            // same row
+            else {
+                preview.update($item);
+                return false;
+            }
 
-	Preview.prototype = {
-		create : function() {
-			// create Preview structure:
-			this.$title = $( '<h3></h3>' );
-			this.$description = $( '<p></p>' );
-			this.$href = $( '<a href="#">Visit website</a>' );
-			this.$details = $( '<div class="og-details"></div>' ).append( this.$title, this.$description, this.$href );
-			this.$loading = $( '<div class="og-loading"></div>' );
-			this.$fullimage = $( '<div class="og-fullimg"></div>' ).append( this.$loading );
-			this.$closePreview = $( '<span class="og-close"></span>' );
-			this.$previewInner = $( '<div class="og-expander-inner"></div>' ).append( this.$closePreview, this.$fullimage, this.$details );
-			this.$previewEl = $( '<div class="og-expander"></div>' ).append( this.$previewInner );
-			// append preview element to the item
-			this.$item.append( this.getEl() );
-			// set the transitions for the preview and the item
-			if( support ) {
-				this.setTransition();
-			}
-		},
-		update : function( $item ) {
+        }
 
-			if( $item ) {
-				this.$item = $item;
-			}
-			
-			// if already expanded remove class "og-expanded" from current item and add it to new item
-			if( current !== -1 ) {
-				var $currentItem = $items.eq( current );
-				$currentItem.removeClass( 'og-expanded' );
-				this.$item.addClass( 'og-expanded' );
-				// position the preview correctly
-				this.positionPreview();
-			}
+        // update previewPos
+        previewPos = position;
+        // initialize new preview for the clicked item
+        preview = $.data(this, 'preview', new Preview($item));
+        // expand preview overlay
+        preview.open();
 
-			// update current value
-			current = this.$item.index();
+    }
 
-			// update previewÂ´s content
-			var $itemEl = this.$item.children( 'a' ),
-				eldata = {
-					href : $itemEl.attr( 'href' ),
-					largesrc : $itemEl.data( 'largesrc' ),
-					title : $itemEl.data( 'title' ),
-					//description : $itemEl.data( 'description' )
-                                        description : $itemEl.find('.detailx').html()
-				};
+    function hidePreview() {
+        current = -1;
+        var preview = $.data(this, 'preview');
+        preview.close();
+        $.removeData(this, 'preview');
+    }
 
-			this.$title.html( eldata.title );
-			this.$description.html( eldata.description );
-			this.$href.attr( 'href', eldata.href );
+    // the preview obj / overlay
+    function Preview($item) {
+        this.$item = $item;
+        this.expandedIdx = this.$item.index();
+        this.create();
+        this.update();
+    }
 
-			var self = this;
-			
-			// remove the current image in the preview
-			if( typeof self.$largeImg != 'undefined' ) {
-				self.$largeImg.remove();
-			}
+    Preview.prototype = {
+        create: function() {
+            // create Preview structure:
+            this.$title = $('<h3></h3>');
+            this.$description = $('<p></p>');
+            this.$href = $('<a href="#">Visit website</a>');
+            this.$details = $('<div class="og-details"></div>').append(this.$title, this.$description, this.$href);
+            this.$loading = $('<div class="og-loading"></div>');
+            this.$fullimage = $('<div class="og-fullimg"></div>').append(this.$loading);
+            this.$closePreview = $('<span class="og-close"></span>');
+            this.$previewInner = $('<div class="og-expander-inner"></div>').append(this.$closePreview, this.$fullimage, this.$details);
+            this.$previewEl = $('<div class="og-expander"></div>').append(this.$previewInner);
+            // append preview element to the item
+            this.$item.append(this.getEl());
+            // set the transitions for the preview and the item
+            if (support) {
+                this.setTransition();
+            }
+        },
+        update: function($item) {
 
-			// preload large image and add it to the preview
-			// for smaller screens we donÂ´t display the large image (the media query will hide the fullimage wrapper)
-			if( self.$fullimage.is( ':visible' ) ) {
-				this.$loading.show();
-				$( '<img/>' ).load( function() {
-					var $img = $( this );
-					if( $img.attr( 'src' ) === self.$item.children('a').data( 'largesrc' ) ) {
-						self.$loading.hide();
-						self.$fullimage.find( 'img' ).remove();
-						self.$largeImg = $img.fadeIn( 350 );
-						self.$fullimage.append( self.$largeImg );
-					}
-				} ).attr( 'src', eldata.largesrc );	
-			}
+            if ($item) {
+                this.$item = $item;
+            }
 
-		},
-		open : function() {
+            // if already expanded remove class "og-expanded" from current item and add it to new item
+            if (current !== -1) {
+                var $currentItem = $items.eq(current);
+                $currentItem.removeClass('og-expanded');
+                this.$item.addClass('og-expanded');
+                // position the preview correctly
+                this.positionPreview();
+            }
 
-			setTimeout( $.proxy( function() {	
-				// set the height for the preview and the item
-				this.setHeights();
-				// scroll to position the preview in the right place
-				this.positionPreview();
-			}, this ), 25 );
+            // update current value
+            current = this.$item.index();
 
-		},
-		close : function() {
+            // update previewÂ´s content
+            var $itemEl = this.$item.children('a'),
+                    eldata = {
+                        href: $itemEl.attr('href'),
+                        largesrc: $itemEl.data('largesrc'),
+                        title: $itemEl.data('title'),
+                        //description : $itemEl.data( 'description' )
+                        description: $itemEl.find('.detailx').html()
+                    };
 
-			var self = this,
-				onEndFn = function() {
-					if( support ) {
-						$( this ).off( transEndEventName );
-					}
-					self.$item.removeClass( 'og-expanded' );
-					self.$previewEl.remove();
-				};
+            this.$title.html(eldata.title);
+            this.$description.html(eldata.description);
+            this.$href.attr('href', eldata.href);
 
-			setTimeout( $.proxy( function() {
+            var self = this;
 
-				if( typeof this.$largeImg !== 'undefined' ) {
-					this.$largeImg.fadeOut( 'fast' );
-				}
-				this.$previewEl.css( 'height', 0 );
-				// the current expanded item (might be different from this.$item)
-				var $expandedItem = $items.eq( this.expandedIdx );
-				$expandedItem.css( 'height', $expandedItem.data( 'height' ) ).on( transEndEventName, onEndFn );
+            // remove the current image in the preview
+            if (typeof self.$largeImg != 'undefined') {
+                self.$largeImg.remove();
+            }
 
-				if( !support ) {
-					onEndFn.call();
-				}
+            // preload large image and add it to the preview
+            // for smaller screens we donÂ´t display the large image (the media query will hide the fullimage wrapper)
+            if (self.$fullimage.is(':visible')) {
+                this.$loading.show();
+                $('<img/>').load(function() {
+                    var $img = $(this);
+                    if ($img.attr('src') === self.$item.children('a').data('largesrc')) {
+                        self.$loading.hide();
+                        self.$fullimage.find('img').remove();
+                        self.$largeImg = $img.fadeIn(350);
+                        self.$fullimage.append(self.$largeImg);
+                    }
+                }).attr('src', eldata.largesrc);
+            }
 
-			}, this ), 25 );
-			
-			return false;
+        },
+        open: function() {
 
-		},
-		calcHeight : function() {
+            setTimeout($.proxy(function() {
+                // set the height for the preview and the item
+                this.setHeights();
+                // scroll to position the preview in the right place
+                this.positionPreview();
+            }, this), 25);
 
-			var heightPreview = winsize.height - this.$item.data( 'height' ) - marginExpanded,
-				itemHeight = winsize.height;
+        },
+        close: function() {
 
-			if( heightPreview < settings.minHeight ) {
-				heightPreview = settings.minHeight;
-				itemHeight = settings.minHeight + this.$item.data( 'height' ) + marginExpanded;
-			}
+            var self = this,
+                    onEndFn = function() {
+                        if (support) {
+                            $(this).off(transEndEventName);
+                        }
+                        self.$item.removeClass('og-expanded');
+                        self.$previewEl.remove();
+                    };
 
-			this.height = heightPreview;
-			this.itemHeight = itemHeight;
+            setTimeout($.proxy(function() {
 
-		},
-		setHeights : function() {
+                if (typeof this.$largeImg !== 'undefined') {
+                    this.$largeImg.fadeOut('fast');
+                }
+                this.$previewEl.css('height', 0);
+                // the current expanded item (might be different from this.$item)
+                var $expandedItem = $items.eq(this.expandedIdx);
+                $expandedItem.css('height', $expandedItem.data('height')).on(transEndEventName, onEndFn);
 
-			var self = this,
-				onEndFn = function() {
-					if( support ) {
-						self.$item.off( transEndEventName );
-					}
-					self.$item.addClass( 'og-expanded' );
-				};
+                if (!support) {
+                    onEndFn.call();
+                }
 
-			this.calcHeight();
-			this.$previewEl.css( 'height', this.height );
-			this.$item.css( 'height', this.itemHeight ).on( transEndEventName, onEndFn );
+            }, this), 25);
 
-			if( !support ) {
-				onEndFn.call();
-			}
+            return false;
 
-		},
-		positionPreview : function() {
+        },
+        calcHeight: function() {
 
-			// scroll page
-			// case 1 : preview height + item height fits in windowÂ´s height
-			// case 2 : preview height + item height does not fit in windowÂ´s height and preview height is smaller than windowÂ´s height
-			// case 3 : preview height + item height does not fit in windowÂ´s height and preview height is bigger than windowÂ´s height
-			var position = this.$item.data( 'offsetTop' ),
-				previewOffsetT = this.$previewEl.offset().top - scrollExtra,
-				scrollVal = this.height + this.$item.data( 'height' ) + marginExpanded <= winsize.height ? position : this.height < winsize.height ? previewOffsetT - ( winsize.height - this.height ) : previewOffsetT;
-			
-			$body.animate( { scrollTop : scrollVal }, settings.speed );
+            var heightPreview = winsize.height - this.$item.data('height') - marginExpanded,
+                    itemHeight = winsize.height;
 
-		},
-		setTransition  : function() {
-			this.$previewEl.css( 'transition', 'height ' + settings.speed + 'ms ' + settings.easing );
-			this.$item.css( 'transition', 'height ' + settings.speed + 'ms ' + settings.easing );
-		},
-		getEl : function() {
-			return this.$previewEl;
-		}
-	}
+            if (heightPreview < settings.minHeight) {
+                heightPreview = settings.minHeight;
+                itemHeight = settings.minHeight + this.$item.data('height') + marginExpanded;
+            }
 
-	return { 
-		init : init,
-		addItems : addItems
-	};
+            this.height = heightPreview;
+            this.itemHeight = itemHeight;
+
+        },
+        setHeights: function() {
+
+            var self = this,
+                    onEndFn = function() {
+                        if (support) {
+                            self.$item.off(transEndEventName);
+                        }
+                        self.$item.addClass('og-expanded');
+                    };
+
+            this.calcHeight();
+            this.$previewEl.css('height', this.height);
+            this.$item.css('height', this.itemHeight).on(transEndEventName, onEndFn);
+
+            if (!support) {
+                onEndFn.call();
+            }
+
+        },
+        positionPreview: function() {
+
+            // scroll page
+            // case 1 : preview height + item height fits in windowÂ´s height
+            // case 2 : preview height + item height does not fit in windowÂ´s height and preview height is smaller than windowÂ´s height
+            // case 3 : preview height + item height does not fit in windowÂ´s height and preview height is bigger than windowÂ´s height
+            var position = this.$item.data('offsetTop'),
+                    previewOffsetT = this.$previewEl.offset().top - scrollExtra,
+                    scrollVal = this.height + this.$item.data('height') + marginExpanded <= winsize.height ? position : this.height < winsize.height ? previewOffsetT - (winsize.height - this.height) : previewOffsetT;
+
+            $body.animate({scrollTop: scrollVal}, settings.speed);
+
+        },
+        setTransition: function() {
+            this.$previewEl.css('transition', 'height ' + settings.speed + 'ms ' + settings.easing);
+            this.$item.css('transition', 'height ' + settings.speed + 'ms ' + settings.easing);
+        },
+        getEl: function() {
+            return this.$previewEl;
+        }
+    }
+
+    return {
+        init: init,
+        addItems: addItems
+    };
 
 })();
+//</editor-fold>
+
+//<editor-fold defaultstate="collapsed" desc="parallax tom clancy">
+
+/* PARALLAX */
+!function(t, i, e) {
+    "use strict";
+    function s(t, i) {
+        this.element = t, this.layers = t.getElementsByClassName("layer");
+        var e = {calibrateX: this.data(this.element, "calibrate-x"), calibrateY: this.data(this.element, "calibrate-y"), invertX: this.data(this.element, "invert-x"), invertY: this.data(this.element, "invert-y"), limitX: this.data(this.element, "limit-x"), limitY: this.data(this.element, "limit-y"), scalarX: this.data(this.element, "scalar-x"), scalarY: this.data(this.element, "scalar-y"), frictionX: this.data(this.element, "friction-x"), frictionY: this.data(this.element, "friction-y"), originX: this.data(this.element, "origin-x"), originY: this.data(this.element, "origin-y")};
+        for (var s in e)
+            null === e[s] && delete e[s];
+        this.extend(this, r, i, e), this.calibrationTimer = null, this.calibrationFlag = !0, this.enabled = !1, this.depths = [], this.raf = null, this.bounds = null, this.ex = 0, this.ey = 0, this.ew = 0, this.eh = 0, this.ecx = 0, this.ecy = 0, this.erx = 0, this.ery = 0, this.cx = 0, this.cy = 0, this.ix = 0, this.iy = 0, this.mx = 0, this.my = 0, this.vx = 0, this.vy = 0, this.onMouseMove = this.onMouseMove.bind(this), this.onDeviceOrientation = this.onDeviceOrientation.bind(this), this.onOrientationTimer = this.onOrientationTimer.bind(this), this.onCalibrationTimer = this.onCalibrationTimer.bind(this), this.onAnimationFrame = this.onAnimationFrame.bind(this), this.onWindowResize = this.onWindowResize.bind(this), this.initialise()
+    }
+    var n = "Parallax", o = 30, r = {relativeInput: !1, clipRelativeInput: !1, calibrationThreshold: 100, calibrationDelay: 500, supportDelay: 500, calibrateX: !1, calibrateY: !0, invertX: !0, invertY: !0, limitX: !1, limitY: !1, scalarX: 10, scalarY: 10, frictionX: .1, frictionY: .1, originX: .5, originY: .5};
+    s.prototype.extend = function() {
+        if (arguments.length > 1)
+            for (var t = arguments[0], i = 1, e = arguments.length; e > i; i++) {
+                var s = arguments[i];
+                for (var n in s)
+                    t[n] = s[n]
+            }
+    }, s.prototype.data = function(t, i) {
+        return this.deserialize(t.getAttribute("data-" + i))
+    }, s.prototype.deserialize = function(t) {
+        return"true" === t ? !0 : "false" === t ? !1 : "null" === t ? null : !isNaN(parseFloat(t)) && isFinite(t) ? parseFloat(t) : t
+    }, s.prototype.camelCase = function(t) {
+        return t.replace(/-+(.)?/g, function(t, i) {
+            return i ? i.toUpperCase() : ""
+        })
+    }, s.prototype.transformSupport = function(s) {
+        for (var n = i.createElement("div"), o = !1, r = null, a = !1, h = null, l = null, p = 0, c = this.vendors.length; c > p; p++)
+            if (null !== this.vendors[p] ? (h = this.vendors[p][0] + "transform", l = this.vendors[p][1] + "Transform") : (h = "transform", l = "transform"), n.style[l] !== e) {
+                o = !0;
+                break
+            }
+        switch (s) {
+            case"2D":
+                a = o;
+                break;
+            case"3D":
+                if (o) {
+                    var m = i.body || i.createElement("body"), u = i.documentElement, y = u.style.overflow;
+                    i.body || (u.style.overflow = "hidden", u.appendChild(m), m.style.overflow = "hidden", m.style.background = ""), m.appendChild(n), n.style[l] = "translate3d(1px,1px,1px)", r = t.getComputedStyle(n).getPropertyValue(h), a = r !== e && r.length > 0 && "none" !== r, u.style.overflow = y, m.removeChild(n)
+                }
+        }
+        return a
+    }, s.prototype.ww = null, s.prototype.wh = null, s.prototype.wcx = null, s.prototype.wcy = null, s.prototype.wrx = null, s.prototype.wry = null, s.prototype.portrait = null, s.prototype.desktop = !navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry|BB10|mobi|tablet|opera mini|nexus 7)/i), s.prototype.vendors = [null, ["-webkit-", "webkit"], ["-moz-", "Moz"], ["-o-", "O"], ["-ms-", "ms"]], s.prototype.motionSupport = !!t.DeviceMotionEvent, s.prototype.orientationSupport = !!t.DeviceOrientationEvent, s.prototype.orientationStatus = 0, s.prototype.transform2DSupport = s.prototype.transformSupport("2D"), s.prototype.transform3DSupport = s.prototype.transformSupport("3D"), s.prototype.propertyCache = {}, s.prototype.initialise = function() {
+        this.transform3DSupport && this.accelerate(this.element);
+        var i = t.getComputedStyle(this.element);
+        "static" === i.getPropertyValue("position") && (this.element.style.position = "relative"), this.updateLayers(), this.updateDimensions(), this.enable(), this.queueCalibration(this.calibrationDelay)
+    }, s.prototype.updateLayers = function() {
+        this.layers = this.element.getElementsByClassName("layer"), this.depths = [];
+        for (var t = 0, i = this.layers.length; i > t; t++) {
+            var e = this.layers[t];
+            this.transform3DSupport && this.accelerate(e), e.style.position = t ? "absolute" : "relative", e.style.display = "block", e.style.left = 0, e.style.top = 0, this.depths.push(this.data(e, "depth") || 0)
+        }
+    }, s.prototype.updateDimensions = function() {
+        this.ww = t.innerWidth, this.wh = t.innerHeight, this.wcx = this.ww * this.originX, this.wcy = this.wh * this.originY, this.wrx = Math.max(this.wcx, this.ww - this.wcx), this.wry = Math.max(this.wcy, this.wh - this.wcy)
+    }, s.prototype.updateBounds = function() {
+        this.bounds = this.element.getBoundingClientRect(), this.ex = this.bounds.left, this.ey = this.bounds.top, this.ew = this.bounds.width, this.eh = this.bounds.height, this.ecx = this.ew * this.originX, this.ecy = this.eh * this.originY, this.erx = Math.max(this.ecx, this.ew - this.ecx), this.ery = Math.max(this.ecy, this.eh - this.ecy)
+    }, s.prototype.queueCalibration = function(t) {
+        clearTimeout(this.calibrationTimer), this.calibrationTimer = setTimeout(this.onCalibrationTimer, t)
+    }, s.prototype.enable = function() {
+        this.enabled || (this.enabled = !0, this.orientationSupport ? (this.portrait = null, t.addEventListener("deviceorientation", this.onDeviceOrientation), setTimeout(this.onOrientationTimer, this.supportDelay)) : (this.cx = 0, this.cy = 0, this.portrait = !1, t.addEventListener("mousemove", this.onMouseMove)), t.addEventListener("resize", this.onWindowResize), this.raf = requestAnimationFrame(this.onAnimationFrame))
+    }, s.prototype.disable = function() {
+        this.enabled && (this.enabled = !1, this.orientationSupport ? t.removeEventListener("deviceorientation", this.onDeviceOrientation) : t.removeEventListener("mousemove", this.onMouseMove), t.removeEventListener("resize", this.onWindowResize), cancelAnimationFrame(this.raf))
+    }, s.prototype.calibrate = function(t, i) {
+        this.calibrateX = t === e ? this.calibrateX : t, this.calibrateY = i === e ? this.calibrateY : i
+    }, s.prototype.invert = function(t, i) {
+        this.invertX = t === e ? this.invertX : t, this.invertY = i === e ? this.invertY : i
+    }, s.prototype.friction = function(t, i) {
+        this.frictionX = t === e ? this.frictionX : t, this.frictionY = i === e ? this.frictionY : i
+    }, s.prototype.scalar = function(t, i) {
+        this.scalarX = t === e ? this.scalarX : t, this.scalarY = i === e ? this.scalarY : i
+    }, s.prototype.limit = function(t, i) {
+        this.limitX = t === e ? this.limitX : t, this.limitY = i === e ? this.limitY : i
+    }, s.prototype.origin = function(t, i) {
+        this.originX = t === e ? this.originX : t, this.originY = i === e ? this.originY : i
+    }, s.prototype.clamp = function(t, i, e) {
+        return t = Math.max(t, i), t = Math.min(t, e)
+    }, s.prototype.css = function(t, i, s) {
+        var n = this.propertyCache[i];
+        if (!n)
+            for (var o = 0, r = this.vendors.length; r > o; o++)
+                if (n = null !== this.vendors[o] ? this.camelCase(this.vendors[o][1] + "-" + i) : i, t.style[n] !== e) {
+                    this.propertyCache[i] = n;
+                    break
+                }
+        t.style[n] = s
+    }, s.prototype.accelerate = function(t) {
+        this.css(t, "transform", "translate3d(0,0,0)"), this.css(t, "transform-style", "preserve-3d"), this.css(t, "backface-visibility", "hidden")
+    }, s.prototype.setPosition = function(t, i, e) {
+        i += "px", e += "px", this.transform3DSupport ? this.css(t, "transform", "translate3d(" + i + "," + e + ",0)") : this.transform2DSupport ? this.css(t, "transform", "translate(" + i + "," + e + ")") : (t.style.left = i, t.style.top = e)
+    }, s.prototype.onOrientationTimer = function() {
+        this.orientationSupport && 0 === this.orientationStatus && (this.disable(), this.orientationSupport = !1, this.enable())
+    }, s.prototype.onCalibrationTimer = function() {
+        this.calibrationFlag = !0
+    }, s.prototype.onWindowResize = function() {
+        this.updateDimensions()
+    }, s.prototype.onAnimationFrame = function() {
+        this.updateBounds();
+        var t = this.ix - this.cx, i = this.iy - this.cy;
+        (Math.abs(t) > this.calibrationThreshold || Math.abs(i) > this.calibrationThreshold) && this.queueCalibration(0), this.portrait ? (this.mx = this.calibrateX ? i : this.iy, this.my = this.calibrateY ? t : this.ix) : (this.mx = this.calibrateX ? t : this.ix, this.my = this.calibrateY ? i : this.iy), this.mx *= this.ew * (this.scalarX / 100), this.my *= this.eh * (this.scalarY / 100), isNaN(parseFloat(this.limitX)) || (this.mx = this.clamp(this.mx, -this.limitX, this.limitX)), isNaN(parseFloat(this.limitY)) || (this.my = this.clamp(this.my, -this.limitY, this.limitY)), this.vx += (this.mx - this.vx) * this.frictionX, this.vy += (this.my - this.vy) * this.frictionY;
+        for (var e = 0, s = this.layers.length; s > e; e++) {
+            var n = this.layers[e], o = this.depths[e], r = this.vx * o * (this.invertX ? -1 : 1), a = this.vy * o * (this.invertY ? -1 : 1);
+            this.setPosition(n, r, a)
+        }
+        this.raf = requestAnimationFrame(this.onAnimationFrame)
+    }, s.prototype.onDeviceOrientation = function(t) {
+        if (!this.desktop && null !== t.beta && null !== t.gamma) {
+            this.orientationStatus = 1;
+            var i = (t.beta || 0) / o, e = (t.gamma || 0) / o, s = this.wh > this.ww;
+            this.portrait !== s && (this.portrait = s, this.calibrationFlag = !0), this.calibrationFlag && (this.calibrationFlag = !1, this.cx = i, this.cy = e), this.ix = i, this.iy = e
+        }
+    }, s.prototype.onMouseMove = function(t) {
+        var i = t.clientX, e = t.clientY;
+        !this.orientationSupport && this.relativeInput ? (this.clipRelativeInput && (i = Math.max(i, this.ex), i = Math.min(i, this.ex + this.ew), e = Math.max(e, this.ey), e = Math.min(e, this.ey + this.eh)), this.ix = (i - this.ex - this.ecx) / this.erx, this.iy = (e - this.ey - this.ecy) / this.ery) : (this.ix = (i - this.wcx) / this.wrx, this.iy = (e - this.wcy) / this.wry)
+    }, t[n] = s
+}(window, document), function() {
+    for (var t = 0, i = ["ms", "moz", "webkit", "o"], e = 0; e < i.length && !window.requestAnimationFrame; ++e)
+        window.requestAnimationFrame = window[i[e] + "RequestAnimationFrame"], window.cancelAnimationFrame = window[i[e] + "CancelAnimationFrame"] || window[i[e] + "CancelRequestAnimationFrame"];
+    window.requestAnimationFrame || (window.requestAnimationFrame = function(i) {
+        var e = (new Date).getTime(), s = Math.max(0, 16 - (e - t)), n = window.setTimeout(function() {
+            i(e + s)
+        }, s);
+        return t = e + s, n
+    }), window.cancelAnimationFrame || (window.cancelAnimationFrame = function(t) {
+        clearTimeout(t)
+    })
+}();
+
+/******************/
+//</editor-fold>
+
+//<editor-fold defaultstate="collapsed" desc="metro tabs control">
+(function($) {
+    $.widget("metro.tabcontrol", {
+        version: "1.0.0",
+        options: {
+            effect: 'none',
+            activateStoredTab: false,
+            tabclick: function(tab) {
+            },
+            tabchange: function(tab) {
+            }
+        },
+        _create: function() {
+            var that = this,
+                    element = this.element,
+                    tabs = $(element.children(".tabs")).children("li"),
+                    frames = $(element.children(".frames")).children(".frame"),
+                    element_id = element.attr("id");
+
+            if (element.data('effect') != undefined) {
+                this.options.effect = element.data('effect');
+            }
+
+            this.init(tabs, frames);
+
+            element.on("click", ".tabs > li > a", function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                that.options.tabclick(this);
+
+                if ($(this).parent().hasClass('disabled')) {
+                    return false;
+                }
+
+                element.children(".tabs").children("li").removeClass("active");
+                element.children(".frames").children(".frame").hide();
+
+                $(this).parent().addClass("active");
+
+                var current_frame = $($(this).attr("href"));
+                switch (that.options.effect) {
+                    case 'slide':
+                        current_frame.slideDown();
+                        break;
+                    case 'fade':
+                        current_frame.fadeIn();
+                        break;
+                    default:
+                        current_frame.show();
+                }
+
+                that._trigger('change', null, current_frame);
+                that.options.tabchange(this);
+
+                if (element_id != undefined)
+                    window.localStorage.setItem(element_id + "-current-tab", $(this).attr("href"));
+
+                return true;
+            });
+
+            if (this.options.activateStoredTab)
+                this._activateStoredTab(tabs);
+        },
+        init: function(tabs, frames) {
+            var that = this;
+            tabs.each(function() {
+                if ($(this).hasClass("active")) {
+                    var current_frame = $($($(this).children("a")).attr("href"));
+                    frames.hide();
+                    current_frame.show();
+                    that._trigger('change', null, current_frame);
+                }
+            });
+        },
+        _activateStoredTab: function(tabs) {
+            var current_stored_tab = window.localStorage.getItem(this.element.attr('id') + '-current-tab');
+
+            if (current_stored_tab != undefined) {
+                tabs.each(function() {
+                    var a = $(this).children("a");
+                    if (a.attr("href") == current_stored_tab) {
+                        a.click();
+                    }
+                });
+            }
+        },
+        _destroy: function() {
+
+        },
+        _setOption: function(key, value) {
+            this._super('_setOption', key, value);
+        }
+    })
+})(jQuery);
+
+(function($) {
+    /*
+     * Init or ReInit components
+     * */
+    $.Metro = function(params) {
+        params = $.extend({
+        }, params);
+    };
+
+
+
+    $.Metro.initScrolls = function(area) {
+        if (area != undefined) {
+            $(area).find('[data-role=scrollbox]').scrollbar();
+        } else {
+            $('[data-role=scrollbox]').scrollbar();
+        }
+    };
+
+
+
+    $.Metro.initTabs = function(area) {
+        if (area != undefined) {
+            $(area).find('[data-role=tab-control]').tabcontrol();
+        } else {
+            $('[data-role=tab-control]').tabcontrol();
+        }
+    };
+
+
+    $.Metro.initAll = function(area) {
+
+        //$.Metro.initScrolls(area);
+
+        $.Metro.initTabs(area);
+    }
+})(jQuery);
+
+$(function() {
+    $.Metro.initAll();
+});
+
+METRO_AUTO_REINIT=false;
+$(function() {
+    if (METRO_AUTO_REINIT) {
+        //$(".metro").bind('DOMSubtreeModified', function(){            $.Metro.initAll();        });
+        var originalDOM = $('.metro').html(),
+                actualDOM;
+
+        setInterval(function() {
+            actualDOM = $('.metro').html();
+
+            if (originalDOM !== actualDOM) {
+                originalDOM = actualDOM;
+
+                $.Metro.initAll();
+            }
+        }, 500);
+    }
+});
+
+
 //</editor-fold>
 $(window).load(function() {
 
@@ -5998,6 +6291,7 @@ $(window).scroll(function() {
     } else {
         jQuery('.top').fadeOut(500);
     }
+    headerPosition();
 });
 jQuery('.top').click(function() {
     jQuery('html, body').animate({scrollTop: 0}, 1000, 'easeOutCubic');//return false;
@@ -6041,16 +6335,14 @@ function hover_overlay_article() {
 hover_overlay();
 
 function headerPosition() {
-    if ($(window).scrollTop() > $('header').height()) {
-        $("header .navigation-bar")
-                .addClass("fixed-top")
-                .addClass(" shadow")
-                ;
+    if ($(window).scrollTop() > $('#topBar').height()) {
+        $("#topBar").removeClass('bg-lightBlue bg-blue')
+                .addClass("fixed-top bg-lightBlue")
+                .addClass(" shadow");
     } else {
-        $("header .navigation-bar")
-                //  .removeClass("fixed-top")
-                // .removeClass(" shadow")
-                ;
+        $("#topBar").removeClass('bg-lightBlue bg-blue')
+                .addClass("fixed-top bg-blue")
+                .addClass(" shadow");
     }
 }
 
