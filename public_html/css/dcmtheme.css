@@ -3077,9 +3077,10 @@ html.mm-slide.mm-bottom.mm-opening .mm-menu {
     display: block;
     width: 40px;
     height: 36px;
-    /*margin: 5px;*/
+    /* margin: 5px; */
     position: relative;
     z-index: 2;
+    margin-top: 5px;
 }
 #hamburger:before,
 #hamburger:after,
@@ -4046,6 +4047,16 @@ a {
     padding-top:60px;
     padding-bottom:45px; 
 }
+.metro .topBar{
+    position: absolute;
+    z-index: 88888;
+    background-image: url(images/panel1_topmenu.png);
+    width: 100%;
+    height: 45px; 
+    background-size: 100%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
 .metro .topBar-content{
     width: 90%;
     margin: auto;
@@ -4054,6 +4065,33 @@ a {
     height: 45px;
     line-height: 45px;
     vertical-align: middle; 
+}
+.metro .topBar-content a{
+    padding-top: 11px;
+    line-height: 15px;
+    color: inherit;
+    font-size: 14px;
+    position: relative;
+    float: right;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-right: 10px;
+}
+.metro .topBar-content i{
+    height: 45px;
+    /* font-family: 'iconFont' !important; */
+    speak: none;
+    /* font-style: normal; */
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    text-decoration: inherit;
+    line-height: 1;
+    display: inline-block;
+    vertical-align: -8%;
+    -webkit-font-smoothing: antialiased;
+    /* font-size: inherit; */
+    font-size: 26px;
 }
 .metro .topBar-content span.todayX{
     float:left;        
@@ -4546,7 +4584,7 @@ span.date a.bubble, span.date a.bubble:hover {
     padding: 0px;
 }
 .metro .tab-control{
-    max-width: 80%;
+    /*max-width: 80%;*/
     margin: auto;
 }
 /*</editor-fold>*/
@@ -4569,8 +4607,7 @@ span.date a.bubble, span.date a.bubble:hover {
 .og-grid li {
     display: inline-block;
     margin: 10px 5px 0 5px;
-    vertical-align: top;
-    height: 250px;
+    vertical-align: top;    
 
     -webkit-transition-property: top, left, opacity;
     -moz-transition-property: top, left, opacity;
@@ -4584,13 +4621,29 @@ span.date a.bubble, span.date a.bubble:hover {
     transition: all 0.3s ease 0s;
     -moz-transition: all 0.3s ease 0s;
 }
+.og-grid li > a span{        
+    vertical-align: middle!important;
+    position: relative;
+    display: inline-block!important;
+}
+/**Responive facultades**/
+.og-grid li > a span,.og-grid li > a,.og-grid li > a img {
+    width: 250px!important;
+    height: 250px!important;
+}
+.og-grid li > a span{
+    font-size: 200px;
+    padding-top: 25px;
+}
+
+/**Fin resposive**/
 
 .og-grid li > a,
 .og-grid li > a img {
     border: none;
     outline: none;
     display: block;
-    position: relative;
+    position: relative;    
 }
 
 .og-grid li.og-expanded > a::after {

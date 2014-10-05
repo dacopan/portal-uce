@@ -49,16 +49,16 @@ and open the template in the editor.
     </head>
     <body class="aui container-fluid metro" style="background-color:transparent; ">      
 
-        <div class="topBar bg-blue" id="topBar" style="position: absolute;z-index: 1;background-image: url(images/panel1_txopmenu.png);width: 100%;height: 45px; background-size: 100%;background-position: 50% 50%;background-repeat: no-repeat;">
+        <div class="topBar bg-blue fixed-top" id="topBar" style="">
             <div class="topBar-content">
-                <span class="todayX fg-yellow">
+                <span class="todayX fg-yellow" style="font-size: 80%;">
                     Miércoles 01/09/2014</span>
-                <a id="hamburger" class="" href="#dcmmenu"><span></span></a>
-                <a  class="" href="#dcmmenu"><i class="icon-user"></i></a>
-                <a  class="" href="#dcmmenu"><i class="icon-microphone"></i></a>
+                <a id="hamburger" class="" style="" href="#dcmmenu"><span></span></a>
+                <a  class="fg-white" href="#user"><i class="icon-user"></i></a>
+                <a  class="fg-white" href="#radio"><i class="icon-microphone"></i></a>
             </div>
 
-            <nav id="dcmmenu">
+            <nav id="dcmmenu" style="z-index: 88889;">
                 <ul>
                     <li><a href="/">Home</a></li>
                     <li>
@@ -203,7 +203,8 @@ and open the template in the editor.
                                                                     <div class="frame" id="_page_1">    <ul id="og-grid" class="og-grid">
                                                                             <li class="isobrick2">
                                                                                 <a href="http://cargocollective.com/jaimemartinez/" data-largesrc="images/1.jpg" data-title="Azuki bean" data-description="Swiss chard pumpkin bunya nuts maize plantain aubergine napa cabbage soko coriander sweet pepper water spinach winter purslane shallot tigernut lentil beetroot.">
-                                                                                    <img src="http://tympanus.net/Tutorials/ThumbnailGridExpandingPreview/images/thumbs/1.jpg" alt="img01"/>
+                                                                                    <span class="icon-book bg-gray fg-lightBlue" style=""></span>
+                                                                                    <!--<img src="http://tympanus.net/Tutorials/ThumbnailGridExpandingPreview/images/thumbs/1.jpg" alt="img01"/>-->
                                                                                     <div class="detailx">
                                                                                         detail
                                                                                     </div>
@@ -415,7 +416,7 @@ and open the template in the editor.
 
 
                                                     <div class="slide" id="slide3" data-slide="3" data-stellar-background-ratio="0.5">
-                                                        <div class="contentwrapx" style="padding-top:60px;">
+                                                        <div class="contentwrapx" style="padding-top:60px; padding-bottom:45px;">
 
                                                             <h1 class="text-center">NOTICIAS</h1>
 
@@ -749,7 +750,7 @@ and open the template in the editor.
                                                             left: 0px;
                                                             top: 50%;
                                                             margin-top: -135px;
-                                                            z-index: 99999999;
+                                                            z-index: 88888;
                                                             font-size: 9px; /* 18px - 10px */
                                                             font-family: Arial, sans-serif;
                                                             text-transform: uppercase;

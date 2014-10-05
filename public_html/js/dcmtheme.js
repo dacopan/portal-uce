@@ -6291,7 +6291,7 @@ $(window).scroll(function() {
     } else {
         jQuery('.top').fadeOut(500);
     }
-    headerPosition();
+    //headerPosition();
 });
 jQuery('.top').click(function() {
     jQuery('html, body').animate({scrollTop: 0}, 1000, 'easeOutCubic');//return false;
