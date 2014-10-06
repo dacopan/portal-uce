@@ -15,9 +15,10 @@
     .featured .one_col.half {
         height: 122px; }
 
-    .featured .two_col {
-        width: 501px;
-        height: 246px; }
+    .one_col.half.comunicWraper.isobrick.va-container{
+        margin-left: 0px !important;
+        padding-left: 0px !important;
+    }
 
     /* #Font Changes ================================================== */
     .nivo-caption h3.title {
@@ -89,11 +90,33 @@
 
     .theme-default a.nivo-prevNav {
         left: 0; }
+    .one_col.half.comunicWraper.isobrick.va-container{
+        margin-left: 0px !important;
+        padding-left: 0px !important;
+    }
 
 }
 /* Mobile Landscape Size to Portrait (devices and browsers) */
 @media only screen and (min-width: 480px) and (max-width: 767px) {
 
+    .featured.articlecontainer.isotope#isofeatured {
+        width: 476px; }
+
+
+    .metro .featuredcontainer {
+        width: 300px;
+        margin: 0 0 30px 0;
+        padding: 0;
+        margin-left: auto;
+        margin-right: auto; }
+
+    .featured .one_col.quarterx {
+        width: 147px;
+    }
+    .one_col.half.comunicWraper.isobrick.va-container{
+        margin-left: 0px !important;
+        padding-left: 0px !important;
+    }
 }
 /* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
 @media only screen and (max-width: 479px) {
@@ -104,7 +127,7 @@
         width: 300px; }
 
     .featured.articlecontainer.isotope#isofeatured {
-        width: 300px; }
+        width: 476px; }
 
 
     .metro .featuredcontainer {
@@ -113,33 +136,6 @@
         padding: 0;
         margin-left: auto;
         margin-right: auto; }
-
-    .featured .one_col, .featured .two_col, .nonfeatured .one_col, .maincontent {
-        width: 299px;
-        margin-right: 0; }
-
-
-    .one_col.half.comunicWraper.isobrick.va-container{
-        margin-left: 40px!important;
-    }
-}
-
-@media only screen and (max-width: 360px) {
-
-    .featured.articlecontainer.isotope#isofeatured {
-        width: 300px; }
-
- 
-    .metro .featuredcontainer {
-        width: 300px;
-        margin: 0 0 30px 0;
-        padding: 0;
-        margin-left: auto;
-        margin-right: auto; }
-
-    .featured .one_col, .featured .one_col.double, .nonfeatured .one_col, .maincontent {
-        width: 298px;
-        margin-right: 0; }
 
     .featured .one_col.quarterx {
         width: 147px;
@@ -148,4 +144,9 @@
         margin-left: 0px !important;
         padding-left: 0px !important;
     }
+     
+}
+
+@media only screen and (max-width: 360px) {
+
 }
