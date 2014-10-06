@@ -197,7 +197,7 @@ and open the template in the editor.
                                                             <h1 class="text-center">NOTICIAS</h1>
 
                                                             <div class="container2 featuredcontainer clearfix ">
-                                                                <div class="featured articlecontainer isotope" id="isofeatured" style="position: relative; overflow: hidden;margin:auto;">
+                                                                <div class="featured articlecontainer isofeatured isotope" id="isofeatured" style="position: relative; overflow: hidden;margin:auto;">
 
                                                                     <a href="http://themewich.com/extranews/?p=233" class="one_col double isobrick isotope-item noticeX">
                                                                         <div class="featuredinner" style="opacity: 1; background: none;">
@@ -240,7 +240,7 @@ and open the template in the editor.
 
 
                                                                     <!--Comunicados start-->
-                                                                    <div class="one_col comunicWraper isobrick va-container">
+                                                                    <div class="one_col half comunicWraper isobrick va-container">
 
                                                                         <div class="va-nav">
                                                                             <span class="va-nav-prev">Previous</span>
@@ -430,44 +430,30 @@ and open the template in the editor.
                                                                      });
                                                                      //*/
 
-                                                                    $(".noticeX").each(function() {
-
-
-
-                                                                        var $noti = $(this);
-                                                                        //var $full = $noti.find(".rb-week");
-
-                                                                        var $title = $('h2', this).html();
-
-                                                                        var $img = '<img src="' + $('img', this).attr('src') + '"/>';
-                                                                        var $link = '<a>';
-                                                                        var text = '<div class="tabpost"><div class="featuredimagewidget thumbnailarea">' + $link + $img +
-                                                                                '</a></div>' + '<p><strong>' + $link + $title + '</a></strong></p>' +
-                                                                                '<div class="clear"></div></div>';
-                                                                        //alert(text);
-
-
-                                                                        $('<div />', {html: text}).appendTo('div.list-notices').click(function() {
-                                                                            $('.rb-close').each(function() {$(this).trigger("click");});
-                                                                            //setTimeout(1000);
-                                                                            $noti.trigger("click");
-                                                                            //$noti.trigger("click");
-                                                                        });
-                                                                    });
-
-
+                                                                    /*$(".noticeX").each(function() {
+                                                                     var $noti = $(this);
+                                                                     var $title = $('h2', this).html();
+                                                                     var $img = '<img src="' + $('img', this).attr('src') + '"/>';
+                                                                     var $link = '<a>';
+                                                                     var text = '<div class="tabpost"><div class="featuredimagewidget thumbnailarea">' + $link + $img +
+                                                                     '</a></div>' + '<p><strong>' + $link + $title + '</a></strong></p>' +
+                                                                     '<div class="clear"></div></div>';
+                                                                     $('<div />', {html: text}).appendTo('div.list-notices').click(function() {
+                                                                     $('.rb-close').each(function() {
+                                                                     $(this).trigger("click");
+                                                                     });
+                                                                     $noti.trigger("click");
+                                                                     });
+                                                                     });
+                                                                     
+                                                                     */
                                                                     //featured isotope
-                                                                    var $container3 = jQuery('div#isofeatured'), $colnum, $colnum2;
-                                                                    if ($container3.width() < 500) {
-                                                                        $colnum = 2;
-                                                                    } else {
-                                                                        $colnum = 3;
-                                                                    }
+                                                                    var $container3 = jQuery('div.isofeatured'), $colnum;                                                                    
                                                                     $container3.isotope({
                                                                         // options
                                                                         itemSelector: '.isobrick',
                                                                         layoutMode: 'masonry', masonry: {
-                                                                            columnWidth: 5
+                                                                            columnWidth: 5,isFitWidth: true
                                                                         }
                                                                     });
 
@@ -476,11 +462,11 @@ and open the template in the editor.
                                                                             // options
                                                                             itemSelector: '.isobrick',
                                                                             layoutMode: 'masonry', masonry: {
-                                                                                columnWidth: 5
+                                                                                columnWidth: 5,isFitWidth: true
                                                                             }
                                                                         });
 
-                                                                        $('.va-container').css({width: $('div#isofeatured .isobrick').width(), height: $('.va-container').height()});
+                                                                        $('.va-container').css({width: $($('.isofeatured .isobrick.half')[0]).width(), height: $('.va-container').height()});
 
                                                                     });
                                                                     $(function() {
