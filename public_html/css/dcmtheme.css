@@ -4374,7 +4374,7 @@ span.date a.bubble, span.date a.bubble:hover {
     z-index: 99999!important;
     pointer-events: none;
     cursor: default;
-    border:30px rgba(255,255,255,0.7) solid;
+    border:30px rgba(0,0,0,0.6) solid;
     box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.3) inset;
 
 }
@@ -4406,11 +4406,22 @@ span.date a.bubble, span.date a.bubble:hover {
     width: 100%;
     height: 100%;
     background: white;
-
+    padding: 20px;
 }
-.rb-week > div {    
+
+.rb-overlay .img-full {
+    float: left;
+    margin-right: 20px;
+}
+
+.rb-overlay h2.full-title {
+    /* clear: both; */
     position: relative;
-    padding: 3% 0;
+    color: black;
+}
+.rb-overlay .full-content {
+    text-align: justify;
+    padding: 10px;
 }
 
 /* #The Nivo Slider styles
@@ -4655,8 +4666,10 @@ span.date a.bubble, span.date a.bubble:hover {
     height: 200px!important;
 }
 .og-grid li > a span{
-    font-size: 200px;
+    font-size: 150px;
+    color:white!important;
     padding-top: 25px;
+    text-decoration: none!important;
 }
 
 /**Fin resposive**/
@@ -5028,8 +5041,164 @@ span.date a.bubble, span.date a.bubble:hover {
 }
 /*</editor-fold>*/
 
+/*================================================== */
+/*<editor-fold defaultstate="collapsed" desc="ScrollBar">*/
+.metro .scroll-y,
+.metro .scroll-vertical {
+    overflow-y: scroll;
+}
+.metro .scroll-x,
+.metro .scroll-horizontal {
+    overflow-x: scroll;
+}
+.metro .no-overflow {
+    overflow: hidden;
+}
+.metro .overflow {
+    overflow: scroll;
+}
+
+.metro .scrollbar-button {
+    background-color: #ffffff;
+    border: 1px #ababab solid;
+}
+.metro .scrollbar {
+    position: relative;
+    overflow: hidden;
+    width: auto!important;
+    height: auto!important;
+}
+.metro .scrollbar-container {
+    position: relative;
+    overflow: hidden;
+}
+.metro .scrollbar-v,
+.metro .scrollbar-h {
+    position: absolute;
+    background: #f3f3f3;
+}
+.metro .scrollbar-v {
+    width: 15px;
+    height: 100%;
+    right: 0;
+    top: 0;
+}
+.metro .scrollbar-h {
+    height: 15px;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+}
+.metro .scrollbar-v-up,
+.metro .scrollbar-v-down,
+.metro .scrollbar-h-up,
+.metro .scrollbar-h-down,
+.metro .scrollbar-line-v-btn,
+.metro .scrollbar-line-h-btn {
+    cursor: pointer;
+    position: absolute;
+    background-color: #ffffff;
+    border: 1px #ababab solid;
+}
+.metro .scrollbar-line-v-btn:hover,
+.metro .scrollbar-line-h-btn:hover {
+    background-color: #f0f0f0;
+}
+.metro .scrollbar-v-up,
+.metro .scrollbar-h-up {
+    width: 15px;
+    height: 15px;
+    left: 0;
+    top: 0;
+}
+.metro .scrollbar-v-down,
+.metro .scrollbar-h-down {
+    width: 15px;
+    height: 15px;
+    left: 0;
+    bottom: 0;
+}
+.metro .scrollbar-h-down {
+    left: auto;
+    right: 0;
+}
+.metro .scrollbar-line-v,
+.metro .scrollbar-line-h {
+    position: absolute;
+    z-index: 3;
+}
+.metro .scrollbar-line-v {
+    width: 100%;
+    left: 0;
+    top: 15px;
+}
+.metro .scrollbar-line-h {
+    height: 15px;
+    left: 15px;
+    top: 0;
+}
+.metro .scrollbar-line-v-btn {
+    width: 100%;
+    left: 0 !important;
+    top: 0;
+}
+.metro .scrollbar-line-h-btn {
+    height: 100%;
+    left: 0;
+    top: 0 !important;
+}
+.metro .scrollbar-both {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    right: 0;
+    bottom: 0;
+}
+.metro .scrollbar-line-h,
+.metro .scrollbar-line-v,
+.metro .scrollbar-both {
+    background-color: #f3f3f3;
+}
+.metro .scrollbar-v-up:before,
+.metro .scrollbar-v-down:before,
+.metro .scrollbar-h-up:before,
+.metro .scrollbar-h-down:before {
+    position: absolute;
+    content: "";
+    font-family: metroSysIcons;
+    font-size: 14px;
+}
+.metro .scrollbar-v-up:before {
+    content: "\e010";
+}
+.metro .scrollbar-v-down:before {
+    content: "\e012";
+}
+.metro .scrollbar-h-up:before {
+    content: "\e010";
+    margin-top: -1px;
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+}
+.metro .scrollbar-h-down:before {
+    content: "\e010";
+    margin-top: -1px;
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+/*</editor-fold>*/
 
 
-
-
+/**has Full view**/
+.has-full-view-content{
+    opacity: 0;
+    height: 0px;
+    width: 0px;
+}
 
