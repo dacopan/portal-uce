@@ -7118,12 +7118,10 @@ $(document).ready(function() {
         var w = $window.width(), h = $window.height();
         var winsize = {width: w, height: h};
         var $body = $('BODY');
+        var clipPropLast = 'rect(0px ' + winsize.width + 'px ' + winsize.height + 'px 0px)';
         
         $(this).click(function(e) {
-            e.preventDefault();
-            var clipPropLast = 'rect(0px ' + winsize.width + 'px ' + winsize.height + 'px 0px)';
-
-
+            e.preventDefault();          
             $overlay.css({
                 clip: clipPropLast,
                 opacity: 1,
