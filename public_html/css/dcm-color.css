@@ -123,7 +123,7 @@
 
 /*Background*/
 .metro .bg-red,.metro .bg-hover-red:hover,.metro .bg-focus-red:focus,.metro .bg-active-red:active{
-    background-color: #000000!important;
+    background-color: rgb(226,6,19)!important;
 }
 .metro .bg-yellow,.metro .bg-hover-yellow:hover,.metro .bg-focus-yellow:focus,.metro .bg-active-yellow:active{
     background-color: yellow!important;
@@ -131,7 +131,7 @@
 
 /*Border*/
 .metro .bd-red,.metro .bd-hover-red:hover,.metro .bd-focus-red:focus,.metro .bd-active-red:active{
-    border-color: #000000!important;
+    border-color: rgb(226,6,19)!important;
 }
 .metro .bd-yellow,.metro .bd-hover-yellow:hover,.metro .bd-focus-yellow:focus,.metro .bd-active-yellow:active{
     border-color: yellow!important;
@@ -139,7 +139,7 @@
 
 /*Foreground*/
 .metro .fg-red,.metro .fg-hover-red:hover,.metro .fg-focus-red:focus,.metro .fg-active-red:active{
-    color: #000000!important;
+    color: rgb(226,6,19)!important;
 }
 .metro .fg-yellow,.metro .fg-hover-yellow:hover,.metro .fg-focus-yellow:focus,.metro .fg-active-yellow:active{
     color: yellow!important;
