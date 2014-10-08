@@ -3035,7 +3035,10 @@ html.mm-opening .mm-fixed-bottom {
     html.mm-opening .mm-fixed-top,
     html.mm-opening .mm-fixed-bottom {
         left: 440px; } }
-
+.mm-menu.mm-right {
+left: auto;
+right: 0;
+}
 /*</editor-fold>*/
 /*<editor-fold defaultstate="collapsed" desc="MM menu slide">*/
 /*
@@ -4422,7 +4425,10 @@ span.date a.bubble, span.date a.bubble:hover {
 }
 .rb-overlay .full-content {
     text-align: justify;
-    padding: 10px;
+    position: relative;
+padding: 10px;
+height: 80%;
+overflow: hidden;
 }
 
 /* #The Nivo Slider styles
