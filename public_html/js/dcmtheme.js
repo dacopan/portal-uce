@@ -5339,11 +5339,33 @@ var Boxgrid = (function() {
 
     function initEvents() {
 
-        $items.each(function() {
+        $items.each(function(ix) {
 
             var $item = $(this),
                     $close = $item.find('span.rb-close'),
-                    $overlay = $item.find('div.rb-overlay');
+                    $overlay = $item.find('div.rb-overlay'),
+                    $prev = $('<span class="rb-prev">Prebv</span>').appendTo($overlay),
+                    $next = $('<span class="rb-next">Next</span>').appendTo($overlay),
+                    $linkNext, $linkPrev;
+            if ($item.is(':last-child')) {
+                $linkPrev = $items[ix - 1];
+                $linkNext = $items[0];
+            } else if ($item.is(':first-child')) {
+                $linkPrev = $items[$items.size() - 1];
+                $linkNext = $items[ix + 1];
+            } else {
+                $linkNext = $items[ix + 1];
+                $linkPrev = $items[ix - 1];
+            }
+
+            $next.on('click', function(event) {
+                $($linkNext).trigger("click");
+                $close.trigger("click");
+            });
+            $prev.on('click', function(event) {
+                $($linkPrev).trigger("click");
+                $close.trigger("click");
+            });
 
             $item.on('click', function(event) {
                 event.preventDefault();
@@ -6300,7 +6322,7 @@ var DCMGrid = (function() {
         }
     };
 
-   
+
 
     $.Metro.initAll = function(area) {
 
@@ -6312,7 +6334,7 @@ var DCMGrid = (function() {
         $.Metro.initTabs(area);
         $.Metro.initHints(area);
         //$.Metro.initAccordions(area);
-        
+
     }
 })(jQuery);
 $(function() {
@@ -6539,7 +6561,7 @@ $(function() {
 });
 //</editor-fold>
 $(window).load(function() {
-   
+
     $('.has-full-view').each(function() {
         var $overlay = $($(this).attr('href'));
         var $window = $(window);
