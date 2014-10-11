@@ -91,16 +91,16 @@ and open the template in the editor.
                                                     <ul id="mm-nav-content">
                                                         <li><a href="/">Home</a></li>
                                                         <li>
-                                                            <a href="/about/">About us</a>
+                                                            <a href="/about/">Facultades</a>
                                                             <ul>
-                                                                <li><a href="/about/history/">History</a></li>
-                                                                <li><a href="/about/team/">The team</a></li>
-                                                                <li><a href="/about/address/">Our address</a></li>
+                                                                <li><a href="/about/history/">Ingenieria Ciencias Fisicas y Matematica</a></li>
+                                                                <li><a href="/about/team/">Ciencias Administrativas</a></li>
+                                                                <li><a href="/about/address/">Odontología</a></li>
                                                             </ul>
                                                         </li>
                                                         <li>
                                                             <span>Tutorial</span>
-                                                            <div>
+                                                            
                                                                 <ul>
                                                                     <li><a href="/tutorial">Getting started</a></li>
                                                                     <li><a href="/tutorial/setting-up-the-html.html">Setting up the html</a></li>
@@ -110,7 +110,7 @@ and open the template in the editor.
                                                                     <li><a href="/tutorial/fixed-elements.html">Fixed elements</a></li>
                                                                     <li><a href="/tutorial/learn-more.html">Learn more</a></li>
                                                                 </ul>
-                                                            </div>
+                                                            
                                                         </li>
                                                     </ul>
                                                     <!--fin mmMenu nav content-->
@@ -240,7 +240,7 @@ and open the template in the editor.
 
 
                                                     <div class="slide" id="slide2"   style="background-image: url(images/panel2_grilla.png);background-color: white;background-size: cover;background-position: 50% 50%;background-repeat: no-repeat;"  data-slide="2" data-stellar-background-ratio="0.5">
-                                                        <div class="contentwrapx" style="padding-top:60px; padding-bottom:45px;">
+                                                        <div class="contentwrapx noticiesWrap" style="padding-top:60px; padding-bottom:45px;">
 
                                                             <h1 class="text-center">NOTICIAS</h1>
 
@@ -556,6 +556,17 @@ and open the template in the editor.
 
                                                                     $(function() {
                                                                         Boxgrid.init();
+
+                                                                        $('.noticiesWrap').each(function() {
+                                                                            $(this).addClass("oculto").viewportChecker({
+                                                                                classToAdd: 'visible animated fadeInUp', // Class to add to the elements when they are visible
+                                                                                offset: 300, // The offset of the elements (let them appear earlier or later)
+                                                                                repeat: false, // Add the possibility to remove the class if the elements are not visible
+                                                                                callbackFunction: function(elem, action) {                                                                                    
+                                                                                }, // Callback to do after a class was added to an element. Action will return "add" or "remove", depending if the class was added or removed
+                                                                                scrollHorizontal: false // Set to true if your website scrolls horizontal instead of vertical.
+                                                                            });
+                                                                        });
                                                                     });
                                                                 });</script>
                                                         </div>
@@ -1133,8 +1144,7 @@ and open the template in the editor.
                                                                     scrollTop: q //- 10
                                                                 }, 1000, 'easeInOutExpo');
                                                                 /*  htmlbody.animate({
-                                                                 scrollTop: q
-                                                                 }, 1000, 'easeInOutExpo');*/
+                                                                 scrollTop: q                                                                  }, 1000, 'easeInOutExpo');*/
                                                             }
                                                             //When the user clicks on the navigation links, get the data-slide attribute value of the link and pass that variable to the goToByScroll function
                                                             links.click(function(e) {
@@ -1155,7 +1165,7 @@ and open the template in the editor.
                                                             //var parallax = new Parallax(scene);
 
                                                         });
-                                                                                                        
+
                                                     </script>
 
 

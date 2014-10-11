@@ -4042,7 +4042,9 @@ a {
 ================================================== */
 /*<editor-fold defaultstate="collapsed" desc="General styles">*/
 
-
+body.metro{
+    height: 100%!important;
+}
 .metro .contentwrap{
     position: relative;
     width: 90%;
