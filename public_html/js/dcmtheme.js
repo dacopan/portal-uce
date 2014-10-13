@@ -4732,7 +4732,8 @@ $(window).scroll(function() {
     //headerPosition();
 
 //parrallax
-    /*scrollPos = jQuery(this).scrollTop();
+    /*
+     scrollPos = jQuery(this).scrollTop();
      
      var x = jQuery('#slide1');
      //Scroll the background of the banner
@@ -4740,7 +4741,7 @@ $(window).scroll(function() {
      'background-position': 'center ' + ((-scrollPos + x.offset().top) / 8) + "px"
      });
      
-     */
+    // */
 });
 jQuery('.top').click(function() {
     jQuery('html, body').animate({scrollTop: 0}, 1000, 'easeOutCubic');//return false;
