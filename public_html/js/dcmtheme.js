@@ -369,7 +369,7 @@ window.Modernizr = function(a, b, c) {
         for (var i = t.length; i--; )
             if (t[i].listener === e)
                 return i;
-        return-1
+        return -1
     }
     function i(t) {
         return function() {
@@ -984,7 +984,7 @@ window.Modernizr = function(a, b, c) {
         for (var i = 0, o = t.length; o > i; i++)
             if (t[i] === e)
                 return i;
-        return-1
+        return -1
     };
     "function" == typeof define && define.amd ? define("outlayer/outlayer", ["eventie/eventie", "doc-ready/doc-ready", "eventEmitter/EventEmitter", "get-size/get-size", "matches-selector/matches-selector", "./item"], s) : t.Outlayer = s(t.eventie, t.docReady, t.EventEmitter, t.getSize, t.matchesSelector, t.Outlayer.Item)
 }(window), function(t) {
@@ -1112,7 +1112,7 @@ window.Modernizr = function(a, b, c) {
             if (n === e)
                 return i
         }
-        return-1
+        return -1
     };
     "function" == typeof define && define.amd ? define("masonry/masonry", ["outlayer/outlayer", "get-size/get-size"], e) : t.Masonry = e(t.Outlayer, t.getSize)
 }(window), function(t) {
@@ -1376,7 +1376,7 @@ window.Modernizr = function(a, b, c) {
         for (var i = 0, o = t.length; o > i; i++)
             if (t[i] === e)
                 return i;
-        return-1
+        return -1
     };
     "function" == typeof define && define.amd ? define(["outlayer/outlayer", "get-size/get-size", "matches-selector/matches-selector", "isotope/js/item", "isotope/js/layout-mode", "isotope/js/layout-modes/masonry", "isotope/js/layout-modes/fit-rows", "isotope/js/layout-modes/vertical"], r) : t.Isotope = r(t.Outlayer, t.getSize, t.matchesSelector, t.Isotope.Item, t.Isotope.LayoutMode)
 }(window);
@@ -1568,7 +1568,6 @@ window.Modernizr = function(a, b, c) {
     var toFix = ['wheel', 'mousewheel', 'DOMMouseScroll', 'MozMousePixelScroll'];
     var toBind = 'onwheel' in document || document.documentMode >= 9 ? ['wheel'] : ['mousewheel', 'DomMouseScroll', 'MozMousePixelScroll'];
     var lowestDelta, lowestDeltaXY;
-
     if ($.event.fixHooks) {
         for (var i = toFix.length; i; ) {
             $.event.fixHooks[ toFix[--i] ] = $.event.mouseHooks;
@@ -1595,7 +1594,6 @@ window.Modernizr = function(a, b, c) {
             }
         }
     };
-
     $.fn.extend({
         mousewheel: function(fn) {
             return fn ? this.bind("mousewheel", fn) : this.trigger("mousewheel");
@@ -1604,8 +1602,6 @@ window.Modernizr = function(a, b, c) {
             return this.unbind("mousewheel", fn);
         }
     });
-
-
     function handler(event) {
         var orgEvent = event || window.event,
                 args = [].slice.call(arguments, 1),
@@ -1617,7 +1613,6 @@ window.Modernizr = function(a, b, c) {
                 fn;
         event = $.event.fix(orgEvent);
         event.type = "mousewheel";
-
         // Old school scrollwheel delta
         if (orgEvent.wheelDelta) {
             delta = orgEvent.wheelDelta;
@@ -1659,10 +1654,8 @@ window.Modernizr = function(a, b, c) {
         delta = Math[fn](delta / lowestDelta);
         deltaX = Math[fn](deltaX / lowestDeltaXY);
         deltaY = Math[fn](deltaY / lowestDeltaXY);
-
         // Add event and delta to the front of the arguments
         args.unshift(event, delta, deltaX, deltaY);
-
         return ($.event.dispatch || $.event.handle).apply(this, args);
     }
 
@@ -1829,7 +1822,6 @@ window.Modernizr = function(a, b, c) {
         }
     }
 }(jQuery);
-
 !function(e) {
     function o(o) {
         return("top" == o.position || "bottom" == o.position) && ("back" == o.zposition || "next" == o.zposition) && (e[s].deprecated('Using position "' + o.position + '" in combination with zposition "' + o.zposition + '"', 'zposition "front"'), o.zposition = "front"), o
@@ -1911,7 +1903,6 @@ window.Modernizr = function(a, b, c) {
     };
     var p, a, r, l, c = !1
 }(jQuery);
-
 //</editor-fold>
 
 //<editor-fold defaultstate="collapsed" desc="waypoints.min.js">
@@ -2108,7 +2099,6 @@ window.Modernizr = function(a, b, c) {
 
 //<editor-fold defaultstate="collapsed" desc="jquery easing">
 jQuery.easing['jswing'] = jQuery.easing['swing'];
-
 jQuery.extend(jQuery.easing,
         {
             def: 'easeOutQuad',
@@ -2819,25 +2809,20 @@ jQuery.extend(jQuery.easing,
                                 pos = $el.data('position'),
                                 itemHeight, othersHeight,
                                 $others = $slices.not($el);
-
                         // if it's opened..	
                         if (expanded) {
                             $el.data('expanded', false);
                             cache.idx_expanded = -1;
-
                             // the default values of each slices's height
                             itemHeight = cache.sliceH;
                             othersHeight = cache.sliceH;
-
                             // hide the content div
                             $el.find('.va-content').hide();
-
                             // control the navigation buttons visibility
                             if (aux.canSlideUp($slices, settings))
                                 $navPrev.fadeIn();
                             else
                                 $navPrev.fadeOut();
-
                             if (aux.canSlideDown($slices, settings))
                                 $navNext.fadeIn();
                             else
@@ -2852,13 +2837,11 @@ jQuery.extend(jQuery.easing,
                             itemHeight = settings.expandedHeight;
                             // the height the other slices will have
                             othersHeight = Math.ceil((settings.accordionH - settings.expandedHeight) / (settings.visibleSlices - 1));
-
                             // control the navigation buttons visibility
                             if (cache.idx_expanded > 0)
                                 $navPrev.fadeIn();
                             else
                                 $navPrev.fadeOut();
-
                             if (cache.idx_expanded < cache.totalSlices - 1)
                                 $navNext.fadeIn();
                             else
@@ -2871,7 +2854,6 @@ jQuery.extend(jQuery.easing,
                             opacity: 1,
                             top: (pos - 1) * othersHeight + 'px'
                         };
-
                         // animate the clicked slice and also its title (<h3>)
                         $el.stop()
                                 .animate(animParam, settings.animSpeed, settings.animEasing, function() {
@@ -2883,13 +2865,11 @@ jQuery.extend(jQuery.easing,
                                 .animate({
                                     lineHeight: cache.sliceH + 'px'
                                 }, settings.animSpeed, settings.animEasing).hide();
-
                         // animate all the others
                         $others.each(function(i) {
                             var $other = $(this),
                                     posother = $other.data('position'),
                                     t;
-
                             if (expanded)
                                 t = (posother - 1) * othersHeight;
                             else {
@@ -2916,22 +2896,18 @@ jQuery.extend(jQuery.easing,
                         });
                     }
             ).promise();
-
         },
         // triggered when clicking the navigation buttons / mouse scrolling
         navigate: function(dir, $slices, $navNext, $navPrev, settings) {
             // if animating return
             if ($slices.is(':animated'))
                 return false;
-
             // all move up / down one position
             // if settings.savePositions is false, then we need to close any expanded slice before sliding
             // otherwise we slide, and the next one will open automatically
             var $el;
-
             if (cache.idx_expanded != -1 && !settings.savePositions) {
                 $el = $slices.eq(cache.idx_expanded);
-
                 $.when(aux.selectSlice($el, $slices, $navNext, $navPrev, settings)).done(function() {
                     setTimeout(function() {
                         aux.slide(dir, $slices, $navNext, $navPrev, settings);
@@ -2952,12 +2928,10 @@ jQuery.extend(jQuery.easing,
                     return false;
                 else if (dir === -1 && cache.current === 0)
                     return false;
-
                 if (dir === -1 && cache.current === 1)
                     $navPrev.fadeOut();
                 else
                     $navPrev.fadeIn();
-
                 if (dir === 1 && cache.current + settings.visibleSlices === cache.totalSlices - 1)
                     $navNext.fadeOut();
                 else
@@ -2968,12 +2942,10 @@ jQuery.extend(jQuery.easing,
                     return false;
                 else if (dir === -1 && cache.idx_expanded === 0)
                     return false;
-
                 if (dir === -1 && cache.idx_expanded === 1)
                     $navPrev.fadeOut();
                 else
                     $navPrev.fadeIn();
-
                 if (dir === 1 && cache.idx_expanded === cache.totalSlices - 2)
                     $navNext.fadeOut();
                 else
@@ -2983,9 +2955,7 @@ jQuery.extend(jQuery.easing,
             var $currentSlice = $slices.eq(cache.idx_expanded),
                     $nextSlice,
                     t;
-
             (dir === 1) ? $nextSlice = $currentSlice.next() : $nextSlice = $currentSlice.prev();
-
             // if we cannot slide up / down, then we just call the selectSlice for the previous / next slice
             if ((dir === 1 && !aux.canSlideDown($slices, settings)) ||
                     (dir === -1 && !aux.canSlideUp($slices, settings))) {
@@ -3008,20 +2978,17 @@ jQuery.extend(jQuery.easing,
             $slices.each(function(i) {
                 var $slice = $(this),
                         pos = $slice.data('position');
-
                 // all closed or savePositions is false
                 if (!settings.savePositions || cache.idx_expanded === -1)
                     $slice.stop().animate({top: t}, settings.animSpeed, settings.animEasing);
                 else {
                     var itemHeight, othersHeight;
-
                     // if the slice is the one we should open..
                     if (i === $nextSlice.index()) {
                         $slice.data('expanded', true);
                         cache.idx_expanded = $slice.index();
                         itemHeight = settings.expandedHeight;
                         othersHeight = (settings.accordionH - settings.expandedHeight) / (settings.visibleSlices - 1);
-
                         $slice.stop()
                                 .animate({
                                     height: itemHeight + 'px',
@@ -3042,7 +3009,6 @@ jQuery.extend(jQuery.easing,
 
                         $slice.data('expanded', false);
                         othersHeight = (settings.accordionH - settings.expandedHeight) / (settings.visibleSlices - 1);
-
                         $slice.stop()
                                 .animate({
                                     height: othersHeight + 'px',
@@ -3062,7 +3028,6 @@ jQuery.extend(jQuery.easing,
                     else {
                         $slice.data('expanded', false);
                         othersHeight = (settings.accordionH - settings.expandedHeight) / (settings.visibleSlices - 1);
-
                         $slice.stop()
                                 .animate({
                                     top: (dir === 1) ? '-=' + othersHeight : '+=' + othersHeight
@@ -3075,13 +3040,11 @@ jQuery.extend(jQuery.easing,
         },
         canSlideUp: function($slices, settings) {
             var $first = $slices.eq(cache.current);
-
             if ($first.index() !== 0)
                 return true;
         },
         canSlideDown: function($slices, settings) {
             var $last = $slices.eq(cache.current + settings.visibleSlices - 1);
-
             if ($last.index() !== cache.totalSlices - 1)
                 return true;
         }
@@ -3113,7 +3076,6 @@ jQuery.extend(jQuery.easing,
                     // sliding we collapse any opened slice
                     savePositions: true
                 };
-
                 return this.each(function() {
 
                     // if options exist, lets merge them with our default settings
@@ -3127,13 +3089,10 @@ jQuery.extend(jQuery.easing,
                             // the navigation buttons
                             $navNext = $el.find('span.va-nav-next'),
                             $navPrev = $el.find('span.va-nav-prev');
-
                     // each slice's height
                     cache.sliceH = Math.ceil(settings.accordionH / settings.visibleSlices);
-
                     // total slices
                     cache.totalSlices = $slices.length;
-
                     // control some user config parameters
                     if (settings.expandedHeight > settings.accordionH)
                         settings.expandedHeight = settings.accordionH;
@@ -3145,11 +3104,9 @@ jQuery.extend(jQuery.easing,
                         width: settings.accordionW + 'px',
                         height: settings.accordionH + 'px'
                     });
-
                     // show / hide $navNext 
                     if (settings.visibleSlices < cache.totalSlices)
                         $navNext.show();
-
                     // set the top & height for each slice.
                     // also save the position of each one.
                     // as we navigate, the first one in the accordion
@@ -3164,7 +3121,6 @@ jQuery.extend(jQuery.easing,
                     })
                             .children('.va-title')
                             .css('line-height', cache.sliceH + 'px');
-
                     // click event
                     $slices.bind('click.vaccordion', function(e) {
                         // only if we have more than 1 visible slice. 
@@ -3174,16 +3130,13 @@ jQuery.extend(jQuery.easing,
                             aux.selectSlice($el, $slices, $navNext, $navPrev, settings);
                         }
                     });
-
                     // navigation events
                     $navNext.bind('click.vaccordion', function(e) {
                         aux.navigate(1, $slices, $navNext, $navPrev, settings);
                     });
-
                     $navPrev.bind('click.vaccordion', function(e) {
                         aux.navigate(-1, $slices, $navNext, $navPrev, settings);
                     });
-
                     // adds events to the mouse
                     $el.bind('mousewheel.vaccordion', function(e, delta) {
                         if (delta > 0) {
@@ -3194,12 +3147,10 @@ jQuery.extend(jQuery.easing,
                         }
                         return false;
                     });
-
                 });
             }
         }
     };
-
     $.fn.vaccordion = function(method) {
         if (methods[method]) {
             return methods[method].apply(this, Array.prototype.slice.call(arguments, 1));
@@ -3209,7 +3160,6 @@ jQuery.extend(jQuery.easing,
             $.error('Method ' + method + ' does not exist on jQuery.vaccordion');
         }
     };
-
 })(jQuery);
 //</editor-fold>
 
@@ -3226,7 +3176,6 @@ jQuery.extend(jQuery.easing,
 var $event = $.event,
         $special,
         resizeTimeout;
-
 $special = $event.special.debouncedresize = {
     setup: function() {
         $(this).on("resize", $special.handler);
@@ -3243,7 +3192,6 @@ $special = $event.special.debouncedresize = {
                     event.type = "debouncedresize";
                     $event.dispatch.apply(context, args);
                 };
-
         if (resizeTimeout) {
             clearTimeout(resizeTimeout);
         }
@@ -3254,7 +3202,6 @@ $special = $event.special.debouncedresize = {
     },
     threshold: 50
 };
-
 var Boxgrid = (function() {
 //mayra
     var $items = $('.noticeX'),
@@ -3276,7 +3223,6 @@ var Boxgrid = (function() {
             current = -1,
             // window width and height
             winsize = getWindowSize();
-
     function init(options) {
         // apply fittext plugin
         //$items.find( 'div.rb-week > div span' ).fitText( 0.3 ).end().find( 'span.rb-city' ).fitText( 0.5 );
@@ -3312,7 +3258,6 @@ var Boxgrid = (function() {
                 $($linkPrev).trigger("click");
                 $close.trigger("click");
             });
-
             $item.on('click', function(event) {
                 event.preventDefault();
                 $('.noticiesWrap').removeClass("oculto visible animated fadeInUp");
@@ -3322,31 +3267,25 @@ var Boxgrid = (function() {
                 $item.data('isExpanded', true);
                 // save current item's index
                 current = $item.index();
-
                 var layoutProp = getItemLayoutProp($item),
                         clipPropFirst = 'rect(' + layoutProp.top + 'px ' + (layoutProp.left + layoutProp.width) + 'px ' + (layoutProp.top + layoutProp.height) + 'px ' + layoutProp.left + 'px)',
                         clipPropLast = 'rect(0px ' + winsize.width + 'px ' + winsize.height + 'px 0px)';
-
-
                 $overlay.css({
                     clip: supportTransitions ? clipPropFirst : clipPropLast,
                     opacity: 1,
                     zIndex: 9999,
                     pointerEvents: 'auto'
                 });
-
                 if (supportTransitions) {
                     $overlay.on(transEndEventName, function() {
 
                         $overlay.off(transEndEventName);
-
                         setTimeout(function() {
                             $overlay.css('clip', clipPropLast).on(transEndEventName, function() {
                                 $overlay.off(transEndEventName);
                                 $body.css('overflow-y', 'hidden');
                             });
                         }, 25);
-
                     });
                 }
                 else {
@@ -3354,24 +3293,19 @@ var Boxgrid = (function() {
                 }
 
             });
-
             $close.on('click', function() {
 
                 $body.css('overflow-y', 'auto');
-
                 var layoutProp = getItemLayoutProp($item),
                         clipPropFirst = 'rect(' + layoutProp.top + 'px ' + (layoutProp.left + layoutProp.width) + 'px ' + (layoutProp.top + layoutProp.height) + 'px ' + layoutProp.left + 'px)',
                         clipPropLast = 'auto';
-
                 // reset current
                 current = -1;
-
                 $overlay.css({
                     clip: supportTransitions ? clipPropFirst : clipPropLast,
                     opacity: supportTransitions ? 1 : 0,
                     pointerEvents: 'none'
                 });
-
                 if (supportTransitions) {
                     $overlay.on(transEndEventName, function() {
 
@@ -3382,7 +3316,6 @@ var Boxgrid = (function() {
                                 $item.data('isExpanded', false);
                             });
                         }, 25);
-
                     });
                 }
                 else {
@@ -3391,11 +3324,8 @@ var Boxgrid = (function() {
                 }
 
                 return false;
-
             });
-
         });
-
         $(window).on('debouncedresize', function() {
             winsize = getWindowSize();
             // todo : cache the current item
@@ -3403,7 +3333,6 @@ var Boxgrid = (function() {
                 $items.eq(current).children('div.rb-overlay').css('clip', 'rect(0px ' + winsize.width + 'px ' + winsize.height + 'px 0px)');
             }
         });
-
     }
 
     function getItemLayoutProp($item) {
@@ -3411,14 +3340,12 @@ var Boxgrid = (function() {
         var scrollT = $window.scrollTop(),
                 scrollL = $window.scrollLeft(),
                 itemOffset = $item.offset();
-
         return {
             left: itemOffset.left - scrollL,
             top: itemOffset.top - scrollT,
             width: $item.outerWidth(),
             height: $item.outerHeight()
         };
-
     }
 
     function getWindowSize() {
@@ -3431,7 +3358,6 @@ var Boxgrid = (function() {
     }
 
     return {init: init};
-
 })();
 //</editor-fold>
 
@@ -3452,7 +3378,6 @@ var Boxgrid = (function() {
 
 // blank image data-uri bypasses webkit log warning (thx doug jones)
 var BLANK = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==';
-
 $.fn.imagesLoaded = function(callback) {
     var $this = this,
             deferred = $.isFunction($.Deferred) ? $.Deferred() : 0,
@@ -3461,7 +3386,6 @@ $.fn.imagesLoaded = function(callback) {
             loaded = [],
             proper = [],
             broken = [];
-
     // Register deferred callbacks
     if ($.isPlainObject(callback)) {
         $.each(callback, function(key, value) {
@@ -3476,7 +3400,6 @@ $.fn.imagesLoaded = function(callback) {
     function doneLoading() {
         var $proper = $(proper),
                 $broken = $(broken);
-
         if (deferred) {
             if (broken.length) {
                 deferred.reject($images, $proper, $broken);
@@ -3498,7 +3421,6 @@ $.fn.imagesLoaded = function(callback) {
 
         // store element in loaded images array
         loaded.push(img);
-
         // keep track of broken and properly loaded images
         if (isBroken) {
             broken.push(img);
@@ -3508,7 +3430,6 @@ $.fn.imagesLoaded = function(callback) {
 
         // cache image and its state for future calls
         $.data(img, 'imagesLoaded', {isBroken: isBroken, src: img.src});
-
         // trigger deferred progress method if present
         if (hasNotify) {
             deferred.notifyWith($(img), [isBroken, $images, $(proper), $(broken)]);
@@ -3530,7 +3451,6 @@ $.fn.imagesLoaded = function(callback) {
             imgLoaded(event.target, event.type === 'error');
         }).each(function(i, el) {
             var src = el.src;
-
             // find out if this image has been already checked for status
             // if it was, and src has not changed, call imgLoaded on it
             var cached = $.data(el, 'imagesLoaded');
@@ -3558,6 +3478,332 @@ $.fn.imagesLoaded = function(callback) {
 
     return deferred ? deferred.promise($this) : $this;
 };
+(function($) {
+    $.widget("metro.dcmgrid", {
+        version: "1.0.0",
+        grid: {}, items: {},
+        options: {
+            // current expanded item's index
+            current: -1,
+            // position (top) of the expanded item
+            // used to know if the preview will expand in a different row
+            previewPos: -1,
+            // extra amount of pixels to scroll the window
+            scrollExtra: 0,
+            // extra margin when expanded (between preview overlay and the next items)
+            marginExpanded: 10,
+            window: null, winsize: null,
+            $body: $('html, body'),
+            // transitionend events
+            transEndEventNames: {
+                'WebkitTransition': 'webkitTransitionEnd',
+                'MozTransition': 'transitionend',
+                'OTransition': 'oTransitionEnd',
+                'msTransition': 'MSTransitionEnd',
+                'transition': 'transitionend'
+            },
+            transEndEventName: transEndEventNames[ Modernizr.prefixed('transition') ],
+            // support for csstransitions
+            support: Modernizr.csstransitions,
+            // default settings
+            settings: {
+                minHeight: 500,
+                speed: 350,
+                easing: 'ease'
+            }
+        },
+        _create: function() {
+            var o = this.options;
+            this.grid = $(this);
+            // the items
+            this.items = this.grid.children('li');
+            o.window = $(window);
+            // preload all images
+            this.grid.imagesLoaded(function() {
+
+                // save itemÂ´s size and offset
+                _saveItemInfo(true);
+                // get windowÂ´s size
+                _getWinSize();
+                // initialize some events
+                _initEvents();
+            });
+        },
+        // add more items to the grid.
+        // the new items need to appended to the grid.
+        // after that call Grid.addItems(theItems);
+        _addItems: function($newitems) {
+
+            this.items = this.items.add($newitems);
+            $newitems.each(function() {
+                var $item = $(this);
+                $item.data({
+                    offsetTop: $item.offset().top,
+                    height: $item.height()
+                });
+            });
+            _initItemsEvents($newitems);
+        },
+        // saves the itemÂ´s offset top and height (if saveheight is true)
+        _saveItemInfo: function(saveheight) {
+            this.items.each(function() {
+                var $item = $(this);
+                $item.data('offsetTop', $item.offset().top);
+                if (saveheight) {
+                    $item.data('height', $item.height());
+                }
+            });
+        },
+        _initEvents: function() {
+
+            // when clicking an item, show the preview with the itemÂ´s info and large image.
+            // close the item if already expanded.
+            // also close if clicking on the itemÂ´s cross
+            _initItemsEvents(this.items);
+            // on window resize get the windowÂ´s size again
+            // reset some values..
+            this.options.window.on('debouncedresize', function() {
+
+                this.options.scrollExtra = 0;
+                this.options.previewPos = -1;
+                // save itemÂ´s offset
+                _saveItemInfo();
+                _getWinSize();
+                var preview = $.data(this, 'preview');
+                if (typeof preview != 'undefined') {
+                    _hidePreview();
+                }
+
+            });
+        },
+        _initItemsEvents: function($items) {
+            $items.on('click', 'span.og-close', function() {
+                _hidePreview();
+                return false;
+            }).children('a').on('click', function(e) {
+
+                var $item = $(this).parent();
+                // check if item already opened
+                current === $item.index() ? _hidePreview() : _showPreview($item);
+                return false;
+            });
+        },
+        _getWinSize: function() {
+           this.options.winsize = {width: this.options.window.width(), height: this.options.window.height()};
+        },
+        _showPreview: function($item) {
+
+            var preview = $.data(this, 'preview'),
+                    // itemÂ´s offset top
+                    position = $item.data('offsetTop');
+            this.options.scrollExtra = 0;
+            // if a preview exists and previewPos is different (different row) from itemÂ´s top then close it
+            if (typeof preview != 'undefined') {
+
+                // not in the same row
+                if (this.options.previewPos !== position) {
+                    // if position > previewPos then we need to take te current previewÂ´s height in consideration when scrolling the window
+                    if (position > this.options.previewPos) {
+                        this.options.scrollExtra = preview.height;
+                    }
+                    _hidePreview();
+                }
+                // same row
+                else {
+                    preview.update($item);
+                    return false;
+                }
+
+            }
+
+            // update previewPos
+            this.options.previewPos = position;
+            // initialize new preview for the clicked item
+            preview = $.data(this, 'preview', new Preview($item));
+            // expand preview overlay
+            preview.open();
+        },
+        _hidePreview: function() {
+            this.options.current = -1;
+            var preview = $.data(this, 'preview');
+            preview.close();
+            $.removeData(this, 'preview');
+        },
+        // the preview obj / overlay
+        Preview: function($item) {
+            this.$item = $item;
+            this.expandedIdx = this.$item.index();
+            this.create();
+            this.update();
+        },
+        
+        
+        
+        _destroy: function() {
+
+        },
+        _setOption: function(key, value) {
+            this._super('_setOption', key, value);
+        }
+    });
+    
+    
+    Preview.prototype = {
+        create: function() {
+            // create Preview structure:
+            this.$title = $('<h3></h3>');
+            this.$description = $('<p></p>');
+            this.$href = $('<a href="#">Ir a Facultad</a>');
+            this.$details = $('<div class="og-details"></div>').append(this.$title, this.$description, this.$href);
+            this.$loading = $('<div class="og-loading"></div>');
+            this.$fullimage = $('<div class="og-fullimg"></div>').append(this.$loading);
+            this.$closePreview = $('<span class="og-close"></span>');
+            this.$previewInner = $('<div class="og-expander-inner"></div>').append(this.$closePreview, this.$fullimage, this.$details);
+            this.$previewEl = $('<div class="og-expander"></div>').append(this.$previewInner);
+            // append preview element to the item
+            this.$item.append(this.getEl());
+            // set the transitions for the preview and the item
+            if (support) {
+                this.setTransition();
+            }
+        },
+        update: function($item) {
+
+            if ($item) {
+                this.$item = $item;
+            }
+
+            // if already expanded remove class "og-expanded" from current item and add it to new item
+            if (current !== -1) {
+                var $currentItem = $items.eq(current);
+                $currentItem.removeClass('og-expanded');
+                this.$item.addClass('og-expanded');
+                // position the preview correctly
+                this.positionPreview();
+            }
+
+            // update current value
+            current = this.$item.index();
+            // update previewÂ´s content
+            var $itemEl = this.$item.children('a'),
+                    eldata = {
+                        href: $itemEl.attr('href'),
+                        largesrc: $itemEl.data('largesrc'),
+                        title: $itemEl.data('title'),
+                        //description : $itemEl.data( 'description' )
+                        description: $itemEl.find('.detailx').html()
+                    };
+            this.$title.html(eldata.title);
+            this.$description.html(eldata.description);
+            this.$href.attr('href', eldata.href);
+            var self = this;
+            // remove the current image in the preview
+            if (typeof self.$largeImg != 'undefined') {
+                self.$largeImg.remove();
+            }
+
+            // preload large image and add it to the preview
+            // for smaller screens we donÂ´t display the large image (the media query will hide the fullimage wrapper)
+            if (self.$fullimage.is(':visible')) {
+                this.$loading.show();
+                $('<img/>').load(function() {
+                    var $img = $(this);
+                    if ($img.attr('src') === self.$item.children('a').data('largesrc')) {
+                        self.$loading.hide();
+                        self.$fullimage.find('img').remove();
+                        self.$largeImg = $img.fadeIn(350);
+                        self.$fullimage.append(self.$largeImg);
+                    }
+                }).attr('src', eldata.largesrc);
+            }
+
+        },
+        open: function() {
+
+            setTimeout($.proxy(function() {
+                // set the height for the preview and the item
+                this.setHeights();
+                // scroll to position the preview in the right place
+                this.positionPreview();
+            }, this), 25);
+        },
+        close: function() {
+
+            var self = this,
+                    onEndFn = function() {
+                        if (support) {
+                            $(this).off(transEndEventName);
+                        }
+                        self.$item.removeClass('og-expanded');
+                        self.$previewEl.remove();
+                    };
+            setTimeout($.proxy(function() {
+
+                if (typeof this.$largeImg !== 'undefined') {
+                    this.$largeImg.fadeOut('fast');
+                }
+                this.$previewEl.css('height', 0);
+                // the current expanded item (might be different from this.$item)
+                var $expandedItem = $items.eq(this.expandedIdx);
+                $expandedItem.css('height', $expandedItem.data('height')).on(transEndEventName, onEndFn);
+                if (!support) {
+                    onEndFn.call();
+                }
+
+            }, this), 25);
+            return false;
+        },
+        calcHeight: function() {
+
+            var heightPreview = winsize.height - this.$item.data('height') - marginExpanded,
+                    itemHeight = winsize.height;
+            if (heightPreview < settings.minHeight) {
+                heightPreview = settings.minHeight;
+                itemHeight = settings.minHeight + this.$item.data('height') + marginExpanded;
+            }
+
+            this.height = heightPreview;
+            this.itemHeight = itemHeight;
+        },
+        setHeights: function() {
+
+            var self = this,
+                    onEndFn = function() {
+                        if (support) {
+                            self.$item.off(transEndEventName);
+                        }
+                        self.$item.addClass('og-expanded');
+                    };
+            this.calcHeight();
+            this.$previewEl.css('height', this.height);
+            this.$item.css('height', this.itemHeight).on(transEndEventName, onEndFn);
+            if (!support) {
+                onEndFn.call();
+            }
+
+        },
+        positionPreview: function() {
+
+            // scroll page
+            // case 1 : preview height + item height fits in windowÂ´s height
+            // case 2 : preview height + item height does not fit in windowÂ´s height and preview height is smaller than windowÂ´s height
+            // case 3 : preview height + item height does not fit in windowÂ´s height and preview height is bigger than windowÂ´s height
+            var position = this.$item.data('offsetTop'),
+                    previewOffsetT = this.$previewEl.offset().top - scrollExtra,
+                    scrollVal = this.height + this.$item.data('height') + marginExpanded <= winsize.height ? position : this.height < winsize.height ? previewOffsetT - (winsize.height - this.height) : previewOffsetT;
+            $body.animate({scrollTop: scrollVal}, settings.speed);
+        },
+        setTransition: function() {
+            this.$previewEl.css('transition', 'height ' + settings.speed + 'ms ' + settings.easing);
+            this.$item.css('transition', 'height ' + settings.speed + 'ms ' + settings.easing);
+        },
+        getEl: function() {
+            return this.$previewEl;
+        }
+    }
+    
+})(jQuery);
+
 
 var DCMGrid = (function() {
     //var $grid;
@@ -3593,12 +3839,10 @@ var DCMGrid = (function() {
                 speed: 350,
                 easing: 'ease'
             };
-
     function init(config, gu) {
         //$grid = gu;
         // the settings..
         settings = $.extend(true, {}, settings, config);
-
         // preload all images
         $grid.imagesLoaded(function() {
 
@@ -3608,9 +3852,7 @@ var DCMGrid = (function() {
             getWinSize();
             // initialize some events
             initEvents();
-
         });
-
     }
 
     // add more items to the grid.
@@ -3619,7 +3861,6 @@ var DCMGrid = (function() {
     function addItems($newitems) {
 
         $items = $items.add($newitems);
-
         $newitems.each(function() {
             var $item = $(this);
             $item.data({
@@ -3627,9 +3868,7 @@ var DCMGrid = (function() {
                 height: $item.height()
             });
         });
-
         initItemsEvents($newitems);
-
     }
 
     // saves the itemÂ´s offset top and height (if saveheight is true)
@@ -3649,7 +3888,6 @@ var DCMGrid = (function() {
         // close the item if already expanded.
         // also close if clicking on the itemÂ´s cross
         initItemsEvents($items);
-
         // on window resize get the windowÂ´s size again
         // reset some values..
         $window.on('debouncedresize', function() {
@@ -3665,7 +3903,6 @@ var DCMGrid = (function() {
             }
 
         });
-
     }
 
     function initItemsEvents($items) {
@@ -3678,7 +3915,6 @@ var DCMGrid = (function() {
             // check if item already opened
             current === $item.index() ? hidePreview() : showPreview($item);
             return false;
-
         });
     }
 
@@ -3691,9 +3927,7 @@ var DCMGrid = (function() {
         var preview = $.data(this, 'preview'),
                 // itemÂ´s offset top
                 position = $item.data('offsetTop');
-
         scrollExtra = 0;
-
         // if a preview exists and previewPos is different (different row) from itemÂ´s top then close it
         if (typeof preview != 'undefined') {
 
@@ -3719,7 +3953,6 @@ var DCMGrid = (function() {
         preview = $.data(this, 'preview', new Preview($item));
         // expand preview overlay
         preview.open();
-
     }
 
     function hidePreview() {
@@ -3773,7 +4006,6 @@ var DCMGrid = (function() {
 
             // update current value
             current = this.$item.index();
-
             // update previewÂ´s content
             var $itemEl = this.$item.children('a'),
                     eldata = {
@@ -3783,13 +4015,10 @@ var DCMGrid = (function() {
                         //description : $itemEl.data( 'description' )
                         description: $itemEl.find('.detailx').html()
                     };
-
             this.$title.html(eldata.title);
             this.$description.html(eldata.description);
             this.$href.attr('href', eldata.href);
-
             var self = this;
-
             // remove the current image in the preview
             if (typeof self.$largeImg != 'undefined') {
                 self.$largeImg.remove();
@@ -3819,7 +4048,6 @@ var DCMGrid = (function() {
                 // scroll to position the preview in the right place
                 this.positionPreview();
             }, this), 25);
-
         },
         close: function() {
 
@@ -3831,7 +4059,6 @@ var DCMGrid = (function() {
                         self.$item.removeClass('og-expanded');
                         self.$previewEl.remove();
                     };
-
             setTimeout($.proxy(function() {
 
                 if (typeof this.$largeImg !== 'undefined') {
@@ -3841,21 +4068,17 @@ var DCMGrid = (function() {
                 // the current expanded item (might be different from this.$item)
                 var $expandedItem = $items.eq(this.expandedIdx);
                 $expandedItem.css('height', $expandedItem.data('height')).on(transEndEventName, onEndFn);
-
                 if (!support) {
                     onEndFn.call();
                 }
 
             }, this), 25);
-
             return false;
-
         },
         calcHeight: function() {
 
             var heightPreview = winsize.height - this.$item.data('height') - marginExpanded,
                     itemHeight = winsize.height;
-
             if (heightPreview < settings.minHeight) {
                 heightPreview = settings.minHeight;
                 itemHeight = settings.minHeight + this.$item.data('height') + marginExpanded;
@@ -3863,7 +4086,6 @@ var DCMGrid = (function() {
 
             this.height = heightPreview;
             this.itemHeight = itemHeight;
-
         },
         setHeights: function() {
 
@@ -3874,11 +4096,9 @@ var DCMGrid = (function() {
                         }
                         self.$item.addClass('og-expanded');
                     };
-
             this.calcHeight();
             this.$previewEl.css('height', this.height);
             this.$item.css('height', this.itemHeight).on(transEndEventName, onEndFn);
-
             if (!support) {
                 onEndFn.call();
             }
@@ -3893,9 +4113,7 @@ var DCMGrid = (function() {
             var position = this.$item.data('offsetTop'),
                     previewOffsetT = this.$previewEl.offset().top - scrollExtra,
                     scrollVal = this.height + this.$item.data('height') + marginExpanded <= winsize.height ? position : this.height < winsize.height ? previewOffsetT - (winsize.height - this.height) : previewOffsetT;
-
             $body.animate({scrollTop: scrollVal}, settings.speed);
-
         },
         setTransition: function() {
             this.$previewEl.css('transition', 'height ' + settings.speed + 'ms ' + settings.easing);
@@ -3910,7 +4128,6 @@ var DCMGrid = (function() {
         init: init,
         addItems: addItems
     };
-
 })();
 //</editor-fold>
 
@@ -4043,7 +4260,6 @@ var DCMGrid = (function() {
         clearTimeout(t)
     })
 }();
-
 /******************/
 //</editor-fold>
 
@@ -4065,10 +4281,8 @@ var DCMGrid = (function() {
                     d.removeClass("active");
                     b.parent("li").addClass("active");
                     e.hide();
-
                     var e1 = e.data('anim');
                     e.find('a').removeClass(e1);
-
                     h = c(b.attr("href"));
                     switch (a.options.effect) {
                         case "slide":
@@ -4170,28 +4384,21 @@ var DCMGrid = (function() {
         _frames: {},
         _create: function() {
             var element = this.element;
-
             if (element.data('closeany') != undefined)
                 this.options.closeAny = element.data('closeany');
-
             this.init();
         },
         init: function() {
             var that = this;
-
             that.element.on('click', '.accordion-frame > .heading', function(e) {
                 e.preventDefault();
                 e.stopPropagation();
-
                 if ($(this).attr('disabled') || $(this).data('action') == 'none')
                     return;
-
                 if (that.options.closeAny)
                     that._closeFrames();
-
                 var frame = $(this).parent(), content = frame.children('.contentx2');
                 console.log(this);
-
                 if ($(content).is(":hidden")) {
                     //$(content).slideDown();
                     $(this).removeClass("collapsed");
@@ -4203,15 +4410,11 @@ var DCMGrid = (function() {
                 }
                 that.options.action(frame);
             });
-
             var frames = this.element.children('.accordion-frame');
-
-
             frames.each(function() {
                 var frame = this,
                         a = $(this).children(".heading"),
                         content = $(this).children(".contentx2");
-
                 if ($(frame).hasClass("active") && !$(frame).attr('disabled') && $(frame).data('action') != 'none') {
                     //$(content).show();
                     $(a).removeClass("collapsed");
@@ -4219,8 +4422,6 @@ var DCMGrid = (function() {
                     $(a).addClass("collapsed");
                 }
             });
-
-
         },
         _closeFrames: function() {
             var frames = this.element.children('.accordion-frame');
@@ -4238,46 +4439,41 @@ var DCMGrid = (function() {
         }
     })
 })(jQuery);
-(function( $ ) {
+(function($) {
     $.widget("metro.panel", {
-
         version: "1.0.0",
-
         options: {
-            onCollapse: function(){},
-            onExpand: function(){}
+            onCollapse: function() {
+            },
+            onExpand: function() {
+            }
         },
-
-        _create: function(){
+        _create: function() {
             var element = this.element, o = this.options,
-                header = element.children('.panel-header'),
-                content = element.children('.panel-content');
-
-            header.on('click', function(){
+                    header = element.children('.panel-header'),
+                    content = element.children('.panel-content');
+            header.on('click', function() {
                 content.slideToggle(
-                    'fast',
-                    function(){
-                        element.toggleClass('collapsed');
-                        if (element.hasClass('collapsed')) {
-                            o.onCollapse();
-                        } else {
-                            o.onExpand();
+                        'fast',
+                        function() {
+                            element.toggleClass('collapsed');
+                            if (element.hasClass('collapsed')) {
+                                o.onCollapse();
+                            } else {
+                                o.onExpand();
+                            }
                         }
-                    }
                 );
             });
         },
-
-        _destroy: function(){
+        _destroy: function() {
 
         },
-
-        _setOption: function(key, value){
+        _setOption: function(key, value) {
             this._super('_setOption', key, value);
         }
     })
-})( jQuery );
-
+})(jQuery);
 (function($) {
     /*
      * Init or ReInit components
@@ -4286,8 +4482,6 @@ var DCMGrid = (function() {
         params = $.extend({
         }, params);
     };
-
-
     $.Metro.initTabs = function(area) {
         if (area != undefined) {
             $(area).find('[data-role=tab-control]').tabcontrol();
@@ -4295,7 +4489,6 @@ var DCMGrid = (function() {
             $('[data-role=tab-control]').tabcontrol();
         }
     };
-
     $.Metro.initHints = function(a) {
         void 0 != a ? $(a).find("[data-hint]").hint() : $("[data-hint]").hint()
     };
@@ -4306,15 +4499,14 @@ var DCMGrid = (function() {
             $('[data-role=accordion]').accordion();
         }
     };
-
- $.Metro.initPanels = function(area){
+    $.Metro.initPanels = function(area) {
         if (area != undefined) {
             $(area).find('[data-role=panel]').panel();
-        } {
+        }
+        {
             $('[data-role=panel]').panel();
         }
     };
-
     $.Metro.initAll = function(area) {
         $.Metro.initTabs(area);
         $.Metro.initHints(area);
@@ -4326,27 +4518,21 @@ var DCMGrid = (function() {
 $(function() {
     $.Metro.initAll();
 });
-
 METRO_AUTO_REINIT = false;
 $(function() {
     if (METRO_AUTO_REINIT) {
         //$(".metro").bind('DOMSubtreeModified', function(){            $.Metro.initAll();        });
         var originalDOM = $('.metro').html(),
                 actualDOM;
-
         setInterval(function() {
             actualDOM = $('.metro').html();
-
             if (originalDOM !== actualDOM) {
                 originalDOM = actualDOM;
-
                 $.Metro.initAll();
             }
         }, 500);
     }
 });
-
-
 //</editor-fold>
 
 //<editor-fold defaultstate="collapsed" desc="perfect-scrollbar">
@@ -4578,12 +4764,10 @@ $(function() {
             scrollHorizontal: false
         };
         $.extend(options, useroptions);
-
         // Cache the given element and height of the browser
         var $elem = this,
                 windowSize = (!options.scrollHorizontal) ? $(window).height() : $(window).width(),
                 scrollElem = ((navigator.userAgent.toLowerCase().indexOf('webkit') != -1) ? 'body' : 'html');
-
         this.checkElements = function() {
 
             // Set some vars to check with
@@ -4607,36 +4791,27 @@ $(function() {
                 // define the top position of the element and include the offset which makes is appear earlier or later
                 var elemTop = (!options.scrollHorizontal) ? Math.round($obj.offset().top) + options.offset : Math.round($obj.offset().left) + options.offset,
                         elemBottom = elemTop + ($obj.height());
-
                 // Add class if in viewport
                 if ((elemTop < viewportBottom) && (elemBottom > viewportTop)) {
                     $obj.addClass(options.classToAdd);
-
                     // Do the callback function. Callback wil send the jQuery object as parameter
                     options.callbackFunction($obj, "add");
-
                     // Remove class if not in viewport and repeat is true
                 } else if ($obj.hasClass(options.classToAdd) && (options.repeat)) {
                     $obj.removeClass(options.classToAdd);
-
                     // Do the callback function.
                     options.callbackFunction($obj, "remove");
                 }
             });
-
         };
-
         // Run checkelements on load and scroll
         $(window).bind("load scroll touchmove", this.checkElements);
-
         // On resize change the height var
         $(window).resize(function(e) {
             windowSize = (!options.scrollHorizontal) ? e.currentTarget.innerHeight : e.currentTarget.innerWidth;
         });
-
         // trigger inital check if elements already visible
         this.checkElements();
-
         return this;
     };
 })(jQuery);
@@ -4659,7 +4834,6 @@ $(window).load(function() {
         var winsize = {width: w, height: h};
         var $body = $('BODY');
         var clipPropLast = 'rect(0px ' + winsize.width + 'px ' + winsize.height + 'px 0px)';
-
         $(this).click(function(e) {
             e.preventDefault();
             $overlay.css({
@@ -4668,13 +4842,8 @@ $(window).load(function() {
                 zIndex: 9999,
                 pointerEvents: 'auto'
             });
-
-
             $body.css('overflow-y', 'hidden');
-
-
             $overlay.removeClass("animated fadeIn fadeOut").addClass("animated fadeIn").css({width: '100%', height: '100%'});
-
         });
         $($overlay.find('span.rb-close')).click(function(e) {
             //alert(' mayra');
@@ -4686,17 +4855,12 @@ $(window).load(function() {
                 opacity: 0,
                 pointerEvents: 'none'
             });
-
             $overlay.css('z-index', -1);
         });
     });
-
-
-
     $('.full-content').each(function() {
         $(this).perfectScrollbar();
     });
-
     $('.isobrick2 img').each(function() {
         $(this).addClass("oculto").viewportChecker({
             classToAdd: 'visible scale', // Class to add to the elements when they are visible
@@ -4710,26 +4874,18 @@ $(window).load(function() {
     //parallax
 
 });
-
 $(document).ready(function() {
     //mm-menu
     $('#mm-nav-content').appendTo('#dcmmenu');
     $("#dcmmenu").mmenu({
         classes: "mm-slide"
     });
-
-
-
-
-
-
 //liferay-user-login/admin
     $('#userlaunch').click(function(e) {
         var dockbar = $('#dcmdockbar');
         if (dockbar.css('display') === 'none') {
             dockbar.css('display', 'block');
             dockbar.addClass('animated fadeIn');
-
         } else {
             dockbar.addClass('fadeOut');
             dockbar.removeClass('animated fadeIn fadeOut');
@@ -4738,8 +4894,6 @@ $(document).ready(function() {
         e.preventDefault();
     });
 });
-
-
 /* #Radial menu
  ================================================== */
 //<editor-fold defaultstate="collapsed" desc="radial menu">
@@ -4783,9 +4937,8 @@ $(window).scroll(function() {
      */
 });
 jQuery('.top').click(function() {
-    jQuery('html, body').animate({scrollTop: 0}, 1000, 'easeOutCubic');//return false;
+    jQuery('html, body').animate({scrollTop: 0}, 1000, 'easeOutCubic'); //return false;
 });
-
 function hover_overlay() {
     jQuery('.featured h2, .featured div.one_col .featuredoverlay, .featured div.two_col .featuredoverlay, .featured .bubblewrap').each(function() {
         jQuery(this).hover(function() {
@@ -4822,7 +4975,6 @@ function hover_overlay_article() {
 }
 
 hover_overlay();
-
 function headerPosition() {
     if ($(window).scrollTop() > $('#topBar').height()) {
         $("#topBar").removeClass('bg-lightBlue bg-blue')
