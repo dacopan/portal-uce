@@ -4910,6 +4910,56 @@ overflow: hidden;
     transform: rotate(-45deg);
     margin-left: -4px;
 }
+
+/*#Metro Panel
+==================================================== */
+.metro .panel {
+  border:none;
+  margin-bottom: 10px;
+}
+.metro .panel .panel-header {
+  padding: 10px;
+  background-color: #eeeeee;
+  width: 100%;
+  font-family: 'Segoe UI Light_', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.00em;
+  font-size: 2.5rem;
+  line-height: 2.5rem;
+  letter-spacing: 0.01em;
+  color: #000000;
+  font-size: 2.2rem;
+  line-height: 2.2rem;
+  color: #1d1d1d;
+  cursor: default;
+}
+.metro .panel .panel-content {
+  width: 100%;
+  height: auto;
+  padding: 0px;
+}
+.metro [data-role=panel] .panel-header {
+  cursor: pointer;
+}
+.metro [data-role=panel] .panel-header:after {
+  font-family: metroSysIcons;
+  content: "\e000";
+  float: right;
+  color: inherit;
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+.metro [data-role=panel].collapsed .panel-header:after {
+  content: "\e000";
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
 /*</editor-fold>*/
 
 /*<editor-fold defaultstate="collapsed" desc="hint">*/

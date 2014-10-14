@@ -4238,7 +4238,45 @@ var DCMGrid = (function() {
         }
     })
 })(jQuery);
+(function( $ ) {
+    $.widget("metro.panel", {
 
+        version: "1.0.0",
+
+        options: {
+            onCollapse: function(){},
+            onExpand: function(){}
+        },
+
+        _create: function(){
+            var element = this.element, o = this.options,
+                header = element.children('.panel-header'),
+                content = element.children('.panel-content');
+
+            header.on('click', function(){
+                content.slideToggle(
+                    'fast',
+                    function(){
+                        element.toggleClass('collapsed');
+                        if (element.hasClass('collapsed')) {
+                            o.onCollapse();
+                        } else {
+                            o.onExpand();
+                        }
+                    }
+                );
+            });
+        },
+
+        _destroy: function(){
+
+        },
+
+        _setOption: function(key, value){
+            this._super('_setOption', key, value);
+        }
+    })
+})( jQuery );
 
 (function($) {
     /*
@@ -4269,17 +4307,18 @@ var DCMGrid = (function() {
         }
     };
 
-
+ $.Metro.initPanels = function(area){
+        if (area != undefined) {
+            $(area).find('[data-role=panel]').panel();
+        } {
+            $('[data-role=panel]').panel();
+        }
+    };
 
     $.Metro.initAll = function(area) {
-
-        //$.Metro.initScrolls(area);
-
-
-
-
         $.Metro.initTabs(area);
         $.Metro.initHints(area);
+        $.Metro.initPanels(area);
         //$.Metro.initAccordions(area);
 
     }
@@ -4671,6 +4710,7 @@ $(window).load(function() {
     //parallax
 
 });
+
 $(document).ready(function() {
     //mm-menu
     $('#mm-nav-content').appendTo('#dcmmenu');
