@@ -3036,8 +3036,8 @@ html.mm-opening .mm-fixed-bottom {
     html.mm-opening .mm-fixed-bottom {
         left: 440px; } }
 .mm-menu.mm-right {
-left: auto;
-right: 0;
+    left: auto;
+    right: 0;
 }
 /*</editor-fold>*/
 /*<editor-fold defaultstate="collapsed" desc="MM menu slide">*/
@@ -3780,7 +3780,7 @@ a {
 @font-face {
     font-family: "Adequate ExtraLight";
     font-style: normal;
-    font-weight: 700;
+    font-weight: 300;
     src:  url('fonts/Adequate-ExtraLight.ttf') format('truetype'), local("Segoe UI Bold"), local("Open Sans Bold"), local("OpenSans-Bold"), url(https://themes.googleusercontent.com/static/fonts/opensans/v8/k3k702ZOKiLJc3WVjuplzJ1r3JsPcQLi8jytr04NNhU.woff) format('woff');
 }
 .metro .adequate{
@@ -4242,12 +4242,13 @@ span.date a.bubble, span.date a.bubble:hover {
     padding: 0;
     border: 0;
     float: left; 
+    cursor: pointer;
 }
 
 
 .featured .one_col.double {
     height: 250px; 
-    width:644px;
+    width:640px;
 }
 .featured .one_col.half {
     height: 124px; 
@@ -4272,7 +4273,7 @@ span.date a.bubble, span.date a.bubble:hover {
     height: 375px!important;
     background: transparent;
     padding-left: 10px!important;
-    padding-right: 10px!important;
+    padding-right: 4px!important;
 }
 /*</editor-fold>*/
 
@@ -4428,9 +4429,9 @@ span.date a.bubble, span.date a.bubble:hover {
 .rb-overlay .full-content {
     text-align: justify;
     position: relative;
-padding: 10px;
-height: 80%;
-overflow: hidden;
+    padding: 10px;
+    height: 80%;
+    overflow: hidden;
 }
 
 /* #The Nivo Slider styles
@@ -4649,7 +4650,7 @@ overflow: hidden;
 .og-grid li {
     display: inline-block;
     /*margin: 10px 5px 0 5px;*/
-    margin:10px;
+    margin:10px 10px 40px 10px;
     vertical-align: top;    
 
     -webkit-transition-property: top, left, opacity;
@@ -4664,17 +4665,17 @@ overflow: hidden;
     transition: all 0.3s ease 0s;
     -moz-transition: all 0.3s ease 0s;
 }
-.og-grid li > a span{        
+.og-grid li > .og-a span{        
     vertical-align: middle!important;
     position: relative;
     display: inline-block!important;
 }
 /**Responive facultades**/
-.og-grid li > a span,.og-grid li > a,.og-grid li > a img {
-    width: 200px!important;
-    height: 200px!important;
+.og-grid li > .og-a span,.og-grid li > .og-a,.og-grid li > .og-a img {
+    width: 230px!important;
+    /*height: 200px!important;*/
 }
-.og-grid li > a span{
+.og-grid li > .og-a span{
     font-size: 150px;
     color:white!important;
     padding-top: 25px;
@@ -4683,15 +4684,15 @@ overflow: hidden;
 
 /**Fin resposive**/
 
-.og-grid li > a,
-.og-grid li > a img {
+.og-grid li > .og-a,
+.og-grid li > .og-a img {
     border: none;
     outline: none;
     display: block;
     position: relative;    
 }
 
-.og-grid li.og-expanded > a::after {
+.og-grid li.og-expanded > .og-a::after {
     top: auto;
     border: solid transparent;
     content: " ";
@@ -4792,7 +4793,7 @@ overflow: hidden;
     color: #999;
 }
 
-.og-details a {
+.og-details .og-a {
     font-weight: 700;
     font-size: 16px;
     color: #333;
@@ -4805,13 +4806,13 @@ overflow: hidden;
     outline: none;
 }
 
-.og-details a::before {
+.og-details .og-a::before {
     content: '\2192';
     display: inline-block;
     margin-right: 10px;
 }
 
-.og-details a:hover {
+.og-details .og-a:hover {
     border-color: #999;
     color: #999;
 }
@@ -4849,11 +4850,11 @@ overflow: hidden;
     66% { background: #ccc; box-shadow: 0 0 1px #ccc, 15px 30px 1px #ddd, -15px 30px 1px #ccc; }
 }
 
-@media screen and (max-width: 830px) {
+@media screen and (max-width: 850px) {
 
     .og-expander h3 { font-size: 32px; }
     .og-expander p { font-size: 13px; }
-    .og-expander a { font-size: 12px; }
+    .og-expander .og-a { font-size: 12px; }
 
 }
 
@@ -4861,6 +4862,82 @@ overflow: hidden;
 
     .og-fullimg { display: none; }
     .og-details { float: none; width: 100%; }
+
+}
+
+.og-grid.fac{
+    max-width: 760px;    
+    float: left;    
+    margin-left: 100px;
+}
+.og-grid.fac {
+
+}
+.og-grid.fac .og-box{
+    -webkit-box-shadow: 0px 9px 16px 1px rgba(50, 50, 50, 0.97);
+-moz-box-shadow:    0px 9px 16px 1px rgba(50, 50, 50, 0.97);
+box-shadow:         0px 9px 16px 1px rgba(50, 50, 50, 0.97);
+}
+.og-grid.fac h5,.og-grid.fac h4,.og-grid.fac .spreview{
+    padding: 12px 12px 1px 12px;
+    width: 100%;
+    margin:0px;    
+    text-align: left;
+}
+.og-grid.fac h5{
+    background-color: white;    
+    font-size: 12px;    
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.og-grid.fac h4{
+    background-color: white;
+    font-family: "Adequate ExtraLight";
+    line-height: 130%;
+    font-size: 17px;
+    font-weight: 400;
+    padding-bottom: 6px;
+}
+.og-grid.fac .spreview{
+    text-transform: uppercase;
+    text-align: right;
+    vertical-align: middle;
+    line-height: 11px;
+    font-size: 11px; 
+    background-color: rgba(0,0,0,0.3);
+    border: 1px solid #fff;
+    display: block;
+    font-family: "Adequate ExtraLight";
+    padding-bottom: 12px;
+    color:white;
+    text-decoration: none!important;
+}
+.fac-title{
+
+    height: 100%;
+    position: absolute;
+    left: 10%!important;
+    width: 100px;
+}
+.fac-title .title{
+    -webkit-transform: rotate(270deg);
+    -moz-transform: rotate(270deg);
+    -ms-transform: rotate(270deg);
+    -o-transform: rotate(270deg);
+    transform: rotate(270deg);
+
+    -webkit-transform-origin: 50% 50%;
+    -moz-transform-origin: 50% 50%;
+    -ms-transform-origin: 50% 50%;
+    -o-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+
+    position: relative;
+    vertical-align: top;
+    top: 46.8rem;
+    font-size: 7rem;
+    color:white;
+    font-family:"Adequate ExtraLight";
 
 }
 /*</editor-fold>*/
@@ -4914,57 +4991,57 @@ overflow: hidden;
 /*#Metro Panel
 ==================================================== */
 .metro .panel {
-  border:none;
-  margin-bottom: 10px;
+    border:none;
+    margin-bottom: 10px;
 }
 .metro .panel .panel-header {
-  padding: 10px;
-  background-color: #eeeeee;
-  width: 100%;
-  font-family: 'Segoe UI Light_', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
-  font-weight: 300;
-  letter-spacing: 0.00em;
-  font-size: 2.5rem;
-  line-height: 2.5rem;
-  letter-spacing: 0.01em;
-  color: #000000;
-  font-size: 2.2rem;
-  line-height: 2.2rem;
-  color: #1d1d1d;
-  cursor: default;
+    padding: 10px;
+    background-color: #eeeeee;
+    width: 100%;
+    font-family: 'Segoe UI Light_', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
+    font-weight: 300;
+    letter-spacing: 0.00em;
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+    letter-spacing: 0.01em;
+    color: #000000;
+    font-size: 2.2rem;
+    line-height: 2.2rem;
+    color: #1d1d1d;
+    cursor: default;
 }
 .metro .panel .panel-content {
-  width: 100%;
-  height: auto;
-  padding: 0px;
+    width: 100%;
+    height: auto;
+    padding: 0px;
 }
 .metro [data-role=panel] .panel-header {
-  cursor: pointer;
-  
+    cursor: pointer;
+
 }
 .metro [data-role=panel] .panel-header:after {
-  font-family: 'fontawesome-alloy';
-  content: "\f139";
-  float: right;
-  color: inherit;
-  -webkit-transform: rotate(180deg);
-  -moz-transform: rotate(180deg);
-  -ms-transform: rotate(180deg);
-  -o-transform: rotate(180deg);
-  transform: rotate(180deg);
-  -moz-transition: all 0.3s ease 0s;
--webkit-transition: all 0.3s ease 0s;
--o-transition: all 0.3s ease 0s;
-transition: all 0.3s ease 0s;
--ms-transition: all 0.3s ease 0s;
+    font-family: 'fontawesome-alloy';
+    content: "\f139";
+    float: right;
+    color: inherit;
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+    -moz-transition: all 0.3s ease 0s;
+    -webkit-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+    -ms-transition: all 0.3s ease 0s;
 }
 .metro [data-role=panel].collapsed .panel-header:after {
-  content: "\f139";
-  -webkit-transform: rotate(90deg);
-  -moz-transform: rotate(90deg);
-  -ms-transform: rotate(90deg);
-  -o-transform: rotate(90deg);
-  transform: rotate(90deg);
+    content: "\f139";
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg);
 }
 /*</editor-fold>*/
 

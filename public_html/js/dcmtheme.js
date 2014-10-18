@@ -3913,9 +3913,9 @@ var DCMGrid = (function() {
             $items.on('click', 'span.og-close', function() {
                 hidePreview();
                 return false;
-            }).children('a').on('click', function(e) {
+            }).find('a.spreview').on('click', function(e) {
 
-                var $item = $(this).parent();
+                var $item = $(this).parent().parent();
                 // check if item already opened
                 current === $item.index() ? hidePreview() : showPreview($item);
                 return false;
@@ -3977,14 +3977,14 @@ var DCMGrid = (function() {
         Preview.prototype = {
             create: function() {
                 // create Preview structure:
-                this.$title = $('<h3></h3>');
-                this.$description = $('<p></p>');
-                this.$href = $('<a href="#">Ir a Facultad</a>');
-                this.$details = $('<div class="og-details"></div>').append(this.$title, this.$description, this.$href);
+                //this.$title = $('<h3></h3>');
+                this.$description = $('<div></div>');
+                //this.$href = $('<a href="#">Ir a Facultad</a>');
+                this.$details = $('<div class="og-details"></div>').append(this.$description);
                 this.$loading = $('<div class="og-loading"></div>');
-                this.$fullimage = $('<div class="og-fullimg"></div>').append(this.$loading);
+                //this.$fullimage = $('<div class="og-fullimg"></div>').append(this.$loading);
                 this.$closePreview = $('<span class="og-close"></span>');
-                this.$previewInner = $('<div class="og-expander-inner"></div>').append(this.$closePreview, this.$fullimage, this.$details);
+                this.$previewInner = $('<div class="og-expander-inner"></div>').append(this.$closePreview,this.$details);
                 this.$previewEl = $('<div class="og-expander"></div>').append(this.$previewInner);
                 // append preview element to the item
                 this.$item.append(this.getEl());
@@ -4011,18 +4011,11 @@ var DCMGrid = (function() {
                 // update current value
                 current = this.$item.index();
                 // update previewÂ´s content
-                var $itemEl = this.$item.children('a'),
-                        eldata = {
-                            href: $itemEl.attr('href'),
-                            largesrc: $itemEl.data('largesrc'),
-                            title: $itemEl.data('title'),
-                            //description : $itemEl.data( 'description' )
-                            description: $itemEl.find('.detailx').html()
+                var eldata = {                           
+                            description: this.$item.find('.detailx').html()
                         };
-                this.$title.html(eldata.title);
                 this.$description.html(eldata.description);
-                this.$href.attr('href', eldata.href);
-                var self = this;
+               /* var self = this;
                 // remove the current image in the preview
                 if (typeof self.$largeImg != 'undefined') {
                     self.$largeImg.remove();
@@ -4041,7 +4034,7 @@ var DCMGrid = (function() {
                             self.$fullimage.append(self.$largeImg);
                         }
                     }).attr('src', eldata.largesrc);
-                }
+                }*/
 
             },
             open: function() {
