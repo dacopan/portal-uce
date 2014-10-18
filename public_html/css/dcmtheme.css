@@ -4689,7 +4689,8 @@ span.date a.bubble, span.date a.bubble:hover {
     border: none;
     outline: none;
     display: block;
-    position: relative;    
+    position: relative;  
+    text-decoration: none!important;
 }
 
 .og-grid li.og-expanded > .og-a::after {
@@ -4804,6 +4805,7 @@ span.date a.bubble, span.date a.bubble:hover {
     display: inline-block;
     margin: 30px 0 0;
     outline: none;
+    text-decoration: none!important;
 }
 
 .og-details .og-a::before {
@@ -4865,18 +4867,11 @@ span.date a.bubble, span.date a.bubble:hover {
 
 }
 
-.og-grid.fac{
-    max-width: 760px;    
-    float: left;    
-    margin-left: 100px;
-}
-.og-grid.fac {
 
-}
 .og-grid.fac .og-box{
     -webkit-box-shadow: 0px 9px 16px 1px rgba(50, 50, 50, 0.97);
--moz-box-shadow:    0px 9px 16px 1px rgba(50, 50, 50, 0.97);
-box-shadow:         0px 9px 16px 1px rgba(50, 50, 50, 0.97);
+    -moz-box-shadow:    0px 9px 16px 1px rgba(50, 50, 50, 0.97);
+    box-shadow:         0px 9px 16px 1px rgba(50, 50, 50, 0.97);
 }
 .og-grid.fac h5,.og-grid.fac h4,.og-grid.fac .spreview{
     padding: 12px 12px 1px 12px;
@@ -4912,30 +4907,25 @@ box-shadow:         0px 9px 16px 1px rgba(50, 50, 50, 0.97);
     color:white;
     text-decoration: none!important;
 }
-.fac-title{
+.og-grid.fac{
+    max-width: 760px;    
+    float: none;        
+}
 
+.fac-title.span1{
     height: 100%;
-    position: absolute;
-    left: 10%!important;
-    width: 100px;
+/* margin-left: 10%!important; */
+margin-right: 10%;
+float: none!important;
+width: 100%!important;
+text-align: center;
 }
 .fac-title .title{
-    -webkit-transform: rotate(270deg);
-    -moz-transform: rotate(270deg);
-    -ms-transform: rotate(270deg);
-    -o-transform: rotate(270deg);
-    transform: rotate(270deg);
-
-    -webkit-transform-origin: 50% 50%;
-    -moz-transform-origin: 50% 50%;
-    -ms-transform-origin: 50% 50%;
-    -o-transform-origin: 50% 50%;
-    transform-origin: 50% 50%;
+   
+    font-size: 7rem;
 
     position: relative;
-    vertical-align: top;
-    top: 46.8rem;
-    font-size: 7rem;
+    vertical-align: top;    
     color:white;
     font-family:"Adequate ExtraLight";
 

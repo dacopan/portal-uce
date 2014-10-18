@@ -3913,7 +3913,7 @@ var DCMGrid = (function() {
             $items.on('click', 'span.og-close', function() {
                 hidePreview();
                 return false;
-            }).find('a.spreview').on('click', function(e) {
+            }).find('.spreview').on('click', function(e) {
 
                 var $item = $(this).parent().parent();
                 // check if item already opened
@@ -4775,17 +4775,9 @@ $(function() {
                 scrollElem = ((navigator.userAgent.toLowerCase().indexOf('webkit') != -1) ? 'body' : 'html');
         this.checkElements = function() {
 
-            // Set some vars to check with
-            if (!options.scrollHorizontal) {
                 var viewportTop = $(scrollElem).scrollTop(),
                         viewportBottom = (viewportTop + windowSize);
-            }
-            else {
-                var viewportTop = $(scrollElem).scrollLeft(),
-                        viewportBottom = (viewportTop + windowSize);
-            }
-
-
+           
             $elem.each(function() {
                 var $obj = $(this);
                 // If class already exists; quit
@@ -4866,16 +4858,18 @@ $(window).load(function() {
     $('.full-content').each(function() {
         $(this).perfectScrollbar();
     });
-    $('.isobrick2 img').each(function() {
-        $(this).addClass("oculto").viewportChecker({
+   ///*
+    $('.isobrick2 img').addClass("oculto").viewportChecker({
             classToAdd: 'visible scale', // Class to add to the elements when they are visible
             offset: 100, // The offset of the elements (let them appear earlier or later)
             repeat: false, // Add the possibility to remove the class if the elements are not visible
             callbackFunction: function(elem, action) {
+                //$(window).unbind("load scroll touchmove", elem);
             }, // Callback to do after a class was added to an element. Action will return "add" or "remove", depending if the class was added or removed
             scrollHorizontal: false // Set to true if your website scrolls horizontal instead of vertical.
-        });
+        
     });
+    //*/
     //parallax
 
 });

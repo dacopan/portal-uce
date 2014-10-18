@@ -25,7 +25,7 @@
         font-size: 22px;
         line-height: 24px; }
     /* #Facultades================================================== */
-    
+
 
 }
 /* All Mobile Sizes (devices and browser) */
@@ -97,6 +97,10 @@
         margin-left: 0px !important;
         padding-left: 0px !important;
     }
+    /*facultades*/
+    .fac-title .title{
+   
+    font-size: 3.6rem;}
 
 }
 /* Mobile Landscape Size to Portrait (devices and browsers) */
@@ -152,4 +156,37 @@
 
 @media only screen and (max-width: 360px) {
 
+}
+
+@media only screen and (min-width: 1200px) {
+    .fac-title .title{
+        -webkit-transform: rotate(270deg);
+        -moz-transform: rotate(270deg);
+        -ms-transform: rotate(270deg);
+        -o-transform: rotate(270deg);
+        transform: rotate(270deg);
+
+        -webkit-transform-origin: 50% 50%;
+        -moz-transform-origin: 50% 50%;
+        -ms-transform-origin: 50% 50%;
+        -o-transform-origin: 50% 50%;
+        transform-origin: 50% 50%;
+
+        top: 46.8rem;
+        font-size: 7rem;
+
+      
+
+    }
+    .fac-title.span1 {
+        float: left!important; 
+        height: 100%;
+        margin-left: 10%!important;
+        margin-right: 8%;        
+        width: 6.3%!important;
+        text-align: left;
+    }
+    .og-grid.fac{    
+        float: left;        
+    }
 }
