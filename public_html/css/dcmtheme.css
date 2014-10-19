@@ -2950,7 +2950,8 @@ html.mm-opened .mm-page {
     -webkit-transition: none 0.4s ease;
     transition: none 0.4s ease;
     -webkit-transition-property: top, right, bottom, left, border;
-    transition-property: top, right, bottom, left, border; }
+    transition-property: top, right, bottom, left, border; 
+z-index: 1!important;}
 
 .mm-page,
 #mm-blocker {
@@ -3075,12 +3076,11 @@ html.mm-slide.mm-bottom.mm-opening .mm-menu {
     transform: translateY(0%); }
 /*</editor-fold>*/
 /*<editor-fold defaultstate="collapsed" desc="MM menu hamburger">*/
-#hamburger
+/*#hamburger
 {
     display: block;
     width: 40px;
     height: 36px;
-    /* margin: 5px; */
     position: relative;
     z-index: 2;
     margin-top: 5px;
@@ -3111,14 +3111,6 @@ html.mm-slide.mm-bottom.mm-opening .mm-menu {
     margin-top: -3px;
 }
 
-/*@media all and (min-width: 1430px)
-{
-        #hamburger {
-                display: none;
-        }
-}*/
-
-/* Hamburger animation */
 #hamburger:before,
 #hamburger:after,
 #hamburger span
@@ -3141,15 +3133,87 @@ html.mm-opening #hamburger:after
     transform: rotate( -45deg );
     bottom: 15px;
 }
+*/
 .metro .full-screen{
     width:100%;
     height: 100%;
 }
 
+
+#hamburger
+{
+	display: block;
+	width: 40px;
+	height: 36px;
+	margin: 5px;
+	position: fixed;
+	/*top: 0;*/
+	/*left: 0;*/
+	z-index: 99999999999999;
+}
+#hamburger:before,
+#hamburger:after,
+#hamburger span
+{
+	background: #fff;
+	content: '';
+	display: block;
+	width: 30px;
+	height: 6px;
+	position: absolute;
+	left: 5px;
+}
+#hamburger:before
+{
+	top: 5px;
+}
+#hamburger:after
+{
+	bottom: 5px;
+}
+#hamburger span
+{
+	top: 50%;
+	margin-top: -3px;
+}
+
+@media all and (min-width: 1430px)
+{
+	#hamburger {
+		display: none;
+	}
+}
+
+/* Hamburger animation */
+#hamburger:before,
+#hamburger:after,
+#hamburger span
+{
+	transition: none 0.5s ease 0.5s;
+	transition-property: transform, top, bottom, left, opacity;
+}
+html.mm-opening #hamburger span
+{
+	left: -50px;
+	opacity: 0;
+}
+html.mm-opening #hamburger:before
+{
+	transform: rotate( 45deg );
+	top: 15px;
+}
+html.mm-opening #hamburger:after
+{
+	transform: rotate( -45deg );
+	bottom: 15px;
+}
 /*</editor-fold>*/
 
 /* #Liferay article add overrides/ drop cogs 
 ================================================== */
+.metro a,.metro a:hover{
+    text-decoration: none!important;
+}
 .dcmLayout1{
     width: 100%;
     height: 100%;
@@ -3244,9 +3308,13 @@ html.mm-opening #hamburger:after
 /*<editor-fold defaultstate="collapsed" desc="Metro copy&paste">*/
 html {
     font-size: 70%;
+    -webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
+	-webkit-text-size-adjust: 100%;
 }
 body,body.metro {
     font-size: 1.4rem;
+    -webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
+	-webkit-text-size-adjust: 100%;
 }
 html,
 body {
@@ -3750,8 +3818,7 @@ a {
 }
 /*</editor-fold>*/
 
-/*<editor-fold defaultstate="collpased" description="font styles">*/
-
+/*<editor-fold defaultstate="collpased" desc="font styles">*/
 @font-face {
     font-family: "PT Serif Caption";
     font-style: normal;
@@ -4038,6 +4105,7 @@ a {
     font-size: 11pt;
 }
 /*</editor-fold>*/
+
 /* #General Styles
 ================================================== */
 /*<editor-fold defaultstate="collapsed" desc="General styles">*/
@@ -4110,12 +4178,120 @@ body.metro{
 /*</editor-fold>*/
 
 
+/* #The Nivo Slider styles
+================================================== */
+/*<editor-fold defaultstate="collapsed" desc="General styles">*/
+
+.nivoSlider {
+    position:relative;
+    width:100%;
+    height:auto;
+    overflow: hidden;
+}
+.nivoSlider img {
+    position:absolute;
+    top:0px;
+    left:0px;
+    max-width: none;
+}
+.nivo-main-image {
+    display: block !important;
+    position: relative !important; 
+    width: 100% !important;
+}
+
+/* If an image is wrapped in a link */
+.nivoSlider a.nivo-imageLink {
+    position:absolute;
+    top:0px;
+    left:0px;
+    width:100%;
+    height:100%;
+    border:0;
+    padding:0;
+    margin:0;
+    z-index:6;
+    display:none;
+    background:white; 
+    filter:alpha(opacity=0); 
+    opacity:0;
+}
+/* The slices and boxes in the Slider */
+.nivo-slice {
+    display:block;
+    position:absolute;
+    z-index:5;
+    height:100%;
+    top:0;
+}
+.nivo-box {
+    display:block;
+    position:absolute;
+    z-index:5;
+    overflow:hidden;
+}
+.nivo-box img { display:block; }
+
+/* Caption styles */
+.nivo-caption {
+    position:absolute;
+    left:0px;
+    bottom:0px;
+    background:#000;
+    color:#fff;
+    width:100%;
+    z-index:8;
+    padding: 5px 10px;
+    opacity: 0.8;
+    overflow: hidden;
+    display: none;
+    -moz-opacity: 0.8;
+    filter:alpha(opacity=8);
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+}
+.nivo-caption p {
+    padding:5px;
+    margin:0;
+}
+.nivo-caption a {
+    display:inline !important;
+}
+.nivo-html-caption {
+    display:none;
+}
+/* Direction nav styles (e.g. Next & Prev) */
+.nivo-directionNav a {
+    position:absolute;
+    top:45%;
+    z-index:9;
+    cursor:pointer;
+}
+.nivo-prevNav {
+    left:0px;
+}
+.nivo-nextNav {
+    right:0px;
+}
+/* Control nav styles (e.g. 1,2,3...) */
+.nivo-controlNav {
+    text-align:center;
+    padding: 15px 0;
+}
+.nivo-controlNav a {
+    cursor:pointer;
+}
+.nivo-controlNav a.active {
+    font-weight:bold;
+}                                                    
+/*</editor-fold>*/
+
 /* #Slide1
 ================================================== */
 /*<editor-fold defaultstate="collapsed" desc="Slide1">*/
 
 /*</editor-fold>*/
-
 
 /* #Notices Featured
 ======================================================*/
@@ -4275,6 +4451,82 @@ span.date a.bubble, span.date a.bubble:hover {
     padding-left: 10px!important;
     padding-right: 4px!important;
 }
+
+/* #Notices expander
+================================================== */
+.rb-overlay {
+    opacity: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: all 0.4s ease;
+    z-index: 99999!important;
+    pointer-events: none;
+    cursor: default;
+    border:30px rgba(0,0,0,0.6) solid;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.3) inset;
+
+}
+.rb-close,rb-next,rb-prev {
+    position: absolute;
+    top: 0.4em;
+    right: 0.4em;
+    width: 2em;
+    height: 2em;
+    text-indent: -9000px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.rb-close:before {
+    content: 'x';
+    font-weight: 100;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 3em;
+    line-height: 0.6;
+    text-align: center;
+    text-indent: 0px;
+}
+.rb-week {
+    width: 100%;
+    height: 100%;
+    background: white;
+    padding: 20px;
+}
+
+.rb-overlay .img-full {
+    float: left;
+    margin-right: 20px;
+    max-width: 500px;
+}
+
+.rb-overlay h2.full-title {
+    /* clear: both; */
+    position: relative;
+    color: black;
+}
+.rb-overlay .full-content {
+    text-align: justify;
+    position: relative;
+    padding: 10px;
+    height: 80%;
+    overflow: hidden;
+}
+/*TMP*/
+.nivoSlider {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.featured a.isobrick {
+    background: none;}
 /*</editor-fold>*/
 
 /* #Vacordion
@@ -4365,182 +4617,6 @@ span.date a.bubble, span.date a.bubble:hover {
     -o-transform:scale(1.1);
     -ms-transform: scale(1.1); 
 }
-/*</editor-fold>*/
-
-/* #Notices expander
-================================================== */
-.rb-overlay {
-    opacity: 0;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    transition: all 0.4s ease;
-    z-index: 99999!important;
-    pointer-events: none;
-    cursor: default;
-    border:30px rgba(0,0,0,0.6) solid;
-    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.3) inset;
-
-}
-.rb-close,rb-next,rb-prev {
-    position: absolute;
-    top: 0.4em;
-    right: 0.4em;
-    width: 2em;
-    height: 2em;
-    text-indent: -9000px;
-    cursor: pointer;
-    z-index: 1000;
-}
-
-.rb-close:before {
-    content: 'x';
-    font-weight: 100;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    font-size: 3em;
-    line-height: 0.6;
-    text-align: center;
-    text-indent: 0px;
-}
-.rb-week {
-    width: 100%;
-    height: 100%;
-    background: white;
-    padding: 20px;
-}
-
-.rb-overlay .img-full {
-    float: left;
-    margin-right: 20px;
-    max-width: 500px;
-}
-
-.rb-overlay h2.full-title {
-    /* clear: both; */
-    position: relative;
-    color: black;
-}
-.rb-overlay .full-content {
-    text-align: justify;
-    position: relative;
-    padding: 10px;
-    height: 80%;
-    overflow: hidden;
-}
-
-/* #The Nivo Slider styles
-================================================== */
-/*<editor-fold defaultstate="collapsed" desc="General styles">*/
-
-.nivoSlider {
-    position:relative;
-    width:100%;
-    height:auto;
-    overflow: hidden;
-}
-.nivoSlider img {
-    position:absolute;
-    top:0px;
-    left:0px;
-    max-width: none;
-}
-.nivo-main-image {
-    display: block !important;
-    position: relative !important; 
-    width: 100% !important;
-}
-
-/* If an image is wrapped in a link */
-.nivoSlider a.nivo-imageLink {
-    position:absolute;
-    top:0px;
-    left:0px;
-    width:100%;
-    height:100%;
-    border:0;
-    padding:0;
-    margin:0;
-    z-index:6;
-    display:none;
-    background:white; 
-    filter:alpha(opacity=0); 
-    opacity:0;
-}
-/* The slices and boxes in the Slider */
-.nivo-slice {
-    display:block;
-    position:absolute;
-    z-index:5;
-    height:100%;
-    top:0;
-}
-.nivo-box {
-    display:block;
-    position:absolute;
-    z-index:5;
-    overflow:hidden;
-}
-.nivo-box img { display:block; }
-
-/* Caption styles */
-.nivo-caption {
-    position:absolute;
-    left:0px;
-    bottom:0px;
-    background:#000;
-    color:#fff;
-    width:100%;
-    z-index:8;
-    padding: 5px 10px;
-    opacity: 0.8;
-    overflow: hidden;
-    display: none;
-    -moz-opacity: 0.8;
-    filter:alpha(opacity=8);
-    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
-    box-sizing: border-box;         /* Opera/IE 8+ */
-}
-.nivo-caption p {
-    padding:5px;
-    margin:0;
-}
-.nivo-caption a {
-    display:inline !important;
-}
-.nivo-html-caption {
-    display:none;
-}
-/* Direction nav styles (e.g. Next & Prev) */
-.nivo-directionNav a {
-    position:absolute;
-    top:45%;
-    z-index:9;
-    cursor:pointer;
-}
-.nivo-prevNav {
-    left:0px;
-}
-.nivo-nextNav {
-    right:0px;
-}
-/* Control nav styles (e.g. 1,2,3...) */
-.nivo-controlNav {
-    text-align:center;
-    padding: 15px 0;
-}
-.nivo-controlNav a {
-    cursor:pointer;
-}
-.nivo-controlNav a.active {
-    font-weight:bold;
-}                                                    
 /*</editor-fold>*/
 
 /* #Tabs
@@ -4691,6 +4767,9 @@ span.date a.bubble, span.date a.bubble:hover {
     display: block;
     position: relative;  
     text-decoration: none!important;
+}
+.og-grid li > .og-a:hover{
+    
 }
 
 .og-grid li.og-expanded > .og-a::after {
@@ -4906,6 +4985,19 @@ span.date a.bubble, span.date a.bubble:hover {
     padding-bottom: 12px;
     color:white;
     text-decoration: none!important;
+    
+    -moz-transition:all 0.3s ease 0s;
+	-webkit-transition:all 0.3s ease 0s;
+	-o-transition:all 0.3s ease 0s;
+	transition:all 0.3s ease 0s;
+	-moz-transition: all 0.3s ease 0s;
+        
+}
+.og-grid.fac .spreview:hover{
+    background-color: rgba(0,0,0,0.8);
+}
+.og-grid.fac .spreview:active,.og-grid.fac .spreview:focus{
+    background-color: rgb(0,0,0);
 }
 .og-grid.fac{
     max-width: 760px;    
@@ -4914,14 +5006,14 @@ span.date a.bubble, span.date a.bubble:hover {
 
 .fac-title.span1{
     height: 100%;
-/* margin-left: 10%!important; */
-margin-right: 10%;
-float: none!important;
-width: 100%!important;
-text-align: center;
+    /* margin-left: 10%!important; */
+    margin-right: 10%;
+    float: none!important;
+    width: 100%!important;
+    text-align: center;
 }
 .fac-title .title{
-   
+
     font-size: 7rem;
 
     position: relative;
@@ -5174,169 +5266,12 @@ text-align: center;
 }
 /*</editor-fold>*/
 
-/*================================================== */
-/*<editor-fold defaultstate="collapsed" desc="ScrollBar">*/
-.metro .scroll-y,
-.metro .scroll-vertical {
-    overflow-y: scroll;
-}
-.metro .scroll-x,
-.metro .scroll-horizontal {
-    overflow-x: scroll;
-}
-.metro .no-overflow {
-    overflow: hidden;
-}
-.metro .overflow {
-    overflow: scroll;
-}
-
-.metro .scrollbar-button {
-    background-color: #ffffff;
-    border: 1px #ababab solid;
-}
-.metro .scrollbar {
-    position: relative;
-    overflow: hidden;
-    width: auto!important;
-    height: auto!important;
-}
-.metro .scrollbar-container {
-    position: relative;
-    overflow: hidden;
-}
-.metro .scrollbar-v,
-.metro .scrollbar-h {
-    position: absolute;
-    background: #f3f3f3;
-}
-.metro .scrollbar-v {
-    width: 15px;
-    height: 100%;
-    right: 0;
-    top: 0;
-}
-.metro .scrollbar-h {
-    height: 15px;
-    width: 100%;
-    left: 0;
-    bottom: 0;
-}
-.metro .scrollbar-v-up,
-.metro .scrollbar-v-down,
-.metro .scrollbar-h-up,
-.metro .scrollbar-h-down,
-.metro .scrollbar-line-v-btn,
-.metro .scrollbar-line-h-btn {
-    cursor: pointer;
-    position: absolute;
-    background-color: #ffffff;
-    border: 1px #ababab solid;
-}
-.metro .scrollbar-line-v-btn:hover,
-.metro .scrollbar-line-h-btn:hover {
-    background-color: #f0f0f0;
-}
-.metro .scrollbar-v-up,
-.metro .scrollbar-h-up {
-    width: 15px;
-    height: 15px;
-    left: 0;
-    top: 0;
-}
-.metro .scrollbar-v-down,
-.metro .scrollbar-h-down {
-    width: 15px;
-    height: 15px;
-    left: 0;
-    bottom: 0;
-}
-.metro .scrollbar-h-down {
-    left: auto;
-    right: 0;
-}
-.metro .scrollbar-line-v,
-.metro .scrollbar-line-h {
-    position: absolute;
-    z-index: 3;
-}
-.metro .scrollbar-line-v {
-    width: 100%;
-    left: 0;
-    top: 15px;
-}
-.metro .scrollbar-line-h {
-    height: 15px;
-    left: 15px;
-    top: 0;
-}
-.metro .scrollbar-line-v-btn {
-    width: 100%;
-    left: 0 !important;
-    top: 0;
-}
-.metro .scrollbar-line-h-btn {
-    height: 100%;
-    left: 0;
-    top: 0 !important;
-}
-.metro .scrollbar-both {
-    position: absolute;
-    width: 15px;
-    height: 15px;
-    right: 0;
-    bottom: 0;
-}
-.metro .scrollbar-line-h,
-.metro .scrollbar-line-v,
-.metro .scrollbar-both {
-    background-color: #f3f3f3;
-}
-.metro .scrollbar-v-up:before,
-.metro .scrollbar-v-down:before,
-.metro .scrollbar-h-up:before,
-.metro .scrollbar-h-down:before {
-    position: absolute;
-    content: "";
-    font-family: metroSysIcons;
-    font-size: 14px;
-}
-.metro .scrollbar-v-up:before {
-    content: "\e010";
-}
-.metro .scrollbar-v-down:before {
-    content: "\e012";
-}
-.metro .scrollbar-h-up:before {
-    content: "\e010";
-    margin-top: -1px;
-    -webkit-transform: rotate(-90deg);
-    -moz-transform: rotate(-90deg);
-    -ms-transform: rotate(-90deg);
-    -o-transform: rotate(-90deg);
-    transform: rotate(-90deg);
-}
-.metro .scrollbar-h-down:before {
-    content: "\e010";
-    margin-top: -1px;
-    -webkit-transform: rotate(90deg);
-    -moz-transform: rotate(90deg);
-    -ms-transform: rotate(90deg);
-    -o-transform: rotate(90deg);
-    transform: rotate(90deg);
-}
-/*</editor-fold>*/
-
-
 /**has Full view**/
 .has-full-view-content{
     opacity: 0;
     height: 0px;
     width: 0px;
 }
-
-
-
-
-
+/*#Scroll
+================================================== */
 .ps-container .ps-scrollbar-x-rail{position:absolute;bottom:3px;height:8px;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px;opacity:0;filter:alpha(opacity=0);-o-transition:background-color .2s linear,opacity .2s linear;-webkit-transition:background-color .2s linear,opacity .2s linear;-moz-transition:background-color .2s linear,opacity .2s linear;transition:background-color .2s linear,opacity .2s linear}.ps-container:hover .ps-scrollbar-x-rail,.ps-container.hover .ps-scrollbar-x-rail{opacity:.6;filter:alpha(opacity=60)}.ps-container .ps-scrollbar-x-rail:hover,.ps-container .ps-scrollbar-x-rail.hover{background-color:#eee;opacity:.9;filter:alpha(opacity=90)}.ps-container .ps-scrollbar-x-rail.in-scrolling{background-color:#eee;opacity:.9;filter:alpha(opacity=90)}.ps-container .ps-scrollbar-y-rail{position:absolute;right:3px;width:8px;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px;opacity:0;filter:alpha(opacity=0);-o-transition:background-color .2s linear,opacity .2s linear;-webkit-transition:background-color .2s linear,opacity .2s linear;-moz-transition:background-color .2s linear,opacity .2s linear;transition:background-color .2s linear,opacity .2s linear}.ps-container:hover .ps-scrollbar-y-rail,.ps-container.hover .ps-scrollbar-y-rail{opacity:.6;filter:alpha(opacity=60)}.ps-container .ps-scrollbar-y-rail:hover,.ps-container .ps-scrollbar-y-rail.hover{background-color:#eee;opacity:.9;filter:alpha(opacity=90)}.ps-container .ps-scrollbar-y-rail.in-scrolling{background-color:#eee;opacity:.9;filter:alpha(opacity=90)}.ps-container .ps-scrollbar-x{position:absolute;bottom:0;height:8px;background-color:#aaa;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px;-o-transition:background-color .2s linear;-webkit-transition:background-color.2s linear;-moz-transition:background-color .2s linear;transition:background-color .2s linear}.ps-container.ie6 .ps-scrollbar-x{font-size:0}.ps-container .ps-scrollbar-x-rail:hover .ps-scrollbar-x,.ps-container .ps-scrollbar-x-rail.hover .ps-scrollbar-x{background-color:#999}.ps-container .ps-scrollbar-y{position:absolute;right:0;width:8px;background-color:#aaa;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px;-o-transition:background-color .2s linear;-webkit-transition:background-color.2s linear;-moz-transition:background-color .2s linear;transition:background-color .2s linear}.ps-container.ie6 .ps-scrollbar-y{font-size:0}.ps-container .ps-scrollbar-y-rail:hover .ps-scrollbar-y,.ps-container .ps-scrollbar-y-rail.hover .ps-scrollbar-y{background-color:#999}.ps-container.ie .ps-scrollbar-x,.ps-container.ie .ps-scrollbar-y{visibility:hidden}.ps-container.ie:hover .ps-scrollbar-x,.ps-container.ie:hover .ps-scrollbar-y,.ps-container.ie.hover .ps-scrollbar-x,.ps-container.ie.hover .ps-scrollbar-y{visibility:visible}
