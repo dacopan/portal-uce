@@ -3242,6 +3242,9 @@ html.mm-opening #hamburger:after
     background-color: black;
 
 }
+.aui .container-fluid {
+ padding:0px;
+}
 /* #Porlet header
 ================================================== */
 .portlet-dropzone.portlet-column-content.portlet-column-only,.portlet-boundary,.portlet,.portlet-content,.portlet-content-container,.portlet-body,.journal-content-article{
@@ -4177,7 +4180,6 @@ body.metro{
 }
 /*</editor-fold>*/
 
-
 /* #The Nivo Slider styles
 ================================================== */
 /*<editor-fold defaultstate="collapsed" desc="General styles">*/
@@ -4963,6 +4965,7 @@ span.date a.bubble, span.date a.bubble:hover {
     font-size: 12px;    
     font-weight: 700;
     text-transform: uppercase;
+    color:rgb(0,70,113);
 }
 .og-grid.fac h4{
     background-color: white;

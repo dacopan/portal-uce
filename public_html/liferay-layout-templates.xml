@@ -69,16 +69,11 @@
 			<thumbnail-path>/layouttpl/custom/2_2_columns.png</thumbnail-path>
 		</layout-template>
 
-		<layout-template id="dcmLayout1" name="dcmLayout1">
-			<template-path>/layouttpl/custom/dcmLayout1.tpl</template-path>
-			<wap-template-path>/layouttpl/custom/dcmLayout1.tpl</wap-template-path>
-			<thumbnail-path>/layouttpl/custom/2_2_columns.png</thumbnail-path>
+		<layout-template id="layoutUceMain" name="layoutUceMain">
+			<template-path>/layouttpl/custom/layoutUceMain.tpl</template-path>
+			<wap-template-path>/layouttpl/custom/layoutUceMain.tpl</wap-template-path>
+			<thumbnail-path>/layouttpl/custom/layoutUceMain.png</thumbnail-path>
 		</layout-template>
-
-		<layout-template id="dcmLayout2" name="dcmLayout2">
-			<template-path>/layouttpl/custom/dcmLayout2.tpl</template-path>
-			<wap-template-path>/layouttpl/custom/dcmLayout2.tpl</wap-template-path>
-			<thumbnail-path>/layouttpl/custom/2_2_columns.png</thumbnail-path>
-		</layout-template>
+		
 	</custom>
 </layout-templates>

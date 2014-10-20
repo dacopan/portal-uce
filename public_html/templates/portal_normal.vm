@@ -17,56 +17,44 @@
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 
- <!--Bing Maps-->
-        <script charset="UTF-8" type="text/javascript" src="http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0">
-        </script>
 
 <meta http-equiv="no-cache">
 <meta http-equiv="Expires" content="-1">
 <meta http-equiv="Cache-Control" content="no-cache">
 </head>
 
-<body class="$css_class metro">
+<body class="$css_class container-fluid metro" style="background-color:transparent;">
  <a href="#main-content" id="skip-to-content">#language ("skip-to-content")</a>
 $theme.include($body_top_include)
 
-     <a id="hamburger" class="mm-fixed-top" href="#dcmmenu"><span></span></a>
-        <nav id="dcmmenu">
-            <ul>
-                <li><a href="/">Home</a></li>
-<li><a id="userlaunch" title="Nuget.org" href="#mmm" class="element place-right"><span class="icon-user"></span></a>
-</li>
-                <li>
-                    <a href="/about/">About us</a>
-                    <ul>
-                        <li><a href="/about/history/">History</a></li>
-                        <li><a href="/about/team/">The team</a></li>
-                        <li><a href="/about/address/">Our address</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <span>Tutorial</span>
-                    <div>
-                        <ul>
-                            <li><a href="/tutorial">Getting started</a></li>
-                            <li><a href="/tutorial/setting-up-the-html.html">Setting up the html</a></li>
-                            <li><a href="/tutorial/fire-the-plugin.html">Fire the plugin</a></li>
-                            <li><a href="/tutorial/open-and-close-the-menu.html">Open and close the menu</a></li>
-                            <li><a href="/tutorial/styling-lists.html">Styling lists</a></li>
-                            <li><a href="/tutorial/fixed-elements.html">Fixed elements</a></li>
-                            <li><a href="/tutorial/learn-more.html">Learn more</a></li>
-                        </ul>
-                    </div>
-                </li>
+    
+<nav id="dcmmenu" style="z-index: 88889;">
 
-#if ($has_navigation || $is_signed_in)
-			#parse ("$full_templates_path/navigation.vm")
-		#end
-
-
-            </ul>
-        </nav>        
+        </nav>
+<div id="page">
+     #if ($has_navigation || $is_signed_in)
 <div id="dcmdockbar" style="display:none">#dockbar()</div>
+#end
+
+  
+            <div class="topBar bg-blue" id="topBar" style="position: fixed;">
+                <div class="topBar-content">
+                    <span class="todayX fg-yellow no-phones" style="font-size: 80%;margin-left: 80px;">
+                        Miércoles 01/09/2014</span>  
+                    <a id="hamburger" class="" href="#dcmmenu"><span></span></a>
+                    <a  class="fg-white" data-hint="x|y" href="#user"><i class="icon-user"></i></a>
+                    <a  class="fg-white" href="#radio" id="radiox"><i class="icon-microphone"></i></a>
+                    <a  class="fg-white has-full-view" href="#full-view-01"><i class="icon-book"></i></a>
+                </div>
+
+            </div>
+
+<div class="dcm top"> <a class="scrollto" href="#main-content">Scroll to top</a>
+                <div class="clear"></div>
+                <div class="scroll">
+                    <p>Top</p>
+                </div>
+            </div>
 
             #if ($selectable)
 			$theme.include($content_include)
@@ -78,12 +66,12 @@ $theme.include($body_top_include)
 			$theme.wrapPortlet("portlet.vm", $content_include)
 		#end
 	
-<script src="$javascript_folder/dcmtheme.js?v=1.0.5" type="text/javascript" ></script>
+<script src="$javascript_folder/dcmtheme.js?v=1.0.6" type="text/javascript" ></script>
 
 $theme.include($body_bottom_include)
 
 $theme.include($bottom_include)
-
+</div>
 </body>
 
 </html>

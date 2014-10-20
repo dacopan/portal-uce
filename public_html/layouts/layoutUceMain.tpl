@@ -1,5 +1,6 @@
 <!--Layout start-->
-<div id="main-content" role="main" class="dcmLayout1">
+<div id="main-content" role="main" class="layoutUceMain full-screen">
+
     <div class="dcm top"> <a class="scrollto" href="#main-content">Scroll to top</a>
         <div class="clear"></div>
         <div class="scroll">
@@ -17,8 +18,6 @@
     </div>
 
     <!--drag end-->
-
-
 </div>
 
 <!--Layout fin-->
