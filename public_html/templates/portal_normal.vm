@@ -73,7 +73,7 @@ $theme.include($body_top_include)
                 <span class="rb-close">close</span>
                 <div class="rb-week">
                     <div class="img-full" style="clear: both;">
-                        <img src="images/tmp/comunicado2.jpg" alt="Dress" class="scale-with-grid" />
+                        
                     </div>
                     <h2 class="full-title">
                         Noticia destacada de muestra

@@ -4119,8 +4119,7 @@ body.metro{
 }
 .metro .topBar{
     position: absolute;
-    z-index: 88888;
-    background-image: url(images/panel1_topmenu.png);
+    z-index: 88888;   
     width: 100%;
     height: 45px; 
     background-size: 100%;
