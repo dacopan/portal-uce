@@ -33,7 +33,7 @@ $theme.include($body_top_include)
         </nav>
 <div id="page">
      #if ($has_navigation || $is_signed_in)
-<div id="dcmdockbar" style="display:none">#dockbar()</div>
+<div id="dcmdockbar" style="display:none;">#dockbar()</div>
 #end
 
   
@@ -49,7 +49,7 @@ $theme.include($body_top_include)
 
             </div>
 
-<div class="dcm top"> <a class="scrollto" href="#main-content">Scroll to top</a>
+            <div class="dcm top"> <a class="scrollto" href="#main-content">Scroll to top</a>
                 <div class="clear"></div>
                 <div class="scroll">
                     <p>Top</p>
@@ -66,6 +66,52 @@ $theme.include($body_top_include)
 			$theme.wrapPortlet("portlet.vm", $content_include)
 		#end
 	
+
+
+            <!--Full views para .has-full-view-->
+            <div class="has-full-view-content rb-overlay" id="full-view-01">
+                <span class="rb-close">close</span>
+                <div class="rb-week">
+                    <div class="img-full" style="clear: both;">
+                        <img src="images/tmp/comunicado2.jpg" alt="Dress" class="scale-with-grid" />
+                    </div>
+                    <h2 class="full-title">
+                        Noticia destacada de muestra
+                        <span class="date">September 25, 2012 | Andre Gagnon</span>
+                    </h2>
+                    <hr/>
+                    <div class="full-content">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pretium a ante eu fringilla. Donec tempus accumsan augue. Quisque congue ultrices mollis. Ut a porttitor eros, quis scelerisque ante. Donec eleifend tincidunt orci, eget ullamcorper augue fermentum at. Suspendisse ornare eros ut tellus tempor, ac efficitur leo molestie. Etiam accumsan ipsum et tellus accumsan tempus. Nam iaculis pellentesque quam, eget auctor tortor blandit non. Sed sit amet consequat eros, sed pretium justo. Nullam viverra odio et leo fermentum gravida. Mauris ac semper dolor. Sed ut auctor nisl. Curabitur et ultricies ante. Mauris id ultrices sem. Nullam tincidunt dui velit, sed malesuada nunc laoreet sit amet.
+
+                        Donec lobortis condimentum lorem id aliquet. In id imperdiet risus. Nam ullamcorper varius dolor, quis tincidunt arcu hendrerit vel. Suspendisse mollis risus id eleifend convallis. Curabitur mattis lectus quis dui efficitur lobortis. Fusce eu felis placerat, blandit dolor rutrum, gravida tellus. Curabitur sit amet porta lorem, eget malesuada turpis. Suspendisse nunc nisi, faucibus at pharetra at, accumsan et libero. Phasellus at blandit mi. Donec vitae vestibulum eros. Etiam egestas aliquam aliquam. Aenean cursus ultricies vestibulum.
+
+                        Pellentesque accumsan id lectus ut dapibus. Fusce dignissim nulla ut mattis tristique. Duis quis justo lectus. Mauris varius vestibulum dolor bibendum blandit. Nam ultrices aliquet felis, non aliquam neque dictum vitae. Integer hendrerit semper orci eu interdum. Curabitur id metus sapien. Vivamus eget lobortis lectus. Vestibulum ac consequat quam, quis pulvinar felis. Fusce suscipit augue lorem, suscipit convallis diam feugiat a.
+
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pretium a ante eu fringilla. Donec tempus accumsan augue. Quisque congue ultrices mollis. Ut a porttitor eros, quis scelerisque ante. Donec eleifend tincidunt orci, eget ullamcorper augue fermentum at. Suspendisse ornare eros ut tellus tempor, ac efficitur leo molestie. Etiam accumsan ipsum et tellus accumsan tempus. Nam iaculis pellentesque quam, eget auctor tortor blandit non. Sed sit amet consequat eros, sed pretium justo. Nullam viverra odio et leo fermentum gravida. Mauris ac semper dolor. Sed ut auctor nisl. Curabitur et ultricies ante. Mauris id ultrices sem. Nullam tincidunt dui velit, sed malesuada nunc laoreet sit amet.
+
+                        Donec lobortis condimentum lorem id aliquet. In id imperdiet risus. Nam ullamcorper varius dolor, quis tincidunt arcu hendrerit vel. Suspendisse mollis risus id eleifend convallis. Curabitur mattis lectus quis dui efficitur lobortis. Fusce eu felis placerat, blandit dolor rutrum, gravida tellus. Curabitur sit amet porta lorem, eget malesuada turpis. Suspendisse nunc nisi, faucibus at pharetra at, accumsan et libero. Phasellus at blandit mi. Donec vitae vestibulum eros. Etiam egestas aliquam aliquam. Aenean cursus ultricies vestibulum.
+
+                        Pellentesque accumsan id lectus ut dapibus. Fusce dignissim nulla ut mattis tristique. Duis quis justo lectus. Mauris varius vestibulum dolor bibendum blandit. Nam ultrices aliquet felis, non aliquam neque dictum vitae. Integer hendrerit semper orci eu interdum. Curabitur id metus sapien. Vivamus eget lobortis lectus. Vestibulum ac consequat quam, quis pulvinar felis. Fusce suscipit augue lorem, suscipit convallis diam feugiat a.
+
+
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pretium a ante eu fringilla. Donec tempus accumsan augue. Quisque congue ultrices mollis. Ut a porttitor eros, quis scelerisque ante. Donec eleifend tincidunt orci, eget ullamcorper augue fermentum at. Suspendisse ornare eros ut tellus tempor, ac efficitur leo molestie. Etiam accumsan ipsum et tellus accumsan tempus. Nam iaculis pellentesque quam, eget auctor tortor blandit non. Sed sit amet consequat eros, sed pretium justo. Nullam viverra odio et leo fermentum gravida. Mauris ac semper dolor. Sed ut auctor nisl. Curabitur et ultricies ante. Mauris id ultrices sem. Nullam tincidunt dui velit, sed malesuada nunc laoreet sit amet.
+
+                        Donec lobortis condimentum lorem id aliquet. In id imperdiet risus. Nam ullamcorper varius dolor, quis tincidunt arcu hendrerit vel. Suspendisse mollis risus id eleifend convallis. Curabitur mattis lectus quis dui efficitur lobortis. Fusce eu felis placerat, blandit dolor rutrum, gravida tellus. Curabitur sit amet porta lorem, eget malesuada turpis. Suspendisse nunc nisi, faucibus at pharetra at, accumsan et libero. Phasellus at blandit mi. Donec vitae vestibulum eros. Etiam egestas aliquam aliquam. Aenean cursus ultricies vestibulum.
+
+                        Pellentesque accumsan id lectus ut dapibus. Fusce dignissim nulla ut mattis tristique. Duis quis justo lectus. Mauris varius vestibulum dolor bibendum blandit. Nam ultrices aliquet felis, non aliquam neque dictum vitae. Integer hendrerit semper orci eu interdum. Curabitur id metus sapien. Vivamus eget lobortis lectus. Vestibulum ac consequat quam, quis pulvinar felis. Fusce suscipit augue lorem, suscipit convallis diam feugiat a.
+
+
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pretium a ante eu fringilla. Donec tempus accumsan augue. Quisque congue ultrices mollis. Ut a porttitor eros, quis scelerisque ante. Donec eleifend tincidunt orci, eget ullamcorper augue fermentum at. Suspendisse ornare eros ut tellus tempor, ac efficitur leo molestie. Etiam accumsan ipsum et tellus accumsan tempus. Nam iaculis pellentesque quam, eget auctor tortor blandit non. Sed sit amet consequat eros, sed pretium justo. Nullam viverra odio et leo fermentum gravida. Mauris ac semper dolor. Sed ut auctor nisl. Curabitur et ultricies ante. Mauris id ultrices sem. Nullam tincidunt dui velit, sed malesuada nunc laoreet sit amet.
+
+                        Donec lobortis condimentum lorem id aliquet. In id imperdiet risus. Nam ullamcorper varius dolor, quis tincidunt arcu hendrerit vel. Suspendisse mollis risus id eleifend convallis. Curabitur mattis lectus quis dui efficitur lobortis. Fusce eu felis placerat, blandit dolor rutrum, gravida tellus. Curabitur sit amet porta lorem, eget malesuada turpis. Suspendisse nunc nisi, faucibus at pharetra at, accumsan et libero. Phasellus at blandit mi. Donec vitae vestibulum eros. Etiam egestas aliquam aliquam. Aenean cursus ultricies vestibulum.
+
+                        Pellentesque accumsan id lectus ut dapibus. Fusce dignissim nulla ut mattis tristique. Duis quis justo lectus. Mauris varius vestibulum dolor bibendum blandit. Nam ultrices aliquet felis, non aliquam neque dictum vitae. Integer hendrerit semper orci eu interdum. Curabitur id metus sapien. Vivamus eget lobortis lectus. Vestibulum ac consequat quam, quis pulvinar felis. Fusce suscipit augue lorem, suscipit convallis diam feugiat a.
+                    </div>
+
+                </div>
+            </div>
+            <!--Fin Full views -->
+
 <script src="$javascript_folder/dcmtheme.js?v=1.0.6" type="text/javascript" ></script>
 
 $theme.include($body_bottom_include)
