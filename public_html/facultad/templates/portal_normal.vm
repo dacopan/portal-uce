@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+
+#parse ($init)
+
+<html class="$root_css_class" dir="#language ("lang.dir")" lang="$w3c_language_id">
+
+<head>
+	<title>$the_title - $company_name</title>
+
+	<meta content="initial-scale=1.0, width=device-width" name="viewport" />
+
+	$theme.include($top_head_include)
+
+<link rel="stylesheet" href="$css_folder/dcmtheme.css" type="text/css"/>
+        <link rel="stylesheet" href="$css_folder/dcmtheme-responsive.css" type="text/css"/>
+        <link rel="stylesheet" href="$css_folder/dcm-color.css" type="text/css"/>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+
+<meta http-equiv="no-cache">
+<meta http-equiv="Expires" content="-1">
+<meta http-equiv="Cache-Control" content="no-cache">
+</head>
+
+<body class="$css_class container-fluid metro" style="background-color:transparent;">
+ <a href="#main-content" id="skip-to-content">#language ("skip-to-content")</a>
+$theme.include($body_top_include)
+
+    
+<nav id="dcmmenu" style="z-index: 88889;">
+
+        </nav>
+<div id="page">
+     #if ($has_navigation || $is_signed_in)
+<div id="dcmdockbar" style="display:block;">#dockbar()</div>
+#end
+
+  
+            <div class="topBar bg-blue" id="topBar" style="position: fixed;">
+                <div class="topBar-content">
+                    <span class="todayX fg-yellow no-phones" style="font-size: 80%;margin-left: 80px;">
+                        Miércoles 01/09/2014</span>  
+                    <a id="hamburger" class="" href="#dcmmenu"><span></span></a>
+                    <a  class="fg-white" data-hint="x|y" href="#user"><i class="icon-user"></i></a>
+                    <a  class="fg-white" href="#radio" id="radiox"><i class="icon-microphone"></i></a>
+                    <a  class="fg-white has-full-view" href="#full-view-01"><i class="icon-book"></i></a>
+                </div>
+
+            </div>
+
+            <div class="dcm top"> <a class="scrollto" href="#main-content">Scroll to top</a>
+                <div class="clear"></div>
+                <div class="scroll">
+                    <p>Top</p>
+                </div>
+            </div>
+
+            #if ($selectable)
+			$theme.include($content_include)
+		#else
+			$portletDisplay.recycle()
+
+			$portletDisplay.setTitle($the_title)
+
+			$theme.wrapPortlet("portlet.vm", $content_include)
+		#end
+	
+
+
+            <!--Full views para .has-full-view-->
+            <div class="has-full-view-content rb-overlay" id="full-view-01">
+                <span class="rb-close">close</span>
+                <div class="rb-week">
+                    <div class="img-full" style="clear: both;">
+                        
+                    </div>
+                    <h2 class="full-title">
+                        Noticia destacada de muestra
+                        <span class="date">September 25, 2012 | Andre Gagnon</span>
+                    </h2>
+                    <hr/>
+                    <div class="full-content">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pretium a ante eu fringilla. Donec tempus accumsan augue. Quisque congue ultrices mollis. Ut a porttitor eros, quis scelerisque ante. Donec eleifend tincidunt orci, eget ullamcorper augue fermentum at. Suspendisse ornare eros ut tellus tempor, ac efficitur leo molestie. Etiam accumsan ipsum et tellus accumsan tempus. Nam iaculis pellentesque quam, eget auctor tortor blandit non. Sed sit amet consequat eros, sed pretium justo. Nullam viverra odio et leo fermentum gravida. Mauris ac semper dolor. Sed ut auctor nisl. Curabitur et ultricies ante. Mauris id ultrices sem. Nullam tincidunt dui velit, sed malesuada nunc laoreet sit amet.
+
+                        Donec lobortis condimentum lorem id aliquet. In id imperdiet risus. Nam ullamcorper varius dolor, quis tincidunt arcu hendrerit vel. Suspendisse mollis risus id eleifend convallis. Curabitur mattis lectus quis dui efficitur lobortis. Fusce eu felis placerat, blandit dolor rutrum, gravida tellus. Curabitur sit amet porta lorem, eget malesuada turpis. Suspendisse nunc nisi, faucibus at pharetra at, accumsan et libero. Phasellus at blandit mi. Donec vitae vestibulum eros. Etiam egestas aliquam aliquam. Aenean cursus ultricies vestibulum.
+
+                        Pellentesque accumsan id lectus ut dapibus. Fusce dignissim nulla ut mattis tristique. Duis quis justo lectus. Mauris varius vestibulum dolor bibendum blandit. Nam ultrices aliquet felis, non aliquam neque dictum vitae. Integer hendrerit semper orci eu interdum. Curabitur id metus sapien. Vivamus eget lobortis lectus. Vestibulum ac consequat quam, quis pulvinar felis. Fusce suscipit augue lorem, suscipit convallis diam feugiat a.
+
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pretium a ante eu fringilla. Donec tempus accumsan augue. Quisque congue ultrices mollis. Ut a porttitor eros, quis scelerisque ante. Donec eleifend tincidunt orci, eget ullamcorper augue fermentum at. Suspendisse ornare eros ut tellus tempor, ac efficitur leo molestie. Etiam accumsan ipsum et tellus accumsan tempus. Nam iaculis pellentesque quam, eget auctor tortor blandit non. Sed sit amet consequat eros, sed pretium justo. Nullam viverra odio et leo fermentum gravida. Mauris ac semper dolor. Sed ut auctor nisl. Curabitur et ultricies ante. Mauris id ultrices sem. Nullam tincidunt dui velit, sed malesuada nunc laoreet sit amet.
+
+                        Donec lobortis condimentum lorem id aliquet. In id imperdiet risus. Nam ullamcorper varius dolor, quis tincidunt arcu hendrerit vel. Suspendisse mollis risus id eleifend convallis. Curabitur mattis lectus quis dui efficitur lobortis. Fusce eu felis placerat, blandit dolor rutrum, gravida tellus. Curabitur sit amet porta lorem, eget malesuada turpis. Suspendisse nunc nisi, faucibus at pharetra at, accumsan et libero. Phasellus at blandit mi. Donec vitae vestibulum eros. Etiam egestas aliquam aliquam. Aenean cursus ultricies vestibulum.
+
+                        Pellentesque accumsan id lectus ut dapibus. Fusce dignissim nulla ut mattis tristique. Duis quis justo lectus. Mauris varius vestibulum dolor bibendum blandit. Nam ultrices aliquet felis, non aliquam neque dictum vitae. Integer hendrerit semper orci eu interdum. Curabitur id metus sapien. Vivamus eget lobortis lectus. Vestibulum ac consequat quam, quis pulvinar felis. Fusce suscipit augue lorem, suscipit convallis diam feugiat a.
+
+
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pretium a ante eu fringilla. Donec tempus accumsan augue. Quisque congue ultrices mollis. Ut a porttitor eros, quis scelerisque ante. Donec eleifend tincidunt orci, eget ullamcorper augue fermentum at. Suspendisse ornare eros ut tellus tempor, ac efficitur leo molestie. Etiam accumsan ipsum et tellus accumsan tempus. Nam iaculis pellentesque quam, eget auctor tortor blandit non. Sed sit amet consequat eros, sed pretium justo. Nullam viverra odio et leo fermentum gravida. Mauris ac semper dolor. Sed ut auctor nisl. Curabitur et ultricies ante. Mauris id ultrices sem. Nullam tincidunt dui velit, sed malesuada nunc laoreet sit amet.
+
+                        Donec lobortis condimentum lorem id aliquet. In id imperdiet risus. Nam ullamcorper varius dolor, quis tincidunt arcu hendrerit vel. Suspendisse mollis risus id eleifend convallis. Curabitur mattis lectus quis dui efficitur lobortis. Fusce eu felis placerat, blandit dolor rutrum, gravida tellus. Curabitur sit amet porta lorem, eget malesuada turpis. Suspendisse nunc nisi, faucibus at pharetra at, accumsan et libero. Phasellus at blandit mi. Donec vitae vestibulum eros. Etiam egestas aliquam aliquam. Aenean cursus ultricies vestibulum.
+
+                        Pellentesque accumsan id lectus ut dapibus. Fusce dignissim nulla ut mattis tristique. Duis quis justo lectus. Mauris varius vestibulum dolor bibendum blandit. Nam ultrices aliquet felis, non aliquam neque dictum vitae. Integer hendrerit semper orci eu interdum. Curabitur id metus sapien. Vivamus eget lobortis lectus. Vestibulum ac consequat quam, quis pulvinar felis. Fusce suscipit augue lorem, suscipit convallis diam feugiat a.
+
+
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pretium a ante eu fringilla. Donec tempus accumsan augue. Quisque congue ultrices mollis. Ut a porttitor eros, quis scelerisque ante. Donec eleifend tincidunt orci, eget ullamcorper augue fermentum at. Suspendisse ornare eros ut tellus tempor, ac efficitur leo molestie. Etiam accumsan ipsum et tellus accumsan tempus. Nam iaculis pellentesque quam, eget auctor tortor blandit non. Sed sit amet consequat eros, sed pretium justo. Nullam viverra odio et leo fermentum gravida. Mauris ac semper dolor. Sed ut auctor nisl. Curabitur et ultricies ante. Mauris id ultrices sem. Nullam tincidunt dui velit, sed malesuada nunc laoreet sit amet.
+
+                        Donec lobortis condimentum lorem id aliquet. In id imperdiet risus. Nam ullamcorper varius dolor, quis tincidunt arcu hendrerit vel. Suspendisse mollis risus id eleifend convallis. Curabitur mattis lectus quis dui efficitur lobortis. Fusce eu felis placerat, blandit dolor rutrum, gravida tellus. Curabitur sit amet porta lorem, eget malesuada turpis. Suspendisse nunc nisi, faucibus at pharetra at, accumsan et libero. Phasellus at blandit mi. Donec vitae vestibulum eros. Etiam egestas aliquam aliquam. Aenean cursus ultricies vestibulum.
+
+                        Pellentesque accumsan id lectus ut dapibus. Fusce dignissim nulla ut mattis tristique. Duis quis justo lectus. Mauris varius vestibulum dolor bibendum blandit. Nam ultrices aliquet felis, non aliquam neque dictum vitae. Integer hendrerit semper orci eu interdum. Curabitur id metus sapien. Vivamus eget lobortis lectus. Vestibulum ac consequat quam, quis pulvinar felis. Fusce suscipit augue lorem, suscipit convallis diam feugiat a.
+                    </div>
+
+                </div>
+            </div>
+            <!--Fin Full views -->
+
+<script src="$javascript_folder/dcmtheme.js" type="text/javascript" ></script>
+
+$theme.include($body_bottom_include)
+
+$theme.include($bottom_include)
+</div>
+</body>
+
+</html>

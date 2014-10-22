@@ -163,6 +163,7 @@ and open the template in the editor.
                                                         <div class="slide" id="slide1" data-slide="1" data-stellar-background-ratio="0" style="background-image: url(images/panel1_fondo.png);">
                                                             <!--mmMenu nav content-->
                                                             <ul id="mm-nav-content">
+                                                                <li><a href="#dcmmenu" onclick="jQuery('#dcmmenu').trigger('close.mm');" style="float: right;position: relative;clear: both;z-index: 9;">Close</a></li>
                                                                 <li><a href="#slide1" class="toSlide" data-slide="1">Home</a></li>
                                                                 <li><a href="#slide2" class="toSlide" data-slide="2">Noticias</a></li>
                                                                 <li>
@@ -833,10 +834,10 @@ and open the template in the editor.
                                                             </div>
                                                             <a class="scrollbut last" data-slide="1"></a>
                                                         </footer>
-                                                      
+
                                                         <script>
                                                             jQuery(document).ready(function($) {
-                                                               
+
                                                                 //  /*
                                                                 //var links = $('#navigation').find('li a');
                                                                 var links = $('a.toSlide');
