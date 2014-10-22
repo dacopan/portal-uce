@@ -5207,7 +5207,8 @@ $(window).load(function() {
         centerPadding: '60px',
         slidesToShow: 3,
         autoplay: true,
-        autoplaySpeed: 5000,
+        autoplaySpeed: 1000,
+        useCSS:true,
         responsive: [
             {
                 breakpoint: 768,
