@@ -5414,7 +5414,7 @@ html, body,#wrapperscroll,#porletwrap,.metro .mm-page,.portlet-column.portlet-co
 
 /* SLIDES */
 
-#slide3:before,#slide2:after{
+#slide3:before,#slide2:after,#slide1:before,#slide1:after{
     content: '';
     display: block;
     position: absolute;
