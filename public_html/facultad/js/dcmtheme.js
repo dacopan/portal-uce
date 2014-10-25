@@ -5201,38 +5201,7 @@ $(window).load(function() {
     $('.full-content').each(function() {
         $(this).perfectScrollbar();
     });
-    //top banner rotator
-    $('.topBanner').slick({
-        centerMode: true,
-        slidesToScroll: 1,
-        centerPadding: '60px',
-        slidesToShow: 2,
-        autoplay: false,
-        autoplaySpeed: 1000,
-        /*useCSS:true,*/
-        responsive: [
-            {
-                breakpoint: 768,
-                settings: {
-                    arrows: false,
-                    centerMode: true,
-                    centerPadding: '40px',
-                    slidesToShow: 3
-                }
-            },
-            {
-                breakpoint: 480,
-                settings: {
-                    arrows: false,
-                    centerMode: true,
-                    centerPadding: '40px',
-                    slidesToShow: 1
-                }
-            }
-        ],
-        speed: 500
-        
-    });
+    
     ///*
     if (!isMobileBrowser()) {
         //animated on scroll
@@ -5245,6 +5214,24 @@ $(window).load(function() {
             }, // Callback to do after a class was added to an element. Action will return "add" or "remove", depending if the class was added or removed
             scrollHorizontal: false // Set to true if your website scrolls horizontal instead of vertical.        
         });
+        
+        $('#slide1 .detail h2').addClass("oculto").viewportChecker({
+            classToAdd: 'visible animated fadeIn', 
+            offset: 100,
+            repeat: false,
+            callbackFunction: null,
+            scrollHorizontal: false
+        });
+        
+        $('#slide1 .detail p').addClass("oculto").viewportChecker({
+            classToAdd: 'visible animated fadeInUpBig', 
+            offset: 100,
+            repeat: false,
+            callbackFunction: null,
+            scrollHorizontal: false
+        });
+        
+        
 
         //radio
         if (!!document.createElement('audio').canPlayType && false) {
@@ -5285,6 +5272,40 @@ $(document).ready(function() {
             dockbar.css('display', 'none');
         }
         e.preventDefault();
+    });
+    
+    //top banner rotator
+    $('.topBanner').slick({
+        centerMode: true,
+        slidesToScroll: 1,
+        centerPadding: '60px',
+        slidesToShow: 2,
+        autoplay: false,
+        autoplaySpeed: 1000,
+        
+        /*useCSS:true,*/
+        responsive: [
+            {
+                breakpoint: 768,
+                settings: {
+                    arrows: false,
+                    centerMode: true,
+                    centerPadding: '40px',
+                    slidesToShow: 3
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    arrows: false,
+                    centerMode: true,
+                    centerPadding: '40px',
+                    slidesToShow: 1
+                }
+            }
+        ],
+        speed: 500
+        
     });
 });
 /* #Radial menu
@@ -5381,7 +5402,7 @@ function headerPosition() {
     }
 }
 function isMobileBrowser() {
-    return false;
+    return true;
 }
 var destroyCrappyPlugin = function($elem, eventNamespace) {
     var isInstantiated = !!$.data($elem.get(0));

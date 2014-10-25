@@ -26,10 +26,17 @@
         line-height: 24px; }
     /* #Facultades================================================== */
 
+    #slide1 .membrete{
+        margin-left: 50px;
+    }
+    #slide1 .facultad-in,#slide1 .detail{
+        margin-left: 370px;
+    }
 
 }
 /* All Mobile Sizes (devices and browser) */
 @media only screen and (max-width: 767px) {
+
     /* #General Layout Changes
     ================================================== */
     .metro .featuredcontainer {
@@ -41,6 +48,24 @@
     .metro .featured {
         margin: 0; }
 
+    #slide1 .membrete,#slide1 .facultad-in{        
+        width: 300px;
+        margin: auto;
+        height: 300px;
+        max-height: 100%;
+        left: 0px;
+        right: 0px;
+        color:white;
+    }
+    #slide1 .facultad-in{
+        padding: 5px;
+        padding-top: 200px;
+        text-align: center;
+    }
+    #slide1 .detail,#slide1 .detail .jefes{
+        margin-left: 20px;
+        padding-right: 5px;
+    }
 
     /* #Featured Area 
     ================================================== */
@@ -190,8 +215,6 @@
         float: left;        
     }
 }
-
-
 
 
 /**experiments
