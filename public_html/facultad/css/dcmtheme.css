@@ -5506,16 +5506,73 @@ html, body,#wrapperscroll,#porletwrap,.metro .mm-page,.portlet-column.portlet-co
 [dir="rtl"] .slick-prev:before {content: "\2192";}
 [dir="rtl"] .slick-slide {float: right;}
 .slick-slide.slick-active.slick-center {
-opacity: 1;
+    opacity: 1;
 }
 /*</editor-fold>*/
 
 /* #Slide1
 ================================================== */
 /*<editor-fold defaultstate="collapsed" desc="Slide1">*/
+#slide1 .facultad-in,#slide1 .detail{
+    vertical-align: top;
+    text-align: left;
+    width: auto;
+    max-width: 100%;
+    margin-left: 520px;
+    text-transform: uppercase;
+    font-family: 'Adequate ExtraLight','Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    padding-top: 150px;
+    letter-spacing: 1px;
+    padding-bottom: 150px;
+}
+#slide1 .detail{
+    padding-top: 50px;   
+}
+#slide1 .detail h2{
+    color:#4275b9;
+    font-family: "Adequate ExtraLight",'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 600;
+}
+#slide1 .detail p{
+    text-transform: none;
+    text-align: justify;
+    padding-right: 10%;
+    padding-left: 40px;
+    font-family: "Adequate ExtraLight",'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
+    font-weight: 900;
+    -webkit-font-smoothing: antialiased;
+    font-size: 12px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+#slide1 .detail .jefes{
+     width: auto;
+    float: right;
+    padding-right: 10%;
+    padding-left: 20px;
+    border-left:  1px black solid;
+}
+#slide1 .detail h3{
+    text-transform: none;
+    font-size: 16px;
+    font-weight: normal;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    line-height: 18px;
+}
+.marginT10{
+    margin-top: 10px;
+}
+#slide1 .detail .cargox{
+    text-transform: uppercase;
+}
 
 /*</editor-fold>*/
-
+.clclc{
+    background-color: #a28f23;
+}
 
 
 

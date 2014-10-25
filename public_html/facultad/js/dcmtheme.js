@@ -1380,7 +1380,7 @@ window.Modernizr = function(a, b, c) {
     };
     "function" == typeof define && define.amd ? define(["outlayer/outlayer", "get-size/get-size", "matches-selector/matches-selector", "isotope/js/item", "isotope/js/layout-mode", "isotope/js/layout-modes/masonry", "isotope/js/layout-modes/fit-rows", "isotope/js/layout-modes/vertical"], r) : t.Isotope = r(t.Outlayer, t.getSize, t.matchesSelector, t.Isotope.Item, t.Isotope.LayoutMode)
 }(window);
-//</editor-fold>//
+//</editor-fold>
 
 //<editor-fold defaultstate="collapsed" desc="jquery widget">
 /*! jQuery UI - v1.10.3 - 2013-05-28
@@ -5197,6 +5197,7 @@ $(window).load(function() {
             $overlay.css('z-index', -1);
         });
     });
+    
     $('.full-content').each(function() {
         $(this).perfectScrollbar();
     });
@@ -5205,8 +5206,8 @@ $(window).load(function() {
         centerMode: true,
         slidesToScroll: 1,
         centerPadding: '60px',
-        slidesToShow: 3,
-        autoplay: true,
+        slidesToShow: 2,
+        autoplay: false,
         autoplaySpeed: 1000,
         /*useCSS:true,*/
         responsive: [
