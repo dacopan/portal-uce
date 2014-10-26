@@ -3792,7 +3792,7 @@ $.fn.imagesLoaded = function(callback) {
 var DCMGrid = (function() {
     //var $grid;
     // list of items
-    $('.og-grid').each(function() {
+    $('.og-grid.fac').each(function() {
         var $grid = $(this);
 
 

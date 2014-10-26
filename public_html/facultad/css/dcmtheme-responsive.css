@@ -197,11 +197,9 @@
         -o-transform-origin: 50% 50%;
         transform-origin: 50% 50%;
 
-        top: 46.8rem;
-        font-size: 7rem;
-
-
-
+        top: 15rem;
+        font-size: 3rem;
+        color: black;
     }
     .fac-title.span1 {
         float: left!important; 
