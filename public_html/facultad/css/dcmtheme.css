@@ -4837,7 +4837,7 @@ span.date a.bubble, span.date a.bubble:hover {
 
 .og-fullimg,
 .og-details {
-    width: 50%;
+    width: 100%;
     float: left;
     height: 100%;
     overflow: hidden;
@@ -4845,7 +4845,7 @@ span.date a.bubble, span.date a.bubble:hover {
 }
 
 .og-details {
-    padding: 0 40px 0 20px;
+   
 }
 
 .og-fullimg {
@@ -4869,7 +4869,7 @@ span.date a.bubble, span.date a.bubble:hover {
     font-weight: 400;
     font-size: 16px;
     line-height: 22px;
-    color: #999;
+    color: #000;
 }
 
 .og-details .og-a {
@@ -5011,7 +5011,7 @@ span.date a.bubble, span.date a.bubble:hover {
 .fac-title .title{
 
     font-size: 7rem;
-
+    text-transform: uppercase;
     position: relative;
     vertical-align: top;    
     color:white;
@@ -5560,14 +5560,14 @@ html, body,#wrapperscroll,#porletwrap,.metro .mm-page,.portlet-column.portlet-co
 #slide1 .detail{
     padding-top: 50px;   
 }
-#slide1 .detail h2{
+#slide1 .detail h2,.og-expander-inner h2{
     color:#4275b9;
     font-family: "Adequate ExtraLight",'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
     -webkit-font-smoothing: antialiased;
     font-weight: 600;
     letter-spacing: 4px;
 }
-#slide1 .detail p{
+#slide1 .detail p,.og-expander-inner p{
     text-transform: none;
     text-align: justify;
     padding-right: 10%;
@@ -5641,11 +5641,9 @@ html, body,#wrapperscroll,#porletwrap,.metro .mm-page,.portlet-column.portlet-co
     padding-top: 5px;
     text-wrap: normal!important;
     line-height: 24px;
-    display: block;    
-    position: relative;    
     margin-bottom: 35px;
     z-index: 2;
-    
+    text-align: left;
     cursor: pointer;
 
     border: none;
@@ -5698,6 +5696,39 @@ html, body,#wrapperscroll,#porletwrap,.metro .mm-page,.portlet-column.portlet-co
     background-position: 0% 0%;
     /*-webkit-box-shadow: inset 0px 10px 11px 0px rgba(50, 50, 50, 0.75);*/
 }
+
+.carrearWrap .detailx .docs,.carrearWrap .detailx .doc,.carrearWrap .detailx img,.carrearWrap .detailx .span{
+    opacity: 0;width: 0;height: 0;
+    position: absolute;
+}
+.carrearWrap .docs{
+
+}
+.carrearWrap .docs .doc{
+    margin: 5px;
+    width: 134px;
+    height: 134px;   float: left;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+}
+.carrearWrap .docs .doc img{
+    z-index: 1;
+}
+.carrearWrap .docs .doc .download{
+    position: absolute;
+    bottom: 1px;
+    left: 1px;
+    z-index: 2;
+    width: 25px;
+    height: 25px;
+    background-color: #fff;
+    color:red;
+    font-size: 20px;
+    text-align: center;
+    line-height: 25px;
+}
+.carrearWrap .docs{}
 /*</editor-fold>*/
 .clclc{
     background-color: #a28f23;

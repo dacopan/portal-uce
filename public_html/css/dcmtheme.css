@@ -4836,7 +4836,7 @@ span.date a.bubble, span.date a.bubble:hover {
 
 .og-fullimg,
 .og-details {
-    width: 50%;
+    width: 100%;
     float: left;
     height: 100%;
     overflow: hidden;
@@ -4868,7 +4868,7 @@ span.date a.bubble, span.date a.bubble:hover {
     font-weight: 400;
     font-size: 16px;
     line-height: 22px;
-    color: #999;
+    color: #000;
 }
 
 .og-details .og-a {
@@ -5012,9 +5012,8 @@ span.date a.bubble, span.date a.bubble:hover {
     text-align: center;
 }
 .fac-title .title{
-
     font-size: 7rem;
-
+    text-transform: uppercase;
     position: relative;
     vertical-align: top;    
     color:white;

@@ -3634,7 +3634,7 @@ var CarrerasGrid = (function() {
                 //this.$title = $('<h3></h3>');
                 this.$description = $('<div></div>');
                 //this.$href = $('<a href="#">Ir a Facultad</a>');
-                this.$details = $('<div class="og-details"></div>').append(this.$description);
+                this.$details = $('<div class="og-details"></div>');//.append(this.$description);
                 this.$loading = $('<div class="og-loading"></div>');
                 //this.$fullimage = $('<div class="og-fullimg"></div>').append(this.$loading);
                 this.$closePreview = $('<span class="og-close"></span>');
@@ -3668,7 +3668,7 @@ var CarrerasGrid = (function() {
                 var eldata = {
                     description: this.$item.find('.detailx').html()
                 };
-                this.$description.html(eldata.description);
+                this.$details.html(eldata.description);
                 /* var self = this;
                  // remove the current image in the preview
                  if (typeof self.$largeImg != 'undefined') {
@@ -3763,7 +3763,7 @@ var CarrerasGrid = (function() {
                 var position = this.$item.data('offsetTop'),
                         previewOffsetT = this.$previewEl.offset().top - scrollExtra,
                         scrollVal = this.height + this.$item.data('height') + marginExpanded <= winsize.height ? position : this.height < winsize.height ? previewOffsetT - (winsize.height - this.height) : previewOffsetT;
-                $body.animate({scrollTop: previewOffsetT-120}, settings.speed);
+                $body.animate({scrollTop: previewOffsetT - 120}, settings.speed);
             },
             setTransition: function() {
                 this.$previewEl.css('transition', 'height ' + settings.speed + 'ms ' + settings.easing);
@@ -4868,10 +4868,13 @@ $(window).load(function() {
         });
     });
 
-    $('.full-content').each(function() {
+    $('.og-details-full').each(function() {
         $(this).perfectScrollbar();
     });
 
+    $('.full-content').each(function() {
+        $(this).perfectScrollbar();
+    });
     ///*
     if (!isMobileBrowser()) {
         //animated on scroll
