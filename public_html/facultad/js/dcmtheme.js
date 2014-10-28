@@ -3698,6 +3698,18 @@ var CarrerasGrid = (function() {
                     this.setHeights();
                     // scroll to position the preview in the right place
                     this.positionPreview();
+
+
+                    this.$item.find('.og-details .doc').each(function() {
+                        var doc = $(this);
+                        $(doc.find('.hintx')).on('click', function() {
+                            window.open(doc.data("iview"), '_blank');
+                        });
+                        $(doc.find('.download')).on('click', function() {
+                            window.open(doc.data("idown"), '_blank');
+                        });
+
+                    });
                 }, this), 25);
             },
             close: function() {
@@ -3745,6 +3757,10 @@ var CarrerasGrid = (function() {
                                 self.$item.off(transEndEventName);
                             }
                             self.$item.addClass('og-expanded');
+
+                            //scroll bars
+                            $(self.$item.find('.og-details .og-details-full')).perfectScrollbar();
+
                         };
                 this.calcHeight();
                 this.$previewEl.css('height', this.height);
@@ -4868,13 +4884,23 @@ $(window).load(function() {
         });
     });
 
-    $('.og-details-full').each(function() {
-        $(this).perfectScrollbar();
-    });
 
     $('.full-content').each(function() {
         $(this).perfectScrollbar();
     });
+
+    //docs issuu
+    $(".posgrados .doc").each(function() {
+        var doc = $(this);
+        $(doc.find('.hintx')).on('click', function() {
+            window.open(doc.data("iview"), '_blank');
+        });
+        $(doc.find('.download')).on('click', function() {
+            window.open(doc.data("idown"), '_blank');
+        });
+    });
+
+
     ///*
     if (!isMobileBrowser()) {
         //animated on scroll
@@ -4903,6 +4929,17 @@ $(window).load(function() {
             callbackFunction: null,
             scrollHorizontal: false
         });
+        
+        
+        $('.posgrados li').addClass("oculto").viewportChecker({
+            classToAdd: 'visible animated fadeInUpBig',
+            offset: 100,
+            repeat: false,
+            callbackFunction: null,
+            scrollHorizontal: false
+        });
+
+
 
 
 
