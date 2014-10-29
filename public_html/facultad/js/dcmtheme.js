@@ -3719,6 +3719,7 @@ var CarrerasGrid = (function() {
                         });
 
                     });
+                    $.Metro.initPanels($(this.$item.find('.og-details')));
                 }, this), 25);
             },
             close: function() {
@@ -4911,9 +4912,9 @@ $(window).load(function() {
 
 
     ///*
-    if (!isMobileBrowser()) {
+    if (!isMobileBrowser() == false) {
         //animated on scroll
-        $('.isobrick2 img').addClass("oculto").viewportChecker({
+        $('.noticeX').addClass("oculto").viewportChecker({
             classToAdd: 'visible scale', // Class to add to the elements when they are visible
             offset: 100, // The offset of the elements (let them appear earlier or later)
             repeat: false, // Add the possibility to remove the class if the elements are not visible
@@ -4927,7 +4928,7 @@ $(window).load(function() {
             classToAdd: 'visible animated fadeIn',
             offset: 100,
             repeat: false,
-            callbackFunction: null,
+            //callbackFunction: null,
             scrollHorizontal: false
         });
 
@@ -4935,7 +4936,7 @@ $(window).load(function() {
             classToAdd: 'visible animated fadeInUpBig',
             offset: 100,
             repeat: false,
-            callbackFunction: null,
+            //callbackFunction: null,
             scrollHorizontal: false
         });
 
@@ -4944,13 +4945,26 @@ $(window).load(function() {
             classToAdd: 'visible animated fadeInUpBig',
             offset: 100,
             repeat: false,
-            callbackFunction: null,
+            //callbackFunction: null,
             scrollHorizontal: false
         });
 
 
+        $('.links').addClass("oculto").viewportChecker({
+            classToAdd: 'visible animated bounceInRight',
+            offset: 100,
+            repeat: false,
+            //callbackFunction: null,
+            scrollHorizontal: false
+        });
 
 
+        $('.footer .span4').addClass("oculto").viewportChecker({
+            classToAdd: 'visible animated fadeInUpBig',
+            offset: 100,
+            repeat: false,
+            scrollHorizontal: false
+        });
 
         //radio
         if (!!document.createElement('audio').canPlayType && false) {
@@ -4997,9 +5011,9 @@ $(document).ready(function() {
     $('.topBanner').slick({
         centerMode: true,
         slidesToScroll: 1,
-        centerPadding: '60px',
+        centerPadding: '20px',
         slidesToShow: 2,
-        autoplay: false,
+        autoplay: true,
         autoplaySpeed: 1000,
         /*useCSS:true,*/
         responsive: [

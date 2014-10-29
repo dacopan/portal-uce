@@ -189,6 +189,9 @@
     .og-grid.fac{    
         float: left;        
     }
+    .carrearWrap{
+        text-align: left;
+    }
 }
 
 
