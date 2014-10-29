@@ -4118,6 +4118,7 @@ body.metro{
     padding-bottom:45px; 
     height: auto;
     min-height: 400px;
+    overflow: hidden;
 }
 .controls-visible.signed-in.metro .topBar{
     display: none;
@@ -5718,6 +5719,7 @@ html, body,#wrapperscroll,#porletwrap,.metro .mm-page,.portlet-column.portlet-co
     display: inline-block;
     position: relative;
     margin-left: auto;
+    overflow: hidden;/*docs hover anim*/
 }
 .docs .doc img{
     z-index: 1;
@@ -5963,9 +5965,7 @@ html, body,#wrapperscroll,#porletwrap,.metro .mm-page,.portlet-column.portlet-co
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
 
-    -webkit-animation-name: scale;
-    animation-name: scale;
-
+    
     -webkit-transition: all 0.3s ease 0s;
     -o-transition: all 0.3s ease 0s;
     transition: all 0.3s ease 0s;
@@ -5974,6 +5974,9 @@ html, body,#wrapperscroll,#porletwrap,.metro .mm-page,.portlet-column.portlet-co
 }
 .metro .links a:hover > span{
     display: block;
+    -webkit-animation-name: scale;
+    animation-name: scale;
+
 }
 /*</editor-fold>*/
 /* #Footer
@@ -6028,12 +6031,15 @@ html, body,#wrapperscroll,#porletwrap,.metro .mm-page,.portlet-column.portlet-co
 .footer .social span,.footer .span4.blogs{
     color: #fff;
 }
-footer .blogs ul{
+.footer .blogs ul{
     margin-left: 20px;
     margin-top: 20px;
 }
-footer .blogs i{
+.footer .blogs i{
     margin-right: 10px;
+}
+.footer .blogs li{
+    margin-bottom: 20px;
 }
 /*</editor-fold>*/
 
