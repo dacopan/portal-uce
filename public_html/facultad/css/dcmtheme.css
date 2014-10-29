@@ -5016,7 +5016,7 @@ span.date a.bubble, span.date a.bubble:hover {
     vertical-align: top;    
     color:#000;
     font-family:"Adequate ExtraLight";
-
+    font-weight: 900;
 }
 /*</editor-fold>*/
 
@@ -5623,7 +5623,7 @@ html, body,#wrapperscroll,#porletwrap,.metro .mm-page,.portlet-column.portlet-co
 /* #Slide2
 ================================================== */
 /*<editor-fold defaultstate="collapsed" desc="Slide2">*/
-#slide2 .fac-title,#slide3 .fac-title{
+#slide2 .fac-title,#slide3 .fac-title,.metro .fac-title {
     margin-right: 0px!important;
 }
 .carrearWrap{
@@ -5739,9 +5739,18 @@ html, body,#wrapperscroll,#porletwrap,.metro .mm-page,.portlet-column.portlet-co
     height: 100%;width: 100%;display:none;background-color: rgba(0,0,0,0.8);line-height: 134px;
     position: absolute;color:#fff;
     text-align: center;
+
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+
+
 }
 .docs .doc:hover .hintx{
     display: block;
+    -webkit-animation-name: fadeInDown;
+    animation-name: fadeInDown;
 }
 /*</editor-fold>*/
 
@@ -5773,6 +5782,200 @@ html, body,#wrapperscroll,#porletwrap,.metro .mm-page,.portlet-column.portlet-co
 }
 /*</editor-fold>*/
 
+/* #Noticias
+================================================== */
+/*<editor-fold defaultstate="collapsed" desc="Noticias">*/
+.noticies .noticeX {
+    width: 240px;
+    height: 300px;
+    max-height: 100%;
+    text-align: center; /* ensures the image is always in the h-middle */
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+
+    background: -webkit-linear-gradient(-45deg, #000 0%,#fff 100%);
+    background: linear-gradient(-45deg, #000 0%,#fff 100%);
+}
+.noticies .noticeX.double{
+    width: 300px;
+}
+.noticies .noticeX img.img-0{
+    position: relative;
+    display: block;   
+
+    margin: -10px 0 0 -10px;
+    max-width: none;
+    width: -webkit-calc(100% + 10px);
+    width: calc(100% + 10px);
+    opacity: 0.9;
+    -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+    transition: opacity 0.35s, transform 0.35s;
+    -webkit-transform: translate3d(10px,10px,0);
+    transform: translate3d(10px,10px,0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+.noticies .noticeX .figcaption{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+}
+
+
+
+
+/*---------------*/
+/***** Lexi *****/
+/*---------------*/
+
+.noticeX .figcaption::before,
+.noticeX .pp3 {
+    -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+    transition: opacity 0.35s, transform 0.35s;
+}
+
+.noticeX .figcaption::before {
+    position: absolute;
+    right: -100px;
+    bottom: -100px;
+    width: 300px;
+    height: 300px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 0 900px rgba(255,255,255,0.2);
+    content: '';
+    opacity: 0;
+    -webkit-transform: scale3d(0.5,0.5,1);
+    transform: scale3d(0.5,0.5,1);
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+}
+
+.noticeX:hover img.img-0 {
+    opacity: 0.6;
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+}
+.noticeX:hover{ border:2px gray solid;}
+
+.noticeX .pp3 h2 {
+    text-align: right;
+    -webkit-transition: -webkit-transform 0.35s;
+    transition: transform 0.35s;
+    -webkit-transform: translate3d(5px,5px,0);
+    transform: translate3d(5px,5px,0);
+    color: #fff;
+    border-bottom: 3px #fff solid; 
+    padding: 4px 8px;
+    font-family: "Adequate ExtraLight",'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
+    font-size: 23px;
+}
+.noticeX .pp3 span{
+    padding: 7px;
+    font-size: 12px;
+    height: 40px;
+    display: block;
+}
+.noticeX .pp3 {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    /*padding: 0 1.5em 1.5em 0;*/
+    width: 100%;
+    text-align: right;
+    opacity: 0;
+    /*-webkit-transform: translate3d(20px,20px,0);
+    transform: translate3d(20px,20px,0);*/
+    background: rgba(0,0,0,0.7);
+}
+
+.noticeX:hover .figcaption::before {
+    opacity: 1;
+    -webkit-transform: scale3d(1,1,1);
+    transform: scale3d(1,1,1);
+}
+
+.noticeX:hover .pp3 h2,
+.noticeX:hover .pp3 {
+    opacity: 1;
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+}
+.noticies{}
+.noticies{}
+/*</editor-fold>*/
+
+/* #links de interes
+================================================== */
+/*<editor-fold defaultstate="collapsed" desc="Links">*/
+.metro .links h2{
+    text-transform: uppercase;
+    text-align: center;
+    font-family: "Adequate ExtraLight",'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    color:#fff;
+}
+.metro .links a{
+    padding: 0px;
+    margin: 0px;    
+}
+/*.metro .links i*/.metro .links a{
+    font-size: 65px;
+    border-radius: 50%;
+    background-color: #fff;
+    width: 120px;
+    height: 120px;
+    color: #000;
+    /* padding: 27px; */
+    display: block;
+    vertical-align: middle;
+    line-height: 120px;
+    position: relative;
+    overflow: hidden;
+}
+.metro .links li{
+    padding: 0px;
+}
+.metro .links .og-grid{
+    max-width: 600px;
+}
+.metro .links a > span{
+    font-size: 13px;
+    line-height: 14px;
+    vertical-align: top;
+    display: none;
+    position: absolute;
+    top: 0px;
+    padding: 5px;
+    background-color: rgba(0,0,0,.7);
+    height: 101%;
+    width: 101%;
+    padding-top: 30px;
+    color: #fff;
+
+    border: 3px solid black;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+
+    -webkit-animation-name: scale;
+    animation-name: scale;
+
+    -webkit-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+    -moz-transition: all 0.3s ease 0s;
+    border-radius: 50%;
+}
+.metro .links a:hover > span{
+    display: block;
+}
+/*</editor-fold>*/
 /* #Footer
 ================================================== */
 /*<editor-fold defaultstate="collapsed" desc="Footer">*/
@@ -5843,7 +6046,14 @@ footer .blogs i{
 .metro span,.aui span{
     font-family: "Segoe UI Light_","Open Sans Light",Verdana,Arial,Helvetica,sans-serif; 
 }
-
+.clear {
+    clear: both;
+    display: block;
+    overflow: hidden;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+}
 
 
 

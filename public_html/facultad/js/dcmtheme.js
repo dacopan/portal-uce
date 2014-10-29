@@ -3243,7 +3243,7 @@ var Boxgrid = (function() {
             });
             $item.on('click', function(event) {
                 event.preventDefault();
-                $('.noticiesWrap').removeClass("oculto visible animated fadeInUp");
+                $('.og-grid.noticies').removeClass("oculto visible animated fadeInUp");
                 if ($item.data('isExpanded')) {
                     return false;
                 }
@@ -3254,7 +3254,9 @@ var Boxgrid = (function() {
                         clipPropFirst = 'rect(' + layoutProp.top + 'px ' + (layoutProp.left + layoutProp.width) + 'px ' + (layoutProp.top + layoutProp.height) + 'px ' + layoutProp.left + 'px)',
                         clipPropLast = 'rect(0px ' + winsize.width + 'px ' + winsize.height + 'px 0px)';
                 $overlay.css({
+                    transformOrigin: layoutProp.left + 'px ' + layoutProp.top + 'px',
                     clip: supportTransitions ? clipPropFirst : clipPropLast,
+                    transform: supportTransitions ? 'rotate(45deg)' : 'none',
                     opacity: 1,
                     zIndex: 9999,
                     pointerEvents: 'auto'
@@ -3264,11 +3266,17 @@ var Boxgrid = (function() {
 
                         $overlay.off(transEndEventName);
                         setTimeout(function() {
-                            $overlay.css('clip', clipPropLast).on(transEndEventName, function() {
+                            $overlay.css({clip: clipPropLast, transform: 'rotate(0deg)'}).on(transEndEventName, function() {
                                 $overlay.off(transEndEventName);
                                 $body.css('overflow-y', 'hidden');
                             });
                         }, 25);
+                        /*setTimeout(function() {
+                         $overlay.css('clip', clipPropLast).on(transEndEventName, function() {
+                         $overlay.off(transEndEventName);
+                         $body.css('overflow-y', 'hidden');
+                         });
+                         }, 25);*/
                     });
                 }
                 else {
@@ -3342,6 +3350,7 @@ var Boxgrid = (function() {
 
     return {init: init};
 })();
+Boxgrid.init();
 //</editor-fold>
 
 //<editor-fold defaultstate="collapsed" desc="grid facultades">
@@ -4929,8 +4938,8 @@ $(window).load(function() {
             callbackFunction: null,
             scrollHorizontal: false
         });
-        
-        
+
+
         $('.posgrados li').addClass("oculto").viewportChecker({
             classToAdd: 'visible animated fadeInUpBig',
             offset: 100,
