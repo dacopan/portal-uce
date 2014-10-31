@@ -3717,9 +3717,9 @@ var CarrerasGrid = (function() {
                         $(doc.find('.download')).on('click', function() {
                             window.open(doc.data("idown"), '_blank');
                         });
-
                     });
-                   
+                    $.Metro.initPanels($(this.$item.find('.og-details')));
+
                 }, this), 25);
             },
             close: function() {
@@ -3770,7 +3770,6 @@ var CarrerasGrid = (function() {
 
                             //scroll bars
                             $(self.$item.find('.og-details .og-details-full')).perfectScrollbar();
-                             $.Metro.initPanels($(this.$item.find('.og-details')));
 
                         };
                 this.calcHeight();
@@ -4148,9 +4147,12 @@ var CarrerasGrid = (function() {
                 );
             });
             if (element.hasClass('start-collapsed')) {
-                header.click();            
-                alert('has class');
-                //header.click();
+                if (element.hasClass('collapsed')) {
+                    //element.removeClass('collapsed');
+                }
+                else {
+                    header.click();
+                }
             }
         },
         _destroy: function() {
@@ -4458,7 +4460,7 @@ $(function() {
         this.checkElements = function() {
             var $obj = $($elem);
 // If class already exists; quit
-            if (options.find) {                                
+            if (options.find) {
                 return;
             }
             var viewportTop = $(scrollElem).scrollTop(),
@@ -4475,9 +4477,9 @@ $(function() {
             if ((elemTop < viewportBottom) && (elemBottom > viewportTop)) {
                 $obj.addClass(options.classToAdd);
                 options.find = true;
-                setTimeout(function (){
+                setTimeout(function() {
                     $obj.removeClass(options.classToAdd + ' oculto');
-                },1000);
+                }, 1000);
                 // Do the callback function. Callback wil send the jQuery object as parameter
                 //options.callbackFunction($obj, "add");
                 // Remove class if not in viewport and repeat is true
