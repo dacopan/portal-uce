@@ -5126,6 +5126,8 @@ span.date a.bubble, span.date a.bubble:hover {
     -o-transition: all 0.3s ease 0s;
     transition: all 0.3s ease 0s;
     -ms-transition: all 0.3s ease 0s;
+    
+    letter-spacing: 8px;
 }
 .metro [data-role=panel].collapsed .panel-header:after {
     content: "\f139";
