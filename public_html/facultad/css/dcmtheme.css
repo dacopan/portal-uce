@@ -4787,7 +4787,7 @@ span.date a.bubble, span.date a.bubble:hover {
 }
 
 .og-expander {
-    position: absolute;
+    /*position: absolute;
     background: #fff;
     top: auto;
     left: 0;
@@ -4795,7 +4795,19 @@ span.date a.bubble, span.date a.bubble:hover {
     margin-top: 10px;
     text-align: left;
     height: 0;
+    overflow: hidden;*/
+    position: absolute;
+    background: #fff;
+    top: auto;
+    /* left: 0; */
+    width: 100%;
+    margin-top: 10px;
+    text-align: left;
+    height: 0;
     overflow: hidden;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .og-expander-inner {
@@ -5103,6 +5115,7 @@ span.date a.bubble, span.date a.bubble:hover {
     content: "\f139";
     float: right;
     color: inherit;
+
     -webkit-transform: rotate(180deg);
     -moz-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
@@ -5563,7 +5576,7 @@ html, body,#wrapperscroll,#porletwrap,.metro .mm-page,.portlet-column.portlet-co
 #slide1 .detail{
     padding-top: 50px;   
 }
-#slide1 .detail h2,.og-expander-inner h2,.postgrados h2.h2,h2.h2,h3.h3,h4.h4{
+#slide1 .detail h2,.og-expander-inner h2,.postgrados h2.h2,h2.h2,h3.h3,h4.h4,.metro .panel .panel-header{
     color: #4275b9;
     font-family: "Adequate ExtraLight",'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -5719,7 +5732,7 @@ html, body,#wrapperscroll,#porletwrap,.metro .mm-page,.portlet-column.portlet-co
     display: inline-block;
     position: relative;
     margin-left: auto;
-    overflow: hidden;/*docs hover anim*/
+    /*overflow: hidden;docs hover anim*/
 }
 .docs .doc img{
     z-index: 1;
@@ -5788,8 +5801,8 @@ html, body,#wrapperscroll,#porletwrap,.metro .mm-page,.portlet-column.portlet-co
 ================================================== */
 /*<editor-fold defaultstate="collapsed" desc="Noticias">*/
 .noticies .noticeX {
-    width: 240px;
-    height: 300px;
+    width: 280px;
+    height: 280px;
     max-height: 100%;
     text-align: center; /* ensures the image is always in the h-middle */
     overflow: hidden;
@@ -5926,16 +5939,16 @@ html, body,#wrapperscroll,#porletwrap,.metro .mm-page,.portlet-column.portlet-co
     margin: 0px;    
 }
 /*.metro .links i*/.metro .links a{
-    font-size: 57px;
+    font-size: 53px;
     border-radius: 50%;
     background-color: #fff;
-    width: 90px;
-    height: 90px;
+    width: 80px;
+    height: 80px;
     color: #000;
     /* padding: 27px; */
     display: block;
     vertical-align: middle;
-    line-height: 90px;
+    line-height: 80px;
     position: relative;
     /* overflow: hidden; */
 }
@@ -6014,6 +6027,9 @@ html, body,#wrapperscroll,#porletwrap,.metro .mm-page,.portlet-column.portlet-co
     color: #fff;
     margin-top: 20px;
 }
+.footer .social .og-grid{
+    text-align: left;
+}
 .footer .social li{
     padding: 10px;
     margin: 0px;
@@ -6024,9 +6040,10 @@ html, body,#wrapperscroll,#porletwrap,.metro .mm-page,.portlet-column.portlet-co
     background-color: #fff;
     width: 46px;
     height: 46px;
-    color: #000;
+    color: #343434;
     padding: 8px;
     display: block;
+    text-align: center;
 }
 .footer .social span,.footer .span4.blogs{
     color: #fff;

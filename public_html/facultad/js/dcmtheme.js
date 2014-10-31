@@ -3243,7 +3243,7 @@ var Boxgrid = (function() {
             });
             $item.on('click', function(event) {
                 event.preventDefault();
-                $('.og-grid.noticies').removeClass("oculto visible animated fadeInUp");
+                $('.og-grid.noticies').removeClass("oculto visible animated bounceInRight");
                 if ($item.data('isExpanded')) {
                     return false;
                 }
@@ -3719,7 +3719,7 @@ var CarrerasGrid = (function() {
                         });
 
                     });
-                    $.Metro.initPanels($(this.$item.find('.og-details')));
+                   
                 }, this), 25);
             },
             close: function() {
@@ -3770,6 +3770,7 @@ var CarrerasGrid = (function() {
 
                             //scroll bars
                             $(self.$item.find('.og-details .og-details-full')).perfectScrollbar();
+                             $.Metro.initPanels($(this.$item.find('.og-details')));
 
                         };
                 this.calcHeight();
@@ -4147,7 +4148,9 @@ var CarrerasGrid = (function() {
                 );
             });
             if (element.hasClass('start-collapsed')) {
-                header.click();
+                header.click();            
+                alert('has class');
+                //header.click();
             }
         },
         _destroy: function() {
@@ -4442,43 +4445,48 @@ $(function() {
         var options = {
             classToAdd: 'visible',
             offset: 100,
-            repeat: false,
+            repeat: false, fin: false,
             callbackFunction: function(elem, action) {
             },
             scrollHorizontal: false
         };
         $.extend(options, useroptions);
         // Cache the given element and height of the browser
-        var $elem = this,
-                windowSize = (!options.scrollHorizontal) ? $(window).height() : $(window).width(),
+        var $elem = this;
+        var windowSize = (!options.scrollHorizontal) ? $(window).height() : $(window).width(),
                 scrollElem = ((navigator.userAgent.toLowerCase().indexOf('webkit') != -1) ? 'body' : 'html');
         this.checkElements = function() {
-
+            var $obj = $($elem);
+// If class already exists; quit
+            if (options.find) {                                
+                return;
+            }
             var viewportTop = $(scrollElem).scrollTop(),
                     viewportBottom = (viewportTop + windowSize);
 
-            $elem.each(function() {
-                var $obj = $(this);
-                // If class already exists; quit
-                if ($obj.hasClass(options.classToAdd) && !options.repeat) {
-                    return;
-                }
+            // $elem.each(function() {           
 
-                // define the top position of the element and include the offset which makes is appear earlier or later
-                var elemTop = (!options.scrollHorizontal) ? Math.round($obj.offset().top) + options.offset : Math.round($obj.offset().left) + options.offset,
-                        elemBottom = elemTop + ($obj.height());
-                // Add class if in viewport
-                if ((elemTop < viewportBottom) && (elemBottom > viewportTop)) {
-                    $obj.addClass(options.classToAdd);
-                    // Do the callback function. Callback wil send the jQuery object as parameter
-                    options.callbackFunction($obj, "add");
-                    // Remove class if not in viewport and repeat is true
-                } else if ($obj.hasClass(options.classToAdd) && (options.repeat)) {
-                    $obj.removeClass(options.classToAdd);
-                    // Do the callback function.
-                    options.callbackFunction($obj, "remove");
-                }
-            });
+
+
+            // define the top position of the element and include the offset which makes is appear earlier or later
+            var elemTop = (!options.scrollHorizontal) ? Math.round($obj.offset().top) + options.offset : Math.round($obj.offset().left) + options.offset,
+                    elemBottom = elemTop + ($obj.height());
+            // Add class if in viewport
+            if ((elemTop < viewportBottom) && (elemBottom > viewportTop)) {
+                $obj.addClass(options.classToAdd);
+                options.find = true;
+                setTimeout(function (){
+                    $obj.removeClass(options.classToAdd + ' oculto');
+                },1000);
+                // Do the callback function. Callback wil send the jQuery object as parameter
+                //options.callbackFunction($obj, "add");
+                // Remove class if not in viewport and repeat is true
+            } else if ($obj.hasClass(options.classToAdd) && (options.repeat)) {
+                $obj.removeClass(options.classToAdd);
+                // Do the callback function.
+                //options.callbackFunction($obj, "remove");
+            }
+            // });
         };
         // Run checkelements on load and scroll
         $(window).bind("load scroll touchmove", this.checkElements);
@@ -4912,58 +4920,71 @@ $(window).load(function() {
 
 
     ///*
-    if (!isMobileBrowser() == false) {
+    if (!isMobileBrowser()) {
         //animated on scroll
-        $('.noticeX').addClass("oculto").viewportChecker({
-            classToAdd: 'visible scale', // Class to add to the elements when they are visible
-            offset: 100, // The offset of the elements (let them appear earlier or later)
-            repeat: false, // Add the possibility to remove the class if the elements are not visible
-            callbackFunction: function(elem, action) {
-                //$(window).unbind("load scroll touchmove", elem);
-            }, // Callback to do after a class was added to an element. Action will return "add" or "remove", depending if the class was added or removed
-            scrollHorizontal: false // Set to true if your website scrolls horizontal instead of vertical.        
-        });
+        $('.og-grid.noticies').each(function() {
 
-        $('#slide1 .detail h2').addClass("oculto").viewportChecker({
-            classToAdd: 'visible animated fadeIn',
-            offset: 100,
-            repeat: false,
-            //callbackFunction: null,
-            scrollHorizontal: false
+            $(this).addClass("oculto").viewportChecker({
+                classToAdd: 'visible animated bounceInRight', // Class to add to the elements when they are visible
+                offset: 100, // The offset of the elements (let them appear earlier or later)
+                repeat: false, // Add the possibility to remove the class if the elements are not visible
+                callbackFunction: function(elem, action) {
+                    //$(window).unbind("load scroll touchmove", elem);
+                }, // Callback to do after a class was added to an element. Action will return "add" or "remove", depending if the class was added or removed
+                scrollHorizontal: false // Set to true if your website scrolls horizontal instead of vertical.        
+            });
         });
-
-        $('#slide1 .detail p').addClass("oculto").viewportChecker({
-            classToAdd: 'visible animated fadeInUpBig',
-            offset: 100,
-            repeat: false,
-            //callbackFunction: null,
-            scrollHorizontal: false
+        $('#slide1 .detail h2').each(function() {
+            $(this).addClass("oculto").viewportChecker({
+                classToAdd: 'visible animated fadeIn',
+                offset: 100,
+                repeat: false,
+                //callbackFunction: null,
+                scrollHorizontal: false
+            });
         });
 
 
-        $('.posgrados li').addClass("oculto").viewportChecker({
-            classToAdd: 'visible animated fadeInUpBig',
-            offset: 100,
-            repeat: false,
-            //callbackFunction: null,
-            scrollHorizontal: false
+        $('#slide1 .detail p').each(function() {
+            $(this).addClass("oculto").viewportChecker({
+                classToAdd: 'visible animated fadeInUpBig',
+                offset: 100,
+                repeat: false,
+                //callbackFunction: null,
+                scrollHorizontal: false
+            });
         });
 
 
-        $('.links').addClass("oculto").viewportChecker({
-            classToAdd: 'visible animated bounceInRight',
-            offset: 100,
-            repeat: false,
-            //callbackFunction: null,
-            scrollHorizontal: false
+        $('.posgrados li').each(function() {
+            $(this).addClass("oculto").viewportChecker({
+                classToAdd: 'visible animated fadeInUpBig',
+                offset: 100,
+                repeat: false,
+                //callbackFunction: null,
+                scrollHorizontal: false
+            });
         });
 
 
-        $('.footer .span4').addClass("oculto").viewportChecker({
-            classToAdd: 'visible animated fadeInUpBig',
-            offset: 100,
-            repeat: false,
-            scrollHorizontal: false
+        $('.links').each(function() {
+            $(this).addClass("oculto").viewportChecker({
+                classToAdd: 'visible animated bounceInRight',
+                offset: 100,
+                repeat: false,
+                //callbackFunction: null,
+                scrollHorizontal: false
+            });
+        });
+
+
+        $('.footer .span4').each(function() {
+            $(this).addClass("oculto").viewportChecker({
+                classToAdd: 'visible animated fadeInUpBig',
+                offset: 100,
+                repeat: false,
+                scrollHorizontal: false
+            });
         });
 
         //radio
@@ -5013,7 +5034,7 @@ $(document).ready(function() {
         slidesToScroll: 1,
         centerPadding: '20px',
         slidesToShow: 2,
-        autoplay: true,
+        autoplay: false,
         autoplaySpeed: 1000,
         /*useCSS:true,*/
         responsive: [
