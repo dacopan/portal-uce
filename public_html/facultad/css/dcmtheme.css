@@ -5641,7 +5641,7 @@ html, body,#wrapperscroll,#porletwrap,.metro .mm-page,.portlet-column.portlet-co
     margin-right: 0px!important;
 }
 .carrearWrap{
-    /*max-width: 780px;    */
+    max-width: 900px;
     float: none;      
 }
 .carrearWrap li{

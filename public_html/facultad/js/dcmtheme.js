@@ -3678,6 +3678,22 @@ var CarrerasGrid = (function() {
                     description: this.$item.find('.detailx').html()
                 };
                 this.$details.html(eldata.description);
+                
+                 this.$details.find('.doc').each(function() {
+                        var doc = $(this);
+                        $(doc.find('.hintx')).on('click', function() {
+                            window.open(doc.data("iview"), '_blank');
+                        });
+                        $(doc.find('.download')).on('click', function() {
+                            window.open(doc.data("idown"), '_blank');
+                        });
+                    });
+                    
+                    $.Metro.initPanels($(this.$details));
+                    //alert($(this.$details));
+
+
+
                 /* var self = this;
                  // remove the current image in the preview
                  if (typeof self.$largeImg != 'undefined') {
@@ -3709,7 +3725,7 @@ var CarrerasGrid = (function() {
                     this.positionPreview();
 
 
-                    this.$item.find('.og-details .doc').each(function() {
+                    this.$details.find('.doc').each(function() {
                         var doc = $(this);
                         $(doc.find('.hintx')).on('click', function() {
                             window.open(doc.data("iview"), '_blank');
@@ -3718,8 +3734,9 @@ var CarrerasGrid = (function() {
                             window.open(doc.data("idown"), '_blank');
                         });
                     });
-                    $.Metro.initPanels($(this.$item.find('.og-details')));
-
+                    //$(this.$details).remove();
+                    $.Metro.initPanels($(this.$details));
+                    //alert($(this.$details));
                 }, this), 25);
             },
             close: function() {
@@ -3790,6 +3807,8 @@ var CarrerasGrid = (function() {
                         previewOffsetT = this.$previewEl.offset().top - scrollExtra,
                         scrollVal = this.height + this.$item.data('height') + marginExpanded <= winsize.height ? position : this.height < winsize.height ? previewOffsetT - (winsize.height - this.height) : previewOffsetT;
                 $body.animate({scrollTop: previewOffsetT - 120}, settings.speed);
+
+
             },
             setTransition: function() {
                 this.$previewEl.css('transition', 'height ' + settings.speed + 'ms ' + settings.easing);
