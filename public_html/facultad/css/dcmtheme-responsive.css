@@ -397,3 +397,8 @@ figure.effect-layla:hover img {
     -webkit-transition-delay: 0.15s;
     transition-delay: 0.15s;
 }
+@media(min-width:1024px){
+    .metro .og-expander{
+        left: auto;
+    }
+}

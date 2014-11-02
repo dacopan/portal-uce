@@ -4799,7 +4799,7 @@ span.date a.bubble, span.date a.bubble:hover {
     position: absolute;
     background: #fff;
     top: auto;
-    /* left: 0; */
+    left: 0;
     width: 100%;
     margin-top: 10px;
     text-align: left;
@@ -5084,6 +5084,7 @@ span.date a.bubble, span.date a.bubble:hover {
 .metro .panel {
     border:none;
     margin-bottom: 10px;
+    padding-right: 20px;
 }
 .metro .panel .panel-header {
     padding: 10px;
@@ -5104,7 +5105,7 @@ span.date a.bubble, span.date a.bubble:hover {
 .metro .panel .panel-content {
     width: 100%;
     height: auto;
-    padding: 0px;
+    padding: 10px;
 }
 .metro [data-role=panel] .panel-header {
     cursor: pointer;
@@ -5586,6 +5587,7 @@ html, body,#wrapperscroll,#porletwrap,.metro .mm-page,.portlet-column.portlet-co
     letter-spacing: 8px;
     text-transform: uppercase;
     font-size: 2rem;
+    line-height: normal;
 }
 #slide1 .detail p,.og-expander-inner p,.ipp{
     text-transform: none;
@@ -6047,9 +6049,24 @@ html, body,#wrapperscroll,#porletwrap,.metro .mm-page,.portlet-column.portlet-co
     display: block;
     text-align: center;
 }
-.footer .social span,.footer .span4.blogs{
+
+.footer .social span,.footer .span4.blogs,.footer .blogs a{
     color: #fff;
 }
+/*.footer .social a:hover i,*/.footer .blogs a:hover{
+    color:rgb(0,150,240);
+}
+.footer .social a:hover i{
+   background-color:rgb(0,150,240);  color:#fff;
+}
+.footer .social a,.footer .social i,.footer .blogs a,.footer .blogs i{
+    text-decoration: none;
+-moz-transition: all 0.3s ease 0s;
+-webkit-transition: all 0.3s ease 0s;
+-o-transition: all 0.3s ease 0s;
+transition: all 0.3s ease 0s;
+}
+
 .footer .blogs ul{
     margin-left: 20px;
     margin-top: 20px;
@@ -6059,6 +6076,7 @@ html, body,#wrapperscroll,#porletwrap,.metro .mm-page,.portlet-column.portlet-co
 }
 .footer .blogs li{
     margin-bottom: 20px;
+    color:#fff;
 }
 /*</editor-fold>*/
 
