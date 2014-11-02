@@ -399,6 +399,7 @@ figure.effect-layla:hover img {
 }
 @media(min-width:1024px){
     .metro .og-expander{
-        left: auto;
+        left: 0px;/*auto*/
+        right: 20px;
     }
 }
