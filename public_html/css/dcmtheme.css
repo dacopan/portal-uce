@@ -4949,6 +4949,33 @@ span.date a.bubble, span.date a.bubble:hover {
     -webkit-box-shadow: 0px 9px 16px 1px rgba(50, 50, 50, 0.97);
     -moz-box-shadow:    0px 9px 16px 1px rgba(50, 50, 50, 0.97);
     box-shadow:         0px 9px 16px 1px rgba(50, 50, 50, 0.97);
+    width: 230px;
+    height: 134px;
+    -webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-fill-mode:both;animation-fill-mode:both;
+    background-color: #fff;
+}
+.og-grid.fac .og-a:hover .og-box,.og-grid.fac .og-a .og-box.cars{
+    display: none;-webkit-animation-name:none;
+    -moz-animation-name:none;
+    -ms-animation-name:none;
+    -o-animation-name:none;
+    animation-name:none;
+}
+.og-grid.fac .og-a:hover .og-box.cars,.og-grid.fac .og-a .og-box{
+    display: block;
+    -webkit-animation-name: flipInX;
+    -moz-animation-name: flipInX;
+    -ms-animation-name: flipInX;
+    -o-animation-name: flipInX;
+    animation-name: flipInX;
+}
+.og-box li, .og-box ul, .og-box.cars {
+font-size: 12px;
+color: #000;
+text-align: left;
+margin: 0px;
+padding-left: 5px;
+overflow: hidden;
 }
 .og-grid.fac h5,.og-grid.fac h4,.og-grid.fac .spreview{
     padding: 12px 12px 1px 12px;

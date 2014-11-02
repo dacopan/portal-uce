@@ -4104,7 +4104,7 @@ var DCMGrid = (function() {
             }
         }
 
-        init();
+       // init(); //start facultades grid detail slice
     });
 
     /* return {
