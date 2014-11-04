@@ -74,6 +74,11 @@
 			<wap-template-path>/layouttpl/custom/layoutUceMain.tpl</wap-template-path>
 			<thumbnail-path>/layouttpl/custom/layoutUceMain.png</thumbnail-path>
 		</layout-template>
+                <layout-template id="layoutUceFac" name="layoutUceFac">
+			<template-path>/layouttpl/custom/layoutUceFac.tpl</template-path>
+			<wap-template-path>/layouttpl/custom/layoutUceFac.tpl</wap-template-path>
+			<thumbnail-path>/layouttpl/custom/layoutUceFac.png</thumbnail-path>
+		</layout-template>
 		
 	</custom>
 </layout-templates>
