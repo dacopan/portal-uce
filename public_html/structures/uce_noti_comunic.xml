@@ -1,0 +1,158 @@
+<root available-locales="es_ES" default-locale="es_ES">
+	<dynamic-element dataType="boolean" indexType="keyword" name="Noticia" readOnly="false" repeatable="true" required="true" showLabel="true" type="checkbox" width="">
+		<dynamic-element dataType="string" indexType="keyword" name="Titulo_Noticia" readOnly="false" repeatable="false" required="true" showLabel="true" type="textarea" width="small">
+			<dynamic-element dataType="date" fieldNamespace="ddm" indexType="keyword" name="Fecha9364" readOnly="false" repeatable="false" required="false" showLabel="true" type="ddm-date" width="small">
+				<meta-data locale="es_ES">
+					<entry name="label">
+						<![CDATA[Fecha]]>
+					</entry>
+					<entry name="predefinedValue">
+						<![CDATA[]]>
+					</entry>
+					<entry name="tip">
+						<![CDATA[]]>
+					</entry>
+				</meta-data>
+			</dynamic-element>
+			<dynamic-element dataType="string" indexType="keyword" name="Autor" readOnly="false" repeatable="false" required="false" showLabel="true" type="text" width="small">
+				<meta-data locale="es_ES">
+					<entry name="label">
+						<![CDATA[Autor]]>
+					</entry>
+					<entry name="predefinedValue">
+						<![CDATA[]]>
+					</entry>
+					<entry name="tip">
+						<![CDATA[]]>
+					</entry>
+				</meta-data>
+			</dynamic-element>
+			<dynamic-element dataType="image" fieldNamespace="wcm" indexType="keyword" name="Imagen10716" readOnly="false" repeatable="false" required="true" showLabel="true" type="wcm-image" width="">
+				<meta-data locale="es_ES">
+					<entry name="label">
+						<![CDATA[Imagen]]>
+					</entry>
+					<entry name="predefinedValue">
+						<![CDATA[]]>
+					</entry>
+					<entry name="tip">
+						<![CDATA[]]>
+					</entry>
+				</meta-data>
+			</dynamic-element>
+			<dynamic-element dataType="html" fieldNamespace="ddm" indexType="keyword" name="Contenido_noticia" readOnly="false" repeatable="false" required="true" showLabel="true" type="ddm-text-html" width="small">
+				<meta-data locale="es_ES">
+					<entry name="label">
+						<![CDATA[Contenido noticia]]>
+					</entry>
+					<entry name="predefinedValue">
+						<![CDATA[]]>
+					</entry>
+					<entry name="tip">
+						<![CDATA[]]>
+					</entry>
+				</meta-data>
+			</dynamic-element>
+			<meta-data locale="es_ES">
+				<entry name="label">
+					<![CDATA[Titulo Noticia]]>
+				</entry>
+				<entry name="predefinedValue">
+					<![CDATA[]]>
+				</entry>
+				<entry name="tip">
+					<![CDATA[]]>
+				</entry>
+			</meta-data>
+		</dynamic-element>
+		<meta-data locale="es_ES">
+			<entry name="label">
+				<![CDATA[Noticia]]>
+			</entry>
+			<entry name="predefinedValue">
+				<![CDATA[true]]>
+			</entry>
+			<entry name="tip">
+				<![CDATA[]]>
+			</entry>
+		</meta-data>
+	</dynamic-element>
+	<dynamic-element dataType="boolean" indexType="keyword" name="Comunicado" readOnly="false" repeatable="true" required="false" showLabel="true" type="checkbox" width="">
+		<dynamic-element dataType="string" indexType="keyword" name="Titulo_Comunicado" readOnly="false" repeatable="false" required="true" showLabel="true" type="textarea" width="small">
+			<dynamic-element dataType="date" fieldNamespace="ddm" indexType="keyword" name="Fecha" readOnly="false" repeatable="false" required="false" showLabel="true" type="ddm-date" width="small">
+				<meta-data locale="es_ES">
+					<entry name="label">
+						<![CDATA[Fecha]]>
+					</entry>
+					<entry name="predefinedValue">
+						<![CDATA[]]>
+					</entry>
+					<entry name="tip">
+						<![CDATA[]]>
+					</entry>
+				</meta-data>
+			</dynamic-element>
+			<dynamic-element dataType="string" indexType="keyword" name="Autor" readOnly="false" repeatable="false" required="false" showLabel="true" type="text" width="small">
+				<meta-data locale="es_ES">
+					<entry name="label">
+						<![CDATA[Autor]]>
+					</entry>
+					<entry name="predefinedValue">
+						<![CDATA[]]>
+					</entry>
+					<entry name="tip">
+						<![CDATA[]]>
+					</entry>
+				</meta-data>
+			</dynamic-element>
+			<dynamic-element dataType="image" fieldNamespace="wcm" indexType="keyword" name="Imagen" readOnly="false" repeatable="false" required="true" showLabel="true" type="wcm-image" width="">
+				<meta-data locale="es_ES">
+					<entry name="label">
+						<![CDATA[Imagen]]>
+					</entry>
+					<entry name="predefinedValue">
+						<![CDATA[]]>
+					</entry>
+					<entry name="tip">
+						<![CDATA[]]>
+					</entry>
+				</meta-data>
+			</dynamic-element>
+			<dynamic-element dataType="html" fieldNamespace="ddm" indexType="keyword" name="Contenido_comunicado" readOnly="false" repeatable="false" required="true" showLabel="true" type="ddm-text-html" width="small">
+				<meta-data locale="es_ES">
+					<entry name="label">
+						<![CDATA[Contenido comunicado]]>
+					</entry>
+					<entry name="predefinedValue">
+						<![CDATA[]]>
+					</entry>
+					<entry name="tip">
+						<![CDATA[]]>
+					</entry>
+				</meta-data>
+			</dynamic-element>
+			<meta-data locale="es_ES">
+				<entry name="label">
+					<![CDATA[Titulo Comunicado]]>
+				</entry>
+				<entry name="predefinedValue">
+					<![CDATA[]]>
+				</entry>
+				<entry name="tip">
+					<![CDATA[]]>
+				</entry>
+			</meta-data>
+		</dynamic-element>
+		<meta-data locale="es_ES">
+			<entry name="label">
+				<![CDATA[Comunicado]]>
+			</entry>
+			<entry name="predefinedValue">
+				<![CDATA[true]]>
+			</entry>
+			<entry name="tip">
+				<![CDATA[]]>
+			</entry>
+		</meta-data>
+	</dynamic-element>
+</root>

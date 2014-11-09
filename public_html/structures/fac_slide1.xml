@@ -1,0 +1,134 @@
+<root available-locales="es_ES" default-locale="es_ES">
+	<dynamic-element dataType="string" indexType="keyword" name="Nombre_facultad" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
+		<meta-data locale="es_ES">
+			<entry name="label">
+				<![CDATA[Nombre facultad]]>
+			</entry>
+			<entry name="predefinedValue">
+				<![CDATA[]]>
+			</entry>
+			<entry name="tip">
+				<![CDATA[]]>
+			</entry>
+		</meta-data>
+	</dynamic-element>
+	<dynamic-element dataType="image" fieldNamespace="wcm" indexType="keyword" name="imgs" readOnly="false" repeatable="true" required="true" showLabel="true" type="wcm-image" width="">
+		<meta-data locale="es_ES">
+			<entry name="label">
+				<![CDATA[Imagen]]>
+			</entry>
+			<entry name="predefinedValue">
+				<![CDATA[]]>
+			</entry>
+			<entry name="tip">
+				<![CDATA[]]>
+			</entry>
+		</meta-data>
+	</dynamic-element>
+	<dynamic-element dataType="string" indexType="keyword" name="Mision" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
+		<meta-data locale="es_ES">
+			<entry name="label">
+				<![CDATA[Mision]]>
+			</entry>
+			<entry name="predefinedValue">
+				<![CDATA[]]>
+			</entry>
+			<entry name="tip">
+				<![CDATA[]]>
+			</entry>
+		</meta-data>
+	</dynamic-element>
+	<dynamic-element dataType="string" indexType="keyword" name="Vision" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
+		<meta-data locale="es_ES">
+			<entry name="label">
+				<![CDATA[Vision]]>
+			</entry>
+			<entry name="predefinedValue">
+				<![CDATA[]]>
+			</entry>
+			<entry name="tip">
+				<![CDATA[]]>
+			</entry>
+		</meta-data>
+	</dynamic-element>
+	<dynamic-element dataType="string" indexType="keyword" name="Decano" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
+		<dynamic-element dataType="string" indexType="keyword" name="sexo" readOnly="false" repeatable="false" required="true" showLabel="true" type="radio" width="">
+			<dynamic-element name="option21428" type="option" value="decano">
+				<meta-data locale="es_ES">
+					<entry name="label">
+						<![CDATA[Hombre]]>
+					</entry>
+				</meta-data>
+			</dynamic-element>
+			<dynamic-element name="option21429" type="option" value="decana">
+				<meta-data locale="es_ES">
+					<entry name="label">
+						<![CDATA[Mujer]]>
+					</entry>
+				</meta-data>
+			</dynamic-element>
+			<meta-data locale="es_ES">
+				<entry name="label">
+					<![CDATA[Sexo]]>
+				</entry>
+				<entry name="predefinedValue">
+					<![CDATA[["decano"]]]>
+				</entry>
+				<entry name="tip">
+					<![CDATA[]]>
+				</entry>
+			</meta-data>
+		</dynamic-element>
+		<meta-data locale="es_ES">
+			<entry name="label">
+				<![CDATA[Decano]]>
+			</entry>
+			<entry name="predefinedValue">
+				<![CDATA[]]>
+			</entry>
+			<entry name="tip">
+				<![CDATA[]]>
+			</entry>
+		</meta-data>
+	</dynamic-element>
+	<dynamic-element dataType="string" indexType="keyword" name="Subdecano" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
+		<dynamic-element dataType="string" indexType="keyword" name="sexo" readOnly="false" repeatable="false" required="true" showLabel="true" type="radio" width="">
+			<dynamic-element name="option21893" type="option" value="decano">
+				<meta-data locale="es_ES">
+					<entry name="label">
+						<![CDATA[Hombre]]>
+					</entry>
+				</meta-data>
+			</dynamic-element>
+			<dynamic-element name="option21894" type="option" value="decana">
+				<meta-data locale="es_ES">
+					<entry name="label">
+						<![CDATA[Mujer]]>
+					</entry>
+				</meta-data>
+			</dynamic-element>
+			<meta-data locale="es_ES">
+				<entry name="label">
+					<![CDATA[Sexo]]>
+				</entry>
+				<entry name="predefinedValue">
+					<![CDATA[["decano"]]]>
+				</entry>
+				<entry name="tip">
+					<![CDATA[]]>
+				</entry>
+			</meta-data>
+		</dynamic-element>
+		<meta-data locale="es_ES">
+			<entry name="label">
+				<![CDATA[Subdecano]]>
+			</entry>
+			<entry name="predefinedValue">
+				<![CDATA[]]>
+			</entry>
+			<entry name="tip">
+				<![CDATA[]]>
+			</entry>
+		</meta-data>
+	</dynamic-element>
+</root>

@@ -1,11 +1,145 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-
-
-<root>
-    
+<root available-locales="es_ES" default-locale="es_ES">
+	<dynamic-element dataType="string" indexType="keyword" name="direccion" readOnly="false" repeatable="false" required="true" showLabel="true" type="textarea" width="small">
+		<meta-data locale="es_ES">
+			<entry name="label">
+				<![CDATA[direccion]]>
+			</entry>
+			<entry name="predefinedValue">
+				<![CDATA[]]>
+			</entry>
+			<entry name="tip">
+				<![CDATA[]]>
+			</entry>
+		</meta-data>
+	</dynamic-element>
+	<dynamic-element dataType="string" indexType="keyword" name="Telefono" readOnly="false" repeatable="true" required="true" showLabel="true" type="textarea" width="small">
+		<meta-data locale="es_ES">
+			<entry name="label">
+				<![CDATA[Telefono]]>
+			</entry>
+			<entry name="predefinedValue">
+				<![CDATA[]]>
+			</entry>
+			<entry name="tip">
+				<![CDATA[]]>
+			</entry>
+		</meta-data>
+	</dynamic-element>
+	<dynamic-element dataType="string" indexType="keyword" name="Horario_administracion" readOnly="false" repeatable="false" required="true" showLabel="true" type="textarea" width="small">
+		<meta-data locale="es_ES">
+			<entry name="label">
+				<![CDATA[Horario administracion]]>
+			</entry>
+			<entry name="predefinedValue">
+				<![CDATA[]]>
+			</entry>
+			<entry name="tip">
+				<![CDATA[]]>
+			</entry>
+		</meta-data>
+	</dynamic-element>
+	<dynamic-element dataType="string" indexType="keyword" name="Horario_clases" readOnly="false" repeatable="false" required="true" showLabel="true" type="textarea" width="small">
+		<meta-data locale="es_ES">
+			<entry name="label">
+				<![CDATA[Horario clases]]>
+			</entry>
+			<entry name="predefinedValue">
+				<![CDATA[]]>
+			</entry>
+			<entry name="tip">
+				<![CDATA[]]>
+			</entry>
+		</meta-data>
+	</dynamic-element>
+	<dynamic-element dataType="string" indexType="keyword" name="Facebook" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
+		<meta-data locale="es_ES">
+			<entry name="label">
+				<![CDATA[Facebook]]>
+			</entry>
+			<entry name="predefinedValue">
+				<![CDATA[https://www.facebook.com/pages/Universidad-Central-Del-Ecuador/598013870242930?fref=nf]]>
+			</entry>
+			<entry name="tip">
+				<![CDATA[]]>
+			</entry>
+		</meta-data>
+	</dynamic-element>
+	<dynamic-element dataType="string" indexType="keyword" name="Twitter" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
+		<meta-data locale="es_ES">
+			<entry name="label">
+				<![CDATA[Twitter]]>
+			</entry>
+			<entry name="predefinedValue">
+				<![CDATA[https://twitter.com/UCentralEcuador]]>
+			</entry>
+			<entry name="tip">
+				<![CDATA[]]>
+			</entry>
+		</meta-data>
+	</dynamic-element>
+	<dynamic-element dataType="string" indexType="keyword" name="YouTube" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
+		<meta-data locale="es_ES">
+			<entry name="label">
+				<![CDATA[YouTube]]>
+			</entry>
+			<entry name="predefinedValue">
+				<![CDATA[https://www.youtube.com/channel/UCBg2ksNwht164otsChyMhRA]]>
+			</entry>
+			<entry name="tip">
+				<![CDATA[]]>
+			</entry>
+		</meta-data>
+	</dynamic-element>
+	<dynamic-element dataType="string" indexType="keyword" name="Otra_Red_Social" readOnly="false" repeatable="true" required="false" showLabel="true" type="text" width="small">
+		<dynamic-element dataType="string" indexType="keyword" name="icono" readOnly="false" repeatable="false" required="false" showLabel="true" type="text" width="small">
+			<meta-data locale="es_ES">
+				<entry name="label">
+					<![CDATA[icono]]>
+				</entry>
+				<entry name="predefinedValue">
+					<![CDATA[]]>
+				</entry>
+				<entry name="tip">
+					<![CDATA[]]>
+				</entry>
+			</meta-data>
+		</dynamic-element>
+		<meta-data locale="es_ES">
+			<entry name="label">
+				<![CDATA[Otra Red Social]]>
+			</entry>
+			<entry name="predefinedValue">
+				<![CDATA[https://www.youtube.com/channel/UCBg2ksNwht164otsChyMhRA]]>
+			</entry>
+			<entry name="tip">
+				<![CDATA[]]>
+			</entry>
+		</meta-data>
+	</dynamic-element>
+	<dynamic-element dataType="string" indexType="keyword" name="Blog" readOnly="false" repeatable="true" required="true" showLabel="true" type="text" width="small">
+		<dynamic-element dataType="string" indexType="keyword" name="Nombre" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
+			<meta-data locale="es_ES">
+				<entry name="label">
+					<![CDATA[Nombre]]>
+				</entry>
+				<entry name="predefinedValue">
+					<![CDATA[]]>
+				</entry>
+				<entry name="tip">
+					<![CDATA[]]>
+				</entry>
+			</meta-data>
+		</dynamic-element>
+		<meta-data locale="es_ES">
+			<entry name="label">
+				<![CDATA[Blog]]>
+			</entry>
+			<entry name="predefinedValue">
+				<![CDATA[https://www.youtube.com/channel/UCBg2ksNwht164otsChyMhRA]]>
+			</entry>
+			<entry name="tip">
+				<![CDATA[]]>
+			</entry>
+		</meta-data>
+	</dynamic-element>
 </root>

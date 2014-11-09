@@ -1,0 +1,41 @@
+<root available-locales="es_ES" default-locale="es_ES">
+	<dynamic-element dataType="link-to-page" fieldNamespace="ddm" indexType="keyword" name="Link_de_Interes" readOnly="false" repeatable="true" required="true" showLabel="true" type="ddm-link-to-page" width="small">
+		<dynamic-element dataType="string" indexType="keyword" name="icono" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
+			<meta-data locale="es_ES">
+				<entry name="label">
+					<![CDATA[icono]]>
+				</entry>
+				<entry name="predefinedValue">
+					<![CDATA[]]>
+				</entry>
+				<entry name="tip">
+					<![CDATA[nombre del icono ej. icon-twitter puede ver la lista completa aquí http://fortawesome.github.io/Font-Awesome/3.2.1/icons/ y aquí dacopan.github.com/portal-uce/public_html/icons.html<br/>]]>
+				</entry>
+			</meta-data>
+		</dynamic-element>
+		<dynamic-element dataType="string" indexType="keyword" name="titulo" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
+			<meta-data locale="es_ES">
+				<entry name="label">
+					<![CDATA[titulo]]>
+				</entry>
+				<entry name="predefinedValue">
+					<![CDATA[]]>
+				</entry>
+				<entry name="tip">
+					<![CDATA[]]>
+				</entry>
+			</meta-data>
+		</dynamic-element>
+		<meta-data locale="es_ES">
+			<entry name="label">
+				<![CDATA[Link de Interes]]>
+			</entry>
+			<entry name="predefinedValue">
+				<![CDATA[]]>
+			</entry>
+			<entry name="tip">
+				<![CDATA[]]>
+			</entry>
+		</meta-data>
+	</dynamic-element>
+</root>
