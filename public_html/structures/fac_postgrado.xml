@@ -108,7 +108,7 @@
 					</entry>
 				</meta-data>
 			</dynamic-element>
-			<dynamic-element dataType="link-to-page" fieldNamespace="ddm" indexType="keyword" name="link1" readOnly="false" repeatable="false" required="true" showLabel="true" type="ddm-link-to-page" width="small">
+                        <dynamic-element dataType="string" indexType="keyword" name="link1" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">			
 				<meta-data locale="es_ES">
 					<entry name="label">
 						<![CDATA[Link para visualizar pdf]]>
@@ -121,7 +121,7 @@
 					</entry>
 				</meta-data>
 			</dynamic-element>
-			<dynamic-element dataType="link-to-page" fieldNamespace="ddm" indexType="keyword" name="link2" readOnly="false" repeatable="false" required="true" showLabel="true" type="ddm-link-to-page" width="small">
+			<dynamic-element dataType="string" indexType="keyword" name="link2" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
 				<meta-data locale="es_ES">
 					<entry name="label">
 						<![CDATA[Link para descargar pdf]]>

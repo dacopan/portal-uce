@@ -1,0 +1,61 @@
+<div class="slide" id="slide4" data-slide="4" data-stellar-background-ratio="0.5" style="min-height: 300px;height: auto;padding-bottom: 30px;">
+    <div class="contentwrap row-fluid noticiesWrap">
+        <div class="fac-title span1">
+            <h1 class="title">Noticias</h1>
+        </div>
+
+        <ul class="og-grid noticies">
+        #if (!$Noticia.getSiblings().isEmpty())
+        
+        #set($notis=$Noticia.getSiblings())
+        #set($ct=$notis.size())
+        
+	    #foreach ($cur_Noticia in $Noticia.getSiblings())
+	
+	        #if( $foreach.count > 100 )
+                #break
+            #end
+
+	        #if(true)
+	        
+	            #if ($getterUtil.getBoolean($cur_Noticia.getData()))
+	<li>
+                <div class="noticeX double"> 
+                    <img class="img-0" src="images/tmp/fac_banner01.jpg" alt="notice"/>
+                    <div class="figcaption">                                                                   
+                        <div class="pp3"><h2 class="title">Noticia $velocityCount $foreach.count $velocityHasNext</h2>
+                            <span class="fg-hover-extraLightBlue">Leer más</span></div>
+                    </div>
+                    <div class="clear"></div>
+
+                    <div class="rb-overlay">
+                        <span class="rb-close">close</span>
+                        <div class="rb-week">
+                            <div class="img-full" style="clear: both;">
+                                <img src="images/tmp/comunicado2.jpg" alt="Dress" class="scale-with-grid" />
+                            </div>
+                            <h2 class="full-title">
+                                Noticia destacada de muestra
+                                <span class="date">September 25, 2012 | Andre Gagnon</span>
+                            </h2>
+                            <hr/>
+                            <div class="full-content">
+                                Full content
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </li>
+            #end
+	#end
+	
+	#end
+#end
+            
+
+        </ul>
+
+    </div>
+    <a class="scrollbut" data-slide="5"></a>
+</div>
