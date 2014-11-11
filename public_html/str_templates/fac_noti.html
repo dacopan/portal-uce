@@ -1,25 +1,24 @@
-<div class="slide" id="slide4" data-slide="4" data-stellar-background-ratio="0.5" style="min-height: 300px;height: auto;padding-bottom: 30px;">
-    <div class="contentwrap row-fluid noticiesWrap">
-        <div class="fac-title span1">
-            <h1 class="title">Noticias</h1>
-        </div>
-
-        <ul class="og-grid noticies">
-        #if (!$Noticia.getSiblings().isEmpty())
+#set($ct=$notis.size())
+#set($notis=$Noticia.getSiblings())
+ #set( $count = 0)
+ #set( $count1 = 0)
+#if (!$Noticia.getSiblings().isEmpty())
+    #foreach ($cur_Noticia in $Noticia.getSiblings())
+    
+    #set( $count1 = $count%3)
+    
+    #set( $count = $count+1)
+        #if($count1==0)
+            <div class="slide" id="slide4" data-slide="4" data-stellar-background-ratio="0.5" style="min-height: 300px;height: auto;padding-bottom: 30px;">
+                <div class="contentwrap row-fluid noticiesWrap">
+                    <div class="fac-title span1">
+                        <h1 class="title">Noticias</h1>
+                </div>
+                <ul class="og-grid noticies">
+        #end
         
-        #set($notis=$Noticia.getSiblings())
-        #set($ct=$notis.size())
         
-	    #foreach ($cur_Noticia in $Noticia.getSiblings())
-	
-	        #if( $foreach.count > 100 )
-                #break
-            #end
-
-	        #if(true)
-	        
-	            #if ($getterUtil.getBoolean($cur_Noticia.getData()))
-	<li>
+        <li>
                 <div class="noticeX double"> 
                     <img class="img-0" src="images/tmp/fac_banner01.jpg" alt="notice"/>
                     <div class="figcaption">                                                                   
@@ -46,16 +45,25 @@
                         </div>
                     </div>
                 </div>
-            </li>
-            #end
-	#end
-	
-	#end
+        </li>
+        
+        
+        
+    
+    
+    
+    
+         #set( $count1 = $count%3)
+        #if($count1==0 || !$velocityHasNext || $velocityCount > 97)
+                </ul>
+                </div>
+                <a class="scrollbut" data-slide="5"></a>
+            </div>
+        @page_break@
+        #end
+        #if( $velocityCount > 97 )
+                #break
+        #end
+    #end
+
 #end
-            
-
-        </ul>
-
-    </div>
-    <a class="scrollbut" data-slide="5"></a>
-</div>

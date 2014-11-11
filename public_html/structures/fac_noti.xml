@@ -1,7 +1,7 @@
 <root available-locales="es_ES" default-locale="es_ES">
 	<dynamic-element dataType="boolean" indexType="keyword" name="Noticia" readOnly="false" repeatable="true" required="true" showLabel="true" type="checkbox" width="">
 		<dynamic-element dataType="string" indexType="keyword" name="Titulo_Noticia" readOnly="false" repeatable="false" required="true" showLabel="true" type="textarea" width="small">
-			<dynamic-element dataType="date" fieldNamespace="ddm" indexType="keyword" name="Fecha9364" readOnly="false" repeatable="false" required="false" showLabel="true" type="ddm-date" width="small">
+			<dynamic-element dataType="date" fieldNamespace="ddm" indexType="keyword" name="Fecha9364" readOnly="false" repeatable="false" required="true" showLabel="true" type="ddm-date" width="small">
 				<meta-data locale="es_ES">
 					<entry name="label">
 						<![CDATA[Fecha]]>
@@ -27,7 +27,7 @@
 					</entry>
 				</meta-data>
 			</dynamic-element>
-			<dynamic-element dataType="image" fieldNamespace="wcm" indexType="keyword" name="Imagen10716" readOnly="false" repeatable="false" required="true" showLabel="true" type="wcm-image" width="">
+			<dynamic-element dataType="string" indexType="keyword" name="imagen" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
 				<meta-data locale="es_ES">
 					<entry name="label">
 						<![CDATA[Imagen]]>
@@ -77,5 +77,4 @@
 			</entry>
 		</meta-data>
 	</dynamic-element>
-	
 </root>
