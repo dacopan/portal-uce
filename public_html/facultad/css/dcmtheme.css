@@ -3244,14 +3244,23 @@ html.mm-opening #hamburger:after
 .portlet-dropzone.portlet-column-content.portlet-column-only,.portlet-boundary,.portlet,.portlet-content,.portlet-content-container,.portlet-body,.journal-content-article{
     /*height: 100%!important;
     min-height: 100%;*/
-    height: 100%!important;
-    min-height: 300px;
+   height: auto!important;
+    min-height: 100%;
 }
-#headx .portlet-dropzone.portlet-column-content.portlet-column-only,#headx .portlet-boundary,#headx .portlet,.portlet-content, #headx .portlet-content-container,#headx .portlet-body,#headx .journal-content-article{
+
+.portlet-column.portlet-column-only {
+    width: 100%;
+    height: auto;
+}
+#headx .portlet-dropzone.portlet-column-content.portlet-column-only,#headx .portlet-boundary,.portlet,#headx .portlet-content,#headx .portlet-content-container,#headx .portlet-body,#headx .journal-content-article{
     /*height: 100%!important;
     min-height: 100%;*/
-    height: 100%!important;
-    min-height: 300px;
+   height: 100%!important;
+    min-height: 100%;
+}
+#headx.portlet-column.portlet-column-only {
+    width: 100%;
+    height: 100%;
 }
 
 .aui .portlet-content, .aui .portlet-minimized .portlet-content-container{
@@ -5312,7 +5321,7 @@ span.date a.bubble, span.date a.bubble:hover {
     padding: 0;
 }
 
-html, body,#wrapperscroll,#porletwrap,.metro .mm-page,.portlet-column.portlet-column-only{
+html, body,#wrapperscroll,#porletwrap,.metro .mm-page{
     width: 100%;
     height: auto;
     /*background-color: #333;*/
