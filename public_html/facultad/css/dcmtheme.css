@@ -3242,8 +3242,16 @@ html.mm-opening #hamburger:after
 /* #Porlet header
 ================================================== */
 .portlet-dropzone.portlet-column-content.portlet-column-only,.portlet-boundary,.portlet,.portlet-content,.portlet-content-container,.portlet-body,.journal-content-article{
+    /*height: 100%!important;
+    min-height: 100%;*/
     height: 100%!important;
-    min-height: 100%;
+    min-height: 300px;
+}
+#headx .portlet-dropzone.portlet-column-content.portlet-column-only,#headx .portlet-boundary,#headx .portlet,.portlet-content, #headx .portlet-content-container,#headx .portlet-body,#headx .journal-content-article{
+    /*height: 100%!important;
+    min-height: 100%;*/
+    height: 100%!important;
+    min-height: 300px;
 }
 
 .aui .portlet-content, .aui .portlet-minimized .portlet-content-container{
@@ -5306,7 +5314,7 @@ span.date a.bubble, span.date a.bubble:hover {
 
 html, body,#wrapperscroll,#porletwrap,.metro .mm-page,.portlet-column.portlet-column-only{
     width: 100%;
-    height: 100%;
+    height: auto;
     /*background-color: #333;*/
 }
 
@@ -5948,7 +5956,7 @@ html, body,#wrapperscroll,#porletwrap,.metro .mm-page,.portlet-column.portlet-co
     background-color: #fff;
     width: 80px;
     height: 80px;
-    color: #000;
+    color: #9C9B9B;
     /* padding: 27px; */
     display: block;
     vertical-align: middle;
@@ -5958,9 +5966,10 @@ html, body,#wrapperscroll,#porletwrap,.metro .mm-page,.portlet-column.portlet-co
 }
 .metro .links li{
     padding: 0px;
+    margin-bottom: 0px;
 }
 .metro .links .og-grid{
-    max-width: 500px;
+    max-width: 900px;
 }
 .metro .links a > span{
     font-size: 13px;
@@ -5993,7 +6002,25 @@ html, body,#wrapperscroll,#porletwrap,.metro .mm-page,.portlet-column.portlet-co
     display: block;
     -webkit-animation-name: scale;
     animation-name: scale;
+}
+.metro .links .sub-title {
+width: 80px!important;
+overflow: hidden;
+font-size: 12px;
+word-wrap: normal!important;
+max-width: 80px;
+display: block;
+color:#fff;
 
+-webkit-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+    -moz-transition: all 0.3s ease 0s;
+    border-radius: 50%;
+
+}
+.metro .links li:hover > .sub-title{
+    opacity: 0;
 }
 /*</editor-fold>*/
 /* #Footer

@@ -20,9 +20,9 @@
         
         <li>
                 <div class="noticeX double"> 
-                    <img class="img-0" src="images/tmp/fac_banner01.jpg" alt="notice"/>
+                    <img class="img-0" src="$cur_Noticia.imagen.getData()" alt="notice"/>
                     <div class="figcaption">                                                                   
-                        <div class="pp3"><h2 class="title">Noticia $velocityCount $foreach.count $velocityHasNext</h2>
+                        <div class="pp3"><h2 class="title">$cur_Noticia.Titulo_Noticia.getData()</h2>
                             <span class="fg-hover-extraLightBlue">Leer más</span></div>
                     </div>
                     <div class="clear"></div>
@@ -31,11 +31,11 @@
                         <span class="rb-close">close</span>
                         <div class="rb-week">
                             <div class="img-full" style="clear: both;">
-                                <img src="images/tmp/comunicado2.jpg" alt="Dress" class="scale-with-grid" />
+                                <img src="$cur_Noticia.imagen.getData()" alt="Dress" class="scale-with-grid" />
                             </div>
                             <h2 class="full-title">
-                                Noticia destacada de muestra
-                                <span class="date">September 25, 2012 | Andre Gagnon</span>
+                               $cur_Noticia.Titulo_Noticia.getData()
+                                <span class="date">$cur_Noticia.Fecha.getData() | $cur_Noticia.Autor.getData()</span>
                             </h2>
                             <hr/>
                             <div class="full-content">
