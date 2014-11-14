@@ -1,69 +1,81 @@
 #set($ct=$notis.size())
 #set($notis=$Noticia.getSiblings())
- #set( $count = 0)
- #set( $count1 = 0)
+#set( $count = 0)
+#set( $count1 = 0)
 #if (!$Noticia.getSiblings().isEmpty())
-    #foreach ($cur_Noticia in $Noticia.getSiblings())
-    
-    #set( $count1 = $count%3)
-    
-    #set( $count = $count+1)
-        #if($count1==0)
-            <div class="slide" id="slide4" data-slide="4" data-stellar-background-ratio="0.5" style="min-height: 300px;height: auto;padding-bottom: 30px;">
-                <div class="contentwrap row-fluid noticiesWrap">
-                    <div class="fac-title span1">
-                        <h1 class="title">Noticias</h1>
-                </div>
-                <ul class="og-grid noticies">
-        #end
-        
-        
-        <li>
-                <div class="noticeX double"> 
+#foreach ($cur_Noticia in $Noticia.getSiblings())
+
+#if($velocityCount > 97)
+#break
+#end
+#set( $count1 = $count%3)
+
+#set( $count = $count+1)
+#if($count1==0)
+<div class="slide" id="slide4" data-slide="4" data-stellar-background-ratio="0.5" style="min-height: 300px;height: auto;padding-bottom: 30px;">
+    <div class="contentwrap row-fluid noticiesWrap">
+        <div class="fac-title span1">
+            <h1 class="title">Noticias</h1>
+        </div>
+        <ul class="og-grid noticies">
+            #end
+
+
+            <li>
+                <div class="noticeX #if($count1==0) double#end">                     
                     <img class="img-0" src="$cur_Noticia.imagen.getData()" alt="notice"/>
-                    <div class="figcaption">                                                                   
-                        <div class="pp3"><h2 class="title">$cur_Noticia.Titulo_Noticia.getData()</h2>
+                    <div class="figcaption">                                                                                    
+                        <div class="pp3"><h2 class="title">$cur_Noticia.titulo.getData()</h2>
                             <span class="fg-hover-extraLightBlue">Leer más</span></div>
                     </div>
                     <div class="clear"></div>
 
                     <div class="rb-overlay">
-                        <span class="rb-close">close</span>
-                        <div class="rb-week">
-                            <div class="img-full" style="clear: both;">
-                                <img src="$cur_Noticia.imagen.getData()" alt="Dress" class="scale-with-grid" />
-                            </div>
-                            <h2 class="full-title">
-                               $cur_Noticia.Titulo_Noticia.getData()
-                                <span class="date">$cur_Noticia.Fecha.getData() | $cur_Noticia.Autor.getData()</span>
-                            </h2>
-                            <hr/>
-                            <div class="full-content">
-                                Full content
+                        <div class="rb-week">         
+                            <span class="rb-close">close</span>
+                            <div class="full-content">                                                                                        
+                                <div class="contentwrap">                                                                                            
+                                    <h2 class="full-title">
+                                        $cur_Noticia.titulo.getData()                                                                                             
+                                    </h2>
+                                    #set ($FechaObj = $dateUtil.newDate($getterUtil.getLong($cur_Noticia.fecha.getData())))
+                                    <span class="date">Publicado. $dateUtil.getDate($FechaObj, "MMMM dd, yyyy", $locale) | $cur_Noticia.autor.getData()</span>
+                                    <h3 class="sub-title">
+                                        $cur_Noticia.subtitulo.getData()
+                                    </h3>
+                                    <div class="img-full" style="background-image: url($cur_Noticia.imagen.getData());">                                                                                            
+                                    </div>
+                                    <div class="full-html">
+                                        $cur_Noticia.contenido.getData()
+                                    </div>
+                                </div>
                             </div>
 
                         </div>
                     </div>
                 </div>
-        </li>
-        
-        
-        
-    
-    
-    
-    
-         #set( $count1 = $count%3)
-        #if($count1==0 || !$velocityHasNext || $velocityCount > 97)
-                </ul>
-                </div>
-                <a class="scrollbut" data-slide="5"></a>
-            </div>
-        @page_break@
-        #end
-        #if( $velocityCount > 97 )
-                #break
-        #end
-    #end
+            </li>
+
+
+
+
+
+
+
+            #set( $count1 = $count%3)
+            #if($count1==0 || !$velocityHasNext || $velocityCount > 97)
+            #set( $count = 0)
+        </ul>
+    </div>
+    <a class="scrollbut" data-slide="5"></a>
+</div>
+#if($velocityHasNext)
+@page_break@
+#end
+#end
+#if( $velocityCount > 97 )
+#break
+#end
+#end
 
 #end

@@ -4563,6 +4563,7 @@ span.date a.bubble, span.date a.bubble:hover {
 }
 .rb-overlay .full-html{
     padding-bottom: 20px;
+    padding-top: 10px;
 }
 /*TMP*/
 .nivoSlider {

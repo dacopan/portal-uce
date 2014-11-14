@@ -1,7 +1,7 @@
 
 <root available-locales="es_ES" default-locale="es_ES">
 	<dynamic-element dataType="boolean" indexType="keyword" name="Noticia" readOnly="false" repeatable="true" required="true" showLabel="true" type="checkbox" width="">
-		<dynamic-element dataType="string" indexType="keyword" name="Titulo_Noticia" readOnly="false" repeatable="false" required="true" showLabel="true" type="textarea" width="small">
+		<dynamic-element dataType="string" indexType="keyword" name="titulo" readOnly="false" repeatable="false" required="true" showLabel="true" type="textarea" width="small">
 			<meta-data locale="es_ES">
 				<entry name="label">
 					<![CDATA[Titulo Noticia]]>
@@ -14,7 +14,20 @@
 				</entry>
 			</meta-data>
 		</dynamic-element>
-		<dynamic-element dataType="date" fieldNamespace="ddm" indexType="keyword" name="Fecha" readOnly="false" repeatable="false" required="true" showLabel="true" type="ddm-date" width="small">
+                <dynamic-element dataType="string" indexType="keyword" name="subtitulo" readOnly="false" repeatable="false" required="false" showLabel="true" type="textarea" width="small">
+			<meta-data locale="es_ES">
+				<entry name="label">
+					<![CDATA[Subtitulo Noticia]]>
+				</entry>
+				<entry name="predefinedValue">
+					<![CDATA[]]>
+				</entry>
+				<entry name="tip">
+					<![CDATA[]]>
+				</entry>
+			</meta-data>
+		</dynamic-element>
+		<dynamic-element dataType="date" fieldNamespace="ddm" indexType="keyword" name="fecha" readOnly="false" repeatable="false" required="true" showLabel="true" type="ddm-date" width="small">
 			<meta-data locale="es_ES">
 				<entry name="label">
 					<![CDATA[Fecha]]>
@@ -27,7 +40,7 @@
 				</entry>
 			</meta-data>
 		</dynamic-element>
-		<dynamic-element dataType="string" indexType="keyword" name="Autor" readOnly="false" repeatable="false" required="false" showLabel="true" type="text" width="small">
+		<dynamic-element dataType="string" indexType="keyword" name="autor" readOnly="false" repeatable="false" required="false" showLabel="true" type="text" width="small">
 			<meta-data locale="es_ES">
 				<entry name="label">
 					<![CDATA[Autor]]>
@@ -53,7 +66,7 @@
 				</entry>
 			</meta-data>
 		</dynamic-element>
-		<dynamic-element dataType="html" fieldNamespace="ddm" indexType="keyword" name="Contenido_noticia" readOnly="false" repeatable="false" required="true" showLabel="true" type="ddm-text-html" width="small">
+		<dynamic-element dataType="html" fieldNamespace="ddm" indexType="keyword" name="contenido" readOnly="false" repeatable="false" required="true" showLabel="true" type="ddm-text-html" width="small">
 			<meta-data locale="es_ES">
 				<entry name="label">
 					<![CDATA[Contenido noticia]]>
