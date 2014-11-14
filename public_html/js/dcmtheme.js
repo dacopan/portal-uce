@@ -3254,7 +3254,9 @@ var Boxgrid = (function() {
                         clipPropFirst = 'rect(' + layoutProp.top + 'px ' + (layoutProp.left + layoutProp.width) + 'px ' + (layoutProp.top + layoutProp.height) + 'px ' + layoutProp.left + 'px)',
                         clipPropLast = 'rect(0px ' + winsize.width + 'px ' + winsize.height + 'px 0px)';
                 $overlay.css({
+                    transformOrigin: layoutProp.left + 'px ' + layoutProp.top + 'px',
                     clip: supportTransitions ? clipPropFirst : clipPropLast,
+                    transform: supportTransitions ? 'rotate(45deg)' : 'none',
                     opacity: 1,
                     zIndex: 9999,
                     pointerEvents: 'auto'
@@ -3264,7 +3266,7 @@ var Boxgrid = (function() {
 
                         $overlay.off(transEndEventName);
                         setTimeout(function() {
-                            $overlay.css('clip', clipPropLast).on(transEndEventName, function() {
+                            $overlay.css({clip: clipPropLast, transform: 'rotate(0deg)'}).on(transEndEventName, function() {
                                 $overlay.off(transEndEventName);
                                 $body.css('overflow-y', 'hidden');
                             });
@@ -4104,7 +4106,7 @@ var DCMGrid = (function() {
             }
         }
 
-       // init(); //start facultades grid detail slice
+        // init(); //start facultades grid detail slice
     });
 
     /* return {
@@ -4807,6 +4809,58 @@ $(function() {
 
 $(window).load(function() {
 
+//featured isotope
+    var $container3 = jQuery('div.isofeatured'), $colnum;
+    $container3.isotope({
+        // options
+        itemSelector: '.isobrick',
+        layoutMode: 'masonry', masonry: {
+            columnWidth: 5, isFitWidth: true
+        }
+    });
+
+    jQuery(window).resize(function() {
+        $container3.isotope({
+            // options
+            itemSelector: '.isobrick',
+            layoutMode: 'masonry', masonry: {
+                columnWidth: 5, isFitWidth: true
+            }
+        });
+
+        $('.va-container').css({width: $($('.isofeatured .isobrick.half')[0]).width(), height: $('.va-container').height()});
+
+    });
+    $(function() {
+        $('.va-container').vaccordion({
+            expandedHeight: 270,
+            //animSpeed: 400,
+            animOpacity: 0.7,
+            visibleSlices: 4,
+            accordionW: $('.va-container').outerWidth(),
+            accordionH: $('.va-container').outerHeight(),
+        });
+        /* destroyCrappyPlugin($('.va-container'),'vaccordion');
+         destroyCrappyPlugin($('.va-container'),'clic.vaccordion');
+         destroyCrappyPlugin($('.va-container'),'mousewheel.vaccordion');
+         */
+    });
+
+    $(function() {
+        Boxgrid.init();
+
+        $('.noticiesWrap').each(function() {
+            $(this).addClass("oculto").viewportChecker({
+                classToAdd: 'visible animated fadeInUp', // Class to add to the elements when they are visible
+                offset: 300, // The offset of the elements (let them appear earlier or later)
+                repeat: false, // Add the possibility to remove the class if the elements are not visible
+                callbackFunction: function(elem, action) {
+                }, // Callback to do after a class was added to an element. Action will return "add" or "remove", depending if the class was added or removed
+                scrollHorizontal: false // Set to true if your website scrolls horizontal instead of vertical.
+            });
+        });
+    });
+
     $('.has-full-view').each(function() {
         var $overlay = $($(this).attr('href'));
         var $window = $(window);
@@ -4855,7 +4909,7 @@ $(window).load(function() {
         });
 
         //radio
-        if (!!document.createElement('audio').canPlayType&&false) {
+        if (!!document.createElement('audio').canPlayType && false) {
 
             $('<audio id="radioplay" class="oculto" src="http://s3.myradiostream.com:7258/;"></audio>').appendTo('#page');
             $('#radiox').click(function(e) {
@@ -4867,9 +4921,20 @@ $(window).load(function() {
                     ra.trigger("pause");
                 }
             });
-        }else{
+        } else {
             //$('#radiox').remove();
         }
+        /*                                                             
+         $('.homeslider.on').each(function() {
+         var $this = jQuery(this);
+         $this.nivoSlider({effect: 'fade', slices: 15, boxCols: 8, boxRows: 4, animSpeed: 800, pauseTime: Math.floor(Math.random() * 10001) + 3000, startSlide: 0, directionNav: false, directionNavHide: true, controlNav: false, controlNavThumbs: false, pauseOnHover: true, manualAdvance: false, prevText: 'Prev', nextText: 'Next', randomStart: false, beforeChange: function() {
+         }, afterChange: function() {
+         }, slideshowEnd: function() {
+         }, lastSlide: function() {
+         }, afterLoad: function() {
+         }});
+         });
+         //*/
     }
     //*/
     //parallax
@@ -4894,6 +4959,8 @@ $(document).ready(function() {
         }
         e.preventDefault();
     });
+
+    innerNavigate();
 });
 /* #Radial menu
  ================================================== */
@@ -4902,10 +4969,83 @@ $(document).ready(function() {
 //</editor-fold>
 
 
-/* #Title
+/* #innerNavigate
  ================================================== */
-//<editor-fold defaultstate="collapsed" desc="title">
-
+//<editor-fold defaultstate="collapsed" desc="innerNavigate">
+function innerNavigate() {
+//  /*
+    //var links = $('#navigation').find('li a');
+    var links = $('a.toSlide');
+    slide = $('.slide');
+    button = $('.scrollbut');
+    //mywindow = $('#wrapperscroll');
+    mywindow = $(window);
+    htmlbody = $('html,body');
+    dataslide = 1;
+    /*
+     $(links).removeClass('current');
+     //Setup waypoints plugin
+     slide.waypoint(function(event, direction) {
+     //cache the variable of the data-slide attribute associated with each slide
+     dataslide = $(this).attr('data-slide');
+     //If the user scrolls up change the navigation link that has the same data-slide attribute as the slide to active and
+     //remove the active class from the previous navigation link
+     if (direction === 'down') {
+     $('#navigation li a[data-slide="' + dataslide + '"]').parent().addClass('current').prev().removeClass('current');
+     }
+     // else If the user scrolls down change the navigation link that has the same data-slide attribute as the slide to active and
+     //remove the active class from the next navigation link
+     else {
+     //alert(parseInt(dataslide));
+     $('#navigation li a[data-slide="' + (parseInt(dataslide)) + '"]').parent().addClass('current').next().removeClass('current');
+     if (mywindow.scrollTop() < 80) {
+     //alert(" in if");
+     $('#navigation li a[data-slide="1"]').parent().addClass('current');
+     $('#navigation li a[data-slide="2"]').parent().removeClass('current');
+     }
+     }
+     
+     }, {
+     offset: 0
+     });
+     //waypoints doesnt detect the first slide when user scrolls back up to the top so we add this little bit of code, that removes the class
+     //from navigation link slide 2 and adds it to navigation link slide 1.
+     mywindow.scroll(function() {
+     if (mywindow.scrollTop() < 80) {
+     //alert(" in if");
+     $('#navigation li a[data-slide="1"]').parent().addClass('current');
+     $('#navigation li a[data-slide="2"]').parent().removeClass('current');
+     }
+     });
+     */
+    //Create a function that will be passed a slide number and then will scroll to that slide using jquerys animate. The Jquery
+    //easing plugin is also used, so we passed in the easing method of 'easeInOutQuint' which is available throught the plugin.
+    function goToByScroll(dataslide) {
+        //alert(dataslide);
+        var q = $('.slide[data-slide="' + dataslide + '"]').offset().top;
+        htmlbody.animate({
+            scrollTop: q
+        }, 2500, 'easeInOutBack');        
+        /*  htmlbody.animate({
+         scrollTop: q                                                                  }, 1000, 'easeInOutExpo');*/
+    }
+    //When the user clicks on the navigation links, get the data-slide attribute value of the link and pass that variable to the goToByScroll function
+    links.click(function(e) {
+        e.preventDefault();
+        dataslide = $(this).attr('data-slide'); //alert(dataslide);
+        goToByScroll(dataslide);       
+    });
+    //When the user clicks on the button, get the get the data-slide attribute value of the button and pass that variable to the goToByScroll function
+    button.click(function(e) {
+        e.preventDefault();
+        dataslide = $(this).attr('data-slide');
+        goToByScroll(dataslide);
+    });
+    //  TweenMax.to($("#navBar"), 1.5, {delay: 0.2, scaleX: "-=0.02", scaleY: "-=0.02", repeat: -1, yoyo: true, ease: Linear.easeNone});
+    //  TweenMax.to($(".one_col"), 1.5, {delay: 0.2, scaleX: "-=0.02", scaleY: "-=0.02", repeat: -1, yoyo: true, ease: Linear.easeNone});                                                                                                                                
+    //  var scene = document.getElementById('scene');
+    //var parallax = new Parallax(scene);
+}
 //</editor-fold>
 
 

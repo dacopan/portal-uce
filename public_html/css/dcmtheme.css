@@ -3245,7 +3245,7 @@ html.mm-opening #hamburger:after
 .portlet-dropzone.portlet-column-content.portlet-column-only,.portlet-boundary,.portlet,.portlet-content,.portlet-content-container,.portlet-body,.journal-content-article{
     /*height: 100%!important;
     min-height: 100%;*/
-   height: auto!important;
+    height: auto!important;
     min-height: 100%;
 }
 
@@ -3256,7 +3256,7 @@ html.mm-opening #hamburger:after
 #headx .portlet-dropzone.portlet-column-content.portlet-column-only,#headx .portlet-boundary,.portlet,#headx .portlet-content,#headx .portlet-content-container,#headx .portlet-body,#headx .journal-content-article{
     /*height: 100%!important;
     min-height: 100%;*/
-   height: 100%!important;
+    height: 100%!important;
     min-height: 100%;
 }
 #headx.portlet-column.portlet-column-only {
@@ -4373,7 +4373,7 @@ body.metro{
 .featured .half .featuredoverlay, .featured .quarter .featuredoverlay {
     height: 200px; }
 
-.featured h2, .featured h2 a {
+.featured .noti-title, .featured .noti-title a {
     font-size: 30px;
     line-height: 32px;
     margin-bottom: 10px;
@@ -4394,20 +4394,14 @@ span.date {
     font-weight: normal;
     position: relative; }
 
-span.date, span.date a {
-    color: #555; }
-
 span.date a.bubble, span.date a.bubble:hover {
     position: absolute;
     right: 0;
     bottom: 0;
     color: #fff !important; }
 
-.featured span.date {
+.featured .noti-title span.date {
     margin-top: 5px;
-    color: #fff; }
-
-.featured span.date a {
     color: #fff; }
 
 .articleinner span.date {
@@ -4467,6 +4461,7 @@ span.date a.bubble, span.date a.bubble:hover {
     padding-right: 4px!important;
 }
 
+
 /* #Notices expander
 ================================================== */
 .rb-overlay {
@@ -4480,14 +4475,15 @@ span.date a.bubble, span.date a.bubble:hover {
     z-index: 99999!important;
     pointer-events: none;
     cursor: default;
-    border:30px rgba(0,0,0,0.6) solid;
-    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.3) inset;
-
+    /*border:30px rgba(0,0,0,0.6) solid;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.3) inset;*/
+    border:30px rgba(0,0,0,0) solid;
+    background-color: rgba(0,0,0,0.6);
 }
 .rb-close,rb-next,rb-prev {
     position: absolute;
-    top: 0.4em;
-    right: 0.4em;
+    top: 0px;
+    right: 0px;
     width: 2em;
     height: 2em;
     text-indent: -9000px;
@@ -4513,25 +4509,58 @@ span.date a.bubble, span.date a.bubble:hover {
     height: 100%;
     background: white;
     padding: 20px;
+    position: relative;
+    display: block;
+    max-width: 800px;
+    margin: auto;
 }
 
+.rb-overlay .img-full:before {
+    content: "";
+    display: block;
+    padding-bottom: 50%;
+}
 .rb-overlay .img-full {
-    float: left;
     margin-right: 20px;
-    max-width: 500px;
+    /* max-width: 500px; */
+    width: 100%;
+    height: auto;
+    display: block;
+    position: relative;
+    min-height: 80%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+    margin-top: 20px;
 }
 
 .rb-overlay h2.full-title {
     /* clear: both; */
     position: relative;
-    color: black;
+    color: #4275b9;
+    border-bottom: 2px solid #939393;
+    font-size: 3rem;
+    font-family: 'Adequate ExtraLight','Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
+    font-weight: 900;
+    padding-bottom: 10px;
+}
+.rb-overlay h3.sub-title{
+    color:#686868;    
+    font-family: 'Adequate ExtraLight','Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
+    font-size: 1.6rem;
+}
+.rb-overlay span.date{
+    text-align: right;
 }
 .rb-overlay .full-content {
     text-align: justify;
     position: relative;
     padding: 10px;
-    height: 80%;
+    height: 100%;
     overflow: hidden;
+}
+.rb-overlay .full-html{
+    padding-bottom: 20px;
 }
 /*TMP*/
 .nivoSlider {
@@ -4565,6 +4594,7 @@ span.date a.bubble, span.date a.bubble:hover {
     width:100%;
     left:0px;
     overflow:hidden;
+    border-bottom: 1px solid #FFFFFF;
 }
 
 .metro .va-title{
@@ -4987,12 +5017,12 @@ span.date a.bubble, span.date a.bubble:hover {
     animation-name: flipInX;
 }
 .og-box li, .og-box ul, .og-box.cars {
-font-size: 12px;
-color: #000;
-text-align: left;
-margin: 0px;
-padding-left: 5px;
-overflow: hidden;
+    font-size: 12px;
+    color: #000;
+    text-align: left;
+    margin: 0px;
+    padding-left: 5px;
+    overflow: hidden;
 }
 .og-grid.fac h5,.og-grid.fac h4,.og-grid.fac .spreview{
     padding: 12px 12px 1px 12px;
@@ -5316,7 +5346,14 @@ overflow: hidden;
 }
 /*#Scroll
 ================================================== */
-.ps-container .ps-scrollbar-x-rail{position:absolute;bottom:3px;height:8px;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px;opacity:0;filter:alpha(opacity=0);-o-transition:background-color .2s linear,opacity .2s linear;-webkit-transition:background-color .2s linear,opacity .2s linear;-moz-transition:background-color .2s linear,opacity .2s linear;transition:background-color .2s linear,opacity .2s linear}.ps-container:hover .ps-scrollbar-x-rail,.ps-container.hover .ps-scrollbar-x-rail{opacity:.6;filter:alpha(opacity=60)}.ps-container .ps-scrollbar-x-rail:hover,.ps-container .ps-scrollbar-x-rail.hover{background-color:#eee;opacity:.9;filter:alpha(opacity=90)}.ps-container .ps-scrollbar-x-rail.in-scrolling{background-color:#eee;opacity:.9;filter:alpha(opacity=90)}.ps-container .ps-scrollbar-y-rail{position:absolute;right:3px;width:8px;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px;opacity:0;filter:alpha(opacity=0);-o-transition:background-color .2s linear,opacity .2s linear;-webkit-transition:background-color .2s linear,opacity .2s linear;-moz-transition:background-color .2s linear,opacity .2s linear;transition:background-color .2s linear,opacity .2s linear}.ps-container:hover .ps-scrollbar-y-rail,.ps-container.hover .ps-scrollbar-y-rail{opacity:.6;filter:alpha(opacity=60)}.ps-container .ps-scrollbar-y-rail:hover,.ps-container .ps-scrollbar-y-rail.hover{background-color:#eee;opacity:.9;filter:alpha(opacity=90)}.ps-container .ps-scrollbar-y-rail.in-scrolling{background-color:#eee;opacity:.9;filter:alpha(opacity=90)}.ps-container .ps-scrollbar-x{position:absolute;bottom:0;height:8px;background-color:#aaa;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px;-o-transition:background-color .2s linear;-webkit-transition:background-color.2s linear;-moz-transition:background-color .2s linear;transition:background-color .2s linear}.ps-container.ie6 .ps-scrollbar-x{font-size:0}.ps-container .ps-scrollbar-x-rail:hover .ps-scrollbar-x,.ps-container .ps-scrollbar-x-rail.hover .ps-scrollbar-x{background-color:#999}.ps-container .ps-scrollbar-y{position:absolute;right:0;width:8px;background-color:#aaa;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px;-o-transition:background-color .2s linear;-webkit-transition:background-color.2s linear;-moz-transition:background-color .2s linear;transition:background-color .2s linear}.ps-container.ie6 .ps-scrollbar-y{font-size:0}.ps-container .ps-scrollbar-y-rail:hover .ps-scrollbar-y,.ps-container .ps-scrollbar-y-rail.hover .ps-scrollbar-y{background-color:#999}.ps-container.ie .ps-scrollbar-x,.ps-container.ie .ps-scrollbar-y{visibility:hidden}.ps-container.ie:hover .ps-scrollbar-x,.ps-container.ie:hover .ps-scrollbar-y,.ps-container.ie.hover .ps-scrollbar-x,.ps-container.ie.hover .ps-scrollbar-y{visibility:visible}
+.ps-container .ps-scrollbar-x-rail{position:absolute;bottom:3px;height:8px;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px;opacity:0;filter:alpha(opacity=0);-o-transition:background-color .2s linear,opacity .2s linear;-webkit-transition:background-color .2s linear,opacity .2s linear;-moz-transition:background-color .2s linear,opacity .2s linear;transition:background-color .2s linear,opacity .2s linear}
+.ps-container:hover .ps-scrollbar-x-rail,.ps-container.hover .ps-scrollbar-x-rail{opacity:0;filter:alpha(opacity=0)}
+.ps-container .ps-scrollbar-x-rail:hover,.ps-container .ps-scrollbar-x-rail.hover{background-color:#eee;opacity:.9;filter:alpha(opacity=90)}.ps-container .ps-scrollbar-x-rail.in-scrolling{background-color:#eee;opacity:.9;filter:alpha(opacity=90)}
+.ps-container .ps-scrollbar-y-rail{position:absolute;right:3px;width:8px;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px;opacity:0;filter:alpha(opacity=0);-o-transition:background-color .2s linear,opacity .2s linear;-webkit-transition:background-color .2s linear,opacity .2s linear;-moz-transition:background-color .2s linear,opacity .2s linear;transition:background-color .2s linear,opacity .2s linear}
+.ps-container .ps-scrollbar-y-rail,.ps-container.hover .ps-scrollbar-y-rail{opacity:.6;filter:alpha(opacity=60)}
+.ps-container .ps-scrollbar-y-rail,.ps-container .ps-scrollbar-y-rail.hover{background-color:#eee;opacity:.9;filter:alpha(opacity=90)}
+.ps-container .ps-scrollbar-y-rail.in-scrolling{background-color:#eee;opacity:.9;filter:alpha(opacity=90)}.ps-container .ps-scrollbar-x{position:absolute;bottom:0;height:8px;background-color:#aaa;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px;-o-transition:background-color .2s linear;-webkit-transition:background-color.2s linear;-moz-transition:background-color .2s linear;transition:background-color .2s linear}.ps-container.ie6 .ps-scrollbar-x{font-size:0}.ps-container .ps-scrollbar-x-rail:hover .ps-scrollbar-x,.ps-container .ps-scrollbar-x-rail.hover .ps-scrollbar-x{background-color:#999}.ps-container .ps-scrollbar-y{position:absolute;right:0;width:8px;background-color:#aaa;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px;-o-transition:background-color .2s linear;-webkit-transition:background-color.2s linear;-moz-transition:background-color .2s linear;transition:background-color .2s linear}.ps-container.ie6 .ps-scrollbar-y{font-size:0}.ps-container .ps-scrollbar-y-rail:hover .ps-scrollbar-y,.ps-container .ps-scrollbar-y-rail.hover .ps-scrollbar-y{background-color:#999}.ps-container.ie .ps-scrollbar-x,.ps-container.ie .ps-scrollbar-y{visibility:hidden}
+.ps-container.ie:hover .ps-scrollbar-x,.ps-container.ie:hover .ps-scrollbar-y,.ps-container.ie.hover .ps-scrollbar-x,.ps-container.ie.hover .ps-scrollbar-y{visibility:visible}
 
 /**from view.html**/
 /*CSS Document*/
