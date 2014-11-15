@@ -1,0 +1,51 @@
+<div class="slide postgradox" id="slide3" data-slide="3" data-stellar-background-ratio="0.5">
+    <div class="contentwrap row-fluid">
+        <div class="fac-title span1">
+            <h1 class="title">Postgrado</h1>
+        </div>
+        <div class="span9 oferta">
+            <h4 class="h4">oferta académica</h4>
+            <p class="ipp">$detalle.getData()</p>
+            <ul class="og-grid posgrados">
+
+                #if (!$maestrias.getSiblings().isEmpty())
+                #foreach ($cur_maestrias in $maestrias.getSiblings())
+
+                #if ($getterUtil.getBoolean($cur_maestrias.getData()))                
+                <li>
+                    <div class="row-fluid">
+                        <div class="span12">
+                            <h4 class="h4 sub">$cur_maestrias.nombre.getData()</h4>
+                            <div class="docs ">
+
+                                #if (!$maestrias.doc.getSiblings().isEmpty())
+                                #foreach ($cur_doc in $maestrias.doc.getSiblings())
+
+                                #if ($getterUtil.getBoolean($cur_doc.getData())) 
+
+                                <div data-iview="$cur_doc.link1.getData()" data-idown="$cur_doc.link2.getData()" data-role="idoc" class="doc">
+                                    <span class="hintx">
+                                        Ver ahora
+                                    </span>
+                                    <img alt="$cur_doc.nombre.getData()" src="/html/themes/dcmFacultad/images/doc_img_${cur_doc.imagen.getData()}.jpg"/>
+                                    <span class="download"><i class="icon-download-alt"></i></span>
+                                </div>
+
+
+                                #end
+                                #end
+                                #end                                                                                                                                                                                                     
+
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                #end
+
+                #end
+                #end
+            </ul>
+        </div>
+    </div>
+    <a class="scrollbut" data-slide="4" title=""></a>
+</div>

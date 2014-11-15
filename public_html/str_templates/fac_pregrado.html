@@ -1,0 +1,104 @@
+<div class="slide pregradox" id="slide2"  data-slide="2" data-stellar-background-ratio="0.5">
+    <div class="contentwrap row-fluid">
+
+        <div class="fac-title span1">
+            <h1 class="title">Pregrado</h1>
+        </div>                                                                
+
+        <ul class="og-grid carrearWrap">
+            #if (!$carrera.getSiblings().isEmpty())
+            #foreach ($cur_carrera in $carrera.getSiblings())
+
+            #if ($getterUtil.getBoolean($cur_carrera.getData()))
+
+
+            <li>
+                <div class="carrera"> $cur_carrera.carrera_nombre.getData()
+                    <span class="btox"></span>  
+                </div>                        
+                <div class="detailx">
+                    <div class="og-details-full">
+                        <div class="row-fluid">
+                            <div class="span10">
+                                <h2 class="fg-blue">DETALLE</h2>
+                                <p>$cur_carrera.detalle.getData()</p>
+                            </div>
+                            <div class="span10  row-fluid">
+                                
+                                <div class="panel start-collapsed" data-role="panel">
+                                    <div class="panel-header">
+                                        DOCUMENTOS
+                                    </div>
+                                    <div class="panel-content">
+                                        <div class="docs  row-fluid">
+                                            #if (!$cur_carrera.documento.getSiblings().isEmpty())
+
+                                            #foreach ($cur_doc in $cur_carrera.documento.getSiblings())
+
+                                            #if ($getterUtil.getBoolean($cur_doc.getData()))
+                                            <div data-iview="$cur_doc.link1.getData()" data-idown="$cur_doc.link2.getData()" data-role="idoc" class="doc">
+                                                <span class="hintx">
+                                                    Ver ahora
+                                                </span>
+                                                <img alt="$cur_doc.nombre.getData()" src="/html/themes/dcmFacultad/images/doc_img_${cur_doc.imagen.getData()}.jpg"/>
+                                                <span class="download"><i class="icon-download-alt"></i></span>
+                                            </div>
+                                            #end
+                                            #end
+                                            #end
+
+                                        </div>
+                                    </div>
+                                </div>
+                                
+
+
+                                ##Proyectos
+                                
+                                <div class="panel start-collapsed" data-role="panel">
+                                    <div class="panel-header">
+                                        Proyectos
+                                    </div>
+                                    <div class="panel-content">
+                                        <div class="docs  row-fluid">
+                                            #if (!$cur_carrera.proyecto.getSiblings().isEmpty())
+
+                                            #foreach ($cur_doc in $cur_carrera.proyecto.getSiblings())
+
+                                            #if ($getterUtil.getBoolean($cur_doc.getData()))
+                                            <div data-iview="$cur_doc.pry_link1.getData()" data-idown="$cur_doc.pry_link2.getData()" data-role="idoc" class="doc">
+                                                <span class="hintx">
+                                                    Ver ahora
+                                                </span>
+                                                <img alt="$cur_doc.pry_nombre.getData()" src="/html/themes/dcmFacultad/images/doc_img_${cur_doc.pry_imagen.getData()}.jpg"/>
+                                                <span class="download"><i class="icon-download-alt"></i></span>
+                                            </div>
+                                            #end
+                                            #end
+                                            #end
+
+                                        </div>
+                                    </div>
+                                </div>
+                                
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </li>
+
+
+            #end	    
+
+            #end
+            #end            
+
+        </ul>
+    </div>
+    <a class="scrollbut" data-slide="3" title=""></a>
+
+
+</div>

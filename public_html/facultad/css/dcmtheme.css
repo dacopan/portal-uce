@@ -4563,7 +4563,7 @@ span.date a.bubble, span.date a.bubble:hover {
 }
 .rb-overlay .full-html{
     padding-bottom: 20px;
-    padding-top: 10px;
+    padding-top: 20px;
 }
 /*TMP*/
 .nivoSlider {
@@ -5076,13 +5076,18 @@ span.date a.bubble, span.date a.bubble:hover {
 }
 .fac-title .title{
 
-    font-size: 7rem;
+    font-size: 4.4rem;
     text-transform: uppercase;
     position: relative;
     vertical-align: top;    
     color:#000;
     font-family: 'Adequate ExtraLight','Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
     font-weight: 900;
+    word-break:normal!important;
+    -webkit-word-break:normal!important;
+    -moz-word-break:normal!important;
+    -ms-word-break:normal!important;
+    -o-word-break:normal!important;
 }
 /*</editor-fold>*/
 
@@ -5144,10 +5149,7 @@ span.date a.bubble, span.date a.bubble:hover {
     background-color: #eeeeee;
     width: 100%;
     font-family: 'Segoe UI Light_', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
-    font-weight: 300;
-    letter-spacing: 0.00em;
-    font-size: 2.5rem;
-    line-height: 2.5rem;
+    font-weight: 300;            
     letter-spacing: 0.01em;
     color: #000000;
     font-size: 2.2rem;
@@ -5169,19 +5171,19 @@ span.date a.bubble, span.date a.bubble:hover {
     content: "\f139";
     float: right;
     color: inherit;
+    letter-spacing: normal;
 
     -webkit-transform: rotate(180deg);
     -moz-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     -o-transform: rotate(180deg);
     transform: rotate(180deg);
+    
     -moz-transition: all 0.3s ease 0s;
     -webkit-transition: all 0.3s ease 0s;
     -o-transition: all 0.3s ease 0s;
     transition: all 0.3s ease 0s;
     -ms-transition: all 0.3s ease 0s;
-
-    letter-spacing: 8px;
 }
 .metro [data-role=panel].collapsed .panel-header:after {
     content: "\f139";
@@ -5345,7 +5347,7 @@ span.date a.bubble, span.date a.bubble:hover {
 .ps-container .ps-scrollbar-x-rail:hover,.ps-container .ps-scrollbar-x-rail.hover{background-color:#eee;opacity:.9;filter:alpha(opacity=90)}.ps-container .ps-scrollbar-x-rail.in-scrolling{background-color:#eee;opacity:.9;filter:alpha(opacity=90)}
 .ps-container .ps-scrollbar-y-rail{position:absolute;right:3px;width:8px;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px;opacity:0;filter:alpha(opacity=0);-o-transition:background-color .2s linear,opacity .2s linear;-webkit-transition:background-color .2s linear,opacity .2s linear;-moz-transition:background-color .2s linear,opacity .2s linear;transition:background-color .2s linear,opacity .2s linear}
 .ps-container .ps-scrollbar-y-rail,.ps-container.hover .ps-scrollbar-y-rail{opacity:.6;filter:alpha(opacity=60)}
-.ps-container .ps-scrollbar-y-rail,.ps-container .ps-scrollbar-y-rail.hover{background-color:#eee;opacity:.9;filter:alpha(opacity=90)}
+.ps-container .ps-scrollbar-y-rail,.ps-container .ps-scrollbar-y-rail.hover{background-color:#eee;opacity:.9;filter:alpha(opacity=90);margin-top: 20px;}
 .ps-container .ps-scrollbar-y-rail.in-scrolling{background-color:#eee;opacity:.9;filter:alpha(opacity=90)}.ps-container .ps-scrollbar-x{position:absolute;bottom:0;height:8px;background-color:#aaa;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px;-o-transition:background-color .2s linear;-webkit-transition:background-color.2s linear;-moz-transition:background-color .2s linear;transition:background-color .2s linear}.ps-container.ie6 .ps-scrollbar-x{font-size:0}.ps-container .ps-scrollbar-x-rail:hover .ps-scrollbar-x,.ps-container .ps-scrollbar-x-rail.hover .ps-scrollbar-x{background-color:#999}.ps-container .ps-scrollbar-y{position:absolute;right:0;width:8px;background-color:#aaa;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px;-o-transition:background-color .2s linear;-webkit-transition:background-color.2s linear;-moz-transition:background-color .2s linear;transition:background-color .2s linear}.ps-container.ie6 .ps-scrollbar-y{font-size:0}.ps-container .ps-scrollbar-y-rail:hover .ps-scrollbar-y,.ps-container .ps-scrollbar-y-rail.hover .ps-scrollbar-y{background-color:#999}.ps-container.ie .ps-scrollbar-x,.ps-container.ie .ps-scrollbar-y{visibility:hidden}
 .ps-container.ie:hover .ps-scrollbar-x,.ps-container.ie:hover .ps-scrollbar-y,.ps-container.ie.hover .ps-scrollbar-x,.ps-container.ie.hover .ps-scrollbar-y{visibility:visible}
 
@@ -5517,7 +5519,12 @@ html, body,#wrapperscroll,#porletwrap,.metro .mm-page{
     background: url('http://static9.cdn.ubi.com/resource/es-ES/game/tomclancy-thedivision/game/cache_bottom_bloc_top.png') no-repeat;
 
 }                                                        
-
+.metro .pregradox{
+    background-color: #dedede;min-height: 300px;height: auto;padding-bottom: 30px;
+}
+.metro .postgradox{
+    background-color: #fff;min-height: 300px;height: auto;padding-bottom: 30px;
+}
 
 
 /**New**/
@@ -5852,6 +5859,9 @@ html, body,#wrapperscroll,#porletwrap,.metro .mm-page{
     color: #000;
     text-align: left;
 }
+#slide3 .span9.oferta{
+    margin: auto!important;float: none;
+}
 /*</editor-fold>*/
 
 /* #Noticias
@@ -5912,10 +5922,10 @@ html, body,#wrapperscroll,#porletwrap,.metro .mm-page{
 
 .noticeX .figcaption::before {
     position: absolute;
-    right: -100px;
-    bottom: -100px;
-    width: 300px;
-    height: 300px;
+    right: -200px;/*-100*/
+    bottom: -200px;/*-100*/
+    width: 400px;/*300*/
+    height: 400px;/*300*/
     border: 2px solid #fff;
     border-radius: 50%;
     box-shadow: 0 0 0 900px rgba(255,255,255,0.2);
@@ -6169,6 +6179,11 @@ html, body,#wrapperscroll,#porletwrap,.metro .mm-page{
     width: 0;
     height: 0;
 }
-
+.taglib-page-iterator {
+    /* width: 100%; */
+    width: 100%;
+    margin: auto;
+    max-width: 700px;
+}
 
 

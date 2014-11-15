@@ -209,10 +209,11 @@
         -o-transform-origin: 50% 50%;
         transform-origin: 50% 50%;
 
-        top: 10rem;
+        /*top: 10rem;
+        min-width: 200px;*/
+        top: 15rem;        
         font-size: 3rem;
-        color: black;
-        min-width: 200px;
+        color: black;        
     }
     .fac-title.span1 {
         float: left!important; 
@@ -221,6 +222,9 @@
         margin-right: 8%;        
         width: 6.3%!important;
         text-align: left;
+    }
+    #slide3 .span9.oferta{
+        float: left!important;
     }
     .og-grid.fac{    
         float: left;        

@@ -1,4 +1,3 @@
-
 <root available-locales="es_ES" default-locale="es_ES">
 	<dynamic-element dataType="boolean" indexType="keyword" name="Noticia" readOnly="false" repeatable="true" required="true" showLabel="true" type="checkbox" width="">
 		<dynamic-element dataType="string" indexType="keyword" name="titulo" readOnly="false" repeatable="false" required="true" showLabel="true" type="textarea" width="small">
