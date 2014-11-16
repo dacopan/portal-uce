@@ -1,3 +1,4 @@
+var debug = true;
 //<editor-fold defaultstate="collapsed" desc="modernizer">
 /* Modernizr 2.6.2 (Custom Build) | MIT & BSD
  * Build: http://modernizr.com/download/#-csstransitions-shiv-cssclasses-prefixed-testprop-testallprops-domprefixes-load
@@ -4520,6 +4521,61 @@ $(function() {
         return this;
     };
 })(jQuery);
+
+(function($) {
+    $.fn.slideCheck = function(useroptions) {
+        // Define options and extend with user
+        var options = {
+            classToAdd: 'active',
+            offset: 200,
+            repeat: true,
+            callbackFunction: function(elem, action) {
+            },
+            scrollHorizontal: false
+        };
+        $.extend(options, useroptions);
+        // Cache the given element and height of the browser
+        var $elem = this,
+                windowSize = (!options.scrollHorizontal) ? $(window).height() : $(window).width(),
+                scrollElem = ((navigator.userAgent.toLowerCase().indexOf('webkit') != -1) ? 'body' : 'html');
+        this.checkSlides = function() {
+
+            var viewportTop = $(scrollElem).scrollTop(),
+                    viewportBottom = (viewportTop + windowSize);
+
+            $elem.each(function() {
+                var $obj = $(this);
+                // If class already exists; quit
+                if ($obj.hasClass(options.classToAdd) && !options.repeat) {
+                    return;
+                }
+
+                // define the top position of the element and include the offset which makes is appear earlier or later
+                var elemTop = (!options.scrollHorizontal) ? Math.round($obj.offset().top) + options.offset : Math.round($obj.offset().left) + options.offset,
+                        elemBottom = elemTop + ($obj.height());
+                // Add class if in viewport
+                if ((elemTop < viewportBottom) && (elemBottom > viewportTop)) {
+                    $obj.addClass(options.classToAdd);
+                    $('a.toSlide').parent().removeClass("current");
+                    $('#navigation li a[data-slide="' + $obj.data("slide") + '"]').parent().addClass('current');
+                    // Remove class if not in viewport and repeat is true
+                } else if ($obj.hasClass(options.classToAdd) && (options.repeat)) {
+                    $obj.removeClass(options.classToAdd);
+
+                }
+            });
+        };
+        // Run checkelements on load and scroll
+        $(window).bind("load scroll touchmove", this.checkSlides);
+        // On resize change the height var
+        $(window).resize(function(e) {
+            windowSize = (!options.scrollHorizontal) ? e.currentTarget.innerHeight : e.currentTarget.innerWidth;
+        });
+        // trigger inital check if elements already visible
+        this.checkSlides();
+        return this;
+    };
+})(jQuery);
 /*function setScrollSpy(){var b=[{elements:$$("#filmBollo1, #filmBollo2,\t#firstBollo1, #firstBollo2, #firstBollo3, #secondBollo1, #secondBollo2,\t#thirdBollo1, #thirdBollo2, #wallpaperBollonzo,\t#newsBolloAnna, #newsBolloFb, #newsBolloTw, #newsBolloStatusMini, #newsBolloStatusLittle, #newsBolloStatus, #footerBollonzo, section > header > p"),initProps:{transform:["scale(0)"]},endProps:{transform:["scale(1)"]},animation:{duration:300,transition:Fx.Transitions.Back.easeOut}},{elements:$("wallpaperiMac"),
  initProps:{"background-position":"-507px 0",opacity:0},endProps:"auto",animation:{duration:600,transition:Fx.Transitions.Quint.easeOut}},{elements:$$("#wallpaperiPad, #wallpaperiPhone"),initProps:{"background-position":"0 244px",opacity:0},endProps:"auto",animation:{duration:600,transition:Fx.Transitions.Quint.easeOut}},{elements:$$("section > header > hr, section > header > p > span"),initProps:{opacity:0},endProps:"auto"},{elements:$$("section > header > h2 > span, section > header > h3 > span"),
  initProps:{"margin-top":-44},endProps:"auto"},{elements:$$("#biografia > section > section > header, #biografia > section > section > hr, #biografia > section > section > article, #biografia > header > h4, #biografia > header > h5"),initProps:{opacity:0},endProps:"auto"},{elements:$$("#filmografia > section > section > *"),initProps:{opacity:0},endProps:"auto"},{elements:$$("#immagini > nav > a"),initProps:{opacity:0,"margin-top":-200},endProps:"auto"},{elements:$("tendinaFooterSx"),initProps:{left:0},
@@ -4890,6 +4946,13 @@ $(function() {
 //</editor-fold>
 
 $(window).load(function() {
+//scroll pagination
+    if (window.location.search.indexOf("page=") > -1) {
+        var q = $('.slide[data-slide="' + 4 + '"]').offset().top;
+        htmlbody.animate({
+            scrollTop: q
+        }, 3000, 'easeInOutBack');
+    }
 
     $('.has-full-view').each(function() {
         var $overlay = $($(this).attr('href'));
@@ -5009,7 +5072,7 @@ $(window).load(function() {
         });
 
         //radio
-        if (!!document.createElement('audio').canPlayType && false) {
+        if (!!document.createElement('audio').canPlayType) {
 
             $('<audio id="radioplay" class="oculto" src="http://s3.myradiostream.com:7258/;"></audio>').appendTo('#page');
             $('#radiox').click(function(e) {
@@ -5022,13 +5085,16 @@ $(window).load(function() {
                 }
             });
         } else {
-            //$('#radiox').remove();
+            $('#radiox').remove();
         }
+        //slides check
+        $('.slide').addClass("u").slideCheck({
+        });
+
     }
     //*/
     //parallax
 });
-var debug=true;
 $(document).ready(function() {
     //load dinamic web content
     if (debug) {
@@ -5274,7 +5340,7 @@ function headerPosition() {
     }
 }
 function isMobileBrowser() {
-    return true;
+    return true || debug;
 }
 var destroyCrappyPlugin = function($elem, eventNamespace) {
     var isInstantiated = !!$.data($elem.get(0));
