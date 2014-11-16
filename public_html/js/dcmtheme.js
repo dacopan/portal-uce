@@ -4941,6 +4941,11 @@ $(window).load(function() {
 
 });
 $(document).ready(function() {
+    //load dinamic web content
+    $("[data-load]").each(function(){
+        $(this).load($(this).data("load"), function(){
+        });
+    });
     //mm-menu
     $('#mm-nav-content').appendTo('#dcmmenu');
     $("#dcmmenu").mmenu({

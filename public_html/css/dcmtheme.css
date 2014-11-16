@@ -5574,6 +5574,9 @@ html, body,#wrapperscroll,#porletwrap,.metro .mm-page{
 #slide5{
     background-color: #775c93;                                
 }
+#slide2{
+    background-image: url(../images/panel2_grilla.png);background-color: white;background-size: cover;background-position: 50% 50%;background-repeat: no-repeat;
+}
 
 .taglib-page-iterator {
     /* width: 100%; */

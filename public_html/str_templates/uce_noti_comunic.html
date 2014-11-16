@@ -1,0 +1,124 @@
+#set( $count = 0)
+#set( $count1 = 0)
+
+#if (!$Noticia.getSiblings().isEmpty())
+    #foreach ($cur_Noticia in $Noticia.getSiblings())
+    #if ($getterUtil.getBoolean($cur_Noticia.getData()))
+        #if($count==0)
+        <div class="slide" id="slide2" data-slide="2" data-stellar-background-ratio="0.5">
+            <div class="contentwrapx noticiesWrap" style="padding-top:60px; padding-bottom:45px;">
+                <h1 class="text-center">NOTICIAS</h1>
+                <div class="container2 featuredcontainer clearfix ">
+                    <div class="featured articlecontainer isofeatured isotope" id="isofeatured" style="position: relative; /*overflow: hidden;*/margin:auto;">
+
+    
+        #end ##fin if noticia 0
+        
+        #set ($FechaObj = $dateUtil.newDate($getterUtil.getLong($cur_Noticia.noti_fecha.getData())))
+        <div style="cursor:pointer;" class="one_col #if($count==0)double #elseif($count==1) half #else quarterx #end isobrick isotope-item noticeX">
+            <div class="featuredinner" style="opacity: 1; background: none;">
+                <h2 class="noti-title">$cur_Noticia.noti_titulo.getData()
+                    <span class="date">$dateUtil.getDate($FechaObj, "MMMM dd, yyyy", $locale) | $cur_Noticia.noti_autor.getData()</span>
+                </h2>
+                <div class="featuredoverlay" style="opacity: 1;"></div>
+                <div class="homeslider nivoSlider">
+                    <img src="$cur_Noticia.noti_subtitulo.getData()" alt="Dress"/>                    
+                </div>
+                <div class="rb-overlay">
+                    <div class="rb-week">         
+                        <span class="rb-close">close</span>
+                        <div class="full-content">
+                            <div class="contentwrap">
+                                <h2 class="full-title">
+                                    $cur_Noticia.noti_titulo.getData()
+                                </h2>
+                                <span class="date">$dateUtil.getDate($FechaObj, "MMMM dd, yyyy", $locale) | $cur_Noticia.noti_autor.getData()</span>
+                                <h3 class="sub-title">
+                                    $cur_Noticia.noti_subtitulo.getData()
+                                </h3>
+                                <div class="img-full" style="background-image: url($cur_Noticia.noti_subtitulo.getData());">
+                                </div>
+                                <div class="full-html">
+                                    $cur_Noticia.noti_contenido.getData()
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+        #if($count==0)
+        #if (!$Noticia.getSiblings().isEmpty())
+            #foreach ($cur_Comunic in $Comunicado.getSiblings())
+                #if ($getterUtil.getBoolean($cur_Comunic.getData()))
+                    
+                    #if($count1==0)                    
+                    <div class="one_col half comunicWraper isobrick va-container">
+                        <div class="va-nav">
+                            <span class="va-nav-prev">Previous</span>
+                            <span class="va-nav-next">Next</span>
+                        </div>
+                        <div class="va-wrapper">
+                    #end ##fin if comunic 0
+                    #set ($FechaObj = $dateUtil.newDate($getterUtil.getLong($cur_Comunic.com_fecha.getData())))
+                    <div class="va-slice">
+                         <img src="$cur_Comunic.com_imagen.getData()" style="width:100%;" alt="$cur_Comunic.com_titulo.getData()" title=""/>
+                         <h3 class="va-title">$cur_Comunic.com_titulo.getData()</h3>
+                         <div class="va-content padding10">
+                             <h3 class="fg-blue">$cur_Comunic.com_titulo.getData()</h3>                             
+                             <span class="date">$dateUtil.getDate($FechaObj, "MMMM dd, yyyy", $locale) | $cur_Comunic.com_autor.getData()</span>
+                             <hr/>
+                             <p class="text-justify fg-white animated zoomIn" style="font-size: 12px;">
+                                 $cur_Comunic.com_contenido.getData()
+                             </p>
+                         </div>
+                     </div>
+                    #set($count1=$count1+1)
+                    #if($count1==10||!$velocityHasNext)
+                        </div>
+                    </div>
+                    #end ##fin if comunic 10 o no siguiente
+                    
+                #end ##fin if comunicado visible
+            #end ##fin for comunicados
+        #end ##fin comunicados vacio
+        
+            
+
+                                                                               
+                                                                                
+                                                                            
+        
+        #end ##fin if noticia 0 print comunicados
+    
+    
+    
+        #if($count==3|| !$velocityHasNext || $velocityCount > 97)        
+        #set($count=0)
+        
+                    </div>
+                    <div class="featured articlecontainer" style="position: relative; /*overflow: hidden;*/margin:auto;">
+                                                                    
+                    </div>
+                </div>
+                <div class="list-notices" style="position: fixed; z-index: 999999;top:0px;"></div>
+            </div>
+            <a class="scrollbut" data-slide="3" title=""></a>
+        </div>
+        #if($velocityHasNext)
+        @page_break@
+        #end
+        #end ##fin if noticia 3
+        
+        #set($count=$count+1)
+        #if($velocityCount > 97)
+        #break;
+        #end
+    
+    #end    ##fin if noticia visible
+    #end  ##fin for noticias
+#end ##fin noticias vacia
+
+
