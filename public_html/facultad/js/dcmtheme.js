@@ -3678,19 +3678,19 @@ var CarrerasGrid = (function() {
                     description: this.$item.find('.detailx').html()
                 };
                 this.$details.html(eldata.description);
-                
-                 this.$details.find('.doc').each(function() {
-                        var doc = $(this);
-                        $(doc.find('.hintx')).on('click', function() {
-                            window.open(doc.data("iview"), '_blank');
-                        });
-                        $(doc.find('.download')).on('click', function() {
-                            window.open(doc.data("idown"), '_blank');
-                        });
+
+                this.$details.find('.doc').each(function() {
+                    var doc = $(this);
+                    $(doc.find('.hintx')).on('click', function() {
+                        window.open(doc.data("iview"), '_blank');
                     });
-                    
-                    $.Metro.initPanels($(this.$details));
-                    //alert($(this.$details));
+                    $(doc.find('.download')).on('click', function() {
+                        window.open(doc.data("idown"), '_blank');
+                    });
+                });
+
+                $.Metro.initPanels($(this.$details));
+                //alert($(this.$details));
 
 
 
@@ -5028,19 +5028,29 @@ $(window).load(function() {
     //*/
     //parallax
 });
-
+var debug=true;
 $(document).ready(function() {
     //load dinamic web content
-    $("[data-load]").each(function(){
-        $(this).load($(this).data("load"), function(){
+    if (debug) {
+        //mm-menu
+        $('#mm-nav-content').appendTo('#dcmmenu');
+        $("#dcmmenu").mmenu({
+            classes: "mm-slide"
         });
-    });
+        innerNavigate();
+    } else {
+        $("[data-load]").each(function() {
+            $(this).load($(this).data("load"), function() {
+                //mm-menu
+                $('#mm-nav-content').appendTo('#dcmmenu');
+                $("#dcmmenu").mmenu({
+                    classes: "mm-slide"
+                });
+                innerNavigate();
+            });
+        });
+    }
 
-    //mm-menu
-    $('#mm-nav-content').appendTo('#dcmmenu');
-    $("#dcmmenu").mmenu({
-        classes: "mm-slide"
-    });
 //liferay-user-login/admin
     $('#userlaunch').click(function(e) {
         var dockbar = $('#dcmdockbar');
@@ -5087,7 +5097,7 @@ $(document).ready(function() {
         speed: 500
 
     });
-    innerNavigate();
+
 });
 /* #Radial menu
  ================================================== */
@@ -5152,7 +5162,7 @@ function innerNavigate() {
         var q = $('.slide[data-slide="' + dataslide + '"]').offset().top;
         htmlbody.animate({
             scrollTop: q
-        }, 3000, 'easeInOutBack');        
+        }, 3000, 'easeInOutBack');
         /*  htmlbody.animate({
          scrollTop: q                                                                  }, 1000, 'easeInOutExpo');*/
     }
@@ -5160,7 +5170,7 @@ function innerNavigate() {
     links.click(function(e) {
         e.preventDefault();
         dataslide = $(this).attr('data-slide'); //alert(dataslide);
-        goToByScroll(dataslide);       
+        goToByScroll(dataslide);
     });
     //When the user clicks on the button, get the get the data-slide attribute value of the button and pass that variable to the goToByScroll function
     button.click(function(e) {

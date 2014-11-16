@@ -4942,15 +4942,17 @@ $(window).load(function() {
 });
 $(document).ready(function() {
     //load dinamic web content
-    $("[data-load]").each(function(){
-        $(this).load($(this).data("load"), function(){
+    $("[data-load]").each(function() {
+        $(this).load($(this).data("load"), function() {
+            //mm-menu
+            $('#mm-nav-content').appendTo('#dcmmenu');
+            $("#dcmmenu").mmenu({
+                classes: "mm-slide"
+            });
+            innerNavigate();
         });
     });
-    //mm-menu
-    $('#mm-nav-content').appendTo('#dcmmenu');
-    $("#dcmmenu").mmenu({
-        classes: "mm-slide"
-    });
+
 //liferay-user-login/admin
     $('#userlaunch').click(function(e) {
         var dockbar = $('#dcmdockbar');
@@ -4965,7 +4967,7 @@ $(document).ready(function() {
         e.preventDefault();
     });
 
-    innerNavigate();
+    
 });
 /* #Radial menu
  ================================================== */
@@ -5030,7 +5032,7 @@ function innerNavigate() {
         var q = $('.slide[data-slide="' + dataslide + '"]').offset().top;
         htmlbody.animate({
             scrollTop: q
-        }, 2500, 'easeInOutBack');        
+        }, 2500, 'easeInOutBack');
         /*  htmlbody.animate({
          scrollTop: q                                                                  }, 1000, 'easeInOutExpo');*/
     }
@@ -5038,7 +5040,7 @@ function innerNavigate() {
     links.click(function(e) {
         e.preventDefault();
         dataslide = $(this).attr('data-slide'); //alert(dataslide);
-        goToByScroll(dataslide);       
+        goToByScroll(dataslide);
     });
     //When the user clicks on the button, get the get the data-slide attribute value of the button and pass that variable to the goToByScroll function
     button.click(function(e) {
