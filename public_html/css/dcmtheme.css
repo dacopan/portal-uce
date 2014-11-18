@@ -4438,7 +4438,7 @@ span.date a.bubble, span.date a.bubble:hover {
 }
 .featured .one_col.half {
     height: 124px; 
-    width:320px!important;
+    width:320px;
 }
 
 .featured .one_col.quarterx {

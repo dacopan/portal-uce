@@ -4884,7 +4884,7 @@ $(window).load(function() {
             }
         });
 
-        $('.va-container').css({width: $($('.isofeatured .isobrick.half')[0]).width(), height: $('.va-container').height()});
+        $('.va-container').css({width: $($('.one_col.half .featuredinner')[0]).width(), height: $('.va-container').height()});
 
     });
     $(function() {

@@ -5178,7 +5178,7 @@ span.date a.bubble, span.date a.bubble:hover {
     -ms-transform: rotate(180deg);
     -o-transform: rotate(180deg);
     transform: rotate(180deg);
-    
+
     -moz-transition: all 0.3s ease 0s;
     -webkit-transition: all 0.3s ease 0s;
     -o-transition: all 0.3s ease 0s;
@@ -5922,11 +5922,11 @@ html, body,#wrapperscroll,#porletwrap,.metro .mm-page{
 
 .noticeX .figcaption::before {
     position: absolute;
-    right: -200px;/*-100*/
-    bottom: -200px;/*-100*/
-    width: 400px;/*300*/
-    height: 400px;/*300*/
-    border: 2px solid #fff;
+    right: -350px;
+    bottom: 0px;
+    width: 600px;
+    height: 600px;
+    /* border: 2px solid #fff; */
     border-radius: 50%;
     box-shadow: 0 0 0 900px rgba(255,255,255,0.2);
     content: '';

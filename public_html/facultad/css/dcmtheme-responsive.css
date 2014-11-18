@@ -215,6 +215,12 @@
         font-size: 3rem;
         color: black;        
     }
+    .noticiesWrap .fac-title .title{
+        top:128px;
+    }
+    .noticiesWrap .og-grid.noticies{
+        padding-top: 20px!important;
+    }
     .fac-title.span1 {
         float: left!important; 
         height: 100%;
@@ -222,6 +228,7 @@
         margin-right: 8%;        
         width: 6.3%!important;
         text-align: left;
+        width: 89px!important;
     }
     #slide3 .span9.oferta{
         float: left!important;
