@@ -4903,7 +4903,7 @@ $(window).load(function() {
     });
 
     $(function() {
-       Boxgrid.init();        
+        Boxgrid.init();
     });
 
     $('.has-full-view').each(function() {
@@ -5000,7 +5000,7 @@ $(window).load(function() {
 
 });
 $(document).ready(function() {
-    if (debug) {
+    if (debug && false) {
         //mm-menu
         $('#mm-nav-content').appendTo('#dcmmenu');
         $("#dcmmenu").mmenu({
@@ -5008,16 +5008,31 @@ $(document).ready(function() {
         });
         innerNavigate();
     } else {
-        $("[data-load]").each(function() {
+        ///*
+        var len = $('[data-load]').length;
+        $("[data-load]").each(function(index, element) {
             $(this).load($(this).data("load"), function() {
-                //mm-menu
-                $('#mm-nav-content').appendTo('#dcmmenu');
-                $("#dcmmenu").mmenu({
-                    classes: "mm-slide"
-                });
-                innerNavigate();
+                if (index == len - 1) {
+                    alert("xxx");
+                    //mm-menu
+                    $('#mm-nav-content').appendTo('#dcmmenu');
+                    $("#dcmmenu").mmenu({
+                        classes: "mm-slide"
+                    });
+                    innerNavigate();
+                }
             });
         });
+        //*/
+//        $("#topBar").load($("#topBar").data("load"), function() {            
+//                alert("xxx");
+//                //mm-menu
+//                $('#mm-nav-content').appendTo('#dcmmenu');
+//                $("#dcmmenu").mmenu({
+//                    classes: "mm-slide"
+//                });
+//                innerNavigate();           
+//        });
     }
 
 
@@ -5097,7 +5112,7 @@ function innerNavigate() {
     //easing plugin is also used, so we passed in the easing method of 'easeInOutQuint' which is available throught the plugin.
     function goToByScroll(dataslide) {
         //alert(dataslide);
-        
+
         var q = $('.slide[data-slide="' + dataslide + '"]').offset().top;
         htmlbody.animate({
             scrollTop: q
@@ -5208,7 +5223,7 @@ function headerPosition() {
     }
 }
 function isMobileBrowser() {
-    return false||debug;
+    return false || debug;
 }
 var destroyCrappyPlugin = function($elem, eventNamespace) {
     var isInstantiated = !!$.data($elem.get(0));
