@@ -5023,15 +5023,15 @@ $(document).ready(function() {
             });
         });
         //*/
-//        $("#topBar").load($("#topBar").data("load"), function() {            
-//                alert("xxx");
-//                //mm-menu
-//                $('#mm-nav-content').appendTo('#dcmmenu');
-//                $("#dcmmenu").mmenu({
-//                    classes: "mm-slide"
-//                });
-//                innerNavigate();           
-//        });
+     /*   $("#topBar").load($("#topBar").data("load"), function() {            
+                alert("xxx");
+                //mm-menu
+                $('#mm-nav-content').appendTo('#dcmmenu');
+                $("#dcmmenu").mmenu({
+                    classes: "mm-slide"
+                });
+                innerNavigate();           
+        });*/
     }
 
 
