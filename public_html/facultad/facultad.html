@@ -64,6 +64,42 @@ and open the template in the editor.
                     <a  class="fg-white" href="#radio" id="radiox"><i class="icon-microphone"></i></a>
                     <a  class="fg-white has-full-view" href="#full-view-01"><i class="icon-book"></i></a>
                 </div>
+                <!--mmMenu nav content-->
+                <ul id="mm-nav-content">
+                    <li><a href="#dcmmenu" onclick="jQuery('#dcmmenu').trigger('close.mm');" style="float: right;position: relative;clear: both;z-index: 9;font-size: 20px;"><i class="icon-remove"></i></a></li>
+                    <li><a href="#slide1" class="toSlide" data-slide="1">Home</a></li>
+                    <li><a href="#slide2" class="toSlide" data-slide="2">Noticias</a></li>
+                    <li>
+                        <a href="#slide3" class="toSlide" data-slide="3">
+                            <figure class="effect-layla visible-desktop">
+                                <img src="../images/tmp/comunicado.jpg" alt="img04">
+                                <figcaption>
+                                    <h2>Facultades<span>.</span></h2>
+                                    <p>Descripción</p>                                                                       
+                                </figcaption>			
+                            </figure>                                                                
+                            <span class="hidden-desktop">Facultades</span></a>
+                        <ul>
+                            <li><a href="facultad/facultad.html" target="_blank">Ingenieria Ciencias Fisicas y Matematica</a></li>
+                            <li><a href="facultad/facultad.html" target="_blank">Ciencias Administrativas</a></li>
+                            <li><a href="facultad/facultad.html" target="_blank">Odontología</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#slide4"  class="toSlide" data-slide="4">Panel4</a>
+                        <ul>
+                            <li><a href="/tutorial">Getting started</a></li>
+                            <li><a href="/tutorial/setting-up-the-html.html">Setting up the html</a></li>
+                            <li><a href="/tutorial/fire-the-plugin.html">Fire the plugin</a></li>
+                            <li><a href="/tutorial/open-and-close-the-menu.html">Open and close the menu</a></li>
+                            <li><a href="/tutorial/styling-lists.html">Styling lists</a></li>
+                            <li><a href="/tutorial/fixed-elements.html">Fixed elements</a></li>
+                            <li><a href="/tutorial/learn-more.html">Learn more</a></li>
+                        </ul>
+
+                    </li>
+                </ul>
+                <!--fin mmMenu nav content-->
 
             </div>
 
@@ -160,44 +196,7 @@ and open the template in the editor.
                                                         </div>
 
 
-                                                        <div class="slide" id="slide1" data-slide="1" data-stellar-background-ratio="0" style="background: white;">
-                                                            <!--mmMenu nav content-->
-                                                            <ul id="mm-nav-content">
-                                                                <li><a href="#dcmmenu" onclick="jQuery('#dcmmenu').trigger('close.mm');" style="float: right;position: relative;clear: both;z-index: 9;font-size: 20px;"><i class="icon-remove"></i></a></li>
-                                                                <li><a href="#slide1" class="toSlide" data-slide="1">Home</a></li>
-                                                                <li><a href="#slide2" class="toSlide" data-slide="2">Noticias</a></li>
-                                                                <li>
-                                                                    <a href="#slide3" class="toSlide" data-slide="3">
-                                                                        <figure class="effect-layla visible-desktop">
-                                                                            <img src="../images/tmp/comunicado.jpg" alt="img04">
-                                                                            <figcaption>
-                                                                                <h2>Facultades<span>.</span></h2>
-                                                                                <p>Descripción</p>                                                                       
-                                                                            </figcaption>			
-                                                                        </figure>                                                                
-                                                                        <span class="hidden-desktop">Facultades</span></a>
-                                                                    <ul>
-                                                                        <li><a href="facultad/facultad.html" target="_blank">Ingenieria Ciencias Fisicas y Matematica</a></li>
-                                                                        <li><a href="facultad/facultad.html" target="_blank">Ciencias Administrativas</a></li>
-                                                                        <li><a href="facultad/facultad.html" target="_blank">Odontología</a></li>
-                                                                    </ul>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="#slide4"  class="toSlide" data-slide="4">Panel4</a>
-                                                                    <ul>
-                                                                        <li><a href="/tutorial">Getting started</a></li>
-                                                                        <li><a href="/tutorial/setting-up-the-html.html">Setting up the html</a></li>
-                                                                        <li><a href="/tutorial/fire-the-plugin.html">Fire the plugin</a></li>
-                                                                        <li><a href="/tutorial/open-and-close-the-menu.html">Open and close the menu</a></li>
-                                                                        <li><a href="/tutorial/styling-lists.html">Styling lists</a></li>
-                                                                        <li><a href="/tutorial/fixed-elements.html">Fixed elements</a></li>
-                                                                        <li><a href="/tutorial/learn-more.html">Learn more</a></li>
-                                                                    </ul>
-
-                                                                </li>
-                                                            </ul>
-                                                            <!--fin mmMenu nav content-->
-
+                                                        <div class="slide" id="slide1" data-slide="1" data-stellar-background-ratio="0" style="background: white;">                                                            
                                                             <div class="contentwrap row-fluid"  style="/*position: absolute;*/width: 100%; padding-top: 0px;padding-bottom: 0px;min-height: 100%;height: auto!important;">
 
                                                                 <div class="span1 membrete animated fadeInDownBig delay2" style=""><span style="margin: auto;width: auto;">facultad</span></div>
@@ -436,7 +435,7 @@ and open the template in the editor.
                                                                             Detalle facultad acepta HTML
                                                                         </div>
                                                                     </li>
-                                                                    
+
                                                                     <li>
                                                                         <div class="carrera">Ingeniería Matemática
                                                                             <span class="btox"></span>

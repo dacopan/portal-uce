@@ -5000,17 +5000,25 @@ $(window).load(function() {
 
 });
 $(document).ready(function() {
-    //load dinamic web content
-    $("[data-load]").each(function() {
-        $(this).load($(this).data("load"), function() {
-            //mm-menu
-            $('#mm-nav-content').appendTo('#dcmmenu');
-            $("#dcmmenu").mmenu({
-                classes: "mm-slide"
-            });
-            innerNavigate();
+    if (debug) {
+        //mm-menu
+        $('#mm-nav-content').appendTo('#dcmmenu');
+        $("#dcmmenu").mmenu({
+            classes: "mm-slide"
         });
-    });
+        innerNavigate();
+    } else {
+        $("[data-load]").each(function() {
+            $(this).load($(this).data("load"), function() {
+                //mm-menu
+                $('#mm-nav-content').appendTo('#dcmmenu');
+                $("#dcmmenu").mmenu({
+                    classes: "mm-slide"
+                });
+                innerNavigate();
+            });
+        });
+    }
 
 
 //liferay-user-login/admin

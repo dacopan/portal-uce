@@ -56,7 +56,50 @@ and open the template in the editor.
 
 
             <div class="topBar bg-blue" id="topBar" style="position: fixed;" data-load="my_html/uce_topBar_mmmenu.html">                
+                <div class="topBar-content">
+                    <span class="todayX fg-yellow no-phones" style="font-size: 80%;margin-left: 80px;">
+                        Miércoles 01/09/2014</span>  
+                    <a id="hamburger" class="" href="#dcmmenu"><span></span></a>
+                    <a  class="fg-white" data-hint="x|y" href="#user"><i class="icon-user"></i></a>
+                    <a  class="fg-white" href="#radio" id="radiox"><i class="icon-microphone"></i></a>
+                    <a  class="fg-white has-full-view" href="#full-view-01"><i class="icon-book"></i></a>
+                </div>
+                <!--mmMenu nav content-->
+                <ul id="mm-nav-content">
+                    <li><a href="#dcmmenu" onclick="jQuery('#dcmmenu').trigger('close.mm');" style="float: right;position: relative;clear: both;z-index: 9;font-size: 20px;"><i class="icon-remove"></i></a></li>
+                    <li><a href="#slide1" class="toSlide" data-slide="1">Home</a></li>
+                    <li><a href="#slide2" class="toSlide" data-slide="2">Noticias</a></li>
+                    <li>
+                        <a href="#slide3" class="toSlide" data-slide="3">
+                            <figure class="effect-layla visible-desktop">
+                                <img src="../images/tmp/comunicado.jpg" alt="img04">
+                                <figcaption>
+                                    <h2>Facultades<span>.</span></h2>
+                                    <p>Descripción</p>                                                                       
+                                </figcaption>			
+                            </figure>                                                                
+                            <span class="hidden-desktop">Facultades</span></a>
+                        <ul>
+                            <li><a href="facultad/facultad.html" target="_blank">Ingenieria Ciencias Fisicas y Matematica</a></li>
+                            <li><a href="facultad/facultad.html" target="_blank">Ciencias Administrativas</a></li>
+                            <li><a href="facultad/facultad.html" target="_blank">Odontología</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#slide4"  class="toSlide" data-slide="4">Panel4</a>
+                        <ul>
+                            <li><a href="/tutorial">Getting started</a></li>
+                            <li><a href="/tutorial/setting-up-the-html.html">Setting up the html</a></li>
+                            <li><a href="/tutorial/fire-the-plugin.html">Fire the plugin</a></li>
+                            <li><a href="/tutorial/open-and-close-the-menu.html">Open and close the menu</a></li>
+                            <li><a href="/tutorial/styling-lists.html">Styling lists</a></li>
+                            <li><a href="/tutorial/fixed-elements.html">Fixed elements</a></li>
+                            <li><a href="/tutorial/learn-more.html">Learn more</a></li>
+                        </ul>
 
+                    </li>
+                </ul>
+                <!--fin mmMenu nav content-->
             </div>
 
             <div class="dcm top"> <a class="scrollto" href="#main-content">Scroll to top</a>
@@ -441,7 +484,7 @@ and open the template in the editor.
 
                                                                     </div>
                                                                     <div class="featured articlecontainer" style="position: relative; /*overflow: hidden;*/margin:auto;">
-                                                                        
+
                                                                     </div>
                                                                 </div>
 
@@ -453,7 +496,7 @@ and open the template in the editor.
                                                         </div>
 
 
-                                                        </div>  
+                                                    </div>  
                                                     <div class="taglib-page-iterator"> <div class="search-results"> Pages: <strong class="journal-article-page-number">1</strong>&nbsp;&nbsp;<a class="journal-article-page-number" href="http://000736.customers.firelay.com/web/guest/home?p_p_id=56_INSTANCE_jRqUebCl1EGs&amp;p_p_lifecycle=0&amp;p_p_state=normal&amp;p_p_mode=view&amp;p_p_col_id=column-1&amp;p_p_col_pos=4&amp;p_p_col_count=5&amp;_56_INSTANCE_jRqUebCl1EGs_page=2">2</a>&nbsp;&nbsp;<a class="journal-article-page-number" href="http://000736.customers.firelay.com/web/guest/home?p_p_id=56_INSTANCE_jRqUebCl1EGs&amp;p_p_lifecycle=0&amp;p_p_state=normal&amp;p_p_mode=view&amp;p_p_col_id=column-1&amp;p_p_col_pos=4&amp;p_p_col_count=5&amp;_56_INSTANCE_jRqUebCl1EGs_page=3">3</a>&nbsp;&nbsp;<a class="journal-article-page-number" href="http://000736.customers.firelay.com/web/guest/home?p_p_id=56_INSTANCE_jRqUebCl1EGs&amp;p_p_lifecycle=0&amp;p_p_state=normal&amp;p_p_mode=view&amp;p_p_col_id=column-1&amp;p_p_col_pos=4&amp;p_p_col_count=5&amp;_56_INSTANCE_jRqUebCl1EGs_page=4">4</a>&nbsp;&nbsp; </div> <div class="clearfix lfr-pagination" id="yui_patched_v3_11_0_1_1416063894242_729"> <ul class="pager lfr-pagination-buttons"> <li class="disabled"> <a href="javascript:;" target="_self"> Previous </a> </li> <li class=""> <a href="http://000736.customers.firelay.com/web/guest/home?p_p_id=56_INSTANCE_jRqUebCl1EGs&amp;p_p_lifecycle=0&amp;p_p_state=normal&amp;p_p_mode=view&amp;p_p_col_id=column-1&amp;p_p_col_pos=4&amp;p_p_col_count=5&amp;_56_INSTANCE_jRqUebCl1EGs_page=2" target="_self"> Next </a> </li> </ul> </div> </div>
                                                 </div>   
                                             </div>                                                 
@@ -468,7 +511,7 @@ and open the template in the editor.
                                             <div class=" portlet-content-container" style=""> 
                                                 <div class="portlet-body"> 
                                                     <div class="journal-content-article">
-                                                        
+
                                                         <div class="slide bg-darkBlue" id="slide3" data-slide="3" data-stellar-background-ratio="0.5" style="background-image: none;">
                                                             <div class="contentwrap row-fluid">
 
@@ -512,7 +555,7 @@ and open the template in the editor.
                                                                         </div>
                                                                     </li>   
 
-                                                                   <li class="isobrick2">
+                                                                    <li class="isobrick2">
                                                                         <a class="og-a" href="facultad/facultad.html" title="ver facultad" target="_blank">
                                                                             <img src="images/tmp/facultad.png" alt="img01"/>                                                                                
                                                                             <div class="og-box">
