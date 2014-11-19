@@ -5178,6 +5178,7 @@ $(document).ready(function() {
 function innerNavigate() {
 //  /*
     //var links = $('#navigation').find('li a');
+    //var links = $('#navBar a.toSlide');
     var links = $('a.toSlide');
     slide = $('.slide');
     button = $('.scrollbut');

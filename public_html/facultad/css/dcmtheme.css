@@ -4867,7 +4867,10 @@ span.date a.bubble, span.date a.bubble:hover {
     padding: 50px 30px;
     height: 100%;
 }
-
+.metro .og-expander-inner p{
+    padding-right: 15px;
+    padding-left: 20px;
+}
 .og-close {
     position: absolute;
     width: 40px;
@@ -5868,7 +5871,7 @@ html, body,#wrapperscroll,#porletwrap,.metro .mm-page{
 ================================================== */
 /*<editor-fold defaultstate="collapsed" desc="Noticias">*/
 .noticies .noticeX {
-    width: 280px;
+    /*width: 280px;*/
     height: 280px;
     max-height: 100%;
     text-align: center; /* ensures the image is always in the h-middle */
@@ -5879,7 +5882,7 @@ html, body,#wrapperscroll,#porletwrap,.metro .mm-page{
     background: -webkit-linear-gradient(-45deg, #000 0%,#fff 100%);
     background: linear-gradient(-45deg, #000 0%,#fff 100%);
 }
-.noticies .noticeX.double{
+.noticies .noticeX.double,.noticies .noticeX{
     width: 300px;
 }
 .noticies .noticeX img.img-0{

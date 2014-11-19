@@ -5089,6 +5089,7 @@ function innerNavigate() {
     //easing plugin is also used, so we passed in the easing method of 'easeInOutQuint' which is available throught the plugin.
     function goToByScroll(dataslide) {
         //alert(dataslide);
+        
         var q = $('.slide[data-slide="' + dataslide + '"]').offset().top;
         htmlbody.animate({
             scrollTop: q
@@ -5099,8 +5100,11 @@ function innerNavigate() {
     //When the user clicks on the navigation links, get the data-slide attribute value of the link and pass that variable to the goToByScroll function
     links.click(function(e) {
         e.preventDefault();
+        jQuery('#dcmmenu').trigger('close.mm');
+        //alert($(this).attr('data-slide'));        
         dataslide = $(this).attr('data-slide'); //alert(dataslide);
         goToByScroll(dataslide);
+        return false;
     });
     //When the user clicks on the button, get the get the data-slide attribute value of the button and pass that variable to the goToByScroll function
     button.click(function(e) {
