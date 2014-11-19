@@ -5105,14 +5105,18 @@ $(document).ready(function() {
         });
         innerNavigate();
     } else {
-        $("[data-load]").each(function() {
+        ///*
+        var len = $('[data-load]').length;
+        $("[data-load]").each(function(index, element) {
             $(this).load($(this).data("load"), function() {
-                //mm-menu
-                $('#mm-nav-content').appendTo('#dcmmenu');
-                $("#dcmmenu").mmenu({
-                    classes: "mm-slide"
-                });
-                innerNavigate();
+                if (index == len - 1) {
+                    //mm-menu
+                    $('#mm-nav-content').appendTo('#dcmmenu');
+                    $("#dcmmenu").mmenu({
+                        classes: "mm-slide"
+                    });
+                    innerNavigate();
+                }
             });
         });
     }
@@ -5178,15 +5182,15 @@ $(document).ready(function() {
 function innerNavigate() {
 //  /*
     //var links = $('#navigation').find('li a');
-    //var links = $('#navBar a.toSlide');
-    var links = $('a.toSlide');
+    var links = $('#navBar a.toSlide');
+    //var links = $('a.toSlide');
     slide = $('.slide');
     button = $('.scrollbut');
     //mywindow = $('#wrapperscroll');
     mywindow = $(window);
     htmlbody = $('html,body');
     dataslide = 1;
-   
+
     //Create a function that will be passed a slide number and then will scroll to that slide using jquerys animate. The Jquery
     //easing plugin is also used, so we passed in the easing method of 'easeInOutQuint' which is available throught the plugin.
     function goToByScroll(dataslide) {
@@ -5195,8 +5199,6 @@ function innerNavigate() {
         htmlbody.animate({
             scrollTop: q
         }, 3000, 'easeInOutBack');
-        /*  htmlbody.animate({
-         scrollTop: q                                                                  }, 1000, 'easeInOutExpo');*/
     }
     //When the user clicks on the navigation links, get the data-slide attribute value of the link and pass that variable to the goToByScroll function
     links.click(function(e) {
