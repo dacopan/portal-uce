@@ -4160,8 +4160,13 @@ var CarrerasGrid = (function() {
                             element.toggleClass('collapsed');
                             if (element.hasClass('collapsed')) {
                                 o.onCollapse();
+                                
                             } else {
                                 o.onExpand();
+                                //mayra2
+                                $('.full-content').each(function() {
+                                    $(this).perfectScrollbar("update");
+                                });
                             }
                         }
                 );

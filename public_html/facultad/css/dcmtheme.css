@@ -6038,12 +6038,12 @@ html, body,#wrapperscroll,#porletwrap,.metro .mm-page{
     top: 0px;
     padding: 5px;
     background-color: rgba(0,0,0,.7);
-    height: 101%;
-    width: 101%;
+    height: 100%;
+    width: 100%;
     padding-top: 30px;
     color: #fff;
 
-    border: 3px solid black;
+    border: 1px solid transparent;
     -webkit-animation-duration: 1s;
     animation-duration: 1s;
     -webkit-animation-fill-mode: both;
