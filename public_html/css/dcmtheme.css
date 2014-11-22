@@ -5577,12 +5577,12 @@ html, body,#wrapperscroll,#porletwrap,.metro .mm-page{
 #slide2{
     background-image: url(../images/panel2_grilla.png);background-color: white;background-size: cover;background-position: 50% 50%;background-repeat: no-repeat;
 }
-
 .taglib-page-iterator {
     /* width: 100%; */
-    width: 100%;
-    max-width: 600px;
-    margin: auto;
+    /* width: 100%; */
+    max-width: 650px;
+    /* margin: auto; */
+    left: 0px;
 }
 
 

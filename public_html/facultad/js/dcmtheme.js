@@ -4160,7 +4160,7 @@ var CarrerasGrid = (function() {
                             element.toggleClass('collapsed');
                             if (element.hasClass('collapsed')) {
                                 o.onCollapse();
-                                
+
                             } else {
                                 o.onExpand();
                                 //mayra2
@@ -4991,7 +4991,7 @@ $(window).load(function() {
         });
     });
 
-
+    //scrollbar
     $('.full-content').each(function() {
         $(this).perfectScrollbar();
     });
@@ -5006,6 +5006,8 @@ $(window).load(function() {
             window.open(doc.data("idown"), '_blank');
         });
     });
+    //noticies add pagination
+    $(".noticiesWrap").parent().parent().parent().find(".taglib-page-iterator").appendTo(".noticiesWrap");
 
 
     ///*

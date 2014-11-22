@@ -238,7 +238,13 @@
     }
 }
 
-
+@media (max-width: 979px){
+    .noticiesWrap .lfr-pagination .lfr-pagination-buttons{
+        float: none;
+        margin: auto;
+    }
+}
+/*<editor-fold defaultstate="collapsed" desc="menu figure">*/
 /**experiments
 http://tympanus.net/Development/HoverEffectIdeas/*/
 /* Common style */
@@ -427,3 +433,4 @@ figure.effect-layla:hover img {
         right: 20px;
     }
 }
+/*</editor-fold>*/
