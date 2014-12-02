@@ -3,7 +3,10 @@
 #set( $count = 0)
 #set( $count1 = 0)
 #if (!$Noticia.getSiblings().isEmpty())
-#foreach ($cur_Noticia in $Noticia.getSiblings())
+#foreach ($cu in $Noticia.getSiblings())
+
+#set( $ix = $Noticia.getSiblings().size() - $velocityCount)
+                #set($cur_Noticia=$Noticia.getSiblings().get($ix))
 
 #if($velocityCount > 97)
 #break
