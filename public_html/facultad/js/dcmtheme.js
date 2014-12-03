@@ -3354,6 +3354,168 @@ var Boxgrid = (function() {
 Boxgrid.init();
 //</editor-fold>
 
+//<editor-fold defaultstate="collpased" desc="carreras">
+var CarrerasFull = (function() {
+    var $items = $('.carrearWrap li'),
+            transEndEventNames = {
+                'WebkitTransition': 'webkitTransitionEnd',
+                'MozTransition': 'transitionend',
+                'OTransition': 'oTransitionEnd',
+                'msTransition': 'MSTransitionEnd',
+                'transition': 'transitionend'
+            },
+    // transition end event name
+    transEndEventName = transEndEventNames[ Modernizr.prefixed('transition') ],
+            // window and body elements
+            $window = $(window),
+            $body = $('BODY'),
+            // transitions support
+            supportTransitions = Modernizr.csstransitions,
+            // current item's index
+            current = -1,
+            // window width and height
+            winsize = getWindowSize();
+    function init(options) {
+        // apply fittext plugin
+        //$items.find( 'div.rb-week > div span' ).fitText( 0.3 ).end().find( 'span.rb-city' ).fitText( 0.5 );
+        initEvents();
+    }
+
+    function initEvents() {
+
+        $items.each(function(ix) {
+
+            var $item = $(this),
+                    $close = $item.find('span.rb-close'),
+                    $overlay = $item.find('div.rb-overlay');//,
+            /* $prev = $('<span class="rb-prev">Prebv</span>').appendTo($overlay),
+             $next = $('<span class="rb-next">Next</span>').appendTo($overlay),
+             $linkNext, $linkPrev;
+             if ($item.is(':last-child')) {
+             $linkPrev = $items[ix - 1];
+             $linkNext = $items[0];
+             } else if ($item.is(':first-child')) {
+             $linkPrev = $items[$items.size() - 1];
+             $linkNext = $items[ix + 1];
+             } else {
+             $linkNext = $items[ix + 1];
+             $linkPrev = $items[ix - 1];
+             }
+             
+             $next.on('click', function(event) {
+             $($linkNext).trigger("click");
+             $close.trigger("click");
+             });
+             $prev.on('click', function(event) {
+             $($linkPrev).trigger("click");
+             $close.trigger("click");
+             });*/
+            $item.on('click', function(event) {
+                event.preventDefault();
+                $('.carrearWrap').removeClass("oculto visible animated bounceInRight");
+                if ($item.data('isExpanded')) {
+                    return false;
+                }
+                $item.data('isExpanded', true);
+                // save current item's index
+                current = $item.index();
+                var layoutProp = getItemLayoutProp($item),
+                        clipPropFirst = 'rect(' + layoutProp.top + 'px ' + (layoutProp.left + layoutProp.width) + 'px ' + (layoutProp.top + layoutProp.height) + 'px ' + layoutProp.left + 'px)',
+                        clipPropLast = 'rect(0px ' + winsize.width + 'px ' + winsize.height + 'px 0px)';
+                $overlay.css({
+                    transformOrigin: layoutProp.left + 'px ' + layoutProp.top + 'px',
+                    clip: supportTransitions ? clipPropFirst : clipPropLast,
+                    transform: supportTransitions ? 'rotate(45deg)' : 'none',
+                    opacity: 1,
+                    zIndex: 9999,
+                    pointerEvents: 'auto'
+                });
+                if (supportTransitions) {
+                    $overlay.on(transEndEventName, function() {
+
+                        $overlay.off(transEndEventName);
+                        setTimeout(function() {
+                            $overlay.css({clip: clipPropLast, transform: 'rotate(0deg)'}).on(transEndEventName, function() {
+                                $overlay.off(transEndEventName);
+                                $body.css('overflow-y', 'hidden');
+                            });
+                        }, 25);
+                    });
+                }
+                else {
+                    $body.css('overflow-y', 'hidden');
+                }
+
+            });
+            $close.on('click', function() {
+
+                $body.css('overflow-y', 'auto');
+                var layoutProp = getItemLayoutProp($item),
+                        clipPropFirst = 'rect(' + layoutProp.top + 'px ' + (layoutProp.left + layoutProp.width) + 'px ' + (layoutProp.top + layoutProp.height) + 'px ' + layoutProp.left + 'px)',
+                        clipPropLast = 'auto';
+                // reset current
+                current = -1;
+                $overlay.css({
+                    clip: supportTransitions ? clipPropFirst : clipPropLast,
+                    opacity: supportTransitions ? 1 : 0,
+                    pointerEvents: 'none'
+                });
+                if (supportTransitions) {
+                    $overlay.on(transEndEventName, function() {
+
+                        $overlay.off(transEndEventName);
+                        setTimeout(function() {
+                            $overlay.css('opacity', 0).on(transEndEventName, function() {
+                                $overlay.off(transEndEventName).css({clip: clipPropLast, zIndex: -1});
+                                $item.data('isExpanded', false);
+                            });
+                        }, 25);
+                    });
+                }
+                else {
+                    $overlay.css('z-index', -1);
+                    $item.data('isExpanded', false);
+                }
+
+                return false;
+            });
+        });
+        $(window).on('debouncedresize', function() {
+            winsize = getWindowSize();
+            // todo : cache the current item
+            if (current !== -1) {
+                $items.eq(current).children('div.rb-overlay').css('clip', 'rect(0px ' + winsize.width + 'px ' + winsize.height + 'px 0px)');
+            }
+        });
+    }
+
+    function getItemLayoutProp($item) {
+
+        var scrollT = $window.scrollTop(),
+                scrollL = $window.scrollLeft(),
+                itemOffset = $item.offset();
+        return {
+            left: itemOffset.left - scrollL,
+            top: itemOffset.top - scrollT,
+            width: $item.outerWidth(),
+            height: $item.outerHeight()
+        };
+    }
+
+    function getWindowSize() {
+        $body.css('overflow-y', 'hidden');
+        var w = $window.width(), h = $window.height();
+        if (current === -1) {
+            $body.css('overflow-y', 'auto');
+        }
+        return {width: w, height: h};
+    }
+
+    return {init: init};
+})();
+CarrerasFull.init();
+//</editor-fold>
+
 //<editor-fold defaultstate="collapsed" desc="grid facultades">
 
 // ======================= imagesLoaded Plugin ===============================
@@ -3820,7 +3982,7 @@ var CarrerasGrid = (function() {
             }
         }
 
-        init();
+        // init();
     });
 
     /* return {
@@ -4189,6 +4351,336 @@ var CarrerasGrid = (function() {
     })
 })(jQuery);
 (function($) {
+    $.widget("metro.carousel", {
+        version: "1.0.0",
+        options: {
+            auto: true,
+            period: 2000,
+            duration: 500,
+            effect: 'slowdown', // slide, fade, switch, slowdown
+            direction: 'left',
+            markers: {
+                show: true,
+                type: 'default',
+                position: 'left' //bottom-left, bottom-right, bottom-center, top-left, top-right, top-center
+            },
+            controls: true,
+            stop: true,
+            width: '100%',
+            height: 300
+        },
+        _slides: {},
+        _currentIndex: 0,
+        _interval: 0,
+        _outPosition: 0,
+        _create: function() {
+            var that = this, o = this.options,
+                    element = carousel = this.element,
+                    controls = carousel.find('.controls');
+
+            if (element.data('auto') != undefined)
+                o.auto = element.data('auto');
+            if (element.data('period') != undefined)
+                o.period = element.data('period');
+            if (element.data('duration') != undefined)
+                o.duration = element.data('duration');
+            if (element.data('effect') != undefined)
+                o.effect = element.data('effect');
+            if (element.data('direction') != undefined)
+                o.direction = element.data('direction');
+            if (element.data('width') != undefined)
+                o.width = element.data('width');
+            if (element.data('height') != undefined)
+                o.height = element.data('height');
+            if (element.data('stop') != undefined)
+                o.stop = element.data('stop');
+            if (element.data('controls') != undefined)
+                o.controls = element.data('controls');
+            if (element.data('markersShow') != undefined)
+                o.markers.show = element.data('markersShow');
+            if (element.data('markersType') != undefined)
+                o.markers.type = element.data('markersType');
+            if (element.data('markersPosition') != undefined)
+                o.markers.position = element.data('markersPosition');
+
+            carousel.css({
+                'width': this.options.width,
+                'height': this.options.height
+            });
+
+            this._slides = carousel.find('.slic');
+
+            if (this._slides.length <= 1)
+                return;
+
+            if (this.options.markers !== false && this.options.markers.show && this._slides.length > 1) {
+                this._markers(that);
+            }
+
+            if (this.options.controls && this._slides.length > 1) {
+                carousel.find('.controls.left').on('click', function() {
+                    that._slideTo('prior');
+                });
+                carousel.find('.controls.right').on('click', function() {
+                    that._slideTo('next');
+                });
+            } else {
+                controls.hide();
+            }
+
+            if (this.options.stop) {
+                carousel
+                        .on('mouseenter', function() {
+                            clearInterval(that._interval);
+                        })
+                        .on('mouseleave', function() {
+                            if (that.options.auto)
+                                that._autoStart(), that.options.period;
+                        })
+            }
+
+            if (this.options.auto) {
+                this._autoStart();
+            }
+        },
+        _autoStart: function() {
+            var that = this;
+            this._interval = setInterval(function() {
+                if (that.options.direction == 'left') {
+                    that._slideTo('next')
+                } else {
+                    that._slideTo('prior')
+                }
+            }, this.options.period);
+        },
+        _slideTo: function(direction) {
+            var
+                    currentSlide = this._slides[this._currentIndex],
+                    nextSlide;
+
+            if (direction == undefined)
+                direction = 'next';
+
+            if (direction === 'prior') {
+                this._currentIndex -= 1;
+                if (this._currentIndex < 0)
+                    this._currentIndex = this._slides.length - 1;
+
+                this._outPosition = this.element.width();
+
+            } else if (direction === 'next') {
+                this._currentIndex += 1;
+                if (this._currentIndex >= this._slides.length)
+                    this._currentIndex = 0;
+
+                this._outPosition = -this.element.width();
+
+            }
+
+            nextSlide = this._slides[this._currentIndex];
+
+            switch (this.options.effect) {
+                case 'switch':
+                    this._effectSwitch(currentSlide, nextSlide);
+                    break;
+                case 'slowdown':
+                    this._effectSlowdown(currentSlide, nextSlide, this.options.duration);
+                    break;
+                case 'fade':
+                    this._effectFade(currentSlide, nextSlide, this.options.duration);
+                    break;
+                default:
+                    this._effectSlide(currentSlide, nextSlide, this.options.duration);
+            }
+
+            var carousel = this.element, that = this;
+            carousel.find('.markers ul li a').each(function() {
+                var index = $(this).data('num');
+                if (index === that._currentIndex) {
+                    $(this).parent().addClass('active');
+                } else {
+                    $(this).parent().removeClass('active');
+                }
+            });
+        },
+        _slideToSlide: function(slideIndex) {
+            var
+                    currentSlide = this._slides[this._currentIndex],
+                    nextSlide = this._slides[slideIndex];
+
+            if (slideIndex > this._currentIndex) {
+                this._outPosition = -this.element.width();
+            } else {
+                this._outPosition = this.element.width();
+            }
+
+            switch (this.options.effect) {
+                case 'switch' :
+                    this._effectSwitch(currentSlide, nextSlide);
+                    break;
+                case 'slowdown':
+                    this._effectSlowdown(currentSlide, nextSlide, this.options.duration);
+                    break;
+                case 'fade':
+                    this._effectFade(currentSlide, nextSlide, this.options.duration);
+                    break;
+                default :
+                    this._effectSlide(currentSlide, nextSlide, this.options.duration);
+            }
+
+            this._currentIndex = slideIndex;
+        },
+        _markers: function(that) {
+            var div, ul, li, i, markers;
+
+            div = $('<div class="markers ' + this.options.markers.type + '" />');
+            ul = $('<ul></ul>').appendTo(div);
+
+            for (i = 0; i < this._slides.length; i++) {
+                li = $('<li><a href="javascript:void(0)" data-num="' + i + '"></a></li>');
+                if (i === 0) {
+                    li.addClass('active');
+                }
+                li.appendTo(ul);
+            }
+
+
+            ul.find('li a').removeClass('active').on('click', function() {
+                var $this = $(this),
+                        index = $this.data('num');
+
+                ul.find('li').removeClass('active');
+                $this.parent().addClass('active');
+
+                if (index == that._currentIndex) {
+                    return true;
+                }
+
+                that._slideToSlide(index);
+                return true;
+            });
+
+            div.appendTo(this.element);
+
+            switch (this.options.markers.position) {
+                case 'top-left' :
+                    {
+                        div.css({
+                            left: '10px',
+                            right: 'auto',
+                            bottom: 'auto',
+                            top: '10px'
+                        });
+                        break;
+                    }
+                case 'top-right' :
+                    {
+                        div.css({
+                            left: 'auto',
+                            right: '10px',
+                            bottom: 'auto',
+                            top: '0px'
+                        });
+                        break;
+                    }
+                case 'top-center' :
+                    {
+                        div.css({
+                            left: this.element.width() / 2 - div.width() / 2,
+                            right: 'auto',
+                            bottom: 'auto',
+                            top: '0px'
+                        });
+                        break;
+                    }
+                case 'bottom-left' :
+                    {
+                        div.css({
+                            left: '10px',
+                            right: 'auto'
+                        });
+                        break;
+                    }
+                case 'bottom-right' :
+                    {
+                        div.css({
+                            right: '10px',
+                            left: 'auto'
+                        });
+                        break;
+                    }
+                case 'bottom-center' :
+                    {
+                        div.css({
+                            left: this.element.width() / 2 - div.width() / 2,
+                            right: 'auto'
+                        });
+                        break;
+                    }
+            }
+        },
+        _effectSwitch: function(currentSlide, nextSlide) {
+            $(currentSlide)
+                    .hide();
+            $(nextSlide)
+                    .css({left: 0})
+                    .show();
+            $(nextSlide)
+                    .css('left', this._outPosition * -1)
+                    .show()
+                    .animate({left: 0}, this.options.duration);
+        },
+        _effectSlide: function(currentSlide, nextSlide, duration) {
+            $(currentSlide)
+                    .animate({left: this._outPosition}, duration);
+            $(nextSlide)
+                    .css('left', this._outPosition * -1)
+                    .show()
+                    .animate({left: 0}, duration);
+        },
+        _effectSlowdown: function(currentSlide, nextSlide, duration) {
+            var options = {
+                'duration': duration,
+                'easing': 'doubleSqrt'
+            };
+            $.easing.doubleSqrt = function(t) {
+                return Math.sqrt(Math.sqrt(t));
+            };
+
+            $(currentSlide)
+                    .animate({left: this._outPosition}, options);
+
+
+            //$(nextSlide).find('.subslide').hide();
+            $(nextSlide)
+                    .css('left', this._outPosition * -1)
+                    .show()
+                    .animate({left: 0}, options);
+
+            //setTimeout(function(){
+            //    $(nextSlide).find('.subslide').fadeIn();
+            //}, 500);
+
+        },
+        _effectFade: function(currentSlide, nextSlide, duration) {
+            $(currentSlide)
+                    .fadeOut(duration);
+            $(nextSlide)
+                    .css({left: 0})
+                    .fadeIn(duration);
+        },
+        _destroy: function() {
+
+        },
+        _setOption: function(key, value) {
+            this._super('_setOption', key, value);
+        }
+    });
+})(jQuery);
+
+
+
+(function($) {
     /*
      * Init or ReInit components
      * */
@@ -4221,10 +4713,18 @@ var CarrerasGrid = (function() {
             $('[data-role=panel]').panel();
         }
     };
+     $.Metro.initCarousels = function(area){
+        if (area != undefined) {
+            $(area).find('[data-role=carousel]').carousel();
+        } else {
+            $('[data-role=carousel]').carousel();
+        }
+    };
     $.Metro.initAll = function(area) {
         $.Metro.initTabs(area);
         $.Metro.initHints(area);
         $.Metro.initPanels(area);
+        $.Metro.initCarousels(area);
         //$.Metro.initAccordions(area);
 
     }
@@ -4447,7 +4947,7 @@ $(function() {
 });
 //</editor-fold>
 
-//<editor-fold defaultstate="collapsed" desc="Scroll Spy, current:checkviewport">
+//<editor-fold defaultstate="collapsed" desc="Scroll Spy, current:viewportChecker">
 
 /*
  Version 1.5.0
@@ -5315,7 +5815,7 @@ function headerPosition() {
     }
 }
 function isMobileBrowser() {
-    return true || debug;
+    return debug;
 }
 var destroyCrappyPlugin = function($elem, eventNamespace) {
     var isInstantiated = !!$.data($elem.get(0));
