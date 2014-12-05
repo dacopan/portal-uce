@@ -3354,7 +3354,7 @@ var Boxgrid = (function() {
 Boxgrid.init();
 //</editor-fold>
 
-//<editor-fold defaultstate="collpased" desc="carreras">
+//<editor-fold defaultstate="collpased" desc="carreras Full">
 var CarrerasFull = (function() {
     var $items = $('.carrearWrap li'),
             transEndEventNames = {
@@ -4713,7 +4713,7 @@ var CarrerasGrid = (function() {
             $('[data-role=panel]').panel();
         }
     };
-     $.Metro.initCarousels = function(area){
+    $.Metro.initCarousels = function(area) {
         if (area != undefined) {
             $(area).find('[data-role=carousel]').carousel();
         } else {
@@ -5523,6 +5523,14 @@ $(window).load(function() {
                     //$(window).unbind("load scroll touchmove", elem);
                 }, // Callback to do after a class was added to an element. Action will return "add" or "remove", depending if the class was added or removed
                 scrollHorizontal: false // Set to true if your website scrolls horizontal instead of vertical.        
+            });
+        });
+        $('.carrearWrap').each(function() {
+            $(this).addClass("oculto").viewportChecker({
+                classToAdd: 'visible animated bounceIn',
+                offset: 100,
+                repeat: false,
+                scrollHorizontal: false
             });
         });
         $('#slide1 .detail h2').each(function() {

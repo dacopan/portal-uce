@@ -4305,83 +4305,14 @@ body.metro{
 }                                                    
 /*</editor-fold>*/
 
-/* #Notices Featured
+/* #rb-overlay
 ======================================================*/
-/*<editor-fold defaultstate="collapsed" desc="Notices Featured">*/
-.container .featured {
-    margin: 1px auto 35px auto;
-    transition: none;
-    -webkit-transition: none;
-    -moz-transition: none;
-    -o-transition: none; }
-
-.blogindex .container .featured {
-    margin-top: 0; }
-
-.blogindex .articlecontainer.featured {
-    width: 706px;
-    float: left;
-    margin-left: -1px;
-    margin-top: 1px;
-    margin-bottom: 15px; }
-
+/*<editor-fold defaultstate="collapsed" desc="rb-overlay">*/
 .isotope {
     min-width: 300px !important; }
 
 .home .two_third, .home .one_third {
     margin: 0; }
-
-.featured a.isobrick {
-    background: rgba(0, 0, 0, 0.01) url(../images/small-loading.gif) center no-repeat;
-    -webkit-transition-property: none;
-    -moz-transition-property: none;
-    -ms-transition-property: none;
-    -o-transition-property: none;
-    transition-property: none; }
-
-.featured .featuredinner {
-    opacity: 0;
-    /* IE 8 */
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=00)";
-    -ms-filter: "alpha(opacity=0)";
-    /* Netscape */
-    -moz-opacity: 0;
-    /* Safari 1.x */
-    -khtml-opacity: 0;
-    /* Good browsers */
-    opacity: 0; }
-
-.featuredinner {
-    display: block;
-    position: relative;
-    height: 100%; }
-
-.featuredoverlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 250px;
-    background-image: url(../images/linebg-fade.png);
-    background-position: top;
-    background-repeat: repeat-x;
-    z-index: 8; }
-
-.featured .half .featuredoverlay, .featured .quarter .featuredoverlay {
-    height: 200px; }
-
-.featured h2, .featured h2 a {
-    font-size: 30px;
-    line-height: 32px;
-    margin-bottom: 10px;
-    color: #fff;
-    text-decoration: none;
-    position: absolute;
-    /* bottom: 15px;*/
-    top: 15px;
-    left: 20px;
-    width: 80%;
-    z-index: 9; }
 
 span.date {
     font-size: 10px;
@@ -4399,70 +4330,6 @@ span.date a.bubble, span.date a.bubble:hover {
     right: 0;
     bottom: 0;
     color: #fff !important; }
-
-.featured span.date {
-    margin-top: 5px;
-    color: #fff; }
-
-.featured span.date a {
-    color: #fff; }
-
-.articleinner span.date {
-    margin-bottom: 15px; }
-
-#fullcolumn .articleinner span.date {
-    margin-bottom: 10px; }
-
-.one_col {
-    display: block;
-    float: left;
-    width: 314px;
-    overflow: visible;
-    margin-right: 15px;
-    padding-top: 10px;
-    border-top: 1px solid #dcdcdc; }
-
-.featured .one_col {
-    height: 250px;
-    width: 320px;
-    overflow: hidden;
-    margin: 0;
-    padding: 0;
-    border: 0;
-    float: left; 
-    cursor: pointer;
-}
-
-
-.featured .one_col.double {
-    height: 250px; 
-    width:640px;
-}
-.featured .one_col.half {
-    height: 124px; 
-    width:320px!important;
-}
-
-.featured .one_col.quarterx {
-    height: 124px; 
-    width: 156px;
-}
-
-/****/
-
-.featured .one_col, .featured .two_col {
-    margin: 1px; }
-
-.featuredcontainer {
-    width:1000px; /*966px;*/
-    margin-left: -1px;
-    margin: auto; }
-.comunicWraper{
-    height: 375px!important;
-    background: transparent;
-    padding-left: 10px!important;
-    padding-right: 4px!important;
-}
 
 /* #Notices expander
 ================================================== */
@@ -5902,6 +5769,7 @@ html, body,#wrapperscroll,#porletwrap,.metro .mm-page{
 /* #Noticias
 ================================================== */
 /*<editor-fold defaultstate="collapsed" desc="Noticias">*/
+
 .noticies .noticeX {
     /*width: 280px;*/
     height: 280px;
