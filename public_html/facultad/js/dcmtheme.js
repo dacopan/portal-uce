@@ -3356,7 +3356,7 @@ Boxgrid.init();
 
 //<editor-fold defaultstate="collpased" desc="carreras Full">
 var CarrerasFull = (function() {
-    var $items = $('.carrearWrap li'),
+    var $items = $('.carreraWrap li'),
             transEndEventNames = {
                 'WebkitTransition': 'webkitTransitionEnd',
                 'MozTransition': 'transitionend',
@@ -3412,7 +3412,7 @@ var CarrerasFull = (function() {
              });*/
             $item.on('click', function(event) {
                 event.preventDefault();
-                $('.carrearWrap').removeClass("oculto visible animated bounceInRight");
+                $('.carreraWrap').removeClass("oculto visible animated bounceInRight");
                 if ($item.data('isExpanded')) {
                     return false;
                 }
@@ -3637,7 +3637,7 @@ $.fn.imagesLoaded = function(callback) {
 var CarrerasGrid = (function() {
     //var $grid;
     // list of items
-    $('.og-grid.carrearWrap').each(function() {
+    $('.og-grid.carreraWrap').each(function() {
         var $grid = $(this);
         // the items
         var $items = $grid.children('li'),
@@ -5525,7 +5525,7 @@ $(window).load(function() {
                 scrollHorizontal: false // Set to true if your website scrolls horizontal instead of vertical.        
             });
         });
-        $('.carrearWrap').each(function() {
+        $('.carreraWrap').each(function() {
             $(this).addClass("oculto").viewportChecker({
                 classToAdd: 'visible animated bounceIn',
                 offset: 100,
