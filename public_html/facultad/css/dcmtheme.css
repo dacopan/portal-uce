@@ -1,4 +1,3 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700,300);
 /*file:///C:/Users/DarwinAlejandro/Downloads/Flareget/Applications/dcm_uce/web/liferay2/liferay2.html*/
 /*http://www.3dcsstext.com/
 * animate css
@@ -3861,11 +3860,13 @@ a {
 @font-face {
     font-family: "Adequate ExtraLight";
     font-style: normal;
-    font-weight: 300;
+    font-weight: normal;
     src:  url('fonts/Adequate-ExtraLight.ttf') format('truetype'), local("Segoe UI Bold"), local("Open Sans Bold"), local("OpenSans-Bold"), url(https://themes.googleusercontent.com/static/fonts/opensans/v8/k3k702ZOKiLJc3WVjuplzJ1r3JsPcQLi8jytr04NNhU.woff) format('woff');
 }
 .metro .adequate{
     font-family: 'Adequate ExtraLight','Segoe UI_', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
+    font-weight: normal;
+    font-style: normal;
 }
 .metro .text-rest-state {
     color: #000000;
@@ -4047,6 +4048,21 @@ a {
 .metro h6 {
     padding: 0;
     margin: 10px 0;
+}
+.aui, .metro{
+    font-family: 'Segoe UI Light_', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
+    font-weight: normal;    
+    color:#000;
+}
+.metro p {
+margin: 0 0 7pt;
+font-family: 'Segoe UI_', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
+font-weight: normal;
+font-style: normal;
+color: #000000;
+font-size: 11pt;
+line-height: 15pt;
+letter-spacing: 0.02em;
 }
 .metro h1 {
     font-family: 'Segoe UI Light_', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
@@ -4624,7 +4640,7 @@ span.date a.bubble, span.date a.bubble:hover {
 /*</editor-fold>*/
 /* #Facultades
 ================================================== */
-/*<editor-fold defaultstate="collapsed" desc="Facultades">*/
+/*<editor-fold defaultstate="collapsed" desc="og-grid slide down">*/
 .og-grid .detailx{
     height: 0px;
     width: 0px;
@@ -5732,9 +5748,385 @@ html, body,#wrapperscroll,#porletwrap,.metro .mm-page{
 .carreraWrap .rb-overlay{
     border-width: 10px;
 }
-.carreraWrap {}
-.carreraWrap{}
-.carreraWrap{}
+/*Sidebar*/
+.metro .sidebar {
+    margin: 0;
+    padding: 0;
+    background-color: #3D3D3D;
+    width: 100%;
+    height: 100%;
+}
+.metro .sidebar > ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.metro .sidebar > ul li {
+    display: block;
+    border: 0;
+    border-bottom: 1px rgb(0,118,189) solid;
+    position: relative;
+    margin: 0px;
+}
+.metro .sidebar > ul li.title {
+    padding: 20px 20px 10px 20px;
+    font-family: 'Segoe UI Light_', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
+    font-weight: 300;
+    letter-spacing: 0.00em;
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+    letter-spacing: 0.01em;
+    color: #000000;
+    font-size: 2.2rem;
+    line-height: 2.2rem;
+    color: #ffffff;
+}
+.metro .sidebar > ul li a {
+    display: block;
+    position: relative;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #eeeeee;
+    background-color: #3D3D3D;
+    text-align: left;
+}
+
+.metro .sidebar > ul li a.dropdown-toggle:after {
+    right: 10px;
+    bottom: 5px;
+}
+.metro .sidebar > ul li a [class*="icon-"] {
+    margin-right: 15px;
+    font-size: 17px;
+}
+.metro .sidebar > ul li.stick {
+    position: relative;
+}
+.metro .sidebar > ul li.stick:before {
+    content: "";
+    position: absolute;
+    width: 7px;
+    height: 40px;
+    left: -7px;
+    text-indent: -9999px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    background-color: inherit;
+}
+.metro .sidebar > ul li.disabled a {
+    background-color: #8a8a8a;
+    cursor: default;
+    color: #555555;
+}
+.metro .sidebar > ul li.active a {
+    background-color: #9a1616;
+    color: #ffffff;
+}
+.metro .sidebar > ul ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    position: absolute;
+    display: none;
+    z-index: 1000;
+    background: #ffffff;
+    min-width: 220px;
+    width: auto;
+    border: 1px solid #dcddde;
+    box-shadow: none;
+    position: relative !important;
+    background-color: #e5e5e5;
+    min-width: 100%;
+    float:none;
+    border-radius: 0px;
+}
+.metro .sidebar > ul ul li {
+    display: block;
+    margin: 10px 0;
+    padding: 0;
+    vertical-align: baseline;
+    position: relative;
+    font-family: 'Segoe UI_', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
+}
+.metro .sidebar > ul ul li a {
+    display: block;
+    text-decoration: none;
+    font-family: 'Segoe UI Light_', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
+    font-weight: 300;
+    letter-spacing: 0.00em;
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+    letter-spacing: 0.01em;
+    color: #000000;
+    line-height: 2.2rem;
+    font-size: 2.2rem;
+    color: inherit;
+    text-align: left;
+}
+.metro .sidebar > ul ul li.title {
+    font-family: 'Segoe UI Light_', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
+    font-weight: 300;
+    color: #000000;
+    letter-spacing: 0.00em;
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+    letter-spacing: 0.01em;
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+.metro .sidebar > ul ul li {
+    margin: 5px 0 0;
+    width: 100%;
+    border: 1px transparent solid;
+}
+.metro .sidebar > ul ul li:last-child {
+    margin-bottom: 5px;
+}
+.metro .sidebar > ul ul li.disabled,
+.metro .sidebar > ul ul li.disabled:hover {
+    cursor: default !important;
+    background: transparent !important;
+    color: #eeeeee;
+}
+.metro .sidebar > ul ul li.disabled a,
+.metro .sidebar > ul ul li.disabled:hover a {
+    color: inherit;
+    cursor: inherit;
+    background: inherit;
+}
+.metro .sidebar > ul ul a {
+    padding: 8px 32px !important;
+    color: inherit;
+    font-size: 15px;
+    line-height: 14px !important;
+    cursor: pointer;
+}
+.metro .sidebar > ul ul ul a{
+    padding-left: 45px !important;
+}
+.metro .sidebar > ul ul ul a:hover{
+    padding-left: 57px !important;
+}
+.metro .sidebar > ul ul li:hover {
+    background: #edf4fc;
+    border-color: #a8d2fd;
+}
+
+.metro .sidebar > ul ul.place-right {
+    right: -15px;
+    left: auto;
+}
+.metro .sidebar > ul ul .divider {
+    padding: 0;
+    height: 1px;
+    margin: 9px 1px;
+    overflow: hidden;
+    background-color: #e5e5e5;
+    border-width: 0;
+}
+.metro .sidebar > ul ul .divider:hover {
+    background: #e5e5e5;
+}
+.metro .sidebar > ul ul.open {
+    display: block !important;
+}
+.metro .sidebar > ul ul .dropdown-menu {
+    /*left: 100%;*/
+    top: -10%;
+}
+.metro .sidebar > ul ul > li:hover > .dropdown-menu[data-show="hover"] {
+    display: block;
+}
+.metro .sidebar > ul ul > li > a.dropdown-toggle:after {
+    font-family: 'fontawesome-alloy';
+    font-size: .7em;
+    content: "\f078";    
+    margin-top: -1.4em;
+    color:#fff;
+    position: absolute;
+    margin-left: .25em;
+    bottom: 6px;
+    font-size: .7em;
+}
+.metro .sidebar > ul ul.drop-left {
+    left: -100%;
+}
+.metro .sidebar > ul ul.drop-up {
+    top: auto;
+    bottom: 0;
+}
+.metro .sidebar > ul ul .menu-title {
+    background-color: #f6f7f8;
+    font-size: 12px;
+    line-height: 14px;
+    padding: 4px 8px;
+    border: 0;
+    border-bottom: 1px #dcddde solid;
+    border-top: 1px #dcddde solid;
+    color: #646464;
+}
+.metro .sidebar > ul ul .menu-title:first-child {
+    margin: 0;
+    border-top-width: 0;
+}
+.metro .sidebar > ul ul .menu-title:first-child:hover {
+    border-top-width: 0;
+}
+.metro .sidebar > ul ul .menu-title:hover {
+    background-color: #f6f7f8;
+    cursor: default;
+    border: 0;
+    border-bottom: 1px #dcddde solid;
+    border-top: 1px #dcddde solid;
+}
+.metro .sidebar > ul ul li {
+    border: 0;
+}
+/*second li drop*/
+.metro .sidebar > ul ul li a {
+    /* background-color: #e5e5e5;*/
+    background-color: transparent;
+    text-transform: capitalize;
+    font-family: 'Adequate ExtraLight'/*'Open Sans Light'*/;    
+    font-size: 11px;
+}
+.metro .sidebar > ul ul li.divider {
+    background-color: #c2c2c2;
+}
+.metro .sidebar > ul ul li.divider:hover {
+    background-color: #c2c2c2;
+}
+.metro .sidebar > ul ul li.disabled a {
+    color: #999999;
+}
+.metro .sidebar > ul ul li.disabled a:hover {
+    color: #999999;
+}
+.metro .sidebar > ul ul.open {
+    display: block;
+}
+.metro .sidebar .pull-menu{
+    display: none;
+    float: left !important;
+    color: #fff;
+    cursor: pointer;
+    font-size: 28px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    height: 45px;
+    width: 40px;
+    line-height: 20px;
+    margin: 0;
+    font-family: 'fontawesome-alloy';
+}
+.metro .sidebar .pull-menu:before{
+    content: "\f0c9";
+    position: absolute;
+    font-size: 20pt;
+    top: 10px;
+    left: 10px;
+}
+.metro .sidebar .element-menu{
+    position: relative;
+}
+.metro .carreraWrap .sidebar .ps-scrollbar-x-rail,
+.metro .carreraWrap .sidebar .ps-scrollbar-y-rail{
+    opacity: 0;
+}
+/*carreras sidebar*/
+.metro .carreraWrap .rb-overlay .navx{
+    background-color: /*rgb(66,117,185)*/rgba(0,118,189,.8);
+    margin-left: 0px;
+    height: 100%;
+    /* padding: 5px; */
+    padding-top: 60px;
+    padding-left: 20px;
+    overflow: hidden;
+}
+.metro .sidebar{
+    /*background-color: rgb(66,117,185);*/
+}
+.metro .sidebar > ul li a{
+    background-color: rgb(255,255,255);
+    color:#000;
+}
+.metro .sidebar > ul ul,.metro .sidebar,.metro .sidebar > ul li a{
+    background-color: transparent;
+    border: 0px;
+    color: #fff;
+    font-family: 'Adequate ExtraLight';
+}
+/*primer li drop*/
+.metro .sidebar > ul li a{
+    background-color: #fff;
+    color: #000;
+    text-transform: uppercase;
+    font-family: 'Adequate ExtraLight';
+    font-size: 12px;
+    font-weight: 600;
+}
+.metro .carreraWrap .carousel{
+    /*background-color: #fff;*/
+    background-color: transparent;
+}
+.metro .sidebar > ul ul li:hover{
+    background-color: transparent;
+}
+.metro .sidebar a.dropdown-toggle:after {
+    font-family: 'fontawesome-alloy';
+    font-size: .7em;
+    content: "\f078";    
+    margin-top: -1.4em;
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+
+    position: absolute;
+    margin-left: .25em;
+    bottom: 6px;
+    font-size: .7em;
+}
+.metro .sidebar a.dropdown-toggle:after {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+}
+.metro .sidebar > ul li a,.metro .sidebar > ul ul a{
+    -moz-transition: all 0.4s ease 0s;
+    -webkit-transition: all 0.4s ease 0s;
+    -o-transition: all 0.4s ease 0s;
+    transition: all 0.4s ease 0s;
+}
+.metro .sidebar > ul li a:hover,.metro .sidebar > ul ul a:hover{
+    padding-left: 45px!important;
+}
+.metro .sidebar > ul li a:hover,.aui .metro .sidebar .dropdown-menu>li>a:hover {
+    background:none;
+    background-color: #262626;
+    color: #ffffff;
+}
+
+
+.metro .carreraWrap .rb-week{
+    border: 2px solid rgb(66,117,185);
+}
+.metro .carreraWrap .full-content .contentwrap{
+    padding-top: 0px;
+}
+
+/* #Contenido generalidades
+================================================== */
+.metro .img-cover{    
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
 /*</editor-fold>*/
 
 /* #Slide3

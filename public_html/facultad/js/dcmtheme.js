@@ -4127,6 +4127,78 @@ var CarrerasGrid = (function() {
 //</editor-fold>
 
 //<editor-fold defaultstate="collapsed" desc="metro tabs control">
+var hasTouch = 'ontouchend' in window, eventTimer;
+var moveDirection = 'undefined', startX, startY, deltaX, deltaY, mouseDown = false
+
+function addTouchEvents(element) {
+    if (hasTouch) {
+        element.addEventListener("touchstart", touch2Mouse, true);
+        element.addEventListener("touchmove", touch2Mouse, true);
+        element.addEventListener("touchend", touch2Mouse, true);
+    }
+}
+
+function touch2Mouse(e)
+{
+    var theTouch = e.changedTouches[0];
+    var mouseEv;
+
+    switch (e.type)
+    {
+        case "touchstart":
+            mouseEv = "mousedown";
+            break;
+        case "touchend":
+            mouseEv = "mouseup";
+            break;
+        case "touchmove":
+            mouseEv = "mousemove";
+            break;
+        default:
+            return;
+    }
+
+
+    if (mouseEv == "mousedown") {
+        eventTimer = (new Date()).getTime();
+        startX = theTouch.clientX;
+        startY = theTouch.clientY;
+        mouseDown = true;
+    }
+
+    if (mouseEv == "mouseup") {
+        if ((new Date()).getTime() - eventTimer <= 500) {
+            mouseEv = "click";
+        } else if ((new Date()).getTime() - eventTimer > 1000) {
+            mouseEv = "longclick";
+        }
+        eventTimer = 0;
+        mouseDown = false;
+    }
+
+    if (mouseEv == "mousemove") {
+        if (mouseDown) {
+            deltaX = theTouch.clientX - startX;
+            deltaY = theTouch.clientY - startY;
+            moveDirection = deltaX > deltaY ? 'horizontal' : 'vertical';
+        }
+    }
+
+    var mouseEvent = document.createEvent("MouseEvent");
+    mouseEvent.initMouseEvent(mouseEv, true, true, window, 1, theTouch.screenX, theTouch.screenY, theTouch.clientX, theTouch.clientY, false, false, false, false, 0, null);
+    theTouch.target.dispatchEvent(mouseEvent);
+
+    e.preventDefault();
+}
+
+
+/* To add touch support for element need create listeners for component dom element
+ if (hasTouch) {
+ element.addEventListener("touchstart", touch2Mouse, true);
+ element.addEventListener("touchmove", touch2Mouse, true);
+ element.addEventListener("touchend", touch2Mouse, true);
+ }
+ */
 (function(c) {
     c.widget("metro.tabcontrol", {version: "1.0.0", options: {effect: "none", activateStoredTab: !1, tabclick: function(a) {
             }, tabchange: function(a) {
@@ -4677,8 +4749,116 @@ var CarrerasGrid = (function() {
         }
     });
 })(jQuery);
+(function($) {
+    $.widget("metro.dropdown", {
+        version: "1.0.1",
+        options: {
+            effect: 'slide',
+            toggleElement: false
+        },
+        _create: function() {
+            var that = this,
+                    menu = this.element,
+                    name = this.name,
+                    parent = this.element.parent(),
+                    toggle = this.options.toggleElement || parent.children('.dropdown-toggle');
 
+            if (menu.data('effect') != undefined) {
+                this.options.effect = menu.data('effect');
+            }
 
+            toggle.on('click.' + name, function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                if (menu.css('display') == 'block' && !menu.hasClass('keep-open')) {
+                    that._close(menu);
+                } else {
+                    $('.dropdown-menu').each(function(i, el) {
+                        if (!menu.parents('.dropdown-menu').is(el) && !$(el).hasClass('keep-open') && $(el).css('display') == 'block') {
+                            that._close(el);
+                        }
+                    });
+                    that._open(menu);
+                }
+            });
+
+            $(menu).find('li.disabled a').on('click', function(e) {
+                e.preventDefault();
+            });
+
+        },
+        _open: function(el) {
+            switch (this.options.effect) {
+                case 'fade':
+                    $(el).fadeIn('fast');
+                    break;
+                case 'slide':
+                    $(el).slideDown('fast');
+                    break;
+                default:
+                    $(el).show();
+            }
+            this._trigger("onOpen", null, el);
+        },
+        _close: function(el) {
+            switch (this.options.effect) {
+                case 'fade':
+                    $(el).fadeOut('fast');
+                    break;
+                case 'slide':
+                    $(el).slideUp('fast');
+                    break;
+                default:
+                    $(el).hide();
+            }
+            this._trigger("onClose", null, el);
+        },
+        _destroy: function() {
+        },
+        _setOption: function(key, value) {
+            this._super('_setOption', key, value);
+        }
+    });
+})(jQuery);
+(function($) {
+    $.widget("metro.pullmenu", {
+        version: "1.0.0",
+        options: {
+        },
+        _create: function() {
+            var that = this,
+                    element = this.element;
+
+            var menu = (element.data("relation") != undefined) ? element.data("relation") : element.parent().children(".element-menu, .horizontal-menu");
+
+            addTouchEvents(element[0]);
+
+            element.on("click", function(e) {
+                menu.slideToggle();
+                element.parent().toggleClass("opened");
+                e.preventDefault();
+                e.stopPropagation();
+            });
+
+        },
+        _destroy: function() {
+
+        },
+        _setOption: function(key, value) {
+            this._super('_setOption', key, value);
+        }
+    })
+})(jQuery);
+
+$(window).resize(function() {
+    var device_width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+    if (device_width > 979) {
+        $(".element-menu").show();
+    } else {
+        $(".element-menu").hide();
+    }
+});
 
 (function($) {
     /*
@@ -4720,17 +4900,40 @@ var CarrerasGrid = (function() {
             $('[data-role=carousel]').carousel();
         }
     };
+    $.Metro.initCarousels = function(area) {
+        if (area != undefined) {
+            $(area).find('[data-role=carousel]').carousel();
+        } else {
+            $('[data-role=carousel]').carousel();
+        }
+    };
+    $.Metro.initDropdowns = function(area) {
+        if (area != undefined) {
+            $(area).find('[data-role=dropdown]').dropdown();
+        } else {
+            $('[data-role=dropdown]').dropdown();
+        }
+    };
+    $.Metro.initPulls = function(area) {
+        if (area != undefined) {
+            $(area).find('[data-role=pull-menu], .pull-menu').pullmenu();
+        }
+        {
+            $('[data-role=pull-menu], .pull-menu').pullmenu();
+        }
+    };
     $.Metro.initAll = function(area) {
         $.Metro.initTabs(area);
         $.Metro.initHints(area);
         $.Metro.initPanels(area);
         $.Metro.initCarousels(area);
+        $.Metro.initPulls(area);
         //$.Metro.initAccordions(area);
 
     }
 })(jQuery);
 $(function() {
-    $.Metro.initAll();
+    $.Metro.initAll($('body.metro'));
 });
 METRO_AUTO_REINIT = false;
 $(function() {
@@ -5449,7 +5652,151 @@ $(function() {
     }
 });
 //</editor-fold>
+//<editor-fold defaultstate="collapsed" desc="sidebar">
+$.Metro.initDropdowns();
+(function($) {
+    $.widget("metro.sidebar", {
+        version: "1.0.0",
+        options: {
+            effect: 'switch',
+            activateStoredTab: false,
+            tabclick: function(tab) {
+            },
+            tabchange: function(tab) {
+            }
+        },
+        _create: function() {
+            var that = this,
+                    element = this.element,
+                    tabs = $(element.children("nav")).find("li a"),
+                    frames = $(element.children(".full-content")).children(".slic"),
+                    fullview = $(element.children(".full-content")),
+                    pull = $(element.children("nav")).find(".pull-menu"),
+                    element_id = element.attr("id");
 
+            if (element.data('effect') != undefined) {
+                this.options.effect = element.data('effect');
+            }
+            if (element_id === undefined) {
+                element.attr("id", "mayra_");
+            }
+            $(element.children("nav")).perfectScrollbar();
+
+            this.init(tabs, frames);
+            tabs.on("click", function(e) {
+
+                e.preventDefault();
+                e.stopPropagation();
+
+                if ($(this).parent().hasClass('disabled')) {
+                    return false;
+                }
+
+                var hrefx = $(this).attr("href");
+                if (hrefx === '#')
+                    return false;
+
+                var current_frame = $(fullview.find("[data-cont=" + hrefx + "]"));
+                // var old_frame = window.localStorage.getItem(this.element.attr('id') + '-old-tab');
+
+                if (current_frame.size() < 1)
+                    return false;
+
+                that.options.tabclick(this);
+
+
+                $(element.children("nav")).find("li").removeClass("active");
+                frames.hide();
+                $(this).parent().addClass("active");
+
+                //si es responsive cerramos menu cuando cambiamos contenido
+                var device_width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+                if (device_width <= 979) {
+                    $(pull).click();
+                }
+
+                //alert(current_frame);
+                switch (that.options.effect) {
+                    case 'slide':
+                        current_frame.slideDown();
+                        break;
+                    case 'fade':
+                        current_frame.fadeIn();
+                        break;
+                    case 'switch':
+                        current_frame.fadeIn();
+                        $(current_frame)
+                                .css({left: 0})
+                                .show();
+                        $(current_frame)
+                                .css('left', current_frame.width())
+                                .show()
+                                .animate({left: 0}, 500);
+                        break;
+                    default:
+                        current_frame.show();
+                }
+
+                that._trigger('change', null, current_frame);
+                that.options.tabchange(this);
+
+                if (element_id != undefined)
+                    window.localStorage.setItem(element_id + "-old-tab", $(this).attr("href"));
+
+                return true;
+            });
+
+            if (this.options.activateStoredTab)
+                this._activateStoredTab(tabs);
+        },
+        init: function(tabs, frames) {
+            var that = this;
+            tabs.each(function() {
+                if ($(this).hasClass("active")) {
+                    var current_frame = $($($(this).children("a")).attr("href"));
+                    frames.hide();
+                    current_frame.show();
+                    that._trigger('change', null, current_frame);
+                }
+            });
+        },
+        _activateStoredTab: function(tabs) {
+            var current_stored_tab = window.localStorage.getItem(this.element.attr('id') + '-current-tab');
+
+            if (current_stored_tab != undefined) {
+                tabs.each(function() {
+                    var a = $(this).children("a");
+                    if (a.attr("href") == current_stored_tab) {
+                        a.click();
+                    }
+                });
+            }
+        },
+        _destroy: function() {
+
+        },
+        _setOption: function(key, value) {
+            this._super('_setOption', key, value);
+        }
+    })
+})(jQuery);
+
+
+$(function() {
+    $.Metro.initSidebars = function(area) {
+        if (area != undefined) {
+            $(area).find('[data-role=sidebar]').sidebar();
+        } else {
+            $('[data-role=sidebar]').sidebar();
+        }
+    };
+    $.Metro.initSidebars();
+});
+
+
+
+
+//</editor-fold>
 $(window).load(function() {
 //scroll pagination
     if (window.location.search.indexOf("page=") > -1) {
