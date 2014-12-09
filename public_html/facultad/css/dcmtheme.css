@@ -4055,14 +4055,14 @@ a {
     color:#000;
 }
 .metro p {
-margin: 0 0 7pt;
-font-family: 'Segoe UI_', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
-font-weight: normal;
-font-style: normal;
-color: #000000;
-font-size: 11pt;
-line-height: 15pt;
-letter-spacing: 0.02em;
+    margin: 0 0 7pt;
+    font-family: 'Segoe UI_', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    color: #000000;
+    font-size: 11pt;
+    line-height: 15pt;
+    letter-spacing: 0.02em;
 }
 .metro h1 {
     font-family: 'Segoe UI Light_', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
@@ -6117,6 +6117,12 @@ html, body,#wrapperscroll,#porletwrap,.metro .mm-page{
 }
 .metro .carreraWrap .full-content .contentwrap{
     padding-top: 0px;
+}
+.metro .carreraWrap .og-grid{
+    padding: 0px;
+}
+.metro .carreraWrap .og-grid li{
+    margin: 2px;   
 }
 
 /* #Contenido generalidades

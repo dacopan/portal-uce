@@ -5680,7 +5680,16 @@ $.Metro.initDropdowns();
             if (element_id === undefined) {
                 element.attr("id", "mayra_");
             }
-            $(element.children("nav")).perfectScrollbar();
+            $(element.children("nav")).perfectScrollbar(); //scrolllbar nav
+            element.find('.doc').each(function() {
+                    var doc = $(this);
+                    $(doc.find('.hintx')).on('click', function() {
+                        window.open(doc.data("iview"), '_blank');
+                    });
+                    $(doc.find('.download')).on('click', function() {
+                        window.open(doc.data("idown"), '_blank');
+                    });
+                });
 
             this.init(tabs, frames);
             tabs.on("click", function(e) {
