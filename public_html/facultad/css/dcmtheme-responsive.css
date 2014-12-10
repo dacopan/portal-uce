@@ -248,7 +248,7 @@
         top:-5px;
 
     }
-    .metro .sidebar,.metro .carreraWrap .rb-overlay .navx{
+    .metro .sidebar,.metro .sidebarWrap .rb-overlay .navx{
         height: auto;
         max-height: 100%;
         position: absolute;
@@ -260,16 +260,22 @@
         padding-bottom:20px;
     }
 
-    .metro .carreraWrap .sidebar.opened .ps-scrollbar-y-rail{
+    .metro .sidebarWrap .sidebar.opened .ps-scrollbar-y-rail{
         opacity: 1;
     }
 
     .metro .sidebar .element-menu{
         display: none;
         margin-top: 45px;
-        width: 96%;        
+        width: 96%;     
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
     }
-    .metro .carreraWrap .full-content .slic{
+    .metro .sidebar .element-menu li a{
+        text-align: center!important;
+    }
+    .metro .sidebarWrap .full-content .slic{
         padding-top: 20px!important;
     }
 }
