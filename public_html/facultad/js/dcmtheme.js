@@ -4853,10 +4853,10 @@ function touch2Mouse(e)
 
 $(window).resize(function() {
     var device_width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
-    if (device_width > 979) {
-        $(".element-menu").show();
+    if (device_width > 1200) {
+        $(".sidebar .element-menu").show();
     } else {
-        $(".element-menu").hide();
+        $(".sidebar .element-menu").hide();
     }
 });
 

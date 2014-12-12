@@ -6031,12 +6031,12 @@ html, body,#wrapperscroll,#porletwrap,.metro .mm-page{
 .metro .sidebar .element-menu{
     position: relative;
 }
-.metro .carreraWrap .sidebar .ps-scrollbar-x-rail,
-.metro .carreraWrap .sidebar .ps-scrollbar-y-rail{
+.metro .sidebarWrap .sidebar .ps-scrollbar-x-rail,
+.metro .sidebarWrap .sidebar .ps-scrollbar-y-rail{
     opacity: 0;
 }
 /*carreras sidebar*/
-.metro .carreraWrap .rb-overlay .navx{
+.metro .sidebarWrap .navx{
     background-color: /*rgb(66,117,185)*/rgba(0,118,189,.8);
     margin-left: 0px;
     height: 100%;

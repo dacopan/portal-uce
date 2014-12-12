@@ -243,12 +243,19 @@
         float: none;
         margin: auto;
     }
+
+}
+
+@media (max-width:1200px){
     .metro .sidebar .pull-menu{
         display: block!important;
         top:-5px;
 
     }
-    .metro .sidebar,.metro .sidebarWrap .rb-overlay .navx{
+    .metro .sidebarWrap .navx .date{
+        display: none;
+    }
+    .metro .sidebar,.metro .sidebarWrap .navx{
         height: auto;
         max-height: 100%;
         position: absolute;
@@ -258,6 +265,7 @@
         padding-top: 0px;
         width:100%;
         padding-bottom:20px;
+        background-color: rgba(0,118,189,.93);
     }
 
     .metro .sidebarWrap .sidebar.opened .ps-scrollbar-y-rail{
@@ -277,6 +285,15 @@
     }
     .metro .sidebarWrap .full-content .slic{
         padding-top: 20px!important;
+    }
+    .metro .sidebarWrap .navx h1 {
+        position: absolute;
+        margin-left: 50px;
+        margin-top: -5px;
+        font-size: 20px;
+        float: left;
+        height: 45px;
+        line-height: 40px;
     }
 }
 /*<editor-fold defaultstate="collapsed" desc="menu figure">*/
