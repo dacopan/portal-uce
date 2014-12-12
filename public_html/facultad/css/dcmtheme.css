@@ -5723,7 +5723,8 @@ html, body,#wrapperscroll,#porletwrap,.metro .mm-page{
     line-height: 25px;
 }
 .docs .doc .hintx{
-    height: 100%;width: 100%;display:none;background-color: rgba(0,0,0,0.8);line-height: 134px;
+    height: 100%;width: 100%;display:none;background-color: rgba(0,0,0,0.8);
+    line-height: normal;
     position: absolute;color:#fff;
     text-align: center;
 
@@ -5731,7 +5732,7 @@ html, body,#wrapperscroll,#porletwrap,.metro .mm-page{
     animation-duration: 1s;
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
-
+    padding-top: 30%;
 
 }
 .docs .doc:hover .hintx{
@@ -6112,18 +6113,31 @@ html, body,#wrapperscroll,#porletwrap,.metro .mm-page{
 }
 
 
-.metro .carreraWrap .rb-week{
+.metro .rb-week.sidebarWrap{
     border: 2px solid rgb(66,117,185);
 }
-.metro .carreraWrap .full-content .contentwrap{
+.metro .sidebarWrap .full-content .contentwrap{
     padding-top: 0px;
 }
-.metro .carreraWrap .og-grid{
+.metro .sidebarWrap .og-grid{
     padding: 0px;
 }
-.metro .carreraWrap .og-grid li{
+.metro .sidebarWrap .og-grid li{
     margin: 2px;   
 }
+.metro .sidebarWrap .full-content .membrete{width: 300px!important;margin:auto;height: auto;}
+.metro .sidebarWrap .full-content .fac-titulo{margin-top: 50%;letter-spacing: 3px;margin-bottom: 20px;}
+.metro .sidebarWrap .full-content .img{
+    width:100%;height: 169px;
+}
+.metro .sidebarWrap .full-content .ctc{
+    font-size: 12px;line-height: 15px;font-family: 'Open Sans'!important;
+}
+.metro .sidebarWrap .full-content .col1{height: auto;margin:auto;padding-bottom: 10%;overflow: hidden;}
+.metro .sidebarWrap .full-content .col2{height: 300px;width: 300px!important;margin:auto;padding-bottom: 10%;}
+.metro .sidebarWrap .full-content .spliter{height: 20px;width: 20px!important;margin:auto;padding-bottom: 10%;}
+
+.metro .sidebarWrap{}
 
 /* #Contenido generalidades
 ================================================== */

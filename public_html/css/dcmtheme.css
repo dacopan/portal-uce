@@ -5095,7 +5095,7 @@ span.date a.bubble, span.date a.bubble:hover {
     font-family: "Adequate ExtraLight";
     line-height: 130%;
     font-size: 17px;
-    font-weight: 400;
+    font-weight: bold/*400*/;
     padding-bottom: 6px;
 }
 .og-grid.fac .spreview{

@@ -3387,29 +3387,8 @@ var CarrerasFull = (function() {
 
             var $item = $(this),
                     $close = $item.find('span.rb-close'),
-                    $overlay = $item.find('div.rb-overlay');//,
-            /* $prev = $('<span class="rb-prev">Prebv</span>').appendTo($overlay),
-             $next = $('<span class="rb-next">Next</span>').appendTo($overlay),
-             $linkNext, $linkPrev;
-             if ($item.is(':last-child')) {
-             $linkPrev = $items[ix - 1];
-             $linkNext = $items[0];
-             } else if ($item.is(':first-child')) {
-             $linkPrev = $items[$items.size() - 1];
-             $linkNext = $items[ix + 1];
-             } else {
-             $linkNext = $items[ix + 1];
-             $linkPrev = $items[ix - 1];
-             }
-             
-             $next.on('click', function(event) {
-             $($linkNext).trigger("click");
-             $close.trigger("click");
-             });
-             $prev.on('click', function(event) {
-             $($linkPrev).trigger("click");
-             $close.trigger("click");
-             });*/
+                    $overlay = $item.find('div.rb-overlay');
+
             $item.on('click', function(event) {
                 event.preventDefault();
                 $('.carreraWrap').removeClass("oculto visible animated bounceInRight");
@@ -3445,9 +3424,29 @@ var CarrerasFull = (function() {
                 else {
                     $body.css('overflow-y', 'hidden');
                 }
+                //sidebar update
+                var sidebar = $item.find('[data-role=sidebar]'),
+                        tabs = $(sidebar.children("nav")).find("a"),
+                        frames = $(sidebar.children(".full-content")).children(".slic");
+                tabs.each(function() {
+                    $(this).parent().removeClass("active");
+                });
+
+                frames.hide();
+                $(frames.get(0)).show();
+
 
             });
             $close.on('click', function() {
+
+//sidebar update
+                var sidebar = $item.find('[data-role=sidebar]'),
+                        tabs = $(sidebar.children("nav")).find("a"),
+                        frames = $(sidebar.children(".full-content")).children(".slic");
+
+                frames.hide();
+                //sidebar.css('opacity', 0);
+
 
                 $body.css('overflow-y', 'auto');
                 var layoutProp = getItemLayoutProp($item),
@@ -3463,7 +3462,7 @@ var CarrerasFull = (function() {
                 if (supportTransitions) {
                     $overlay.on(transEndEventName, function() {
 
-                        $overlay.off(transEndEventName);
+                        //$overlay.off(transEndEventName);
                         setTimeout(function() {
                             $overlay.css('opacity', 0).on(transEndEventName, function() {
                                 $overlay.off(transEndEventName).css({clip: clipPropLast, zIndex: -1});
@@ -3476,6 +3475,7 @@ var CarrerasFull = (function() {
                     $overlay.css('z-index', -1);
                     $item.data('isExpanded', false);
                 }
+
 
                 return false;
             });
@@ -5668,7 +5668,7 @@ $.Metro.initDropdowns();
         _create: function() {
             var that = this,
                     element = this.element,
-                    tabs = $(element.children("nav")).find("li a"),
+                    tabs = $(element.children("nav")).find("a"),
                     frames = $(element.children(".full-content")).children(".slic"),
                     fullview = $(element.children(".full-content")),
                     pull = $(element.children("nav")).find(".pull-menu"),
@@ -5682,14 +5682,14 @@ $.Metro.initDropdowns();
             }
             $(element.children("nav")).perfectScrollbar(); //scrolllbar nav
             element.find('.doc').each(function() {
-                    var doc = $(this);
-                    $(doc.find('.hintx')).on('click', function() {
-                        window.open(doc.data("iview"), '_blank');
-                    });
-                    $(doc.find('.download')).on('click', function() {
-                        window.open(doc.data("idown"), '_blank');
-                    });
+                var doc = $(this);
+                $(doc.find('.hintx')).on('click', function() {
+                    window.open(doc.data("iview"), '_blank');
                 });
+                $(doc.find('.download')).on('click', function() {
+                    window.open(doc.data("idown"), '_blank');
+                });
+            });
 
             this.init(tabs, frames);
             tabs.on("click", function(e) {
@@ -5724,6 +5724,7 @@ $.Metro.initDropdowns();
                     $(pull).click();
                 }
 
+
                 //alert(current_frame);
                 switch (that.options.effect) {
                     case 'slide':
@@ -5745,6 +5746,11 @@ $.Metro.initDropdowns();
                     default:
                         current_frame.show();
                 }
+
+                //reiniciamos scrollbar
+                //fullview.perfectScrollbar('update');
+                fullview.scrollTop(0);
+
 
                 that._trigger('change', null, current_frame);
                 that.options.tabchange(this);
