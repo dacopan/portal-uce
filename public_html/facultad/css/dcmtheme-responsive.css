@@ -249,13 +249,14 @@
 @media (max-width:1200px){
     .metro .sidebar .pull-menu{
         display: block!important;
-        top:-5px;
+        top:0px;
 
     }
     .metro .sidebarWrap .navx .date{
         display: none;
     }
     .metro .sidebar,.metro .sidebarWrap .navx{
+        min-height: 40px;
         height: auto;
         max-height: 100%;
         position: absolute;
@@ -289,7 +290,7 @@
     .metro .sidebarWrap .navx h1 {
         position: absolute;
         margin-left: 50px;
-        margin-top: -5px;
+        margin-top: 0px;
         font-size: 20px;
         float: left;
         height: 45px;

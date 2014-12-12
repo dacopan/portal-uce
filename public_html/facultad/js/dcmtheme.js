@@ -1,4 +1,4 @@
-var debug = true;
+var debug = false;
 //<editor-fold defaultstate="collapsed" desc="modernizer">
 /* Modernizr 2.6.2 (Custom Build) | MIT & BSD
  * Build: http://modernizr.com/download/#-csstransitions-shiv-cssclasses-prefixed-testprop-testallprops-domprefixes-load
@@ -5871,7 +5871,6 @@ $(window).load(function() {
     //noticies add pagination
     $(".noticiesWrap").parent().parent().parent().find(".taglib-page-iterator").appendTo(".noticiesWrap");
 
-
     ///*
     if (!isMobileBrowser()) {
         //animated on scroll
@@ -5967,6 +5966,16 @@ $(window).load(function() {
         //slides check
         $('.slide').addClass("u").slideCheck({
         });
+        //nivo slider
+        $('.homeslider.on').each(function() {
+            var $this = jQuery(this);
+            $this.nivoSlider({effect: 'fade', slices: 15, boxCols: 8, boxRows: 4, animSpeed: 800, pauseTime: 3000, startSlide: 0, directionNav: false, directionNavHide: true, controlNav: false, controlNavThumbs: false, pauseOnHover: true, manualAdvance: false, prevText: 'Prev', nextText: 'Next', randomStart: false, beforeChange: function() {
+                }, afterChange: function() {
+                }, slideshowEnd: function() {
+                }, lastSlide: function() {
+                }, afterLoad: function() {
+                }});
+        });
 
     }
     //*/
@@ -5974,7 +5983,7 @@ $(window).load(function() {
 });
 $(document).ready(function() {
     //load dinamic web content
-    if (debug) {
+    if (debug || true) {
         //mm-menu
         $('#mm-nav-content').appendTo('#dcmmenu');
         $("#dcmmenu").mmenu({
