@@ -3435,8 +3435,18 @@ var CarrerasFull = (function() {
                 frames.hide();
                 $(frames.get(0)).show();
 
+                setTimeout(function() {
+                    if (!isMobileBrowser()) {
+                        $(frames.get(0)).find(".homeslider.on").each(function() {
+                            $(this).data('nivoslider').start();
+                        });
+                    }
+                }, 1200);
+
+
 
             });
+
             $close.on('click', function() {
 
 //sidebar update
@@ -3476,7 +3486,11 @@ var CarrerasFull = (function() {
                     $item.data('isExpanded', false);
                 }
 
-
+                if (!isMobileBrowser()) {
+                    frames.find(".homeslider.on").each(function() {
+                        $(this).data('nivoslider').stop();
+                    });
+                }
                 return false;
             });
         });
@@ -5750,6 +5764,17 @@ $.Metro.initDropdowns();
                 //reiniciamos scrollbar
                 //fullview.perfectScrollbar('update');
                 fullview.scrollTop(0);
+                //apagamos nivo
+                if (!isMobileBrowser()) {
+                    frames.find(".homeslider.on").each(function() {
+                        $(this).data('nivoslider').stop();
+                    });
+                    //encendemos nivo correspondiente
+                    current_frame.find(".homeslider.on").each(function() {
+                        $(this).data('nivoslider').start();
+                    });
+                }
+
 
 
                 that._trigger('change', null, current_frame);
@@ -5967,15 +5992,23 @@ $(window).load(function() {
         $('.slide').addClass("u").slideCheck({
         });
         //nivo slider
+        // /* 
         $('.homeslider.on').each(function() {
             var $this = jQuery(this);
-            $this.nivoSlider({effect: 'fade', slices: 15, boxCols: 8, boxRows: 4, animSpeed: 800, pauseTime: 3000, startSlide: 0, directionNav: false, directionNavHide: true, controlNav: false, controlNavThumbs: false, pauseOnHover: true, manualAdvance: false, prevText: 'Prev', nextText: 'Next', randomStart: false, beforeChange: function() {
+            $this.nivoSlider({effect: 'random', slices: 15, boxCols: 8, boxRows: 4, animSpeed: 800, pauseTime: 3000, startSlide: 0, directionNav: false, directionNavHide: true, controlNav: false, controlNavThumbs: false, pauseOnHover: false, manualAdvance: false, prevText: 'Prev', nextText: 'Next', randomStart: true, beforeChange: function() {
                 }, afterChange: function() {
                 }, slideshowEnd: function() {
                 }, lastSlide: function() {
                 }, afterLoad: function() {
                 }});
         });
+        //apagamos nivo slider carreras
+
+        $('.carreraWrap .homeslider.on').each(function() {
+            $(this).data('nivoslider').stop();
+        });
+
+        //*/
 
     }
     //*/
