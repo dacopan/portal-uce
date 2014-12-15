@@ -5740,7 +5740,17 @@ html, body,#wrapperscroll,#porletwrap,.metro .mm-page{
     -webkit-animation-name: fadeInDown;
     animation-name: fadeInDown;
 }
-
+.docs .doc.desc{
+    width: 268px;
+}
+.docs .doc.desc p{
+    vertical-align: middle;
+    padding: 5px;
+    line-height: normal;
+}
+.carreraWrap .docs{
+    text-align: left;
+}
 .carreraWrap .rb-week {
     padding: 20px;
     max-width: 100%;
