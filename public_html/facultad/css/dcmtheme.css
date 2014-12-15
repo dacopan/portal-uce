@@ -5748,9 +5748,22 @@ html, body,#wrapperscroll,#porletwrap,.metro .mm-page{
     padding: 5px;
     line-height: normal;
 }
+
+
+
 .carreraWrap .docs{
     text-align: left;
 }
+.metro .carreraWrap .contentwrap{
+    width: 100%;
+    padding-right: 40px;
+    padding-left: 20px;
+}
+.metro .carreraWrap .col2{
+    float: right;
+}
+
+
 .carreraWrap .rb-week {
     padding: 20px;
     max-width: 100%;

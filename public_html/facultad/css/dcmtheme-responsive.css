@@ -242,10 +242,21 @@
     .noticiesWrap .lfr-pagination .lfr-pagination-buttons{
         float: none;
         margin: auto;
-    }
+    }    
 
 }
-
+@media(max-width:1024px){
+    .metro .sidebarWrap .full-content .col1{
+        width: 100%;
+        float: none;
+    }
+    .metro .sidebarWrap .full-content .col2{
+        width: 100%;
+        max-width: 300px;
+        margin: auto;
+        float: none;
+    }    
+}
 @media (max-width:1200px){
     .metro .sidebar .pull-menu{
         display: block!important;

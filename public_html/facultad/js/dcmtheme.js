@@ -5734,7 +5734,7 @@ $.Metro.initDropdowns();
 
                 //si es responsive cerramos menu cuando cambiamos contenido
                 var device_width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
-                if (device_width <= 979) {
+                if (device_width <= 1200) {
                     $(pull).click();
                 }
 
