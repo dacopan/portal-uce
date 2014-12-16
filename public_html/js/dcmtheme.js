@@ -3122,7 +3122,7 @@ jQuery.extend(jQuery.easing,
                         aux.navigate(-1, $slices, $navNext, $navPrev, settings);
                     });
                     // adds events to the mouse //mouse comunicados
-                    $el.bind('mousewheel.vaccordion', function(e, delta) {
+                    /*$el.bind('mousewheel.vaccordion', function(e, delta) {
                         if (delta > 0) {
                             aux.navigate(-1, $slices, $navNext, $navPrev, settings);
                         }
@@ -3130,7 +3130,7 @@ jQuery.extend(jQuery.easing,
                             aux.navigate(1, $slices, $navNext, $navPrev, settings);
                         }
                         return false;
-                    });
+                    });*/
                 });
             }
         }
