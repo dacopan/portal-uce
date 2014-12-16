@@ -132,7 +132,18 @@
     .fac-title .title{
         font-size: 3.4rem;
     }
-
+    
+    /*Sidebar*/
+    .metro .sidebarWrap .full-content .col1{
+        width: 100%;
+        float: none;
+    }
+    .metro .sidebarWrap .full-content .col2{
+        width: 100%;
+        max-width: 300px;
+        margin: auto;
+        float: none;
+    }    
 }
 /* Mobile Landscape Size to Portrait (devices and browsers) */
 @media only screen and (min-width: 480px) and (max-width: 767px) {
@@ -245,18 +256,7 @@
     }    
 
 }
-@media(max-width:1024px){
-    .metro .sidebarWrap .full-content .col1{
-        width: 100%;
-        float: none;
-    }
-    .metro .sidebarWrap .full-content .col2{
-        width: 100%;
-        max-width: 300px;
-        margin: auto;
-        float: none;
-    }    
-}
+
 @media (max-width:1200px){
     .metro .sidebar .pull-menu{
         display: block!important;
