@@ -25,7 +25,7 @@ String name = namespace + GetterUtil.getString((String)request.getAttribute("lif
 String onChangeMethod = (String)request.getAttribute("liferay-ui:input-editor:onChangeMethod");
 
 if (Validator.isNotNull(onChangeMethod)) {
-	onChangeMethod = namespace + onChangeMethod;
+        onChangeMethod = namespace + onChangeMethod;
 }
 
 boolean resizable = GetterUtil.getBoolean((String)request.getAttribute("liferay-ui:input-editor:resizable"));
@@ -33,148 +33,135 @@ boolean skipEditorLoading = GetterUtil.getBoolean((String)request.getAttribute("
 %>
 
 <c:if test="<%= !skipEditorLoading %>">
-	<liferay-util:html-top outputKey="js_editor_tinymce">
+    <liferay-util:html-top outputKey="js_editor_tinymce">
 
-		<%
-		long javaScriptLastModified = ServletContextUtil.getLastModified(application, "/html/js/", true);
-		%>
+        <%
+        long javaScriptLastModified = ServletContextUtil.getLastModified(application, "/html/js/", true);
+        %>
 
-		<script src="<%= HtmlUtil.escape(PortalUtil.getStaticResourceURL(request, themeDisplay.getCDNHost() + themeDisplay.getPathJavaScript() + "/editor/tiny_mce/tiny_mce.js", javaScriptLastModified)) %>" type="text/javascript"></script>
+        <script src="<%= HtmlUtil.escape(PortalUtil.getStaticResourceURL(request, themeDisplay.getCDNHost() + themeDisplay.getPathJavaScript() + "/editor/tiny_mce/tiny_mce.js", javaScriptLastModified)) %>" type="text/javascript"></script>
 
-		<script type="text/javascript">
-			Liferay.namespace('EDITORS')['<%= editorImpl %>'] = true;
-		</script>
-	</liferay-util:html-top>
+        <script type="text/javascript">
+            Liferay.namespace('EDITORS')['<%= editorImpl %>'] = true;
+        </script>
+    </liferay-util:html-top>
 </c:if>
 
 <div class="<%= cssClass %>">
-	<textarea id="<%= name %>" name="<%= name %>" style="height: 100%; width: 100%;"></textarea>
+    <textarea id="<%= name %>" name="<%= name %>" style="height: 100%; width: 100%;"></textarea>
 </div>
 
 <aui:script>
-	window['<%= name %>'] = {
-		onChangeCallbackCounter: 0,
+    window['<%= name %>'] = {
+    onChangeCallbackCounter: 0,
 
-		destroy: function() {
-			tinyMCE.editors['<%= name %>'].destroy();
+    destroy: function() {
+    tinyMCE.editors['<%= name %>'].destroy();
 
-			window['<%= name %>'] = null;
-		},
+    window['<%= name %>'] = null;
+    },
 
-		focus: function() {
-			tinyMCE.editors['<%= name %>'].focus();
-		},
+    focus: function() {
+    tinyMCE.editors['<%= name %>'].focus();
+    },
 
-		fileBrowserCallback: function(field_name, url, type) {
-		},
+    fileBrowserCallback: function(field_name, url, type) {
+    },
 
-		getHTML: function() {
-			return tinyMCE.editors['<%= name %>'].getContent();
-		},
+    getHTML: function() {
+    return tinyMCE.editors['<%= name %>'].getContent();
+    },
 
-		init: function(value) {
-			if (typeof value != 'string') {
-				value = '';
-			}
+    init: function(value) {
+    if (typeof value != 'string') {
+    value = '';
+    }
 
-			window['<%= name %>'].setHTML(value);
-		},
+    window['<%= name %>'].setHTML(value);
+    },
 
-		initInstanceCallback: function() {
-			<c:if test="<%= Validator.isNotNull(initMethod) %>">
-				window['<%= name %>'].init(<%= HtmlUtil.escape(namespace + initMethod) %>());
-			</c:if>
-		},
+    initInstanceCallback: function() {
+    <c:if test="<%= Validator.isNotNull(initMethod) %>">
+        window['<%= name %>'].init(<%= HtmlUtil.escape(namespace + initMethod) %>());
+    </c:if>
+    },
 
-		<%
-		if (Validator.isNotNull(onChangeMethod)) {
-		%>
+    <%
+    if (Validator.isNotNull(onChangeMethod)) {
+    %>
 
-			onChangeCallback: function(tinyMCE) {
+    onChangeCallback: function(tinyMCE) {
 
-				// This purposely ignores the first callback event because each
-				// call
-				// to setContent triggers an undo level which fires the callback
-				// when no changes have yet been made.
+    // This purposely ignores the first callback event because each
+    // call
+    // to setContent triggers an undo level which fires the callback
+    // when no changes have yet been made.
 
-				// setContent is not really the correct way of initializing this
-				// editor with content. The content should be placed statically
-				// (from the editor's perspective) within the textarea. This is
-				// a
-				// problem from the portal's perspective because it's passing
-				// the
-				// content via a javascript method (initMethod).
+    // setContent is not really the correct way of initializing this
+    // editor with content. The content should be placed statically
+    // (from the editor's perspective) within the textarea. This is
+    // a
+    // problem from the portal's perspective because it's passing
+    // the
+    // content via a javascript method (initMethod).
 
-				var onChangeCallbackCounter = window['<%= name %>'].onChangeCallbackCounter;
+    var onChangeCallbackCounter = window['<%= name %>'].onChangeCallbackCounter;
 
-				if (onChangeCallbackCounter > 0) {
+    if (onChangeCallbackCounter > 0) {
 
-					<%= HtmlUtil.escapeJS(onChangeMethod) %>(window['<%= name %>'].getHTML());
+    <%= HtmlUtil.escapeJS(onChangeMethod) %>(window['<%= name %>'].getHTML());
 
-				}
+    }
 
-				onChangeCallbackCounter++;
-			},
+    onChangeCallbackCounter++;
+    },
 
-		<%
-		}
-		%>
+    <%
+    }
+    %>
 
-		setHTML: function(value) {
-			tinyMCE.editors['<%= name %>'].setContent(value);
-		}
-	};
+    setHTML: function(value) {
+    tinyMCE.editors['<%= name %>'].setContent(value);
+    }
+    };
+    
+    
+    tinyMCE.init(
+    {
+    convert_urls: false,
+    elements: '<%= name %>',
+    extended_valid_elements: 'a[name|id|href|target|title|onclick|class|style|data-map-lat|data-map-long|data-map-title|data-map-description],img[class|src|border=0|alt|title|hspace|vspace|width|height|align|onmouseover|onmouseout|name|usemap|onload],hr[class|width|size|noshade],font[face|size|color|style],span[class|align|style],div[id|style|data-*|class|*],*[*]',
+    file_browser_callback: window['<%= name %>'].fileBrowserCallback,
+    init_instance_callback: window['<%= name %>'].initInstanceCallback,
+    invalid_elements: '',
+    language: '<%= HtmlUtil.escape(locale.getLanguage()) %>',
+    mode: 'exact',		
+    plugins: [
+    "advlist autolink lists link image charmap print preview anchor",
+    "searchreplace visualblocks code fullscreen",
+    "insertdatetime media table contextmenu paste moxiemanager"
+    ],
+    relative_urls: false,
+    remove_script_host: false,
+    theme: 'modern',    
+    verify_html: false,
+    cleanup: false,
+    valid_children : 'a[div|span|script|i|small|p],+div[a|span|p|div|i|style|script|ul|li|form|input|h1|h2|h3|h4|h5|h6|h7|label|img|button|nav|canvas|footer|*],*[*]',
+    setup : function(ed) {
+    // Add a custom button
+    ed.addButton('mybutton', {
+    title : 'My button',
+    image : '/html/js/editor/tiny_mce/plugins/example/img/example.gif',
+    onclick : function() {                            	                                 
 
-	tinyMCE.init(
-		{
-			convert_urls: false,
-			elements: '<%= name %>',
-			extended_valid_elements: 'a[name|id|href|target|title|onclick|class|style|data-map-lat|data-map-long|data-map-title|data-map-description],img[class|src|border=0|alt|title|hspace|vspace|width|height|align|onmouseover|onmouseout|name|usemap|onload],hr[class|width|size|noshade],font[face|size|color|style],span[class|align|style],div[id|style|data-*|class|*],*[*]',
-			file_browser_callback: window['<%= name %>'].fileBrowserCallback,
-			init_instance_callback: window['<%= name %>'].initInstanceCallback,
-			invalid_elements: '',
-			language: '<%= HtmlUtil.escape(locale.getLanguage()) %>',
-			mode: 'exact',
 
-			<%
-			if (Validator.isNotNull(onChangeMethod)) {
-			%>
 
-				onchange_callback: window['<%= name %>'].onChangeCallback,
 
-			<%
-			}
-			%>
-			plugins: 'table,advhr,advimage,advlink,iespell,preview,media,searchreplace,print,contextmenu',
-			relative_urls: false,
-			remove_script_host: false,
-			theme: 'advanced',
-			theme_advanced_buttons1_add_before: 'mybutton,fontselect,fontsizeselect,forecolor,backcolor,separator',
-			theme_advanced_buttons2_add: 'separator,media,advhr,separator,preview,print',
-			theme_advanced_buttons2_add_before: 'cut,copy,paste,search,replace',
-			theme_advanced_buttons3_add_before: 'tablecontrols,separator',
-			theme_advanced_disable: 'formatselect,styleselect,help',
-			theme_advanced_resize_horizontal: '<%= resizable %>',
-			theme_advanced_toolbar_align: 'left',
-			theme_advanced_toolbar_location: 'bottom',
-verify_html: false,
-cleanup: false,
-valid_children : 'a[div|span|script|i|small|p],+div[a|span|p|div|i|style|script|ul|li|form|input|h1|h2|h3|h4|h5|h6|h7|label|img|button|nav|canvas|footer|*],*[*]',
-setup : function(ed) {
-        // Add a custom button
-        ed.addButton('mybutton', {
-            title : 'My button',
-            image : '/html/js/editor/tiny_mce/plugins/example/img/example.gif',
-            onclick : function() {                            	                                 
-            	
-            	
-            	
-            	
-            	
-            					 }
-        });
-					}
-		
-});
+
+    }
+    });
+    }
+
+    });
 
 </aui:script>
