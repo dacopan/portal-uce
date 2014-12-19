@@ -410,34 +410,168 @@ and open the template in the editor.
 
                                                                                     <div class="slic" data-cont="cont0">
                                                                                         <style>
-                                                                                            
+
                                                                                         </style>
+                                                                                        <script>
+                                                                                            $(window).load(function() {
+                                                                                                (function($) {
+                                                                                                    $.widget("metro.bannerCircle", {
+                                                                                                        version: "1.0.0",
+                                                                                                        options: {
+                                                                                                            auto: true,
+                                                                                                            period: 2000,
+                                                                                                            duration: 1000,
+                                                                                                            effect: 'fade', // slide, fade, switch, slowdown
+                                                                                                            direction: 'left'
+                                                                                                        },
+                                                                                                        _slides: {},
+                                                                                                        _items: {},
+                                                                                                        _currentIndex: 0,
+                                                                                                        _interval: 0,
+                                                                                                        _create: function() {
+                                                                                                            var that = this, element = this.element;
+                                                                                                            this._slides = $(element.find(".oculto").find(".img"));
+                                                                                                            this._items = $(element.find(".item"));
+                                                                                                            if (this._slides.length <= 1)
+                                                                                                                return;
+                                                                                                            this._changeSlide('next')
+                                                                                                            if (this.options.auto)
+                                                                                                                this._autoStart();
+                                                                                                        },
+                                                                                                        _autoStart: function() {
+                                                                                                            var that = this;
+                                                                                                            this._interval = setInterval(function() {
+                                                                                                                if (that.options.direction == 'left') {
+                                                                                                                    that._changeSlide('next')
+                                                                                                                } else {
+                                                                                                                    that._changeSlide('prior')
+                                                                                                                }
+                                                                                                            }, this.options.period);
+                                                                                                        },
+                                                                                                        _changeSlide: function(direction) {
+                                                                                                            var that = this;
 
-                                                                                        
-                                                                                            
-                                                                                        <div class="homeslider on contentwrap" style="margin-left: 0px;width: 100%;padding-left: 0px;padding-right: 30px;max-height: 100%;">                                                                                                    
-                                                                                                    <img src="images/tmp/ban1.jpg" >                                                                                                    
-                                                                                                    <img src="images/tmp/ban2.jpg" >
-                                                                                                    <img src="images/tmp/ban3.jpg" >
+                                                                                                            if (direction == undefined)
+                                                                                                                direction = 'next';
+
+                                                                                                            if (direction === 'prior') {
+                                                                                                                this._currentIndex -= 1;
+                                                                                                                if (this._currentIndex < 0)
+                                                                                                                    this._currentIndex = this._slides.length - 1;
+
+
+                                                                                                            } else if (direction === 'next') {
+                                                                                                                var ix = this._currentIndex;
+
+                                                                                                                this._items.each(function() {
+                                                                                                                    that._setContent($(this), $(that._slides[ix]),ix);
+                                                                                                                    ix += 1;
+                                                                                                                    if (ix >= that._slides.length)
+                                                                                                                        ix = 0;
+                                                                                                                    
+                                                                                                                });
+
+                                                                                                                this._currentIndex += 1;
+                                                                                                                if (this._currentIndex >= this._slides.length)
+                                                                                                                    this._currentIndex = 0;
+
+                                                                                                            }
+
+                                                                                                        },
+                                                                                                        _setContent: function(item, slide,ix) {                                                                                                            
+                                                                                                            $(item.find(".caption")).html($(slide.find(".caption")).html());
+                                                                                                            $(item.find(".img-cover")).css("background-image", 'url(' + $(slide.find("img")).attr("src") + ')');//.hide().delay(ix*500*0).fadeIn();
+                                                                                                        },
+                                                                                                        _destroy: function() {
+
+                                                                                                        },
+                                                                                                        _setOption: function(key, value) {
+                                                                                                            this._super('_setOption', key, value);
+                                                                                                        }
+                                                                                                    })
+                                                                                                })(jQuery);
+                                                                                                $(function() {
+                                                                                                    $.Metro.initBannerCircle = function(area) {
+                                                                                                        if (area != undefined) {
+                                                                                                            $(area).find('[data-role=bannerCircle]').bannerCircle();
+                                                                                                        } else {
+                                                                                                            $('[data-role=bannerCircle]').bannerCircle();
+                                                                                                        }
+                                                                                                    };
+                                                                                                    $.Metro.initBannerCircle();
+                                                                                                });
+                                                                                            });
+                                                                                        </script>
+
+                                                                                        <div class="bannerCircle" data-role="bannerCircle">
+
+                                                                                            <div class="row-fluid" style="margin: auto;float:none;margin-top: 60px;">                                                                                                                                                                                                
+
+                                                                                                <div class="span3">
+                                                                                                    <div class="item" style="height: 100%;">
+                                                                                                        <div class="img-cover img" style="background-image: url(images/tmp/fac_banner01.jpg);">
+                                                                                                            <div class="clear"></div>
+                                                                                                        </div>
+                                                                                                        <div class="caption">caption a</div>
+                                                                                                    </div>
+
                                                                                                 </div>
-                                                                                            
-                                                                                            <!--<div class="span4 bg-gray" style="height: 300px;width: 300px!important;margin:auto;padding-bottom: 10%;">
-                                                                                                <div class="img-cover" style="border-top:2px solid #a28f23; width:100%;height: 169px; background-image: url(images/tmp/fac_banner03.jpg);">
-                                                                                                    <div class="clear"></div>
-                                                                                                </div>                                                                                                    
+                                                                                                <div class="span5">
+                                                                                                    <div class="item" style="height: 100%;">
+                                                                                                        <div class="img-cover img" style="background-image: url(images/tmp/fac_banner01.jpg);">
+                                                                                                            <div class="clear"></div>
+                                                                                                        </div>
+                                                                                                        <div class="caption">caption</div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div class="span3">
+                                                                                                    <div class="item" style="height: 100%;">
+                                                                                                        <div class="img-cover img" style="background-image: url(images/tmp/fac_banner01.jpg);">
+                                                                                                            <div class="clear"></div>
+                                                                                                        </div>
+                                                                                                        <div class="caption">caption</div>
+                                                                                                    </div>
+                                                                                                </div>
                                                                                             </div>
-                                                                                            <div class="span bg-white" style="height: 20px;width: 20px!important;margin:auto;padding-bottom: 10%;"></div>
-                                                                                            <div class="span7" style="height: 300px;width: 300px!important;margin:auto;padding-bottom: 10%;overflow: hidden;">
-                                                                                                <p>
-                                                                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pretium a ante eu fringilla. Donec tempus accumsan augue. Quisque congue ultrices mollis. Ut a porttitor eros, quis scelerisque ante. Donec eleifend tincidunt orci, eget ullamcorper augue fermentum at. Suspendisse ornare eros ut tellus tempor, ac efficitur leo molestie. Etiam accumsan ipsum et tellus accumsan tempus. Nam iaculis pellentesque quam, eget auctor tortor blandit non. Sed sit amet consequat eros, sed pretium justo. Nullam viverra odio et leo fermentum gravida. Mauris ac semper dolor. Sed ut auctor nisl. Curabitur et ultricies ante. Mauris id ultrices sem. Nullam tincidunt dui velit, sed malesuada nunc laoreet sit amet.
+                                                                                            <div class="oculto" style="width: 0px;height: 0px;">
+                                                                                                <div class="img">
+                                                                                                    <img src="images/tmp/ban1.jpg">
+                                                                                                    <div class="caption">caption 1</div>
+                                                                                                </div>
+                                                                                                <div class="img">
+                                                                                                    <img src="images/tmp/ban2.jpg">
+                                                                                                    <div class="caption">caption 2</div>
+                                                                                                </div>
+                                                                                                <div class="img">
+                                                                                                    <img src="images/tmp/ban3.jpg">
+                                                                                                    <div class="caption">caption 3</div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <!--<div class="homeslider on contentwrap" style="margin-left: 0px;width: 100%;padding-left: 0px;padding-right: 30px;max-height: 100%;">                                                                                                    
+                                                                                                           <img src="images/tmp/ban1.jpg" >                                                                                     
+                                                                                            <img src="images/tmp/ban2.jpg" >
+                                                                                            <img src="images/tmp/ban3.jpg" >
+                                                                                        </div>-->
 
-                                                                                                    Donec lobortis condimentum lorem id aliquet. In id imperdiet risus. Nam ullamcorper varius dolor, quis tincidunt arcu hendrerit vel. Suspendisse mollis risus id eleifend convallis. Curabitur mattis lectus quis dui efficitur lobortis. Fusce eu felis placerat, blandit dolor rutrum, gravida tellus. Curabitur sit amet porta lorem, eget malesuada turpis. Suspendisse nunc nisi, faucibus at pharetra at, accumsan et libero. Phasellus at blandit mi. Donec vitae vestibulum eros. Etiam egestas aliquam aliquam. Aenean cursus ultricies vestibulum.
+                                                                                        <!--<div class="span4 bg-gray" style="height: 300px;width: 300px!important;margin:auto;padding-bottom: 10%;">
+                                                                                            <div class="img-cover" style="border-top:2px solid #a28f23; width:100%;height: 169px; background-image: url(images/tmp/fac_banner03.jpg);">
+                                                                                                <div class="clear"></div>
+                                                                                            </div>                                                                                                    
+                                                                                        </div>
+                                                                                        <div class="span bg-white" style="height: 20px;width: 20px!important;margin:auto;padding-bottom: 10%;"></div>
+                                                                                        <div class="span7" style="height: 300px;width: 300px!important;margin:auto;padding-bottom: 10%;overflow: hidden;">
+                                                                                            <p>
+                                                                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pretium a ante eu fringilla. Donec tempus accumsan augue. Quisque congue ultrices mollis. Ut a porttitor eros, quis scelerisque ante. Donec eleifend tincidunt orci, eget ullamcorper augue fermentum at. Suspendisse ornare eros ut tellus tempor, ac efficitur leo molestie. Etiam accumsan ipsum et tellus accumsan tempus. Nam iaculis pellentesque quam, eget auctor tortor blandit non. Sed sit amet consequat eros, sed pretium justo. Nullam viverra odio et leo fermentum gravida. Mauris ac semper dolor. Sed ut auctor nisl. Curabitur et ultricies ante. Mauris id ultrices sem. Nullam tincidunt dui velit, sed malesuada nunc laoreet sit amet.
 
-                                                                                                    Pellentesque accumsan id lectus ut dapibus. Fusce dignissim nulla ut mattis tristique. Duis quis justo lectus. Mauris varius vestibulum dolor bibendum blandit. Nam ultrices aliquet felis, non aliquam neque dictum vitae. Integer hendrerit semper orci eu interdum. Curabitur id metus sapien. Vivamus eget lobortis lectus. Vestibulum ac consequat quam, quis pulvinar felis. Fusce suscipit augue lorem, suscipit convallis diam feugiat a.
-                                                                                                </p>
-                                                                                                <div class="clear"></div>                                                                                                    
-                                                                                            </div>-->
-                                                                                        
+                                                                                                Donec lobortis condimentum lorem id aliquet. In id imperdiet risus. Nam ullamcorper varius dolor, quis tincidunt arcu hendrerit vel. Suspendisse mollis risus id eleifend convallis. Curabitur mattis lectus quis dui efficitur lobortis. Fusce eu felis placerat, blandit dolor rutrum, gravida tellus. Curabitur sit amet porta lorem, eget malesuada turpis. Suspendisse nunc nisi, faucibus at pharetra at, accumsan et libero. Phasellus at blandit mi. Donec vitae vestibulum eros. Etiam egestas aliquam aliquam. Aenean cursus ultricies vestibulum.
+
+                                                                                                Pellentesque accumsan id lectus ut dapibus. Fusce dignissim nulla ut mattis tristique. Duis quis justo lectus. Mauris varius vestibulum dolor bibendum blandit. Nam ultrices aliquet felis, non aliquam neque dictum vitae. Integer hendrerit semper orci eu interdum. Curabitur id metus sapien. Vivamus eget lobortis lectus. Vestibulum ac consequat quam, quis pulvinar felis. Fusce suscipit augue lorem, suscipit convallis diam feugiat a.
+                                                                                            </p>
+                                                                                            <div class="clear"></div>                                                                                                    
+                                                                                        </div>-->
+
+
                                                                                     </div>
 
                                                                                     <div class="slic" data-cont="cont1">
@@ -634,329 +768,329 @@ and open the template in the editor.
                                                                                                     <h1 class="fg-blue text-right">ACTA DE CONSTITUCIÓN</h1>
                                                                                                     <h3 class="fg-blue text-right">Sinópsis historica</h3>
                                                                                                     <div class="ctc">
-                                                                                                    <p>
+                                                                                                        <p>
 
-                                                                                                        “….La Carrera de Medicina en la Universidad Central del Ecuador se origina de 
+                                                                                                            “….La Carrera de Medicina en la Universidad Central del Ecuador se origina de 
 
-                                                                                                        la Cátedra de Medicina de la “Universidad del Angélico Doctor Santo Thomás 
+                                                                                                            la Cátedra de Medicina de la “Universidad del Angélico Doctor Santo Thomás 
 
-                                                                                                        de Aquino”. Fundada el
+                                                                                                            de Aquino”. Fundada el
 
-                                                                                                        13 de abril de 1693 por Cédula Real de Carlos II de España, necesitó de la 
+                                                                                                            13 de abril de 1693 por Cédula Real de Carlos II de España, necesitó de la 
 
-                                                                                                        donación de bienes y rentas de un prohombre de Quito, Pedro de Aguayo, 
+                                                                                                            donación de bienes y rentas de un prohombre de Quito, Pedro de Aguayo, 
 
-                                                                                                        para concluir un trámite iniciado en
+                                                                                                            para concluir un trámite iniciado en
 
-                                                                                                        1681 por fray Ignacio de 
+                                                                                                            1681 por fray Ignacio de 
 
-                                                                                                        Quesada.<br/>
+                                                                                                            Quesada.<br/>
 
-                                                                                                        La Cátedra se organizó con un plan de estudios de tres años y dos catedráticos 
+                                                                                                            La Cátedra se organizó con un plan de estudios de tres años y dos catedráticos 
 
-                                                                                                        “siguiendo el plan de estudios de facultades de medicina europeas y 
+                                                                                                            “siguiendo el plan de estudios de facultades de medicina europeas y 
 
-                                                                                                        españolas… Prima: Anatomía y Fisiología, Vísperas: Patología, Método: 
+                                                                                                            españolas… Prima: Anatomía y Fisiología, Vísperas: Patología, Método: 
 
-                                                                                                        Terapéutica...” Elemento documental que apoya la afirmación de Paredes-Borja 
+                                                                                                            Terapéutica...” Elemento documental que apoya la afirmación de Paredes-Borja 
 
-                                                                                                        es el otorgamiento del grado de Licenciados en Medicina a Sebastián de Aguilar 
+                                                                                                            es el otorgamiento del grado de Licenciados en Medicina a Sebastián de Aguilar 
 
-                                                                                                        y Molina y a Francisco de Torres y Maia, identificados como “Catedráticos de 
+                                                                                                            y Molina y a Francisco de Torres y Maia, identificados como “Catedráticos de 
 
-                                                                                                        Prima” y “Extraordinario” respectivamente, el 5 de marzo de 1696. El primer 
+                                                                                                            Prima” y “Extraordinario” respectivamente, el 5 de marzo de 1696. El primer 
 
-                                                                                                        graduado en la Cátedra como Licenciado es  Diego de Herrera, quien para serlo 
+                                                                                                            graduado en la Cátedra como Licenciado es  Diego de Herrera, quien para serlo 
 
-                                                                                                        debió cursar sus estudios en ámbito diferente a la universidad quiteña, en la que 
+                                                                                                            debió cursar sus estudios en ámbito diferente a la universidad quiteña, en la que 
 
-                                                                                                        se graduaría el 5 de julio de 1694. Dice Estrella, “… estos tres galenos 
+                                                                                                            se graduaría el 5 de julio de 1694. Dice Estrella, “… estos tres galenos 
 
-                                                                                                        constituyen las figuras pioneras que inauguraron los estudios regulares de 
+                                                                                                            constituyen las figuras pioneras que inauguraron los estudios regulares de 
 
-                                                                                                        medicina…”<br/><br/>
+                                                                                                            medicina…”<br/><br/>
 
-                                                                                                        A lo largo de la primera mitad del s. XVIII algunos hechos debieron influir en la 
+                                                                                                            A lo largo de la primera mitad del s. XVIII algunos hechos debieron influir en la 
 
-                                                                                                        enseñanza médica en la Cátedra: la administración del Hospital de la 
+                                                                                                            enseñanza médica en la Cátedra: la administración del Hospital de la 
 
-                                                                                                        Misericordia a cargo de la orden betlemita  desde  1705  y  la  llegada  de  la  
+                                                                                                            Misericordia a cargo de la orden betlemita  desde  1705  y  la  llegada  de  la  
 
-                                                                                                        Misión  Geodésica  en  1736. La  influencia  de  la administración del Hospital en 
+                                                                                                            Misión  Geodésica  en  1736. La  influencia  de  la administración del Hospital en 
 
-                                                                                                        la enseñanza se ejercería a través de algunos mecanismos: varios frailes de la 
+                                                                                                            la enseñanza se ejercería a través de algunos mecanismos: varios frailes de la 
 
-                                                                                                        orden ejercieron la docencia (fray Felipe de los Ángeles, fray José del Rosario), 
+                                                                                                            orden ejercieron la docencia (fray Felipe de los Ángeles, fray José del Rosario), 
 
-                                                                                                        la certificación de práctica junto a un médico aprobado por el Protomedicato y la 
+                                                                                                            la certificación de práctica junto a un médico aprobado por el Protomedicato y la 
 
-                                                                                                        rendición de un examen práctico en las salas hospitalarias. La de la Misión 
+                                                                                                            rendición de un examen práctico en las salas hospitalarias. La de la Misión 
 
-                                                                                                        Geodésica, por la colaboración de Joseph Jussieu con la Cátedra de Medicina 
+                                                                                                            Geodésica, por la colaboración de Joseph Jussieu con la Cátedra de Medicina 
 
-                                                                                                        entre 1745 y 1746: en Phisiología en primer año y Pathología en segundo.
+                                                                                                            entre 1745 y 1746: en Phisiología en primer año y Pathología en segundo.
 
-                                                                                                        La primera publicación  en  el  país  de  un  escrito médico  realizado  por  un  
+                                                                                                            La primera publicación  en  el  país  de  un  escrito médico  realizado  por  un  
 
-                                                                                                        catedrático de Medicina se efectúa en 1785, siendo su autor fray José del 
+                                                                                                            catedrático de Medicina se efectúa en 1785, siendo su autor fray José del 
 
-                                                                                                        Rosario: “Instrucción al Pueblo sobre el modo sencillo y fácil de curar el 
+                                                                                                            Rosario: “Instrucción al Pueblo sobre el modo sencillo y fácil de curar el 
 
-                                                                                                        Sarampión”, autor también del primer trabajo de investigación realizado con 
+                                                                                                            Sarampión”, autor también del primer trabajo de investigación realizado con 
 
-                                                                                                        método y rigor científico (1785): “Expediente sobre la goma de guayacán o palo 
+                                                                                                            método y rigor científico (1785): “Expediente sobre la goma de guayacán o palo 
 
-                                                                                                        santo”.<br/>
+                                                                                                            santo”.<br/>
 
-                                                                                                        En 1787 se dispone la secularización de la Universidad, en la intención de que 
+                                                                                                            En 1787 se dispone la secularización de la Universidad, en la intención de que 
 
-                                                                                                        pierda su carácter religioso.<br/>
+                                                                                                            pierda su carácter religioso.<br/>
 
-                                                                                                        A  finales  del  s.XVIII  se  establece  la  obligatoriedad  de  desarrollar  una  
+                                                                                                            A  finales  del  s.XVIII  se  establece  la  obligatoriedad  de  desarrollar  una  
 
-                                                                                                        “thesis”  para  la obtención del grado de Bachiller en Medicina. La primera de la 
+                                                                                                            “thesis”  para  la obtención del grado de Bachiller en Medicina. La primera de la 
 
-                                                                                                        que se tenga constancia es “Mercuriusdulcoratus, non tantum in LueVenerea, 
+                                                                                                            que se tenga constancia es “Mercuriusdulcoratus, non tantum in LueVenerea, 
 
-                                                                                                        verumetiam in Podagra, AnaxarchivoHydrope, Morboque Regio, locumhabet”,  
+                                                                                                            verumetiam in Podagra, AnaxarchivoHydrope, Morboque Regio, locumhabet”,  
 
-                                                                                                        presentada por José Moreno y Salas el
+                                                                                                            presentada por José Moreno y Salas el
 
-                                                                                                        17 de febrero de 1799.<br/><br/>
+                                                                                                            17 de febrero de 1799.<br/><br/>
 
-                                                                                                        Para los años próximos a 1800 el historiador González Suárez informa sobre la 
+                                                                                                            Para los años próximos a 1800 el historiador González Suárez informa sobre la 
 
-                                                                                                        resolución de una reforma de la educación médica que asume los supuestos de 
+                                                                                                            resolución de una reforma de la educación médica que asume los supuestos de 
 
-                                                                                                        la Ilustración y reclama la práctica hospitalaria.
+                                                                                                            la Ilustración y reclama la práctica hospitalaria.
 
-                                                                                                        El origen republicano de la Escuela de Medicina, continuadora de la Cátedra de 
+                                                                                                            El origen republicano de la Escuela de Medicina, continuadora de la Cátedra de 
 
-                                                                                                        Medicina, se establece en 1826 en la Ley del Congreso de Colombia, arts. 45 a 
+                                                                                                            Medicina, se establece en 1826 en la Ley del Congreso de Colombia, arts. 45 a 
 
-                                                                                                        47, en la que se señala la existencia de la Escuela de Medicina, Cirugía y 
+                                                                                                            47, en la que se señala la existencia de la Escuela de Medicina, Cirugía y 
 
-                                                                                                        Farmacia. En enero del 27 se expiden los reglamentos sobre las Escuelas de las 
+                                                                                                            Farmacia. En enero del 27 se expiden los reglamentos sobre las Escuelas de las 
 
-                                                                                                        Universidades, estableciéndose -en una disposición que no llegó a aplicarse en 
+                                                                                                            Universidades, estableciéndose -en una disposición que no llegó a aplicarse en 
 
-                                                                                                        Quito- en 6 años la duración de la Carrera de Medicina 3  para obtener el grado 
+                                                                                                            Quito- en 6 años la duración de la Carrera de Medicina 3  para obtener el grado 
 
-                                                                                                        de Bachiller y otros 3 más para los de Licenciado y Doctor). En la Ley se 
+                                                                                                            de Bachiller y otros 3 más para los de Licenciado y Doctor). En la Ley se 
 
-                                                                                                        consigna un innovado y  reformador  Plan  de  Estudios  para  6  años  y  la  
+                                                                                                            consigna un innovado y  reformador  Plan  de  Estudios  para  6  años  y  la  
 
-                                                                                                        instalación  de  la Escuela  de Medicina.  Dice  sin  embargo  Estrella:  “No  hay  
+                                                                                                            instalación  de  la Escuela  de Medicina.  Dice  sin  embargo  Estrella:  “No  hay  
 
-                                                                                                        evidencia  de  la  instalación  oficial  de  la “Escuela de Medicina” y según 
+                                                                                                            evidencia  de  la  instalación  oficial  de  la “Escuela de Medicina” y según 
 
-                                                                                                        parece, la Cátedra de Medicina de la Universidad Pública… se fue 
+                                                                                                            parece, la Cátedra de Medicina de la Universidad Pública… se fue 
 
-                                                                                                        transformando lentamente en una “Escuela de Medicina” de la nueva 
+                                                                                                            transformando lentamente en una “Escuela de Medicina” de la nueva 
 
-                                                                                                        Universidad…” En el mismo documento, en el art. 279, se dice: ”Habrá fuera de 
+                                                                                                            Universidad…” En el mismo documento, en el art. 279, se dice: ”Habrá fuera de 
 
-                                                                                                        la Universidad una reunión de Profesores de Medicina, Cirugía y Farmacia… 
+                                                                                                            la Universidad una reunión de Profesores de Medicina, Cirugía y Farmacia… 
 
-                                                                                                        que se denominará… Facultad de Medicina del Departamento.” Así esta Ley del 
+                                                                                                            que se denominará… Facultad de Medicina del Departamento.” Así esta Ley del 
 
-                                                                                                        Congreso de Colombia es el primer documento oficial en el que aparece el 
+                                                                                                            Congreso de Colombia es el primer documento oficial en el que aparece el 
 
-                                                                                                        nombre de “Facultad de Medicina” relacionado con la Universidad Central, 
+                                                                                                            nombre de “Facultad de Medicina” relacionado con la Universidad Central, 
 
-                                                                                                        aunque para una institución con funciones diferentes a las actuales: más 
+                                                                                                            aunque para una institución con funciones diferentes a las actuales: más 
 
-                                                                                                        de control del ejercicio médico, aunque presidía los estudios médicos. El 26 
+                                                                                                            de control del ejercicio médico, aunque presidía los estudios médicos. El 26 
 
-                                                                                                        de octubre de 1827 se instala, con esas características, la Facultad Médica de 
+                                                                                                            de octubre de 1827 se instala, con esas características, la Facultad Médica de 
 
-                                                                                                        el Departamento del Ecuador y Distrito Sur.
+                                                                                                            el Departamento del Ecuador y Distrito Sur.
 
-                                                                                                        En la presidencia de Vicente Rocafuerte se expide, en 1838, el Decreto 
+                                                                                                            En la presidencia de Vicente Rocafuerte se expide, en 1838, el Decreto 
 
-                                                                                                        Legislativo y Reglamento de Instrucción Pública, que establece –otra vez- 6 
+                                                                                                            Legislativo y Reglamento de Instrucción Pública, que establece –otra vez- 6 
 
-                                                                                                        años de estudios para la carrera de medicina. Esta disposición al parecer fue 
+                                                                                                            años de estudios para la carrera de medicina. Esta disposición al parecer fue 
 
-                                                                                                        aplicada efectivamente, como puede deducirse de las reseñas de exámenes 
+                                                                                                            aplicada efectivamente, como puede deducirse de las reseñas de exámenes 
 
-                                                                                                        conservadas en el Archivo General de la Universidad Central del Ecuador 
+                                                                                                            conservadas en el Archivo General de la Universidad Central del Ecuador 
 
-                                                                                                        (AGUCE). En el transcurso del siglo se crean varias cátedras que se incorporan 
+                                                                                                            (AGUCE). En el transcurso del siglo se crean varias cátedras que se incorporan 
 
-                                                                                                        al plan de estudios de Medicina: química, toxicología, higiene, medicina legal.   
+                                                                                                            al plan de estudios de Medicina: química, toxicología, higiene, medicina legal.   
 
-                                                                                                        En 1850 se determina,  desde  el  Ejecutivo,  la obligación  de  asistencia diaria 
+                                                                                                            En 1850 se determina,  desde  el  Ejecutivo,  la obligación  de  asistencia diaria 
 
-                                                                                                        de  los  estudiantes  a los hospitales (desde 1800 la asistencia era obligatoria, 
+                                                                                                            de  los  estudiantes  a los hospitales (desde 1800 la asistencia era obligatoria, 
 
-                                                                                                        pero no diaria),  y la de” llevar un registro diario de los enfermos”, estableciendo 
+                                                                                                            pero no diaria),  y la de” llevar un registro diario de los enfermos”, estableciendo 
 
-                                                                                                        en forma imperativa la existencia y el registro de la Historia Clínica en las 
+                                                                                                            en forma imperativa la existencia y el registro de la Historia Clínica en las 
 
-                                                                                                        instituciones de asistencia sanitaria.
+                                                                                                            instituciones de asistencia sanitaria.
 
-                                                                                                        En 1863 la Ley de Educación señala, al parecer por primera vez, a la Facultad 
+                                                                                                            En 1863 la Ley de Educación señala, al parecer por primera vez, a la Facultad 
 
-                                                                                                        de Medicina y Farmacia –con ese nombre y como tal- como parte constituyente 
+                                                                                                            de Medicina y Farmacia –con ese nombre y como tal- como parte constituyente 
 
-                                                                                                        de la Universidad Central, que en esta oportunidad se denomina “Universidad 
+                                                                                                            de la Universidad Central, que en esta oportunidad se denomina “Universidad 
 
-                                                                                                        Pública”.<br/>
+                                                                                                            Pública”.<br/>
 
-                                                                                                        El periodo garciano inaugura un nuevo esfuerzo de reforma universitaria y de la 
+                                                                                                            El periodo garciano inaugura un nuevo esfuerzo de reforma universitaria y de la 
 
-                                                                                                        Carrera de Medicina.  Se  promulga  un  Programa  de  Estudios  que  incorpora  
+                                                                                                            Carrera de Medicina.  Se  promulga  un  Programa  de  Estudios  que  incorpora  
 
-                                                                                                        contenidos  y  prácticas acordes a modernidades europeas: farmacia, taxonomía 
+                                                                                                            contenidos  y  prácticas acordes a modernidades europeas: farmacia, taxonomía 
 
-                                                                                                        y fitografías botánicas, obligatoriedad de prácticas de cirugía, entre otras. 
+                                                                                                            y fitografías botánicas, obligatoriedad de prácticas de cirugía, entre otras. 
 
-                                                                                                        Además se determina la obligación de que los estudiantes de medicina 
+                                                                                                            Además se determina la obligación de que los estudiantes de medicina 
 
-                                                                                                        aprueben materias en la “Facultad de Ciencias”, que tenía un carácter general 
+                                                                                                            aprueben materias en la “Facultad de Ciencias”, que tenía un carácter general 
 
-                                                                                                        para la universidad. Se cambia así el proceso de enseñanza/aprendizaje 
+                                                                                                            para la universidad. Se cambia así el proceso de enseñanza/aprendizaje 
 
-                                                                                                        valorando en más la práctica y observación, modernizando el conocimiento 
+                                                                                                            valorando en más la práctica y observación, modernizando el conocimiento 
 
-                                                                                                        teórico que introduce la mentalidad etiológica, a más de la celular y 
+                                                                                                            teórico que introduce la mentalidad etiológica, a más de la celular y 
 
-                                                                                                        microbiológica en la enseñanza médica. El esfuerzo alcanza en
+                                                                                                            microbiológica en la enseñanza médica. El esfuerzo alcanza en
 
-                                                                                                        1869 su orto con la contratación del Dr. Ettiene Gayraud como Decano de la 
+                                                                                                            1869 su orto con la contratación del Dr. Ettiene Gayraud como Decano de la 
 
-                                                                                                        Facultad de Medicina. Es en este mismo periodo cuando se establecen las 
+                                                                                                            Facultad de Medicina. Es en este mismo periodo cuando se establecen las 
 
-                                                                                                        categorías docentes, además de Catedráticos, de Agregados, Auxiliares, 
+                                                                                                            categorías docentes, además de Catedráticos, de Agregados, Auxiliares, 
 
-                                                                                                        Preceptores y Ayudantes.
+                                                                                                            Preceptores y Ayudantes.
 
-                                                                                                        En 1878 se establece la obligatoriedad de los concursos para acceder al 
+                                                                                                            En 1878 se establece la obligatoriedad de los concursos para acceder al 
 
-                                                                                                        nombramiento de profesor, se debía rendir un examen oral sobre dominio de la 
+                                                                                                            nombramiento de profesor, se debía rendir un examen oral sobre dominio de la 
 
-                                                                                                        materia y hacer una exposición didáctica ante alumnos sobre un tema específico 
+                                                                                                            materia y hacer una exposición didáctica ante alumnos sobre un tema específico 
 
-                                                                                                        del  plan de estudios.
+                                                                                                            del  plan de estudios.
 
-                                                                                                        En  la última  década del  siglo XIX se introducen  algunas modificaciones  
+                                                                                                            En  la última  década del  siglo XIX se introducen  algunas modificaciones  
 
-                                                                                                        importantes  al proceso de enseñanza médica: se impone a los profesores dictar 
+                                                                                                            importantes  al proceso de enseñanza médica: se impone a los profesores dictar 
 
-                                                                                                        clases prácticas en los hospitales, se incorporan elementos de materias 
+                                                                                                            clases prácticas en los hospitales, se incorporan elementos de materias 
 
-                                                                                                        quirúrgicas, y en 1897 se establece la obligatoriedad de la enseñanza de 
+                                                                                                            quirúrgicas, y en 1897 se establece la obligatoriedad de la enseñanza de 
 
-                                                                                                        Deontología en la Ley de Instrucción Pública. Así Alfaro impone un nuevo 
+                                                                                                            Deontología en la Ley de Instrucción Pública. Así Alfaro impone un nuevo 
 
-                                                                                                        proceso de reforma de la educación médica. En éste, y concordante con la 
+                                                                                                            proceso de reforma de la educación médica. En éste, y concordante con la 
 
-                                                                                                        doctrina liberal, laica e igualitaria, se crean y desarrollan materias médicas 
+                                                                                                            doctrina liberal, laica e igualitaria, se crean y desarrollan materias médicas 
 
-                                                                                                        relacionadas con la mujer  y  la  familia,  la  protección  social,  la  
+                                                                                                            relacionadas con la mujer  y  la  familia,  la  protección  social,  la  
 
-                                                                                                        responsabilidad  ética,  a  tiempo  de  iniciar  el desarrollo de las especialidades 
+                                                                                                            responsabilidad  ética,  a  tiempo  de  iniciar  el desarrollo de las especialidades 
 
-                                                                                                        en la práctica, ejercicio y docencia médicas. El teórico acceso igualitario de la 
+                                                                                                            en la práctica, ejercicio y docencia médicas. El teórico acceso igualitario de la 
 
-                                                                                                        mujer a la educación superior sin embargo no verá, en Medicina, su primera 
+                                                                                                            mujer a la educación superior sin embargo no verá, en Medicina, su primera 
 
-                                                                                                        graduada hasta 1921, con Matilde Hidalgo.
+                                                                                                            graduada hasta 1921, con Matilde Hidalgo.
 
-                                                                                                        El “Movimiento de Córdova” del 1918 acaba por provocar el reconocimiento de la 
+                                                                                                            El “Movimiento de Córdova” del 1918 acaba por provocar el reconocimiento de la 
 
-                                                                                                        autonomía universitaria en la Ley de Educación Superior promulgada por la 
+                                                                                                            autonomía universitaria en la Ley de Educación Superior promulgada por la 
 
-                                                                                                        Junta de Gobierno Provisional en octubre de 1925, que luego será ratificada por 
+                                                                                                            Junta de Gobierno Provisional en octubre de 1925, que luego será ratificada por 
 
-                                                                                                        la Constitución de 1945, durante el rectorado del médico Dr. Julio Enrique 
+                                                                                                            la Constitución de 1945, durante el rectorado del médico Dr. Julio Enrique 
 
-                                                                                                        Paredes, que adquirió e inició la construcción de la que sería Ciudad 
+                                                                                                            Paredes, que adquirió e inició la construcción de la que sería Ciudad 
 
-                                                                                                        Universitaria.
+                                                                                                            Universitaria.
 
-                                                                                                        En el segundo cuarto del siglo XX se inician procesos de integración a la 
+                                                                                                            En el segundo cuarto del siglo XX se inician procesos de integración a la 
 
-                                                                                                        enseñanza universitaria de medicina preventiva y extramural con referencia a 
+                                                                                                            enseñanza universitaria de medicina preventiva y extramural con referencia a 
 
-                                                                                                        compromisos sociales direccionados o no desde el Estado. En 1926 la Ley de 
+                                                                                                            compromisos sociales direccionados o no desde el Estado. En 1926 la Ley de 
 
-                                                                                                        Sanidad determina que: “… los estudiantes de Medicina de todas las 
+                                                                                                            Sanidad determina que: “… los estudiantes de Medicina de todas las 
 
-                                                                                                        Universidades del país estarán obligados durante los 2 últimos períodos de 
+                                                                                                            Universidades del país estarán obligados durante los 2 últimos períodos de 
 
-                                                                                                        vacaciones a realizar estudios prácticos sobre el tratamiento, profilaxis y 
+                                                                                                            vacaciones a realizar estudios prácticos sobre el tratamiento, profilaxis y 
 
-                                                                                                        epidemiología de las siguientes enfermedades: paludismo, anquilostomiasis, 
+                                                                                                            epidemiología de las siguientes enfermedades: paludismo, anquilostomiasis, 
 
-                                                                                                        etc.”. Una década más tarde se incorpora la enseñanza de Dietética y 
+                                                                                                            etc.”. Una década más tarde se incorpora la enseñanza de Dietética y 
 
-                                                                                                        Nutrición como parte del pensum. En
+                                                                                                            Nutrición como parte del pensum. En
 
-                                                                                                        1938 el Estatuto de la Universidad Central elaborado en el Rectorado del Dr. 
+                                                                                                            1938 el Estatuto de la Universidad Central elaborado en el Rectorado del Dr. 
 
-                                                                                                        Gualberto Arcos señala, en el Cap. I, art. 4: “La enseñanza en las Facultades 
+                                                                                                            Gualberto Arcos señala, en el Cap. I, art. 4: “La enseñanza en las Facultades 
 
-                                                                                                        será esencialmente práctica y de investigación… la educación universitaria será 
+                                                                                                            será esencialmente práctica y de investigación… la educación universitaria será 
 
-                                                                                                        técnica, científica y racionalista…”, además
+                                                                                                            técnica, científica y racionalista…”, además
 
-                                                                                                        de indicar en forma diferenciada las escuelas que conforman la Facultad de 
+                                                                                                            de indicar en forma diferenciada las escuelas que conforman la Facultad de 
 
-                                                                                                        Ciencias Médicas: Medicina y Cirugía, de Enfermeras, Odontología y Veterinaria.
+                                                                                                            Ciencias Médicas: Medicina y Cirugía, de Enfermeras, Odontología y Veterinaria.
 
-                                                                                                        Entre los cincuenta y sesenta se da un proceso de cambio en el pensum 
+                                                                                                            Entre los cincuenta y sesenta se da un proceso de cambio en el pensum 
 
-                                                                                                        de estudios: se refuerzan los contenidos cientificistas y la enseñanza de las 
+                                                                                                            de estudios: se refuerzan los contenidos cientificistas y la enseñanza de las 
 
-                                                                                                        especialidades médicas, mientras disminuye la carga orientada a la formación 
+                                                                                                            especialidades médicas, mientras disminuye la carga orientada a la formación 
 
-                                                                                                        en función social. En 1955 se establece en 8 años la duración de la carrera, 
+                                                                                                            en función social. En 1955 se establece en 8 años la duración de la carrera, 
 
-                                                                                                        incorporando el pre-médico a ella y estableciendo el Internado Rotativo en el 56, 
+                                                                                                            incorporando el pre-médico a ella y estableciendo el Internado Rotativo en el 56, 
 
-                                                                                                        aunque su incorporación definitiva no se produce sino en 1964 cuando se 
+                                                                                                            aunque su incorporación definitiva no se produce sino en 1964 cuando se 
 
-                                                                                                        reglamenta, a tiempo de la creación de la AFEME, que tres años más tarde 
+                                                                                                            reglamenta, a tiempo de la creación de la AFEME, que tres años más tarde 
 
-                                                                                                        disminuye la duración de la carrera a 7 años.
+                                                                                                            disminuye la duración de la carrera a 7 años.
 
-                                                                                                        En la Escuela de Medicina, tras 168 años, se suspende la realización de la 
+                                                                                                            En la Escuela de Medicina, tras 168 años, se suspende la realización de la 
 
-                                                                                                        Tesis de Grado como  requisito  para  obtener  el  título  de  Doctor  en  
+                                                                                                            Tesis de Grado como  requisito  para  obtener  el  título  de  Doctor  en  
 
-                                                                                                        Medicina  y  Cirugía,  a  tiempo  de reinstaurar  la disposición  de  1878  de  
+                                                                                                            Medicina  y  Cirugía,  a  tiempo  de reinstaurar  la disposición  de  1878  de  
 
-                                                                                                        efectuar  concursos  de  méritos  y  oposición  para la provisión  de  cátedras,  y  
+                                                                                                            efectuar  concursos  de  méritos  y  oposición  para la provisión  de  cátedras,  y  
 
-                                                                                                        se  estatuye  el  co-gobierno  universitario  en  los  organismos  de dirección.
+                                                                                                            se  estatuye  el  co-gobierno  universitario  en  los  organismos  de dirección.
 
-                                                                                                        Al final de la década de los 1960 el Consejo Universitario decide por unanimidad 
+                                                                                                            Al final de la década de los 1960 el Consejo Universitario decide por unanimidad 
 
-                                                                                                        suprimir los exámenes de ingreso, y proyecta la ejecución de una Reforma 
+                                                                                                            suprimir los exámenes de ingreso, y proyecta la ejecución de una Reforma 
 
-                                                                                                        Universitaria, buscando en Medicina la inclusión en la enseñanza de aspectos 
+                                                                                                            Universitaria, buscando en Medicina la inclusión en la enseñanza de aspectos 
 
-                                                                                                        preventivos y sociales, en una vinculación más estrecha con la población a 
+                                                                                                            preventivos y sociales, en una vinculación más estrecha con la población a 
 
-                                                                                                        través de programas extramurales y comunitarios y de un modelo docente-
+                                                                                                            través de programas extramurales y comunitarios y de un modelo docente-
 
-                                                                                                        asistencial que induce la integración estudiantil a los hospitales en etapas 
+                                                                                                            asistencial que induce la integración estudiantil a los hospitales en etapas 
 
-                                                                                                        tempranas de su formación. Esta propuesta, en la realidad objetiva, queda tan 
+                                                                                                            tempranas de su formación. Esta propuesta, en la realidad objetiva, queda tan 
 
-                                                                                                        solo en un enunciado, si bien en la programación persisten materias 
+                                                                                                            solo en un enunciado, si bien en la programación persisten materias 
 
-                                                                                                        relacionables con la intención.
+                                                                                                            relacionables con la intención.
 
-                                                                                                        A raíz de la Ley Orgánica de Educación Superior de 2010, la denominación de 
+                                                                                                            A raíz de la Ley Orgánica de Educación Superior de 2010, la denominación de 
 
-                                                                                                        la Escuela de
+                                                                                                            la Escuela de
 
-                                                                                                        Medicina cambia en 2010 a la de Carrera de 
+                                                                                                            Medicina cambia en 2010 a la de Carrera de 
 
-                                                                                                        Medicina….”</p>
+                                                                                                            Medicina….”</p>
                                                                                                     </div>
                                                                                                     <div class="clear"></div>                                                                                                    
                                                                                                 </div>
@@ -1075,7 +1209,7 @@ and open the template in the editor.
                                                                                                                 </span>
                                                                                                                 <img alt="doc" src="images/carrera_info.jpg"/>
                                                                                                                 <span class="download"><i class="icon-download-alt"></i></span>
-                                                                                                               <p style="display: inline-block; position: absolute;">Descripción</p>
+                                                                                                                <p style="display: inline-block; position: absolute;">Descripción</p>
                                                                                                             </div> 
                                                                                                         </li> 
                                                                                                         <li>

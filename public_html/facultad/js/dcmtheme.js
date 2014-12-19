@@ -5992,7 +5992,7 @@ $(window).load(function() {
         $('.slide').addClass("u").slideCheck({
         });
         //nivo slider
-        // /* 
+         /* 
         $('.homeslider.on').each(function() {
             var $this = jQuery(this);
             $this.nivoSlider({effect: 'random', slices: 15, boxCols: 8, boxRows: 4, animSpeed: 800, pauseTime: 3000, startSlide: 0, directionNav: false, directionNavHide: true, controlNav: false, controlNavThumbs: false, pauseOnHover: false, manualAdvance: false, prevText: 'Prev', nextText: 'Next', randomStart: true, beforeChange: function() {
