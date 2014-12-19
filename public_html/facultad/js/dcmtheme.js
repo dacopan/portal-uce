@@ -3437,8 +3437,11 @@ var CarrerasFull = (function() {
 
                 setTimeout(function() {
                     if (!isMobileBrowser()) {
-                        $(frames.get(0)).find(".homeslider.on").each(function() {
-                            $(this).data('nivoslider').start();
+                        /*$(frames.get(0)).find(".homeslider.on").each(function() {
+                         $(this).data('nivoslider').start();
+                         });*/
+                        $(frames.get(0)).find(".bannerCircle").each(function() {
+                            $(this).data('bannerCircle').start();
                         });
                     }
                 }, 1200);
@@ -3487,8 +3490,12 @@ var CarrerasFull = (function() {
                 }
 
                 if (!isMobileBrowser()) {
-                    frames.find(".homeslider.on").each(function() {
-                        $(this).data('nivoslider').stop();
+                    /*frames.find(".homeslider.on").each(function() {
+                     $(this).data('nivoslider').stop();
+                     });*/
+
+                    frames.find(".bannerCircle").each(function() {
+                        $(this).data('bannerCircle').stop();
                     });
                 }
                 return false;
@@ -5766,12 +5773,12 @@ $.Metro.initDropdowns();
                 fullview.scrollTop(0);
                 //apagamos nivo
                 if (!isMobileBrowser()) {
-                    frames.find(".homeslider.on").each(function() {
-                        $(this).data('nivoslider').stop();
+                    frames.find(".bannerCircle").each(function() {
+                        $(this).data('bannerCircle').stop();
                     });
                     //encendemos nivo correspondiente
-                    current_frame.find(".homeslider.on").each(function() {
-                        $(this).data('nivoslider').start();
+                    current_frame.find(".bannerCircle").each(function() {
+                        $(this).data('bannerCircle').start();
                     });
                 }
 
@@ -5836,6 +5843,124 @@ $(function() {
 
 
 
+//</editor-fold>
+
+//<editor-fold defaultstate="collapsed" desc="bannerCircle">
+(function($) {
+    $.widget("metro.bannerCircle", {
+        version: "1.0.0",
+        options: {
+            auto: true,
+            period: 2000,
+            duration: 1000,
+            effect: 'fade', // slide, fade, switch, slowdown
+            direction: 'left',
+            stop: false
+        },
+        _slides: {},
+        _items: {},
+        _currentIndex: 0,
+        _interval: 0,
+        _create: function() {
+
+            var that = this, element = this.element;
+
+            // Return early if this element already has a plugin instance
+            if (element.data('bannerCircle')) {
+                return element.data('bannerCircle');
+            }
+
+            // Store plugin object in this element's data
+            element.data('bannerCircle', this);
+
+
+            var _slides = $(element.find(".oculto").find(".img"));
+            var _items = $(element.find(".item"));
+
+            if (_slides.length <= 1)
+                return;
+            ///*             
+            this._changeSlide('next')
+            if (this.options.auto)
+                this._autoStart();
+             //*/
+        },
+        _autoStart: function() {
+            var that = this;
+            this._interval = setInterval(function() {
+                if (that.options.direction == 'left') {
+                    that._changeSlide('next')
+                } else {
+                    that._changeSlide('prior')
+                }
+            }, this.options.period);
+        },
+        _changeSlide: function(direction) {
+            var _slides = $(this.element.find(".oculto").find(".img"));
+            var _items = $(this.element.find(".item"));
+
+            var that = this;
+            if (that.options.stop)
+                return;
+
+            if (direction == undefined)
+                direction = 'next';
+
+            if (direction === 'prior') {
+                this._currentIndex -= 1;
+                if (this._currentIndex < 0)
+                    this._currentIndex = _slides.length - 1;
+
+
+            } else if (direction === 'next') {
+                var ix = this._currentIndex;
+
+                _items.each(function() {
+                    that._setContent($(this), $(_slides[ix]), ix);
+                    ix += 1;
+                    if (ix >= _slides.length)
+                        ix = 0;
+
+                });
+
+                this._currentIndex += 1;
+                if (this._currentIndex >= _slides.length)
+                    this._currentIndex = 0;
+
+            }
+
+        },
+        _setContent: function(item, slide, ix) {
+            $(item.find(".caption")).html($(slide.find(".caption")).html());
+            $(item.find(".img-cover")).css("background-image", 'url(' + $(slide.find("img")).attr("src") + ')');//.hide().delay(ix*500*0).fadeIn();
+        },
+        _destroy: function() {
+
+        },
+        start: function() {
+            this.options.stop = false;
+
+        },
+        stop: function() {
+            this.options.stop = true;
+            clearInterval(this._interval);
+        },
+        _setOption: function(key, value) {
+            this._super('_setOption', key, value);
+            this._autoStart();
+        }
+    })
+})(jQuery);
+$(function() {
+    $.Metro.initBannerCircle = function(area) {
+        if (area != undefined) {
+            $(area).find('[data-role=bannerCircle]').bannerCircle();
+        } else {
+            $('[data-role=bannerCircle]').bannerCircle();
+        }
+    };
+    $.Metro.initBannerCircle();
+});
 //</editor-fold>
 $(window).load(function() {
 //scroll pagination
@@ -5992,23 +6117,23 @@ $(window).load(function() {
         $('.slide').addClass("u").slideCheck({
         });
         //nivo slider
-         /* 
-        $('.homeslider.on').each(function() {
-            var $this = jQuery(this);
-            $this.nivoSlider({effect: 'random', slices: 15, boxCols: 8, boxRows: 4, animSpeed: 800, pauseTime: 3000, startSlide: 0, directionNav: false, directionNavHide: true, controlNav: false, controlNavThumbs: false, pauseOnHover: false, manualAdvance: false, prevText: 'Prev', nextText: 'Next', randomStart: true, beforeChange: function() {
-                }, afterChange: function() {
-                }, slideshowEnd: function() {
-                }, lastSlide: function() {
-                }, afterLoad: function() {
-                }});
-        });
-        //apagamos nivo slider carreras
-
-        $('.carreraWrap .homeslider.on').each(function() {
-            $(this).data('nivoslider').stop();
-        });
-
-        //*/
+        /* 
+         $('.homeslider.on').each(function() {
+         var $this = jQuery(this);
+         $this.nivoSlider({effect: 'random', slices: 15, boxCols: 8, boxRows: 4, animSpeed: 800, pauseTime: 3000, startSlide: 0, directionNav: false, directionNavHide: true, controlNav: false, controlNavThumbs: false, pauseOnHover: false, manualAdvance: false, prevText: 'Prev', nextText: 'Next', randomStart: true, beforeChange: function() {
+         }, afterChange: function() {
+         }, slideshowEnd: function() {
+         }, lastSlide: function() {
+         }, afterLoad: function() {
+         }});
+         });
+         //apagamos nivo slider carreras
+         
+         $('.carreraWrap .homeslider.on').each(function() {
+         $(this).data('nivoslider').stop();
+         });
+         
+         //*/
 
     }
     //*/

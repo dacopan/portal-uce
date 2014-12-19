@@ -124,8 +124,8 @@ boolean skipEditorLoading = GetterUtil.getBoolean((String)request.getAttribute("
     tinyMCE.editors['<%= name %>'].setContent(value);
     }
     };
-    
-    
+
+
     tinyMCE.init(
     {
     convert_urls: false,
@@ -135,7 +135,16 @@ boolean skipEditorLoading = GetterUtil.getBoolean((String)request.getAttribute("
     init_instance_callback: window['<%= name %>'].initInstanceCallback,
     invalid_elements: '',
     language: '<%= HtmlUtil.escape(locale.getLanguage()) %>',
-    mode: 'exact',		
+    mode: 'exact',
+    <%
+                        if (Validator.isNotNull(onChangeMethod)) {
+    %>
+
+    onchange_callback: window['<%= name %>'].onChangeCallback,
+
+    <%
+    }
+    %>
     plugins: [
     "advlist autolink lists link image charmap print preview anchor",
     "searchreplace visualblocks code fullscreen",
@@ -146,22 +155,7 @@ boolean skipEditorLoading = GetterUtil.getBoolean((String)request.getAttribute("
     theme: 'modern',    
     verify_html: false,
     cleanup: false,
-    valid_children : 'a[div|span|script|i|small|p],+div[a|span|p|div|i|style|script|ul|li|form|input|h1|h2|h3|h4|h5|h6|h7|label|img|button|nav|canvas|footer|*],*[*]',
-    setup : function(ed) {
-    // Add a custom button
-    ed.addButton('mybutton', {
-    title : 'My button',
-    image : '/html/js/editor/tiny_mce/plugins/example/img/example.gif',
-    onclick : function() {                            	                                 
-
-
-
-
-
-    }
-    });
-    }
-
+    valid_children : 'a[div|span|script|i|small|p],+div[a|span|p|div|i|style|script|ul|li|form|input|h1|h2|h3|h4|h5|h6|h7|label|img|button|nav|canvas|footer|*],*[*]',    
     });
 
 </aui:script>
