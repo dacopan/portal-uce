@@ -5154,6 +5154,56 @@ span.date a.bubble, span.date a.bubble:hover {
 }
 /*</editor-fold>*/
 
+/*<editor-fold defaultstate="collapsed" desc="direcciones">*/
+.metro .grilla{
+    background-image: url(../images/panel2_grilla.png);
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+.metro .img-cover{    
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+
+.metro .direcWrap .og-grid li{
+    margin: 10px 10px 5px 10px;
+}
+.metro .direc{
+    width: 300px;
+    height: 200px;
+    background-color: #a28f23;
+    position: relative;
+    
+    -moz-transition: all 0.3s ease 0s;
+-webkit-transition: all 0.3s ease 0s;
+-o-transition: all 0.3s ease 0s;
+transition: all 0.3s ease 0s;
+}
+.metro .direc .title{
+    color: #fff;
+    text-align: right;
+    padding: 15px;
+}
+.metro .direc .desc{
+    color: #fff;
+    bottom: 0px;
+    left: 0px;
+    padding: 15px;
+    position: absolute;
+    padding-right: 40px;
+    text-align: left;
+}
+.metro .direcWrap:hover .direc{
+    opacity: .9;
+}
+.metro .direcWrap .direc:hover{
+    opacity: 1;
+    transform: scale(1.1);
+}
+/*</editor-fold>*/
+
 /*<editor-fold defaultstate="collapsed" desc="accordion">*/
 .metro .accordion > .accordion-frame {
 

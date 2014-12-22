@@ -5126,13 +5126,13 @@ $(window).scroll(function() {
     //headerPosition();
 
 //parrallax
-    /*
+    ///*
      scrollPos = jQuery(this).scrollTop();
      
-     var x = jQuery('#slide3');
+     var x = jQuery('#slide4 .img-cover');
      //Scroll the background of the banner
      x.css({
-     'background-position': 'center ' + ((-scrollPos + x.offset().top) / 7) + "px"
+     'background-position': 'center ' + ((scrollPos - x.offset().top) / 3) + "px"
      });
      
      // */
