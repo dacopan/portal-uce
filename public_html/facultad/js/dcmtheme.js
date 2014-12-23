@@ -1,4 +1,4 @@
-var debug = false;
+var debug = true;
 //<editor-fold defaultstate="collapsed" desc="modernizer">
 /* Modernizr 2.6.2 (Custom Build) | MIT & BSD
  * Build: http://modernizr.com/download/#-csstransitions-shiv-cssclasses-prefixed-testprop-testallprops-domprefixes-load
@@ -1887,198 +1887,6 @@ window.Modernizr = function(a, b, c) {
     };
     var p, a, r, l, c = !1
 }(jQuery);
-//</editor-fold>
-
-//<editor-fold defaultstate="collapsed" desc="waypoints.min.js">
-(function($, k, m, i, d) {
-    var e = $(i), g = "waypoint.reached", b = function(o, n) {
-        o.element.trigger(g, n);
-        if (o.options.triggerOnce) {
-            o.element[k]("destroy")
-        }
-    }, h = function(p, o) {
-        if (!o) {
-            return -1
-        }
-        var n = o.waypoints.length - 1;
-        while (n >= 0 && o.waypoints[n].element[0] !== p[0]) {
-            n -= 1
-        }
-        return n
-    }, f = [], l = function(n) {
-        $.extend(this, {element: $(n), oldScroll: 0, waypoints: [], didScroll: false, didResize: false, doScroll: $.proxy(function() {
-                var q = this.element.scrollTop(), p = q > this.oldScroll, s = this, r = $.grep(this.waypoints, function(u, t) {
-                    return p ? (u.offset > s.oldScroll && u.offset <= q) : (u.offset <= s.oldScroll && u.offset > q)
-                }), o = r.length;
-                if (!this.oldScroll || !q) {
-                    $[m]("refresh")
-                }
-                this.oldScroll = q;
-                if (!o) {
-                    return
-                }
-                if (!p) {
-                    r.reverse()
-                }
-                $.each(r, function(u, t) {
-                    if (t.options.continuous || u === o - 1) {
-                        b(t, [p ? "down" : "up"])
-                    }
-                })
-            }, this)});
-        $(n).bind("scroll.waypoints", $.proxy(function() {
-            if (!this.didScroll) {
-                this.didScroll = true;
-                i.setTimeout($.proxy(function() {
-                    this.doScroll();
-                    this.didScroll = false
-                }, this), $[m].settings.scrollThrottle)
-            }
-        }, this)).bind("resize.waypoints", $.proxy(function() {
-            if (!this.didResize) {
-                this.didResize = true;
-                i.setTimeout($.proxy(function() {
-                    $[m]("refresh");
-                    this.didResize = false
-                }, this), $[m].settings.resizeThrottle)
-            }
-        }, this));
-        e.load($.proxy(function() {
-            this.doScroll()
-        }, this))
-    }, j = function(n) {
-        var o = null;
-        $.each(f, function(p, q) {
-            if (q.element[0] === n) {
-                o = q;
-                return false
-            }
-        });
-        return o
-    }, c = {init: function(o, n) {
-            this.each(function() {
-                var u = $.fn[k].defaults.context, q, t = $(this);
-                if (n && n.context) {
-                    u = n.context
-                }
-                if (!$.isWindow(u)) {
-                    u = t.closest(u)[0]
-                }
-                q = j(u);
-                if (!q) {
-                    q = new l(u);
-                    f.push(q)
-                }
-                var p = h(t, q), s = p < 0 ? $.fn[k].defaults : q.waypoints[p].options, r = $.extend({}, s, n);
-                r.offset = r.offset === "bottom-in-view" ? function() {
-                    var v = $.isWindow(u) ? $[m]("viewportHeight") : $(u).height();
-                    return v - $(this).outerHeight()
-                } : r.offset;
-                if (p < 0) {
-                    q.waypoints.push({element: t, offset: null, options: r})
-                } else {
-                    q.waypoints[p].options = r
-                }
-                if (o) {
-                    t.bind(g, o)
-                }
-                if (n && n.handler) {
-                    t.bind(g, n.handler)
-                }
-            });
-            $[m]("refresh");
-            return this
-        }, remove: function() {
-            return this.each(function(o, p) {
-                var n = $(p);
-                $.each(f, function(r, s) {
-                    var q = h(n, s);
-                    if (q >= 0) {
-                        s.waypoints.splice(q, 1);
-                        if (!s.waypoints.length) {
-                            s.element.unbind("scroll.waypoints resize.waypoints");
-                            f.splice(r, 1)
-                        }
-                    }
-                })
-            })
-        }, destroy: function() {
-            return this.unbind(g)[k]("remove")
-        }}, a = {refresh: function() {
-            $.each(f, function(r, s) {
-                var q = $.isWindow(s.element[0]), n = q ? 0 : s.element.offset().top, p = q ? $[m]("viewportHeight") : s.element.height(), o = q ? 0 : s.element.scrollTop();
-                $.each(s.waypoints, function(u, x) {
-                    if (!x) {
-                        return
-                    }
-                    var t = x.options.offset, w = x.offset;
-                    if (typeof x.options.offset === "function") {
-                        t = x.options.offset.apply(x.element)
-                    } else {
-                        if (typeof x.options.offset === "string") {
-                            var v = parseFloat(x.options.offset);
-                            t = x.options.offset.indexOf("%") ? Math.ceil(p * (v / 100)) : v
-                        }
-                    }
-                    x.offset = x.element.offset().top - n + o - t;
-                    if (x.options.onlyOnScroll) {
-                        return
-                    }
-                    if (w !== null && s.oldScroll > w && s.oldScroll <= x.offset) {
-                        b(x, ["up"])
-                    } else {
-                        if (w !== null && s.oldScroll < w && s.oldScroll >= x.offset) {
-                            b(x, ["down"])
-                        } else {
-                            if (!w && s.element.scrollTop() > x.offset) {
-                                b(x, ["down"])
-                            }
-                        }
-                    }
-                });
-                s.waypoints.sort(function(u, t) {
-                    return u.offset - t.offset
-                })
-            })
-        }, viewportHeight: function() {
-            return(i.innerHeight ? i.innerHeight : e.height())
-        }, aggregate: function() {
-            var n = $();
-            $.each(f, function(o, p) {
-                $.each(p.waypoints, function(q, r) {
-                    n = n.add(r.element)
-                })
-            });
-            return n
-        }};
-    $.fn[k] = function(n) {
-        if (c[n]) {
-            return c[n].apply(this, Array.prototype.slice.call(arguments, 1))
-        } else {
-            if (typeof n === "function" || !n) {
-                return c.init.apply(this, arguments)
-            } else {
-                if (typeof n === "object") {
-                    return c.init.apply(this, [null, n])
-                } else {
-                    $.error("Method " + n + " does not exist on jQuery " + k)
-                }
-            }
-        }
-    };
-    $.fn[k].defaults = {continuous: true, offset: 0, triggerOnce: false, context: i};
-    $[m] = function(n) {
-        if (a[n]) {
-            return a[n].apply(this)
-        } else {
-            return a.aggregate()
-        }
-    };
-    $[m].settings = {resizeThrottle: 200, scrollThrottle: 100};
-    e.load(function() {
-        $[m]("refresh")
-    })
-})(jQuery, "waypoint", "waypoints", window);
 //</editor-fold>
 
 //<editor-fold defaultstate="collapsed" desc="jquery easing">
@@ -5679,12 +5487,8 @@ $.Metro.initDropdowns();
     $.widget("metro.sidebar", {
         version: "1.0.0",
         options: {
-            effect: 'switch',
-            activateStoredTab: false,
-            tabclick: function(tab) {
-            },
-            tabchange: function(tab) {
-            }
+            effect: 'switch'
+            , _index: 0
         },
         _create: function() {
             var that = this,
@@ -5692,15 +5496,12 @@ $.Metro.initDropdowns();
                     tabs = $(element.children("nav")).find("a"),
                     frames = $(element.children(".full-content")).children(".slic"),
                     fullview = $(element.children(".full-content")),
-                    pull = $(element.children("nav")).find(".pull-menu"),
-                    element_id = element.attr("id");
+                    pull = $(element.children("nav")).find(".pull-menu");
 
             if (element.data('effect') != undefined) {
                 this.options.effect = element.data('effect');
             }
-            if (element_id === undefined) {
-                element.attr("id", "mayra_");
-            }
+
             $(element.children("nav")).perfectScrollbar(); //scrolllbar nav
             element.find('.doc').each(function() {
                 var doc = $(this);
@@ -5710,6 +5511,7 @@ $.Metro.initDropdowns();
                 $(doc.find('.download')).on('click', function() {
                     window.open(doc.data("idown"), '_blank');
                 });
+                doc = null;
             });
 
             this.init(tabs, frames);
@@ -5727,15 +5529,15 @@ $.Metro.initDropdowns();
                     return false;
 
                 var current_frame = $(fullview.find("[data-cont=" + hrefx + "]"));
-                // var old_frame = window.localStorage.getItem(this.element.attr('id') + '-old-tab');
 
                 if (current_frame.size() < 1)
                     return false;
 
-                that.options.tabclick(this);
+                tabs.each(function() {
+                    $($(this).parent()).removeClass("active");
+                });
 
 
-                $(element.children("nav")).find("li").removeClass("active");
                 frames.hide();
                 $(this).parent().addClass("active");
 
@@ -5769,11 +5571,16 @@ $.Metro.initDropdowns();
                 }
 
                 //reiniciamos scrollbar
-                //fullview.perfectScrollbar('update');
+                fullview.perfectScrollbar('update');
                 fullview.scrollTop(0);
                 //apagamos nivo
+                if (current_frame.index() == 0) {
+                    $(fullview.parent()).addClass("grilla-dark");
+                } else {
+                    $(fullview.parent()).removeClass("grilla-dark");
+                }
                 if (!isMobileBrowser()) {
-                    frames.find(".bannerCircle").each(function() {
+                    current_frame.find(".bannerCircle").each(function() {
                         $(this).data('bannerCircle').stop();
                     });
                     //encendemos nivo correspondiente
@@ -5783,41 +5590,22 @@ $.Metro.initDropdowns();
                 }
 
 
-
-                that._trigger('change', null, current_frame);
-                that.options.tabchange(this);
-
-                if (element_id != undefined)
-                    window.localStorage.setItem(element_id + "-old-tab", $(this).attr("href"));
+                current_frame = null;
 
                 return true;
             });
 
-            if (this.options.activateStoredTab)
-                this._activateStoredTab(tabs);
         },
-        init: function(tabs, frames) {
-            var that = this;
+        init: function(tabs, frames) {            
             tabs.each(function() {
                 if ($(this).hasClass("active")) {
                     var current_frame = $($($(this).children("a")).attr("href"));
                     frames.hide();
                     current_frame.show();
-                    that._trigger('change', null, current_frame);
                 }
             });
-        },
-        _activateStoredTab: function(tabs) {
-            var current_stored_tab = window.localStorage.getItem(this.element.attr('id') + '-current-tab');
-
-            if (current_stored_tab != undefined) {
-                tabs.each(function() {
-                    var a = $(this).children("a");
-                    if (a.attr("href") == current_stored_tab) {
-                        a.click();
-                    }
-                });
-            }
+            tabs = null;
+            frames = null;
         },
         _destroy: function() {
 
@@ -5883,17 +5671,18 @@ $(function() {
             this._changeSlide('next')
             if (this.options.auto)
                 this._autoStart();
-             //*/
+            //*/
         },
         _autoStart: function() {
             var that = this;
-            this._interval = setInterval(function() {
-                if (that.options.direction == 'left') {
-                    that._changeSlide('next')
-                } else {
-                    that._changeSlide('prior')
-                }
-            }, this.options.period);
+            if (!isMobileBrowser())
+                this._interval = setInterval(function() {
+                    if (that.options.direction == 'left') {
+                        that._changeSlide('next')
+                    } else {
+                        that._changeSlide('prior')
+                    }
+                }, this.options.period);
         },
         _changeSlide: function(direction) {
             var _slides = $(this.element.find(".oculto").find(".img"));

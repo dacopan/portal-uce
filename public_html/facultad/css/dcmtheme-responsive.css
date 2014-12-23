@@ -132,7 +132,7 @@
     .fac-title .title{
         font-size: 3.4rem;
     }
-    
+
     /*Sidebar*/
     .metro .sidebarWrap .full-content .col1{
         width: 100%;
@@ -144,6 +144,19 @@
         margin: auto;
         float: none;
     }    
+    .metro .sidebarWrap .bannerCircle .big,.metro .sidebarWrap .bannerCircle .half,.metro .sidebarWrap .bannerCircle .small,
+    .metro .sidebarWrap .bannerCircle .caption{
+        padding: 5px!important;
+        width: 100%!important;
+    }
+    .metro .sidebarWrap .row-cap .span7,.metro .sidebarWrap .row-cap .span5{
+        float: left;
+        width: 49%;
+    }
+    .metro .sidebarWrap .bannerCircle{
+        max-width: 400px!important;
+    }
+
 }
 /* Mobile Landscape Size to Portrait (devices and browsers) */
 @media only screen and (min-width: 480px) and (max-width: 767px) {
@@ -306,6 +319,14 @@
         float: left;
         height: 45px;
         line-height: 40px;
+    }
+
+    .metro .sidebarWrap{
+        padding:5px!important;
+    }
+    .metro .sidebarWrap .bannerCircle{
+        padding: 20px!important;
+        max-width: 800px;
     }
 }
 /*<editor-fold defaultstate="collapsed" desc="menu figure">*/

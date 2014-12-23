@@ -5161,6 +5161,12 @@ span.date a.bubble, span.date a.bubble:hover {
     background-position: 50% 50%;
     background-repeat: no-repeat;
 }
+.metro .grilla-dark{
+    background-image: url(../images/grilla-dark.png);
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
 .metro .img-cover{    
     background-size: cover;
     background-position: 50% 50%;
