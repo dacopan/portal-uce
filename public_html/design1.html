@@ -20,22 +20,6 @@ and open the template in the editor.
         <link href="./liferay_files/main(2).css" rel="stylesheet" type="text/css">
 
 
-        <script charset="utf-8" id="yui_patched_v3_11_0_1_1405793370112_63" src="./liferay_files/saved_resource(1)" async=""></script>
-        <script charset="utf-8" id="yui_patched_v3_11_0_1_1405793370112_84" src="./liferay_files/saved_resource(2)" async=""></script>
-        <script charset="utf-8" id="yui_patched_v3_11_0_1_1405793370112_93" src="./liferay_files/saved_resource(3)" async=""></script>
-        <script charset="utf-8" id="yui_patched_v3_11_0_1_1405793370112_94" src="./liferay_files/available_languages.jsp" async=""></script>
-        <script charset="utf-8" id="yui_patched_v3_11_0_1_1405793370112_95" src="./liferay_files/saved_resource(4)" async=""></script>
-
-
-        <script charset="utf-8" id="yui_patched_v3_11_0_1_1405793370112_123" src="./liferay_files/saved_resource(5)" async=""></script>
-        <script charset="utf-8" id="yui_patched_v3_11_0_1_1405793370112_124" src="./liferay_files/saved_resource(6)" async=""></script>
-        <script charset="utf-8" id="yui_patched_v3_11_0_1_1405793370112_125" src="./liferay_files/saved_resource(7)" async=""></script>
-        <script charset="utf-8" id="yui_patched_v3_11_0_1_1405793370112_197" src="./liferay_files/saved_resource(8)" async=""></script>
-        <script charset="utf-8" id="yui_patched_v3_11_0_1_1405793370112_439" src="./liferay_files/saved_resource(9)" async=""></script>
-
-
-
-
         <link rel="stylesheet" href="css/dcmtheme.css" type="text/css"/>
         <link rel="stylesheet" href="css/dcmtheme-responsive.css" type="text/css"/>
         <link rel="stylesheet" href="css/dcm-color.css" type="text/css"/>
@@ -47,7 +31,7 @@ and open the template in the editor.
 
 
     </head>
-    <body class="aui container-fluid metro" style="background-color:transparent; ">      
+    <body class="aui container-fluid metro" style="background-color:transparent; " data-spy="scroll" data-target="#navBar" data-offset="200">     
 
         <nav id="dcmmenu" style="z-index: 88889;">
 
@@ -55,7 +39,51 @@ and open the template in the editor.
         <div id="page">
 
 
-            <div class="topBar bg-blue" id="topBar" style="position: fixed;" data-load="my_html/uce_topBar_mmmenu.html">                
+            <div class="topBar bg-blue" id="topBar" style="position: fixed;">
+                <div class="topBar-content">
+                    <span class="todayX fg-yellow no-phones" style="font-size: 80%;margin-left: 80px;">
+                        Miércoles 01/09/2014</span>  
+                    <a id="hamburger" class="" href="#dcmmenu"><span></span></a>
+                    <a  class="fg-white" data-hint="x|y" href="#user"><i class="icon-user"></i></a>
+                    <a  class="fg-white" href="#radio" id="radiox"><i class="icon-microphone"></i></a>
+                    <a  class="fg-white has-full-view" href="#full-view-01"><i class="icon-book"></i></a>
+                </div>
+                <!--mmMenu nav content-->
+                <ul id="mm-nav-content">
+                    <li><a href="#dcmmenu" onclick="jQuery('#dcmmenu').trigger('close.mm');" style="float: right;position: relative;clear: both;z-index: 9;font-size: 20px;"><i class="icon-remove"></i></a></li>
+                    <li><a href="#slide1" class="toSlide" data-slide="1">Home</a></li>
+                    <li><a href="#slide2" class="toSlide" data-slide="2">Noticias</a></li>
+                    <li>
+                        <a href="#slide3" class="toSlide" data-slide="3">
+                            <figure class="effect-layla visible-desktop">
+                                <img src="../images/tmp/comunicado.jpg" alt="img04">
+                                <figcaption>
+                                    <h2>Facultades<span>.</span></h2>
+                                    <p>Descripción</p>                                                                       
+                                </figcaption>			
+                            </figure>                                                                
+                            <span class="hidden-desktop">Facultades</span></a>
+                        <ul>
+                            <li><a href="facultad/facultad.html" target="_blank">Ingenieria Ciencias Fisicas y Matematica</a></li>
+                            <li><a href="facultad/facultad.html" target="_blank">Ciencias Administrativas</a></li>
+                            <li><a href="facultad/facultad.html" target="_blank">Odontología</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#slide4"  class="toSlide" data-slide="4">Panel4</a>
+                        <ul>
+                            <li><a href="/tutorial">Getting started</a></li>
+                            <li><a href="/tutorial/setting-up-the-html.html">Setting up the html</a></li>
+                            <li><a href="/tutorial/fire-the-plugin.html">Fire the plugin</a></li>
+                            <li><a href="/tutorial/open-and-close-the-menu.html">Open and close the menu</a></li>
+                            <li><a href="/tutorial/styling-lists.html">Styling lists</a></li>
+                            <li><a href="/tutorial/fixed-elements.html">Fixed elements</a></li>
+                            <li><a href="/tutorial/learn-more.html">Learn more</a></li>
+                        </ul>
+
+                    </li>
+                </ul>
+                <!--fin mmMenu nav content-->
 
             </div>
 
@@ -90,7 +118,7 @@ and open the template in the editor.
                                                         <div id="navigation" class="no-phones visible-desktop">
                                                             <ul id="navBar">
                                                                 <li>
-                                                                    <a href="#"  class="toSlide" data-slide="1" >  
+                                                                    <a href="#slide1"  class="toSlide" data-slide="1" >  
                                                                         <div class="menutxt">
                                                                             <span>Home</span>
                                                                         </div>
@@ -99,7 +127,7 @@ and open the template in the editor.
                                                                 </li>
 
                                                                 <li>
-                                                                    <a href="#"  class="toSlide" data-slide="2" >  
+                                                                    <a href="#slide2"  class="toSlide" data-slide="2" >  
                                                                         <div class="menutxt">
                                                                             <span>Noticias</span>
 
@@ -109,7 +137,7 @@ and open the template in the editor.
                                                                 </li>
 
                                                                 <li>
-                                                                    <a href="#"  class="toSlide" data-slide="3" >  
+                                                                    <a href="#slide3"  class="toSlide" data-slide="3" >  
                                                                         <div class="menutxt">
                                                                             <span>Facultades</span>
 
@@ -119,7 +147,7 @@ and open the template in the editor.
                                                                 </li>
 
                                                                 <li>
-                                                                    <a href="#" class="toSlide"  data-slide="4" >  
+                                                                    <a href="#slide4" class="toSlide"  data-slide="4" >  
                                                                         <div class="menutxt">
                                                                             <span>Morado 4</span>
 
@@ -129,7 +157,7 @@ and open the template in the editor.
                                                                 </li>
 
                                                                 <li>
-                                                                    <a href="#" class="toSlide"  data-slide="5" >  
+                                                                    <a href="#slide5" class="toSlide"  data-slide="5" >  
                                                                         <div class="menutxt">
                                                                             <span>Login</span>
 
@@ -139,7 +167,7 @@ and open the template in the editor.
                                                                 </li>
 
                                                                 <li>
-                                                                    <a href="#" class="toSlide" data-slide="6" >  
+                                                                    <a href="#slide6" class="toSlide" data-slide="6" >  
                                                                         <div class="menutxt">
                                                                             <span>Verde 6</span>
 
@@ -188,7 +216,7 @@ and open the template in the editor.
                                                 <div class="portlet-body"> 
                                                     <div class="journal-content-article"> 
 
-                                                        <div class="slide" id="slide2" data-slide="2" data-stellar-background-ratio="0.5">
+                                                        <div class="slide grilla" id="slide2" data-slide="2" data-stellar-background-ratio="0.5">
                                                             <div class="contentwrapx noticiesWrap" style="padding-top:60px; padding-bottom:45px;">
 
                                                                 <h1 class="text-center">NOTICIAS</h1>
@@ -478,7 +506,7 @@ and open the template in the editor.
 
                                                                 <ul class="og-grid fac">
 
-                                                                    <li class="isobrick2">
+                                                                    <li>
                                                                         <a class="og-a" href="facultad/facultad.html" title="ver facultad" target="_blank">
                                                                             <img src="images/tmp/facultad.png" alt="img01"/>                                                                                
                                                                             <div class="og-box">
@@ -492,7 +520,7 @@ and open the template in the editor.
                                                                             Detalle facultad acepta HTML
                                                                         </div>
                                                                     </li>                                                                         
-                                                                    <li class="isobrick2">
+                                                                    <li>
                                                                         <a class="og-a" href="facultad/facultad.html" title="ver facultad" target="_blank">
                                                                             <img src="images/tmp/facultad.png" alt="img01"/>                                                                                
                                                                             <div class="og-box">
@@ -501,7 +529,7 @@ and open the template in the editor.
                                                                             </div>                                                                            
                                                                         </a>                                                                        
                                                                     </li>
-                                                                    <li class="isobrick2">
+                                                                    <li>
                                                                         <a class="og-a" href="facultad/facultad.html" title="ver facultad" target="_blank">
                                                                             <img src="images/tmp/facultad.png" alt="img01"/>                                                                                
                                                                             <div class="og-box">
@@ -510,7 +538,7 @@ and open the template in the editor.
                                                                             </div>                                                                            
                                                                         </a>                                                                        
                                                                     </li>
-                                                                    <li class="isobrick2">
+                                                                    <li>
                                                                         <a class="og-a" href="facultad/facultad.html" title="ver facultad" target="_blank">
                                                                             <img src="images/tmp/facultad.png" alt="img01"/>                                                                                
                                                                             <div class="og-box">
@@ -519,7 +547,7 @@ and open the template in the editor.
                                                                             </div>                                                                            
                                                                         </a>                                                                        
                                                                     </li>
-                                                                    <li class="isobrick2">
+                                                                    <li>
                                                                         <a class="og-a" href="facultad/facultad.html" title="ver facultad" target="_blank">
                                                                             <img src="images/tmp/facultad.png" alt="img01"/>                                                                                
                                                                             <div class="og-box">
@@ -528,7 +556,7 @@ and open the template in the editor.
                                                                             </div>                                                                            
                                                                         </a>                                                                        
                                                                     </li>
-                                                                    <li class="isobrick2">
+                                                                    <li>
                                                                         <a class="og-a" href="facultad/ciencias_medicas.html" title="ver facultad" target="_blank">
                                                                             <img src="images/tmp/facultad.png" alt="img01"/>                                                                                
                                                                             <div class="og-box">
@@ -537,7 +565,7 @@ and open the template in the editor.
                                                                             </div>                                                                            
                                                                         </a>                                                                        
                                                                     </li>
-                                                                    <li class="isobrick2">
+                                                                    <li>
                                                                         <a class="og-a" href="facultad/facultad.html" title="ver facultad" target="_blank">
                                                                             <img src="images/tmp/facultad.png" alt="img01"/>                                                                                
                                                                             <div class="og-box">
@@ -546,7 +574,7 @@ and open the template in the editor.
                                                                             </div>                                                                            
                                                                         </a>                                                                        
                                                                     </li>
-                                                                    <li class="isobrick2">
+                                                                    <li>
                                                                         <a class="og-a" href="facultad/facultad.html" title="ver facultad" target="_blank">
                                                                             <img src="images/tmp/facultad.png" alt="img01"/>                                                                                
                                                                             <div class="og-box">
@@ -555,7 +583,7 @@ and open the template in the editor.
                                                                             </div>                                                                            
                                                                         </a>                                                                        
                                                                     </li>
-                                                                    <li class="isobrick2">
+                                                                    <li>
                                                                         <a class="og-a" href="facultad/facultad.html" title="ver facultad" target="_blank">
                                                                             <img src="images/tmp/facultad.png" alt="img01"/>                                                                                
                                                                             <div class="og-box">
@@ -564,7 +592,7 @@ and open the template in the editor.
                                                                             </div>                                                                            
                                                                         </a>                                                                        
                                                                     </li>
-                                                                    <li class="isobrick2">
+                                                                    <li>
                                                                         <a class="og-a" href="facultad/facultad.html" title="ver facultad" target="_blank">
                                                                             <img src="images/tmp/facultad.png" alt="img01"/>                                                                                
                                                                             <div class="og-box">
@@ -573,7 +601,7 @@ and open the template in the editor.
                                                                             </div>                                                                            
                                                                         </a>                                                                        
                                                                     </li>
-                                                                    <li class="isobrick2">
+                                                                    <li>
                                                                         <a class="og-a" href="facultad/facultad.html" title="ver facultad" target="_blank">
                                                                             <img src="images/tmp/facultad.png" alt="img01"/>                                                                                
                                                                             <div class="og-box">
@@ -582,7 +610,7 @@ and open the template in the editor.
                                                                             </div>                                                                            
                                                                         </a>                                                                        
                                                                     </li>
-                                                                    <li class="isobrick2">
+                                                                    <li>
                                                                         <a class="og-a" href="facultad/facultad.html" title="ver facultad" target="_blank">
                                                                             <img src="images/tmp/facultad.png" alt="img01"/>                                                                                
                                                                             <div class="og-box">
@@ -591,7 +619,7 @@ and open the template in the editor.
                                                                             </div>                                                                            
                                                                         </a>                                                                        
                                                                     </li>
-                                                                    <li class="isobrick2">
+                                                                    <li>
                                                                         <a class="og-a" href="facultad/facultad.html" title="ver facultad" target="_blank">
                                                                             <img src="images/tmp/facultad.png" alt="img01"/>                                                                                
                                                                             <div class="og-box">
@@ -600,7 +628,7 @@ and open the template in the editor.
                                                                             </div>                                                                            
                                                                         </a>                                                                        
                                                                     </li>
-                                                                    <li class="isobrick2">
+                                                                    <li>
                                                                         <a class="og-a" href="facultad/facultad.html" title="ver facultad" target="_blank">
                                                                             <img src="images/tmp/facultad.png" alt="img01"/>                                                                                
                                                                             <div class="og-box">
@@ -609,7 +637,7 @@ and open the template in the editor.
                                                                             </div>                                                                            
                                                                         </a>                                                                        
                                                                     </li>
-                                                                    <li class="isobrick2">
+                                                                    <li>
                                                                         <a class="og-a" href="facultad/facultad.html" title="ver facultad" target="_blank">
                                                                             <img src="images/tmp/facultad.png" alt="img01"/>                                                                                
                                                                             <div class="og-box">
@@ -618,7 +646,7 @@ and open the template in the editor.
                                                                             </div>                                                                            
                                                                         </a>                                                                        
                                                                     </li>
-                                                                    <li class="isobrick2">
+                                                                    <li>
                                                                         <a class="og-a" href="facultad/facultad.html" title="ver facultad" target="_blank">
                                                                             <img src="images/tmp/facultad.png" alt="img01"/>                                                                                
                                                                             <div class="og-box">
@@ -627,7 +655,7 @@ and open the template in the editor.
                                                                             </div>                                                                            
                                                                         </a>                                                                        
                                                                     </li>
-                                                                    <li class="isobrick2">
+                                                                    <li>
                                                                         <a class="og-a" href="facultad/facultad.html" title="ver facultad" target="_blank">
                                                                             <img src="images/tmp/facultad.png" alt="img01"/>                                                                                
                                                                             <div class="og-box">
@@ -649,164 +677,164 @@ and open the template in the editor.
 
                                                         <div class="slide bg-white" id="slide4" data-slide="4" data-stellar-background-ratio="0.5" style="">
                                                             <div class="img-cover" style="background-image:url(images/tmp/bg_direc.jpg);height: 100%; min-height: 100%;">
-                                                                <div class="grilla" style="min-height: 100%;">
+                                                                <div class="" style="min-height: 100%;">
                                                                     <div class="contentwrap">
 
                                                                         <div class="direcWrap">
                                                                             <ul class="og-grid">
-                                                                                <li>
-                                                                                    <div class="direc">
-                                                                                        <h1 class="title">DCC</h1>
-                                                                                        <div class="desc adequate">Dirección de comunicación y cultura</div>
-                                                                                    </div>
-
-
-                                                                                    <div class="rb-overlay">
-                                                                                        <div class="row-fluid rb-week sidebarWrap" data-role="sidebar" style="background-image: url(images/panel2_grilla.png)">         
-                                                                                            <span class="rb-close">close</span>
-
-                                                                                            <nav class="sidebar span3 navx" data-role="sidebar-nav">
-                                                                                                <a class="pull-menu" href="#"></a>
-                                                                                                <span class="date" style="color: #fff;text-align: left;font-size: 14px;">CARRERA</span>
-                                                                                                <h1 class="fg-white text-justify"><a class="fg-white" href="cont0">Medicina</a></h1>
-                                                                                                <ul class="element-menu">
-                                                                                                    <li class="">
-                                                                                                        <a class="dropdown-toggle" href="#">Generalidades</a>
-                                                                                                        <ul class="dropdown-menu" data-role="dropdown">
-                                                                                                            <li><a href="cont1">Descripción</a></li>
-                                                                                                            <li><a href="cont2">Información de la carrera</a></li>
-                                                                                                            <li><a href="cont3">Autoridades</a></li>
-                                                                                                            <li><a href="cont4">Acta de Constitución</a></li>
-                                                                                                            <li><a href="cont5">Misión y Visión</a></li>                                                                                                    
-                                                                                                        </ul>
-                                                                                                    </li>
-                                                                                                </ul>
-                                                                                            </nav>
-
-
-                                                                                            <div class="full-content carousel" data-role="sidebar-content">   
-
-                                                                                                <div class="slic" data-cont="cont0">
-                                                                                                    <style>
-
-                                                                                                    </style>
-
-
-                                                                                                    <div class="bannerCircle" data-role="bannerCircle">
-
-                                                                                                        <div class="row-fluid" style="margin: auto;float:none;margin-top: 60px;">                                                                                                                                                                                                
-
-                                                                                                            <div class="span3">
-                                                                                                                <div class="item" style="height: 100%;">
-                                                                                                                    <div class="img-cover img" style="background-image: url(images/tmp/fac_banner01.jpg);">
-                                                                                                                        <div class="clear"></div>
-                                                                                                                    </div>
-                                                                                                                    <div class="caption">caption a</div>
-                                                                                                                </div>
-
-                                                                                                            </div>
-                                                                                                            <div class="span5">
-                                                                                                                <div class="item" style="height: 100%;">
-                                                                                                                    <div class="img-cover img" style="background-image: url(images/tmp/fac_banner01.jpg);">
-                                                                                                                        <div class="clear"></div>
-                                                                                                                    </div>
-                                                                                                                    <div class="caption">caption</div>
-                                                                                                                </div>
-                                                                                                            </div>
-                                                                                                            <div class="span3">
-                                                                                                                <div class="item" style="height: 100%;">
-                                                                                                                    <div class="img-cover img" style="background-image: url(images/tmp/fac_banner01.jpg);">
-                                                                                                                        <div class="clear"></div>
-                                                                                                                    </div>
-                                                                                                                    <div class="caption">caption</div>
-                                                                                                                </div>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                        <div class="oculto" style="width: 0px;height: 0px;">
-                                                                                                            <div class="img">
-                                                                                                                <img src="images/tmp/ban1.jpg">
-                                                                                                                <div class="caption">caption 1</div>
-                                                                                                            </div>
-                                                                                                            <div class="img">
-                                                                                                                <img src="images/tmp/ban2.jpg">
-                                                                                                                <div class="caption">caption 2</div>
-                                                                                                            </div>
-                                                                                                            <div class="img">
-                                                                                                                <img src="images/tmp/ban3.jpg">
-                                                                                                                <div class="caption">caption 3</div>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                    </div>
-
-
-                                                                                                </div>
-
-                                                                                                <div class="slic" data-cont="cont1">
-                                                                                                    <div class="contentwrap">
-                                                                                                        <div class="row-fluid" style="margin: auto;float:none;margin-top: 60px;">                                                                                                                                                                                                
-                                                                                                            <div class="span8 col1">
-                                                                                                                <h1 class="fg-blue text-right">Descripción</h1>
-                                                                                                                <h3 class="fg-blue text-right"></h3>
-                                                                                                                <div class="ctc">
-                                                                                                                    <h3>Propósito.</h3>
-                                                                                                                    <p>
-                                                                                                                        Formar profesionales de la salud altamente competentes con destrezas, 
-                                                                                                                        conocimientos,   y actitudes que les permitan desempeñar sus actividades 
-                                                                                                                        laborales con solvencia técnica, honestidad y compromiso social.
-                                                                                                                    </p>
-
-                                                                                                                    <h3>Fines.</h3>
-                                                                                                                    <p>
-                                                                                                                        Formar médicos para entregar a la sociedad profesionales capacitados a nivel de 
-                                                                                                                        pregrado que satisfaga las exigencias globales de la salud humana en situaciones de 
-                                                                                                                        enfermedad, así como en la investigación científica y la formación humanista. 
-                                                                                                                    </p>
-
-                                                                                                                    <h3>Políticas</h3>
-                                                                                                                    <p>
-                                                                                                                        Implantar un nuevo diseño curricular ajustado a los requerimientos de la sociedad, 
-                                                                                                                        para formar los nuevos profesionales en el campo de la salud.
-                                                                                                                        Fortalecer los organismos encargados del diseño, desarrollo, evaluación y 
-                                                                                                                        monitoreo de la Reforma de la Carrera de Medicina.
-                                                                                                                        Establecer  nuevos  procedimientos  metodológicos  y  didácticos  que  combinen  
-                                                                                                                        la enseñanza teórica con la práctica en todos los ciclos de estudio.
-                                                                                                                        Mantener en forma permanente un sistema de capacitación del personal docente 
-                                                                                                                        y administrativo.
-                                                                                                                    </p>
-                                                                                                                    <p>
-                                                                                                                        Potenciar  la  investigación  científica  e  impulsar  la  inserción  de  la  Carrera  en  
-                                                                                                                        los problemas nacionales, para ofrecer soluciones y alternativas.
-                                                                                                                        Aplicar un sistema de evaluación y rendición social de cuentas de los actores en el 
-                                                                                                                        proceso de la formación profesional.
-                                                                                                                    </p>
-                                                                                                                </div>
-                                                                                                                <div class="clear"></div>                                                                                                    
-                                                                                                            </div>
-                                                                                                            <div class="span spliter"></div>
-
-                                                                                                            <div class="span4 col2">
-                                                                                                                <div class="img-cover img" style="background-image: url(images/tmp/fac_banner01.jpg);">
-                                                                                                                    <div class="clear"></div>
-                                                                                                                </div>   
-
-                                                                                                                <ul class="og-grid docs">
-
-                                                                                                                </ul>                                                                                                                                                                                                        
-
-                                                                                                            </div>
-
-
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </div>
-
-                                                                                        </div>
-                                                                                    </div>
-
-
-
-                                                                                </li>
+                                                                                <!--                                                                                <li>
+                                                                                                                                                                    <div class="direc">
+                                                                                                                                                                        <h1 class="title">DCC</h1>
+                                                                                                                                                                        <div class="desc adequate">Dirección de comunicación y cultura</div>
+                                                                                                                                                                    </div>
+                                                                                
+                                                                                
+                                                                                                                                                                    <div class="rb-overlay">
+                                                                                                                                                                        <div class="row-fluid rb-week sidebarWrap" data-role="sidebar" style="background-image: url(images/panel2_grilla.png)">         
+                                                                                                                                                                            <span class="rb-close">close</span>
+                                                                                
+                                                                                                                                                                            <nav class="sidebar span3 navx" data-role="sidebar-nav">
+                                                                                                                                                                                <a class="pull-menu" href="#"></a>
+                                                                                                                                                                                <span class="date" style="color: #fff;text-align: left;font-size: 14px;">CARRERA</span>
+                                                                                                                                                                                <h1 class="fg-white text-justify"><a class="fg-white" href="cont0">Medicina</a></h1>
+                                                                                                                                                                                <ul class="element-menu">
+                                                                                                                                                                                    <li class="">
+                                                                                                                                                                                        <a class="dropdown-toggle" href="#">Generalidades</a>
+                                                                                                                                                                                        <ul class="dropdown-menu" data-role="dropdown">
+                                                                                                                                                                                            <li><a href="cont1">Descripción</a></li>
+                                                                                                                                                                                            <li><a href="cont2">Información de la carrera</a></li>
+                                                                                                                                                                                            <li><a href="cont3">Autoridades</a></li>
+                                                                                                                                                                                            <li><a href="cont4">Acta de Constitución</a></li>
+                                                                                                                                                                                            <li><a href="cont5">Misión y Visión</a></li>                                                                                                    
+                                                                                                                                                                                        </ul>
+                                                                                                                                                                                    </li>
+                                                                                                                                                                                </ul>
+                                                                                                                                                                            </nav>
+                                                                                
+                                                                                
+                                                                                                                                                                            <div class="full-content carousel" data-role="sidebar-content">   
+                                                                                
+                                                                                                                                                                                <div class="slic" data-cont="cont0">
+                                                                                                                                                                                    <style>
+                                                                                
+                                                                                                                                                                                    </style>
+                                                                                
+                                                                                
+                                                                                                                                                                                    <div class="bannerCircle" data-role="bannerCircle">
+                                                                                
+                                                                                                                                                                                        <div class="row-fluid" style="margin: auto;float:none;margin-top: 60px;">                                                                                                                                                                                                
+                                                                                
+                                                                                                                                                                                            <div class="span3">
+                                                                                                                                                                                                <div class="item" style="height: 100%;">
+                                                                                                                                                                                                    <div class="img-cover img" style="background-image: url(images/tmp/fac_banner01.jpg);">
+                                                                                                                                                                                                        <div class="clear"></div>
+                                                                                                                                                                                                    </div>
+                                                                                                                                                                                                    <div class="caption">caption a</div>
+                                                                                                                                                                                                </div>
+                                                                                
+                                                                                                                                                                                            </div>
+                                                                                                                                                                                            <div class="span5">
+                                                                                                                                                                                                <div class="item" style="height: 100%;">
+                                                                                                                                                                                                    <div class="img-cover img" style="background-image: url(images/tmp/fac_banner01.jpg);">
+                                                                                                                                                                                                        <div class="clear"></div>
+                                                                                                                                                                                                    </div>
+                                                                                                                                                                                                    <div class="caption">caption</div>
+                                                                                                                                                                                                </div>
+                                                                                                                                                                                            </div>
+                                                                                                                                                                                            <div class="span3">
+                                                                                                                                                                                                <div class="item" style="height: 100%;">
+                                                                                                                                                                                                    <div class="img-cover img" style="background-image: url(images/tmp/fac_banner01.jpg);">
+                                                                                                                                                                                                        <div class="clear"></div>
+                                                                                                                                                                                                    </div>
+                                                                                                                                                                                                    <div class="caption">caption</div>
+                                                                                                                                                                                                </div>
+                                                                                                                                                                                            </div>
+                                                                                                                                                                                        </div>
+                                                                                                                                                                                        <div class="oculto" style="width: 0px;height: 0px;">
+                                                                                                                                                                                            <div class="img">
+                                                                                                                                                                                                <img src="images/tmp/ban1.jpg">
+                                                                                                                                                                                                <div class="caption">caption 1</div>
+                                                                                                                                                                                            </div>
+                                                                                                                                                                                            <div class="img">
+                                                                                                                                                                                                <img src="images/tmp/ban2.jpg">
+                                                                                                                                                                                                <div class="caption">caption 2</div>
+                                                                                                                                                                                            </div>
+                                                                                                                                                                                            <div class="img">
+                                                                                                                                                                                                <img src="images/tmp/ban3.jpg">
+                                                                                                                                                                                                <div class="caption">caption 3</div>
+                                                                                                                                                                                            </div>
+                                                                                                                                                                                        </div>
+                                                                                                                                                                                    </div>
+                                                                                
+                                                                                
+                                                                                                                                                                                </div>
+                                                                                
+                                                                                                                                                                                <div class="slic" data-cont="cont1">
+                                                                                                                                                                                    <div class="contentwrap">
+                                                                                                                                                                                        <div class="row-fluid" style="margin: auto;float:none;margin-top: 60px;">                                                                                                                                                                                                
+                                                                                                                                                                                            <div class="span8 col1">
+                                                                                                                                                                                                <h1 class="fg-blue text-right">Descripción</h1>
+                                                                                                                                                                                                <h3 class="fg-blue text-right"></h3>
+                                                                                                                                                                                                <div class="ctc">
+                                                                                                                                                                                                    <h3>Propósito.</h3>
+                                                                                                                                                                                                    <p>
+                                                                                                                                                                                                        Formar profesionales de la salud altamente competentes con destrezas, 
+                                                                                                                                                                                                        conocimientos,   y actitudes que les permitan desempeñar sus actividades 
+                                                                                                                                                                                                        laborales con solvencia técnica, honestidad y compromiso social.
+                                                                                                                                                                                                    </p>
+                                                                                
+                                                                                                                                                                                                    <h3>Fines.</h3>
+                                                                                                                                                                                                    <p>
+                                                                                                                                                                                                        Formar médicos para entregar a la sociedad profesionales capacitados a nivel de 
+                                                                                                                                                                                                        pregrado que satisfaga las exigencias globales de la salud humana en situaciones de 
+                                                                                                                                                                                                        enfermedad, así como en la investigación científica y la formación humanista. 
+                                                                                                                                                                                                    </p>
+                                                                                
+                                                                                                                                                                                                    <h3>Políticas</h3>
+                                                                                                                                                                                                    <p>
+                                                                                                                                                                                                        Implantar un nuevo diseño curricular ajustado a los requerimientos de la sociedad, 
+                                                                                                                                                                                                        para formar los nuevos profesionales en el campo de la salud.
+                                                                                                                                                                                                        Fortalecer los organismos encargados del diseño, desarrollo, evaluación y 
+                                                                                                                                                                                                        monitoreo de la Reforma de la Carrera de Medicina.
+                                                                                                                                                                                                        Establecer  nuevos  procedimientos  metodológicos  y  didácticos  que  combinen  
+                                                                                                                                                                                                        la enseñanza teórica con la práctica en todos los ciclos de estudio.
+                                                                                                                                                                                                        Mantener en forma permanente un sistema de capacitación del personal docente 
+                                                                                                                                                                                                        y administrativo.
+                                                                                                                                                                                                    </p>
+                                                                                                                                                                                                    <p>
+                                                                                                                                                                                                        Potenciar  la  investigación  científica  e  impulsar  la  inserción  de  la  Carrera  en  
+                                                                                                                                                                                                        los problemas nacionales, para ofrecer soluciones y alternativas.
+                                                                                                                                                                                                        Aplicar un sistema de evaluación y rendición social de cuentas de los actores en el 
+                                                                                                                                                                                                        proceso de la formación profesional.
+                                                                                                                                                                                                    </p>
+                                                                                                                                                                                                </div>
+                                                                                                                                                                                                <div class="clear"></div>                                                                                                    
+                                                                                                                                                                                            </div>
+                                                                                                                                                                                            <div class="span spliter"></div>
+                                                                                
+                                                                                                                                                                                            <div class="span4 col2">
+                                                                                                                                                                                                <div class="img-cover img" style="background-image: url(images/tmp/fac_banner01.jpg);">
+                                                                                                                                                                                                    <div class="clear"></div>
+                                                                                                                                                                                                </div>   
+                                                                                
+                                                                                                                                                                                                <ul class="og-grid docs">
+                                                                                
+                                                                                                                                                                                                </ul>                                                                                                                                                                                                        
+                                                                                
+                                                                                                                                                                                            </div>
+                                                                                
+                                                                                
+                                                                                                                                                                                        </div>
+                                                                                                                                                                                    </div>
+                                                                                                                                                                                </div>
+                                                                                                                                                                            </div>
+                                                                                
+                                                                                                                                                                        </div>
+                                                                                                                                                                    </div>
+                                                                                
+                                                                                
+                                                                                
+                                                                                                                                                                </li>-->
 
                                                                                 <li>
                                                                                     <div class="direc">
@@ -814,35 +842,35 @@ and open the template in the editor.
                                                                                         <div class="desc adequate">Dirección General Academica</div>
                                                                                     </div>
                                                                                 </li>
-                                                                                
+
                                                                                 <li>
                                                                                     <div class="direc">
                                                                                         <h1 class="title">DGA</h1>
                                                                                         <div class="desc adequate">Dirección General Administrativa</div>
                                                                                     </div>
                                                                                 </li>
-                                                                                
+
                                                                                 <li>
                                                                                     <div class="direc">
                                                                                         <h1 class="title">DGBU</h1>
                                                                                         <div class="desc adequate">Dirección General de Bienestar Estudiantil</div>
                                                                                     </div>
                                                                                 </li>
-                                                                                
+
                                                                                 <li>
                                                                                     <div class="direc">
                                                                                         <h1 class="title">DGF</h1>
                                                                                         <div class="desc adequate">Dirección General Financiera</div>
                                                                                     </div>
                                                                                 </li>
-                                                                                
+
                                                                                 <li>
                                                                                     <div class="direc">
                                                                                         <h1 class="title">DGIP</h1>
                                                                                         <div class="desc adequate">Dirección General de Investigación y Postgrado</div>
                                                                                     </div>
                                                                                 </li>
-                                                                                
+
                                                                                 <li>
                                                                                     <div class="direc">
                                                                                         <h1 class="title">DIFM</h1>
@@ -855,21 +883,21 @@ and open the template in the editor.
                                                                                         <div class="desc adequate">Dirección de Planificación Universitaria</div>
                                                                                     </div>
                                                                                 </li>
-                                                                                
+
                                                                                 <li>
                                                                                     <div class="direc">
                                                                                         <h1 class="title">DRI</h1>
                                                                                         <div class="desc adequate">Dirección de Relaciones Internacionales</div>
                                                                                     </div>
                                                                                 </li>
-                                                                                
+
                                                                                 <li>
                                                                                     <div class="direc">
                                                                                         <h1 class="title">DTH</h1>
                                                                                         <div class="desc adequate">Dirección de Talento Humano</div>
                                                                                     </div>
                                                                                 </li>
-                                                                                
+
                                                                                 <li>
                                                                                     <div class="direc">
                                                                                         <h1 class="title">DTIC</h1>

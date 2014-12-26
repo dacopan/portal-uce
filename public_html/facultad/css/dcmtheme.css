@@ -5321,18 +5321,18 @@ html, body,#wrapperscroll,#porletwrap,.metro .mm-page{
 
 /* FOR ALL SLIDES */
 
-#wrapperscroll .slide{
-    background-attachment: fixed;
+#wrapperscroll .slide{    
     width:100%;
     min-height:100%;
     height: auto;
-    position: relative;
-    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.3) inset;
+    position: relative;    
 
     background-size: cover;
     background-position: 50% 50%;
-    background-repeat: no-repeat;
-
+    background-repeat: no-repeat;    
+}
+.metro .slide{
+    background-color: #fff;
 }
 
 #wrapperscroll .scrollbut:before {
@@ -6472,8 +6472,8 @@ html, body,#wrapperscroll,#porletwrap,.metro .mm-page{
 /* #Footer
 ================================================== */
 /*<editor-fold defaultstate="collapsed" desc="Footer">*/
-.footer{
-    background-color:  #343434;
+.metro .footer{
+    background-color:  #343434!important;
 }
 .metro .footer span{
     display: block;

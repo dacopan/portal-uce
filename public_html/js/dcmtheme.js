@@ -1381,7 +1381,7 @@ window.Modernizr = function(a, b, c) {
     };
     "function" == typeof define && define.amd ? define(["outlayer/outlayer", "get-size/get-size", "matches-selector/matches-selector", "isotope/js/item", "isotope/js/layout-mode", "isotope/js/layout-modes/masonry", "isotope/js/layout-modes/fit-rows", "isotope/js/layout-modes/vertical"], r) : t.Isotope = r(t.Outlayer, t.getSize, t.matchesSelector, t.Isotope.Item, t.Isotope.LayoutMode)
 }(window);
-//</editor-fold>//
+//</editor-fold>
 
 //<editor-fold defaultstate="collapsed" desc="jquery widget">
 /*! jQuery UI - v1.10.3 - 2013-05-28
@@ -1887,198 +1887,6 @@ window.Modernizr = function(a, b, c) {
     };
     var p, a, r, l, c = !1
 }(jQuery);
-//</editor-fold>
-
-//<editor-fold defaultstate="collapsed" desc="waypoints.min.js">
-(function($, k, m, i, d) {
-    var e = $(i), g = "waypoint.reached", b = function(o, n) {
-        o.element.trigger(g, n);
-        if (o.options.triggerOnce) {
-            o.element[k]("destroy")
-        }
-    }, h = function(p, o) {
-        if (!o) {
-            return -1
-        }
-        var n = o.waypoints.length - 1;
-        while (n >= 0 && o.waypoints[n].element[0] !== p[0]) {
-            n -= 1
-        }
-        return n
-    }, f = [], l = function(n) {
-        $.extend(this, {element: $(n), oldScroll: 0, waypoints: [], didScroll: false, didResize: false, doScroll: $.proxy(function() {
-                var q = this.element.scrollTop(), p = q > this.oldScroll, s = this, r = $.grep(this.waypoints, function(u, t) {
-                    return p ? (u.offset > s.oldScroll && u.offset <= q) : (u.offset <= s.oldScroll && u.offset > q)
-                }), o = r.length;
-                if (!this.oldScroll || !q) {
-                    $[m]("refresh")
-                }
-                this.oldScroll = q;
-                if (!o) {
-                    return
-                }
-                if (!p) {
-                    r.reverse()
-                }
-                $.each(r, function(u, t) {
-                    if (t.options.continuous || u === o - 1) {
-                        b(t, [p ? "down" : "up"])
-                    }
-                })
-            }, this)});
-        $(n).bind("scroll.waypoints", $.proxy(function() {
-            if (!this.didScroll) {
-                this.didScroll = true;
-                i.setTimeout($.proxy(function() {
-                    this.doScroll();
-                    this.didScroll = false
-                }, this), $[m].settings.scrollThrottle)
-            }
-        }, this)).bind("resize.waypoints", $.proxy(function() {
-            if (!this.didResize) {
-                this.didResize = true;
-                i.setTimeout($.proxy(function() {
-                    $[m]("refresh");
-                    this.didResize = false
-                }, this), $[m].settings.resizeThrottle)
-            }
-        }, this));
-        e.load($.proxy(function() {
-            this.doScroll()
-        }, this))
-    }, j = function(n) {
-        var o = null;
-        $.each(f, function(p, q) {
-            if (q.element[0] === n) {
-                o = q;
-                return false
-            }
-        });
-        return o
-    }, c = {init: function(o, n) {
-            this.each(function() {
-                var u = $.fn[k].defaults.context, q, t = $(this);
-                if (n && n.context) {
-                    u = n.context
-                }
-                if (!$.isWindow(u)) {
-                    u = t.closest(u)[0]
-                }
-                q = j(u);
-                if (!q) {
-                    q = new l(u);
-                    f.push(q)
-                }
-                var p = h(t, q), s = p < 0 ? $.fn[k].defaults : q.waypoints[p].options, r = $.extend({}, s, n);
-                r.offset = r.offset === "bottom-in-view" ? function() {
-                    var v = $.isWindow(u) ? $[m]("viewportHeight") : $(u).height();
-                    return v - $(this).outerHeight()
-                } : r.offset;
-                if (p < 0) {
-                    q.waypoints.push({element: t, offset: null, options: r})
-                } else {
-                    q.waypoints[p].options = r
-                }
-                if (o) {
-                    t.bind(g, o)
-                }
-                if (n && n.handler) {
-                    t.bind(g, n.handler)
-                }
-            });
-            $[m]("refresh");
-            return this
-        }, remove: function() {
-            return this.each(function(o, p) {
-                var n = $(p);
-                $.each(f, function(r, s) {
-                    var q = h(n, s);
-                    if (q >= 0) {
-                        s.waypoints.splice(q, 1);
-                        if (!s.waypoints.length) {
-                            s.element.unbind("scroll.waypoints resize.waypoints");
-                            f.splice(r, 1)
-                        }
-                    }
-                })
-            })
-        }, destroy: function() {
-            return this.unbind(g)[k]("remove")
-        }}, a = {refresh: function() {
-            $.each(f, function(r, s) {
-                var q = $.isWindow(s.element[0]), n = q ? 0 : s.element.offset().top, p = q ? $[m]("viewportHeight") : s.element.height(), o = q ? 0 : s.element.scrollTop();
-                $.each(s.waypoints, function(u, x) {
-                    if (!x) {
-                        return
-                    }
-                    var t = x.options.offset, w = x.offset;
-                    if (typeof x.options.offset === "function") {
-                        t = x.options.offset.apply(x.element)
-                    } else {
-                        if (typeof x.options.offset === "string") {
-                            var v = parseFloat(x.options.offset);
-                            t = x.options.offset.indexOf("%") ? Math.ceil(p * (v / 100)) : v
-                        }
-                    }
-                    x.offset = x.element.offset().top - n + o - t;
-                    if (x.options.onlyOnScroll) {
-                        return
-                    }
-                    if (w !== null && s.oldScroll > w && s.oldScroll <= x.offset) {
-                        b(x, ["up"])
-                    } else {
-                        if (w !== null && s.oldScroll < w && s.oldScroll >= x.offset) {
-                            b(x, ["down"])
-                        } else {
-                            if (!w && s.element.scrollTop() > x.offset) {
-                                b(x, ["down"])
-                            }
-                        }
-                    }
-                });
-                s.waypoints.sort(function(u, t) {
-                    return u.offset - t.offset
-                })
-            })
-        }, viewportHeight: function() {
-            return(i.innerHeight ? i.innerHeight : e.height())
-        }, aggregate: function() {
-            var n = $();
-            $.each(f, function(o, p) {
-                $.each(p.waypoints, function(q, r) {
-                    n = n.add(r.element)
-                })
-            });
-            return n
-        }};
-    $.fn[k] = function(n) {
-        if (c[n]) {
-            return c[n].apply(this, Array.prototype.slice.call(arguments, 1))
-        } else {
-            if (typeof n === "function" || !n) {
-                return c.init.apply(this, arguments)
-            } else {
-                if (typeof n === "object") {
-                    return c.init.apply(this, [null, n])
-                } else {
-                    $.error("Method " + n + " does not exist on jQuery " + k)
-                }
-            }
-        }
-    };
-    $.fn[k].defaults = {continuous: true, offset: 0, triggerOnce: false, context: i};
-    $[m] = function(n) {
-        if (a[n]) {
-            return a[n].apply(this)
-        } else {
-            return a.aggregate()
-        }
-    };
-    $[m].settings = {resizeThrottle: 200, scrollThrottle: 100};
-    e.load(function() {
-        $[m]("refresh")
-    })
-})(jQuery, "waypoint", "waypoints", window);
 //</editor-fold>
 
 //<editor-fold defaultstate="collapsed" desc="jquery easing">
@@ -2878,6 +2686,7 @@ jQuery.extend(jQuery.easing,
                                     .find('.va-content')
                                     .hide();
                         });
+                        $others=null;
                     }
             ).promise();
         },
@@ -3123,14 +2932,14 @@ jQuery.extend(jQuery.easing,
                     });
                     // adds events to the mouse //mouse comunicados
                     /*$el.bind('mousewheel.vaccordion', function(e, delta) {
-                        if (delta > 0) {
-                            aux.navigate(-1, $slices, $navNext, $navPrev, settings);
-                        }
-                        else {
-                            aux.navigate(1, $slices, $navNext, $navPrev, settings);
-                        }
-                        return false;
-                    });*/
+                     if (delta > 0) {
+                     aux.navigate(-1, $slices, $navNext, $navPrev, settings);
+                     }
+                     else {
+                     aux.navigate(1, $slices, $navNext, $navPrev, settings);
+                     }
+                     return false;
+                     });*/
                 });
             }
         }
@@ -3187,7 +2996,6 @@ $special = $event.special.debouncedresize = {
     threshold: 50
 };
 var Boxgrid = (function() {
-//mayra
     var $items = $('.noticeX'),
             transEndEventNames = {
                 'WebkitTransition': 'webkitTransitionEnd',
@@ -3344,778 +3152,6 @@ var Boxgrid = (function() {
     }
 
     return {init: init};
-})();
-//</editor-fold>
-
-//<editor-fold defaultstate="collapsed" desc="grid facultades">
-
-// ======================= imagesLoaded Plugin ===============================
-// https://github.com/desandro/imagesloaded
-
-// $('#my-container').imagesLoaded(myFunction)
-// execute a callback when all images have loaded.
-// needed because .load() doesn't work on cached images
-
-// callback function gets image collection as argument
-//  this is the container
-
-// original: MIT license. Paul Irish. 2010.
-// contributors: Oren Solomianik, David DeSandro, Yiannis Chatzikonstantinou
-
-// blank image data-uri bypasses webkit log warning (thx doug jones)
-var BLANK = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==';
-$.fn.imagesLoaded = function(callback) {
-    var $this = this,
-            deferred = $.isFunction($.Deferred) ? $.Deferred() : 0,
-            hasNotify = $.isFunction(deferred.notify),
-            $images = $this.find('img').add($this.filter('img')),
-            loaded = [],
-            proper = [],
-            broken = [];
-    // Register deferred callbacks
-    if ($.isPlainObject(callback)) {
-        $.each(callback, function(key, value) {
-            if (key === 'callback') {
-                callback = value;
-            } else if (deferred) {
-                deferred[key](value);
-            }
-        });
-    }
-
-    function doneLoading() {
-        var $proper = $(proper),
-                $broken = $(broken);
-        if (deferred) {
-            if (broken.length) {
-                deferred.reject($images, $proper, $broken);
-            } else {
-                deferred.resolve($images);
-            }
-        }
-
-        if ($.isFunction(callback)) {
-            callback.call($this, $images, $proper, $broken);
-        }
-    }
-
-    function imgLoaded(img, isBroken) {
-        // don't proceed if BLANK image, or image is already loaded
-        if (img.src === BLANK || $.inArray(img, loaded) !== -1) {
-            return;
-        }
-
-        // store element in loaded images array
-        loaded.push(img);
-        // keep track of broken and properly loaded images
-        if (isBroken) {
-            broken.push(img);
-        } else {
-            proper.push(img);
-        }
-
-        // cache image and its state for future calls
-        $.data(img, 'imagesLoaded', {isBroken: isBroken, src: img.src});
-        // trigger deferred progress method if present
-        if (hasNotify) {
-            deferred.notifyWith($(img), [isBroken, $images, $(proper), $(broken)]);
-        }
-
-        // call doneLoading and clean listeners if all images are loaded
-        if ($images.length === loaded.length) {
-            setTimeout(doneLoading);
-            $images.unbind('.imagesLoaded');
-        }
-    }
-
-    // if no images, trigger immediately
-    if (!$images.length) {
-        doneLoading();
-    } else {
-        $images.bind('load.imagesLoaded error.imagesLoaded', function(event) {
-            // trigger imgLoaded
-            imgLoaded(event.target, event.type === 'error');
-        }).each(function(i, el) {
-            var src = el.src;
-            // find out if this image has been already checked for status
-            // if it was, and src has not changed, call imgLoaded on it
-            var cached = $.data(el, 'imagesLoaded');
-            if (cached && cached.src === src) {
-                imgLoaded(el, cached.isBroken);
-                return;
-            }
-
-            // if complete is true and browser supports natural sizes, try
-            // to check for image status manually
-            if (el.complete && el.naturalWidth !== undefined) {
-                imgLoaded(el, el.naturalWidth === 0 || el.naturalHeight === 0);
-                return;
-            }
-
-            // cached images don't fire load sometimes, so we reset src, but only when
-            // dealing with IE, or image is complete (loaded) and failed manual check
-            // webkit hack from http://groups.google.com/group/jquery-dev/browse_thread/thread/eee6ab7b2da50e1f
-            if (el.readyState || el.complete) {
-                el.src = BLANK;
-                el.src = src;
-            }
-        });
-    }
-
-    return deferred ? deferred.promise($this) : $this;
-};
-
-
-/*(function($) {
- 
- // transitionend events
- var transEndEventNames = {
- 'WebkitTransition': 'webkitTransitionEnd',
- 'MozTransition': 'transitionend',
- 'OTransition': 'oTransitionEnd',
- 'msTransition': 'MSTransitionEnd',
- 'transition': 'transitionend'
- },
- transEndEventName = transEndEventNames[ Modernizr.prefixed('transition') ],
- // support for csstransitions
- support = Modernizr.csstransitions;
- 
- $.widget("metro.dcmgrid", {
- version: "1.0.0",
- grid: {}, items: {},
- options: {
- // current expanded item's index
- current: -1,
- // position (top) of the expanded item
- // used to know if the preview will expand in a different row
- previewPos: -1,
- // extra amount of pixels to scroll the window
- scrollExtra: 0,
- // extra margin when expanded (between preview overlay and the next items)
- marginExpanded: 10,
- window: null, winsize: null,
- $body: $('html, body'),
- // default settings
- settings: {
- minHeight: 500,
- speed: 350,
- easing: 'ease'
- }
- },
- _create: function() {
- var o = this.options;
- this.grid = $(this);
- // the items
- this.items = this.grid.children('li');
- o.window = $(window);
- // preload all images
- this.grid.imagesLoaded(function() {
- 
- // save itemÂ´s size and offset
- _saveItemInfo(true);
- // get windowÂ´s size
- _getWinSize();
- // initialize some events
- _initEvents();
- });
- },
- // add more items to the grid.
- // the new items need to appended to the grid.
- // after that call Grid.addItems(theItems);
- _addItems: function($newitems) {
- 
- this.items = this.items.add($newitems);
- $newitems.each(function() {
- var $item = $(this);
- $item.data({
- offsetTop: $item.offset().top,
- height: $item.height()
- });
- });
- _initItemsEvents($newitems);
- },
- // saves the itemÂ´s offset top and height (if saveheight is true)
- _saveItemInfo: function(saveheight) {
- this.items.each(function() {
- var $item = $(this);
- $item.data('offsetTop', $item.offset().top);
- if (saveheight) {
- $item.data('height', $item.height());
- }
- });
- },
- _initEvents: function() {
- 
- // when clicking an item, show the preview with the itemÂ´s info and large image.
- // close the item if already expanded.
- // also close if clicking on the itemÂ´s cross
- _initItemsEvents(this.items);
- // on window resize get the windowÂ´s size again
- // reset some values..
- this.options.window.on('debouncedresize', function() {
- 
- this.options.scrollExtra = 0;
- this.options.previewPos = -1;
- // save itemÂ´s offset
- _saveItemInfo();
- _getWinSize();
- var preview = $.data(this, 'preview');
- if (typeof preview != 'undefined') {
- _hidePreview();
- }
- 
- });
- },
- _initItemsEvents: function($items) {
- $items.on('click', 'span.og-close', function() {
- _hidePreview();
- return false;
- }).children('a').on('click', function(e) {
- 
- var $item = $(this).parent();
- // check if item already opened
- this.options.current === $item.index() ? _hidePreview() : _showPreview($item);
- return false;
- });
- },
- _getWinSize: function() {
- this.options.winsize = {width: this.options.window.width(), height: this.options.window.height()};
- },
- _showPreview: function($item) {
- 
- var preview = $.data(this, 'preview'),
- // itemÂ´s offset top
- position = $item.data('offsetTop');
- this.options.scrollExtra = 0;
- // if a preview exists and previewPos is different (different row) from itemÂ´s top then close it
- if (typeof preview != 'undefined') {
- 
- // not in the same row
- if (this.options.previewPos !== position) {
- // if position > previewPos then we need to take te current previewÂ´s height in consideration when scrolling the window
- if (position > this.options.previewPos) {
- this.options.scrollExtra = preview.height;
- }
- _hidePreview();
- }
- // same row
- else {
- preview.update($item);
- return false;
- }
- 
- }
- 
- // update previewPos
- this.options.previewPos = position;
- // initialize new preview for the clicked item
- preview = $.data(this, 'preview', new Preview($item));
- // expand preview overlay
- preview.open();
- },
- _hidePreview: function() {
- this.options.current = -1;
- var preview = $.data(this, 'preview');
- preview.close();
- $.removeData(this, 'preview');
- },
- _destroy: function() {
- 
- },
- _setOption: function(key, value) {
- this._super('_setOption', key, value);
- }
- });
- // the preview obj / overlay
- function Preview($item) {
- this.$item = $item;
- this.expandedIdx = this.$item.index();
- this.create();
- this.update();
- }
- Preview.prototype = {
- create: function() {
- // create Preview structure:
- this.$title = $('<h3></h3>');
- this.$description = $('<p></p>');
- this.$href = $('<a href="#">Ir a Facultad</a>');
- this.$details = $('<div class="og-details"></div>').append(this.$title, this.$description, this.$href);
- this.$loading = $('<div class="og-loading"></div>');
- this.$fullimage = $('<div class="og-fullimg"></div>').append(this.$loading);
- this.$closePreview = $('<span class="og-close"></span>');
- this.$previewInner = $('<div class="og-expander-inner"></div>').append(this.$closePreview, this.$fullimage, this.$details);
- this.$previewEl = $('<div class="og-expander"></div>').append(this.$previewInner);
- // append preview element to the item
- this.$item.append(this.getEl());
- // set the transitions for the preview and the item
- if (support) {
- this.setTransition();
- }
- },
- update: function($item) {
- 
- if ($item) {
- this.$item = $item;
- }
- 
- // if already expanded remove class "og-expanded" from current item and add it to new item
- if (current !== -1) {
- var $currentItem = $items.eq(current);
- $currentItem.removeClass('og-expanded');
- this.$item.addClass('og-expanded');
- // position the preview correctly
- this.positionPreview();
- }
- 
- // update current value
- current = this.$item.index();
- // update previewÂ´s content
- var $itemEl = this.$item.children('a'),
- eldata = {
- href: $itemEl.attr('href'),
- largesrc: $itemEl.data('largesrc'),
- title: $itemEl.data('title'),
- //description : $itemEl.data( 'description' )
- description: $itemEl.find('.detailx').html()
- };
- this.$title.html(eldata.title);
- this.$description.html(eldata.description);
- this.$href.attr('href', eldata.href);
- var self = this;
- // remove the current image in the preview
- if (typeof self.$largeImg != 'undefined') {
- self.$largeImg.remove();
- }
- 
- // preload large image and add it to the preview
- // for smaller screens we donÂ´t display the large image (the media query will hide the fullimage wrapper)
- if (self.$fullimage.is(':visible')) {
- this.$loading.show();
- $('<img/>').load(function() {
- var $img = $(this);
- if ($img.attr('src') === self.$item.children('a').data('largesrc')) {
- self.$loading.hide();
- self.$fullimage.find('img').remove();
- self.$largeImg = $img.fadeIn(350);
- self.$fullimage.append(self.$largeImg);
- }
- }).attr('src', eldata.largesrc);
- }
- 
- },
- open: function() {
- 
- setTimeout($.proxy(function() {
- // set the height for the preview and the item
- this.setHeights();
- // scroll to position the preview in the right place
- this.positionPreview();
- }, this), 25);
- },
- close: function() {
- 
- var self = this,
- onEndFn = function() {
- if (support) {
- $(this).off(transEndEventName);
- }
- self.$item.removeClass('og-expanded');
- self.$previewEl.remove();
- };
- setTimeout($.proxy(function() {
- 
- if (typeof this.$largeImg !== 'undefined') {
- this.$largeImg.fadeOut('fast');
- }
- this.$previewEl.css('height', 0);
- // the current expanded item (might be different from this.$item)
- var $expandedItem = $items.eq(this.expandedIdx);
- $expandedItem.css('height', $expandedItem.data('height')).on(transEndEventName, onEndFn);
- if (!support) {
- onEndFn.call();
- }
- 
- }, this), 25);
- return false;
- },
- calcHeight: function() {
- 
- var heightPreview = winsize.height - this.$item.data('height') - marginExpanded,
- itemHeight = winsize.height;
- if (heightPreview < settings.minHeight) {
- heightPreview = settings.minHeight;
- itemHeight = settings.minHeight + this.$item.data('height') + marginExpanded;
- }
- 
- this.height = heightPreview;
- this.itemHeight = itemHeight;
- },
- setHeights: function() {
- 
- var self = this,
- onEndFn = function() {
- if (support) {
- self.$item.off(transEndEventName);
- }
- self.$item.addClass('og-expanded');
- };
- this.calcHeight();
- this.$previewEl.css('height', this.height);
- this.$item.css('height', this.itemHeight).on(transEndEventName, onEndFn);
- if (!support) {
- onEndFn.call();
- }
- 
- },
- positionPreview: function() {
- 
- // scroll page
- // case 1 : preview height + item height fits in windowÂ´s height
- // case 2 : preview height + item height does not fit in windowÂ´s height and preview height is smaller than windowÂ´s height
- // case 3 : preview height + item height does not fit in windowÂ´s height and preview height is bigger than windowÂ´s height
- var position = this.$item.data('offsetTop'),
- previewOffsetT = this.$previewEl.offset().top - scrollExtra,
- scrollVal = this.height + this.$item.data('height') + marginExpanded <= winsize.height ? position : this.height < winsize.height ? previewOffsetT - (winsize.height - this.height) : previewOffsetT;
- $body.animate({scrollTop: scrollVal}, settings.speed);
- },
- setTransition: function() {
- this.$previewEl.css('transition', 'height ' + settings.speed + 'ms ' + settings.easing);
- this.$item.css('transition', 'height ' + settings.speed + 'ms ' + settings.easing);
- },
- getEl: function() {
- return this.$previewEl;
- }
- }
- 
- })(jQuery);
- 
- */
-
-
-var DCMGrid = (function() {
-    //var $grid;
-    // list of items
-    $('.og-grid.fac').each(function() {
-        var $grid = $(this);
-
-
-        // the items
-        var $items = $grid.children('li'),
-                // current expanded item's index
-                current = -1,
-                // position (top) of the expanded item
-                // used to know if the preview will expand in a different row
-                previewPos = -1,
-                // extra amount of pixels to scroll the window
-                scrollExtra = 0,
-                // extra margin when expanded (between preview overlay and the next items)
-                marginExpanded = 10,
-                $window = $(window), winsize,
-                $body = $('html, body'),
-                // transitionend events
-                transEndEventNames = {
-                    'WebkitTransition': 'webkitTransitionEnd',
-                    'MozTransition': 'transitionend',
-                    'OTransition': 'oTransitionEnd',
-                    'msTransition': 'MSTransitionEnd',
-                    'transition': 'transitionend'
-                },
-        transEndEventName = transEndEventNames[ Modernizr.prefixed('transition') ],
-                // support for csstransitions
-                support = Modernizr.csstransitions,
-                // default settings
-                settings = {
-                    minHeight: 500,
-                    speed: 350,
-                    easing: 'ease'
-                };
-        function init(config) {
-            //$grid = gu;
-            // the settings..
-            settings = $.extend(true, {}, settings, config);
-            // preload all images
-            $grid.imagesLoaded(function() {
-
-                // save itemÂ´s size and offset
-                saveItemInfo(true);
-                // get windowÂ´s size
-                getWinSize();
-                // initialize some events
-                initEvents();
-            });
-        }
-
-        // add more items to the grid.
-        // the new items need to appended to the grid.
-        // after that call Grid.addItems(theItems);
-        function addItems($newitems) {
-
-            $items = $items.add($newitems);
-            $newitems.each(function() {
-                var $item = $(this);
-                $item.data({
-                    offsetTop: $item.offset().top,
-                    height: $item.height()
-                });
-            });
-            initItemsEvents($newitems);
-        }
-
-        // saves the itemÂ´s offset top and height (if saveheight is true)
-        function saveItemInfo(saveheight) {
-            $items.each(function() {
-                var $item = $(this);
-                $item.data('offsetTop', $item.offset().top);
-                if (saveheight) {
-                    $item.data('height', $item.height());
-                }
-            });
-        }
-
-        function initEvents() {
-
-            // when clicking an item, show the preview with the itemÂ´s info and large image.
-            // close the item if already expanded.
-            // also close if clicking on the itemÂ´s cross
-            initItemsEvents($items);
-            // on window resize get the windowÂ´s size again
-            // reset some values..
-            $window.on('debouncedresize', function() {
-
-                scrollExtra = 0;
-                previewPos = -1;
-                // save itemÂ´s offset
-                saveItemInfo();
-                getWinSize();
-                var preview = $.data(this, 'preview');
-                if (typeof preview != 'undefined') {
-                    hidePreview();
-                }
-
-            });
-        }
-
-        function initItemsEvents($items) {
-            $items.on('click', 'span.og-close', function() {
-                hidePreview();
-                return false;
-            }).find('.spreview').on('click', function(e) {
-
-                var $item = $(this).parent().parent();
-                // check if item already opened
-                current === $item.index() ? hidePreview() : showPreview($item);
-                return false;
-            });
-        }
-
-        function getWinSize() {
-            winsize = {width: $window.width(), height: $window.height()};
-        }
-
-        function showPreview($item) {
-
-            var preview = $.data(this, 'preview'),
-                    // itemÂ´s offset top
-                    position = $item.data('offsetTop');
-            scrollExtra = 0;
-            // if a preview exists and previewPos is different (different row) from itemÂ´s top then close it
-            if (typeof preview != 'undefined') {
-
-                // not in the same row
-                if (previewPos !== position) {
-                    // if position > previewPos then we need to take te current previewÂ´s height in consideration when scrolling the window
-                    if (position > previewPos) {
-                        scrollExtra = preview.height;
-                    }
-                    hidePreview();
-                }
-                // same row
-                else {
-                    preview.update($item);
-                    return false;
-                }
-
-            }
-
-            // update previewPos
-            previewPos = position;
-            // initialize new preview for the clicked item
-            preview = $.data(this, 'preview', new Preview($item));
-            // expand preview overlay
-            preview.open();
-        }
-
-        function hidePreview() {
-            current = -1;
-            var preview = $.data(this, 'preview');
-            preview.close();
-            $.removeData(this, 'preview');
-        }
-
-        // the preview obj / overlay
-        function Preview($item) {
-            this.$item = $item;
-            this.expandedIdx = this.$item.index();
-            this.create();
-            this.update();
-        }
-
-        Preview.prototype = {
-            create: function() {
-                // create Preview structure:
-                //this.$title = $('<h3></h3>');
-                this.$description = $('<div></div>');
-                //this.$href = $('<a href="#">Ir a Facultad</a>');
-                this.$details = $('<div class="og-details"></div>').append(this.$description);
-                this.$loading = $('<div class="og-loading"></div>');
-                //this.$fullimage = $('<div class="og-fullimg"></div>').append(this.$loading);
-                this.$closePreview = $('<span class="og-close"></span>');
-                this.$previewInner = $('<div class="og-expander-inner"></div>').append(this.$closePreview, this.$details);
-                this.$previewEl = $('<div class="og-expander"></div>').append(this.$previewInner);
-                // append preview element to the item
-                this.$item.append(this.getEl());
-                // set the transitions for the preview and the item
-                if (support) {
-                    this.setTransition();
-                }
-            },
-            update: function($item) {
-
-                if ($item) {
-                    this.$item = $item;
-                }
-
-                // if already expanded remove class "og-expanded" from current item and add it to new item
-                if (current !== -1) {
-                    var $currentItem = $items.eq(current);
-                    $currentItem.removeClass('og-expanded');
-                    this.$item.addClass('og-expanded');
-                    // position the preview correctly
-                    this.positionPreview();
-                }
-
-                // update current value
-                current = this.$item.index();
-                // update previewÂ´s content
-                var eldata = {
-                    description: this.$item.find('.detailx').html()
-                };
-                this.$description.html(eldata.description);
-                /* var self = this;
-                 // remove the current image in the preview
-                 if (typeof self.$largeImg != 'undefined') {
-                 self.$largeImg.remove();
-                 }
-                 
-                 // preload large image and add it to the preview
-                 // for smaller screens we donÂ´t display the large image (the media query will hide the fullimage wrapper)
-                 if (self.$fullimage.is(':visible')) {
-                 this.$loading.show();
-                 $('<img/>').load(function() {
-                 var $img = $(this);
-                 if ($img.attr('src') === self.$item.children('a').data('largesrc')) {
-                 self.$loading.hide();
-                 self.$fullimage.find('img').remove();
-                 self.$largeImg = $img.fadeIn(350);
-                 self.$fullimage.append(self.$largeImg);
-                 }
-                 }).attr('src', eldata.largesrc);
-                 }*/
-
-            },
-            open: function() {
-
-                setTimeout($.proxy(function() {
-                    // set the height for the preview and the item
-                    this.setHeights();
-                    // scroll to position the preview in the right place
-                    this.positionPreview();
-                }, this), 25);
-            },
-            close: function() {
-
-                var self = this,
-                        onEndFn = function() {
-                            if (support) {
-                                $(this).off(transEndEventName);
-                            }
-                            self.$item.removeClass('og-expanded');
-                            self.$previewEl.remove();
-                        };
-                setTimeout($.proxy(function() {
-
-                    if (typeof this.$largeImg !== 'undefined') {
-                        this.$largeImg.fadeOut('fast');
-                    }
-                    this.$previewEl.css('height', 0);
-                    // the current expanded item (might be different from this.$item)
-                    var $expandedItem = $items.eq(this.expandedIdx);
-                    $expandedItem.css('height', $expandedItem.data('height')).on(transEndEventName, onEndFn);
-                    if (!support) {
-                        onEndFn.call();
-                    }
-
-                }, this), 25);
-                return false;
-            },
-            calcHeight: function() {
-
-                var heightPreview = winsize.height - this.$item.data('height') - marginExpanded,
-                        itemHeight = winsize.height;
-                if (heightPreview < settings.minHeight) {
-                    heightPreview = settings.minHeight;
-                    itemHeight = settings.minHeight + this.$item.data('height') + marginExpanded;
-                }
-
-                this.height = heightPreview;
-                this.itemHeight = itemHeight;
-            },
-            setHeights: function() {
-
-                var self = this,
-                        onEndFn = function() {
-                            if (support) {
-                                self.$item.off(transEndEventName);
-                            }
-                            self.$item.addClass('og-expanded');
-                        };
-                this.calcHeight();
-                this.$previewEl.css('height', this.height);
-                this.$item.css('height', this.itemHeight).on(transEndEventName, onEndFn);
-                if (!support) {
-                    onEndFn.call();
-                }
-
-            },
-            positionPreview: function() {
-
-                // scroll page
-                // case 1 : preview height + item height fits in windowÂ´s height
-                // case 2 : preview height + item height does not fit in windowÂ´s height and preview height is smaller than windowÂ´s height
-                // case 3 : preview height + item height does not fit in windowÂ´s height and preview height is bigger than windowÂ´s height
-                var position = this.$item.data('offsetTop'),
-                        previewOffsetT = this.$previewEl.offset().top - scrollExtra,
-                        scrollVal = this.height + this.$item.data('height') + marginExpanded <= winsize.height ? position : this.height < winsize.height ? previewOffsetT - (winsize.height - this.height) : previewOffsetT;
-                $body.animate({scrollTop: scrollVal}, settings.speed);
-            },
-            setTransition: function() {
-                this.$previewEl.css('transition', 'height ' + settings.speed + 'ms ' + settings.easing);
-                this.$item.css('transition', 'height ' + settings.speed + 'ms ' + settings.easing);
-            },
-            getEl: function() {
-                return this.$previewEl;
-            }
-        }
-
-        // init(); //start facultades grid detail slice
-    });
-
-    /* return {
-     init: init,
-     addItems: addItems
-     };*/
-
-
 })();
 //</editor-fold>
 
@@ -4500,7 +3536,6 @@ var DCMGrid = (function() {
     };
     $.Metro.initAll = function(area) {
         $.Metro.initTabs(area);
-        $.Metro.initHints(area);
         $.Metro.initPanels(area);
         //$.Metro.initAccordions(area);
 
@@ -4509,222 +3544,267 @@ var DCMGrid = (function() {
 $(function() {
     $.Metro.initAll();
 });
-METRO_AUTO_REINIT = false;
-$(function() {
-    if (METRO_AUTO_REINIT) {
-        //$(".metro").bind('DOMSubtreeModified', function(){            $.Metro.initAll();        });
-        var originalDOM = $('.metro').html(),
-                actualDOM;
-        setInterval(function() {
-            actualDOM = $('.metro').html();
-            if (originalDOM !== actualDOM) {
-                originalDOM = actualDOM;
-                $.Metro.initAll();
-            }
-        }, 500);
-    }
-});
 //</editor-fold>
 
 //<editor-fold defaultstate="collapsed" desc="perfect-scrollbar">
+/*! perfect-scrollbar - v0.5.8
+ * http://noraesae.github.com/perfect-scrollbar/
+ * Copyright (c) 2014 Hyunje Alex Jun; Licensed MIT */
 (function(e) {
     "use strict";
     "function" == typeof define && define.amd ? define(["jquery"], e) : "object" == typeof exports ? e(require("jquery")) : e(jQuery)
 })(function(e) {
     "use strict";
-    var t = {wheelSpeed: 1, wheelPropagation: !1, minScrollbarLength: null, maxScrollbarLength: null, useBothWheelAxes: !1, useKeyboard: !0, suppressScrollX: !1, suppressScrollY: !1, scrollXMarginOffset: 0, scrollYMarginOffset: 0, includePadding: !1}, o = function() {
-        var e = 0;
-        return function() {
-            var t = e;
-            return e += 1, ".perfect-scrollbar-" + t
+    function t(e) {
+        return"string" == typeof e ? parseInt(e, 10) : ~~e
+    }
+    var o = {wheelSpeed: 1, wheelPropagation: !1, swipePropagation: !0, minScrollbarLength: null, maxScrollbarLength: null, useBothWheelAxes: !1, useKeyboard: !0, suppressScrollX: !1, suppressScrollY: !1, scrollXMarginOffset: 0, scrollYMarginOffset: 0, includePadding: !1}, n = 0, r = function() {
+        var e = n++;
+        return function(t) {
+            var o = ".perfect-scrollbar-" + e;
+            return t === void 0 ? o : t + o
         }
-    }();
-    e.fn.perfectScrollbar = function(n, r) {
+    }, l = "WebkitAppearance"in document.documentElement.style;
+    e.fn.perfectScrollbar = function(n, i) {
         return this.each(function() {
-            var l = e.extend(!0, {}, t), a = e(this);
-            if ("object" == typeof n ? e.extend(!0, l, n) : r = n, "update" === r)
-                return a.data("perfect-scrollbar-update") && a.data("perfect-scrollbar-update")(), a;
-            if ("destroy" === r)
-                return a.data("perfect-scrollbar-destroy") && a.data("perfect-scrollbar-destroy")(), a;
-            if (a.data("perfect-scrollbar"))
-                return a.data("perfect-scrollbar");
-            a.addClass("ps-container");
-            var s, i, c, d, u, p, f, v, h, b, g = e("<div class='ps-scrollbar-x-rail'></div>").appendTo(a), m = e("<div class='ps-scrollbar-y-rail'></div>").appendTo(a), w = e("<div class='ps-scrollbar-x'></div>").appendTo(g), T = e("<div class='ps-scrollbar-y'></div>").appendTo(m), L = parseInt(g.css("bottom"), 10), y = L === L, I = y ? null : parseInt(g.css("top"), 10), S = parseInt(m.css("right"), 10), C = S === S, x = C ? null : parseInt(m.css("left"), 10), D = "rtl" === a.css("direction"), X = o(), Y = parseInt(g.css("borderLeftWidth"), 10) + parseInt(g.css("borderRightWidth"), 10), P = parseInt(g.css("borderTopWidth"), 10) + parseInt(g.css("borderBottomWidth"), 10), k = function(e, t) {
-                var o = e + t, n = d - h;
-                b = 0 > o ? 0 : o > n ? n : o;
-                var r = parseInt(b * (p - d) / (d - h), 10);
-                a.scrollTop(r)
-            }, E = function(e, t) {
-                var o = e + t, n = c - f;
-                v = 0 > o ? 0 : o > n ? n : o;
-                var r = parseInt(v * (u - c) / (c - f), 10);
-                a.scrollLeft(r)
-            }, M = function(e) {
-                return l.minScrollbarLength && (e = Math.max(e, l.minScrollbarLength)), l.maxScrollbarLength && (e = Math.min(e, l.maxScrollbarLength)), e
-            }, W = function() {
-                var e = {width: c, display: s ? "inherit" : "none"};
-                e.left = D ? a.scrollLeft() + c - u : a.scrollLeft(), y ? e.bottom = L - a.scrollTop() : e.top = I + a.scrollTop(), g.css(e);
-                var t = {top: a.scrollTop(), height: d, display: i ? "inherit" : "none"};
-                C ? t.right = D ? u - a.scrollLeft() - S - T.outerWidth() : S - a.scrollLeft() : t.left = D ? a.scrollLeft() + 2 * c - u - x - T.outerWidth() : x + a.scrollLeft(), m.css(t), w.css({left: v, width: f - Y}), T.css({top: b, height: h - P}), s ? a.addClass("ps-active-x") : a.removeClass("ps-active-x"), i ? a.addClass("ps-active-y") : a.removeClass("ps-active-y")
-            }, j = function() {
-                g.hide(), m.hide(), c = l.includePadding ? a.innerWidth() : a.width(), d = l.includePadding ? a.innerHeight() : a.height(), u = a.prop("scrollWidth"), p = a.prop("scrollHeight"), !l.suppressScrollX && u > c + l.scrollXMarginOffset ? (s = !0, f = M(parseInt(c * c / u, 10)), v = parseInt(a.scrollLeft() * (c - f) / (u - c), 10)) : (s = !1, f = 0, v = 0, a.scrollLeft(0)), !l.suppressScrollY && p > d + l.scrollYMarginOffset ? (i = !0, h = M(parseInt(d * d / p, 10)), b = parseInt(a.scrollTop() * (d - h) / (p - d), 10)) : (i = !1, h = 0, b = 0, a.scrollTop(0)), b >= d - h && (b = d - h), v >= c - f && (v = c - f), W(), l.suppressScrollX || g.show(), l.suppressScrollY || m.show()
-            }, O = function() {
-                var t, o;
-                w.bind("mousedown" + X, function(e) {
-                    o = e.pageX, t = w.position().left, g.addClass("in-scrolling"), e.stopPropagation(), e.preventDefault()
-                }), e(document).bind("mousemove" + X, function(e) {
-                    g.hasClass("in-scrolling") && (E(t, e.pageX - o), j(), e.stopPropagation(), e.preventDefault())
-                }), e(document).bind("mouseup" + X, function() {
-                    g.hasClass("in-scrolling") && g.removeClass("in-scrolling")
+            function a(e, o) {
+                var n = e + o, r = D - R;
+                j = 0 > n ? 0 : n > r ? r : n;
+                var l = t(j * (Y - D) / (D - R));
+                M.scrollTop(l)
+            }
+            function s(e, o) {
+                var n = e + o, r = E - k;
+                W = 0 > n ? 0 : n > r ? r : n;
+                var l = t(W * (C - E) / (E - k));
+                M.scrollLeft(l)
+            }
+            function c(e) {
+                return P.minScrollbarLength && (e = Math.max(e, P.minScrollbarLength)), P.maxScrollbarLength && (e = Math.min(e, P.maxScrollbarLength)), e
+            }
+            function u() {
+                var e = {width: I};
+                e.left = B ? M.scrollLeft() + E - C : M.scrollLeft(), N ? e.bottom = _ - M.scrollTop() : e.top = Q + M.scrollTop(), H.css(e);
+                var t = {top: M.scrollTop(), height: A};
+                Z ? t.right = B ? C - M.scrollLeft() - V - J.outerWidth() : V - M.scrollLeft() : t.left = B ? M.scrollLeft() + 2 * E - C - $ - J.outerWidth() : $ + M.scrollLeft(), G.css(t), U.css({left: W, width: k - z}), J.css({top: j, height: R - et})
+            }
+            function d() {
+                M.removeClass("ps-active-x"), M.removeClass("ps-active-y"), E = P.includePadding ? M.innerWidth() : M.width(), D = P.includePadding ? M.innerHeight() : M.height(), C = M.prop("scrollWidth"), Y = M.prop("scrollHeight"), !P.suppressScrollX && C > E + P.scrollXMarginOffset ? (X = !0, I = E - F, k = c(t(I * E / C)), W = t(M.scrollLeft() * (I - k) / (C - E))) : (X = !1, k = 0, W = 0, M.scrollLeft(0)), !P.suppressScrollY && Y > D + P.scrollYMarginOffset ? (O = !0, A = D - tt, R = c(t(A * D / Y)), j = t(M.scrollTop() * (A - R) / (Y - D))) : (O = !1, R = 0, j = 0, M.scrollTop(0)), W >= I - k && (W = I - k), j >= A - R && (j = A - R), u(), X && M.addClass("ps-active-x"), O && M.addClass("ps-active-y")
+            }
+            function p() {
+                var t, o, n = function(e) {
+                    s(t, e.pageX - o), d(), e.stopPropagation(), e.preventDefault()
+                }, r = function() {
+                    H.removeClass("in-scrolling"), e(q).unbind(K("mousemove"), n)
+                };
+                U.bind(K("mousedown"), function(l) {
+                    o = l.pageX, t = U.position().left, H.addClass("in-scrolling"), e(q).bind(K("mousemove"), n), e(q).one(K("mouseup"), r), l.stopPropagation(), l.preventDefault()
                 }), t = o = null
-            }, q = function() {
-                var t, o;
-                T.bind("mousedown" + X, function(e) {
-                    o = e.pageY, t = T.position().top, m.addClass("in-scrolling"), e.stopPropagation(), e.preventDefault()
-                }), e(document).bind("mousemove" + X, function(e) {
-                    m.hasClass("in-scrolling") && (k(t, e.pageY - o), j(), e.stopPropagation(), e.preventDefault())
-                }), e(document).bind("mouseup" + X, function() {
-                    m.hasClass("in-scrolling") && m.removeClass("in-scrolling")
+            }
+            function f() {
+                var t, o, n = function(e) {
+                    a(t, e.pageY - o), d(), e.stopPropagation(), e.preventDefault()
+                }, r = function() {
+                    G.removeClass("in-scrolling"), e(q).unbind(K("mousemove"), n)
+                };
+                J.bind(K("mousedown"), function(l) {
+                    o = l.pageY, t = J.position().top, G.addClass("in-scrolling"), e(q).bind(K("mousemove"), n), e(q).one(K("mouseup"), r), l.stopPropagation(), l.preventDefault()
                 }), t = o = null
-            }, A = function(e, t) {
-                var o = a.scrollTop();
+            }
+            function v(e, t) {
+                var o = M.scrollTop();
                 if (0 === e) {
-                    if (!i)
+                    if (!O)
                         return!1;
-                    if (0 === o && t > 0 || o >= p - d && 0 > t)
-                        return!l.wheelPropagation
+                    if (0 === o && t > 0 || o >= Y - D && 0 > t)
+                        return!P.wheelPropagation
                 }
-                var n = a.scrollLeft();
+                var n = M.scrollLeft();
                 if (0 === t) {
-                    if (!s)
+                    if (!X)
                         return!1;
-                    if (0 === n && 0 > e || n >= u - c && e > 0)
-                        return!l.wheelPropagation
+                    if (0 === n && 0 > e || n >= C - E && e > 0)
+                        return!P.wheelPropagation
                 }
                 return!0
-            }, B = function() {
-                var e = !1, t = function(e) {
+            }
+            function g(e, t) {
+                var o = M.scrollTop(), n = M.scrollLeft(), r = Math.abs(e), l = Math.abs(t);
+                if (l > r) {
+                    if (0 > t && o === Y - D || t > 0 && 0 === o)
+                        return!P.swipePropagation
+                } else if (r > l && (0 > e && n === C - E || e > 0 && 0 === n))
+                    return!P.swipePropagation;
+                return!0
+            }
+            function b() {
+                function e(e) {
                     var t = e.originalEvent.deltaX, o = -1 * e.originalEvent.deltaY;
                     return(t === void 0 || o === void 0) && (t = -1 * e.originalEvent.wheelDeltaX / 6, o = e.originalEvent.wheelDeltaY / 6), e.originalEvent.deltaMode && 1 === e.originalEvent.deltaMode && (t *= 10, o *= 10), t !== t && o !== o && (t = 0, o = e.originalEvent.wheelDelta), [t, o]
-                }, o = function(o) {
-                    var n = t(o), r = n[0], c = n[1];
-                    e = !1, l.useBothWheelAxes ? i && !s ? (c ? a.scrollTop(a.scrollTop() - c * l.wheelSpeed) : a.scrollTop(a.scrollTop() + r * l.wheelSpeed), e = !0) : s && !i && (r ? a.scrollLeft(a.scrollLeft() + r * l.wheelSpeed) : a.scrollLeft(a.scrollLeft() - c * l.wheelSpeed), e = !0) : (a.scrollTop(a.scrollTop() - c * l.wheelSpeed), a.scrollLeft(a.scrollLeft() + r * l.wheelSpeed)), j(), e = e || A(r, c), e && (o.stopPropagation(), o.preventDefault())
-                };
-                window.onwheel !== void 0 ? a.bind("wheel" + X, o) : window.onmousewheel !== void 0 && a.bind("mousewheel" + X, o)
-            }, H = function() {
+                }
+                function t(t) {
+                    if (l || !(M.find("select:focus").length > 0)) {
+                        var n = e(t), r = n[0], i = n[1];
+                        o = !1, P.useBothWheelAxes ? O && !X ? (i ? M.scrollTop(M.scrollTop() - i * P.wheelSpeed) : M.scrollTop(M.scrollTop() + r * P.wheelSpeed), o = !0) : X && !O && (r ? M.scrollLeft(M.scrollLeft() + r * P.wheelSpeed) : M.scrollLeft(M.scrollLeft() - i * P.wheelSpeed), o = !0) : (M.scrollTop(M.scrollTop() - i * P.wheelSpeed), M.scrollLeft(M.scrollLeft() + r * P.wheelSpeed)), d(), o = o || v(r, i), o && (t.stopPropagation(), t.preventDefault())
+                    }
+                }
+                var o = !1;
+                window.onwheel !== void 0 ? M.bind(K("wheel"), t) : window.onmousewheel !== void 0 && M.bind(K("mousewheel"), t)
+            }
+            function h() {
                 var t = !1;
-                a.bind("mouseenter" + X, function() {
+                M.bind(K("mouseenter"), function() {
                     t = !0
-                }), a.bind("mouseleave" + X, function() {
+                }), M.bind(K("mouseleave"), function() {
                     t = !1
                 });
                 var o = !1;
-                e(document).bind("keydown" + X, function(n) {
-                    if (!(n.isDefaultPrevented && n.isDefaultPrevented() || !t || e(document.activeElement).is(":input,[contenteditable]"))) {
-                        var r = 0, l = 0;
-                        switch (n.which) {
-                            case 37:
-                                r = -30;
-                                break;
-                            case 38:
-                                l = 30;
-                                break;
-                            case 39:
-                                r = 30;
-                                break;
-                            case 40:
-                                l = -30;
-                                break;
-                            case 33:
-                                l = 90;
-                                break;
-                            case 32:
-                            case 34:
-                                l = -90;
-                                break;
-                            case 35:
-                                l = -d;
-                                break;
-                            case 36:
-                                l = d;
-                                break;
-                            default:
-                                return
+                e(q).bind(K("keydown"), function(n) {
+                    if ((!n.isDefaultPrevented || !n.isDefaultPrevented()) && t) {
+                        for (var r = document.activeElement ? document.activeElement : q.activeElement; r.shadowRoot; )
+                            r = r.shadowRoot.activeElement;
+                        if (!e(r).is(":input,[contenteditable]")) {
+                            var l = 0, i = 0;
+                            switch (n.which) {
+                                case 37:
+                                    l = -30;
+                                    break;
+                                case 38:
+                                    i = 30;
+                                    break;
+                                case 39:
+                                    l = 30;
+                                    break;
+                                case 40:
+                                    i = -30;
+                                    break;
+                                case 33:
+                                    i = 90;
+                                    break;
+                                case 32:
+                                case 34:
+                                    i = -90;
+                                    break;
+                                case 35:
+                                    i = n.ctrlKey ? -Y : -D;
+                                    break;
+                                case 36:
+                                    i = n.ctrlKey ? M.scrollTop() : D;
+                                    break;
+                                default:
+                                    return
+                            }
+                            M.scrollTop(M.scrollTop() - i), M.scrollLeft(M.scrollLeft() + l), o = v(l, i), o && n.preventDefault()
                         }
-                        a.scrollTop(a.scrollTop() - l), a.scrollLeft(a.scrollLeft() + r), o = A(r, l), o && n.preventDefault()
                     }
                 })
-            }, K = function() {
-                var e = function(e) {
+            }
+            function w() {
+                function e(e) {
                     e.stopPropagation()
-                };
-                T.bind("click" + X, e), m.bind("click" + X, function(e) {
-                    var t = parseInt(h / 2, 10), o = e.pageY - m.offset().top - t, n = d - h, r = o / n;
-                    0 > r ? r = 0 : r > 1 && (r = 1), a.scrollTop((p - d) * r)
-                }), w.bind("click" + X, e), g.bind("click" + X, function(e) {
-                    var t = parseInt(f / 2, 10), o = e.pageX - g.offset().left - t, n = c - f, r = o / n;
-                    0 > r ? r = 0 : r > 1 && (r = 1), a.scrollLeft((u - c) * r)
+                }
+                J.bind(K("click"), e), G.bind(K("click"), function(e) {
+                    var o = t(R / 2), n = e.pageY - G.offset().top - o, r = D - R, l = n / r;
+                    0 > l ? l = 0 : l > 1 && (l = 1), M.scrollTop((Y - D) * l)
+                }), U.bind(K("click"), e), H.bind(K("click"), function(e) {
+                    var o = t(k / 2), n = e.pageX - H.offset().left - o, r = E - k, l = n / r;
+                    0 > l ? l = 0 : l > 1 && (l = 1), M.scrollLeft((C - E) * l)
                 })
-            }, Q = function() {
-                var t = function(e, t) {
-                    a.scrollTop(a.scrollTop() - t), a.scrollLeft(a.scrollLeft() - e), j()
-                }, o = {}, n = 0, r = {}, l = null, s = !1;
-                e(window).bind("touchstart" + X, function() {
-                    s = !0
-                }), e(window).bind("touchend" + X, function() {
-                    s = !1
-                }), a.bind("touchstart" + X, function(e) {
-                    var t = e.originalEvent.targetTouches[0];
-                    o.pageX = t.pageX, o.pageY = t.pageY, n = (new Date).getTime(), null !== l && clearInterval(l), e.stopPropagation()
-                }), a.bind("touchmove" + X, function(e) {
-                    if (!s && 1 === e.originalEvent.targetTouches.length) {
-                        var l = e.originalEvent.targetTouches[0], a = {};
-                        a.pageX = l.pageX, a.pageY = l.pageY;
-                        var i = a.pageX - o.pageX, c = a.pageY - o.pageY;
-                        t(i, c), o = a;
-                        var d = (new Date).getTime(), u = d - n;
-                        u > 0 && (r.x = i / u, r.y = c / u, n = d), e.preventDefault()
+            }
+            function m() {
+                function t() {
+                    var e = window.getSelection ? window.getSelection() : document.getSlection ? document.getSlection() : {rangeCount: 0};
+                    return 0 === e.rangeCount ? null : e.getRangeAt(0).commonAncestorContainer
+                }
+                function o() {
+                    r || (r = setInterval(function() {
+                        return x() ? (M.scrollTop(M.scrollTop() + l.top), M.scrollLeft(M.scrollLeft() + l.left), d(), void 0) : (clearInterval(r), void 0)
+                    }, 50))
+                }
+                function n() {
+                    r && (clearInterval(r), r = null), H.removeClass("in-scrolling"), G.removeClass("in-scrolling")
+                }
+                var r = null, l = {top: 0, left: 0}, i = !1;
+                e(q).bind(K("selectionchange"), function() {
+                    e.contains(M[0], t()) ? i = !0 : (i = !1, n())
+                }), e(window).bind(K("mouseup"), function() {
+                    i && (i = !1, n())
+                }), e(window).bind(K("mousemove"), function(e) {
+                    if (i) {
+                        var t = {x: e.pageX, y: e.pageY}, r = M.offset(), a = {left: r.left, right: r.left + M.outerWidth(), top: r.top, bottom: r.top + M.outerHeight()};
+                        t.x < a.left + 3 ? (l.left = -5, H.addClass("in-scrolling")) : t.x > a.right - 3 ? (l.left = 5, H.addClass("in-scrolling")) : l.left = 0, t.y < a.top + 3 ? (l.top = 5 > a.top + 3 - t.y ? -5 : -20, G.addClass("in-scrolling")) : t.y > a.bottom - 3 ? (l.top = 5 > t.y - a.bottom + 3 ? 5 : 20, G.addClass("in-scrolling")) : l.top = 0, 0 === l.top && 0 === l.left ? n() : o()
                     }
-                }), a.bind("touchend" + X, function() {
-                    clearInterval(l), l = setInterval(function() {
-                        return.01 > Math.abs(r.x) && .01 > Math.abs(r.y) ? (clearInterval(l), void 0) : (t(30 * r.x, 30 * r.y), r.x *= .8, r.y *= .8, void 0)
-                    }, 10)
                 })
-            }, R = function() {
-                a.bind("scroll" + X, function() {
-                    j()
-                })
-            }, z = function() {
-                a.unbind(X), e(window).unbind(X), e(document).unbind(X), a.data("perfect-scrollbar", null), a.data("perfect-scrollbar-update", null), a.data("perfect-scrollbar-destroy", null), w.remove(), T.remove(), g.remove(), m.remove(), g = m = w = T = s = i = c = d = u = p = f = v = L = y = I = h = b = S = C = x = D = X = null
-            }, F = function(t) {
-                a.addClass("ie").addClass("ie" + t);
-                var o = function() {
-                    var t = function() {
-                        e(this).addClass("hover")
-                    }, o = function() {
-                        e(this).removeClass("hover")
-                    };
-                    a.bind("mouseenter" + X, t).bind("mouseleave" + X, o), g.bind("mouseenter" + X, t).bind("mouseleave" + X, o), m.bind("mouseenter" + X, t).bind("mouseleave" + X, o), w.bind("mouseenter" + X, t).bind("mouseleave" + X, o), T.bind("mouseenter" + X, t).bind("mouseleave" + X, o)
-                }, n = function() {
-                    W = function() {
-                        var e = {left: v + a.scrollLeft(), width: f};
-                        y ? e.bottom = L : e.top = I, w.css(e);
-                        var t = {top: b + a.scrollTop(), height: h};
-                        C ? t.right = S : t.left = x, T.css(t), w.hide().show(), T.hide().show()
+            }
+            function T(t, o) {
+                function n(e, t) {
+                    M.scrollTop(M.scrollTop() - t), M.scrollLeft(M.scrollLeft() - e), d()
+                }
+                function r() {
+                    h = !0
+                }
+                function l() {
+                    h = !1
+                }
+                function i(e) {
+                    return e.originalEvent.targetTouches ? e.originalEvent.targetTouches[0] : e.originalEvent
+                }
+                function a(e) {
+                    var t = e.originalEvent;
+                    return t.targetTouches && 1 === t.targetTouches.length ? !0 : t.pointerType && "mouse" !== t.pointerType && t.pointerType !== t.MSPOINTER_TYPE_MOUSE ? !0 : !1
+                }
+                function s(e) {
+                    if (a(e)) {
+                        w = !0;
+                        var t = i(e);
+                        p.pageX = t.pageX, p.pageY = t.pageY, f = (new Date).getTime(), null !== b && clearInterval(b), e.stopPropagation()
                     }
-                };
-                6 === t && (o(), n())
-            }, G = "ontouchstart"in window || window.DocumentTouch && document instanceof window.DocumentTouch, J = function() {
-                var e = navigator.userAgent.toLowerCase().match(/(msie) ([\w.]+)/);
-                e && "msie" === e[1] && F(parseInt(e[2], 10)), j(), R(), O(), q(), K(), B(), G && Q(), l.useKeyboard && H(), a.data("perfect-scrollbar", a), a.data("perfect-scrollbar-update", j), a.data("perfect-scrollbar-destroy", z)
+                }
+                function c(e) {
+                    if (!h && w && a(e)) {
+                        var t = i(e), o = {pageX: t.pageX, pageY: t.pageY}, r = o.pageX - p.pageX, l = o.pageY - p.pageY;
+                        n(r, l), p = o;
+                        var s = (new Date).getTime(), c = s - f;
+                        c > 0 && (v.x = r / c, v.y = l / c, f = s), g(r, l) && (e.stopPropagation(), e.preventDefault())
+                    }
+                }
+                function u() {
+                    !h && w && (w = !1, clearInterval(b), b = setInterval(function() {
+                        return x() ? .01 > Math.abs(v.x) && .01 > Math.abs(v.y) ? (clearInterval(b), void 0) : (n(30 * v.x, 30 * v.y), v.x *= .8, v.y *= .8, void 0) : (clearInterval(b), void 0)
+                    }, 10))
+                }
+                var p = {}, f = 0, v = {}, b = null, h = !1, w = !1;
+                t && (e(window).bind(K("touchstart"), r), e(window).bind(K("touchend"), l), M.bind(K("touchstart"), s), M.bind(K("touchmove"), c), M.bind(K("touchend"), u)), o && (window.PointerEvent ? (e(window).bind(K("pointerdown"), r), e(window).bind(K("pointerup"), l), M.bind(K("pointerdown"), s), M.bind(K("pointermove"), c), M.bind(K("pointerup"), u)) : window.MSPointerEvent && (e(window).bind(K("MSPointerDown"), r), e(window).bind(K("MSPointerUp"), l), M.bind(K("MSPointerDown"), s), M.bind(K("MSPointerMove"), c), M.bind(K("MSPointerUp"), u)))
+            }
+            function y() {
+                M.bind(K("scroll"), function() {
+                    d()
+                })
+            }
+            function L() {
+                M.unbind(K()), e(window).unbind(K()), e(q).unbind(K()), M.data("perfect-scrollbar", null), M.data("perfect-scrollbar-update", null), M.data("perfect-scrollbar-destroy", null), U.remove(), J.remove(), H.remove(), G.remove(), M = H = G = U = J = X = O = E = D = C = Y = k = W = _ = N = Q = R = j = V = Z = $ = B = K = null
+            }
+            function S() {
+                d(), y(), p(), f(), w(), m(), b(), (ot || nt) && T(ot, nt), P.useKeyboard && h(), M.data("perfect-scrollbar", M), M.data("perfect-scrollbar-update", d), M.data("perfect-scrollbar-destroy", L)
+            }
+            var P = e.extend(!0, {}, o), M = e(this), x = function() {
+                return!!M
             };
-            return J(), a
+            if ("object" == typeof n ? e.extend(!0, P, n) : i = n, "update" === i)
+                return M.data("perfect-scrollbar-update") && M.data("perfect-scrollbar-update")(), M;
+            if ("destroy" === i)
+                return M.data("perfect-scrollbar-destroy") && M.data("perfect-scrollbar-destroy")(), M;
+            if (M.data("perfect-scrollbar"))
+                return M.data("perfect-scrollbar");
+            M.addClass("ps-container");
+            var E, D, C, Y, X, k, W, I, O, R, j, A, B = "rtl" === M.css("direction"), K = r(), q = this.ownerDocument || document, H = e("<div class='ps-scrollbar-x-rail'>").appendTo(M), U = e("<div class='ps-scrollbar-x'>").appendTo(H), _ = t(H.css("bottom")), N = _ === _, Q = N ? null : t(H.css("top")), z = t(H.css("borderLeftWidth")) + t(H.css("borderRightWidth")), F = t(H.css("marginLeft")) + t(H.css("marginRight")), G = e("<div class='ps-scrollbar-y-rail'>").appendTo(M), J = e("<div class='ps-scrollbar-y'>").appendTo(G), V = t(G.css("right")), Z = V === V, $ = Z ? null : t(G.css("left")), et = t(G.css("borderTopWidth")) + t(G.css("borderBottomWidth")), tt = t(G.css("marginTop")) + t(G.css("marginBottom")), ot = "ontouchstart"in window || window.DocumentTouch && document instanceof window.DocumentTouch, nt = null !== window.navigator.msMaxTouchPoints;
+            return S(), M
         })
     }
 });
 //</editor-fold>
 
-//<editor-fold defaultstate="collapsed" desc="Scroll Spy, current:checkviewport">
+//<editor-fold defaultstate="collapsed" desc="Scroll Spy, current:viewportChecker">
 
 /*
  Version 1.5.0
@@ -4749,55 +3829,65 @@ $(function() {
         var options = {
             classToAdd: 'visible',
             offset: 100,
-            repeat: false,
-            callbackFunction: function(elem, action) {
-            },
-            scrollHorizontal: false
+            repeat: false, fin: false,
+            checkElements: ''
         };
         $.extend(options, useroptions);
         // Cache the given element and height of the browser
-        var $elem = this,
-                windowSize = (!options.scrollHorizontal) ? $(window).height() : $(window).width(),
+        var $elem = this;
+        var windowSize = (!options.scrollHorizontal) ? $(window).height() : $(window).width(),
                 scrollElem = ((navigator.userAgent.toLowerCase().indexOf('webkit') != -1) ? 'body' : 'html');
-        this.checkElements = function() {
 
+        options.checkElements = function() {
+            var $obj = $($elem);
+// If class already exists; quit
+            if (options.find) {
+                $(window).unbind("load scroll touchmove", options.checkElements);
+                options.checkElements = this.checkElements = options = $elem = windowSize = scrollElem = null;
+                return;
+            }
             var viewportTop = $(scrollElem).scrollTop(),
                     viewportBottom = (viewportTop + windowSize);
 
-            $elem.each(function() {
-                var $obj = $(this);
-                // If class already exists; quit
-                if ($obj.hasClass(options.classToAdd) && !options.repeat) {
-                    return;
-                }
+            // $elem.each(function() {           
 
-                // define the top position of the element and include the offset which makes is appear earlier or later
-                var elemTop = (!options.scrollHorizontal) ? Math.round($obj.offset().top) + options.offset : Math.round($obj.offset().left) + options.offset,
-                        elemBottom = elemTop + ($obj.height());
-                // Add class if in viewport
-                if ((elemTop < viewportBottom) && (elemBottom > viewportTop)) {
-                    $obj.addClass(options.classToAdd);
-                    // Do the callback function. Callback wil send the jQuery object as parameter
-                    options.callbackFunction($obj, "add");
-                    // Remove class if not in viewport and repeat is true
-                } else if ($obj.hasClass(options.classToAdd) && (options.repeat)) {
-                    $obj.removeClass(options.classToAdd);
-                    // Do the callback function.
-                    options.callbackFunction($obj, "remove");
-                }
-            });
+
+
+            // define the top position of the element and include the offset which makes is appear earlier or later
+            var elemTop = (!options.scrollHorizontal) ? Math.round($obj.offset().top) + options.offset : Math.round($obj.offset().left) + options.offset,
+                    elemBottom = elemTop + ($obj.height());
+            // Add class if in viewport
+            if ((elemTop < viewportBottom) && (elemBottom > viewportTop)) {
+                $obj.addClass(options.classToAdd);
+                options.find = true;
+                setTimeout(function() {
+                    $obj.removeClass(options.classToAdd + ' oculto');
+                    $obj = null;
+                }, 1000);
+
+                // Do the callback function. Callback wil send the jQuery object as parameter
+                //options.callbackFunction($obj, "add");
+                // Remove class if not in viewport and repeat is true
+            }
+//            else if ($obj.hasClass(options.classToAdd) && (options.repeat)) {
+//                $obj.removeClass(options.classToAdd);
+//                // Do the callback function.
+//                //options.callbackFunction($obj, "remove");
+//            }
+            // });
         };
         // Run checkelements on load and scroll
-        $(window).bind("load scroll touchmove", this.checkElements);
+        $(window).bind("load scroll touchmove", options.checkElements);
         // On resize change the height var
         $(window).resize(function(e) {
             windowSize = (!options.scrollHorizontal) ? e.currentTarget.innerHeight : e.currentTarget.innerWidth;
         });
         // trigger inital check if elements already visible
-        this.checkElements();
+        options.checkElements();
         return this;
     };
 })(jQuery);
+
 (function($) {
     $.fn.slideCheck = function(useroptions) {
         // Define options and extend with user
@@ -4852,9 +3942,204 @@ $(function() {
         return this;
     };
 })(jQuery);
-//</editor-fold>
 
-//<editor-fold defaultstate="collapsed" desc="parallax skrollr">
+
+if (typeof jQuery === 'undefined') {
+    throw new Error('Bootstrap\'s JavaScript requires jQuery')
+}
++function($) {
+    var version = $.fn.jquery.split(' ')[0].split('.')
+    if ((version[0] < 2 && version[1] < 9) || (version[0] == 1 && version[1] == 9 && version[2] < 1)) {
+        throw new Error('Bootstrap\'s JavaScript requires jQuery version 1.9.1 or higher')
+    }
+}(jQuery);
+
+/* ========================================================================
+ * Bootstrap: scrollspy.js v3.3.1
+ * http://getbootstrap.com/javascript/#scrollspy
+ * ========================================================================
+ * Copyright 2011-2014 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * ======================================================================== */
+
+
++function($) {
+    'use strict';
+
+    // SCROLLSPY CLASS DEFINITION
+    // ==========================
+
+    function ScrollSpy(element, options) {
+        var process = $.proxy(this.process, this)
+
+        this.$body = $('body')
+        this.$scrollElement = $(element).is('body') ? $(window) : $(element)
+        this.options = $.extend({}, ScrollSpy.DEFAULTS, options)
+        this.selector = (this.options.target || '') + ' li > a'
+        this.offsets = []
+        this.targets = []
+        this.activeTarget = null
+        this.scrollHeight = 0
+
+        this.$scrollElement.on('scroll.bs.scrollspy', process)
+        this.refresh()
+        this.process()
+    }
+
+    ScrollSpy.VERSION = '3.3.1'
+
+    ScrollSpy.DEFAULTS = {
+        offset: 10
+    }
+
+    ScrollSpy.prototype.getScrollHeight = function() {
+        return this.$scrollElement[0].scrollHeight || Math.max(this.$body[0].scrollHeight, document.documentElement.scrollHeight)
+    }
+
+    ScrollSpy.prototype.refresh = function() {
+        var offsetMethod = 'offset'
+        var offsetBase = 0
+
+        if (!$.isWindow(this.$scrollElement[0])) {
+            offsetMethod = 'position'
+            offsetBase = this.$scrollElement.scrollTop()
+        }
+
+        this.offsets = []
+        this.targets = []
+        this.scrollHeight = this.getScrollHeight()
+
+        var self = this
+
+        this.$body
+                .find(this.selector)
+                .map(function() {
+                    var $el = $(this)
+                    var href = $el.data('target') || $el.attr('href')
+                    var $href = /^#./.test(href) && $(href)
+
+                    return ($href
+                            && $href.length
+                            && $href.is(':visible')
+                            && [[$href[offsetMethod]().top + offsetBase, href]]) || null
+                })
+                .sort(function(a, b) {
+                    return a[0] - b[0]
+                })
+                .each(function() {
+                    self.offsets.push(this[0])
+                    self.targets.push(this[1])
+                })
+    }
+
+    ScrollSpy.prototype.process = function() {
+        var scrollTop = this.$scrollElement.scrollTop() + this.options.offset
+        var scrollHeight = this.getScrollHeight()
+        var maxScroll = this.options.offset + scrollHeight - this.$scrollElement.height()
+        var offsets = this.offsets
+        var targets = this.targets
+        var activeTarget = this.activeTarget
+        var i
+
+        if (this.scrollHeight != scrollHeight) {
+            this.refresh()
+        }
+
+        if (scrollTop >= maxScroll) {
+            return activeTarget != (i = targets[targets.length - 1]) && this.activate(i)
+        }
+
+        if (activeTarget && scrollTop < offsets[0]) {
+            this.activeTarget = null
+            return this.clear()
+        }
+
+        for (i = offsets.length; i--; ) {
+            activeTarget != targets[i]
+                    && scrollTop >= offsets[i]
+                    && (!offsets[i + 1] || scrollTop <= offsets[i + 1])
+                    && this.activate(targets[i])
+        }
+    }
+
+    ScrollSpy.prototype.activate = function(target) {
+        this.activeTarget = target
+
+        this.clear()
+
+        var selector = this.selector +
+                '[data-target="' + target + '"],' +
+                this.selector + '[href="' + target + '"]'
+
+        var active = $(selector)
+                .parents('li')
+                .addClass('current')
+
+        if (active.parent('.dropdown-menu').length) {
+            active = active
+                    .closest('li.dropdown')
+                    .addClass('current')
+        }
+
+        active.trigger('activate.bs.scrollspy')
+    }
+
+    ScrollSpy.prototype.clear = function() {
+        $(this.selector)
+                .parentsUntil(this.options.target, '.current')
+                .removeClass('current')
+    }
+
+
+    // SCROLLSPY PLUGIN DEFINITION
+    // ===========================
+
+    function Plugin(option) {
+        return this.each(function() {
+            var $this = $(this)
+            var data = $this.data('bs.scrollspy')
+            var options = typeof option == 'object' && option
+
+            if (!data)
+                $this.data('bs.scrollspy', (data = new ScrollSpy(this, options)))
+            if (typeof option == 'string')
+                data[option]()
+        })
+    }
+
+    var old = $.fn.scrollspy
+
+    $.fn.scrollspy = Plugin
+    $.fn.scrollspy.Constructor = ScrollSpy
+
+
+    // SCROLLSPY NO CONFLICT
+    // =====================
+
+    $.fn.scrollspy.noConflict = function() {
+        $.fn.scrollspy = old
+        return this
+    }
+
+
+    // SCROLLSPY DATA-API
+    // ==================
+
+    $(window).on('load.bs.scrollspy.data-api', function() {
+        $('[data-spy="scroll"]').each(function() {
+            var $spy = $(this)
+            Plugin.call($spy, $spy.data())
+        })
+    })
+
+}(jQuery);
+
+
+/*function setScrollSpy(){var b=[{elements:$$("#filmBollo1, #filmBollo2,\t#firstBollo1, #firstBollo2, #firstBollo3, #secondBollo1, #secondBollo2,\t#thirdBollo1, #thirdBollo2, #wallpaperBollonzo,\t#newsBolloAnna, #newsBolloFb, #newsBolloTw, #newsBolloStatusMini, #newsBolloStatusLittle, #newsBolloStatus, #footerBollonzo, section > header > p"),initProps:{transform:["scale(0)"]},endProps:{transform:["scale(1)"]},animation:{duration:300,transition:Fx.Transitions.Back.easeOut}},{elements:$("wallpaperiMac"),
+ initProps:{"background-position":"-507px 0",opacity:0},endProps:"auto",animation:{duration:600,transition:Fx.Transitions.Quint.easeOut}},{elements:$$("#wallpaperiPad, #wallpaperiPhone"),initProps:{"background-position":"0 244px",opacity:0},endProps:"auto",animation:{duration:600,transition:Fx.Transitions.Quint.easeOut}},{elements:$$("section > header > hr, section > header > p > span"),initProps:{opacity:0},endProps:"auto"},{elements:$$("section > header > h2 > span, section > header > h3 > span"),
+ initProps:{"margin-top":-44},endProps:"auto"},{elements:$$("#biografia > section > section > header, #biografia > section > section > hr, #biografia > section > section > article, #biografia > header > h4, #biografia > header > h5"),initProps:{opacity:0},endProps:"auto"},{elements:$$("#filmografia > section > section > *"),initProps:{opacity:0},endProps:"auto"},{elements:$$("#immagini > nav > a"),initProps:{opacity:0,"margin-top":-200},endProps:"auto"},{elements:$("tendinaFooterSx"),initProps:{left:0},
+ endProps:{left:-763}},{elements:$("tendinaFooterDx"),initProps:{left:763},endProps:{left:1526}}];(new ScrollSpyIt({offset:150,delay:300,config:b})).initScrollSpy()}*/
+
 //</editor-fold>
 
 $(window).load(function() {
@@ -4866,7 +4151,7 @@ $(window).load(function() {
         }, 3000, 'easeInOutBack');
     }
 //featured isotope
-    var $container3 = jQuery('div.isofeatured'), $colnum;
+    var $container3 = jQuery('div.isofeatured');
     $container3.isotope({
         // options
         itemSelector: '.isobrick',
@@ -4874,8 +4159,10 @@ $(window).load(function() {
             columnWidth: 5, isFitWidth: true
         }
     });
+    $container3 = null;
 
     jQuery(window).resize(function() {
+        var $container3 = jQuery('div.isofeatured');
         $container3.isotope({
             // options
             itemSelector: '.isobrick',
@@ -4885,28 +4172,26 @@ $(window).load(function() {
         });
 
         $('.va-container').css({width: $($('.one_col.half .featuredinner')[0]).width(), height: $('.va-container').height()});
-
-    });
-    $(function() {
-        $('.va-container').vaccordion({
-            expandedHeight: 270,
-            //animSpeed: 400,
-            animOpacity: 0.7,
-            visibleSlices: 4,
-            accordionW: $('.va-container').outerWidth(),
-            accordionH: $('.va-container').outerHeight(),
-        });
-        /* destroyCrappyPlugin($('.va-container'),'vaccordion');
-         destroyCrappyPlugin($('.va-container'),'clic.vaccordion');
-         destroyCrappyPlugin($('.va-container'),'mousewheel.vaccordion');
-         */
+        $container3 = null;
     });
 
-    $(function() {
-        Boxgrid.init();
+    $('.va-container').vaccordion({
+        expandedHeight: 270,
+        //animSpeed: 400,
+        animOpacity: 0.7,
+        visibleSlices: 4,
+        accordionW: $('.va-container').outerWidth(),
+        accordionH: $('.va-container').outerHeight(),
     });
+    /* destroyCrappyPlugin($('.va-container'),'vaccordion');
+     destroyCrappyPlugin($('.va-container'),'clic.vaccordion');
+     destroyCrappyPlugin($('.va-container'),'mousewheel.vaccordion');
+     */
+
+    Boxgrid.init();
 
     $('.has-full-view').each(function() {
+
         var $overlay = $($(this).attr('href'));
         var $window = $(window);
         var w = $window.width(), h = $window.height();
@@ -4942,29 +4227,26 @@ $(window).load(function() {
     });
     //container2 featuredcontainer clearfix 
     //noticies add pagination
-    $(".noticiesWrap").parent().parent().parent().find(".taglib-page-iterator").css({"margin-top":"30px"}).appendTo(".noticiesWrap .container2.featuredcontainer.clearfix");
+    $(".noticiesWrap").parent().parent().parent().find(".taglib-page-iterator").css({"margin-top": "30px"}).appendTo(".noticiesWrap .container2.featuredcontainer.clearfix");
 
     ///*
-    if (!isMobileBrowser()) {
+    if (!isMobileBrowser() && false) {
         //animated on scroll
-        $('.isobrick2 img').addClass("oculto").viewportChecker({
-            classToAdd: 'visible scale', // Class to add to the elements when they are visible
-            offset: 100, // The offset of the elements (let them appear earlier or later)
-            repeat: false, // Add the possibility to remove the class if the elements are not visible
-            callbackFunction: function(elem, action) {
-                //$(window).unbind("load scroll touchmove", elem);
-            }, // Callback to do after a class was added to an element. Action will return "add" or "remove", depending if the class was added or removed
-            scrollHorizontal: false // Set to true if your website scrolls horizontal instead of vertical.        
+
+        $('.isobrick2 img').each(function() {
+            $(this).addClass("oculto").viewportChecker({
+                classToAdd: 'visible scale',
+                offset: 100,
+                repeat: false
+            });
         });
+
         //animate noticies
         $('.noticiesWrap').each(function() {
             $(this).addClass("oculto").viewportChecker({
-                classToAdd: 'visible animated fadeInUp', // Class to add to the elements when they are visible
-                offset: 300, // The offset of the elements (let them appear earlier or later)
-                repeat: false, // Add the possibility to remove the class if the elements are not visible
-                callbackFunction: function(elem, action) {
-                }, // Callback to do after a class was added to an element. Action will return "add" or "remove", depending if the class was added or removed
-                scrollHorizontal: false // Set to true if your website scrolls horizontal instead of vertical.
+                classToAdd: 'visible animated fadeInUp',
+                offset: 300,
+                repeat: false
             });
         });
         //
@@ -4985,8 +4267,7 @@ $(window).load(function() {
             $('#radiox').remove();
         }
         //slides check
-        $('.slide').addClass("u").slideCheck({
-        });
+        // $('.slide').addClass("u").slideCheck({});
         /*                                                             
          $('.homeslider.on').each(function() {
          var $this = jQuery(this);
@@ -5004,7 +4285,7 @@ $(window).load(function() {
 
 });
 $(document).ready(function() {
-    if (debug && false) {
+    if (debug || true) {
         //mm-menu
         $('#mm-nav-content').appendTo('#dcmmenu');
         $("#dcmmenu").mmenu({
@@ -5026,80 +4307,50 @@ $(document).ready(function() {
                 }
             });
         });
-        //*/
-        /*   $("#topBar").load($("#topBar").data("load"), function() {            
-         alert("xxx");
-         //mm-menu
-         $('#mm-nav-content').appendTo('#dcmmenu');
-         $("#dcmmenu").mmenu({
-         classes: "mm-slide"
-         });
-         innerNavigate();           
-         });*/
+
     }
 
 
-//liferay-user-login/admin
-    $('#userlaunch').click(function(e) {
-        var dockbar = $('#dcmdockbar');
-        if (dockbar.css('display') === 'none') {
-            dockbar.css('display', 'block');
-            dockbar.addClass('animated fadeIn');
-        } else {
-            dockbar.addClass('fadeOut');
-            dockbar.removeClass('animated fadeIn fadeOut');
-            dockbar.css('display', 'none');
-        }
-        e.preventDefault();
-    });
-
+//liferay-user-login/admin    
 
 });
-/* #Radial menu
- ================================================== */
-//<editor-fold defaultstate="collapsed" desc="radial menu">
-
-//</editor-fold>
-
 
 /* #innerNavigate
  ================================================== */
 //<editor-fold defaultstate="collapsed" desc="innerNavigate">
+//Create a function that will be passed a slide number and then will scroll to that slide using jquerys animate. The Jquery
+//easing plugin is also used, so we passed in the easing method of 'easeInOutQuint' which is available throught the plugin.
+function goToByScroll(dataslide) {
+    //alert(dataslide);
+    var htmlbody = $('html,body');
+    var q = $('.slide[data-slide="' + dataslide + '"]').offset().top;
+    htmlbody.animate({
+        scrollTop: q
+    }, 2500, 'easeInOutBack');
+    q = htmlbody = null;
+}
 function innerNavigate() {
 //  /*
-    //var links = $('#navigation').find('li a');
-    var links = $('a.toSlide');
-    slide = $('.slide');
-    button = $('.scrollbut');
-    //mywindow = $('#wrapperscroll');
-    mywindow = $(window);
-    htmlbody = $('html,body');
-    dataslide = 1;
+    var links = $('a.toSlide'),
+            button = $('.scrollbut');
 
-    //Create a function that will be passed a slide number and then will scroll to that slide using jquerys animate. The Jquery
-    //easing plugin is also used, so we passed in the easing method of 'easeInOutQuint' which is available throught the plugin.
-    function goToByScroll(dataslide) {
-        //alert(dataslide);
-        var q = $('.slide[data-slide="' + dataslide + '"]').offset().top;
-        htmlbody.animate({
-            scrollTop: q
-        }, 2500, 'easeInOutBack');
-    }
     //When the user clicks on the navigation links, get the data-slide attribute value of the link and pass that variable to the goToByScroll function
     links.click(function(e) {
         e.preventDefault();
-        jQuery('#dcmmenu').trigger('close.mm');
-        //alert($(this).attr('data-slide'));        
-        dataslide = $(this).attr('data-slide'); //alert(dataslide);
+        $('#dcmmenu').trigger('close.mm');
+        var dataslide = $(this).attr('data-slide'); //alert(dataslide);
         goToByScroll(dataslide);
         return false;
     });
+    links = null;
     //When the user clicks on the button, get the get the data-slide attribute value of the button and pass that variable to the goToByScroll function
     button.click(function(e) {
         e.preventDefault();
-        dataslide = $(this).attr('data-slide');
+        var dataslide = $(this).attr('data-slide');
         goToByScroll(dataslide);
+        dataslide = null;
     });
+    button = null;
     //  TweenMax.to($("#navBar"), 1.5, {delay: 0.2, scaleX: "-=0.02", scaleY: "-=0.02", repeat: -1, yoyo: true, ease: Linear.easeNone});
     //  TweenMax.to($(".one_col"), 1.5, {delay: 0.2, scaleX: "-=0.02", scaleY: "-=0.02", repeat: -1, yoyo: true, ease: Linear.easeNone});                                                                                                                                
     //  var scene = document.getElementById('scene');
@@ -5109,31 +4360,34 @@ function innerNavigate() {
 
 
 
-
-
 ///////////////////////////////
 // Parallax
 ///////////////////////////////
 $(window).scroll(function() {
+    ///*
     var y_scroll_pos = window.pageYOffset;
     var scroll_pos_test = 50;
     if (y_scroll_pos > scroll_pos_test) {
         jQuery('.top').fadeIn(1000);
-//        jQuery('.iphone').children('.top').css('display', 'none !important');
+        //        jQuery('.iphone').children('.top').css('display', 'none !important');
     } else {
         jQuery('.top').fadeOut(500);
     }
+    y_scroll_pos = scroll_pos_test = null;
     //headerPosition();
+    //*/
 
-//parrallax
-    ///*
-     scrollPos = jQuery(this).scrollTop();
+
+    //parrallax
+    /*
+     var scrollPos = $(this).scrollTop();
      
-     var x = jQuery('#slide4 .img-cover');
+     var elemx = $('#slide4 .img-cover');
      //Scroll the background of the banner
-     x.css({
-     'background-position': 'center ' + ((scrollPos - x.offset().top) / 3) + "px"
+     elemx.css({
+     'background-position': 'center ' + ((scrollPos - elemx.offset().top) / 3) + "px"
      });
+     scrollPos = elemx = null;
      
      // */
 });
@@ -5151,42 +4405,8 @@ function hover_overlay() {
         });
     });
 }
-hover_overlay();
-function hover_overlay_recent() {
-    jQuery('.relatedposts h2, .relatedposts a.one_col .featuredoverlay, .relatedposts .bubblewrap').each(function() {
-        jQuery(this).hover(function() {
-            var $this = jQuery(this).parent().children().next('.featuredoverlay');
-            jQuery($this).stop().animate({opacity: 0.1}, 250, 'easeOutCubic');
-        }, function() {
-            var $this = jQuery(this).parent().children().next('.featuredoverlay');
-            jQuery($this).stop().animate({opacity: 1}, 250, 'easeOutCubic');
-        });
-    });
-}
-hover_overlay_recent();
-function hover_overlay_article() {
-    jQuery('a.thumblink, a.rating').each(function() {
-        jQuery(this).hover(function() {
-            $selector = jQuery(this).parent().children('a.thumblink').children('img');
-            $selector.stop().animate({opacity: .1}, 250, 'easeOutCubic');
-        }, function() {
-            $selector.stop().animate({opacity: 1}, 250, 'easeOutCubic');
-        });
-    });
-}
+//hover_overlay();
 
-hover_overlay();
-function headerPosition() {
-    if ($(window).scrollTop() > $('#topBar').height()) {
-        $("#topBar").removeClass('bg-lightBlue bg-blue')
-                .addClass("fixed-top bg-lightBlue")
-                .addClass(" shadow");
-    } else {
-        $("#topBar").removeClass('bg-lightBlue bg-blue')
-                .addClass("fixed-top bg-blue")
-                .addClass(" shadow");
-    }
-}
 function isMobileBrowser() {
     return false || debug;
 }

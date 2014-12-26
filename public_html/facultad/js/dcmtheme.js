@@ -1,4 +1,4 @@
-var debug = true;
+var debug = false;
 //<editor-fold defaultstate="collapsed" desc="modernizer">
 /* Modernizr 2.6.2 (Custom Build) | MIT & BSD
  * Build: http://modernizr.com/download/#-csstransitions-shiv-cssclasses-prefixed-testprop-testallprops-domprefixes-load
@@ -3345,484 +3345,6 @@ var CarrerasFull = (function() {
 CarrerasFull.init();
 //</editor-fold>
 
-//<editor-fold defaultstate="collapsed" desc="grid facultades">
-
-// ======================= imagesLoaded Plugin ===============================
-// https://github.com/desandro/imagesloaded
-
-// $('#my-container').imagesLoaded(myFunction)
-// execute a callback when all images have loaded.
-// needed because .load() doesn't work on cached images
-
-// callback function gets image collection as argument
-//  this is the container
-
-// original: MIT license. Paul Irish. 2010.
-// contributors: Oren Solomianik, David DeSandro, Yiannis Chatzikonstantinou
-
-// blank image data-uri bypasses webkit log warning (thx doug jones)
-var BLANK = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==';
-$.fn.imagesLoaded = function(callback) {
-    var $this = this,
-            deferred = $.isFunction($.Deferred) ? $.Deferred() : 0,
-            hasNotify = $.isFunction(deferred.notify),
-            $images = $this.find('img').add($this.filter('img')),
-            loaded = [],
-            proper = [],
-            broken = [];
-    // Register deferred callbacks
-    if ($.isPlainObject(callback)) {
-        $.each(callback, function(key, value) {
-            if (key === 'callback') {
-                callback = value;
-            } else if (deferred) {
-                deferred[key](value);
-            }
-        });
-    }
-
-    function doneLoading() {
-        var $proper = $(proper),
-                $broken = $(broken);
-        if (deferred) {
-            if (broken.length) {
-                deferred.reject($images, $proper, $broken);
-            } else {
-                deferred.resolve($images);
-            }
-        }
-
-        if ($.isFunction(callback)) {
-            callback.call($this, $images, $proper, $broken);
-        }
-    }
-
-    function imgLoaded(img, isBroken) {
-        // don't proceed if BLANK image, or image is already loaded
-        if (img.src === BLANK || $.inArray(img, loaded) !== -1) {
-            return;
-        }
-
-        // store element in loaded images array
-        loaded.push(img);
-        // keep track of broken and properly loaded images
-        if (isBroken) {
-            broken.push(img);
-        } else {
-            proper.push(img);
-        }
-
-        // cache image and its state for future calls
-        $.data(img, 'imagesLoaded', {isBroken: isBroken, src: img.src});
-        // trigger deferred progress method if present
-        if (hasNotify) {
-            deferred.notifyWith($(img), [isBroken, $images, $(proper), $(broken)]);
-        }
-
-        // call doneLoading and clean listeners if all images are loaded
-        if ($images.length === loaded.length) {
-            setTimeout(doneLoading);
-            $images.unbind('.imagesLoaded');
-        }
-    }
-
-    // if no images, trigger immediately
-    if (!$images.length) {
-        doneLoading();
-    } else {
-        $images.bind('load.imagesLoaded error.imagesLoaded', function(event) {
-            // trigger imgLoaded
-            imgLoaded(event.target, event.type === 'error');
-        }).each(function(i, el) {
-            var src = el.src;
-            // find out if this image has been already checked for status
-            // if it was, and src has not changed, call imgLoaded on it
-            var cached = $.data(el, 'imagesLoaded');
-            if (cached && cached.src === src) {
-                imgLoaded(el, cached.isBroken);
-                return;
-            }
-
-            // if complete is true and browser supports natural sizes, try
-            // to check for image status manually
-            if (el.complete && el.naturalWidth !== undefined) {
-                imgLoaded(el, el.naturalWidth === 0 || el.naturalHeight === 0);
-                return;
-            }
-
-            // cached images don't fire load sometimes, so we reset src, but only when
-            // dealing with IE, or image is complete (loaded) and failed manual check
-            // webkit hack from http://groups.google.com/group/jquery-dev/browse_thread/thread/eee6ab7b2da50e1f
-            if (el.readyState || el.complete) {
-                el.src = BLANK;
-                el.src = src;
-            }
-        });
-    }
-
-    return deferred ? deferred.promise($this) : $this;
-};
-
-var CarrerasGrid = (function() {
-    //var $grid;
-    // list of items
-    $('.og-grid.carreraWrap').each(function() {
-        var $grid = $(this);
-        // the items
-        var $items = $grid.children('li'),
-                // current expanded item's index
-                current = -1,
-                // position (top) of the expanded item
-                // used to know if the preview will expand in a different row
-                previewPos = -1,
-                // extra amount of pixels to scroll the window
-                scrollExtra = 0,
-                // extra margin when expanded (between preview overlay and the next items)
-                marginExpanded = 10,
-                $window = $(window), winsize,
-                $body = $('html, body'),
-                // transitionend events
-                transEndEventNames = {
-                    'WebkitTransition': 'webkitTransitionEnd',
-                    'MozTransition': 'transitionend',
-                    'OTransition': 'oTransitionEnd',
-                    'msTransition': 'MSTransitionEnd',
-                    'transition': 'transitionend'
-                },
-        transEndEventName = transEndEventNames[ Modernizr.prefixed('transition') ],
-                // support for csstransitions
-                support = Modernizr.csstransitions,
-                // default settings
-                settings = {
-                    minHeight: 500,
-                    speed: 350,
-                    easing: 'ease'
-                };
-        function init(config) {
-            //$grid = gu;
-            // the settings..
-            settings = $.extend(true, {}, settings, config);
-            // preload all images
-            $grid.imagesLoaded(function() {
-
-                // save itemÂ´s size and offset
-                saveItemInfo(true);
-                // get windowÂ´s size
-                getWinSize();
-                // initialize some events
-                initEvents();
-            });
-        }
-
-        // add more items to the grid.
-        // the new items need to appended to the grid.
-        // after that call Grid.addItems(theItems);
-        function addItems($newitems) {
-
-            $items = $items.add($newitems);
-            $newitems.each(function() {
-                var $item = $(this);
-                $item.data({
-                    offsetTop: $item.offset().top,
-                    height: $item.height()
-                });
-            });
-            initItemsEvents($newitems);
-        }
-
-        // saves the itemÂ´s offset top and height (if saveheight is true)
-        function saveItemInfo(saveheight) {
-            $items.each(function() {
-                var $item = $(this);
-                $item.data('offsetTop', $item.offset().top);
-                if (saveheight) {
-                    $item.data('height', $item.height());
-                }
-            });
-        }
-
-        function initEvents() {
-
-            // when clicking an item, show the preview with the itemÂ´s info and large image.
-            // close the item if already expanded.
-            // also close if clicking on the itemÂ´s cross
-            initItemsEvents($items);
-            // on window resize get the windowÂ´s size again
-            // reset some values..
-            $window.on('debouncedresize', function() {
-
-                scrollExtra = 0;
-                previewPos = -1;
-                // save itemÂ´s offset
-                saveItemInfo();
-                getWinSize();
-                var preview = $.data(this, 'preview');
-                if (typeof preview != 'undefined') {
-                    hidePreview();
-                }
-
-            });
-        }
-
-        function initItemsEvents($items) {
-            $items.on('click', 'span.og-close', function() {
-                hidePreview();
-                return false;
-            }).find('.carrera').on('click', function(e) {
-
-                var $item = $(this).parent();
-                // check if item already opened
-                current === $item.index() ? hidePreview() : showPreview($item);
-                return false;
-            });
-        }
-
-        function getWinSize() {
-            winsize = {width: $window.width(), height: $window.height()};
-        }
-
-        function showPreview($item) {
-
-            var preview = $.data(this, 'preview'),
-                    // itemÂ´s offset top
-                    position = $item.data('offsetTop');
-            scrollExtra = 0;
-            // if a preview exists and previewPos is different (different row) from itemÂ´s top then close it
-            if (typeof preview != 'undefined') {
-
-                // not in the same row
-                if (previewPos !== position) {
-                    // if position > previewPos then we need to take te current previewÂ´s height in consideration when scrolling the window
-                    if (position > previewPos) {
-                        scrollExtra = preview.height;
-                    }
-                    hidePreview();
-                }
-                // same row
-                else {
-                    preview.update($item);
-                    return false;
-                }
-
-            }
-
-            // update previewPos
-            previewPos = position;
-            // initialize new preview for the clicked item
-            preview = $.data(this, 'preview', new Preview($item));
-            // expand preview overlay
-            preview.open();
-        }
-
-        function hidePreview() {
-            current = -1;
-            var preview = $.data(this, 'preview');
-            preview.close();
-            $.removeData(this, 'preview');
-        }
-
-        // the preview obj / overlay
-        function Preview($item) {
-            this.$item = $item;
-            this.expandedIdx = this.$item.index();
-            this.create();
-            this.update();
-        }
-
-        Preview.prototype = {
-            create: function() {
-                // create Preview structure:
-                //this.$title = $('<h3></h3>');
-                this.$description = $('<div></div>');
-                //this.$href = $('<a href="#">Ir a Facultad</a>');
-                this.$details = $('<div class="og-details"></div>');//.append(this.$description);
-                this.$loading = $('<div class="og-loading"></div>');
-                //this.$fullimage = $('<div class="og-fullimg"></div>').append(this.$loading);
-                this.$closePreview = $('<span class="og-close"></span>');
-                this.$previewInner = $('<div class="og-expander-inner"></div>').append(this.$closePreview, this.$details);
-                this.$previewEl = $('<div class="og-expander"></div>').append(this.$previewInner);
-                // append preview element to the item
-                this.$item.append(this.getEl());
-                // set the transitions for the preview and the item
-                if (support) {
-                    this.setTransition();
-                }
-            },
-            update: function($item) {
-
-                if ($item) {
-                    this.$item = $item;
-                }
-
-                // if already expanded remove class "og-expanded" from current item and add it to new item
-                if (current !== -1) {
-                    var $currentItem = $items.eq(current);
-                    $currentItem.removeClass('og-expanded');
-                    this.$item.addClass('og-expanded');
-                    // position the preview correctly
-                    this.positionPreview();
-                }
-
-                // update current value
-                current = this.$item.index();
-                // update previewÂ´s content
-                var eldata = {
-                    description: this.$item.find('.detailx').html()
-                };
-                this.$details.html(eldata.description);
-
-                this.$details.find('.doc').each(function() {
-                    var doc = $(this);
-                    $(doc.find('.hintx')).on('click', function() {
-                        window.open(doc.data("iview"), '_blank');
-                    });
-                    $(doc.find('.download')).on('click', function() {
-                        window.open(doc.data("idown"), '_blank');
-                    });
-                });
-
-                $.Metro.initPanels($(this.$details));
-                //alert($(this.$details));
-
-
-
-                /* var self = this;
-                 // remove the current image in the preview
-                 if (typeof self.$largeImg != 'undefined') {
-                 self.$largeImg.remove();
-                 }
-                 
-                 // preload large image and add it to the preview
-                 // for smaller screens we donÂ´t display the large image (the media query will hide the fullimage wrapper)
-                 if (self.$fullimage.is(':visible')) {
-                 this.$loading.show();
-                 $('<img/>').load(function() {
-                 var $img = $(this);
-                 if ($img.attr('src') === self.$item.children('a').data('largesrc')) {
-                 self.$loading.hide();
-                 self.$fullimage.find('img').remove();
-                 self.$largeImg = $img.fadeIn(350);
-                 self.$fullimage.append(self.$largeImg);
-                 }
-                 }).attr('src', eldata.largesrc);
-                 }*/
-
-            },
-            open: function() {
-
-                setTimeout($.proxy(function() {
-                    // set the height for the preview and the item
-                    this.setHeights();
-                    // scroll to position the preview in the right place
-                    this.positionPreview();
-
-
-                    this.$details.find('.doc').each(function() {
-                        var doc = $(this);
-                        $(doc.find('.hintx')).on('click', function() {
-                            window.open(doc.data("iview"), '_blank');
-                        });
-                        $(doc.find('.download')).on('click', function() {
-                            window.open(doc.data("idown"), '_blank');
-                        });
-                    });
-                    //$(this.$details).remove();
-                    $.Metro.initPanels($(this.$details));
-                    //alert($(this.$details));
-                }, this), 25);
-            },
-            close: function() {
-
-                var self = this,
-                        onEndFn = function() {
-                            if (support) {
-                                $(this).off(transEndEventName);
-                            }
-                            self.$item.removeClass('og-expanded');
-                            self.$previewEl.remove();
-                        };
-                setTimeout($.proxy(function() {
-
-                    if (typeof this.$largeImg !== 'undefined') {
-                        this.$largeImg.fadeOut('fast');
-                    }
-                    this.$previewEl.css('height', 0);
-                    // the current expanded item (might be different from this.$item)
-                    var $expandedItem = $items.eq(this.expandedIdx);
-                    $expandedItem.css('height', $expandedItem.data('height')).on(transEndEventName, onEndFn);
-                    if (!support) {
-                        onEndFn.call();
-                    }
-
-                }, this), 25);
-                return false;
-            },
-            calcHeight: function() {
-
-                var heightPreview = winsize.height - this.$item.data('height') - marginExpanded;
-                var itemHeight2 = winsize.height;
-                if (heightPreview < settings.minHeight) {
-                    heightPreview = settings.minHeight;
-                    itemHeight2 = settings.minHeight + this.$item.data('height') + marginExpanded;
-                }
-                this.height = heightPreview;
-                this.itemHeight = itemHeight2;
-            },
-            setHeights: function() {
-
-                var self = this,
-                        onEndFn = function() {
-                            if (support) {
-                                self.$item.off(transEndEventName);
-                            }
-                            self.$item.addClass('og-expanded');
-
-                            //scroll bars
-                            $(self.$item.find('.og-details .og-details-full')).perfectScrollbar();
-
-                        };
-                this.calcHeight();
-                this.$previewEl.css('height', this.height);
-                this.$item.css('height', this.itemHeight).on(transEndEventName, onEndFn);
-                if (!support) {
-                    onEndFn.call();
-                }
-
-            },
-            positionPreview: function() {
-
-                // scroll page
-                // case 1 : preview height + item height fits in windowÂ´s height
-                // case 2 : preview height + item height does not fit in windowÂ´s height and preview height is smaller than windowÂ´s height
-                // case 3 : preview height + item height does not fit in windowÂ´s height and preview height is bigger than windowÂ´s height
-                var position = this.$item.data('offsetTop'),
-                        previewOffsetT = this.$previewEl.offset().top - scrollExtra,
-                        scrollVal = this.height + this.$item.data('height') + marginExpanded <= winsize.height ? position : this.height < winsize.height ? previewOffsetT - (winsize.height - this.height) : previewOffsetT;
-                $body.animate({scrollTop: previewOffsetT - 120}, settings.speed);
-
-
-            },
-            setTransition: function() {
-                this.$previewEl.css('transition', 'height ' + settings.speed + 'ms ' + settings.easing);
-                this.$item.css('transition', 'height ' + settings.speed + 'ms ' + settings.easing);
-            },
-            getEl: function() {
-                return this.$previewEl;
-            }
-        }
-
-        // init();
-    });
-
-    /* return {
-     init: init,
-     addItems: addItems
-     };*/
-
-
-})();
-//</editor-fold>
-
 //<editor-fold defaultstate="collapsed" desc="parallax tom clancy">
 
 /* PARALLAX */
@@ -3967,8 +3489,7 @@ function addTouchEvents(element) {
     }
 }
 
-function touch2Mouse(e)
-{
+function touch2Mouse(e){
     var theTouch = e.changedTouches[0];
     var mouseEv;
 
@@ -4753,7 +4274,7 @@ $(window).resize(function() {
     };
     $.Metro.initAll = function(area) {
         $.Metro.initTabs(area);
-        $.Metro.initHints(area);
+        //$.Metro.initHints(area);
         $.Metro.initPanels(area);
         $.Metro.initCarousels(area);
         $.Metro.initPulls(area);
@@ -5007,17 +4528,21 @@ $(function() {
             repeat: false, fin: false,
             callbackFunction: function(elem, action) {
             },
-            scrollHorizontal: false
+            scrollHorizontal: false, checkElements: ''
         };
         $.extend(options, useroptions);
         // Cache the given element and height of the browser
         var $elem = this;
         var windowSize = (!options.scrollHorizontal) ? $(window).height() : $(window).width(),
                 scrollElem = ((navigator.userAgent.toLowerCase().indexOf('webkit') != -1) ? 'body' : 'html');
-        this.checkElements = function() {
+        
+        options.checkElements = function() {
             var $obj = $($elem);
+            //alert('x');
 // If class already exists; quit
             if (options.find) {
+                $(window).unbind("load scroll touchmove", options.checkElements);
+                this.checkElements = null;
                 return;
             }
             var viewportTop = $(scrollElem).scrollTop(),
@@ -5036,25 +4561,28 @@ $(function() {
                 options.find = true;
                 setTimeout(function() {
                     $obj.removeClass(options.classToAdd + ' oculto');
+                    $obj = null;
                 }, 1000);
+
                 // Do the callback function. Callback wil send the jQuery object as parameter
                 //options.callbackFunction($obj, "add");
                 // Remove class if not in viewport and repeat is true
-            } else if ($obj.hasClass(options.classToAdd) && (options.repeat)) {
-                $obj.removeClass(options.classToAdd);
-                // Do the callback function.
-                //options.callbackFunction($obj, "remove");
             }
+//            else if ($obj.hasClass(options.classToAdd) && (options.repeat)) {
+//                $obj.removeClass(options.classToAdd);
+//                // Do the callback function.
+//                //options.callbackFunction($obj, "remove");
+//            }
             // });
         };
         // Run checkelements on load and scroll
-        $(window).bind("load scroll touchmove", this.checkElements);
+        $(window).bind("load scroll touchmove", options.checkElements);
         // On resize change the height var
         $(window).resize(function(e) {
             windowSize = (!options.scrollHorizontal) ? e.currentTarget.innerHeight : e.currentTarget.innerWidth;
         });
         // trigger inital check if elements already visible
-        this.checkElements();
+        options.checkElements();
         return this;
     };
 })(jQuery);
@@ -5113,6 +4641,7 @@ $(function() {
         return this;
     };
 })(jQuery);
+
 /*function setScrollSpy(){var b=[{elements:$$("#filmBollo1, #filmBollo2,\t#firstBollo1, #firstBollo2, #firstBollo3, #secondBollo1, #secondBollo2,\t#thirdBollo1, #thirdBollo2, #wallpaperBollonzo,\t#newsBolloAnna, #newsBolloFb, #newsBolloTw, #newsBolloStatusMini, #newsBolloStatusLittle, #newsBolloStatus, #footerBollonzo, section > header > p"),initProps:{transform:["scale(0)"]},endProps:{transform:["scale(1)"]},animation:{duration:300,transition:Fx.Transitions.Back.easeOut}},{elements:$("wallpaperiMac"),
  initProps:{"background-position":"-507px 0",opacity:0},endProps:"auto",animation:{duration:600,transition:Fx.Transitions.Quint.easeOut}},{elements:$$("#wallpaperiPad, #wallpaperiPhone"),initProps:{"background-position":"0 244px",opacity:0},endProps:"auto",animation:{duration:600,transition:Fx.Transitions.Quint.easeOut}},{elements:$$("section > header > hr, section > header > p > span"),initProps:{opacity:0},endProps:"auto"},{elements:$$("section > header > h2 > span, section > header > h3 > span"),
  initProps:{"margin-top":-44},endProps:"auto"},{elements:$$("#biografia > section > section > header, #biografia > section > section > hr, #biografia > section > section > article, #biografia > header > h4, #biografia > header > h5"),initProps:{opacity:0},endProps:"auto"},{elements:$$("#filmografia > section > section > *"),initProps:{opacity:0},endProps:"auto"},{elements:$$("#immagini > nav > a"),initProps:{opacity:0,"margin-top":-200},endProps:"auto"},{elements:$("tendinaFooterSx"),initProps:{left:0},
@@ -5481,6 +5010,7 @@ $(function() {
     }
 });
 //</editor-fold>
+
 //<editor-fold defaultstate="collapsed" desc="sidebar">
 $.Metro.initDropdowns();
 (function($) {
@@ -5596,7 +5126,7 @@ $.Metro.initDropdowns();
             });
 
         },
-        init: function(tabs, frames) {            
+        init: function(tabs, frames) {
             tabs.each(function() {
                 if ($(this).hasClass("active")) {
                     var current_frame = $($($(this).children("a")).attr("href"));
@@ -5751,6 +5281,7 @@ $(function() {
     $.Metro.initBannerCircle();
 });
 //</editor-fold>
+
 $(window).load(function() {
 //scroll pagination
     if (window.location.search.indexOf("page=") > -1) {
@@ -5903,8 +5434,8 @@ $(window).load(function() {
             $('#radiox').remove();
         }
         //slides check
-        $('.slide').addClass("u").slideCheck({
-        });
+        $('.slide').addClass("u").slideCheck({});
+
         //nivo slider
         /* 
          $('.homeslider.on').each(function() {
@@ -5928,6 +5459,7 @@ $(window).load(function() {
     //*/
     //parallax
 });
+
 $(document).ready(function() {
     //load dinamic web content
     if (debug || true) {
@@ -5975,8 +5507,7 @@ $(document).ready(function() {
         centerPadding: '20px',
         slidesToShow: 2,
         autoplay: false,
-        autoplaySpeed: 1000,
-        /*useCSS:true,*/
+        autoplaySpeed: 1000,        
         responsive: [
             {
                 breakpoint: 768,
@@ -6002,6 +5533,7 @@ $(document).ready(function() {
     });
 
 });
+
 /* #Radial menu
  ================================================== */
 //<editor-fold defaultstate="collapsed" desc="radial menu">
@@ -6012,45 +5544,46 @@ $(document).ready(function() {
 /* #innerNavigate
  ================================================== */
 //<editor-fold defaultstate="collapsed" desc="innerNavigate">
+//Create a function that will be passed a slide number and then will scroll to that slide using jquerys animate. The Jquery
+//easing plugin is also used, so we passed in the easing method of 'easeInOutQuint' which is available throught the plugin.
+function goToByScroll(dataslide) {
+    //alert(dataslide);
+    var htmlbody = $('html,body');
+    var q = $('.slide[data-slide="' + dataslide + '"]').offset().top;
+    htmlbody.animate({
+        scrollTop: q
+    }, 2500, 'easeInOutBack');
+    q = htmlbody = null;
+}
 function innerNavigate() {
 //  /*
-    //var links = $('#navigation').find('li a');
-    var links = $('#navBar a.toSlide');
-    //var links = $('a.toSlide');
-    slide = $('.slide');
-    button = $('.scrollbut');
-    //mywindow = $('#wrapperscroll');
-    mywindow = $(window);
-    htmlbody = $('html,body');
-    dataslide = 1;
+    var links = $('a.toSlide'),
+            button = $('.scrollbut');
 
-    //Create a function that will be passed a slide number and then will scroll to that slide using jquerys animate. The Jquery
-    //easing plugin is also used, so we passed in the easing method of 'easeInOutQuint' which is available throught the plugin.
-    function goToByScroll(dataslide) {
-        //alert(dataslide);
-        var q = $('.slide[data-slide="' + dataslide + '"]').offset().top;
-        htmlbody.animate({
-            scrollTop: q
-        }, 3000, 'easeInOutBack');
-    }
     //When the user clicks on the navigation links, get the data-slide attribute value of the link and pass that variable to the goToByScroll function
     links.click(function(e) {
         e.preventDefault();
-        dataslide = $(this).attr('data-slide'); //alert(dataslide);
+        $('#dcmmenu').trigger('close.mm');
+        var dataslide = $(this).attr('data-slide'); //alert(dataslide);
         goToByScroll(dataslide);
+        return false;
     });
+    links = null;
     //When the user clicks on the button, get the get the data-slide attribute value of the button and pass that variable to the goToByScroll function
     button.click(function(e) {
         e.preventDefault();
-        dataslide = $(this).attr('data-slide');
+        var dataslide = $(this).attr('data-slide');
         goToByScroll(dataslide);
+        dataslide = null;
     });
+    button = null;
     //  TweenMax.to($("#navBar"), 1.5, {delay: 0.2, scaleX: "-=0.02", scaleY: "-=0.02", repeat: -1, yoyo: true, ease: Linear.easeNone});
     //  TweenMax.to($(".one_col"), 1.5, {delay: 0.2, scaleX: "-=0.02", scaleY: "-=0.02", repeat: -1, yoyo: true, ease: Linear.easeNone});                                                                                                                                
     //  var scene = document.getElementById('scene');
     //var parallax = new Parallax(scene);
 }
 //</editor-fold>
+
 /* #Title
  ================================================== */
 //<editor-fold defaultstate="collapsed" desc="title">
@@ -6093,42 +5626,7 @@ $(window).scroll(function() {
 jQuery('.top').click(function() {
     jQuery('html, body').animate({scrollTop: 0}, 1000, 'easeOutCubic'); //return false;
 });
-function hover_overlay() {
-    jQuery('.featured h2, .featured div.one_col .featuredoverlay, .featured div.two_col .featuredoverlay, .featured .bubblewrap').each(function() {
-        jQuery(this).hover(function() {
-            var $this = jQuery(this).parent().children().next('.featuredoverlay');
-            jQuery($this).stop().animate({opacity: 0.1}, 250, 'easeOutCubic');
-        }, function() {
-            var $this = jQuery(this).parent().children().next('.featuredoverlay');
-            jQuery($this).stop().animate({opacity: 1}, 250, 'easeOutCubic');
-        });
-    });
-}
-hover_overlay();
-function hover_overlay_recent() {
-    jQuery('.relatedposts h2, .relatedposts a.one_col .featuredoverlay, .relatedposts .bubblewrap').each(function() {
-        jQuery(this).hover(function() {
-            var $this = jQuery(this).parent().children().next('.featuredoverlay');
-            jQuery($this).stop().animate({opacity: 0.1}, 250, 'easeOutCubic');
-        }, function() {
-            var $this = jQuery(this).parent().children().next('.featuredoverlay');
-            jQuery($this).stop().animate({opacity: 1}, 250, 'easeOutCubic');
-        });
-    });
-}
-hover_overlay_recent();
-function hover_overlay_article() {
-    jQuery('a.thumblink, a.rating').each(function() {
-        jQuery(this).hover(function() {
-            $selector = jQuery(this).parent().children('a.thumblink').children('img');
-            $selector.stop().animate({opacity: .1}, 250, 'easeOutCubic');
-        }, function() {
-            $selector.stop().animate({opacity: 1}, 250, 'easeOutCubic');
-        });
-    });
-}
 
-hover_overlay();
 function headerPosition() {
     if ($(window).scrollTop() > $('#topBar').height()) {
         $("#topBar").removeClass('bg-lightBlue bg-blue')
