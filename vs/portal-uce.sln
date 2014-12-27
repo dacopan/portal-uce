@@ -8,20 +8,20 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "portal_uce_final(1)", "http
 		UseIISExpress = "true"
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_49976"
-		Debug.AspNetCompiler.PhysicalPath = "..\..\portal_uce_final\"
+		Debug.AspNetCompiler.PhysicalPath = "..\..\portal-uce\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_49976\"
 		Debug.AspNetCompiler.Updateable = "true"
 		Debug.AspNetCompiler.ForceOverwrite = "true"
 		Debug.AspNetCompiler.FixedNames = "false"
 		Debug.AspNetCompiler.Debug = "True"
 		Release.AspNetCompiler.VirtualPath = "/localhost_49976"
-		Release.AspNetCompiler.PhysicalPath = "..\..\portal_uce_final\"
+		Release.AspNetCompiler.PhysicalPath = "..\..\portal-uce\"
 		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_49976\"
 		Release.AspNetCompiler.Updateable = "true"
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
-		SlnRelativePath = "..\..\portal_uce_final\"
+		SlnRelativePath = "..\..\portal-uce\"
 	EndProjectSection
 EndProject
 Global
