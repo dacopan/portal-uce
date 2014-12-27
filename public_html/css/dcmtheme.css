@@ -4141,12 +4141,15 @@ a {
 body.metro{
     height: 100%!important;
 }
-.metro .contentwrap{
+.metro .contentwrap {
     position: relative;
     width: 90%;
     margin: auto;
-    padding-top:60px;
-    padding-bottom:45px; 
+    padding-top: 60px;
+    padding-bottom: 45px;
+    height: auto;
+    min-height: 400px;
+    overflow: hidden;
 }
 .controls-visible.signed-in.metro .topBar{
     display: none;
