@@ -4151,6 +4151,15 @@ body.metro{
     min-height: 400px;
     overflow: hidden;
 }
+.metro .noticiesWrap {
+    position: relative;
+    margin: auto;
+    padding-top: 60px;
+    padding-bottom: 45px;
+    height: auto;
+    min-height: 400px;
+    overflow: hidden;
+}
 .controls-visible.signed-in.metro .topBar{
     display: none;
 }

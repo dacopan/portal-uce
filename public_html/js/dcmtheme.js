@@ -3867,12 +3867,11 @@ $(function () {
         var $elem = this;
         var windowSize = (!options.scrollHorizontal) ? $(window).height() : $(window).width(),
                 scrollElem = ((navigator.userAgent.toLowerCase().indexOf('webkit') != -1) ? 'body' : 'html');
-        
-        options.checkElements = function ()
-        {
+
+        options.checkElements = function () {
             var $obj = $($elem);
             // If class already exists; quit
-            if (options.find) {                
+            if (options.find) {
                 return;
             }
             var viewportTop = $(scrollElem).scrollTop(),
@@ -3888,11 +3887,11 @@ $(function () {
                 $(window).unbind("load scroll touchmove", options.checkElements);
 
                 setTimeout(function () {
-                    $obj.removeClass(options.classToAdd + ' oculto');                    
+                    $obj.removeClass(options.classToAdd + ' oculto');
                     options = options.checkElements = this.checkElements = $elem = windowSize = scrollElem = null;
                 }, 1000);
 
-            
+
             }
             viewportTop = viewportBottom = elemTop = elemBottom = null;
 
@@ -3915,12 +3914,9 @@ $(function () {
         var options = {
             classToAdd: 'active',
             offset: 200,
-            repeat: true,
-            callbackFunction: function (elem, action) {
-            },
-            scrollHorizontal: false
+            repeat: true
         };
-        $.extend(options, useroptions);
+        //$.extend(options, useroptions);
         // Cache the given element and height of the browser
         var $elem = this,
                 windowSize = (!options.scrollHorizontal) ? $(window).height() : $(window).width(),
@@ -3931,24 +3927,28 @@ $(function () {
                     viewportBottom = (viewportTop + windowSize);
 
             $elem.each(function () {
-                var $obj = $(this);
-                // If class already exists; quit
-                if ($obj.hasClass(options.classToAdd) && !options.repeat) {
-                    return;
-                }
+                var $obj = $(this);               
 
                 // define the top position of the element and include the offset which makes is appear earlier or later
                 var elemTop = (!options.scrollHorizontal) ? Math.round($obj.offset().top) + options.offset : Math.round($obj.offset().left) + options.offset,
-                        elemBottom = elemTop + ($obj.height());
+                    elemBottom = elemTop + ($obj.height());
+
                 // Add class if in viewport
                 if ((elemTop < viewportBottom) && (elemBottom > viewportTop)) {
+                    // If class already exists; quit
+                    if ($obj.hasClass(options.classToAdd)) {
+                        $obj = elemTop = elemBottom = null
+                        return;
+                    }
+
                     $obj.addClass(options.classToAdd);
                     $('a.toSlide').parent().removeClass("current");
                     $('#navigation li a[data-slide="' + $obj.data("slide") + '"]').parent().addClass('current');
+                    $obj = elemTop = elemBottom = null
                     // Remove class if not in viewport and repeat is true
                 } else if ($obj.hasClass(options.classToAdd) && (options.repeat)) {
                     $obj.removeClass(options.classToAdd);
-
+                    $obj = elemTop = elemBottom = null
                 }
             });
         };
@@ -4253,7 +4253,7 @@ $(window).load(function () {
     ///*
     if (!isMobileBrowser()) {
         //animated on scroll
- 
+
         $('.og-grid.fac img').each(function () {
             $(this).addClass("oculto").viewportChecker({
                 classToAdd: 'visible scale',
@@ -4263,12 +4263,12 @@ $(window).load(function () {
         });
 
         //animate noticies
-        $('.noticiesWrap').addClass("oculto").viewportChecker({
-            classToAdd: 'visible animated fadeInUpBig',
+        $('.noticiesWrap .container2').addClass("oculto").viewportChecker({
+            classToAdd: 'visible animated bounceIn',
             offset: 300,
             repeat: false
         });
-        
+
         //animate direcWrap
         $('.direcWrap').addClass("oculto").viewportChecker({
             classToAdd: 'visible animated bounceInRight',
@@ -4292,7 +4292,7 @@ $(window).load(function () {
             $('#radiox').remove();
         }
         //slides check
-        // $('.slide').addClass("u").slideCheck({});
+        $('.slide').addClass("u").slideCheck({});
         /*                                                             
          $('.homeslider.on').each(function() {
          var $this = jQuery(this);
