@@ -4369,7 +4369,7 @@ body.metro{
     transition-property: none; }
 
 .featured .featuredinner {
-    opacity: 0;
+    /*opacity: 0;*/
     /* IE 8 */
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=00)";
     -ms-filter: "alpha(opacity=0)";
@@ -4378,7 +4378,7 @@ body.metro{
     /* Safari 1.x */
     -khtml-opacity: 0;
     /* Good browsers */
-    opacity: 0; }
+    /*opacity: 0; */}
 
 .featuredinner {
     display: block;
@@ -4394,8 +4394,15 @@ body.metro{
     background-image: url(../images/linebg-fade.png);
     background-position: top;
     background-repeat: repeat-x;
-    z-index: 8; }
-
+    z-index: 8;
+    -moz-transition: all 0.3s ease 0s;
+    -webkit-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+}
+.metro .featuredinner:hover .featuredoverlay {
+opacity:0;
+}
 .featured .half .featuredoverlay, .featured .quarter .featuredoverlay {
     height: 200px; }
 
@@ -5047,47 +5054,6 @@ span.date a.bubble, span.date a.bubble:hover {
 
     background-color: #fff;
 }
-.og-grid.fac .og-a .og-box.cars{
-    -webkit-animation-name:fadeOut;
-    -moz-animation-name:fadeOut;
-    -ms-animation-name:fadeOut;
-    -o-animation-name:fadeOut;
-    animation-name:fadeOut;
-    height: 289px;position: absolute;
-    top:0px;
-}
-.og-grid.fac .og-a:hover .og-box{
-    -webkit-box-shadow: none;
-    -moz-box-shadow:    none;
-    box-shadow:         none;
-}
-.og-grid.fac .og-a:hover .og-box.cars{    
-    -webkit-animation-name: fadeIn;
-    -moz-animation-name: fadeIn;
-    -ms-animation-name: fadeIn;
-    -o-animation-name: fadeIn;
-    animation-name: fadeIn;
-    /* -webkit-box-shadow: 0px 9px 16px 1px rgba(0,118,189, 0.97);
-     -moz-box-shadow:    0px 9px 16px 1px rgba(0,118,189, 0.97);
-     box-shadow:         0px 9px 16px 1px rgba(0,118,189, 0.97);*/
-    -webkit-box-shadow: inset 0 2px 2px rgba(0,0,0,0.075),0 0 8px rgba(82,168,236,0.6);
-    -moz-box-shadow: inset 0 2px 2px rgba(0,0,0,0.075),0 0 8px rgba(82,168,236,0.6);
-    box-shadow: inset 0 2px 2px rgba(0,0,0,0.075),0 0 8px rgba(82,168,236,0.6);
-    border: 1px solid rgba(0,172,255,0.8);
-}
-.og-box li, .og-box ul, .og-box.cars {
-    font-size: 12px;
-    color: #000;
-    text-align: left;
-    margin: 0px;
-    padding-left: 5px;
-    overflow: hidden;
-}
-
-.og-grid.fac .og-box.cars h4{
-    font-size: 13px;
-    font-family: 'Segoe UI Light_', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
-}
 
 
 .og-grid.fac h5,.og-grid.fac h4,.og-grid.fac .spreview{
@@ -5111,34 +5077,7 @@ span.date a.bubble, span.date a.bubble:hover {
     font-weight: bold/*400*/;
     padding-bottom: 6px;
 }
-.og-grid.fac .spreview{
-    text-transform: uppercase;
-    text-align: right;
-    vertical-align: middle;
-    line-height: 11px;
-    font-size: 11px; 
-    background-color: rgba(0,0,0,0.3);
-    border: 1px solid #fff;
-    display: block;
-    font-family: "Adequate ExtraLight";
-    padding-bottom: 12px;
-    color:white;
-    text-decoration: none!important;
 
-    -moz-transition:all 0.3s ease 0s;
-    -webkit-transition:all 0.3s ease 0s;
-    -o-transition:all 0.3s ease 0s;
-    transition:all 0.3s ease 0s;
-    -moz-transition: all 0.3s ease 0s;
-    display: none;
-
-}
-.og-grid.fac .spreview:hover{
-    background-color: rgba(0,0,0,0.8);
-}
-.og-grid.fac .spreview:active,.og-grid.fac .spreview:focus{
-    background-color: rgb(0,0,0);
-}
 .og-grid.fac{
     max-width: 760px;    
     float: none;        
@@ -5165,6 +5104,20 @@ span.date a.bubble, span.date a.bubble:hover {
     -ms-word-break:normal!important;
     -o-word-break:normal!important;
 }
+
+.metro .og-grid.fac .og-a .og-box {
+    -moz-transition: all 0.3s ease 0s;
+    -webkit-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+}
+.metro .og-grid.fac .og-a:hover .og-box {
+    -moz-transform:scale(1.1);
+    -webkit-transform:scale(1.1);
+    -ms-transform:scale(1.1);
+    transform:scale(1.1);
+}
+
 /*</editor-fold>*/
 
 /*<editor-fold defaultstate="collapsed" desc="direcciones">*/

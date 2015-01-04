@@ -5224,7 +5224,7 @@ $(function () {
 
             if (_slides.length <= 1)
                 return;
-            _slides = that = element = null;
+            _slides = null;
 
             ///*             
             this._changeSlide('next');
@@ -5273,7 +5273,6 @@ $(function () {
                     ix += 1;
                     if (ix >= _slides.length)
                         ix = 0;
-
                 });
                 
                 this._currentIndex += 1;
@@ -5285,11 +5284,11 @@ $(function () {
         },
         _setContent: function (item1, slide1, ix1) {
             (function (item, slide, ix) {
-                var a = $(item.find('.img-cover'));
+                var a = $(item.find('.banx'));
                 var b = $(slide.find('img'));
-                a.css({ "background-image": 'url(' + b.attr("src") + ')' }).hide().delay(ix * 500).fadeIn();
+                //a.css({ "background-image": 'url(' + b.attr("src") + ')' }).hide().delay(ix * 500).fadeIn();
                 // a.css({'background-image':'url(' + b.attr('src') + ')'});
-                //a.attr('src', b.attr('src'));
+                a.attr('src', b.attr('src'));a.hide().delay(ix * 500).fadeIn();
                 //a.element.styyle.backgroundImage = 'url(' + b.attr('src') + ')';
                 slide = item = ix = a = b = null;
             })(item1, slide1, ix1);
