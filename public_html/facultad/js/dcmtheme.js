@@ -1,4 +1,4 @@
-var debug = true;
+var debug = false;
 //<editor-fold defaultstate="collapsed" desc="modernizer">
 /* Modernizr 2.6.2 (Custom Build) | MIT & BSD
  * Build: http://modernizr.com/download/#-csstransitions-shiv-cssclasses-prefixed-testprop-testallprops-domprefixes-load
@@ -5274,7 +5274,7 @@ $(function () {
                     if (ix >= _slides.length)
                         ix = 0;
                 });
-                
+
                 this._currentIndex += 1;
                 if (this._currentIndex >= _slides.length)
                     this._currentIndex = 0;
@@ -5288,9 +5288,19 @@ $(function () {
                 var b = $(slide.find('img'));
                 //a.css({ "background-image": 'url(' + b.attr("src") + ')' }).hide().delay(ix * 500).fadeIn();
                 // a.css({'background-image':'url(' + b.attr('src') + ')'});
-                a.attr('src', b.attr('src'));a.hide().delay(ix * 500).fadeIn();
+
+                //a.attr('src', b.attr('src')); a.fadeOut().delay(ix * 500).fadeIn();
+                a.delay(ix * 500).fadeOut(500, function () {
+                    var u = $(this);
+                    u.attr('src', b.attr('src'));
+                    u.fadeIn(500);
+                    //u = null;
+                    b = null;
+                });
+
+
                 //a.element.styyle.backgroundImage = 'url(' + b.attr('src') + ')';
-                slide = item = ix = a = b = null;
+                slide = item = ix = a = null;// b = null;
             })(item1, slide1, ix1);
             slide1 = item1 = ix1 = null;
             // 
