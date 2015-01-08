@@ -4581,6 +4581,7 @@ $(function () {
                 $obj.addClass(options.classToAdd);
                 options.find = true;
                 $(window).unbind("load scroll touchmove", options.checkElements);
+                $(window).unbind("resize", options.resize);
 
                 setTimeout(function () {
                     $obj.removeClass(options.classToAdd + ' oculto');
@@ -4595,9 +4596,11 @@ $(function () {
         // Run checkelements on load and scroll
         $(window).bind("load scroll touchmove", options.checkElements);
         // On resize change the height var
-        $(window).resize(function (e) {
-            windowSize = (!options.scrollHorizontal) ? e.currentTarget.innerHeight : e.currentTarget.innerWidth;
-        });
+        $(window).bind("resize", options.resize);
+        options.resize = function (e) { windowSize = (!options.scrollHorizontal) ? e.currentTarget.innerHeight : e.currentTarget.innerWidth; }
+        //$(window).resize(function (e) {
+        //    windowSize = (!options.scrollHorizontal) ? e.currentTarget.innerHeight : e.currentTarget.innerWidth;
+        //});
         // trigger inital check if elements already visible
         options.checkElements();
         return this;
