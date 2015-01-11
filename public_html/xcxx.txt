@@ -1,3 +1,0 @@
-this.currentStyle.translateOffsetParallax={x:t.x*(this.scaledOnScreenStyle.defaultParallax.x+this.parallaxLockupTransitionPercentage*this.scaledOnScreenStyle.lockupParallax.x),y:t.y*(this.scaledOnScreenStyle.defaultParallax.y+this.parallaxLockupTransitionPercentage*this.scaledOnScreenStyle.lockupParallax.y)}}
-
-this.currentStyle.translateOffsetParallax={x:t.x*this.scaledOnScreenStyle.defaultParallax.x,y:t.y*this.scaledOnScreenStyle.defaultParallax.y}}
