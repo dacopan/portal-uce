@@ -2632,6 +2632,7 @@ jQuery.extend(jQuery.easing,
                             othersHeight = cache.sliceH;
                             // hide the content div
                             $el.find('.va-content').hide();
+                            $el.find('.va-title').show("fast");//close slice so show title
                             // control the navigation buttons visibility
                             if (aux.canSlideUp($slices, settings))
                                 $navPrev.fadeIn();
@@ -2671,14 +2672,12 @@ jQuery.extend(jQuery.easing,
                         // animate the clicked slice and also its title (<h3>)
                         $el.stop()
                                 .animate(animParam, settings.animSpeed, settings.animEasing, function () {
-                                    if (!expanded)
+                                    if (!expanded) {
                                         $el.find('.va-content').fadeIn(settings.contentAnimSpeed);
+                                        $el.find('.va-title').hide();
+                                    }
                                 })
-                                .find('.va-title')
-                                .stop()
-                                .animate({
-                                    lineHeight: cache.sliceH + 'px'
-                                }, settings.animSpeed, settings.animEasing).hide();
+
                         // animate all the others
                         $others.each(function (i) {
                             var $other = $(this),
@@ -2700,10 +2699,7 @@ jQuery.extend(jQuery.easing,
                                         opacity: (expanded) ? 1 : settings.animOpacity
                                     }, settings.animSpeed, settings.animEasing, dfd.resolve)
                                     .find('.va-title')
-                                    .stop().show()
-                                    .animate({
-                                        lineHeight: othersHeight + 'px'
-                                    }, settings.animSpeed, settings.animEasing)
+                                    .stop()//.show()                                    
                                     .end()
                                     .find('.va-content')
                                     .hide();
@@ -2812,11 +2808,11 @@ jQuery.extend(jQuery.easing,
                                 }, settings.animSpeed, settings.animEasing, function () {
                                     $slice.find('.va-content').fadeIn(settings.contentAnimSpeed);
                                 })
-                                .find('.va-title')
-                                .stop()
-                                .animate({
-                                    lineHeight: cache.sliceH + 'px'
-                                }, settings.animSpeed, settings.animEasing);
+                        //.find('.va-title')
+                        //.stop()
+                        //.animate({
+                        //    lineHeight: cache.sliceH + 'px'
+                        //}, settings.animSpeed, settings.animEasing);
                     }
                         // if the slice is the one opened, lets close it
                     else if ($slice.data('expanded')) {
@@ -2831,11 +2827,12 @@ jQuery.extend(jQuery.easing,
                                     top: (dir === 1) ? '-=' + othersHeight : '+=' + settings.expandedHeight
                                 }, settings.animSpeed, settings.animEasing)
                                 .find('.va-title')
-                                .stop()
-                                .animate({
+                                .stop().show("fast")
+                            .fadeIn()
+                                /*.animate({
                                     lineHeight: othersHeight + 'px'
                                 }, settings.animSpeed, settings.animEasing)
-                                .end()
+                                .end()*/
                                 .find('.va-content')
                                 .hide();
                     }
@@ -3929,7 +3926,7 @@ $(function () {
                     viewportBottom = (viewportTop + windowSize);
 
             $elem.each(function () {
-                var $obj = $(this);               
+                var $obj = $(this);
 
                 // define the top position of the element and include the offset which makes is appear earlier or later
                 var elemTop = (!options.scrollHorizontal) ? Math.round($obj.offset().top) + options.offset : Math.round($obj.offset().left) + options.offset,

@@ -1,256 +1,98 @@
-
 <root available-locales="es_ES" default-locale="es_ES">
-    <dynamic-element dataType="boolean" indexType="keyword" name="carrera" readOnly="false" repeatable="true" required="false" showLabel="true" type="checkbox" width="">
-        <dynamic-element dataType="string" indexType="keyword" name="carrera_nombre" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
-            <meta-data locale="es_ES">
-                <entry name="label">
-					<![CDATA[Nombre Carrera]]>
-                </entry>
-                <entry name="predefinedValue">
-					<![CDATA[]]>
-                </entry>
-                <entry name="tip">
-					<![CDATA[]]>
-                </entry>
-            </meta-data>
-        </dynamic-element>
-        <dynamic-element dataType="html" fieldNamespace="ddm" indexType="keyword" name="detalle" readOnly="false" repeatable="false" required="true" showLabel="true" type="ddm-text-html" width="small">
-            <meta-data locale="es_ES">
-                <entry name="label">
-					<![CDATA[detalle]]>
-                </entry>
-                <entry name="predefinedValue">
-					<![CDATA[]]>
-                </entry>
-                <entry name="tip">
-					<![CDATA[]]>
-                </entry>
-            </meta-data>
-        </dynamic-element>
-        <dynamic-element dataType="boolean" indexType="keyword" name="documento" readOnly="false" repeatable="true" required="false" showLabel="true" type="checkbox" width="">
-            <dynamic-element dataType="string" indexType="keyword" name="nombre" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
-                <meta-data locale="es_ES">
-                    <entry name="label">
-						<![CDATA[Nombre]]>
-                    </entry>
-                    <entry name="predefinedValue">
-						<![CDATA[]]>
-                    </entry>
-                    <entry name="tip">
-						<![CDATA[]]>
-                    </entry>
-                </meta-data>
-            </dynamic-element>
-            <dynamic-element dataType="string" indexType="" multiple="false" name="imagen" readOnly="false" repeatable="false" required="true" showLabel="true" type="select" width="">
-                <dynamic-element name="option30747" type="option" value="1">
-                    <meta-data locale="es_ES">
-                        <entry name="label">
-							<![CDATA[img1]]>
-                        </entry>
-                    </meta-data>
-                </dynamic-element>
-                <dynamic-element name="option30748" type="option" value="2">
-                    <meta-data locale="es_ES">
-                        <entry name="label">
-							<![CDATA[img2]]>
-                        </entry>
-                    </meta-data>
-                </dynamic-element>
-                <dynamic-element name="option30749" type="option" value="3">
-                    <meta-data locale="es_ES">
-                        <entry name="label">
-							<![CDATA[img3]]>
-                        </entry>
-                    </meta-data>
-                </dynamic-element>
-                <dynamic-element name="option30750" type="option" value="4">
-                    <meta-data locale="es_ES">
-                        <entry name="label">
-							<![CDATA[img4]]>
-                        </entry>
-                    </meta-data>
-                </dynamic-element>
-                <dynamic-element name="option30751" type="option" value="5">
-                    <meta-data locale="es_ES">
-                        <entry name="label">
-							<![CDATA[img5]]>
-                        </entry>
-                    </meta-data>
-                </dynamic-element>
-                <dynamic-element name="option30752" type="option" value="6">
-                    <meta-data locale="es_ES">
-                        <entry name="label">
-							<![CDATA[img6]]>
-                        </entry>
-                    </meta-data>
-                </dynamic-element>
-                <meta-data locale="es_ES">
-                    <entry name="label">
-						<![CDATA[Imagen]]>
-                    </entry>
-                    <entry name="predefinedValue">
-						<![CDATA[[""]]]>
-                    </entry>
-                    <entry name="tip">
-						<![CDATA[]]>
-                    </entry>
-                </meta-data>
-            </dynamic-element>
-            <dynamic-element dataType="string" indexType="keyword" name="link1" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
-                <meta-data locale="es_ES">
-                    <entry name="label">
-						<![CDATA[Link para visualizar pdf]]>
-                    </entry>
-                    <entry name="predefinedValue">
-						<![CDATA[]]>
-                    </entry>
-                    <entry name="tip">
-						<![CDATA[]]>
-                    </entry>
-                </meta-data>
-            </dynamic-element>
-            <dynamic-element dataType="string" indexType="keyword" name="link2" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
-                <meta-data locale="es_ES">
-                    <entry name="label">
-						<![CDATA[Link para descargar pdf]]>
-                    </entry>
-                    <entry name="predefinedValue">
-						<![CDATA[]]>
-                    </entry>
-                    <entry name="tip">
-						<![CDATA[]]>
-                    </entry>
-                </meta-data>
-            </dynamic-element>
-            <meta-data locale="es_ES">
-                <entry name="label">
-					<![CDATA[Documento informativo]]>
-                </entry>
-                <entry name="predefinedValue">
-					<![CDATA[true]]>
-                </entry>
-                <entry name="tip">
-					<![CDATA[]]>
-                </entry>
-            </meta-data>
-        </dynamic-element>
-        <dynamic-element dataType="boolean" indexType="keyword" name="proyecto" readOnly="false" repeatable="true" required="false" showLabel="true" type="checkbox" width="">
-            <dynamic-element dataType="string" indexType="keyword" name="pry_nombre" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
-                <meta-data locale="es_ES">
-                    <entry name="label">
-						<![CDATA[Nombre]]>
-                    </entry>
-                    <entry name="predefinedValue">
-						<![CDATA[]]>
-                    </entry>
-                    <entry name="tip">
-						<![CDATA[]]>
-                    </entry>
-                </meta-data>
-            </dynamic-element>
-            <dynamic-element dataType="string" indexType="" multiple="false" name="pry_imagen" readOnly="false" repeatable="false" required="true" showLabel="true" type="select" width="">
-                <dynamic-element name="option30747" type="option" value="1">
-                    <meta-data locale="es_ES">
-                        <entry name="label">
-							<![CDATA[img1]]>
-                        </entry>
-                    </meta-data>
-                </dynamic-element>
-                <dynamic-element name="option30748" type="option" value="2">
-                    <meta-data locale="es_ES">
-                        <entry name="label">
-							<![CDATA[img2]]>
-                        </entry>
-                    </meta-data>
-                </dynamic-element>
-                <dynamic-element name="option30749" type="option" value="3">
-                    <meta-data locale="es_ES">
-                        <entry name="label">
-							<![CDATA[img3]]>
-                        </entry>
-                    </meta-data>
-                </dynamic-element>
-                <dynamic-element name="option30750" type="option" value="4">
-                    <meta-data locale="es_ES">
-                        <entry name="label">
-							<![CDATA[img4]]>
-                        </entry>
-                    </meta-data>
-                </dynamic-element>
-                <dynamic-element name="option30751" type="option" value="5">
-                    <meta-data locale="es_ES">
-                        <entry name="label">
-							<![CDATA[img5]]>
-                        </entry>
-                    </meta-data>
-                </dynamic-element>
-                <dynamic-element name="option30752" type="option" value="6">
-                    <meta-data locale="es_ES">
-                        <entry name="label">
-							<![CDATA[img6]]>
-                        </entry>
-                    </meta-data>
-                </dynamic-element>
-                <meta-data locale="es_ES">
-                    <entry name="label">
-						<![CDATA[Imagen]]>
-                    </entry>
-                    <entry name="predefinedValue">
-						<![CDATA[[""]]]>
-                    </entry>
-                    <entry name="tip">
-						<![CDATA[]]>
-                    </entry>
-                </meta-data>
-            </dynamic-element>
-            <dynamic-element dataType="string" indexType="keyword" name="pry_link1" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
-                <meta-data locale="es_ES">
-                    <entry name="label">
-						<![CDATA[Link para visualizar pdf]]>
-                    </entry>
-                    <entry name="predefinedValue">
-						<![CDATA[]]>
-                    </entry>
-                    <entry name="tip">
-						<![CDATA[]]>
-                    </entry>
-                </meta-data>
-            </dynamic-element>
-            <dynamic-element dataType="string" indexType="keyword" name="pry_link2" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
-                <meta-data locale="es_ES">
-                    <entry name="label">
-						<![CDATA[Link para descargar pdf]]>
-                    </entry>
-                    <entry name="predefinedValue">
-						<![CDATA[]]>
-                    </entry>
-                    <entry name="tip">
-						<![CDATA[]]>
-                    </entry>
-                </meta-data>
-            </dynamic-element>
-            <meta-data locale="es_ES">
-                <entry name="label">
-					<![CDATA[proyecto]]>
-                </entry>
-                <entry name="predefinedValue">
-					<![CDATA[true]]>
-                </entry>
-                <entry name="tip">
-					<![CDATA[]]>
-                </entry>
-            </meta-data>
-        </dynamic-element>
-        <meta-data locale="es_ES">
-            <entry name="label">
-				<![CDATA[carrera]]>
-            </entry>
-            <entry name="predefinedValue">
-				<![CDATA[true]]>
-            </entry>
-            <entry name="tip">
-				<![CDATA[]]>
-            </entry>
-        </meta-data>
+  <dynamic-element dataType="boolean" indexType="keyword" name="carrera" readOnly="false" repeatable="true" required="false" showLabel="true" type="checkbox" width="">
+
+    <dynamic-element dataType="string" indexType="keyword" name="carrera_nombre" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
+      <meta-data locale="es_ES">
+        <entry name="label">
+          <![CDATA[Nombre Carrera]]>
+        </entry>
+        <entry name="predefinedValue">
+          <![CDATA[]]>
+        </entry>
+        <entry name="tip">
+          <![CDATA[]]>
+        </entry>
+      </meta-data>
     </dynamic-element>
+
+    <dynamic-element dataType="string" indexType="keyword" name="carrera_menu" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
+      <meta-data locale="es_ES">
+        <entry name="label">
+          <![CDATA[Menu de la Carrera]]>
+        </entry>
+        <entry name="predefinedValue">
+          <![CDATA[]]>
+        </entry>
+        <entry name="tip">
+          <![CDATA[]]>
+        </entry>
+      </meta-data>
+    </dynamic-element>
+
+    <dynamic-element dataType="string" indexType="keyword" name="content" readOnly="false" repeatable="true" required="true" showLabel="true" type="text" width="small">
+      <dynamic-element dataType="string" indexType="keyword" name="content_menu" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
+        <meta-data locale="es_ES">
+          <entry name="label">
+            <![CDATA[Menú ID]]>
+          </entry>
+          <entry name="predefinedValue">
+            <![CDATA[]]>
+          </entry>
+          <entry name="tip">
+            <![CDATA[Coloque el ID del menú donde se mostrará este articulo (contX), si en el menu esta data-cont="contX" coloque aquí (contX) sin parentesis]]>
+          </entry>
+        </meta-data>
+      </dynamic-element>
+      <meta-data locale="es_ES">
+        <entry name="label">
+          <![CDATA[Contenido ID]]>
+        </entry>
+        <entry name="predefinedValue">
+          <![CDATA[]]>
+        </entry>
+        <entry name="tip">
+          <![CDATA[Coloque el ID del articulo que pertenece a esta carrera (contentID)]]>
+        </entry>
+      </meta-data>
+    </dynamic-element>
+
+    <dynamic-element dataType="string" indexType="keyword" name="images" readOnly="false" repeatable="true" required="true" showLabel="true" type="text" width="small">
+      <dynamic-element dataType="string" indexType="keyword" name="img_caption" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
+        <meta-data locale="es_ES">
+          <entry name="label">
+            <![CDATA[Titulo Imagen]]>
+          </entry>
+          <entry name="predefinedValue">
+            <![CDATA[]]>
+          </entry>
+          <entry name="tip">
+            <![CDATA[Título que acompaña a la imagen]]>
+          </entry>
+        </meta-data>
+      </dynamic-element>
+      <meta-data locale="es_ES">
+        <entry name="label">
+          <![CDATA[URL Imagen banner]]>
+        </entry>
+        <entry name="predefinedValue">
+          <![CDATA[]]>
+        </entry>
+        <entry name="tip">
+          <![CDATA[URL de la imagen para el banner del sidebar]]>
+        </entry>
+      </meta-data>
+    </dynamic-element>
+
+    <meta-data locale="es_ES">
+      <entry name="label">
+        <![CDATA[carrera]]>
+      </entry>
+      <entry name="predefinedValue">
+        <![CDATA[true]]>
+      </entry>
+      <entry name="tip">
+        <![CDATA[]]>
+      </entry>
+    </meta-data>
+  </dynamic-element>
 </root>

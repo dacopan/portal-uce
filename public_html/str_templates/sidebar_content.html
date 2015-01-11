@@ -1,0 +1,57 @@
+﻿
+<div class="contentwrap">
+    <div class="row-fluid" style="margin: auto;float:none;margin-top: 60px;">
+        #if (!$cont_imagen.getSiblings().isEmpty()||!$cont_doc.getSiblings().isEmpty())
+        #set($span8="span8")
+        #else
+        #set($span8="span12")
+        #end
+        <div class="$span8 col1">
+            <h1 class="fg-blue text-right">$cont_titulo.getData()</h1>
+            <h3 class="fg-blue text-right">cont_subtitulo.getData()</h3>
+            <div class="ctc">
+                cont_html.getData()
+            </div>
+            <div class="clear"></div>
+        </div>
+        #if (!$cont_imagen.getSiblings().isEmpty()||!$cont_doc.getSiblings().isEmpty())
+        <div class="span spliter"></div>
+
+        <div class="span4 col2">
+            #foreach ($cur_img in $cont_imagen.getSiblings())
+            <div class="img-cover img" style="background-image: url($cur_img.getData());">
+                <div class="clear"></div>
+            </div>
+            #end
+
+            <ul class="og-grid docs">
+                #foreach ($cur_doc in $cur_carrera.documento.getSiblings())
+                #end
+            </ul>
+
+        </div>
+        #end
+
+
+    </div>
+</div>
+
+
+<div class="docs  row-fluid">
+    #if (!$cur_carrera.documento.getSiblings().isEmpty())
+
+    #foreach ($cur_doc in $cur_carrera.documento.getSiblings())
+
+    #if ($getterUtil.getBoolean($cur_doc.getData()))
+    <div data-iview="$cur_doc.link1.getData()" data-idown="$cur_doc.link2.getData()" data-role="idoc" class="doc">
+        <span class="hintx">
+            Ver ahora
+        </span>
+        <img alt="$cur_doc.nombre.getData()" src="/html/themes/dcmFacultad/images/doc_img_${cur_doc.imagen.getData()}.jpg" />
+        <span class="download"><i class="icon-download-alt"></i></span>
+    </div>
+    #end
+    #end
+    #end
+
+</div>
