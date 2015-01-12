@@ -5364,7 +5364,7 @@ body.metro {
     -webkit-transition: all 0.3s ease 0s;
     -o-transition: all 0.3s ease 0s;
     transition: all 0.3s ease 0s;
-    max-width:400px;
+    max-width: 400px;
 }
 
 .metro .featuredinner:hover .brn {
@@ -6188,6 +6188,10 @@ span.date {
 /*</editor-fold>*/
 
 /*<editor-fold defaultstate="collapsed" desc="direcciones">*/
+.metro .contentwrap.direcWrap {
+    max-width: 1200px;
+}
+
 .metro .grilla {
     background-image: url(../images/panel2_grilla.png);
     background-size: cover;
@@ -6213,8 +6217,8 @@ span.date {
 }
 
 .metro .direc {
-    width: 300px;
-    height: 200px;
+    width: 250px;
+    height: 150px;
     background-color: #a28f23;
     position: relative;
     -moz-transition: all 0.3s ease 0s;
@@ -6227,6 +6231,7 @@ span.date {
         color: #fff;
         text-align: right;
         padding: 15px;
+        font-size: 4.1rem;
     }
 
     .metro .direc .desc {
@@ -6237,10 +6242,11 @@ span.date {
         position: absolute;
         padding-right: 40px;
         text-align: left;
+        font-size: 1.2rem;
     }
 
 .metro .direcWrap:hover .direc {
-    opacity: .9;
+    opacity: .8;
 }
 
 .metro .direcWrap .direc:hover {

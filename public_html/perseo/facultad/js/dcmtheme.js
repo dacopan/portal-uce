@@ -1,4 +1,5 @@
 var debug = false;
+//#region 
 //<editor-fold defaultstate="collapsed" desc="modernizer">
 /* Modernizr 2.6.2 (Custom Build) | MIT & BSD
  * Build: http://modernizr.com/download/#-csstransitions-shiv-cssclasses-prefixed-testprop-testallprops-domprefixes-load
@@ -263,7 +264,9 @@ window.Modernizr = function (a, b, c) {
     yepnope.apply(window, [].slice.call(arguments, 0))
 };
 //</editor-fold>
+ //#endregion 
 
+//#region 
 //<editor-fold defaultstate="collapsed" desc="isotope">
 /*!
  * Isotope PACKAGED v2.0.0
@@ -1390,7 +1393,9 @@ window.Modernizr = function (a, b, c) {
     "function" == typeof define && define.amd ? define(["outlayer/outlayer", "get-size/get-size", "matches-selector/matches-selector", "isotope/js/item", "isotope/js/layout-mode", "isotope/js/layout-modes/masonry", "isotope/js/layout-modes/fit-rows", "isotope/js/layout-modes/vertical"], r) : t.Isotope = r(t.Outlayer, t.getSize, t.matchesSelector, t.Isotope.Item, t.Isotope.LayoutMode)
 }(window);
 //</editor-fold>
+ //#endregion 
 
+//#region 
 //<editor-fold defaultstate="collapsed" desc="jquery widget">
 /*! jQuery UI - v1.10.3 - 2013-05-28
  * http://jqueryui.com
@@ -1537,7 +1542,9 @@ window.Modernizr = function (a, b, c) {
     })
 })(jQuery);
 //</editor-fold>
+ //#endregion 
 
+//#region 
 //<editor-fold defaultstate="collapsed" desc="jquery mousewheel">
 
 /*! Copyright (c) 2013 Brandon Aaron (http://brandonaaron.net)
@@ -1661,7 +1668,9 @@ window.Modernizr = function (a, b, c) {
 
 }));
 //</editor-fold>
+ //#endregion 
 
+//#region 
 //<editor-fold defaultstate="collapsed" desc="MM menu js">
 
 !function (e) {
@@ -1908,7 +1917,9 @@ window.Modernizr = function (a, b, c) {
     var p, a, r, l, c = !1
 }(jQuery);
 //</editor-fold>
+ //#endregion 
 
+//#region 
 //<editor-fold defaultstate="collapsed" desc="jquery easing">
 jQuery.easing['jswing'] = jQuery.easing['swing'];
 jQuery.extend(jQuery.easing,
@@ -2091,7 +2102,9 @@ jQuery.extend(jQuery.easing,
             }
         });
 //</editor-fold>
+ //#endregion 
 
+//#region 
 //<editor-fold defaultstate="collapsed" desc="nivo slider">
 /*
  * jQuery Nivo Slider v3.2
@@ -2600,7 +2613,9 @@ jQuery.extend(jQuery.easing,
     e.fn._reverse = [].reverse
 })(jQuery);
 //</editor-fold>
+ //#endregion 
 
+//#region 
 //<editor-fold defaultstate="collapsed" desc="vacordion">
 (function ($) {
 
@@ -2976,7 +2991,9 @@ jQuery.extend(jQuery.easing,
     };
 })(jQuery);
 //</editor-fold>
+ //#endregion 
 
+//#region 
 //<editor-fold defaultstate="collapsed" desc="notices full">
 /*
  * debouncedresize: special jQuery event that happens once after a window resize
@@ -3183,7 +3200,9 @@ var Boxgrid = (function () {
 })();
 Boxgrid.init();
 //</editor-fold>
+ //#endregion 
 
+//#region 
 //<editor-fold defaultstate="collpased" desc="carreras Full">
 var CarrerasFull = (function () {
     var $items = $('.carreraWrap li'),
@@ -3366,7 +3385,9 @@ var CarrerasFull = (function () {
 })();
 CarrerasFull.init();
 //</editor-fold>
+ //#endregion 
 
+//#region 
 //<editor-fold defaultstate="collapsed" desc="parallax tom clancy">
 
 /* PARALLAX */
@@ -3498,7 +3519,9 @@ CarrerasFull.init();
 }();
 /******************/
 //</editor-fold>
+ //#endregion 
 
+//#region 
 //<editor-fold defaultstate="collapsed" desc="metro tabs control">
 var hasTouch = 'ontouchend' in window, eventTimer;
 var moveDirection = 'undefined', startX, startY, deltaX, deltaY, mouseDown = false
@@ -4330,7 +4353,9 @@ $(function () {
     }
 });
 //</editor-fold>
+ //#endregion 
 
+//#region 
 //<editor-fold defaultstate="collapsed" desc="perfect-scrollbar">
 (function (e) {
     "use strict";
@@ -4528,7 +4553,9 @@ $(function () {
     }
 });
 //</editor-fold>
+ //#endregion 
 
+//#region 
 //<editor-fold defaultstate="collapsed" desc="Scroll Spy, current:viewportChecker">
 
 /*
@@ -4669,7 +4696,9 @@ $(function () {
  endProps:{left:-763}},{elements:$("tendinaFooterDx"),initProps:{left:763},endProps:{left:1526}}];(new ScrollSpyIt({offset:150,delay:300,config:b})).initScrollSpy()}*/
 
 //</editor-fold>
+ //#endregion 
 
+//#region 
 //<editor-fold defaultstate="collapsed" desc="slick js">
 !function (a) {
     "use strict";
@@ -5036,7 +5065,9 @@ $(function () {
     }
 });
 //</editor-fold>
+ //#endregion 
 
+//#region 
 //<editor-fold defaultstate="collapsed" desc="sidebar">
 $.Metro.initDropdowns();
 (function ($) {
@@ -5176,7 +5207,6 @@ $.Metro.initDropdowns();
     })
 })(jQuery);
 
-
 $(function () {
     $.Metro.initSidebars = function (area) {
         if (area != undefined) {
@@ -5188,11 +5218,10 @@ $(function () {
     $.Metro.initSidebars();
 });
 
-
-
-
 //</editor-fold>
+ //#endregion 
 
+//#region 
 //<editor-fold defaultstate="collapsed" desc="bannerCircle">
 (function ($) {
     $.widget("metro.bannerCircle", {
@@ -5337,6 +5366,8 @@ $(function () {
     $.Metro.initBannerCircle();
 });
 //</editor-fold>
+ //#endregion 
+
 
 $(window).load(function () {
     //scroll pagination
@@ -5592,13 +5623,16 @@ $(document).ready(function () {
 
 /* #Radial menu
  ================================================== */
+//#region 
 //<editor-fold defaultstate="collapsed" desc="radial menu">
 
 //</editor-fold>
+ //#endregion 
 
 
 /* #innerNavigate
  ================================================== */
+//#region 
 //<editor-fold defaultstate="collapsed" desc="innerNavigate">
 //Create a function that will be passed a slide number and then will scroll to that slide using jquerys animate. The Jquery
 //easing plugin is also used, so we passed in the easing method of 'easeInOutQuint' which is available throught the plugin.
@@ -5639,12 +5673,15 @@ function innerNavigate() {
     //var parallax = new Parallax(scene);
 }
 //</editor-fold>
+ //#endregion 
 
 /* #Title
  ================================================== */
+//#region 
 //<editor-fold defaultstate="collapsed" desc="title">
 
 //</editor-fold>
+ //#endregion 
 
 
 
