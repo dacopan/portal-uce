@@ -4656,24 +4656,21 @@ $(function () {
                 var $obj = $(this);
 
                 // define the top position of the element and include the offset which makes is appear earlier or later
-                var elemTop = (!options.scrollHorizontal) ? Math.round($obj.offset().top) + options.offset : Math.round($obj.offset().left) + options.offset,
-                    elemBottom = elemTop + ($obj.height());
+                var elemTop = Math.round($obj.offset().top) + options.offset;
+                elemBottom = elemTop + ($obj.height());
+                elemBottom -= (options.offset * 2);
 
                 // Add class if in viewport
                 if ((elemTop < viewportBottom) && (elemBottom > viewportTop)) {
-                    // If class already exists; quit
-                    if ($obj.hasClass(options.classToAdd)) {
-                        $obj = elemTop = elemBottom = null
-                        return;
-                    }
 
-                    $obj.addClass(options.classToAdd);
+                    //$obj.addClass(options.classToAdd);
                     $('a.toSlide').parent().removeClass("current");
                     $('#navigation li a[data-slide="' + $obj.data("slide") + '"]').parent().addClass('current');
                     $obj = elemTop = elemBottom = null
+                    return;
                     // Remove class if not in viewport and repeat is true
-                } else if ($obj.hasClass(options.classToAdd) && (options.repeat)) {
-                    $obj.removeClass(options.classToAdd);
+                } else if ($obj.hasClass(options.classToAdd)) {
+                    //$obj.removeClass(options.classToAdd);
                     $obj = elemTop = elemBottom = null
                 }
             });

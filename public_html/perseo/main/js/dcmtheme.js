@@ -264,7 +264,7 @@ window.Modernizr = function (a, b, c) {
     yepnope.apply(window, [].slice.call(arguments, 0))
 };
 //</editor-fold>
- //#endregion 
+//#endregion 
 
 //#region isotope
 //<editor-fold  defaultstate="collapsed" desc="isotope">
@@ -1393,7 +1393,7 @@ window.Modernizr = function (a, b, c) {
     "function" == typeof define && define.amd ? define(["outlayer/outlayer", "get-size/get-size", "matches-selector/matches-selector", "isotope/js/item", "isotope/js/layout-mode", "isotope/js/layout-modes/masonry", "isotope/js/layout-modes/fit-rows", "isotope/js/layout-modes/vertical"], r) : t.Isotope = r(t.Outlayer, t.getSize, t.matchesSelector, t.Isotope.Item, t.Isotope.LayoutMode)
 }(window);
 //</editor-fold>
- //#endregion 
+//#endregion 
 
 //#region jquery widget
 //<editor-fold  defaultstate="collapsed" desc="jquery widget">
@@ -1542,7 +1542,7 @@ window.Modernizr = function (a, b, c) {
     })
 })(jQuery);
 //</editor-fold>
- //#endregion 
+//#endregion 
 
 //#region jquery mousewheel
 //<editor-fold  defaultstate="collapsed" desc="jquery mousewheel">
@@ -1668,7 +1668,7 @@ window.Modernizr = function (a, b, c) {
 
 }));
 //</editor-fold>
- //#endregion 
+//#endregion 
 
 //#region MM menu
 //<editor-fold  defaultstate="collapsed" desc="MM menu js">
@@ -1917,7 +1917,7 @@ window.Modernizr = function (a, b, c) {
     var p, a, r, l, c = !1
 }(jQuery);
 //</editor-fold>
- //#endregion 
+//#endregion 
 
 //#region jquery easing
 //<editor-fold  defaultstate="collapsed" desc="jquery easing">
@@ -2102,7 +2102,7 @@ jQuery.extend(jQuery.easing,
             }
         });
 //</editor-fold>
- //#endregion 
+//#endregion 
 
 //#region nivo slider
 //<editor-fold  defaultstate="collapsed" desc="nivo slider">
@@ -2613,7 +2613,7 @@ jQuery.extend(jQuery.easing,
     e.fn._reverse = [].reverse
 })(jQuery);
 //</editor-fold>
- //#endregion 
+//#endregion 
 
 //#region vacordion
 //<editor-fold  defaultstate="collapsed" desc="vacordion">
@@ -2989,7 +2989,7 @@ jQuery.extend(jQuery.easing,
     };
 })(jQuery);
 //</editor-fold>
- //#endregion 
+//#endregion 
 
 //#region notices full
 //<editor-fold  defaultstate="collapsed" desc="notices full">
@@ -3190,7 +3190,7 @@ var Boxgrid = (function () {
     return { init: init };
 })();
 //</editor-fold>
- //#endregion 
+//#endregion 
 
 //#region parallax 
 //<editor-fold  defaultstate="collapsed" desc="parallax tom clancy">
@@ -3324,7 +3324,7 @@ var Boxgrid = (function () {
 }();
 /******************/
 //</editor-fold>
- //#endregion 
+//#endregion 
 
 //#region metro
 //<editor-fold defaultstate="collapsed" desc="metro tabs control">
@@ -4418,7 +4418,7 @@ $(function () {
     }
 });
 //</editor-fold>
- //#endregion 
+//#endregion 
 
 //#region viewportChecker
 //<editor-fold  defaultstate="collapsed" desc="Scroll Spy, current:viewportChecker">
@@ -4519,24 +4519,21 @@ $(function () {
                 var $obj = $(this);
 
                 // define the top position of the element and include the offset which makes is appear earlier or later
-                var elemTop = (!options.scrollHorizontal) ? Math.round($obj.offset().top) + options.offset : Math.round($obj.offset().left) + options.offset,
-                    elemBottom = elemTop + ($obj.height());
+                var elemTop = Math.round($obj.offset().top) + options.offset;
+                elemBottom = elemTop + ($obj.height());
+                elemBottom -= (options.offset * 2);
 
                 // Add class if in viewport
                 if ((elemTop < viewportBottom) && (elemBottom > viewportTop)) {
-                    // If class already exists; quit
-                    if ($obj.hasClass(options.classToAdd)) {
-                        $obj = elemTop = elemBottom = null
-                        return;
-                    }
 
-                    $obj.addClass(options.classToAdd);
+                    //$obj.addClass(options.classToAdd);
                     $('a.toSlide').parent().removeClass("current");
                     $('#navigation li a[data-slide="' + $obj.data("slide") + '"]').parent().addClass('current');
                     $obj = elemTop = elemBottom = null
+                    return;
                     // Remove class if not in viewport and repeat is true
-                } else if ($obj.hasClass(options.classToAdd) && (options.repeat)) {
-                    $obj.removeClass(options.classToAdd);
+                } else if ($obj.hasClass(options.classToAdd)) {
+                    //$obj.removeClass(options.classToAdd);
                     $obj = elemTop = elemBottom = null
                 }
             });
@@ -4751,7 +4748,7 @@ if (typeof jQuery === 'undefined') {
  endProps:{left:-763}},{elements:$("tendinaFooterDx"),initProps:{left:763},endProps:{left:1526}}];(new ScrollSpyIt({offset:150,delay:300,config:b})).initScrollSpy()}*/
 
 //</editor-fold>
- //#endregion 
+//#endregion 
 
 //#region sidebar
 //<editor-fold defaultstate="collapsed" desc="sidebar">
@@ -5347,7 +5344,7 @@ $(window).load(function () {
         });
 
         //animate direcWrap
-        $('.direcWrap').addClass("oculto").viewportChecker({
+        $('.direcWrap .og-grid').addClass("oculto").viewportChecker({
             classToAdd: 'visible animated bounceInRight',
             offset: 300,
             repeat: false
@@ -5460,7 +5457,7 @@ function innerNavigate() {
     //var parallax = new Parallax(scene);
 }
 //</editor-fold>
- //#endregion 
+//#endregion 
 
 
 
