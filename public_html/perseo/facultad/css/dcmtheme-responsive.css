@@ -125,8 +125,8 @@
     .theme-default a.nivo-prevNav {
         left: 0; }
     .one_col.half.comunicWraper.isobrick.va-container{
-        margin-left: 0px !important;
-        padding-left: 0px !important;
+        margin-left: 0 !important;
+        padding-left: 0 !important;
     }
     /*facultades*/
     .fac-title .title{
@@ -319,6 +319,7 @@
         float: left;
         height: 45px;
         line-height: 40px;
+        padding:0;
     }
 
     .metro .sidebarWrap{

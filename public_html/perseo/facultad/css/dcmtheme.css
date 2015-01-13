@@ -4447,6 +4447,9 @@ a {
 .metro .padding10 {
     padding: 10px;
 }
+.metro .padding10R {
+    padding: 10px;
+}
 
 .metro .padding15 {
     padding: 15px;
@@ -4470,6 +4473,9 @@ a {
 
 .metro .margin20 {
     margin: 20px;
+}
+.metro .font3r {
+font-size:3rem;
 }
 /**paste2**/
 .metro .clearfix:before,
@@ -6978,100 +6984,91 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
 ================================================== */
 /*<editor-fold defaultstate="collapsed" desc="#Carreras">*/
 #slide2 .fac-title, #slide3 .fac-title, .metro .fac-title {
-    margin-right: 0px !important;
+    margin-right: 0 !important;
 }
 
-.carreraWrap {
+
+.metro .carreraWrap {
     max-width: 900px;
     float: none;
 }
 
-    .carreraWrap .carrera {
-        background-color: #a28f23;
-        width: 140px !important;
-        height: 105px;
-        font-family: "Segoe UI Light_","Open Sans Light",Verdana,Arial,Helvetica,sans-serif;
-        font-size: 21px;
-        font-weight: normal;
-        color: white;
-        padding-left: 5px;
-        padding-top: 5px;
-        text-wrap: normal !important;
-        line-height: 24px;
-        margin-bottom: 35px;
-        z-index: 2;
-        text-align: left;
-        cursor: pointer;
+.carreraWrap .carrera {
+    background-color: #a28f23;
+    width: 140px !important;
+    height: 105px;
+    font-family: "Segoe UI Light_","Open Sans Light",Verdana,Arial,Helvetica,sans-serif;
+    font-size: 21px;
+    font-weight: normal;
+    color: white;
+    padding-left: 5px;
+    padding-top: 5px;
+    text-wrap: normal !important;
+    line-height: 24px;
+    margin-bottom: 35px;
+    z-index: 2;
+    text-align: left;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    display: block;
+    position: relative;
+    text-decoration: none !important;
+}
+
+    .carreraWrap .carrera .btox {
+        overflow: hidden;
+        width: 100%;
+        height: 38px;
+        position: absolute;
+        right: 0px;
+        bottom: -34px;
+        display: block !important;
         border: none;
         outline: none;
         display: block;
-        position: relative;
-        text-decoration: none !important;
+        vertical-align: middle;
     }
 
-        .carreraWrap .carrera .btox {
-            overflow: hidden;
-            width: 100%;
-            height: 38px;
+        .carreraWrap .carrera .btox:after {
+            width: 173px;
+            /* transform: rotate(2deg); */
+            height: 78px;
+            -webkit-border-bottom-left-radius: 100%;
+            border-bottom-left-radius: 100%;
+            background: #a28f23;
+            z-index: 1;
             position: absolute;
-            right: 0px;
-            bottom: -34px;
-            display: block !important;
-            border: none;
-            outline: none;
-            display: block;
-            vertical-align: middle;
-        }
-
-            .carreraWrap .carrera .btox:after {
-                width: 173px;
-                /* transform: rotate(2deg); */
-                height: 78px;
-                border-bottom-left-radius: 100%;
-                background: #a28f23;
-                z-index: 1;
-                position: absolute;
-                right: 0px;
-                bottom: 1px;
-                content: '';
-                outline: 1px solid transparent;
-                overflow: hidden;
-            }
-
-        .carreraWrap .carrera:after {
+            right: 0;
+            bottom: 1px;
             content: '';
-            width: 100%;
-            display: block;
-            position: absolute;
-            /*bottom: -34px;*/
-            bottom: -45px;
-            left: 0;
-            /*background-image: url(../images/carreraBotom.png);*/
-            height: 34px;
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: 0% 0%;
-            /*-webkit-box-shadow: inset 0px 10px 11px 0px rgba(50, 50, 50, 0.75);*/
+            outline: 1px solid transparent;
+            overflow: hidden;
         }
-
-    .carreraWrap .detailx .docs, .carreraWrap .detailx .doc, .carreraWrap .detailx img, .carreraWrap .detailx .span {
-        opacity: 0;
-        width: 0;
-        height: 0;
+        .carreraWrap .carrera:after {
+        content: '';
+        width: 100%;
+        display: block;
         position: absolute;
+        /*bottom: -34px;*/
+        bottom: -45px;
+        left: 0;
+        /*background-image: url(../images/carreraBotom.png);*/
+        height: 34px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: 0% 0%;
+        /*-webkit-box-shadow: inset 0px 10px 11px 0px rgba(50, 50, 50, 0.75);*/
     }
 
-.og-details-full {
-    overflow: hidden;
-    position: relative;
-    height: 100%;
+.carreraWrap .detailx .docs, .carreraWrap .detailx .doc, .carreraWrap .detailx img, .carreraWrap .detailx .span {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    position: absolute;
 }
-
-    .og-details-full .row-fluid:first-child {
-        overflow: hidden;
-        position: relative;
-    }
-
+/* #Sidebar
+================================================== */
 .docs .doc {
     margin: 5px;
     width: 134px;
@@ -7196,7 +7193,6 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
 
     .metro .bannerCircle .item:hover .banx {
         transform: scale(1.05);
-        
         margin-left: -5px;
     }
 
@@ -7626,7 +7622,7 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
         padding-left: 45px !important;
     }
 
-    .metro .sidebar > ul li a:hover, .aui .metro .sidebar .dropdown-menu > li > a:hover {
+    .metro .sidebar > ul li a:hover, .aui .metro .sidebar .dropdown-menu > li > a:hover,.metro .sidebar > ul li.active a {
         background: none;
         background-color: #262626;
         color: #ffffff;
