@@ -4449,6 +4449,10 @@ a {
     padding: 10px;
 }
 
+.metro .padding10R {
+    padding: 10px;
+}
+
 .metro .padding15 {
     padding: 15px;
 }
@@ -4471,6 +4475,11 @@ a {
 
 .metro .margin20 {
     margin: 20px;
+}
+
+.metro .font3r {
+    font-size: 3rem;
+    line-height: normal;
 }
 /**paste2**/
 .metro .clearfix:before,
@@ -6200,10 +6209,7 @@ span.date {
 }
 
 .metro .grilla-dark {
-    background-image: url(../images/grilla-dark.png);
-    background-size: cover;
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
+    background-image: url(../images/grilla_dark.jpg) !important;
 }
 
 .metro .img-cover {
@@ -6212,7 +6218,7 @@ span.date {
     background-repeat: no-repeat;
 }
 
-.metro .direcWrap .og-grid li {
+.metro .direcWrap .og-grid > li {
     margin: 10px 10px 5px 10px;
 }
 
@@ -6251,9 +6257,640 @@ span.date {
 
 .metro .direcWrap .direc:hover {
     opacity: 1;
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
     transform: scale(1.1);
 }
 /*</editor-fold>*/
+/* #Sidebar
+================================================== */
+.docs .doc {
+    margin: 5px;
+    width: 134px;
+    height: 134px;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    margin-left: auto;
+    /*overflow: hidden;docs hover anim*/
+}
+
+    .docs .doc img {
+        z-index: 1;
+    }
+
+    .docs .doc .download {
+        position: absolute;
+        bottom: 1px;
+        z-index: 2;
+        width: 25px;
+        height: 25px;
+        background-color: #fff;
+        color: red;
+        font-size: 20px;
+        text-align: center;
+        line-height: 25px;
+        -webkit-animation-duration: 1s;
+        animation-duration: 1s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+        -moz-transition: all 0.3s ease 0s;
+        -webkit-transition: all 0.3s ease 0s;
+        -o-transition: all 0.3s ease 0s;
+        transition: all 0.3s ease 0s;
+        transform-origin: 50% 50%;
+        left: 1px;
+    }
+
+    .docs .doc .hintx {
+        height: 100%;
+        width: 100%;
+        display: none;
+        background-color: rgba(0,0,0,0.8);
+        line-height: normal;
+        position: absolute;
+        color: #fff;
+        text-align: center;
+        -webkit-animation-duration: 1s;
+        animation-duration: 1s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+        padding: 5px;
+        padding-top: 10%;
+    }
+
+    .docs .doc:hover .hintx {
+        display: block;
+        -webkit-animation-name: fadeInDown;
+        animation-name: fadeInDown;
+    }
+
+    .docs .doc:hover .download {
+        -webkit-animation-name: bounceIn;
+        animation-name: bounceIn;
+        left: 0px;
+        right: 0px;
+        margin: auto;
+        color: #fff;
+        background-color: #4390df;
+        padding: 5px;
+        width: 50px;
+        height: 50px;
+        font-size: 30px;
+        line-height: 50px;
+    }
+
+    .docs .doc .download:hover {
+        color: #fff;
+        background-color: /*rgb(66,117,185)*/ rgba(0,118,189,.8);
+    }
+
+    .docs .doc.desc {
+        width: 268px;
+    }
+
+        .docs .doc.desc p {
+            vertical-align: middle;
+            padding: 5px;
+            line-height: normal;
+        }
+
+
+
+
+
+
+
+.direcWrap .rb-week, .clubWrap .rb-week {
+    padding: 20px;
+    max-width: 100%;
+}
+
+.direcWrap .rb-overlay, .clubWrap .rb-overlay {
+    border-width: 10px;
+}
+/*Sidebar*/
+.metro .bannerCircle .banx {
+    width: 100%;
+    /* height: 169px; */
+    max-height: 100%;
+    height: 100%;
+}
+
+.metro .bannerCircle .item, .metro .bannerCircle .banx {
+    overflow: hidden;
+    -webkit-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+    -moz-transition: all 0.3s ease 0s;
+}
+
+
+    .metro .bannerCircle .item:hover .banx {
+        transform: scale(1.05);
+        margin-left: -5px;
+    }
+
+.sidebarWrap .docs {
+    text-align: left;
+}
+
+    .sidebarWrap .docs li, .sidebarWrap .docs .doc.desc {
+        width: 100%;
+    }
+
+.metro .sidebarWrap .contentwrap {
+    width: 100%;
+    padding-right: 40px;
+    padding-left: 20px;
+}
+
+.metro .sidebarWrap .col2 {
+    float: right;
+}
+
+.metro .sidebar {
+    margin: 0;
+    padding: 0;
+    background-color: #3D3D3D;
+    width: 100%;
+    height: 100%;
+}
+
+    .metro .sidebar > ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+        .metro .sidebar > ul li {
+            display: block;
+            border: 0;
+            border-bottom: 1px rgb(0,118,189) solid;
+            position: relative;
+            margin: 0px;
+        }
+
+            .metro .sidebar > ul li.title {
+                padding: 20px 20px 10px 20px;
+                font-family: 'Segoe UI Light_', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
+                font-weight: 300;
+                letter-spacing: 0.00em;
+                font-size: 2.5rem;
+                line-height: 2.5rem;
+                letter-spacing: 0.01em;
+                color: #000000;
+                font-size: 2.2rem;
+                line-height: 2.2rem;
+                color: #ffffff;
+            }
+
+            .metro .sidebar > ul li a {
+                display: block;
+                position: relative;
+                padding: 10px 20px;
+                text-decoration: none;
+                color: #eeeeee;
+                background-color: #3D3D3D;
+                text-align: left;
+            }
+
+                .metro .sidebar > ul li a.dropdown-toggle:after {
+                    right: 10px;
+                    bottom: 5px;
+                }
+
+                .metro .sidebar > ul li a [class*="icon-"] {
+                    margin-right: 15px;
+                    font-size: 17px;
+                }
+
+            .metro .sidebar > ul li.stick {
+                position: relative;
+            }
+
+                .metro .sidebar > ul li.stick:before {
+                    content: "";
+                    position: absolute;
+                    width: 7px;
+                    height: 40px;
+                    left: -7px;
+                    text-indent: -9999px;
+                    border-top-left-radius: 5px;
+                    border-bottom-left-radius: 5px;
+                    background-color: inherit;
+                }
+
+            .metro .sidebar > ul li.disabled a {
+                background-color: #8a8a8a;
+                cursor: default;
+                color: #555555;
+            }
+
+        /*.metro .sidebar > ul li.active a {
+                background-color: #9a1616;
+                color: #ffffff;
+            }*/
+
+        .metro .sidebar > ul ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            position: absolute;
+            display: none;
+            z-index: 1000;
+            background: #ffffff;
+            min-width: 220px;
+            width: auto;
+            border: 1px solid #dcddde;
+            box-shadow: none;
+            position: relative !important;
+            background-color: #e5e5e5;
+            min-width: 100%;
+            float: none;
+            border-radius: 0px;
+        }
+
+            .metro .sidebar > ul ul li {
+                display: block;
+                margin: 10px 0;
+                padding: 0;
+                vertical-align: baseline;
+                position: relative;
+                font-family: 'Segoe UI_', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
+            }
+
+                .metro .sidebar > ul ul li a {
+                    display: block;
+                    text-decoration: none;
+                    font-family: 'Segoe UI Light_', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
+                    font-weight: 300;
+                    letter-spacing: 0.00em;
+                    font-size: 2.5rem;
+                    line-height: 2.5rem;
+                    letter-spacing: 0.01em;
+                    color: #000000;
+                    line-height: 2.2rem;
+                    font-size: 2.2rem;
+                    color: inherit;
+                    text-align: left;
+                }
+
+                .metro .sidebar > ul ul li.title {
+                    font-family: 'Segoe UI Light_', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
+                    font-weight: 300;
+                    color: #000000;
+                    letter-spacing: 0.00em;
+                    font-size: 2.5rem;
+                    line-height: 2.5rem;
+                    letter-spacing: 0.01em;
+                    font-size: 4rem;
+                    margin-bottom: 20px;
+                }
+
+            .metro .sidebar > ul ul li {
+                margin: 5px 0 0;
+                width: 100%;
+                border: 1px transparent solid;
+            }
+
+                .metro .sidebar > ul ul li:last-child {
+                    margin-bottom: 5px;
+                }
+
+                .metro .sidebar > ul ul li.disabled,
+                .metro .sidebar > ul ul li.disabled:hover {
+                    cursor: default !important;
+                    background: transparent !important;
+                    color: #eeeeee;
+                }
+
+                    .metro .sidebar > ul ul li.disabled a,
+                    .metro .sidebar > ul ul li.disabled:hover a {
+                        color: inherit;
+                        cursor: inherit;
+                        background: inherit;
+                    }
+
+            .metro .sidebar > ul ul a {
+                padding: 8px 32px !important;
+                color: inherit;
+                font-size: 15px;
+                line-height: 14px !important;
+                cursor: pointer;
+            }
+
+            .metro .sidebar > ul ul ul a {
+                padding-left: 53px !important;
+            }
+
+                .metro .sidebar > ul ul ul a:hover {
+                    padding-left: 57px !important;
+                }
+
+            .metro .sidebar > ul ul li:hover {
+                background: #edf4fc;
+                border-color: #a8d2fd;
+            }
+
+            .metro .sidebar > ul ul.place-right {
+                right: -15px;
+                left: auto;
+            }
+
+            .metro .sidebar > ul ul .divider {
+                padding: 0;
+                height: 1px;
+                margin: 9px 1px;
+                overflow: hidden;
+                background-color: #e5e5e5;
+                border-width: 0;
+            }
+
+                .metro .sidebar > ul ul .divider:hover {
+                    background: #e5e5e5;
+                }
+
+            .metro .sidebar > ul ul.open {
+                display: block !important;
+            }
+
+            .metro .sidebar > ul ul .dropdown-menu {
+                /*left: 100%;*/
+                top: -10%;
+            }
+
+            .metro .sidebar > ul ul > li:hover > .dropdown-menu[data-show="hover"] {
+                display: block;
+            }
+
+            .metro .sidebar > ul ul > li > a.dropdown-toggle:after {
+                font-family: 'fontawesome-alloy';
+                font-size: .7em;
+                content: "\f078";
+                margin-top: -1.4em;
+                color: #fff;
+                position: absolute;
+                margin-left: .25em;
+                bottom: 6px;
+                font-size: .7em;
+            }
+
+            .metro .sidebar > ul ul.drop-left {
+                left: -100%;
+            }
+
+            .metro .sidebar > ul ul.drop-up {
+                top: auto;
+                bottom: 0;
+            }
+
+            .metro .sidebar > ul ul .menu-title {
+                background-color: #f6f7f8;
+                font-size: 12px;
+                line-height: 14px;
+                padding: 4px 8px;
+                border: 0;
+                border-bottom: 1px #dcddde solid;
+                border-top: 1px #dcddde solid;
+                color: #646464;
+            }
+
+                .metro .sidebar > ul ul .menu-title:first-child {
+                    margin: 0;
+                    border-top-width: 0;
+                }
+
+                    .metro .sidebar > ul ul .menu-title:first-child:hover {
+                        border-top-width: 0;
+                    }
+
+                .metro .sidebar > ul ul .menu-title:hover {
+                    background-color: #f6f7f8;
+                    cursor: default;
+                    border: 0;
+                    border-bottom: 1px #dcddde solid;
+                    border-top: 1px #dcddde solid;
+                }
+
+            .metro .sidebar > ul ul li {
+                border: 0;
+            }
+                /*second li drop*/
+                .metro .sidebar > ul ul li a {
+                    /* background-color: #e5e5e5;*/
+                    background-color: transparent;
+                    text-transform: capitalize;
+                    font-family: 'Adequate ExtraLight' /*'Open Sans Light'*/;
+                    font-size: 11px;
+                }
+
+                .metro .sidebar > ul ul li.divider {
+                    background-color: #c2c2c2;
+                }
+
+                    .metro .sidebar > ul ul li.divider:hover {
+                        background-color: #c2c2c2;
+                    }
+
+                .metro .sidebar > ul ul li.disabled a {
+                    color: #999999;
+                }
+
+                    .metro .sidebar > ul ul li.disabled a:hover {
+                        color: #999999;
+                    }
+
+            .metro .sidebar > ul ul.open {
+                display: block;
+            }
+
+    .metro .sidebar .pull-menu {
+        display: none;
+        float: left !important;
+        color: #fff;
+        cursor: pointer;
+        font-size: 28px;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        height: 45px;
+        width: 40px;
+        line-height: 20px;
+        margin: 0;
+        font-family: 'fontawesome-alloy';
+    }
+
+        .metro .sidebar .pull-menu:before {
+            content: "\f0c9";
+            position: absolute;
+            font-size: 20pt;
+            top: 10px;
+            left: 10px;
+        }
+
+    .metro .sidebar .element-menu {
+        position: relative;
+    }
+
+.metro .sidebarWrap .sidebar .ps-scrollbar-x-rail,
+.metro .sidebarWrap .sidebar .ps-scrollbar-y-rail {
+    opacity: 0;
+}
+/*carreras sidebar*/
+.metro .sidebarWrap .navx {
+    background-color: /*rgb(66,117,185)*/ rgba(0,118,189,.8);
+    margin-left: 0px;
+    height: 100%;
+    /* padding: 5px; */
+    padding-top: 60px;
+    padding-left: 20px;
+    overflow: hidden;
+}
+
+.metro .sidebar {
+    /*background-color: rgb(66,117,185);*/
+}
+
+    .metro .sidebar > ul li a {
+        background-color: rgb(255,255,255);
+        color: #000;
+    }
+
+    .metro .sidebar > ul ul, .metro .sidebar, .metro .sidebar > ul li a {
+        background-color: transparent;
+        border: 0px;
+        color: #fff;
+        font-family: 'Adequate ExtraLight';
+    }
+        /*primer li drop*/
+        .metro .sidebar > ul li a {
+            background-color: #fff;
+            color: #000;
+            text-transform: uppercase;
+            font-family: 'Adequate ExtraLight';
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+.metro .sidebarWrap .carousel {
+    /*background-color: #fff;*/
+    background-color: transparent;
+}
+
+.metro .sidebar > ul ul li:hover {
+    background-color: transparent;
+}
+
+.metro .sidebar a.dropdown-toggle:after {
+    font-family: 'fontawesome-alloy';
+    font-size: .7em;
+    content: "\f078";
+    margin-top: -1.4em;
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    position: absolute;
+    margin-left: .25em;
+    bottom: 6px;
+    font-size: .7em;
+}
+
+.metro .sidebar a.dropdown-toggle:after {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+}
+
+.metro .sidebar > ul li a, .metro .sidebar > ul ul a {
+    -moz-transition: all 0.4s ease 0s;
+    -webkit-transition: all 0.4s ease 0s;
+    -o-transition: all 0.4s ease 0s;
+    transition: all 0.4s ease 0s;
+}
+
+    .metro .sidebar > ul li a:hover, .metro .sidebar > ul ul a:hover {
+        padding-left: 45px !important;
+    }
+
+    .metro .sidebar > ul li a:hover, .aui .metro .sidebar .dropdown-menu > li > a:hover, .metro .sidebar > ul li.active a {
+        background: none;
+        background-color: #262626;
+        color: #ffffff;
+    }
+
+
+.metro .rb-week.sidebarWrap {
+    border: 2px solid rgb(66,117,185);
+}
+
+.metro .sidebarWrap .full-content .contentwrap {
+    padding-top: 0px;
+}
+
+.metro .sidebarWrap .og-grid {
+    padding: 0px;
+}
+
+    .metro .sidebarWrap .og-grid li {
+        margin: 2px;
+    }
+
+.metro .sidebarWrap .full-content .membrete {
+    width: 300px !important;
+    margin: auto;
+    height: auto;
+}
+
+.metro .sidebarWrap .full-content .fac-titulo {
+    margin-top: 50%;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+.metro .sidebarWrap .full-content .img {
+    width: 100%;
+    height: 169px;
+}
+
+.metro .sidebarWrap .full-content .ctc {
+    font-size: 12px;
+    line-height: 15px;
+    font-family: 'Open Sans' !important;
+}
+
+.metro .sidebarWrap .full-content .col1 {
+    height: auto;
+    margin: auto;
+    padding-bottom: 10%;
+    overflow: hidden;
+}
+
+.metro .sidebarWrap .full-content .col2 {
+    /*    width: 300px!important;margin:auto;padding-bottom: 10%;max-width: 100%;*/
+    margin: auto;
+    padding-bottom: 10%;
+    /* max-width: 300px!important;*/
+}
+
+.metro .sidebarWrap .full-content .spliter {
+    height: 20px;
+    width: 20px !important;
+    margin: auto;
+    padding-bottom: 10%;
+}
+
+.metro .sidebarWrap {
+    padding-top: 80px;
+    padding-left: 60px;
+}
+
 
 /*<editor-fold defaultstate="collapsed" desc="accordion">*/
 .metro .accordion > .accordion-frame {
@@ -6365,6 +7002,130 @@ span.date {
     -o-transform: rotate(90deg);
     transform: rotate(90deg);
 }
+/*</editor-fold>*/
+/* #Metro slider
+================================================== */
+/*<editor-fold defaultstate="collapsed" desc="Metro slider">*/
+.metro .carousel {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    background-color: #eeeeee;
+}
+
+    .metro .carousel .slic {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        display: none;
+        padding: 0;
+    }
+
+        .metro .carousel .slic div.subslide {
+            z-index: 2;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+
+        .metro .carousel .slic img.cover {
+            width: 100%;
+            min-height: 100%;
+            z-index: 1;
+            position: absolute;
+            top: 0 !important;
+            left: 0 !important;
+        }
+
+        .metro .carousel .slic:first-child {
+            display: block;
+        }
+
+    .metro .carousel .controls {
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 15px;
+        min-width: 40px;
+        min-height: 40px;
+        width: auto;
+        height: auto;
+        margin-top: -20px;
+        font-size: 48pt;
+        font-weight: 100;
+        line-height: 30px;
+        color: #fff;
+        text-align: center;
+        cursor: pointer;
+        opacity: .75;
+        z-index: 100;
+    }
+
+        .metro .carousel .controls.right {
+            left: auto;
+            right: 15px;
+        }
+
+        .metro .carousel .controls:hover {
+            opacity: 1;
+        }
+
+    .metro .carousel .markers {
+        z-index: 100;
+        margin: 0;
+        padding: 0;
+        display: block;
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+    }
+
+        .metro .carousel .markers > ul {
+            padding-left: 0;
+            list-style: none;
+        }
+
+            .metro .carousel .markers > ul li ul,
+            .metro .carousel .markers > ul li ol {
+                list-style: none;
+                padding-left: 25px;
+            }
+
+        .metro .carousel .markers li {
+            display: block;
+            float: left;
+            margin-right: 5px;
+        }
+
+            .metro .carousel .markers li a {
+                background-color: rgba(0,0,0,.6);
+                display: block;
+                float: left;
+                border: 1px #ffffff solid;
+            }
+
+            .metro .carousel .markers li.active a {
+                background-color: #f0a30a;
+            }
+
+        .metro .carousel .markers.default > ul > li > a {
+            width: 32px;
+            height: 6px;
+        }
+
+        .metro .carousel .markers.cycle > ul > li > a {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+        }
+
+        .metro .carousel .markers.square > ul > li > a {
+            width: 24px;
+            height: 24px;
+        }
+
 /*</editor-fold>*/
 
 /*<editor-fold defaultstate="collapsed" desc="hint">*/

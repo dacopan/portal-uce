@@ -1,5 +1,5 @@
 var debug = false;
-//#region 
+//#region modernizer
 //<editor-fold defaultstate="collapsed" desc="modernizer">
 /* Modernizr 2.6.2 (Custom Build) | MIT & BSD
  * Build: http://modernizr.com/download/#-csstransitions-shiv-cssclasses-prefixed-testprop-testallprops-domprefixes-load
@@ -266,7 +266,7 @@ window.Modernizr = function (a, b, c) {
 //</editor-fold>
  //#endregion 
 
-//#region 
+//#region isotope
 //<editor-fold defaultstate="collapsed" desc="isotope">
 /*!
  * Isotope PACKAGED v2.0.0
@@ -1395,7 +1395,7 @@ window.Modernizr = function (a, b, c) {
 //</editor-fold>
  //#endregion 
 
-//#region 
+//#region jquery widget
 //<editor-fold defaultstate="collapsed" desc="jquery widget">
 /*! jQuery UI - v1.10.3 - 2013-05-28
  * http://jqueryui.com
@@ -1544,7 +1544,7 @@ window.Modernizr = function (a, b, c) {
 //</editor-fold>
  //#endregion 
 
-//#region 
+//#region jquery mousewheel
 //<editor-fold defaultstate="collapsed" desc="jquery mousewheel">
 
 /*! Copyright (c) 2013 Brandon Aaron (http://brandonaaron.net)
@@ -1670,7 +1670,7 @@ window.Modernizr = function (a, b, c) {
 //</editor-fold>
  //#endregion 
 
-//#region 
+//#region MM menu
 //<editor-fold defaultstate="collapsed" desc="MM menu js">
 
 !function (e) {
@@ -1919,7 +1919,7 @@ window.Modernizr = function (a, b, c) {
 //</editor-fold>
  //#endregion 
 
-//#region 
+//#region jquery easing
 //<editor-fold defaultstate="collapsed" desc="jquery easing">
 jQuery.easing['jswing'] = jQuery.easing['swing'];
 jQuery.extend(jQuery.easing,
@@ -2104,7 +2104,7 @@ jQuery.extend(jQuery.easing,
 //</editor-fold>
  //#endregion 
 
-//#region 
+//#region nivo slider
 //<editor-fold defaultstate="collapsed" desc="nivo slider">
 /*
  * jQuery Nivo Slider v3.2
@@ -2615,7 +2615,7 @@ jQuery.extend(jQuery.easing,
 //</editor-fold>
  //#endregion 
 
-//#region 
+//#region vacordion
 //<editor-fold defaultstate="collapsed" desc="vacordion">
 (function ($) {
 
@@ -2993,7 +2993,7 @@ jQuery.extend(jQuery.easing,
 //</editor-fold>
  //#endregion 
 
-//#region 
+//#region notices full
 //<editor-fold defaultstate="collapsed" desc="notices full">
 /*
  * debouncedresize: special jQuery event that happens once after a window resize
@@ -3202,7 +3202,7 @@ Boxgrid.init();
 //</editor-fold>
  //#endregion 
 
-//#region 
+//#region carreras Full
 //<editor-fold defaultstate="collpased" desc="carreras Full">
 var CarrerasFull = (function () {
     var $items = $('.carreraWrap li'),
@@ -3387,7 +3387,7 @@ CarrerasFull.init();
 //</editor-fold>
  //#endregion 
 
-//#region 
+//#region parallax
 //<editor-fold defaultstate="collapsed" desc="parallax tom clancy">
 
 /* PARALLAX */
@@ -3521,7 +3521,7 @@ CarrerasFull.init();
 //</editor-fold>
  //#endregion 
 
-//#region 
+//#region metro
 //<editor-fold defaultstate="collapsed" desc="metro tabs control">
 var hasTouch = 'ontouchend' in window, eventTimer;
 var moveDirection = 'undefined', startX, startY, deltaX, deltaY, mouseDown = false
@@ -4355,7 +4355,7 @@ $(function () {
 //</editor-fold>
  //#endregion 
 
-//#region 
+//#region perfect-scrollbar
 //<editor-fold defaultstate="collapsed" desc="perfect-scrollbar">
 (function (e) {
     "use strict";
@@ -4555,7 +4555,7 @@ $(function () {
 //</editor-fold>
  //#endregion 
 
-//#region 
+//#region viewportChecker
 //<editor-fold defaultstate="collapsed" desc="Scroll Spy, current:viewportChecker">
 
 /*
@@ -4698,7 +4698,7 @@ $(function () {
 //</editor-fold>
  //#endregion 
 
-//#region 
+//#region slick
 //<editor-fold defaultstate="collapsed" desc="slick js">
 !function (a) {
     "use strict";
@@ -5067,7 +5067,7 @@ $(function () {
 //</editor-fold>
  //#endregion 
 
-//#region 
+//#region sidebar
 //<editor-fold defaultstate="collapsed" desc="sidebar">
 $.Metro.initDropdowns();
 (function ($) {
@@ -5162,7 +5162,7 @@ $.Metro.initDropdowns();
                 fullview.perfectScrollbar('update');
                 fullview.scrollTop(0);
                 //apagamos nivo
-                var first_frame = $(fullview.find("[data-cont=0]"));
+                var first_frame = $(fullview.find("[data-cont=cont0]"));
                 if (current_frame.index() == 0) {
                     $(fullview.parent()).addClass("grilla-dark");
 
@@ -5221,7 +5221,7 @@ $(function () {
 //</editor-fold>
  //#endregion 
 
-//#region 
+//#region bannerCircle
 //<editor-fold defaultstate="collapsed" desc="bannerCircle">
 (function ($) {
     $.widget("metro.bannerCircle", {

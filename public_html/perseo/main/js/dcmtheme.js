@@ -1,5 +1,5 @@
 var debug = false;
-//#region 
+//#region modernizer
 //<editor-fold  defaultstate="collapsed" desc="modernizer"> #region modernizer
 /* Modernizr 2.6.2 (Custom Build) | MIT & BSD
  * Build: http://modernizr.com/download/#-csstransitions-shiv-cssclasses-prefixed-testprop-testallprops-domprefixes-load
@@ -266,7 +266,7 @@ window.Modernizr = function (a, b, c) {
 //</editor-fold>
  //#endregion 
 
-//#region 
+//#region isotope
 //<editor-fold  defaultstate="collapsed" desc="isotope">
 /*!
  * Isotope PACKAGED v2.0.0
@@ -1395,7 +1395,7 @@ window.Modernizr = function (a, b, c) {
 //</editor-fold>
  //#endregion 
 
-//#region 
+//#region jquery widget
 //<editor-fold  defaultstate="collapsed" desc="jquery widget">
 /*! jQuery UI - v1.10.3 - 2013-05-28
  * http://jqueryui.com
@@ -1544,7 +1544,7 @@ window.Modernizr = function (a, b, c) {
 //</editor-fold>
  //#endregion 
 
-//#region 
+//#region jquery mousewheel
 //<editor-fold  defaultstate="collapsed" desc="jquery mousewheel">
 
 /*! Copyright (c) 2013 Brandon Aaron (http://brandonaaron.net)
@@ -1670,7 +1670,7 @@ window.Modernizr = function (a, b, c) {
 //</editor-fold>
  //#endregion 
 
-//#region 
+//#region MM menu
 //<editor-fold  defaultstate="collapsed" desc="MM menu js">
 
 !function (e) {
@@ -1919,7 +1919,7 @@ window.Modernizr = function (a, b, c) {
 //</editor-fold>
  //#endregion 
 
-//#region 
+//#region jquery easing
 //<editor-fold  defaultstate="collapsed" desc="jquery easing">
 jQuery.easing['jswing'] = jQuery.easing['swing'];
 jQuery.extend(jQuery.easing,
@@ -2104,7 +2104,7 @@ jQuery.extend(jQuery.easing,
 //</editor-fold>
  //#endregion 
 
-//#region 
+//#region nivo slider
 //<editor-fold  defaultstate="collapsed" desc="nivo slider">
 /*
  * jQuery Nivo Slider v3.2
@@ -2615,7 +2615,7 @@ jQuery.extend(jQuery.easing,
 //</editor-fold>
  //#endregion 
 
-//#region 
+//#region vacordion
 //<editor-fold  defaultstate="collapsed" desc="vacordion">
 (function ($) {
 
@@ -2991,7 +2991,7 @@ jQuery.extend(jQuery.easing,
 //</editor-fold>
  //#endregion 
 
-//#region 
+//#region notices full
 //<editor-fold  defaultstate="collapsed" desc="notices full">
 /*
  * debouncedresize: special jQuery event that happens once after a window resize
@@ -3192,7 +3192,7 @@ var Boxgrid = (function () {
 //</editor-fold>
  //#endregion 
 
-//#region 
+//#region parallax 
 //<editor-fold  defaultstate="collapsed" desc="parallax tom clancy">
 
 /* PARALLAX */
@@ -3326,7 +3326,7 @@ var Boxgrid = (function () {
 //</editor-fold>
  //#endregion 
 
-//#region 
+//#region metro
 //<editor-fold defaultstate="collapsed" desc="metro tabs control">
 var hasTouch = 'ontouchend' in window, eventTimer;
 var moveDirection = 'undefined', startX, startY, deltaX, deltaY, mouseDown = false
@@ -4160,7 +4160,7 @@ $(function () {
 //</editor-fold>
 //#endregion 
 
-//#region 
+//#region perfect-scrollbar
 //<editor-fold  defaultstate="collapsed" desc="perfect-scrollbar">
 /*! perfect-scrollbar - v0.5.8
  * http://noraesae.github.com/perfect-scrollbar/
@@ -4420,7 +4420,7 @@ $(function () {
 //</editor-fold>
  //#endregion 
 
-//#region 
+//#region viewportChecker
 //<editor-fold  defaultstate="collapsed" desc="Scroll Spy, current:viewportChecker">
 
 /*
@@ -4753,7 +4753,7 @@ if (typeof jQuery === 'undefined') {
 //</editor-fold>
  //#endregion 
 
-//#region 
+//#region sidebar
 //<editor-fold defaultstate="collapsed" desc="sidebar">
 $.Metro.initDropdowns();
 (function ($) {
@@ -4848,7 +4848,7 @@ $.Metro.initDropdowns();
                 fullview.perfectScrollbar('update');
                 fullview.scrollTop(0);
                 //apagamos nivo
-                var first_frame = $(fullview.find("[data-cont=0]"));
+                var first_frame = $(fullview.find("[data-cont=cont0]"));
                 if (current_frame.index() == 0) {
                     $(fullview.parent()).addClass("grilla-dark");
 
@@ -4907,7 +4907,7 @@ $(function () {
 //</editor-fold>
 //#endregion 
 
-//#region 
+//#region bannerCircle
 //<editor-fold defaultstate="collapsed" desc="bannerCircle">
 (function ($) {
     $.widget("metro.bannerCircle", {
@@ -5054,9 +5054,192 @@ $(function () {
 //</editor-fold>
 //#endregion 
 
-//#region direcciones full
 
-//#endregion
+//#region direcciones Full
+//<editor-fold defaultstate="collpased" desc="direcciones Full">
+var DireccionFull = (function () {
+    var $items = $('.direcWrap li'),
+            transEndEventNames = {
+                'WebkitTransition': 'webkitTransitionEnd',
+                'MozTransition': 'transitionend',
+                'OTransition': 'oTransitionEnd',
+                'msTransition': 'MSTransitionEnd',
+                'transition': 'transitionend'
+            },
+    // transition end event name
+    transEndEventName = transEndEventNames[Modernizr.prefixed('transition')],
+            // window and body elements
+            $window = $(window),
+            $body = $('BODY'),
+            // transitions support
+            supportTransitions = Modernizr.csstransitions,
+            // current item's index
+            current = -1,
+            // window width and height
+            winsize = getWindowSize();
+    function init(options) {
+        // apply fittext plugin
+        //$items.find( 'div.rb-week > div span' ).fitText( 0.3 ).end().find( 'span.rb-city' ).fitText( 0.5 );
+        initEvents();
+    }
+
+    function initEvents() {
+
+        $items.each(function (ix) {
+
+            var $item = $(this),
+                    $close = $item.find('span.rb-close'),
+                    $overlay = $item.find('div.rb-overlay');
+
+            $item.on('click', function (event) {
+                event.preventDefault();
+                // $('.carreraWrap').removeClass("oculto visible animated bounceInRight");
+                if ($item.data('isExpanded')) {
+                    return false;
+                }
+                $item.data('isExpanded', true);
+                // save current item's index
+                current = $item.index();
+                var layoutProp = getItemLayoutProp($item),
+                        clipPropFirst = 'rect(' + layoutProp.top + 'px ' + (layoutProp.left + layoutProp.width) + 'px ' + (layoutProp.top + layoutProp.height) + 'px ' + layoutProp.left + 'px)',
+                        clipPropLast = 'rect(0px ' + winsize.width + 'px ' + winsize.height + 'px 0px)';
+                $overlay.css({
+                    transformOrigin: layoutProp.left + 'px ' + layoutProp.top + 'px',
+                    clip: supportTransitions ? clipPropFirst : clipPropLast,
+                    transform: supportTransitions ? 'rotate(45deg)' : 'none',
+                    opacity: 1,
+                    zIndex: 9999,
+                    pointerEvents: 'auto'
+                });
+                if (supportTransitions) {
+                    $overlay.on(transEndEventName, function () {
+
+                        $overlay.off(transEndEventName);
+                        setTimeout(function () {
+                            $overlay.css({ clip: clipPropLast, transform: 'rotate(0deg)' }).on(transEndEventName, function () {
+                                $overlay.off(transEndEventName);
+                                $body.css('overflow-y', 'hidden');
+                            });
+                        }, 25);
+                    });
+                }
+                else {
+                    $body.css('overflow-y', 'hidden');
+                }
+                //sidebar update
+                var sidebar = $item.find('[data-role=sidebar]'),
+                        tabs = $(sidebar.children("nav")).find("a"),
+                        frames = $(sidebar.children(".full-content")).children(".slic");
+                tabs.each(function () {
+                    $(this).parent().removeClass("active");
+                });
+
+                frames.hide();
+                $(frames.get(0)).show();
+                sidebar = tabs = null;
+
+                setTimeout(function () {
+                    if (!isMobileBrowser()) {
+                        /*$(frames.get(0)).find(".homeslider.on").each(function() {
+                         $(this).data('nivoslider').start();
+                         });*/
+                        $(frames.get(0)).find(".bannerCircle").each(function () {
+                            $(this).data('bannerCircle').start();
+                        });
+                        frames = sidebar = tabs = null;
+                    }
+                }, 3000);
+
+
+
+            });
+
+            $close.on('click', function () {
+
+                $body.css('overflow-y', 'auto');
+                var layoutProp = getItemLayoutProp($item),
+                        clipPropFirst = 'rect(' + layoutProp.top + 'px ' + (layoutProp.left + layoutProp.width) + 'px ' + (layoutProp.top + layoutProp.height) + 'px ' + layoutProp.left + 'px)',
+                        clipPropLast = 'auto';
+                // reset current
+                current = -1;
+                $overlay.css({
+                    clip: supportTransitions ? clipPropFirst : clipPropLast,
+                    opacity: supportTransitions ? 1 : 0,
+                    pointerEvents: 'none'
+                });
+                if (supportTransitions) {
+                    $overlay.on(transEndEventName, function () {
+
+                        //$overlay.off(transEndEventName);
+                        setTimeout(function () {
+                            $overlay.css('opacity', 0).on(transEndEventName, function () {
+                                $overlay.off(transEndEventName).css({ clip: clipPropLast, zIndex: -1 });
+                                $item.data('isExpanded', false);
+                            });
+                        }, 25);
+                    });
+                }
+                else {
+                    $overlay.css('z-index', -1);
+                    $item.data('isExpanded', false);
+                }
+                //sidebar update
+                var sidebar = $item.find('[data-role=sidebar]'),
+                        tabs = $(sidebar.children("nav")).find("a"),
+                        frames = $(sidebar.children(".full-content")).children(".slic");
+
+                frames.hide();
+                //apago bannerCircle
+                if (!isMobileBrowser()) {
+                    /*frames.find(".homeslider.on").each(function() {
+                     $(this).data('nivoslider').stop();
+                     });*/
+
+                    frames.find(".bannerCircle").each(function () {
+                        $(this).data('bannerCircle').stop();
+                    });
+                }
+                sidebar = tabs = frames = null;
+                return false;
+            });
+        });
+        $(window).on('debouncedresize', function () {
+            winsize = getWindowSize();
+            // todo : cache the current item
+            if (current !== -1) {
+                $items.eq(current).children('div.rb-overlay').css('clip', 'rect(0px ' + winsize.width + 'px ' + winsize.height + 'px 0px)');
+            }
+        });
+    }
+
+    function getItemLayoutProp($item) {
+
+        var scrollT = $window.scrollTop(),
+                scrollL = $window.scrollLeft(),
+                itemOffset = $item.offset();
+        return {
+            left: itemOffset.left - scrollL,
+            top: itemOffset.top - scrollT,
+            width: $item.outerWidth(),
+            height: $item.outerHeight()
+        };
+    }
+
+    function getWindowSize() {
+        $body.css('overflow-y', 'hidden');
+        var w = $window.width(), h = $window.height();
+        if (current === -1) {
+            $body.css('overflow-y', 'auto');
+        }
+        return { width: w, height: h };
+    }
+
+    return { init: init };
+})();
+DireccionFull.init();
+//</editor-fold>
+//#endregion 
+
 $(window).load(function () {
     //scroll pagination
     if (window.location.search.indexOf("page=") > -1) {

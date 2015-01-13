@@ -122,6 +122,29 @@
         width: 200px;
         height: 150px;
     }
+    /*Sidebar*/
+    .metro .sidebarWrap .full-content .col1{
+        width: 100%;
+        float: none;
+    }
+    .metro .sidebarWrap .full-content .col2{
+        width: 100%;
+        max-width: 300px;
+        margin: auto;
+        float: none;
+    }    
+    .metro .sidebarWrap .bannerCircle .big,.metro .sidebarWrap .bannerCircle .half,.metro .sidebarWrap .bannerCircle .small,
+    .metro .sidebarWrap .bannerCircle .caption{
+        padding: 5px!important;
+        width: 100%!important;
+    }
+    .metro .sidebarWrap .row-cap .span7,.metro .sidebarWrap .row-cap .span5{
+        float: left;
+        width: 49%;
+    }
+    .metro .sidebarWrap .bannerCircle{
+        max-width: 400px!important;
+    }
 
 }
 /* Mobile Landscape Size to Portrait (devices and browsers) */
@@ -222,7 +245,69 @@
         margin: auto;
     }
 }
+@media (max-width:1200px){
+    .metro .sidebar .pull-menu{
+        display: block!important;
+        top:0px;
 
+    }
+    .metro .sidebarWrap .navx .date{
+        display: none;
+    }
+    .metro .sidebar,.metro .sidebarWrap .navx{
+        min-height: 40px;
+        height: auto;
+        max-height: 100%;
+        position: absolute;
+        left: 0px;
+        z-index: 999;
+        top: 0px;
+        padding-top: 0px;
+        width:100%;
+        padding-bottom:20px;
+        background-color: rgba(0,118,189,.93);
+    }
+
+    .metro .sidebarWrap .sidebar.opened .ps-scrollbar-y-rail{
+        opacity: 1;
+    }
+
+    .metro .sidebar .element-menu{
+        display: none;
+        margin-top: 45px;
+        width: 96%;     
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .metro .sidebar .element-menu li a{
+        text-align: center!important;
+    }
+    .metro .sidebarWrap .full-content .slic{
+        padding-top: 20px!important;
+    }
+    .metro .sidebarWrap .navx h1 {
+        position: absolute;
+        margin-left: 50px;
+        margin-top: 0px;
+        font-size: 20px;
+        float: left;
+        height: 45px;
+        line-height: 40px;
+        padding:0;
+    }
+        .metro .sidebarWrap .navx h1 .abbr {
+        display:block;
+        }
+
+    .metro .sidebarWrap{
+        padding:5px!important;
+    }
+    .metro .sidebarWrap .bannerCircle{
+        padding: 20px!important;
+        max-width: 800px;
+    }
+}
 
 /*<editor-fold defaultstate="collapsed" desc=" menu figure ">*/
 /**experiments
