@@ -14,6 +14,9 @@
 .metro .bg-lightBlue,.metro .bg-hover-lightBlue:hover,.metro .bg-focus-lightBlue:focus,.metro .bg-active-lightBlue:active{
     background-color: rgb(0,150,240)!important;/*#0096F0!important;*/
 }
+.metro .bg-dorado,.metro .bg-hover-dorado:hover,.metro .bg-focus-dorado:focus,.metro .bg-active-dorado:active{
+    background-color: rgb(162,143,35)!important;/*#0096F0!important;*/
+}
 /*Border*/
 .metro .bd-darkBlue,.metro .bd-hover-darkBlue:hover,.metro .bd-focus-darkBlue:focus,.metro .bd-active-darkBlue:active{
     border-color: rgb(0,70,113)!important;/*#004671!important;*/
@@ -26,6 +29,9 @@
 }
 .metro .bd-lightBlue,.metro .bd-hover-lightBlue:hover,.metro .bd-focus-lightBlue:focus,.metro .bd-active-lightBlue:active{
     border-color: rgb(0,150,240)!important;/*#0096F0!important;*/
+}
+.metro .bd-dorado,.metro .bd-hover-dorado:hover,.metro .bd-focus-dorado:focus,.metro .bd-active-dorado:active{
+    border-color: rgb(162,143,35)!important;/*#0096F0!important;*/
 }
 /*Foreground*/
 .metro .fg-darkBlue,.metro .fg-hover-darkBlue:hover,.metro .fg-focus-darkBlue:focus,.metro .fg-active-darkBlue:active{
@@ -40,7 +46,9 @@
 .metro .fg-lightBlue,.metro .fg-hover-lightBlue:hover,.metro .fg-focus-lightBlue:focus,.metro .fg-active-lightBlue:active{
     color: rgb(0,150,240)!important;/*#0096F0!important;*/
 }
-
+.metro .fg-dorado,.metro .fg-hover-dorado:hover,.metro .fg-focus-dorado:focus,.metro .fg-active-dorado:active{
+    color: rgb(162,143,35)!important;/*#0096F0!important;*/
+}
 
 
 /*</editor-fold>*/

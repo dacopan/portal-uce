@@ -6264,6 +6264,44 @@ span.date {
     transform: scale(1.1);
 }
 /*</editor-fold>*/
+
+
+/*#region Scroll
+================================================== */
+.metro .clubWrap {
+    max-width:
+}
+
+.metro .club {
+    width: 160px;
+    height: 120px;
+    background-color: #ffffff;
+    position: relative;
+    -moz-transition: all 0.3s ease 0s;
+    -webkit-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+}
+
+    .metro .club i {
+        font-size: 60px;
+
+    }
+
+.metro .desc {
+    color: #000;
+    bottom: 0;
+    left: 0;
+    padding: 15px;
+    position: absolute;
+    text-align: center;
+    font-size: 1.2rem;
+    width: 100%;
+    font-weight:bold;
+}
+/*#endregion*/
+
+
 /* #Sidebar
 ================================================== */
 .docs .doc {
