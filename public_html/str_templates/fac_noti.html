@@ -15,7 +15,7 @@
 
 #set( $count = $count+1)
 #if($count1==0)
-<div class="slide" id="slide4" data-slide="4" data-stellar-background-ratio="0.5" style="min-height: 300px;height: auto;padding-bottom: 30px;">
+<div class="slide" id="slide4" data-slide="4" style="min-height: 300px;height: auto;padding-bottom: 30px;">
     <div class="contentwrap row-fluid noticiesWrap">
         <div class="fac-title span1">
             <h1 class="title">Noticias</h1>
@@ -32,7 +32,7 @@
                     #else
                     <div class="relleno"><div class="clear"></div></div>
                     #end
-                    
+
                     <div class="figcaption">
                         <div class="pp3">
                             <h2 class="title">$cur_Noticia.titulo.getData()</h2>
@@ -54,38 +54,38 @@
                                     <h3 class="sub-title">
                                         $cur_Noticia.subtitulo.getData()
                                     </h3>
-                                    #if($cur_Noticia.video.getData())
+                                    #if ($validator.isNotNull($cur_Noticia.video.getData()))
                                     <div class="video-full" style="">
                                         <iframe style="width:100%;height:500px;" src="$cur_Noticia.video.getData()" frameborder="0" allowfullscreen></iframe>
                                     </div>
-                                    #elseif($cur_Noticia.imagen.getData())
+                                    #elseif($validator.isNotNull($cur_Noticia.imagen.getData()))
                                     <div class="img-full" style="background-image: url($cur_Noticia.imagen.getData());">
                                     </div>
                                     #end
-                                    </div>
-                                    <div class="full-html">
-                                        $cur_Noticia.contenido.getData()
-                                    </div>
+                                </div>
+                                <div class="full-html">
+                                    $cur_Noticia.contenido.getData()
                                 </div>
                             </div>
-
                         </div>
+
                     </div>
                 </div>
-            </li>
-
-
-
-
-
-
-
-            #set( $count1 = $count%3)
-            #if($count1==0 || !$velocityHasNext || $velocityCount > 97)
-            #set( $count = 0)
-        </ul>
     </div>
-    <a class="scrollbut" data-slide="5"></a>
+    </li>
+
+
+
+
+
+
+
+    #set( $count1 = $count%3)
+    #if($count1==0 || !$velocityHasNext || $velocityCount > 97)
+    #set( $count = 0)
+    </ul>
+</div>
+<a class="scrollbut" data-slide="5"></a>
 </div>
 #if($velocityHasNext)
 @page_break@

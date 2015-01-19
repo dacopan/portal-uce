@@ -5338,7 +5338,7 @@ $(window).load(function () {
 
         //animate noticies
         $('.noticiesWrap .container2').addClass("oculto").viewportChecker({
-            classToAdd: 'visible animated bounceIn',
+            classToAdd: 'visible animated fadeInDownBig',
             offset: 300,
             repeat: false
         });
@@ -5349,6 +5349,39 @@ $(window).load(function () {
             offset: 300,
             repeat: false
         });
+
+        //animate club
+        $('.slide h1.adequate').each(function () {
+            $(this).addClass("oculto").viewportChecker({
+                classToAdd: 'visible animated fadeInDownBig',
+                offset: 300,
+                repeat: false
+            });
+        });
+
+        //animate club
+        $('.club').each(function (i) {
+            
+            if (i < 2)
+                $(this).addClass("oculto").viewportChecker({
+                    classToAdd: 'visible animated fadeInLeftBig',
+                    offset: 150,
+                    repeat: false
+                });
+            else if (i > 2)
+                $(this).addClass("oculto").viewportChecker({
+                    classToAdd: 'visible animated fadeInRightBig',
+                    offset: 150,
+                    repeat: false
+                });
+            else
+                $(this).addClass("oculto").viewportChecker({
+                    classToAdd: 'visible animated fadeInUpBig',
+                    offset: 150,
+                    repeat: false
+                });
+        });
+
 
         //radio
         if (!!document.createElement('audio').canPlayType) {
@@ -5423,7 +5456,7 @@ $(document).ready(function () {
 function goToByScroll(dataslide) {
     //alert(dataslide);
     var htmlbody = $('html,body');
-    var q = $('.slide[data-slide="' + dataslide + '"]').offset().top;
+    var q = $('.slide[data-slide="' + dataslide + '"]').offset().top - 45;
     htmlbody.animate({
         scrollTop: q
     }, 2500, 'easeInOutBack');
@@ -5495,17 +5528,7 @@ $(window).scroll(function () {
 jQuery('.top').click(function () {
     jQuery('html, body').animate({ scrollTop: 0 }, 1000, 'easeOutCubic'); //return false;
 });
-function hover_overlay() {
-    jQuery('.featured h2, .featured div.one_col .featuredoverlay, .featured div.two_col .featuredoverlay, .featured .bubblewrap').each(function () {
-        jQuery(this).hover(function () {
-            var $this = jQuery(this).parent().children().next('.featuredoverlay');
-            jQuery($this).stop().animate({ opacity: 0.1 }, 250, 'easeOutCubic');
-        }, function () {
-            var $this = jQuery(this).parent().children().next('.featuredoverlay');
-            jQuery($this).stop().animate({ opacity: 1 }, 250, 'easeOutCubic');
-        });
-    });
-}
+
 //hover_overlay();
 
 function isMobileBrowser() {

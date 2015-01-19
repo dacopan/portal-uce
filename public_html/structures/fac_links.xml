@@ -1,4 +1,3 @@
-
 <root available-locales="es_ES" default-locale="es_ES">
     <dynamic-element dataType="string" indexType="keyword" name="Link_de_Interes" readOnly="false" repeatable="true" required="true" showLabel="true" type="text" width="small">
         <dynamic-element dataType="string" indexType="keyword" name="icono" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
@@ -10,7 +9,7 @@
 					<![CDATA[]]>
                 </entry>
                 <entry name="tip">
-					<![CDATA[nombre del icono ej. icon-twitter puede ver la lista completa aquí http://fortawesome.github.io/Font-Awesome/3.2.1/icons/ y aquí dacopan.github.com/portal-uce/public_html/icons.html<br/>]]>
+					<![CDATA[nombre del icono ej. icon-twitter puede ver la lista completa aquí http://fortawesome.github.io/icons/ y aquí dacopan.github.com/portal-uce/public_html/icons.html<br/>]]>
                 </entry>
             </meta-data>
         </dynamic-element>

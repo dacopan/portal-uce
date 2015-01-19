@@ -146,10 +146,19 @@ boolean skipEditorLoading = GetterUtil.getBoolean((String)request.getAttribute("
     }
     %>
     plugins: [
-    "advlist autolink lists link image charmap print preview anchor",
-    "searchreplace visualblocks code fullscreen",
-    "insertdatetime media table contextmenu paste moxiemanager"
-    ],
+             "advlist autolink link image lists charmap print preview hr anchor pagebreak",
+             "searchreplace wordcount visualblocks visualchars insertdatetime media nonbreaking spellchecker",
+             "table contextmenu directionality emoticons paste textcolor youtube codemirror responsivefilemanager"
+               ],
+               codemirror: {
+                   indentOnInit: true, // Whether or not to indent code on init.
+                   path: 'CodeMirror'
+               },
+			   filemanager_title:"Responsive Filemanager",
+    filemanager_crossdomain: true,
+    external_filemanager_path:"http://test.albertoperipolli.com/secondaryserver/filemanager/",
+    external_plugins: { "filemanager" : "http://test.albertoperipolli.com/secondaryserver/filemanager/plugin.min.js"},  
+			   image_advtab: true,
     relative_urls: false,
     remove_script_host: false,
     theme: 'modern',    

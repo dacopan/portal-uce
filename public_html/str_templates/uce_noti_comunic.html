@@ -8,9 +8,9 @@
     #set($cur_Noticia=$Noticia.getSiblings().get($ix))
     #if ($getterUtil.getBoolean($cur_Noticia.getData()))
         #if($count==0)
-<div class="slide" id="slide2" data-slide="2" data-stellar-background-ratio="0.5">
+<div class="slide" id="slide2" data-slide="2">
     <div class="contentwrapx noticiesWrap" style="padding-top:60px; padding-bottom:45px;">
-        <h1 class="text-center">NOTICIAS</h1>
+        <h1 class="text-center adequate">NOTICIAS</h1>
         <div class="container2 featuredcontainer clearfix ">
             <div class="featured articlecontainer isofeatured isotope" id="isofeatured" style="position: relative; /*overflow: hidden;*/margin:auto;">
 
@@ -22,11 +22,11 @@
                     <div class="featuredinner" style="opacity: 1; background: none;">
                         <h2 class="noti-title">
                             $cur_Noticia.noti_titulo.getData()
-                            <span class="date">$dateUtil.getDate($FechaObj, "MMMM dd, yyyy", $locale) | $cur_Noticia.noti_autor.getData()</span>
+                            <span class="date ">$dateUtil.getDate($FechaObj, "MMMM dd, yyyy", $locale) | $cur_Noticia.noti_autor.getData()</span>
                         </h2>
                         <div class="featuredoverlay" style="opacity: 1;"></div>
-                        <div class="homeslider nivoSlider">
-                            #if($cur_Noticia.noti_imagen.getData())
+                        <div class="homeslider nivoSlider">                            
+                            #if ($validator.isNotNull($cur_Noticia.noti_imagen.getData()))
                             <img src="$cur_Noticia.noti_imagen.getData()" alt="Dress" />
                             #else
                             <div class="relleno"><div class="clear"></div></div>
@@ -44,11 +44,11 @@
                                         <h3 class="sub-title">
                                             $cur_Noticia.noti_subtitulo.getData()
                                         </h3>
-                                        #if($cur_Noticia.noti_video.getData())
+                                        #if ($validator.isNotNull($cur_Noticia.noti_video.getData()))
                                         <div class="video-full" style="">
                                             <iframe style="width:100%;height:500px;" src="$cur_Noticia.noti_video.getData()" frameborder="0" allowfullscreen></iframe>
                                         </div>
-                                        #elseif($cur_Noticia.noti_imagen.getData())
+                                        #elseif($validator.isNotNull($cur_Noticia.noti_imagen.getData()))
                                         <div class="img-full" style="background-image: url($cur_Noticia.noti_imagen.getData());">
                                         </div>
                                         #end
@@ -85,11 +85,11 @@
                         <div class="va-slice">
                             <img src="$cur_Comunic.com_imagen.getData()" style="width:100%;" alt="$cur_Comunic.com_titulo.getData()" title="" />
                             <h3 class="va-title">$cur_Comunic.com_titulo.getData()</h3>
-                            <div class="va-content padding10">
+                            <div class="va-content padding20">
                                 <h3 class="fg-blue">$cur_Comunic.com_titulo.getData()</h3>
-                                <span class="date">$dateUtil.getDate($FechaObj, "MMMM dd, yyyy", $locale) | $cur_Comunic.com_autor.getData()</span>
-                                <hr />
-                                <p class="text-justify fg-white animated zoomIn" style="font-size: 12px;">
+                                <span class="date fg-dark">$dateUtil.getDate($FechaObj, "MMMM dd, yyyy", $locale) | $cur_Comunic.com_autor.getData()</span>
+                                <div class="line-hr"></div>
+                                <p class="text-justify animated zoomIn">
                                     $cur_Comunic.com_contenido.getData()
                                 </p>
                             </div>

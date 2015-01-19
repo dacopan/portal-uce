@@ -1,26 +1,28 @@
 ﻿<div class="contentwrap">
     <div class="row-fluid" style="margin: auto;float:none;margin-top: 60px;">
-        #if (!$cont_imagen.getSiblings().isEmpty()||!$cont_doc.getSiblings().isEmpty())
+        #if ($validator.isNotNull($cont_imagen.getSiblings().get(0).data)||$validator.isNotNull($cont_doc.getSiblings().get(0).data))
         #set($span8="span8")
         #else
         #set($span8="span12")
         #end
         <div class="$span8 col1">
             <h1 class="fg-blue text-right">$cont_titulo.getData()</h1>
-            <h3 class="fg-blue text-right">cont_subtitulo.getData()</h3>
+            <h3 class="fg-blue text-right">$cont_subtitulo.getData()</h3>
             <div class="ctc">
-                cont_html.getData()
+                $cont_html.getData()
             </div>
             <div class="clear"></div>
         </div>
-        #if (!$cont_imagen.getSiblings().isEmpty()||!$cont_doc.getSiblings().isEmpty())
+        #if ($validator.isNotNull($cont_imagen.getSiblings().get(0).data)||$validator.isNotNull($cont_doc.getSiblings().get(0).data))
         <div class="span spliter"></div>
 
         <div class="span4 col2">
+            #if ($validator.isNotNull($cont_imagen.getSiblings().get(0).data))
             #foreach ($cur_img in $cont_imagen.getSiblings())
             <div class="img-cover img" style="background-image: url($cur_img.getData());">
                 <div class="clear"></div>
             </div>
+            #end
             #end
 
             <ul class="og-grid docs">

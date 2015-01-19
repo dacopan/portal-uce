@@ -1,6 +1,6 @@
-<root available-locales="es_ES" default-locale="es_ES">
+<root available-locales="en_US" default-locale="en_US">
 	<dynamic-element dataType="string" indexType="keyword" name="direccion" readOnly="false" repeatable="false" required="true" showLabel="true" type="textarea" width="small">
-		<meta-data locale="es_ES">
+		<meta-data locale="en_US">
 			<entry name="label">
 				<![CDATA[direccion]]>
 			</entry>
@@ -13,7 +13,7 @@
 		</meta-data>
 	</dynamic-element>
 	<dynamic-element dataType="string" indexType="keyword" name="Telefono" readOnly="false" repeatable="true" required="true" showLabel="true" type="textarea" width="small">
-		<meta-data locale="es_ES">
+		<meta-data locale="en_US">
 			<entry name="label">
 				<![CDATA[Telefono]]>
 			</entry>
@@ -26,7 +26,7 @@
 		</meta-data>
 	</dynamic-element>
 	<dynamic-element dataType="string" indexType="keyword" name="Horario_administracion" readOnly="false" repeatable="false" required="true" showLabel="true" type="textarea" width="small">
-		<meta-data locale="es_ES">
+		<meta-data locale="en_US">
 			<entry name="label">
 				<![CDATA[Horario administracion]]>
 			</entry>
@@ -39,7 +39,7 @@
 		</meta-data>
 	</dynamic-element>
 	<dynamic-element dataType="string" indexType="keyword" name="Horario_clases" readOnly="false" repeatable="false" required="true" showLabel="true" type="textarea" width="small">
-		<meta-data locale="es_ES">
+		<meta-data locale="en_US">
 			<entry name="label">
 				<![CDATA[Horario clases]]>
 			</entry>
@@ -52,7 +52,7 @@
 		</meta-data>
 	</dynamic-element>
 	<dynamic-element dataType="string" indexType="keyword" name="Facebook" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
-		<meta-data locale="es_ES">
+		<meta-data locale="en_US">
 			<entry name="label">
 				<![CDATA[Facebook]]>
 			</entry>
@@ -65,7 +65,7 @@
 		</meta-data>
 	</dynamic-element>
 	<dynamic-element dataType="string" indexType="keyword" name="Twitter" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
-		<meta-data locale="es_ES">
+		<meta-data locale="en_US">
 			<entry name="label">
 				<![CDATA[Twitter]]>
 			</entry>
@@ -78,7 +78,7 @@
 		</meta-data>
 	</dynamic-element>
 	<dynamic-element dataType="string" indexType="keyword" name="YouTube" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
-		<meta-data locale="es_ES">
+		<meta-data locale="en_US">
 			<entry name="label">
 				<![CDATA[YouTube]]>
 			</entry>
@@ -92,7 +92,7 @@
 	</dynamic-element>
 	<dynamic-element dataType="string" indexType="keyword" name="Otra_Red_Social" readOnly="false" repeatable="true" required="false" showLabel="true" type="text" width="small">
 		<dynamic-element dataType="string" indexType="keyword" name="icono" readOnly="false" repeatable="false" required="false" showLabel="true" type="text" width="small">
-			<meta-data locale="es_ES">
+			<meta-data locale="en_US">
 				<entry name="label">
 					<![CDATA[icono]]>
 				</entry>
@@ -100,11 +100,11 @@
 					<![CDATA[]]>
 				</entry>
 				<entry name="tip">
-					<![CDATA[]]>
+					<![CDATA[ejemplo icon-XXX (icon-pinterest) ver iconos en FootAwesome.io]]>
 				</entry>
 			</meta-data>
 		</dynamic-element>
-		<meta-data locale="es_ES">
+		<meta-data locale="en_US">
 			<entry name="label">
 				<![CDATA[Otra Red Social]]>
 			</entry>
@@ -118,7 +118,7 @@
 	</dynamic-element>
 	<dynamic-element dataType="string" indexType="keyword" name="Blog" readOnly="false" repeatable="true" required="true" showLabel="true" type="text" width="small">
 		<dynamic-element dataType="string" indexType="keyword" name="Nombre" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
-			<meta-data locale="es_ES">
+			<meta-data locale="en_US">
 				<entry name="label">
 					<![CDATA[Nombre]]>
 				</entry>
@@ -130,9 +130,9 @@
 				</entry>
 			</meta-data>
 		</dynamic-element>
-		<meta-data locale="es_ES">
+		<meta-data locale="en_US">
 			<entry name="label">
-				<![CDATA[Blog]]>
+				<![CDATA[Blog Url]]>
 			</entry>
 			<entry name="predefinedValue">
 				<![CDATA[https://www.youtube.com/channel/UCBg2ksNwht164otsChyMhRA]]>

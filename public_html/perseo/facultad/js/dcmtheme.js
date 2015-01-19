@@ -264,7 +264,7 @@ window.Modernizr = function (a, b, c) {
     yepnope.apply(window, [].slice.call(arguments, 0))
 };
 //</editor-fold>
- //#endregion 
+//#endregion 
 
 //#region isotope
 //<editor-fold defaultstate="collapsed" desc="isotope">
@@ -1393,7 +1393,7 @@ window.Modernizr = function (a, b, c) {
     "function" == typeof define && define.amd ? define(["outlayer/outlayer", "get-size/get-size", "matches-selector/matches-selector", "isotope/js/item", "isotope/js/layout-mode", "isotope/js/layout-modes/masonry", "isotope/js/layout-modes/fit-rows", "isotope/js/layout-modes/vertical"], r) : t.Isotope = r(t.Outlayer, t.getSize, t.matchesSelector, t.Isotope.Item, t.Isotope.LayoutMode)
 }(window);
 //</editor-fold>
- //#endregion 
+//#endregion 
 
 //#region jquery widget
 //<editor-fold defaultstate="collapsed" desc="jquery widget">
@@ -1542,7 +1542,7 @@ window.Modernizr = function (a, b, c) {
     })
 })(jQuery);
 //</editor-fold>
- //#endregion 
+//#endregion 
 
 //#region jquery mousewheel
 //<editor-fold defaultstate="collapsed" desc="jquery mousewheel">
@@ -1668,7 +1668,7 @@ window.Modernizr = function (a, b, c) {
 
 }));
 //</editor-fold>
- //#endregion 
+//#endregion 
 
 //#region MM menu
 //<editor-fold defaultstate="collapsed" desc="MM menu js">
@@ -1917,7 +1917,7 @@ window.Modernizr = function (a, b, c) {
     var p, a, r, l, c = !1
 }(jQuery);
 //</editor-fold>
- //#endregion 
+//#endregion 
 
 //#region jquery easing
 //<editor-fold defaultstate="collapsed" desc="jquery easing">
@@ -2102,7 +2102,7 @@ jQuery.extend(jQuery.easing,
             }
         });
 //</editor-fold>
- //#endregion 
+//#endregion 
 
 //#region nivo slider
 //<editor-fold defaultstate="collapsed" desc="nivo slider">
@@ -2613,7 +2613,7 @@ jQuery.extend(jQuery.easing,
     e.fn._reverse = [].reverse
 })(jQuery);
 //</editor-fold>
- //#endregion 
+//#endregion 
 
 //#region vacordion
 //<editor-fold defaultstate="collapsed" desc="vacordion">
@@ -2991,7 +2991,7 @@ jQuery.extend(jQuery.easing,
     };
 })(jQuery);
 //</editor-fold>
- //#endregion 
+//#endregion 
 
 //#region notices full
 //<editor-fold defaultstate="collapsed" desc="notices full">
@@ -3200,7 +3200,7 @@ var Boxgrid = (function () {
 })();
 Boxgrid.init();
 //</editor-fold>
- //#endregion 
+//#endregion 
 
 //#region carreras Full
 //<editor-fold defaultstate="collpased" desc="carreras Full">
@@ -3385,7 +3385,7 @@ var CarrerasFull = (function () {
 })();
 CarrerasFull.init();
 //</editor-fold>
- //#endregion 
+//#endregion 
 
 //#region parallax
 //<editor-fold defaultstate="collapsed" desc="parallax tom clancy">
@@ -3519,7 +3519,7 @@ CarrerasFull.init();
 }();
 /******************/
 //</editor-fold>
- //#endregion 
+//#endregion 
 
 //#region metro
 //<editor-fold defaultstate="collapsed" desc="metro tabs control">
@@ -4353,7 +4353,7 @@ $(function () {
     }
 });
 //</editor-fold>
- //#endregion 
+//#endregion 
 
 //#region perfect-scrollbar
 //<editor-fold defaultstate="collapsed" desc="perfect-scrollbar">
@@ -4553,7 +4553,7 @@ $(function () {
     }
 });
 //</editor-fold>
- //#endregion 
+//#endregion 
 
 //#region viewportChecker
 //<editor-fold defaultstate="collapsed" desc="Scroll Spy, current:viewportChecker">
@@ -4693,7 +4693,7 @@ $(function () {
  endProps:{left:-763}},{elements:$("tendinaFooterDx"),initProps:{left:763},endProps:{left:1526}}];(new ScrollSpyIt({offset:150,delay:300,config:b})).initScrollSpy()}*/
 
 //</editor-fold>
- //#endregion 
+//#endregion 
 
 //#region slick
 //<editor-fold defaultstate="collapsed" desc="slick js">
@@ -5062,7 +5062,7 @@ $(function () {
     }
 });
 //</editor-fold>
- //#endregion 
+//#endregion 
 
 //#region sidebar
 //<editor-fold defaultstate="collapsed" desc="sidebar">
@@ -5216,7 +5216,7 @@ $(function () {
 });
 
 //</editor-fold>
- //#endregion 
+//#endregion 
 
 //#region bannerCircle
 //<editor-fold defaultstate="collapsed" desc="bannerCircle">
@@ -5363,7 +5363,7 @@ $(function () {
     $.Metro.initBannerCircle();
 });
 //</editor-fold>
- //#endregion 
+//#endregion 
 
 
 $(window).load(function () {
@@ -5491,10 +5491,26 @@ $(window).load(function () {
             });
         });
 
-
-        $('.footer .span4').each(function () {
+        //footer
+        $('.footer .blogs').each(function () {
+            $(this).addClass("oculto").viewportChecker({
+                classToAdd: 'visible animated fadeInRightBig',
+                offset: 100,
+                repeat: false,
+                scrollHorizontal: false
+            });
+        });
+        $('.footer .social').each(function () {
             $(this).addClass("oculto").viewportChecker({
                 classToAdd: 'visible animated fadeInUpBig',
+                offset: 100,
+                repeat: false,
+                scrollHorizontal: false
+            });
+        });
+        $('.footer .info').each(function () {
+            $(this).addClass("oculto").viewportChecker({
+                classToAdd: 'visible animated fadeInLeftBig',
                 offset: 100,
                 repeat: false,
                 scrollHorizontal: false
@@ -5624,7 +5640,7 @@ $(document).ready(function () {
 //<editor-fold defaultstate="collapsed" desc="radial menu">
 
 //</editor-fold>
- //#endregion 
+//#endregion 
 
 
 /* #innerNavigate
@@ -5636,7 +5652,7 @@ $(document).ready(function () {
 function goToByScroll(dataslide) {
     //alert(dataslide);
     var htmlbody = $('html,body');
-    var q = $('.slide[data-slide="' + dataslide + '"]').offset().top;
+    var q = $('.slide[data-slide="' + dataslide + '"]').offset().top - 45;
     htmlbody.animate({
         scrollTop: q
     }, 2500, 'easeInOutBack');
@@ -5670,7 +5686,7 @@ function innerNavigate() {
     //var parallax = new Parallax(scene);
 }
 //</editor-fold>
- //#endregion 
+//#endregion 
 
 /* #Title
  ================================================== */
@@ -5678,7 +5694,7 @@ function innerNavigate() {
 //<editor-fold defaultstate="collapsed" desc="title">
 
 //</editor-fold>
- //#endregion 
+//#endregion 
 
 
 
