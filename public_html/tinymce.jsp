@@ -129,13 +129,10 @@ boolean skipEditorLoading = GetterUtil.getBoolean((String)request.getAttribute("
     tinyMCE.init(
     {
     convert_urls: false,
-    elements: '<%= name %>',
-    extended_valid_elements: 'a[name|id|href|target|title|onclick|class|style|data-map-lat|data-map-long|data-map-title|data-map-description],img[class|src|border=0|alt|title|hspace|vspace|width|height|align|onmouseover|onmouseout|name|usemap|onload],hr[class|width|size|noshade],font[face|size|color|style],span[class|align|style],div[id|style|data-*|class|*],*[*]',
+    elements: '<%= name %>',    
     file_browser_callback: window['<%= name %>'].fileBrowserCallback,
-    init_instance_callback: window['<%= name %>'].initInstanceCallback,
-    invalid_elements: '',
-    language: '<%= HtmlUtil.escape(locale.getLanguage()) %>',
-    mode: 'exact',
+    init_instance_callback: window['<%= name %>'].initInstanceCallback,    
+    language: '<%= HtmlUtil.escape(locale.getLanguage()) %>',    
     <%
                         if (Validator.isNotNull(onChangeMethod)) {
     %>
@@ -145,26 +142,34 @@ boolean skipEditorLoading = GetterUtil.getBoolean((String)request.getAttribute("
     <%
     }
     %>
-    plugins: [
+    
+	extended_valid_elements: 'a[name|id|href|target|title|onclick|class|style|data-map-lat|data-map-long|data-map-title|data-map-description],img[class|src|border=0|alt|title|hspace|vspace|width|height|align|onmouseover|onmouseout|name|usemap|onload],hr[class|width|size|noshade],font[face|size|color|style],span[class|align|style],div[id|style|data-*|class|*],*[*]',
+               invalid_elements: '',
+
+               mode: 'exact',
+               plugins: [
              "advlist autolink link image lists charmap print preview hr anchor pagebreak",
              "searchreplace wordcount visualblocks visualchars insertdatetime media nonbreaking spellchecker",
-             "table contextmenu directionality emoticons paste textcolor youtube codemirror responsivefilemanager"
+             "table contextmenu directionality emoticons paste textcolor youtube codemirror responsivefilemanager filemanager"
                ],
                codemirror: {
                    indentOnInit: true, // Whether or not to indent code on init.
                    path: 'CodeMirror'
                },
-			   filemanager_title:"Responsive Filemanager",
-    filemanager_crossdomain: true,
-    external_filemanager_path:"http://test.albertoperipolli.com/secondaryserver/filemanager/",
-    external_plugins: { "filemanager" : "http://test.albertoperipolli.com/secondaryserver/filemanager/plugin.min.js"},  
-			   image_advtab: true,
-    relative_urls: false,
-    remove_script_host: false,
-    theme: 'modern',    
-    verify_html: false,
-    cleanup: false,
-    valid_children : 'a[div|span|script|i|small|p],+div[a|span|p|div|i|style|script|ul|li|form|input|h1|h2|h3|h4|h5|h6|h7|label|img|button|nav|canvas|footer|*],*[*]',    
+               filemanager_title: "Responsive Filemanager",
+               filemanager_crossdomain: true,
+               external_filemanager_path: "http://test.albertoperipolli.com/secondaryserver/filemanager/",               
+               image_advtab: true,
+               relative_urls: false,
+               remove_script_host: false,
+               theme: 'modern',
+               verify_html: false,
+               cleanup: false,
+               valid_children: 'a[div|span|script|i|small|p],+div[a|span|p|div|i|style|script|ul|li|form|input|h1|h2|h3|h4|h5|h6|h7|label|img|button|nav|canvas|footer|*],*[*]',
+               toolbar1: "undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | styleselect",
+               //toolbar2: "| responsivefilemanager | image | media | link unlink anchor | print preview code  | youtube | qrcode | flickr | picasa | colorpicker forecolor backcolor"
+               toolbar2: "| responsivefilemanager | image | media | link unlink anchor | preview code  | youtube forecolor backcolor"
+
     });
 
 </aui:script>

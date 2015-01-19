@@ -14,6 +14,7 @@
            {
                convert_urls: false,
                elements: 'x',
+
                extended_valid_elements: 'a[name|id|href|target|title|onclick|class|style|data-map-lat|data-map-long|data-map-title|data-map-description],img[class|src|border=0|alt|title|hspace|vspace|width|height|align|onmouseover|onmouseout|name|usemap|onload],hr[class|width|size|noshade],font[face|size|color|style],span[class|align|style],div[id|style|data-*|class|*],*[*]',
                invalid_elements: '',
 
@@ -21,7 +22,7 @@
                plugins: [
              "advlist autolink link image lists charmap print preview hr anchor pagebreak",
              "searchreplace wordcount visualblocks visualchars insertdatetime media nonbreaking spellchecker",
-             "table contextmenu directionality emoticons paste textcolor youtube codemirror responsivefilemanager"
+             "table contextmenu directionality emoticons paste textcolor youtube codemirror responsivefilemanager filemanager"
                ],
                codemirror: {
                    indentOnInit: true, // Whether or not to indent code on init.
@@ -29,9 +30,7 @@
                },
                filemanager_title: "Responsive Filemanager",
                filemanager_crossdomain: true,
-               external_filemanager_path: "http://test.albertoperipolli.com/secondaryserver/filemanager/",
-               external_plugins: { "filemanager": "http://test.albertoperipolli.com/secondaryserver/filemanager/plugin.min.js" },
-
+               external_filemanager_path: "http://test.albertoperipolli.com/secondaryserver/filemanager/",               
                image_advtab: true,
                relative_urls: false,
                remove_script_host: false,
