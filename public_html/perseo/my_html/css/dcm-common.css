@@ -6135,6 +6135,8 @@ html > body .metro .sidebar a.dropdown-toggle:after {
         .metro .carousel .markers.cycle > ul > li > a {
             width: 24px;
             height: 24px;
+            -moz-border-radius: 50%;
+            -webkit-border-radius: 50%;
             border-radius: 50%;
         }
 

@@ -39,7 +39,7 @@ boolean skipEditorLoading = GetterUtil.getBoolean((String)request.getAttribute("
         long javaScriptLastModified = ServletContextUtil.getLastModified(application, "/html/js/", true);
         %>
 
-        <script src="<%= HtmlUtil.escape(PortalUtil.getStaticResourceURL(request, themeDisplay.getCDNHost() + themeDisplay.getPathJavaScript() + "/editor/tiny_mce/tiny_mce.js", javaScriptLastModified)) %>" type="text/javascript"></script>
+        <script src="<%= HtmlUtil.escape(PortalUtil.getStaticResourceURL(request, themeDisplay.getCDNHost() + themeDisplay.getPathJavaScript() + "/editor/tinymce/tinymce.min.js", javaScriptLastModified)) %>" type="text/javascript"></script>
 
         <script type="text/javascript">
             Liferay.namespace('EDITORS')['<%= editorImpl %>'] = true;
@@ -132,7 +132,7 @@ boolean skipEditorLoading = GetterUtil.getBoolean((String)request.getAttribute("
     elements: '<%= name %>',    
     file_browser_callback: window['<%= name %>'].fileBrowserCallback,
     init_instance_callback: window['<%= name %>'].initInstanceCallback,    
-    language: '<%= HtmlUtil.escape(locale.getLanguage()) %>',    
+//    language: '<%= HtmlUtil.escape(locale.getLanguage()) %>',    
     <%
                         if (Validator.isNotNull(onChangeMethod)) {
     %>
@@ -168,7 +168,7 @@ boolean skipEditorLoading = GetterUtil.getBoolean((String)request.getAttribute("
                valid_children: 'a[div|span|script|i|small|p],+div[a|span|p|div|i|style|script|ul|li|form|input|h1|h2|h3|h4|h5|h6|h7|label|img|button|nav|canvas|footer|*],*[*]',
                toolbar1: "undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | styleselect",
                //toolbar2: "| responsivefilemanager | image | media | link unlink anchor | print preview code  | youtube | qrcode | flickr | picasa | colorpicker forecolor backcolor"
-               toolbar2: "| responsivefilemanager | image | media | link unlink anchor | preview code  | youtube forecolor backcolor"
+               toolbar2: "| responsivefilemanager image media | link unlink anchor | preview code  | youtube forecolor backcolor"
 
     });
 
