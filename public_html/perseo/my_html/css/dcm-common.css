@@ -5609,7 +5609,7 @@ body.metro {
                 }
 
             .metro .sidebar > ul ul li:hover {
-                background: #edf4fc;
+                background: transparent;
                 border-color: #a8d2fd;
             }
 
