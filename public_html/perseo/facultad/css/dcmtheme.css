@@ -1492,7 +1492,7 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
     #slide1 .membrete div {
     margin: auto;width: auto; margin-bottom:20px;
     }
-    #slide1 .membrete h3 {
+    #slide1 .membrete h3,#slide1 .membrete h2 {
     font-weight:normal;
     }
 
