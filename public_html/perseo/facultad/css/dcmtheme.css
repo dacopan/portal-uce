@@ -1276,7 +1276,7 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
     height: 100%;
     min-height: 1px;
     display: none;
-    opacity: 0.5;
+    /*opacity: 0.5;*/
 }
 
     .slick-slide img {
@@ -1464,7 +1464,9 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
 /* #Slide1
 ================================================== */
 /*<editor-fold defaultstate="collapsed" desc="Slide1">*/
-#wrapperscroll .slide {
+.metro #wrapperscroll .slide {
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
     box-shadow: none;
 }
 
@@ -1473,7 +1475,8 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
     margin-left: 200px;
     float: none !important;
     background-image: url(../images/facultades_p1_membreta.png);
-    width: 300px !important;
+    width: 320px !important;
+    max-width: 90%;
     position: absolute;
     background-size: cover;
     background-repeat: no-repeat;
@@ -1484,10 +1487,18 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
     letter-spacing: 20px;
     text-align: center;
     color: #fff;
+    font-size: 2rem;
 }
+    #slide1 .membrete div {
+    margin: auto;width: auto; margin-bottom:20px;
+    }
+    #slide1 .membrete h3 {
+    font-weight:normal;
+    }
 
 .topBanner .banx, .topBanner .banx img {
-    height: 300px;
+    height: 350px;
+    max-height: 100%;
     width: 500px;
     background-size: cover;
     background-position: 50% 50%;
@@ -1502,9 +1513,10 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
     text-transform: uppercase;
     font-family: 'Adequate ExtraLight','Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
     font-weight: bold;
-    padding-top: 150px;
+    /*padding-top: 150px;*/
+    padding-top:45px;
     letter-spacing: 1px;
-    padding-bottom: 150px;
+    /*padding-bottom: 150px;*/
     z-index: 3;
     position: relative;
     color: #000;
@@ -1512,6 +1524,7 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
 
 #slide1 .detail {
     padding-top: 50px;
+    margin-left: 540px;
 }
 
     #slide1 .detail h2, .og-expander-inner h2, .postgrados h2.h2, h2.h2, h3.h3, h4.h4, .metro .panel .panel-header {
@@ -1908,6 +1921,7 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
     padding: 0;
     margin: 0;
 }
+
 .metro .links a {
     font-size: 53px;
     border-radius: 50%;

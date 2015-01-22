@@ -5602,32 +5602,34 @@ $(document).ready(function () {
 
     //top banner rotator
     $('.topBanner').slick({
-        centerMode: true,
+        centerMode: false,
         slidesToScroll: 1,
-        centerPadding: '20px',
-        slidesToShow: 2,
+        centerPadding: '40px',
+        slidesToShow: 1,
         autoplay: false,
         autoplaySpeed: 1000,
-        responsive: [
-            {
-                breakpoint: 768,
-                settings: {
-                    arrows: false,
-                    centerMode: true,
-                    centerPadding: '40px',
-                    slidesToShow: 3
-                }
-            },
-            {
-                breakpoint: 480,
-                settings: {
-                    arrows: false,
-                    centerMode: true,
-                    centerPadding: '40px',
-                    slidesToShow: 1
-                }
-            }
-        ],
+        prevArrow: '<button type="button" class="slick-prev hidden">Previous</button>',
+        nextArrow: '<button type="button" class="slick-prev hidden">Previous</button>',
+        //responsive: [
+        //    {
+        //        breakpoint: 768,
+        //        settings: {
+        //            arrows: false,
+        //            centerMode: true,
+        //            centerPadding: '40px',
+        //            slidesToShow: 3
+        //        }
+        //    },
+        //    {
+        //        breakpoint: 480,
+        //        settings: {
+        //            arrows: false,
+        //            centerMode: true,
+        //            centerPadding: '40px',
+        //            slidesToShow: 1
+        //        }
+        //    }
+        //],
         speed: 500
 
     });
