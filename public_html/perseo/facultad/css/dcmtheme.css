@@ -1724,7 +1724,9 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
 .metro .grilla-dark {
     background-image: url(../images/grilla_dark.jpg) !important;
 }
-
+.metro .bg-circle {
+    background-image: url(../images/.jpg) !important;
+}
 .metro .img-cover {
     background-size: cover;
     background-position: 50% 50%;

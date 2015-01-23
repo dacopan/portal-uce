@@ -1,0 +1,236 @@
+<div id="navigation" class="no-phones visible-desktop" style="position:absolute;">
+    <ul id="navBar">
+        <li>
+            <a href="#" class="toSlide" data-slide="1">
+                <div class="menutxt">
+                    <span>Home</span>
+                </div>
+                <div class="bloc"></div>
+            </a>
+        </li>
+
+        <li>
+            <a href="#" class="toSlide" data-slide="2">
+                <div class="menutxt">
+                    <span>Pregrado</span>
+
+                </div>
+                <div class="bloc"></div>
+            </a>
+        </li>
+
+        <li>
+            <a href="#" class="toSlide" data-slide="3">
+                <div class="menutxt">
+                    <span>Postgrado</span>
+
+                </div>
+                <div class="bloc"></div>
+            </a>
+        </li>
+
+        <li>
+            <a href="#" class="toSlide" data-slide="4">
+                <div class="menutxt">
+                    <span>Noticias</span>
+
+                </div>
+                <div class="bloc"></div>
+            </a>
+        </li>
+
+        <li>
+            <a href="#" class="toSlide" data-slide="5">
+                <div class="menutxt">
+                    <span>Links</span>
+
+                </div>
+                <div class="bloc"></div>
+            </a>
+        </li>
+
+        <li>
+            <a href="#" class="toSlide" data-slide="6">
+                <div class="menutxt">
+                    <span>Contacto</span>
+
+                </div>
+                <div class="bloc"></div>
+            </a>
+        </li>
+
+    </ul>
+</div>
+
+
+<div class="slide" id="slide1" data-slide="1" style="background: white;">
+    <div class="contentwrap row-fluid" style="/*position: absolute;*/width: 100%; padding-top: 0;padding-bottom: 0;min-height: 100%;height: auto!important;">
+
+        <div class="span1 membrete animated fadeInDownBig delay2" style="">
+            <div class="fg-dorado fg-hover-darkBlue">facultad</div>
+            <h2 class="animated bounceInUp delay3 fg-white fg-hover-lightgray">$fac_nombre.getData()</h2>
+        </div>
+
+        <div class="span1 delay2 bg-circle" style="height: 100%;float: none!important;margin-left: 0;width: 100%!important;text-align: center;position: absolute;background-size: cover;background-position: 0% 100%;background-repeat: no-repeat;z-index: 2;"></div>
+        <div style="display:inline">
+            <div style="" class="facultad-in animated fadeInUpBig delay3">
+                <div class="topBanner">
+                    #if (!$fac_img.getSiblings().isEmpty())
+                    #foreach ($cur_fac_img in $fac_img.getSiblings())
+                    <div class="banx img-cover" style="background-image: url($cur_fac_img.getData())">
+                        <div class="clear"></div>
+                    </div>
+                    #end
+                    #end
+                </div>
+            </div>
+        </div>
+        <div class="detail">
+            <div class="carousel" style="" data-role="carousel" data-auto="false" data-effect="switch" data-markers-show="true" data-markers-type="square" data-markers-position="bottom-right">
+                <div class="slic">
+                    <div class="content1">
+                        <h2>Misión:</h2>
+                        <p>
+                            $fac_mision.getData()
+                        </p>
+                        <h2>Visión:</h2>
+                        <p>
+                            $fac_mision.getData()
+                        </p>
+                        <div class="jefes">
+                            <h2>Autoridades:</h2>
+                            <h3>$fac_decano.getData()</h3>
+                            <h3 class="cargox">$fac_decano.dec_sex.getData()</h3>
+                            <br />
+                            <h3>$fac_subdecano.getData()</h3>
+                            <h3 class="cargox">$fac_decano.subdec_sex.getData()</h3>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slic">
+                    <div class="content1">
+                        <h2>Contenido</h2>
+                        <p>
+                            Sin contenido aún
+                        </p>
+                        <h2>:</h2>
+                        <p>
+                            Mayra
+                        </p>
+                    </div>
+                </div>
+
+                <a class="controls left"><i class="icon-arrow-left-3"></i></a>
+                <a class="controls right"><i class="icon-arrow-right-3"></i></a>
+                <div style="clear: both;"></div>
+            </div>
+
+        </div>
+
+    </div>
+    <a class="scrollbut" data-slide="2" title=""></a>
+</div>
+
+
+
+#set($ct=$notis.size())
+#set($notis=$Noticia.getSiblings())
+#set( $count = 0)
+#set( $count1 = 0)
+#if (!$Noticia.getSiblings().isEmpty())
+#foreach ($cu in $Noticia.getSiblings())
+
+#set( $ix = $Noticia.getSiblings().size() - $velocityCount)
+                #set($cur_Noticia=$Noticia.getSiblings().get($ix))
+
+#if($velocityCount > 97)
+#break
+#end
+#set( $count1 = $count%3)
+
+#set( $count = $count+1)
+#if($count1==0)
+<div class="slide" id="slide4" data-slide="4" style="min-height: 300px;height: auto;padding-bottom: 30px;">
+    <div class="contentwrap row-fluid noticiesWrap">
+        <div class="fac-title span1">
+            <h1 class="title">Noticias</h1>
+        </div>
+        <ul class="og-grid noticies">
+            #end
+
+
+            <li>
+                <div class="noticeX #if($count1==0) double#end">
+
+                    #if($cur_Noticia.imagen.getData())
+                    <img class="img-0" src="$cur_Noticia.imagen.getData()" alt="notice" />
+                    #else
+                    <div class="relleno"><div class="clear"></div></div>
+                    #end
+
+                    <div class="figcaption">
+                        <div class="pp3">
+                            <h2 class="title">$cur_Noticia.titulo.getData()</h2>
+                            <span class="fg-hover-extraLightBlue">Leer más</span>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+
+                    <div class="rb-overlay">
+                        <div class="rb-week">
+                            <span class="rb-close">close</span>
+                            <div class="full-content">
+                                <div class="contentwrap">
+                                    <h2 class="full-title">
+                                        $cur_Noticia.titulo.getData()
+                                    </h2>
+                                    #set ($FechaObj = $dateUtil.newDate($getterUtil.getLong($cur_Noticia.fecha.getData())))
+                                    <span class="date">Publicado. $dateUtil.getDate($FechaObj, "MMMM dd, yyyy", $locale) | $cur_Noticia.autor.getData()</span>
+                                    <h3 class="sub-title">
+                                        $cur_Noticia.subtitulo.getData()
+                                    </h3>
+                                    #if ($validator.isNotNull($cur_Noticia.video.getData()))
+                                    <div class="video-full" style="">
+                                        <iframe style="width:100%;height:500px;" src="$cur_Noticia.video.getData()" frameborder="0" allowfullscreen></iframe>
+                                    </div>
+                                    #elseif($validator.isNotNull($cur_Noticia.imagen.getData()))
+                                    <div class="img-full" style="background-image: url($cur_Noticia.imagen.getData());">
+                                    </div>
+                                    #end
+                                </div>
+                                <div class="full-html">
+                                    $cur_Noticia.contenido.getData()
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+    </div>
+    </li>
+
+
+
+
+
+
+
+    #set( $count1 = $count%3)
+    #if($count1==0 || !$velocityHasNext || $velocityCount > 97)
+    #set( $count = 0)
+    </ul>
+</div>
+<a class="scrollbut" data-slide="5"></a>
+</div>
+#if($velocityHasNext)
+@page_break@
+#end
+#end
+#if( $velocityCount > 97 )
+#break
+#end
+#end
+
+#end
