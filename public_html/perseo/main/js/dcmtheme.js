@@ -5417,7 +5417,7 @@ $(window).load(function () {
 
 });
 $(document).ready(function () {
-    if (debug || true) {
+    if (debug) {
         //mm-menu
         $('#mm-nav-content').appendTo('#dcmmenu');
         $("#dcmmenu").mmenu({
@@ -5532,24 +5532,5 @@ jQuery('.top').click(function () {
 //hover_overlay();
 
 function isMobileBrowser() {
-    return false || debug;
+    return debug || (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
 }
-var destroyCrappyPlugin = function ($elem, eventNamespace) {
-    var isInstantiated = !!$.data($elem.get(0));
-    //alert(isInstantiated);
-    if (isInstantiated) {
-        $.removeData($elem.get(0));
-        $elem.off(eventNamespace);
-        $elem.unbind('.' + eventNamespace);
-    }
-    console.log(
-            '$element events:',
-            $._data($elem.get(0), 'events')
-            );
-};
-/* #Override aui
- ======================================================*/
-$(function () {
-    //destroyCrappyPlugin($('.va-container'), 'vaccordion');
-
-});

@@ -5562,7 +5562,7 @@ $(window).load(function () {
 
 $(document).ready(function () {
     //load dinamic web content
-    if (debug || true) {
+    if (debug) {
         //mm-menu
         $('#mm-nav-content').appendTo('#dcmmenu');
         $("#dcmmenu").mmenu({
@@ -5606,7 +5606,7 @@ $(document).ready(function () {
         slidesToScroll: 1,
         centerPadding: '40px',
         slidesToShow: 1,
-        autoplay: false,
+        autoplay: !debug,
         autoplaySpeed: 1000,
         prevArrow: '<button type="button" class="slick-prev hidden">Previous</button>',
         nextArrow: '<button type="button" class="slick-prev hidden">Previous</button>',
@@ -5735,36 +5735,6 @@ jQuery('.top').click(function () {
     jQuery('html, body').animate({ scrollTop: 0 }, 1000, 'easeOutCubic'); //return false;
 });
 
-function headerPosition() {
-    if ($(window).scrollTop() > $('#topBar').height()) {
-        $("#topBar").removeClass('bg-lightBlue bg-blue')
-                .addClass("fixed-top bg-lightBlue")
-                .addClass(" shadow");
-    } else {
-        $("#topBar").removeClass('bg-lightBlue bg-blue')
-                .addClass("fixed-top bg-blue")
-                .addClass(" shadow");
-    }
-}
 function isMobileBrowser() {
-    return debug;
+    return debug || (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
 }
-var destroyCrappyPlugin = function ($elem, eventNamespace) {
-    var isInstantiated = !!$.data($elem.get(0));
-    //alert(isInstantiated);
-    if (isInstantiated) {
-        $.removeData($elem.get(0));
-        $elem.off(eventNamespace);
-        $elem.unbind('.' + eventNamespace);
-    }
-    console.log(
-      '$element events:',
-      $._data($elem.get(0), 'events')
-      );
-};
-/* #Override aui
- ======================================================*/
-$(function () {
-    //destroyCrappyPlugin($('.va-container'), 'vaccordion');
-
-});
