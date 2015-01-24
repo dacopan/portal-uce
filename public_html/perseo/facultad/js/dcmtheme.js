@@ -5607,7 +5607,7 @@ $(document).ready(function () {
         centerPadding: '40px',
         slidesToShow: 1,
         autoplay: !debug,
-        autoplaySpeed: 1000,
+        autoplaySpeed: 8000,
         prevArrow: '<button type="button" class="slick-prev hidden">Previous</button>',
         nextArrow: '<button type="button" class="slick-prev hidden">Previous</button>',
         //responsive: [

@@ -1725,7 +1725,7 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
     background-image: url(../images/grilla_dark.jpg) !important;
 }
 .metro .bg-circle {
-    background-image: url(../images/.jpg) !important;
+    background-image: url(../images/bg-circle.png) !important;
 }
 .metro .img-cover {
     background-size: cover;
@@ -2018,7 +2018,7 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
     min-height: 300px;
     height: auto;
     padding-left: 20px;
-    min-width: 300px;
+    /*min-width: 270px;*/
     -moz-transition: all 0.3s ease 0s;
     -webkit-transition: all 0.3s ease 0s;
     -o-transition: all 0.3s ease 0s;
@@ -2026,7 +2026,7 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
 }
 
     .aui .footer .span4:first-child {
-        border-right: none;
+        border: none;
     }
 
 .footer .info, .footer h5 {

@@ -35,9 +35,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         animation-iteration-count: infinite;
     }
 
-    .animated.hinge {
-        -webkit-animation-duration: 2s;
-        animation-duration: 2s;
+    .animated.hingex {
+        -webkit-animation-duration: 3s;
+        animation-duration: 3s;
     }
 
 @-webkit-keyframes bounce {

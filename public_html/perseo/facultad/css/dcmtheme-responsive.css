@@ -39,9 +39,10 @@
         margin-left: 50px;
     }
 
-    #slide1 .facultad-in{
+    #slide1 .facultad-in {
         margin-left: 370px;
     }
+
     #slide1 .detail {
         margin-left: 380px;
     }
@@ -67,8 +68,8 @@
     }
 
     #slide1 .membrete, #slide1 .facultad-in {
-        width: 100%!important;
-        max-width: 98%!important;
+        width: 100% !important;
+        max-width: 98% !important;
         margin: auto;
         height: 300px;
         max-height: 100%;
@@ -189,6 +190,19 @@
     .metro .sidebarWrap .bannerCircle {
         max-width: 400px !important;
     }
+
+    .metro .footer .contentwrap {
+        max-width: 350px;
+    }
+
+    .metro .footer .span4,.metro .footer .span4.blogs {
+        border-right: none;
+        border-bottom: 2px solid #FFF;
+        min-height:50px;
+    }
+    .aui .footer .span4:last-child {
+        border-bottom: none;
+    }
 }
 /* Mobile Landscape Size to Portrait (devices and browsers) */
 @media only screen and (min-width: 480px) and (max-width: 767px) {
@@ -254,9 +268,21 @@
         margin-left: 0px !important;
         padding-left: 0px !important;
     }
+
+    .noticiesWrap .og-grid.noticies li {
+        margin: 10px 0;
+    }
 }
 
-@media only screen and (max-width: 360px) {
+@media only screen and (max-width: 979px) {
+    .aui .row-fluid .span9.oferta {
+        width: 100% !important;
+    }
+
+    .noticiesWrap .lfr-pagination .lfr-pagination-buttons {
+        float: none;
+        margin: auto;
+    }
 }
 
 @media only screen and (min-width: 1200px) {
@@ -291,7 +317,6 @@
         height: 100%;
         margin-left: 4% !important;
         margin-right: 8%;
-        width: 6.3% !important;
         text-align: left;
         width: 89px !important;
     }
@@ -302,13 +327,6 @@
 
     .og-grid.fac {
         float: left;
-    }
-}
-
-@media (max-width: 979px) {
-    .noticiesWrap .lfr-pagination .lfr-pagination-buttons {
-        float: none;
-        margin: auto;
     }
 }
 
@@ -377,6 +395,7 @@
             max-width: 800px;
         }
 }
+
 /*<editor-fold defaultstate="collapsed" desc="menu figure">*/
 /**experiments
 http://tympanus.net/Development/HoverEffectIdeas/*/

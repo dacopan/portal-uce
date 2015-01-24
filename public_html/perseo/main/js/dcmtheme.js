@@ -5238,6 +5238,41 @@ DireccionFull.init();
 //#endregion 
 
 $(window).load(function () {
+
+    if (debug) {
+        //mm-menu
+        $('#mm-nav-content').appendTo('#dcmmenu');
+        $("#dcmmenu").mmenu({
+            classes: "mm-slide"
+        });
+        innerNavigate();
+    } else {
+        ///*
+        var len = $('[data-load]').length;
+        $("[data-load]").each(function (index, element) {
+            $(this).load($(this).data("load"), function () {
+                if (index == len - 1) {
+
+                    //mm-menu
+                    $('#mm-nav-content').appendTo('#dcmmenu');
+                    $('#loader').appendTo('#dcmmenu');
+                    $("#dcmmenu").mmenu({
+                        classes: "mm-slide"
+                    });
+                    innerNavigate();
+
+                    $('#dcmmenu').before($('#loader'));
+                    $('#loader').addClass('animated bounceOutUp');
+                    setTimeout(function () {
+                        $('#loader').remove();
+                        $('#loaderStyle').remove();
+                    }, 3000);
+
+                }
+            });
+        });
+
+    }
     //scroll pagination
     if (window.location.search.indexOf("page=") > -1) {
         var q = $('.slide[data-slide="' + 2 + '"]').offset().top;
@@ -5361,7 +5396,7 @@ $(window).load(function () {
 
         //animate club
         $('.club').each(function (i) {
-            
+
             if (i < 2)
                 $(this).addClass("oculto").viewportChecker({
                     classToAdd: 'visible animated fadeInLeftBig',
@@ -5417,30 +5452,7 @@ $(window).load(function () {
 
 });
 $(document).ready(function () {
-    if (debug) {
-        //mm-menu
-        $('#mm-nav-content').appendTo('#dcmmenu');
-        $("#dcmmenu").mmenu({
-            classes: "mm-slide"
-        });
-        innerNavigate();
-    } else {
-        ///*
-        var len = $('[data-load]').length;
-        $("[data-load]").each(function (index, element) {
-            $(this).load($(this).data("load"), function () {
-                if (index == len - 1) {
-                    //mm-menu
-                    $('#mm-nav-content').appendTo('#dcmmenu');
-                    $("#dcmmenu").mmenu({
-                        classes: "mm-slide"
-                    });
-                    innerNavigate();
-                }
-            });
-        });
 
-    }
 
 
     //liferay-user-login/admin    
