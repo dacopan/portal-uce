@@ -158,7 +158,7 @@ boolean skipEditorLoading = GetterUtil.getBoolean((String)request.getAttribute("
                },
                filemanager_title: "Responsive Filemanager",
                filemanager_crossdomain: true,
-               external_filemanager_path: "http://test.albertoperipolli.com/secondaryserver/filemanager/",               
+               external_filemanager_path: "http://aka-cdn.uce.edu.ec/atenea/filemanager/",               
                image_advtab: true,
                relative_urls: false,
                remove_script_host: false,
@@ -166,8 +166,7 @@ boolean skipEditorLoading = GetterUtil.getBoolean((String)request.getAttribute("
                verify_html: false,
                cleanup: false,
                valid_children: 'a[div|span|script|i|small|p],+div[a|span|p|div|i|style|script|ul|li|form|input|h1|h2|h3|h4|h5|h6|h7|label|img|button|nav|canvas|footer|*],*[*]',
-               toolbar1: "undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | styleselect",
-               //toolbar2: "| responsivefilemanager | image | media | link unlink anchor | print preview code  | youtube | qrcode | flickr | picasa | colorpicker forecolor backcolor"
+               toolbar1: "undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | styleselect",             
                toolbar2: "| responsivefilemanager image media | link unlink anchor | preview code  | youtube forecolor backcolor"
 
     });

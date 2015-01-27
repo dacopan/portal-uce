@@ -11,6 +11,56 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 /*<editor-fold defaultstate="collapsed" desc=" animated ">*/
+.boingInUp {
+  -webkit-animation-name: boingInUp;
+  animation-name: boingInUp;
+}
+.animated.boingInUp {
+    -webkit-animation-duration: 1.3s;
+    animation-duration: 1.3s;
+}
+@keyframes boingInUp {
+  0% {
+    opacity: 0;
+    transform-origin: 50% 0%;
+    transform: perspective(800px) rotateX(-90deg);
+  }
+  
+  50% {
+    opacity: 1;
+    transform-origin: 50% 0%;
+    transform: perspective(800px) rotateX(50deg);
+  }
+
+  100% {
+    opacity: 1;
+    transform-origin: 50% 0%;
+    transform: perspective(800px) rotateX(0deg);
+  }
+}
+@-webkit-keyframes boingInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform-origin: 50% 0%;
+    -webkit-transform: perspective(800px) rotateX(-90deg);
+  }
+  
+  50% {
+    opacity: 1;
+    -webkit-transform-origin: 50% 0%;
+    -webkit-transform: perspective(800px) rotateX(50deg);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform-origin: 50% 0%;
+    -webkit-transform: perspective(800px) rotateX(0deg);
+  }
+}
+
+
+
+
 .delay1 {
     -moz-animation-delay: 1s;
     -o-animation-delay: 1s;
@@ -23,7 +73,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     -webkit-animation-delay: 2s;
     animation-delay: 2s;
 }
-.animated {
+.animated,.metro .club:hover i {
     -webkit-animation-duration: 1s;
     animation-duration: 1s;
     -webkit-animation-fill-mode: both;
@@ -7564,4 +7614,13 @@ html > body .metro .sidebar a.dropdown-toggle:after {
 
 .visible {
     opacity: 1 !important;
+}
+
+/*# transition
+============================*/
+.metro .club,.metro .club i{
+-moz-transition: all 0.3s ease 0s;
+    -webkit-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
 }

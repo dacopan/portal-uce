@@ -1014,14 +1014,17 @@ span.date {
     height: 120px;
     background-color: #ffffff;
     position: relative;
-    -moz-transition: all 0.3s ease 0s;
-    -webkit-transition: all 0.3s ease 0s;
-    -o-transition: all 0.3s ease 0s;
-    transition: all 0.3s ease 0s;
 }
 
     .metro .club i {
         font-size: 60px;
+    }
+
+    .metro .club:hover i {
+        color: #000 !important;
+        transform: scale(1.1);
+        -webkit-animation-name: rubberBand;
+        animation-name: rubberBand;
     }
 
     .metro .club .desc {

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-#set ($cdn = "http://aka-cdn.uce.edu.ec/perseo")
+#set ($cdn = "http://aka-cdn.uce.edu.ec/atenea/perseo")
 #set ($html-com = "$cdn/my_html")
 #set ($theme-type = "$cdn/themes/$theme_display.getThemeSetting('theme-type')")
 

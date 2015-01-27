@@ -5259,14 +5259,17 @@ $(window).load(function () {
                     $("#dcmmenu").mmenu({
                         classes: "mm-slide"
                     });
-                    innerNavigate();
 
                     $('#dcmmenu').before($('#loader'));
                     $('#loader').addClass('animated bounceOutUp');
                     setTimeout(function () {
                         $('#loader').remove();
                         $('#loaderStyle').remove();
-                    }, 3000);
+                        innerNavigate();
+                        $("body").animate({
+                            scrollTop: 1
+                        }, 1);
+                    }, 1300);
 
                 }
             });
@@ -5373,8 +5376,8 @@ $(window).load(function () {
 
         //animate noticies
         $('.noticiesWrap .container2').addClass("oculto").viewportChecker({
-            classToAdd: 'visible animated fadeInDownBig',
-            offset: 300,
+            classToAdd: 'visible animated fadeInUpBig',
+            offset: 200,
             repeat: false
         });
 
@@ -5388,8 +5391,8 @@ $(window).load(function () {
         //animate club
         $('.slide h1.adequate').each(function () {
             $(this).addClass("oculto").viewportChecker({
-                classToAdd: 'visible animated fadeInDownBig',
-                offset: 300,
+                classToAdd: 'visible animated boingInUp',
+                offset: 250,
                 repeat: false
             });
         });
