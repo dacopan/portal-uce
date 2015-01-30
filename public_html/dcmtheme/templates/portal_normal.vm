@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-#set ($cdn = "http://aka-cdn.uce.edu.ec/atenea/perseo")
+#set ($cdn = "http://aka-cdn.uce.edu.ec/atenea/ares/perseo")
 #set ($html-com = "$cdn/my_html")
-#set ($theme-type = "$cdn/themes/$theme_display.getThemeSetting('theme-type')")
+#set ($x3=$theme.getSetting("theme-type"))
+#set ($theme-type = "$cdn/$x3")
 
 #parse ($init)
 
@@ -11,6 +12,7 @@
     <meta content="initial-scale=1.0, width=device-width" name="viewport" />
     $theme.include($top_head_include)
 
+	<link rel="stylesheet" href="$html-com/css/dcm-loader.min.css" type="text/css" id="loaderStyle" />
 	<link rel="stylesheet" href="$html-com/css/dcm-common.min.css" type="text/css" />
     <link rel="stylesheet" href="$theme-type/css/dcmtheme.min.css" type="text/css" />
     <link rel="stylesheet" href="$theme-type/css/dcmtheme-responsive.min.css" type="text/css" />
@@ -25,6 +27,20 @@
     <a href="#main-content" id="skip-to-content">#language ("skip-to-content")</a>
     $theme.include($body_top_include)
 
+	<div id="loader" style="">
+        <div id="loader2" class="" style="">
+            <div id="div1">
+                <div id="div2">
+                    <img src="$html-com/img/logo.png" alt="logo">
+                </div>
+            </div>
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+        </div>
+    </div>
 
     <nav id="dcmmenu" style="z-index: 88889;">
     </nav>

@@ -5250,6 +5250,7 @@ $(window).load(function () {
         ///*
         var len = $('[data-load]').length;
         $("[data-load]").each(function (index, element) {
+
             $(this).load($(this).data("load"), function () {
                 if (index == len - 1) {
 

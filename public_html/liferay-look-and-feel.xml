@@ -34,7 +34,6 @@
       <css-class>light</css-class>
     </color-scheme>
   </theme>
-
   <theme id="ucetheme" name="UCE Theme">
     <root-path>/html/themes/dcmtheme</root-path>
     <templates-path>${root-path}/templates</templates-path>
@@ -55,7 +54,6 @@
       <color-scheme-images-path>${images-path}/color_schemes/${css-class}</color-scheme-images-path>
     </color-scheme>
   </theme>
-
   <theme id="control-panel" name="Control Panel">
     <root-path>/html/themes/control_panel</root-path>
     <settings>

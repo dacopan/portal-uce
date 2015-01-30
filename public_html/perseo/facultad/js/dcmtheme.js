@@ -5367,6 +5367,43 @@ $(function () {
 
 
 $(window).load(function () {
+    if (debug) {
+        //mm-menu
+        $('#mm-nav-content').appendTo('#dcmmenu');
+        $("#dcmmenu").mmenu({
+            classes: "mm-slide"
+        });
+        innerNavigate();
+    } else {
+        ///*
+        var len = $('[data-load]').length;
+        $("[data-load]").each(function (index, element) {
+            $(this).load($(this).data("load"), function () {
+                if (index == len - 1) {
+
+                    //mm-menu
+                    $('#mm-nav-content').appendTo('#dcmmenu');
+                    $('#loader').appendTo('#dcmmenu');
+                    $("#dcmmenu").mmenu({
+                        classes: "mm-slide"
+                    });
+
+                    $('#dcmmenu').before($('#loader'));
+                    $('#loader').addClass('animated bounceOutUp');
+                    setTimeout(function () {
+                        $('#loader').remove();
+                        $('#loaderStyle').remove();
+                        innerNavigate();
+                        $("body").animate({
+                            scrollTop: 1
+                        }, 1);
+                    }, 1300);
+
+                }
+            });
+        });
+
+    }
     //scroll pagination
     if (window.location.search.indexOf("page=") > -1) {
         var q = $('.slide[data-slide="' + 4 + '"]').offset().top;
@@ -5560,31 +5597,7 @@ $(window).load(function () {
     //parallax
 });
 
-$(document).ready(function () {
-    //load dinamic web content
-    if (debug) {
-        //mm-menu
-        $('#mm-nav-content').appendTo('#dcmmenu');
-        $("#dcmmenu").mmenu({
-            classes: "mm-slide"
-        });
-        innerNavigate();
-    } else {
-        ///*
-        var len = $('[data-load]').length;
-        $("[data-load]").each(function (index, element) {
-            $(this).load($(this).data("load"), function () {
-                if (index == len - 1) {
-                    //mm-menu
-                    $('#mm-nav-content').appendTo('#dcmmenu');
-                    $("#dcmmenu").mmenu({
-                        classes: "mm-slide"
-                    });
-                    innerNavigate();
-                }
-            });
-        });
-    }
+$(document).ready(function () {   
 
     //liferay-user-login/admin
     $('#userlaunch').click(function (e) {
