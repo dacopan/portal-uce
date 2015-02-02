@@ -39,7 +39,7 @@ boolean skipEditorLoading = GetterUtil.getBoolean((String)request.getAttribute("
         long javaScriptLastModified = ServletContextUtil.getLastModified(application, "/html/js/", true);
         %>
 
-        <script src="<%= HtmlUtil.escape(PortalUtil.getStaticResourceURL(request, themeDisplay.getCDNHost() + themeDisplay.getPathJavaScript() + "/editor/tinymce/tinymce.min.js", javaScriptLastModified)) %>" type="text/javascript"></script>
+        <script src="<%= HtmlUtil.escape(PortalUtil.getStaticResourceURL(request, themeDisplay.getCDNHost() + themeDisplay.getPathJavaScript() + "/editor/tiny_mce/tiny_mce.min.js", javaScriptLastModified)) %>" type="text/javascript"></script>
 
         <script type="text/javascript">
             Liferay.namespace('EDITORS')['<%= editorImpl %>'] = true;

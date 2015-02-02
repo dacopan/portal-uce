@@ -3,8 +3,7 @@
 
 #if (!$Noticia.getSiblings().isEmpty())
     #foreach ($cn in $Noticia.getSiblings())
-    #set( $ix = ($Noticia.getSiblings().size() - $velocityCount))
-    index: $ix
+    #set( $ix = ($Noticia.getSiblings().size() - $velocityCount))   
     #set($cur_Noticia=$Noticia.getSiblings().get($ix))
     #if ($getterUtil.getBoolean($cur_Noticia.getData()))
         #if($count==0)
