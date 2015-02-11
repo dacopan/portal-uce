@@ -5051,7 +5051,6 @@ $(function () {
 //</editor-fold>
 //#endregion 
 
-
 //#region direcciones Full
 //<editor-fold defaultstate="collpased" desc="direcciones Full">
 var DireccionFull = (function () {
@@ -5234,6 +5233,192 @@ var DireccionFull = (function () {
     return { init: init };
 })();
 DireccionFull.init();
+//</editor-fold>
+//#endregion 
+
+
+//#region clubes Full
+//<editor-fold defaultstate="collpased" desc="clubes Full">
+var ClubFull = (function () {
+    var $items = $('.clubWrap li'),
+            transEndEventNames = {
+                'WebkitTransition': 'webkitTransitionEnd',
+                'MozTransition': 'transitionend',
+                'OTransition': 'oTransitionEnd',
+                'msTransition': 'MSTransitionEnd',
+                'transition': 'transitionend'
+            },
+    // transition end event name
+    transEndEventName = transEndEventNames[Modernizr.prefixed('transition')],
+            // window and body elements
+            $window = $(window),
+            $body = $('BODY'),
+            // transitions support
+            supportTransitions = Modernizr.csstransitions,
+            // current item's index
+            current = -1,
+            // window width and height
+            winsize = getWindowSize();
+    function init(options) {
+        // apply fittext plugin
+        //$items.find( 'div.rb-week > div span' ).fitText( 0.3 ).end().find( 'span.rb-city' ).fitText( 0.5 );
+        initEvents();
+    }
+
+    function initEvents() {
+
+        $items.each(function (ix) {
+
+            var $item = $(this),
+                    $close = $item.find('span.rb-close'),
+                    $overlay = $item.find('div.rb-overlay');
+
+            $item.on('click', function (event) {
+                event.preventDefault();
+                // $('.carreraWrap').removeClass("oculto visible animated bounceInRight");
+                if ($item.data('isExpanded')) {
+                    return false;
+                }
+                $item.data('isExpanded', true);
+                // save current item's index
+                current = $item.index();
+                var layoutProp = getItemLayoutProp($item),
+                        clipPropFirst = 'rect(' + layoutProp.top + 'px ' + (layoutProp.left + layoutProp.width) + 'px ' + (layoutProp.top + layoutProp.height) + 'px ' + layoutProp.left + 'px)',
+                        clipPropLast = 'rect(0px ' + winsize.width + 'px ' + winsize.height + 'px 0px)';
+                $overlay.css({
+                    transformOrigin: layoutProp.left + 'px ' + layoutProp.top + 'px',
+                    clip: supportTransitions ? clipPropFirst : clipPropLast,
+                    transform: supportTransitions ? 'rotate(45deg)' : 'none',
+                    opacity: 1,
+                    zIndex: 9999,
+                    pointerEvents: 'auto'
+                });
+                if (supportTransitions) {
+                    $overlay.on(transEndEventName, function () {
+
+                        $overlay.off(transEndEventName);
+                        setTimeout(function () {
+                            $overlay.css({ clip: clipPropLast, transform: 'rotate(0deg)' }).on(transEndEventName, function () {
+                                $overlay.off(transEndEventName);
+                                $body.css('overflow-y', 'hidden');
+                            });
+                        }, 25);
+                    });
+                }
+                else {
+                    $body.css('overflow-y', 'hidden');
+                }
+                //sidebar update
+                var sidebar = $item.find('[data-role=sidebar]'),
+                        tabs = $(sidebar.children("nav")).find("a"),
+                        frames = $(sidebar.children(".full-content")).children(".slic");
+                tabs.each(function () {
+                    $(this).parent().removeClass("active");
+                });
+
+                frames.hide();
+                $(frames.get(0)).show();
+                sidebar = tabs = null;
+
+                setTimeout(function () {
+                    if (!isMobileBrowser()) {
+                        /*$(frames.get(0)).find(".homeslider.on").each(function() {
+                         $(this).data('nivoslider').start();
+                         });*/
+                        $(frames.get(0)).find(".bannerCircle").each(function () {
+                            $(this).data('bannerCircle').start();
+                        });
+                        frames = sidebar = tabs = null;
+                    }
+                }, 3000);
+
+
+
+            });
+
+            $close.on('click', function () {
+
+                $body.css('overflow-y', 'auto');
+                var layoutProp = getItemLayoutProp($item),
+                        clipPropFirst = 'rect(' + layoutProp.top + 'px ' + (layoutProp.left + layoutProp.width) + 'px ' + (layoutProp.top + layoutProp.height) + 'px ' + layoutProp.left + 'px)',
+                        clipPropLast = 'auto';
+                // reset current
+                current = -1;
+                $overlay.css({
+                    clip: supportTransitions ? clipPropFirst : clipPropLast,
+                    opacity: supportTransitions ? 1 : 0,
+                    pointerEvents: 'none'
+                });
+                if (supportTransitions) {
+                    $overlay.on(transEndEventName, function () {
+
+                        //$overlay.off(transEndEventName);
+                        setTimeout(function () {
+                            $overlay.css('opacity', 0).on(transEndEventName, function () {
+                                $overlay.off(transEndEventName).css({ clip: clipPropLast, zIndex: -1 });
+                                $item.data('isExpanded', false);
+                            });
+                        }, 25);
+                    });
+                }
+                else {
+                    $overlay.css('z-index', -1);
+                    $item.data('isExpanded', false);
+                }
+                //sidebar update
+                var sidebar = $item.find('[data-role=sidebar]'),
+                        tabs = $(sidebar.children("nav")).find("a"),
+                        frames = $(sidebar.children(".full-content")).children(".slic");
+
+                frames.hide();
+                //apago bannerCircle
+                if (!isMobileBrowser()) {
+                    /*frames.find(".homeslider.on").each(function() {
+                     $(this).data('nivoslider').stop();
+                     });*/
+
+                    frames.find(".bannerCircle").each(function () {
+                        $(this).data('bannerCircle').stop();
+                    });
+                }
+                sidebar = tabs = frames = null;
+                return false;
+            });
+        });
+        $(window).on('debouncedresize', function () {
+            winsize = getWindowSize();
+            // todo : cache the current item
+            if (current !== -1) {
+                $items.eq(current).children('div.rb-overlay').css('clip', 'rect(0px ' + winsize.width + 'px ' + winsize.height + 'px 0px)');
+            }
+        });
+    }
+
+    function getItemLayoutProp($item) {
+
+        var scrollT = $window.scrollTop(),
+                scrollL = $window.scrollLeft(),
+                itemOffset = $item.offset();
+        return {
+            left: itemOffset.left - scrollL,
+            top: itemOffset.top - scrollT,
+            width: $item.outerWidth(),
+            height: $item.outerHeight()
+        };
+    }
+
+    function getWindowSize() {
+        $body.css('overflow-y', 'hidden');
+        var w = $window.width(), h = $window.height();
+        if (current === -1) {
+            $body.css('overflow-y', 'auto');
+        }
+        return { width: w, height: h };
+    }
+
+    return { init: init };
+})();
+ClubFull.init();
 //</editor-fold>
 //#endregion 
 
@@ -5432,6 +5617,7 @@ function onloadX() {
 
 
         //radio
+        /*
         if (!!document.createElement('audio').canPlayType) {
             $('<audio id="radioplay" class="oculto" src="http://s3.myradiostream.com:7258/;"></audio>').appendTo('#page');
             $('#radiox').click(function (e) {
@@ -5446,6 +5632,8 @@ function onloadX() {
         } else {
             $('#radiox').remove();
         }
+        */
+        $('#radiox').remove();
         //slides check
         $('.slide').addClass("u").slideCheck({});
         /*                                                             

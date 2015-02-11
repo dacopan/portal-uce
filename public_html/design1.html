@@ -52,53 +52,7 @@ and open the template in the editor.
 
     </nav>
     <div id="page">
-        <div class="topBar bg-blue" id="topBar" style="position: fixed;">
-            <div class="topBar-content">
-                <span class="todayX fg-yellow no-phones" style="font-size: 80%;margin-left: 80px;">
-                    Miércoles 01/09/2014
-                </span>
-                <a id="hamburger" class="" href="#dcmmenu"><span></span></a>
-                <a class="fg-white" data-hint="x|y" href="#user"><i class="icon-user"></i></a>
-                <a class="fg-white" href="#radio" id="radiox"><i class="icon-microphone"></i></a>
-                <a class="fg-white has-full-view" href="#full-view-01"><i class="icon-book"></i></a>
-            </div>
-            <!--mmMenu nav content-->
-            <ul id="mm-nav-content">
-                <li><a href="#dcmmenu" onclick="jQuery('#dcmmenu').trigger('close.mm');" style="float: right;position: relative;clear: both;z-index: 9;font-size: 20px;"><i class="icon-remove"></i></a></li>
-                <li><a href="#slide1" class="toSlide" data-slide="1">Home</a></li>
-                <li><a href="#slide2" class="toSlide" data-slide="2">Noticias</a></li>
-                <li>
-                    <a href="#slide3" class="toSlide" data-slide="3">
-                        <figure class="effect-layla visible-desktop">
-                            <img src="perseo/main/images/tmp/comunicado.jpg" alt="img04">
-                            <figcaption>
-                                <h2>Facultades<span>.</span></h2>
-                                <p>Descripción</p>
-                            </figcaption>
-                        </figure>
-                        <span class="hidden-desktop">Facultades</span>
-                    </a>
-                    <ul>
-                        <li><a href="facultad/facultad.html" target="_blank">Ingenieria Ciencias Fisicas y Matematica</a></li>
-                        <li><a href="facultad/facultad.html" target="_blank">Ciencias Administrativas</a></li>
-                        <li><a href="facultad/facultad.html" target="_blank">Odontología</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#slide4" class="toSlide" data-slide="4">Panel4</a>
-                    <ul>
-                        <li><a href="/tutorial">Getting started</a></li>
-                        <li><a href="/tutorial/setting-up-the-html.html">Setting up the html</a></li>
-                        <li><a href="/tutorial/fire-the-plugin.html">Fire the plugin</a></li>
-                        <li><a href="/tutorial/open-and-close-the-menu.html">Open and close the menu</a></li>
-                        <li><a href="/tutorial/styling-lists.html">Styling lists</a></li>
-                        <li><a href="/tutorial/fixed-elements.html">Fixed elements</a></li>
-                        <li><a href="/tutorial/learn-more.html">Learn more</a></li>
-                    </ul>
-
-                </li>
-            </ul>
-            <!--fin mmMenu nav content-->
+        <div class="topBar bg-blue" id="topBar" style="position: fixed;" data-load="perseo/my_html/uce_topBar_mmmenu.html">
 
         </div>
 
@@ -691,7 +645,7 @@ and open the template in the editor.
                                                         <div class="img-cover" style="background-image:url(perseo/main/images/tmp/bg_direc.jpg);height: 100%; min-height: 100%;">
                                                             <div class="" style="min-height: 100%;">
                                                                 <div class="contentwrap direcWrap">
-
+                                                                    <h1 class="text-center adequate">Área Administrativa</h1>
                                                                     <!--<div class="direcWrap">-->
                                                                     <ul class="og-grid">
                                                                         <li>
@@ -854,7 +808,7 @@ and open the template in the editor.
                                                                         <li>
                                                                             <div class="direc">
                                                                                 <h1 class="title">DGA</h1>
-                                                                                <div class="desc adequate">Dirección General Academica</div>
+                                                                                <div class="desc adequate">Dirección General Académica</div>
                                                                             </div>
                                                                         </li>
 
@@ -868,7 +822,7 @@ and open the template in the editor.
                                                                         <li>
                                                                             <div class="direc">
                                                                                 <h1 class="title">DGBU</h1>
-                                                                                <div class="desc adequate">Dirección General de Bienestar Estudiantil</div>
+                                                                                <div class="desc adequate">Dirección General de Bienestar Universitario</div>
                                                                             </div>
                                                                         </li>
 
@@ -889,22 +843,22 @@ and open the template in the editor.
                                                                         <li>
                                                                             <div class="direc">
                                                                                 <h1 class="title">DIFM</h1>
-                                                                                <div class="desc adequate">Dirección de Infraestructura Física y de Mantenimiento</div>
+                                                                                <div class="desc adequate">Dirección de Infraestructura Física y Fiscalización</div>
                                                                             </div>
                                                                         </li>
-                                                                        <li>
+                                                                        <!--<li>
                                                                             <div class="direc">
                                                                                 <h1 class="title">DPU</h1>
-                                                                                <div class="desc adequate">Dirección de Planificación Universitaria</div>
+                                                                                <div class="desc adequate">Planificación Universitaria</div>
                                                                             </div>
-                                                                        </li>
+                                                                        </li>-->
 
-                                                                        <li>
+                                                                        <!--<li>
                                                                             <div class="direc">
                                                                                 <h1 class="title">DRI</h1>
                                                                                 <div class="desc adequate">Dirección de Relaciones Internacionales</div>
                                                                             </div>
-                                                                        </li>
+                                                                        </li>-->
 
                                                                         <li>
                                                                             <div class="direc">
@@ -922,9 +876,76 @@ and open the template in the editor.
                                                                         <li>
                                                                             <div class="direc">
                                                                                 <h1 class="title">DVS</h1>
-                                                                                <div class="desc adequate">Dirección de Vinculación con la Sociedad</div>
+                                                                                <div class="desc adequate">Comisión de Vinculación con la Sociedad</div>
                                                                             </div>
                                                                         </li>
+                                                                        <li>
+                                                                            <div class="direc">
+                                                                                <h1 class="title">DSS</h1>
+                                                                                <div class="desc adequate">Dirección de Seguridad y Salud</div>
+                                                                            </div>
+                                                                        </li>
+                                                                        <li>
+                                                                            <div class="direc">
+                                                                                <h1 class="title">DCP</h1>
+                                                                                <div class="desc adequate">Dirección de Contratación Pública</div>
+                                                                            </div>
+                                                                        </li>
+                                                                        <li>
+                                                                            <div class="direc">
+                                                                                <h1 class="title">CACD</h1>
+                                                                                <div class="desc adequate">Comisión de Arte, Cultura y Deporte</div>
+                                                                            </div>
+                                                                        </li>
+                                                                        <li>
+                                                                            <div class="direc">
+                                                                                <h1 class="title">CE</h1>
+                                                                                <div class="desc adequate">Comisión de Economía</div>
+                                                                            </div>
+                                                                        </li>
+                                                                        <li>
+                                                                            <div class="direc">
+                                                                                <h1 class="title">CJ</h1>
+                                                                                <div class="desc adequate">Comisión Jurídica</div>
+                                                                            </div>
+                                                                        </li>
+                                                                        <li>
+                                                                            <div class="direc">
+                                                                                <h1 class="title">CAC</h1>
+                                                                                <div class="desc adequate">Comisión Administrativa y de Control</div>
+                                                                            </div>
+                                                                        </li>
+                                                                        <li>
+                                                                            <div class="direc">
+                                                                                <h1 class="title">CAIP</h1>
+                                                                                <div class="desc adequate">Comisión Académica de Investigación y Postgrado</div>
+                                                                            </div>
+                                                                        </li>
+                                                                        <li>
+                                                                            <div class="direc">
+                                                                                <h1 class="title">CEIA</h1>
+                                                                                <div class="desc adequate">Comisión de evaluación interna y acreditación</div>
+                                                                            </div>
+                                                                        </li>
+                                                                        <li>
+                                                                            <div class="direc">
+                                                                                <h1 class="title">CACD</h1>
+                                                                                <div class="desc adequate">Comisión de Arte, Cultura y Deporte</div>
+                                                                            </div>
+                                                                        </li>
+                                                                        <li>
+                                                                            <div class="direc">
+                                                                                <h1 class="title">SG</h1>
+                                                                                <div class="desc adequate">Secretaría General</div>
+                                                                            </div>
+                                                                        </li>
+                                                                        <li>
+                                                                            <div class="direc">
+                                                                                <h1 class="title">CE</h1>
+                                                                                <div class="desc adequate">Comité de Ética</div>
+                                                                            </div>
+                                                                        </li>
+                                                                       
                                                                     </ul>
                                                                     <!--</div>-->
                                                                 </div>
@@ -935,14 +956,14 @@ and open the template in the editor.
                                                     </div>
 
 
-                                                    <div class="slide bg-red" id="slide5" data-slide="5">
+                                                    <!--<div class="slide bg-red oculto" id="slide5" data-slide="5">
                                                         <div class="contentwrap" style="">
 
                                                             <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 
                                                         </div>
                                                         <a class="scrollbut" data-slide="6"></a>
-                                                    </div>
+                                                    </div>-->
 
 
                                                     <div class="slide bg-white" id="slide6" data-slide="6">
@@ -957,25 +978,57 @@ and open the template in the editor.
                                                                         <img src="perseo/main/images/tmp/maquetacion_clubes_03.jpg" style="margin-top: -50px;margin-left: 10px" />
                                                                         <div class="desc adequate">Andinismo</div>
                                                                     </div>
+                                                                </li>
+                                                                <li>
+                                                                    <div class="club">
+                                                                        <i class="fg-lightgray fa fa-paint-brush"></i>
+                                                                        <div class="desc adequate">Arte</div>
+                                                                    </div>
+                                                                </li>
+
+                                                                <li>
+                                                                    <div class="club">
+                                                                        <i class="fg-lightgray fa fa-futbol-o"></i>
+                                                                        <div class="desc adequate">Fútbol</div>
+                                                                    </div>
                                                                     <div class="rb-overlay">
                                                                         <div class="row-fluid rb-week sidebarWrap grilla grilla-dark" data-role="sidebar">
                                                                             <span class="rb-close">close</span>
 
                                                                             <nav class="sidebar span3 navx" data-role="sidebar-nav">
                                                                                 <a class="pull-menu" href="#"></a>
-                                                                                <span class="date" style="color: #fff;text-align: left;font-size: 14px;">DIRECCIÓN</span>
+                                                                                <span class="date" style="color: #fff;text-align: left;font-size: 14px;">CLUB</span>
                                                                                 <h1 class="fg-white text-left padding10R font3r">
                                                                                     <span class="fg-white font3r hidden-desktop abbr">DCC</span>
-                                                                                    <a class="fg-white font3r visible-desktop" href="cont0">Dirección de comunicación y cultura</a>
+                                                                                    <a class="fg-white font3r visible-desktop" href="cont0">Club de Fútbol</a>
                                                                                 </h1>
                                                                                 <ul class="element-menu">
-                                                                                    <li><a href="cont1">Autoridades</a></li>
-                                                                                    <li><a href="cont2">Misión Visión</a></li>
-                                                                                    <li><a href="cont3">Equipo de trabajo (instalaciones)</a></li>
-                                                                                    <li><a href="cont4">Productos y servicios</a></li>
-                                                                                    <li><a href="cont5">Convenios</a></li>
-                                                                                    <li><a href="cont5">Contactos</a></li>
-
+                                                                                    <li>
+                                                                                        <a class="dropdown-toggle" href="#">Generalidades</a>
+                                                                                        <ul class="dropdown-menu" data-role="dropdown">
+                                                                                            <li><a href="cont1">Introducción</a></li>
+                                                                                            <li><a href="cont2">Misión y Visión</a></li>
+                                                                                            <li><a href="cont3">Valores</a></li>
+                                                                                        </ul>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <a class="dropdown-toggle" href="#">Datos históricos</a>
+                                                                                        <ul class="dropdown-menu" data-role="dropdown">
+                                                                                            <li><a href="cont4">Nivel Global</a></li>
+                                                                                            <li><a href="cont5">Nivel país</a></li>
+                                                                                            <li><a href="cont6">Nivel UCE</a></li>
+                                                                                        </ul>
+                                                                                    </li>
+                                                                                    <li><a href="cont7">Características especiales del grupo</a></li>
+                                                                                    <li>
+                                                                                        <a class="dropdown-toggle" href="#">Grupo activo</a>
+                                                                                        <ul class="dropdown-menu" data-role="dropdown">
+                                                                                            <li><a href="cont8">Autoridades</a></li>
+                                                                                            <li><a href="cont9">Miembros</a></li>                                                                                   
+                                                                                        </ul>
+                                                                                    </li>
+                                                                                    <li><a href="cont10">Actividades</a></li>
+                                                                                    <li><a href="cont11">Contactos</a></li>
                                                                                 </ul>
                                                                             </nav>
 
@@ -990,39 +1043,27 @@ and open the template in the editor.
 
                                                                                             <div class="span7">
                                                                                                 <div class="item big" style="width: 100%;">
-
-                                                                                                    <!--<div class="img-coverx img" style="height: 250px;background-image: url(perseo/facultad/images/tmp/ban1.jpg);"><div class="clear"></div></div>-->
-                                                                                                    <img class="banx" src="perseo/facultad/images/tmp/ban1.jpg" style="/*height:250px;*/" />
+                                                                                                    <img class="banx" src="perseo/facultad/images/tmp/ban1.jpg" />
                                                                                                 </div>
-
                                                                                             </div>
                                                                                             <div class="span5">
                                                                                                 <div class="item half" style="width: 100%;padding-top: 29%;">
-                                                                                                    <!--<div class="img-coverx img" style="background-image: url(perseo/facultad/images/tmp/ban2.jpg);">
-                                                                                                        <div class="clear"></div>
-                                                                                                    </div>-->
                                                                                                     <img class="banx" src="perseo/facultad/images/tmp/ban1.jpg" />
                                                                                                 </div>
                                                                                             </div>
-
                                                                                         </div>
                                                                                         <div class="row-fluid row-cap">
-
                                                                                             <div class="span7">
-                                                                                                <div class="item small" style="/*height: 100%;*/ width: 50%;position: relative;margin-left: auto;">
-                                                                                                    <!--<div class="img-coverx img" style="background-image: url(perseo/facultad/images/tmp/ban3.jpg);">
-                                                                                                        <div class="clear"></div>
-                                                                                                    </div>-->
+                                                                                                <div class="item small" style="/*height: 100%;*/ width: 50%;position: relative;margin-left: auto;">                                                                                                    
                                                                                                     <img class="banx" src="perseo/facultad/images/tmp/ban1.jpg" />
                                                                                                 </div>
-
                                                                                             </div>
                                                                                             <div class="span5">
                                                                                                 <div class="caption" style="height: 100%;">
                                                                                                     <div class="square50 bg-red" style="width: 50px;height: 50px;">
                                                                                                         <div class="clear"></div>
                                                                                                     </div>
-                                                                                                    <h3 class="cap adequate text-left lin">Pensando en tu educación</h3>
+                                                                                                    <h3 class="cap adequate text-left lin">Pensando en tu salud</h3>
                                                                                                 </div>
                                                                                             </div>
 
@@ -1110,19 +1151,6 @@ and open the template in the editor.
                                                                         </div>
                                                                     </div>
                                                                 </li>
-                                                                <li>
-                                                                    <div class="club">
-                                                                        <i class="fg-lightgray fa fa-paint-brush"></i>
-                                                                        <div class="desc adequate">Arte</div>
-                                                                    </div>
-                                                                </li>
-
-                                                                <li>
-                                                                    <div class="club">
-                                                                        <i class="fg-lightgray fa fa-futbol-o"></i>
-                                                                        <div class="desc adequate">Fútbol</div>
-                                                                    </div>
-                                                                </li>
 
                                                                 <li>
                                                                     <div class="club">
@@ -1181,7 +1209,7 @@ and open the template in the editor.
 
         <!--Layout fin-->
         <!--Full views para .has-full-view-->
-        <div class="full-views-wrap" data-load="http://aka-cdn.uce.edu.ec/atenea/ares/perseo/my_html/full_view_01.html"></div>
+        <div class="full-views-wrap" data-load="perseo/my_html/full_view_01.html"></div>
         <!--Fin Full views -->
 
 

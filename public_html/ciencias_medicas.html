@@ -55,56 +55,9 @@ and open the template in the editor.
     <div id="page">
 
 
-        <div class="topBar bg-blue" id="topBar" style="position: fixed;">
-            <div class="topBar-content">
-                <span class="todayX fg-yellow no-phones" style="font-size: 80%;margin-left: 80px;">
-                    Miércoles 01/09/2014
-                </span>
-                <a id="hamburger" class="" href="#dcmmenu"><span></span></a>
-                <a class="fg-white" data-hint="x|y" href="#user"><i class="icon-user"></i></a>
-                <a class="fg-white" href="#radio" id="radiox"><i class="icon-microphone"></i></a>
-                <a class="fg-white has-full-view" href="#full-view-01"><i class="icon-book"></i></a>
-            </div>
-            <!--mmMenu nav content-->
-            <ul id="mm-nav-content">
-                <li><a href="#dcmmenu" onclick="jQuery('#dcmmenu').trigger('close.mm');" style="float: right;position: relative;clear: both;z-index: 9;font-size: 20px;"><i class="icon-remove"></i></a></li>
-                <li><a href="#slide1" class="toSlide" data-slide="1">Home</a></li>
-                <li><a href="#slide2" class="toSlide" data-slide="2">Noticias</a></li>
-                <li>
-                    <a href="#slide3" class="toSlide" data-slide="3">
-                        <figure class="effect-layla visible-desktop">
-                            <img src="perseo/main/images/tmp/comunicado.jpg" alt="img04">
-                            <figcaption>
-                                <h2>Facultades<span>.</span></h2>
-                                <p>Descripción</p>
-                            </figcaption>
-                        </figure>
-                        <span class="hidden-desktop">Facultades</span>
-                    </a>
-                    <ul>
-                        <li><a href="facultad/facultad.html" target="_blank">Ingenieria Ciencias Fisicas y Matematica</a></li>
-                        <li><a href="facultad/facultad.html" target="_blank">Ciencias Administrativas</a></li>
-                        <li><a href="facultad/facultad.html" target="_blank">Odontología</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#slide4" class="toSlide" data-slide="4">Panel4</a>
-                    <ul>
-                        <li><a href="/tutorial">Getting started</a></li>
-                        <li><a href="/tutorial/setting-up-the-html.html">Setting up the html</a></li>
-                        <li><a href="/tutorial/fire-the-plugin.html">Fire the plugin</a></li>
-                        <li><a href="/tutorial/open-and-close-the-menu.html">Open and close the menu</a></li>
-                        <li><a href="/tutorial/styling-lists.html">Styling lists</a></li>
-                        <li><a href="/tutorial/fixed-elements.html">Fixed elements</a></li>
-                        <li><a href="/tutorial/learn-more.html">Learn more</a></li>
-                    </ul>
-
-                </li>
-            </ul>
-            <!--fin mmMenu nav content-->
+        <div class="topBar bg-blue" id="topBar" style="position: fixed;" data-load="perseo/my_html/uce_topBar_mmmenu.html">
 
         </div>
-
         <div class="dcm top">
             <a class="scrollto" href="#main-content">Scroll to top</a>
             <div class="clear"></div>
@@ -2262,8 +2215,52 @@ and open the template in the editor.
                                                                         </div>
                                                                     </li>
                                                                 </ul>
+
+
                                                             </div>
                                                         </div>
+                                                            <div class="contentwrap row-fluid">
+                                                                <div class="fac-title span1">
+                                                                    <h1 class="title investiga">Investigación</h1>
+                                                                </div>
+                                                                <div class="span9 oferta">
+                                                                    <h4 class="h4">Proyectos de Investigación</h4>
+                                                                    <p class="ipp">Formar profesionales técnicos en Ingeniería Civil, Ingeniería Informática, Ingeniería en Matemática, Ingeniería en Diseño Industrial e Ingeniería en Computación Gráfica, capacitados para impulsar con eficiencia el desarrollo del país, con conocimientos de la realidad nacional, dotados de los recursos científicosy técnicos para que su formación profesional</p>
+                                                                    <ul class="og-grid posgrados">
+
+                                                                        <li>
+                                                                            <div class="row-fluid">
+                                                                                <div class="span12">
+                                                                                    <h4 class="h4 sub">Proyecto 1</h4>
+                                                                                    <div class="docs ">
+                                                                                        <div data-iview="http://issuu.com/dacopan/docs/eco03_carbon/1" data-idown="http://issuu.com/dacopan/docs/eco03_carbon/1" data-role="idoc" class="doc">
+                                                                                            <span class="hintx">
+                                                                                                Ver ahora
+                                                                                            </span>
+                                                                                            <img alt="doc" src="perseo/facultad/images/carrera_info.jpg" />
+                                                                                            <span class="download"><i class="icon-download-alt"></i></span>
+                                                                                        </div>
+                                                                                        
+
+                                                                                        <div data-iview="http://issuu.com/dacopan/docs/eco03_carbon/1" data-idown="http://issuu.com/dacopan/docs/eco03_carbon/1" data-role="idoc" class="doc">
+                                                                                            <span class="hintx">
+                                                                                                Ver ahora
+                                                                                            </span>
+                                                                                            <img alt="doc" src="perseo/facultad/images/carrera_profes.jpg" />
+                                                                                            <span class="download"><i class="icon-download-alt"></i></span>
+                                                                                        </div>
+
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </li>
+
+                                                                     
+                                                                    </ul>
+
+
+                                                                </div>
+                                                            </div>
                                                         <a class="scrollbut" data-slide="4" title=""></a>
                                                     </div>
 
@@ -2406,7 +2403,7 @@ and open the template in the editor.
                                                     <div class="slide bg-lightBlue" id="slide5" data-slide="5" data-stellar-background-ratio="0.5" style="min-height: 300px;height: auto;padding-bottom: 30px;">
                                                         <div class="contentwrap" style="">
                                                             <div class="links">
-                                                                <h2>Links de Interés</h2>
+                                                                <h2>Enlaces</h2>
                                                                 <ul class="og-grid">
                                                                     <li>
                                                                         <a href="http://www.google.com" target="_blank">
@@ -2570,7 +2567,7 @@ and open the template in the editor.
 
         <!--Layout fin-->
         <!--Full views para .has-full-view-->
-        <div class="full-views-wrap" data-load="my_html/full_view_01.html"></div>
+        <div class="full-views-wrap" data-load="perseo/my_html/full_view_01.html"></div>
         <!--Fin Full views -->
 
 

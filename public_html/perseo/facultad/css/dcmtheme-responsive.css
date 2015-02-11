@@ -195,11 +195,12 @@
         max-width: 350px;
     }
 
-    .metro .footer .span4,.metro .footer .span4.blogs {
+    .metro .footer .span4, .metro .footer .span4.blogs {
         border-right: none;
         border-bottom: 2px solid #FFF;
-        min-height:50px;
+        min-height: 50px;
     }
+
     .aui .footer .span4:last-child {
         border-bottom: none;
     }
@@ -303,6 +304,12 @@
         font-size: 3rem;
         color: black;
     }
+
+    .fac-title .title.investiga {
+        top: 21rem;
+    }
+
+
 
     .noticiesWrap .fac-title .title {
         top: 128px;

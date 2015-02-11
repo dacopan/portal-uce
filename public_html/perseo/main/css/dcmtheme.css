@@ -999,6 +999,7 @@ span.date {
     -o-transform: scale(1.1);
     -webkit-transform: scale(1.1);
     transform: scale(1.1);
+    border-top-left-radius: 75%;
 }
 /*</editor-fold>*/
 
@@ -1014,6 +1015,7 @@ span.date {
     height: 120px;
     background-color: #ffffff;
     position: relative;
+    cursor:pointer;
 }
 
     .metro .club i {

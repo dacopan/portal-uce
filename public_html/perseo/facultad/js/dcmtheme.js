@@ -5560,6 +5560,7 @@ function onloadX () {
         });
 
         //radio
+        /*
         if (!!document.createElement('audio').canPlayType) {
 
             $('<audio id="radioplay" class="oculto" src="http://s3.myradiostream.com:7258/;"></audio>').appendTo('#page');
@@ -5575,6 +5576,8 @@ function onloadX () {
         } else {
             $('#radiox').remove();
         }
+        */
+        $('#radiox').remove();
         //slides check
         $('.slide').addClass("u").slideCheck({});
 
@@ -5625,7 +5628,7 @@ $(document).ready(function () {
         centerPadding: '40px',
         slidesToShow: 1,
         autoplay: !debug,
-        autoplaySpeed: 8000,
+        autoplaySpeed: 5000,
         prevArrow: '<button type="button" class="slick-prev hidden">Previous</button>',
         nextArrow: '<button type="button" class="slick-prev hidden">Previous</button>',
         //responsive: [
