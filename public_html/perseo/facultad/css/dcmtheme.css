@@ -1998,7 +1998,7 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
     opacity: 0;
 }
 /*</editor-fold>*/
-/* #Footer
+/* #region Footer
 ================================================== */
 /*<editor-fold defaultstate="collapsed" desc="Footer">*/
 .metro .footer {
@@ -2089,7 +2089,8 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
     margin-bottom: 20px;
     color: #fff;
 }
-/*</editor-fold>*/
+/*#endregion
+    </editor-fold>*/
 
 
 .clclc {

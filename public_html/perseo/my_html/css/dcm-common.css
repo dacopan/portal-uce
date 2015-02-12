@@ -73,7 +73,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     -webkit-animation-delay: 2s;
     animation-delay: 2s;
 }
-.animated,.metro .club:hover i {
+.animated,.metro .club:hover i,.metro .linksWrap .link {
     -webkit-animation-duration: 1s;
     animation-duration: 1s;
     -webkit-animation-fill-mode: both;
@@ -4394,7 +4394,7 @@ a {
 }
 
 .metro .text-right {
-    text-align: right;
+    text-align: right!important;
 }
 
 .metro .text-center {
@@ -7618,9 +7618,12 @@ html > body .metro .sidebar a.dropdown-toggle:after {
 
 /*# transition
 ============================*/
-.metro .club,.metro .club i{
+.metro .club,.metro .club i,.footer .blogs a:hover h5,.metro .linksWrap .link{
 -moz-transition: all 0.3s ease 0s;
     -webkit-transition: all 0.3s ease 0s;
     -o-transition: all 0.3s ease 0s;
     transition: all 0.3s ease 0s;
+}
+.metro .max-1024 {
+max-width:900px!important;
 }

@@ -5583,7 +5583,7 @@ function onloadX() {
             });
         });
 
-        //animate club
+        //animate titles
         $('.slide h1.adequate').each(function () {
             $(this).addClass("oculto").viewportChecker({
                 classToAdd: 'visible animated boingInUp',
@@ -5614,7 +5614,29 @@ function onloadX() {
                     repeat: false
                 });
         });
-
+        //animate links
+        $('.contentwrap .linksWrap').addClass("oculto").each(function () {
+            $(this).viewportChecker({
+                classToAdd: 'visible animated fadeInUpBig',
+                offset: 200,
+                repeat: false
+            });
+        });
+        //animate contacto
+        $('.footer .contentwrap').addClass("oculto").each(function () {
+            $(this).viewportChecker({
+                classToAdd: 'visible animated fadeInUpBig',
+                offset: 200,
+                repeat: false
+            });
+        });
+        $('.footer .contentwrap .mapax').addClass("oculto").each(function () {
+            $(this).viewportChecker({
+                classToAdd: 'visible animated bounceInRight',
+                offset: 200,
+                repeat: false
+            });
+        });
 
         //radio
         /*
