@@ -1,0 +1,20 @@
+﻿#set ($current_url = $request.get("attributes").CURRENT_COMPLETE_URL)
+#set($map=$httpUtil.getParameterMap($httpUtil.getQueryString($current_url)))
+
+#set($artID=$map.artID.get(0))
+#set($groupID=$map.groupID.get(0))
+#set ($group_id = $getterUtil.getLong($groupID))
+
+
+#if ($validator.isNotNull($artID))
+    #if ($validator.isNotNull($groupID))
+        #set ($webcontent=$journalContentUtil.getContent($group_id, $artID, "", "$locale", ""))
+<div id="ajax-dcm">
+    $webcontent
+</div>
+    #else
+        error
+    #end
+#else
+    error
+#end

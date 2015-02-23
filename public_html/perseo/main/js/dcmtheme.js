@@ -4898,7 +4898,7 @@ $(function () {
             $('[data-role=sidebar]').sidebar();
         }
     };
-    $.Metro.initSidebars();
+    //$.Metro.initSidebars();
 });
 
 //</editor-fold>
@@ -5046,7 +5046,7 @@ $(function () {
             $('[data-role=bannerCircle]').bannerCircle();
         }
     };
-    $.Metro.initBannerCircle();
+   // $.Metro.initBannerCircle();
 });
 //</editor-fold>
 //#endregion 
@@ -5236,7 +5236,6 @@ DireccionFull.init();
 //</editor-fold>
 //#endregion 
 
-
 //#region clubes Full
 //<editor-fold defaultstate="collpased" desc="clubes Full">
 var ClubFull = (function () {
@@ -5276,6 +5275,23 @@ var ClubFull = (function () {
             $item.on('click', function (event) {
                 event.preventDefault();
                 // $('.carreraWrap').removeClass("oculto visible animated bounceInRight");
+                if (!$item.data('ajaxLoad')) {
+                    var qq=$($item.find(".full-content"));
+                                                            
+                    $.ajax({
+                        type: "get",
+                        url: '181.113.57.115/ajax?artID=' + qq.data('ajax-artid') + '&groupID=' + qq.data('ajax-groupid'),
+                        //test//http://181.113.57.115/ajax?artID=11841&groupID=10181
+                        success: function (data) {
+                           qq.append(data);
+                            //$('#ajax-wrap').slideToggle();
+                        },
+                        error: function () {
+                            alert("An error occured");
+                        }
+                    });
+                    $item.data('ajaxLoad', true);
+                }
                 if ($item.data('isExpanded')) {
                     return false;
                 }

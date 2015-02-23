@@ -1,119 +1,80 @@
-<root available-locales="en_US" default-locale="en_US">
-  <dynamic-element dataType="string" indexType="keyword" name="background" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
-    <meta-data locale="en_US">
-      <entry name="label">
-        <![CDATA[Background Image o color]]>
-      </entry>
-      <entry name="predefinedValue">
-        <![CDATA[]]>
-      </entry>
-      <entry name="tip">
-        <![CDATA[{background-color:#XXYYZZ;} o {background-image:url(http://aka-cdn.uce.edu.ec/atenea/perseo/XXX/YY.jpg);} sin {} no png;)]]>
-      </entry>
-    </meta-data>
-  </dynamic-element>
-  <dynamic-element dataType="boolean" indexType="keyword" name="club" readOnly="false" repeatable="true" required="false" showLabel="true" type="checkbox" width="">
-    <dynamic-element dataType="string" indexType="keyword" name="club_nombre" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
-      <meta-data locale="en_US">
-        <entry name="label">
-          <![CDATA[Nombre club]]>
-        </entry>
-        <entry name="predefinedValue">
-          <![CDATA[]]>
-        </entry>
-        <entry name="tip">
-          <![CDATA[]]>
-        </entry>
-      </meta-data>
-    </dynamic-element>
-    <dynamic-element dataType="string" indexType="keyword" name="club_icon" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
-      <meta-data locale="en_US">
-        <entry name="label">
-          <![CDATA[Ícono club]]>
-        </entry>
-        <entry name="predefinedValue">
-          <![CDATA[]]>
-        </entry>
-        <entry name="tip">
-          <![CDATA[(fa-XXX)]]>
-        </entry>
-      </meta-data>
-    </dynamic-element>
-    <dynamic-element dataType="string" indexType="keyword" name="club_menu" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
-      <meta-data locale="en_US">
-        <entry name="label">
-          <![CDATA[Menú del club]]>
-        </entry>
-        <entry name="predefinedValue">
-          <![CDATA[]]>
-        </entry>
-        <entry name="tip">
-          <![CDATA[ul HTML]]>
-        </entry>
-      </meta-data>
-    </dynamic-element>
-    <dynamic-element dataType="string" indexType="keyword" name="content" readOnly="false" repeatable="true" required="true" showLabel="true" type="text" width="small">
-      <dynamic-element dataType="string" indexType="keyword" name="content_menu" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
-        <meta-data locale="en_US">
-          <entry name="label">
-            <![CDATA[Menú ID]]>
-          </entry>
-          <entry name="predefinedValue">
-            <![CDATA[]]>
-          </entry>
-          <entry name="tip">
-            <![CDATA[Coloque el ID del menú donde se mostrará este articulo (contX), si en el menu esta data-cont="contX" coloque aquí (contX) sin parentesis]]>
-          </entry>
-        </meta-data>
-      </dynamic-element>
-      <meta-data locale="en_US">
-        <entry name="label">
-          <![CDATA[Contenido ID]]>
-        </entry>
-        <entry name="predefinedValue">
-          <![CDATA[]]>
-        </entry>
-        <entry name="tip">
-          <![CDATA[Coloque el ID del articulo que pertenece a este club (contentID)]]>
-        </entry>
-      </meta-data>
-    </dynamic-element>
-    <dynamic-element dataType="string" indexType="keyword" name="images" readOnly="false" repeatable="true" required="true" showLabel="true" type="text" width="small">
-      <dynamic-element dataType="string" indexType="keyword" name="img_caption" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
-        <meta-data locale="en_US">
-          <entry name="label">
-            <![CDATA[Titulo Imagen]]>
-          </entry>
-          <entry name="predefinedValue">
-            <![CDATA[]]>
-          </entry>
-          <entry name="tip">
-            <![CDATA[Título que acompaña a la imagen]]>
-          </entry>
-        </meta-data>
-      </dynamic-element>
-      <meta-data locale="en_US">
-        <entry name="label">
-          <![CDATA[URL Imagen banner]]>
-        </entry>
-        <entry name="predefinedValue">
-          <![CDATA[]]>
-        </entry>
-        <entry name="tip">
-          <![CDATA[URL de la imagen para el banner del sidebar]]>
-        </entry>
-      </meta-data>
-    </dynamic-element>
-    <meta-data locale="en_US">
-      <entry name="label">
-        <![CDATA[club]]>
-      </entry>
-      <entry name="predefinedValue">
-        <![CDATA[true]]>
-      </entry>
-      <entry name="tip">
-        <![CDATA[]]>
-      </entry>
-    </meta-data>
-  </dynamic-element>
+<root available-locales="es_ES" default-locale="es_ES">
+	<dynamic-element dataType="string" indexType="keyword" name="background" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
+		<meta-data locale="es_ES">
+			<entry name="label">
+				<![CDATA[Background Image o color]]>
+			</entry>
+			<entry name="predefinedValue">
+				<![CDATA[]]>
+			</entry>
+			<entry name="tip">
+				<![CDATA[{background-color:#XXYYZZ;} o {background-image:url(http://aka-cdn.uce.edu.ec/atenea/perseo/XXX/YY.jpg);} sin {} no png;)]]>
+			</entry>
+		</meta-data>
+	</dynamic-element>
+	<dynamic-element dataType="boolean" indexType="keyword" name="club" readOnly="false" repeatable="true" required="false" showLabel="true" type="checkbox" width="">
+		<dynamic-element dataType="string" indexType="keyword" name="club_nombre" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
+			<meta-data locale="es_ES">
+				<entry name="label">
+					<![CDATA[Nombre club]]>
+				</entry>
+				<entry name="predefinedValue">
+					<![CDATA[]]>
+				</entry>
+				<entry name="tip">
+					<![CDATA[]]>
+				</entry>
+			</meta-data>
+		</dynamic-element>
+		<dynamic-element dataType="string" indexType="keyword" name="club_icon" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
+			<meta-data locale="es_ES">
+				<entry name="label">
+					<![CDATA[Ícono club]]>
+				</entry>
+				<entry name="predefinedValue">
+					<![CDATA[]]>
+				</entry>
+				<entry name="tip">
+					<![CDATA[(fa-XXX)]]>
+				</entry>
+			</meta-data>
+		</dynamic-element>
+		<dynamic-element dataType="string" indexType="keyword" name="club_menu" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
+			<meta-data locale="es_ES">
+				<entry name="label">
+					<![CDATA[Menú del club]]>
+				</entry>
+				<entry name="predefinedValue">
+					<![CDATA[]]>
+				</entry>
+				<entry name="tip">
+					<![CDATA[ul HTML]]>
+				</entry>
+			</meta-data>
+		</dynamic-element>
+		<dynamic-element dataType="string" indexType="keyword" name="sidebar" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
+			<meta-data locale="es_ES">
+				<entry name="label">
+					<![CDATA[Contenido ID]]>
+				</entry>
+				<entry name="predefinedValue">
+					<![CDATA[]]>
+				</entry>
+				<entry name="tip">
+					<![CDATA[(sidebar)Coloque el ID del articulo que pertenece a este club (contentID)]]>
+				</entry>
+			</meta-data>
+		</dynamic-element>
+		<meta-data locale="es_ES">
+			<entry name="label">
+				<![CDATA[club]]>
+			</entry>
+			<entry name="predefinedValue">
+				<![CDATA[true]]>
+			</entry>
+			<entry name="tip">
+				<![CDATA[]]>
+			</entry>
+		</meta-data>
+	</dynamic-element>
 </root>

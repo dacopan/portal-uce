@@ -1,0 +1,51 @@
+﻿#set ($group_id = $getterUtil.getLong($groupId))
+<div class="slic" data-cont="cont0">
+    <div class="bannerCircle" data-role="bannerCircle" style="margin: auto;float:none;margin-top:0;padding:0 60px 0 60px;">
+        <div class="row-fluid" style="margin-bottom: 2.12766%;">
+            <div class="span7">
+                <div class="item big" style="width: 100%;">
+                    <img class="banx" src="" alt="ban" />
+                </div>
+
+            </div>
+            <div class="span5">
+                <div class="item half" style="width: 100%;padding-top: 29%;">
+                    <img class="banx" src="" alt="ban" />
+                </div>
+            </div>
+        </div>
+        <div class="row-fluid row-cap">
+            <div class="span7">
+                <div class="item small" style="width: 50%;position: relative;margin-left: auto;">
+                    <img class="banx" src="" alt="ban" />
+                </div>
+            </div>
+            <div class="span5">
+                <div class="caption" style="height: 100%;">
+                    <div class="square50 bg-red" style="width: 50px;height: 50px;">
+                        <div class="clear"></div>
+                    </div>
+                    <h3 class="cap adequate text-left lin">Pensando en tu educación</h3>
+                </div>
+            </div>
+        </div>
+        <div class="oculto" style="width: 0;height: 0;display: none;">
+            #if (!$img_url.getSiblings().isEmpty())
+            #foreach ($cur_img in $img_url.getSiblings())
+            <div class="img">
+                <img src="$cur_img.getData()">
+                <div class="caption">$cur_img.img_caption.getData()</div>
+            </div>
+            #end
+            #end
+        </div>
+    </div>
+</div>
+                            #if (!$cont_id.getSiblings().isEmpty())
+                            #foreach ($cur_content in $cont_id.getSiblings())
+<div class="slic" data-cont="$cur_content.menu_id.getData()">
+    #set ($webcontent=$journalContentUtil.getContent($group_id, $cur_content.getData(), "", "$locale", ""))
+    $webcontent
+</div>
+                            #end
+                            #end
