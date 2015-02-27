@@ -54,6 +54,25 @@
       <color-scheme-images-path>${images-path}/color_schemes/${css-class}</color-scheme-images-path>
     </color-scheme>
   </theme>
+  <theme id="dcmajax" name="AJAX Theme">
+    <root-path>/html/themes/dcmajax</root-path>
+    <templates-path>${root-path}/templates</templates-path>
+    <images-path>${root-path}/images</images-path>
+    <template-extension>vm</template-extension>
+    <settings>
+      <setting configurable="true" key="bullet-style" options="dots,arrows" type="select" value="dots" />      
+      <setting configurable="true" key="portlet-setup-show-borders-default" type="checkbox" value="true" />
+      <setting configurable="false" key="show-site-name-default" value="true" />
+      <setting configurable="false" key="show-site-name-supported" value="true" />
+    </settings>
+    <roles>
+      <role-name>User</role-name>
+    </roles>
+    <color-scheme id="01" name="Default">
+      <css-class>default</css-class>
+      <color-scheme-images-path>${images-path}/color_schemes/${css-class}</color-scheme-images-path>
+    </color-scheme>
+  </theme>
   <theme id="control-panel" name="Control Panel">
     <root-path>/html/themes/control_panel</root-path>
     <settings>

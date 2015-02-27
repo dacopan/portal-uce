@@ -2,12 +2,12 @@
 #set($map=$httpUtil.getParameterMap($httpUtil.getQueryString($current_url)))
 
 #set($artID=$map.artID.get(0))
-#set($groupID=$map.groupID.get(0))
-#set ($group_id = $getterUtil.getLong($groupID))
+#set($groupIDx=$map.groupID.get(0))
+#set ($group_id = $getterUtil.getLong($groupIDx))
 
 
 #if ($validator.isNotNull($artID))
-    #if ($validator.isNotNull($groupID))
+    #if ($validator.isNotNull($groupIDx))
         #set ($webcontent=$journalContentUtil.getContent($group_id, $artID, "", "$locale", ""))
 <div id="ajax-dcm">
     $webcontent

@@ -4937,7 +4937,7 @@ $(function () {
 
             _caption = $(element.find(".row-cap .cap"));
 
-            if (_slides.length <= 1)
+            if (_slides.length < 1)
                 return;
             _slides = null;
 
@@ -5046,7 +5046,7 @@ $(function () {
             $('[data-role=bannerCircle]').bannerCircle();
         }
     };
-   // $.Metro.initBannerCircle();
+    // $.Metro.initBannerCircle();
 });
 //</editor-fold>
 //#endregion 
@@ -5276,18 +5276,22 @@ var ClubFull = (function () {
                 event.preventDefault();
                 // $('.carreraWrap').removeClass("oculto visible animated bounceInRight");
                 if (!$item.data('ajaxLoad')) {
-                    var qq=$($item.find(".full-content"));
-                                                            
+                    var qq = $($item.find(".full-content"));
+
                     $.ajax({
                         type: "get",
-                        url: '181.113.57.115/ajax?artID=' + qq.data('ajax-artid') + '&groupID=' + qq.data('ajax-groupid'),
-                        //test//http://181.113.57.115/ajax?artID=11841&groupID=10181
+                        url: 'http://'+qq.data('ajax-url')+'/ajax?artID=' + qq.data('ajax-artid') + '&groupID=' + qq.data('ajax-groupid'),
+                        //url: 'http://181.113.57.115/ajax?artID=11841&groupID=10181',
                         success: function (data) {
-                           qq.append(data);
-                            //$('#ajax-wrap').slideToggle();
+                            var sss = $('#ajax-dcm',data);
+                            qq.append(sss.html());
+                            sss = data = null;
+                            $.Metro.initSidebars($item);
+                            $.Metro.initBannerCircle(qq);                           
                         },
                         error: function () {
-                            alert("An error occured");
+                            alert("A ocurrido un error.");
+
                         }
                     });
                     $item.data('ajaxLoad', true);
@@ -5332,7 +5336,7 @@ var ClubFull = (function () {
                     $(this).parent().removeClass("active");
                 });
 
-                frames.hide();
+                frames.hide();                
                 $(frames.get(0)).show();
                 sidebar = tabs = null;
 
@@ -5478,7 +5482,7 @@ $(window).load(function () {
             });
         });
 
-    }    
+    }
 });
 function onloadX() {
     //scroll pagination
