@@ -27,7 +27,7 @@
         </entry>
       </meta-data>
     </dynamic-element>
-    <dynamic-element dataType="string" indexType="keyword" name="url" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
+    <dynamic-element dataType="string" indexType="keyword" name="uri" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
       <meta-data locale="en_US">
         <entry name="label">
           <![CDATA[URL de la Facultad]]>

@@ -1,6 +1,6 @@
-<root available-locales="en_US" default-locale="en_US">
+<root available-locales="es_ES" default-locale="es_ES">
   <dynamic-element dataType="string" indexType="keyword" name="background" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
-    <meta-data locale="en_US">
+    <meta-data locale="es_ES">
       <entry name="label">
         <![CDATA[Background Image o color]]>
       </entry>
@@ -14,7 +14,7 @@
   </dynamic-element>
   <dynamic-element dataType="boolean" indexType="keyword" name="direc" readOnly="false" repeatable="true" required="false" showLabel="true" type="checkbox" width="">
     <dynamic-element dataType="string" indexType="keyword" name="direc_nombre" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
-      <meta-data locale="en_US">
+      <meta-data locale="es_ES">
         <entry name="label">
           <![CDATA[Nombre dirección]]>
         </entry>
@@ -27,7 +27,7 @@
       </meta-data>
     </dynamic-element>
     <dynamic-element dataType="string" indexType="keyword" name="direc_abbr" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
-      <meta-data locale="en_US">
+      <meta-data locale="es_ES">
         <entry name="label">
           <![CDATA[Siglas direc]]>
         </entry>
@@ -40,7 +40,7 @@
       </meta-data>
     </dynamic-element>
     <dynamic-element dataType="string" indexType="keyword" name="direc_menu" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
-      <meta-data locale="en_US">
+      <meta-data locale="es_ES">
         <entry name="label">
           <![CDATA[Menu de la dirección]]>
         </entry>
@@ -52,59 +52,20 @@
         </entry>
       </meta-data>
     </dynamic-element>
-    <dynamic-element dataType="string" indexType="keyword" name="content" readOnly="false" repeatable="true" required="true" showLabel="true" type="text" width="small">
-      <dynamic-element dataType="string" indexType="keyword" name="content_menu" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
-        <meta-data locale="en_US">
-          <entry name="label">
-            <![CDATA[Menú ID]]>
-          </entry>
-          <entry name="predefinedValue">
-            <![CDATA[]]>
-          </entry>
-          <entry name="tip">
-            <![CDATA[Coloque el ID del menú donde se mostrará este articulo (contX), si en el menu esta data-cont="contX" coloque aquí (contX) sin parentesis]]>
-          </entry>
-        </meta-data>
-      </dynamic-element>
-      <meta-data locale="en_US">
-        <entry name="label">
-          <![CDATA[Contenido ID]]>
-        </entry>
-        <entry name="predefinedValue">
-          <![CDATA[]]>
-        </entry>
-        <entry name="tip">
-          <![CDATA[Coloque el ID del articulo que pertenece a esta direc (contentID)]]>
-        </entry>
-      </meta-data>
-    </dynamic-element>
-    <dynamic-element dataType="string" indexType="keyword" name="images" readOnly="false" repeatable="true" required="true" showLabel="true" type="text" width="small">
-      <dynamic-element dataType="string" indexType="keyword" name="img_caption" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
-        <meta-data locale="en_US">
-          <entry name="label">
-            <![CDATA[Titulo Imagen]]>
-          </entry>
-          <entry name="predefinedValue">
-            <![CDATA[]]>
-          </entry>
-          <entry name="tip">
-            <![CDATA[Título que acompaña a la imagen]]>
-          </entry>
-        </meta-data>
-      </dynamic-element>
-      <meta-data locale="en_US">
-        <entry name="label">
-          <![CDATA[URL Imagen banner]]>
-        </entry>
-        <entry name="predefinedValue">
-          <![CDATA[]]>
-        </entry>
-        <entry name="tip">
-          <![CDATA[URL de la imagen para el banner del sidebar]]>
-        </entry>
-      </meta-data>
-    </dynamic-element>
-    <meta-data locale="en_US">
+    <dynamic-element dataType="string" indexType="keyword" name="sidebar" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
+			<meta-data locale="es_ES">
+				<entry name="label">
+					<![CDATA[Contenido ID]]>
+				</entry>
+				<entry name="predefinedValue">
+					<![CDATA[]]>
+				</entry>
+				<entry name="tip">
+					<![CDATA[(sidebar)Coloque el ID del articulo que pertenece a esta direccion (contentID)]]>
+				</entry>
+			</meta-data>
+		</dynamic-element>		
+      <meta-data locale="es_ES">
       <entry name="label">
         <![CDATA[direc]]>
       </entry>

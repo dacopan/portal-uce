@@ -1,0 +1,68 @@
+﻿<root available-locales="es_ES" default-locale="es_ES">
+  <dynamic-element dataType="string" indexType="keyword" name="link" readOnly="false" repeatable="true" required="true" showLabel="true" type="text" width="small">
+    <dynamic-element dataType="string" indexType="keyword" name="titulo" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
+      <meta-data locale="es_ES">
+        <entry name="label">
+          <![CDATA[titulo]]>
+        </entry>
+        <entry name="predefinedValue">
+          <![CDATA[]]>
+        </entry>
+        <entry name="tip">
+          <![CDATA[]]>
+        </entry>
+      </meta-data>
+    </dynamic-element>
+    <dynamic-element dataType="string" indexType="keyword" multiple="false" name="tipo" readOnly="false" repeatable="false" required="true" showLabel="true" type="select" width="">
+      <dynamic-element name="option8815" type="option" value="0">
+        <meta-data locale="es_ES">
+          <entry name="label">
+            <![CDATA[Imagen]]>
+          </entry>
+        </meta-data>
+      </dynamic-element>
+      <dynamic-element name="option8816" type="option" value="1">
+        <meta-data locale="es_ES">
+          <entry name="label">
+            <![CDATA[Icono]]>
+          </entry>
+        </meta-data>
+      </dynamic-element>
+      <meta-data locale="es_ES">
+        <entry name="label">
+          <![CDATA[Tipo]]>
+        </entry>
+        <entry name="predefinedValue">
+          <![CDATA[["0"]]]>
+        </entry>
+        <entry name="tip">
+          <![CDATA[]]>
+        </entry>
+      </meta-data>
+    </dynamic-element>
+    <dynamic-element dataType="string" indexType="keyword" name="img" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
+      <meta-data locale="es_ES">
+        <entry name="label">
+          <![CDATA[Imagen/Icono]]>
+        </entry>
+        <entry name="predefinedValue">
+          <![CDATA[]]>
+        </entry>
+        <entry name="tip">
+          <![CDATA[url de la imagen o nombre del icono]]>
+        </entry>
+      </meta-data>
+    </dynamic-element>
+    <meta-data locale="es_ES">
+      <entry name="label">
+        <![CDATA[Link de Interes]]>
+      </entry>
+      <entry name="predefinedValue">
+        <![CDATA[]]>
+      </entry>
+      <entry name="tip">
+        <![CDATA[]]>
+      </entry>
+    </meta-data>
+  </dynamic-element>
+</root>

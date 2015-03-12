@@ -1,0 +1,21 @@
+﻿#set($tipox="0")
+<div class="slide bg-white" id="slide7" data-slide="7">
+    <div class="contentwrap">
+        <h1 class="text-center adequate fg-dorado">Links de interés</h1>
+        <ul class="og-grid linksWrap">
+            #if (!$link.getSiblings().isEmpty())
+            #foreach ($cur_link in $link.getSiblings())
+            <li>
+                <a class="link" href="$cur_link.getData()" target="_blank">
+                    #if($cur_link.tipo.getData()==$tipox)
+                    <img src="$cur_link.img.getData()" />
+                    #else
+                    <i class="fa $cur_link.img.getData()"></i>
+                    #end
+                </a>
+            </li>
+            #end
+            #end
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+﻿ #set ($FechaObj = $dateUtil.newDate($getterUtil.getLong($com_fecha.getData())))
+<div class="va-slice">
+    <img src="$com_imagen.getData()" style="width:100%;" alt="$com_titulo.getData()" title="" />
+    <h3 class="va-title">$com_titulo.getData()</h3>
+    <div class="va-content padding20">
+        <h3 class="fg-blue">$com_titulo.getData()</h3>
+        <span class="date fg-dark">$dateUtil.getDate($FechaObj, "MMMM dd, yyyy", $locale) | $com_autor.getData()</span>
+        <div class="line-hr"></div>
+        <p class="text-justify animated zoomIn">
+            $com_contenido.getData()
+        </p>
+    </div>
+</div>

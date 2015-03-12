@@ -3,8 +3,8 @@
     <div class="img-cover" style="height: 100%; min-height: 100%;$background.getData()">
         <div class="" style="min-height: 100%;">
             <div class="contentwrap direcWrap">
-
-                <ul class="og-grid carrearWrap">
+                <h1 class="text-center adequate fg-white">Área Administrativa</h1>
+                <ul class="og-grid">
                     #if (!$direc.getSiblings().isEmpty())
                     #foreach ($cur_direc in $direc.getSiblings())
 
@@ -26,57 +26,8 @@
                                     $cur_direc.direc_menu.getData()
                                 </nav>
 
-                                <div class="full-content carousel" data-role="sidebar-content">
-                                    <div class="slic" data-cont="cont0">
-                                        <div class="bannerCircle" data-role="bannerCircle" style="margin: auto;float:none;margin-top:0;padding:0 60px 0 60px;">
-                                            <div class="row-fluid" style="margin-bottom: 2.12766%;">
-                                                <div class="span7">
-                                                    <div class="item big" style="width: 100%;">
-                                                        <img class="banx" src="" />
-                                                    </div>
+                                <div class="full-content carousel" data-role="sidebar-content" data-ajax-artid="$cur_direc.sidebar.getData()" data-ajax-groupid="$group_id" data-ajax-url="$request.theme-display.portal-url">
 
-                                                </div>
-                                                <div class="span5">
-                                                    <div class="item half" style="width: 100%;padding-top: 29%;">
-                                                        <img class="banx" src="" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row-fluid row-cap">
-                                                <div class="span7">
-                                                    <div class="item small" style="width: 50%;position: relative;margin-left: auto;">
-                                                        <img class="banx" src="" />
-                                                    </div>
-                                                </div>
-                                                <div class="span5">
-                                                    <div class="caption" style="height: 100%;">
-                                                        <div class="square50 bg-red" style="width: 50px;height: 50px;">
-                                                            <div class="clear"></div>
-                                                        </div>
-                                                        <h3 class="cap adequate text-left lin">Pensando en tu educación</h3>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="oculto" style="width: 0;height: 0;display: none;">
-                                                #if (!$cur_direc.images.getSiblings().isEmpty())
-                                                #foreach ($cur_img in $cur_direc.images.getSiblings())
-                                                <div class="img">
-                                                    <img src="$cur_img.getData()">
-                                                    <div class="caption">$cur_img.img_caption.getData()</div>
-                                                </div>
-                                                #end
-                                                #end
-                                            </div>
-                                        </div>
-                                    </div>
-                                    #if (!$cur_direc.content.getSiblings().isEmpty())
-                                    #foreach ($cur_content in $cur_direc.content.getSiblings())
-                                    <div class="slic" data-cont="$cur_content.content_menu.getData()">
-                                        #set ($webcontent=$journalContentUtil.getContent($group_id, $cur_content.getData(), "", "$locale", ""))
-                                        $webcontent
-                                    </div>
-                                    #end
-                                    #end
                                 </div>
                             </div>
                         </div>

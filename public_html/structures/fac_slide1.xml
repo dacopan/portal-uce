@@ -1,6 +1,6 @@
-<root available-locales="en_US" default-locale="en_US">
+<root available-locales="es_ES" default-locale="es_ES">
   <dynamic-element dataType="string" indexType="keyword" name="fac_nombre" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
-    <meta-data locale="en_US">
+    <meta-data locale="es_ES">
       <entry name="label">
         <![CDATA[Nombre facultad]]>
       </entry>
@@ -12,8 +12,8 @@
       </entry>
     </meta-data>
   </dynamic-element>
-  <dynamic-element dataType="image" fieldNamespace="wcm" indexType="keyword" name="fac_img" readOnly="false" repeatable="true" required="true" showLabel="true" type="wcm-image" width="">
-    <meta-data locale="en_US">
+  <dynamic-element dataType="string" indexType="keyword" name="fac_img" readOnly="false" repeatable="true" required="true" showLabel="true" type="text" width="small">
+    <meta-data locale="es_ES">
       <entry name="label">
         <![CDATA[Imagen]]>
       </entry>
@@ -26,7 +26,7 @@
     </meta-data>
   </dynamic-element>
   <dynamic-element dataType="string" indexType="keyword" name="fac_mision" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
-    <meta-data locale="en_US">
+    <meta-data locale="es_ES">
       <entry name="label">
         <![CDATA[Misión]]>
       </entry>
@@ -39,7 +39,7 @@
     </meta-data>
   </dynamic-element>
   <dynamic-element dataType="string" indexType="keyword" name="fac_vision" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
-    <meta-data locale="en_US">
+    <meta-data locale="es_ES">
       <entry name="label">
         <![CDATA[Visión]]>
       </entry>
@@ -54,20 +54,20 @@
   <dynamic-element dataType="string" indexType="keyword" name="fac_decano" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
     <dynamic-element dataType="string" indexType="keyword" multiple="false" name="dec_sex" readOnly="false" repeatable="false" required="true" showLabel="true" type="select" width="">
       <dynamic-element name="option19962" type="option" value="decano">
-        <meta-data locale="en_US">
+        <meta-data locale="es_ES">
           <entry name="label">
             <![CDATA[Decano]]>
           </entry>
         </meta-data>
       </dynamic-element>
       <dynamic-element name="option19963" type="option" value="decana">
-        <meta-data locale="en_US">
+        <meta-data locale="es_ES">
           <entry name="label">
             <![CDATA[Decana]]>
           </entry>
         </meta-data>
       </dynamic-element>
-      <meta-data locale="en_US">
+      <meta-data locale="es_ES">
         <entry name="label">
           <![CDATA[Decano/a]]>
         </entry>
@@ -79,7 +79,7 @@
         </entry>
       </meta-data>
     </dynamic-element>
-    <meta-data locale="en_US">
+    <meta-data locale="es_ES">
       <entry name="label">
         <![CDATA[Nombre]]>
       </entry>
@@ -94,20 +94,20 @@
   <dynamic-element dataType="string" indexType="keyword" name="fac_subdecano" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
     <dynamic-element dataType="string" indexType="keyword" multiple="false" name="subdec_sex" readOnly="false" repeatable="false" required="true" showLabel="true" type="select" width="">
       <dynamic-element name="option35819" type="option" value="subdecano">
-        <meta-data locale="en_US">
+        <meta-data locale="es_ES">
           <entry name="label">
             <![CDATA[Subdecano]]>
           </entry>
         </meta-data>
       </dynamic-element>
       <dynamic-element name="option35820" type="option" value="subdecana">
-        <meta-data locale="en_US">
+        <meta-data locale="es_ES">
           <entry name="label">
             <![CDATA[Subdecana]]>
           </entry>
         </meta-data>
       </dynamic-element>
-      <meta-data locale="en_US">
+      <meta-data locale="es_ES">
         <entry name="label">
           <![CDATA[Subdecano/a]]>
         </entry>
@@ -119,7 +119,7 @@
         </entry>
       </meta-data>
     </dynamic-element>
-    <meta-data locale="en_US">
+    <meta-data locale="es_ES">
       <entry name="label">
         <![CDATA[Nombre]]>
       </entry>
@@ -132,7 +132,7 @@
     </meta-data>
   </dynamic-element>
   <dynamic-element dataType="html" fieldNamespace="ddm" indexType="keyword" name="slide" readOnly="false" repeatable="true" required="false" showLabel="true" type="ddm-text-html" width="small">
-    <meta-data locale="en_US">
+    <meta-data locale="es_ES">
       <entry name="label">
         <![CDATA[Slides (Opcionales)]]>
       </entry>

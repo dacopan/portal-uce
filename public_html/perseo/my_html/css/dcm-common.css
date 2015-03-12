@@ -4064,8 +4064,17 @@ html.mm-opening #hamburger:after {
 }
 
 .aui .container-fluid {
-    padding: 0px;
+    padding: 0;
 }
+.aui .portlet-journal-content .journal-content-article .fac-title, .aui .portlet-journal-content .journal-content-article .fac-title .title {
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    -webkit-hyphens: none;
+    hyphens: none;
+    -ms-word-break: normal;
+    word-break: normal;
+}
+
 /* #Porlet header
 ================================================== */
 
