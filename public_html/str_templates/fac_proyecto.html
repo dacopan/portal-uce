@@ -1,25 +1,25 @@
-<div class="slide postgradox" id="slide3" data-slide="3">
+<div class="slide postgradox" id="slide4" data-slide="4">
     <div class="contentwrap row-fluid">
         <div class="fac-title span1">
-            <h1 class="title">Postgrado</h1>
+            <h1 class="title">Investigación</h1>
         </div>
         <div class="span9 oferta">
-            <h4 class="h4">oferta académica</h4>
+            <h4 class="h4">Proyectos de Investigación</h4>
             <p class="ipp">$detalle.getData()</p>
             <ul class="og-grid posgrados">
 
-                #if (!$maestrias.getSiblings().isEmpty())
-                #foreach ($cur_maestrias in $maestrias.getSiblings())
+                #if (!$proyecto.getSiblings().isEmpty())
+                #foreach ($cur_pry in $proyecto.getSiblings())
 
-                #if ($getterUtil.getBoolean($cur_maestrias.getData()))                
+                #if ($getterUtil.getBoolean($cur_pry.getData()))                
                 <li>
                     <div class="row-fluid">
                         <div class="span12">
-                            <h4 class="h4 sub">$cur_maestrias.mae_nombre.getData()</h4>
+                            <h4 class="h4 sub">$cur_pry.pry_nombre.getData()</h4>
                             <div class="docs ">
 
-                                #if (!$cur_maestrias.doc.getSiblings().isEmpty())
-                                #foreach ($cur_doc in $cur_maestrias.doc.getSiblings())
+                                #if (!$cur_pry.doc.getSiblings().isEmpty())
+                                #foreach ($cur_doc in $cur_pry.doc.getSiblings())
 
                                 #if ($getterUtil.getBoolean($cur_doc.getData())) 
 
@@ -30,12 +30,9 @@
                                     <img alt="$cur_doc.nombre.getData()" src="/html/themes/dcmtheme/images/doc_img_${cur_doc.imagen.getData()}.jpg"/>
                                     <span class="download"><i class="icon-download-alt"></i></span>
                                 </div>
-
-
                                 #end
                                 #end
-                                #end                                                                                                                                                                                                     
-
+                                #end
                             </div>
                         </div>
                     </div>
@@ -47,5 +44,4 @@
             </ul>
         </div>
     </div>
-    <a class="scrollbut" data-slide="4" title=""></a>
 </div>

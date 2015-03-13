@@ -9,7 +9,7 @@
 					<![CDATA[]]>
                 </entry>
                 <entry name="tip">
-					<![CDATA[nombre del icono ej. icon-twitter puede ver la lista completa aquí http://fortawesome.github.io/icons/ y aquí dacopan.github.com/portal-uce/public_html/icons.html<br/>]]>
+					<![CDATA[nombre del icono ej. fa-twitter puede ver la lista completa aquí: fontawesome <br/>]]>
                 </entry>
             </meta-data>
         </dynamic-element>

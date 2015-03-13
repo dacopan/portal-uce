@@ -14,7 +14,6 @@ span.date {
     font-size: 10px;
     line-height: 10px;
     display: block;
-    opacity: .9;
     font-weight: normal;
     position: relative;
 }
@@ -124,6 +123,7 @@ span.date {
 
 .rb-overlay span.date {
     text-align: right;
+    font-family:"Open Sans";
 }
 
 .rb-overlay .full-content {

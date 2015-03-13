@@ -1,58 +1,59 @@
-<footer class="footer slide" id="footer" data-slide="6" style="min-height: 300px;height: auto;">
+<footer class="footer slide" id="footer" data-slide="7" style="min-height: 300px;height: auto;">
     <div class="contentwrap row-fluid">
 
         <div class="span4 blogs">
             <span>Blogs:</span>
             <ul class="unstyled">
-            #if (!$Blog.getSiblings().isEmpty())
-	#foreach ($cur_Blog in $Blog.getSiblings())
-	
-	<li>
+                #if (!$Blog.getSiblings().isEmpty())
+                #foreach ($cur_Blog in $Blog.getSiblings())
+
+                <li>
                     <a href="$cur_Blog.getData()" target="_blank">
                         <i class="icon-comment"></i>$cur_Blog.Nombre.getData()
                     </a>
-                </li>  
-	#end
-#end
+                </li>
+                #end
+                #end
             </ul>
         </div>
 
         <div class="span4 social">
             <span>Síguenos en:</span>
             <ul class="og-grid">
-            
+
                 <li>
                     <a class="" href="$Facebook.getData()" target="_blank">
                         <i class="bg-hover-darkBlue icon-facebook"></i>
                     </a>
-                </li>  
-                
-                <li>
-                <a href="$Twitter.getData()" target="_blank">
-                <i class="icon-twitter"></i>
-                </a>
-                </li>  
-                
-                <li>
-                <a href="$YouTube.getData()" target="_blank">
-                <i class="bg-hover-red icon-youtube"></i>
-                </a>
                 </li>
-                
+
+                <li>
+                    <a href="$Twitter.getData()" target="_blank">
+                        <i class="icon-twitter"></i>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="$YouTube.getData()" target="_blank">
+                        <i class="bg-hover-red icon-youtube"></i>
+                    </a>
+                </li>
+
                 #if (!$Otra_Red_Social.getSiblings().isEmpty())
-	#foreach ($cur_Otra_Red_Social in $Otra_Red_Social.getSiblings())
-	#if(!$cur_Otra_Red_Social.icono.getData())<li>
-                <a href="$cur_Otra_Red_Social.getData()" target="_blank">
-                <i class="bg-hover-red $cur_Otra_Red_Social.icono.getData()"></i>
-                </a>
+                #foreach ($cur_Otra_Red_Social in $Otra_Red_Social.getSiblings())
+                #if(!$cur_Otra_Red_Social.icono.getData())
+                <li>
+                    <a href="$cur_Otra_Red_Social.getData()" target="_blank">
+                        <i class="bg-hover-red $cur_Otra_Red_Social.icono.getData()"></i>
+                    </a>
                 </li>
-	#end
-	
-	#end
-#end
-                
-                
-                
+                #end
+
+                #end
+                #end
+
+
+
             </ul>
         </div>
 
@@ -62,12 +63,12 @@
 
             <h5>Teléfonos:</h5>
             #if (!$Telefono.getSiblings().isEmpty())
-	#foreach ($cur_Telefono in $Telefono.getSiblings())
-	
-	<span>$cur_Telefono.getData()</span>
-	
-	#end
-#end
+            #foreach ($cur_Telefono in $Telefono.getSiblings())
+
+            <span>$cur_Telefono.getData()</span>
+
+            #end
+            #end
             <h5>Horarios de atención:</h5>
             <span>Administración:  $Horario_administracion.getData()   </span>
             <span>Clases: $Horario_clases.getData()</span>

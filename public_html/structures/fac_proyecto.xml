@@ -1,8 +1,8 @@
-<root available-locales="es_ES" default-locale="es_ES">
-  <dynamic-element datatype="boolean" indextype="keyword" name="Postgrados" readonly="false" repeatable="false" required="false" showlabel="true" type="checkbox" width="">
+﻿<root available-locales="es_ES" default-locale="es_ES">
+  <dynamic-element datatype="boolean" indextype="keyword" name="proyectos" readonly="false" repeatable="false" required="false" showlabel="true" type="checkbox" width="">
     <meta-data locale="es_ES">
       <entry name="label">
-        <![CDATA[Postgrados (*)]]>
+        <![CDATA[Mostrar Slide Proyectos? (*)]]>
       </entry>
       <entry name="predefinedValue">
         <![CDATA[true]]>
@@ -25,11 +25,11 @@
       </entry>
     </meta-data>
   </dynamic-element>
-  <dynamic-element datatype="boolean" indextype="keyword" name="maestrias" readonly="false" repeatable="true" required="true" showlabel="true" type="checkbox" width="">
-    <dynamic-element datatype="string" indextype="keyword" name="mae_nombre" readonly="false" repeatable="false" required="false" showlabel="true" type="text" width="small">
+  <dynamic-element datatype="boolean" indextype="keyword" name="proyecto" readonly="false" repeatable="true" required="true" showlabel="true" type="checkbox" width="">
+    <dynamic-element datatype="string" indextype="keyword" name="pry_nombre" readonly="false" repeatable="false" required="false" showlabel="true" type="text" width="small">
       <meta-data locale="es_ES">
         <entry name="label">
-          <![CDATA[Nombre maestria (*)]]>
+          <![CDATA[Nombre proyecto (*)]]>
         </entry>
         <entry name="predefinedValue">
           <![CDATA[]]>
@@ -166,7 +166,7 @@
       </dynamic-element>
       <meta-data locale="es_ES">
         <entry name="label">
-          <![CDATA[doc]]>
+          <![CDATA[Documento]]>
         </entry>
         <entry name="predefinedValue">
           <![CDATA[true]]>
@@ -178,7 +178,7 @@
     </dynamic-element>
     <meta-data locale="es_ES">
       <entry name="label">
-        <![CDATA[maestrias]]>
+        <![CDATA[Proyecto]]>
       </entry>
       <entry name="predefinedValue">
         <![CDATA[true]]>

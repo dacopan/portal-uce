@@ -1,24 +1,21 @@
-<div class="slide bg-lightBlue" id="slide5" data-slide="5" style="min-height: 300px;height: auto;padding-bottom: 30px;">
+<div class="slide bg-lightBlue" id="slide6" data-slide="6" style="min-height: 300px;height: auto;padding-bottom: 30px;">
     <div class="contentwrap" style="">
         <div class="links">
-            <h2>Links de Interés</h2>
+            <h2>Enlaces</h2>
             <ul class="og-grid">
 
                 #if (!$Link_de_Interes.getSiblings().isEmpty())
                 #foreach ($cur_Link_de_Interes in $Link_de_Interes.getSiblings())
                 <li>
                     <a href="$Link_de_Interes.getData()" target="_blank">
-                        <i class="$Link_de_Interes.icono.getData()"></i> <span class="title">$Link_de_Interes.titulo.getData()</span>
+                        <i class="fa $Link_de_Interes.icono.getData()"></i> <span class="title">$Link_de_Interes.titulo.getData()</span>
                     </a>
                     <span class="sub-title">$Link_de_Interes.titulo.getData()</span>
-
                     #end
                 </li>
                 #end
-
             </ul>
         </div>
 
-    </div>
-    <a class="scrollbut" data-slide="6"></a>
+    </div>    
 </div>
