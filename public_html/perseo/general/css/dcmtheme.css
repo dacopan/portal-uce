@@ -1,0 +1,302 @@
+﻿/* FOR ALL SLIDES */
+
+#wrapperscroll .slide {
+    width: 100%;
+    min-height: 100%;
+    height: auto;
+    position: relative;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+
+.metro .slide {
+    background-color: #fff;
+}
+
+* {
+    margin: 0px;
+    padding: 0;
+}
+
+html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
+    width: 100%;
+    height: 100%;
+    /*background-color: #333;*/
+}
+
+
+/*#Scroll
+================================================== */
+.ps-container .ps-scrollbar-x-rail {
+    position: absolute;
+    bottom: 3px;
+    height: 8px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    -o-transition: background-color .2s linear,opacity .2s linear;
+    -webkit-transition: background-color .2s linear,opacity .2s linear;
+    -moz-transition: background-color .2s linear,opacity .2s linear;
+    transition: background-color .2s linear,opacity .2s linear;
+}
+
+    .ps-container .ps-scrollbar-x-rail:hover, .ps-container .ps-scrollbar-x-rail.hover {
+        background-color: #eee;
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+
+    .ps-container .ps-scrollbar-x-rail.in-scrolling {
+        background-color: #eee;
+        opacity: .9;
+        filter: alpha(opacity=90);
+    }
+
+.ps-container:hover .ps-scrollbar-x-rail, .ps-container.hover .ps-scrollbar-x-rail {
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+.ps-container .ps-scrollbar-y-rail {
+    position: absolute;
+    right: 3px;
+    width: 8px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    -o-transition: background-color .2s linear,opacity .2s linear;
+    -webkit-transition: background-color .2s linear,opacity .2s linear;
+    -moz-transition: background-color .2s linear,opacity .2s linear;
+    transition: background-color .2s linear,opacity .2s linear;
+}
+
+.ps-container .ps-scrollbar-y-rail, .ps-container.hover .ps-scrollbar-y-rail {
+    opacity: .6;
+    filter: alpha(opacity=60);
+}
+
+    .ps-container .ps-scrollbar-y-rail, .ps-container .ps-scrollbar-y-rail.hover {
+        background-color: #eee;
+        opacity: .9;
+        filter: alpha(opacity=90);
+        margin-top: 20px;
+    }
+
+        .ps-container .ps-scrollbar-y-rail.in-scrolling {
+            background-color: #eee;
+            opacity: .9;
+            filter: alpha(opacity=90);
+        }
+
+.ps-container .ps-scrollbar-x {
+    position: absolute;
+    bottom: 0;
+    height: 8px;
+    background-color: #aaa;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    -o-transition: background-color .2s linear;
+    -webkit-transition: background-color.2s linear;
+    -moz-transition: background-color .2s linear;
+    transition: background-color .2s linear;
+}
+
+.ps-container.ie6 .ps-scrollbar-x {
+    font-size: 0;
+}
+
+.ps-container .ps-scrollbar-x-rail:hover .ps-scrollbar-x, .ps-container .ps-scrollbar-x-rail.hover .ps-scrollbar-x {
+    background-color: #999;
+}
+
+.ps-container .ps-scrollbar-y {
+    position: absolute;
+    right: 0;
+    width: 8px;
+    background-color: #aaa;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    -o-transition: background-color .2s linear;
+    -webkit-transition: background-color.2s linear;
+    -moz-transition: background-color .2s linear;
+    transition: background-color .2s linear;
+}
+
+.ps-container.ie6 .ps-scrollbar-y {
+    font-size: 0;
+}
+
+.ps-container .ps-scrollbar-y-rail:hover .ps-scrollbar-y, .ps-container .ps-scrollbar-y-rail.hover .ps-scrollbar-y {
+    background-color: #999;
+}
+
+.ps-container.ie .ps-scrollbar-x, .ps-container.ie .ps-scrollbar-y {
+    visibility: hidden;
+}
+
+.ps-container.ie:hover .ps-scrollbar-x, .ps-container.ie:hover .ps-scrollbar-y, .ps-container.ie.hover .ps-scrollbar-x, .ps-container.ie.hover .ps-scrollbar-y {
+    visibility: visible;
+}
+
+
+span.date {
+    font-size: 10px;
+    line-height: 10px;
+    display: block;
+    font-weight: normal;
+    position: relative;
+}
+
+    span.date, span.date a {
+        color: #555;
+    }
+
+        span.date a.bubble, span.date a.bubble:hover {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            color: #fff !important;
+        }
+/* #Notices expander
+================================================== */
+.full-noticies .rb-overlay {
+    opacity: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: auto;
+}
+.metro .full-noticies {
+    padding-top:60px; padding-bottom:45px;height:100%;position:absolute;width:100%;
+}
+.rb-overlay {
+    opacity: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: all 0.4s ease;
+    z-index: 99999 !important;
+    pointer-events: none;
+    cursor: default;
+    /*border:30px rgba(0,0,0,0.6) solid;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.3) inset;*/
+    border: 30px rgba(0,0,0,0) solid;
+    background-color: rgba(0,0,0,0.6);
+}
+
+.rb-close, rb-next, rb-prev {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 2em;
+    height: 2em;
+    text-indent: -9000px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+    .rb-close:before {
+        content: 'x';
+        font-weight: 100;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        font-size: 3em;
+        line-height: 0.6;
+        text-align: center;
+        text-indent: 0px;
+    }
+
+.rb-week {
+    width: 100%;
+    height: 100%;
+    background: white;
+    padding: 20px;
+    position: relative;
+    display: block;
+    max-width: 800px;
+    margin: auto;
+}
+
+.rb-overlay .img-full:before {
+    content: "";
+    display: block;
+    padding-bottom: 50%;
+}
+
+.rb-overlay .img-full {
+    margin-right: 20px;
+    /* max-width: 500px; */
+    width: 100%;
+    height: auto;
+    display: block;
+    position: relative;
+    min-height: 80%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+    margin-top: 20px;
+}
+
+.rb-overlay h2.full-title {
+    /* clear: both; */
+    position: relative;
+    color: #4275b9;
+    border-bottom: 2px solid #939393;
+    font-size: 3rem;
+    font-family: 'Adequate ExtraLight','Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
+    font-weight: 900;
+    padding-bottom: 10px;
+}
+
+.rb-overlay h3.sub-title {
+    color: #686868;
+    font-family: 'Adequate ExtraLight','Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
+    font-size: 1.6rem;
+}
+
+.rb-overlay span.date {
+    text-align: right;
+    font-family: "Open Sans";
+}
+
+.rb-overlay .full-content {
+    text-align: justify;
+    position: relative;
+    padding: 10px;
+    height: 100%;
+    overflow: hidden;
+}
+
+.rb-overlay .full-html {
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+/*TMP*/
+.nivoSlider {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.featured a.isobrick {
+    background: none;
+}
+/*</editor-fold>*/
+
+.full-views-wrap .rb-overlay {
+    opacity: 0;
+    position: fixed;
+}

@@ -1,10 +1,11 @@
 #set ($group_id = $getterUtil.getLong($request.theme-display.scope-group-id))
+#set ($current_url = $request.render-url-maximized)
 <div class="slide pregradox" id="slide2" data-slide="2">
     <div class="contentwrap row-fluid">
         <div class="fac-title span1">
             <h1 class="title">Pregrado</h1>
         </div>
-        <ul class="og-grid carrearWrap">
+        <ul class="og-grid carreraWrap">
             #if (!$carrera.getSiblings().isEmpty())
             #foreach ($cur_carrera in $carrera.getSiblings())
             #if ($getterUtil.getBoolean($cur_carrera.getData()))
@@ -22,7 +23,7 @@
                             <h1 class="fg-white text-left padding10R font3r"><a class="fg-white font3r" href="cont0">$cur_carrera.carrera_nombre.getData()</a></h1>
                             $cur_carrera.carrera_menu.getData()
                         </nav>
-                        <div class="full-content carousel" data-role="sidebar-content" data-ajax-artid="$cur_carrera.sidebar.getData()" data-ajax-groupid="$group_id" data-ajax-url="$request.theme-display.portal-url">
+                        <div class="full-content carousel" data-role="sidebar-content" data-ajax-artid="$cur_carrera.sidebar.getData()" data-ajax-groupid="$group_id" data-ajax-url="$current_url">
                         </div>
                     </div>
                 </div>
