@@ -3090,10 +3090,11 @@ var Boxgrid = (function () {
                 $close.trigger("click");
             });
             $item.on('click', function (event) {
-                event.preventDefault();
+                //if (event.target != this) return;
+                //event.preventDefault();
                 $('.og-grid.noticies').removeClass("oculto visible animated bounceInRight");
                 if ($item.data('isExpanded')) {
-                    return false;
+                    return true;
                 }
                 $item.data('isExpanded', true);
                 // save current item's index
@@ -3132,8 +3133,7 @@ var Boxgrid = (function () {
                 }
 
             });
-            $close.on('click', function () {
-
+            $close.on('click', function () {              
                 $body.css('overflow-y', 'auto');
                 var layoutProp = getItemLayoutProp($item),
                         clipPropFirst = 'rect(' + layoutProp.top + 'px ' + (layoutProp.left + layoutProp.width) + 'px ' + (layoutProp.top + layoutProp.height) + 'px ' + layoutProp.left + 'px)',
@@ -3239,7 +3239,8 @@ var CarreraFull = (function () {
                     $overlay = $item.find('div.rb-overlay');
 
             $item.on('click', function (event) {
-                event.preventDefault();
+                //if (event.target != this) return;
+                //event.preventDefault();
                 // $('.carreraWrap').removeClass("oculto visible animated bounceInRight");
                 if (!$item.data('ajaxLoad')) {
                     var qq = $($item.find(".full-content"));
@@ -3266,7 +3267,7 @@ var CarreraFull = (function () {
                     $item.data('ajaxLoad', true);
                 }
                 if ($item.data('isExpanded')) {
-                    return false;
+                    return true;
                 }
                 $item.data('isExpanded', true);
                 // save current item's index
@@ -3300,8 +3301,7 @@ var CarreraFull = (function () {
 
             });
 
-            $close.on('click', function () {
-
+            $close.on('click', function () {               
                 $body.css('overflow-y', 'auto');
                 var layoutProp = getItemLayoutProp($item),
                         clipPropFirst = 'rect(' + layoutProp.top + 'px ' + (layoutProp.left + layoutProp.width) + 'px ' + (layoutProp.top + layoutProp.height) + 'px ' + layoutProp.left + 'px)',

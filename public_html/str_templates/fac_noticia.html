@@ -1,4 +1,5 @@
-﻿ #set ($FechaObj = $dateUtil.newDate($getterUtil.getLong($noti_fecha.getData())))
+﻿#set ($FechaObj = $dateUtil.newDate($getterUtil.getLong($noti_fecha.getData())))
+
     #if ($validator.isNotNull($noti_imagen.getData()))
 <img class="img-0" src="$noti_imagen.getData()" alt="notice" />
     #else

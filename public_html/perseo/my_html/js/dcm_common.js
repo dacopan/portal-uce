@@ -1,1 +1,1 @@
-﻿
+﻿Liferay.ThemeDisplay.getLayoutURL()

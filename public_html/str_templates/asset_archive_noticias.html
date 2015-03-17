@@ -1,0 +1,75 @@
+﻿#set ($current_url = $request.get("attributes").CURRENT_COMPLETE_URL)
+#set($map=$httpUtil.getParameterMap($httpUtil.getQueryString($current_url)))
+
+#set($artID=$map.artID.get(0))
+#set($month=$map.artID.get(0))
+#set($year=$map.artID.get(0))
+
+#set($hasFull=$validator.isNotNull($artID))
+
+#if(!$validator.isNotNull($month))
+    #set($artID="0")
+#end
+
+#if($validator.isNotNull($month))
+#set($datex = "$month-$year")
+#else
+#set($datex = $date.getCurrentDate("MM-yyyy", $locale))
+#end
+
+
+#if (!$entries.isEmpty())
+	#foreach ($entry in $entries)
+        #set($renderer = $entry.getAssetRenderer() )
+        #set($className = $renderer.getClassName() )
+
+        #if( $className == "com.liferay.portlet.journal.model.JournalArticle" )
+            #set( $journalArticle = $renderer.getArticle() )
+            #set( $document = $saxReaderUtil.read($journalArticle.getContent()) )
+            #set( $root = $document.getRootElement() )
+
+            #set($cur_artID=$journalArticle.articleId)
+            #set($isrender="1")
+
+            ## iterate over noticia's flieds
+
+            #foreach( $dynamicElement in $root.elements() )
+                #set($namex=$dynamicElement.attributeValue("name"))
+                #set($valx=$dynamicElement.element("dynamic-content").getText())
+
+                #if("noti_titulo" == $namex)
+                    #set($noti_titulo = $valx)
+                #elseif("noti_subtitulo" == $namex)
+                    #set($noti_subtitulo =$valx)
+                #elseif("noti_fecha" == $namex)
+                    #set($noti_fechax = $valx)
+                    #set ($FechaObj = $dateUtil.newDate($getterUtil.getLong($noti_fechax)))
+                    #set($noti_fecha=$dateUtil.getDate($FechaObj, "MM-yyyy", $locale))
+                    #if($cur_artID!=$artID && $noti_fecha!=$datex)
+                        #set($isrender="0")
+                        #break
+                    #end
+                #elseif("noti_autor" == $namex)
+                    #set($noti_autor = $valx)
+                #elseif("noti_imagen" == $namex)
+                    #set($noti_imagen = $valx)
+                #elseif("noti_video" == $namex)
+                    #set($noti_video = $valx)
+                #elseif("noti_contenido"==$namex)
+                    #set($noti_contenido = $valx)
+                #end
+                
+            #end
+            
+            $noti_fecha</br>
+            #if($isrender=="1")
+                #if($cur_artID==$artID)
+                    x
+                #else
+                    y
+                #end
+            #end
+
+        #end
+    #end
+#end

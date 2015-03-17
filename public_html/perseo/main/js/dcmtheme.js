@@ -3087,10 +3087,11 @@ var Boxgrid = (function () {
                 $close.trigger("click");
             });
             $item.on('click', function (event) {
-                event.preventDefault();
+                //if (event.target != this) return;
+                //event.preventDefault();
                 $('.noticiesWrap').removeClass("oculto visible animated fadeInUp");
                 if ($item.data('isExpanded')) {
-                    return false;
+                    return true;
                 }
                 $item.data('isExpanded', true);
                 // save current item's index
