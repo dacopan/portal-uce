@@ -1,5 +1,4 @@
-﻿#set ($FechaObj = $dateUtil.newDate($getterUtil.getLong($noti_fecha.getData())))
-
+﻿ #set ($FechaObj = $dateUtil.newDate($getterUtil.getLong($noti_fecha.getData())))
     #if ($validator.isNotNull($noti_imagen.getData()))
 <img class="img-0" src="$noti_imagen.getData()" alt="notice" />
     #else
@@ -16,6 +15,10 @@
     <div class="rb-week">
         <span class="rb-close">close</span>
         <div class="full-content">
+            <h3 class="short-link">
+                <a href="#" class="uri text-right" target="_blank" data-role="sharex" data-sharex-service="l" data-sharex-artid="$reserved-article-id.data">
+                </a>
+            </h3>
             <div class="contentwrap">
                 <h2 class="full-title">
                     $noti_titulo.getData()
@@ -23,6 +26,14 @@
                 <span class="date">$dateUtil.getDate($FechaObj, "MMMM dd, yyyy", $locale) | $noti_autor.getData()</span>
                 <h3 class="sub-title">
                     $noti_subtitulo.getData()
+                </h3>
+                <h3 class="text-right">
+                    <a href="#" class="sharex" target="_blank" data-role="sharex" data-sharex-service="t" data-sharex-title="$noti_titulo.getData()" data-sharex-artid="$reserved-article-id.data">
+                        <i class="fa fa-twitter"></i>
+                    </a>
+                    <a href="#" class="sharex" target="_blank" data-role="sharex" data-sharex-service="f" data-sharex-artid="$reserved-article-id.data">
+                        <i class="bg-hover-darkBlue fa fa-facebook"></i>
+                    </a>
                 </h3>
                 #if ($validator.isNotNull($noti_video.getData()))
                 <div class="video-full" style="">

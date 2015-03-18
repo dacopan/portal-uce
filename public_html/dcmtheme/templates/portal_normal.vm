@@ -6,11 +6,17 @@
 
 #parse ($init)
 
-<html class="$root_css_class" dir="#language (" lang.dir")" lang="$w3c_language_id">
-<head>
+<html class="$root_css_class" dir="#language (" lang.dir")" lang="$w3c_language_id" xmlns:og="http://opengraphprotocol.org/schema/">
+<head prefix="og: http://ogp.me/ns#">
     <title>$the_title - $company_name</title>
     <meta content="initial-scale=1.0, width=device-width" name="viewport" />
-    $theme.include($top_head_include)
+    <meta property="og:title" content="$site_name" />
+	<meta property="og:image" content="$html-com/img/logo.png" />
+	<meta property="og:url" content="$site_default_url" />
+	<meta property="og:description" content="omnium potentior est sapientia" />
+	
+	
+	$theme.include($top_head_include)
 
 	<link rel="stylesheet" href="$html-com/css/dcm-loader.min.css" type="text/css" id="loaderStyle" />
 	<link rel="stylesheet" href="$html-com/css/dcm-common.min.css" type="text/css" />
@@ -59,6 +65,9 @@
                 <p>Top</p>
             </div>
         </div>
+		#if($theme-type=="general")
+		<nav id="breadcrumbs">#breadcrumbs()</nav>
+		#end
         #if ($selectable)
         $theme.include($content_include)
         #else
