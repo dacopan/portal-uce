@@ -1,0 +1,7 @@
+﻿<ul class="element-menu"><li><a href="cont1">Autoridades</a></li>
+<li><a href="cont2">Misión Visión</a></li>
+<li><a href="cont3">Equipo de trabajo (instalaciones)</a></li>
+<li><a href="cont4">Productos y servicios</a></li>
+<li><a href="cont5">Convenios</a></li>
+<li><a href="cont6">Contactos</a></li>
+</ul>

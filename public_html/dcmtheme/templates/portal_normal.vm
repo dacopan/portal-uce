@@ -22,9 +22,7 @@
 	<link rel="stylesheet" href="$html-com/css/dcm-common.min.css" type="text/css" />
     <link rel="stylesheet" href="$theme-type/css/dcmtheme.min.css" type="text/css" />
     <link rel="stylesheet" href="$theme-type/css/dcmtheme-responsive.min.css" type="text/css" />
-	
-	
-    
+	   
 	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     
 </head>

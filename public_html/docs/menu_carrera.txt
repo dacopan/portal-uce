@@ -1,0 +1,88 @@
+﻿<ul class="element-menu">
+                                                                                    <li class="">
+                                                                                        <a class="dropdown-toggle" href="#">Generalidades</a>
+                                                                                        <ul class="dropdown-menu" data-role="dropdown">
+                                                                                            <li><a href="cont1">Direccionamiento estratégico</a></li>
+                                                                                            <li><a href="cont2">Información de la carrera</a></li>
+                                                                                            <li><a href="cont3">Autoridades</a></li>
+                                                                                            <li><a href="cont4">Acta de Constitución</a></li>
+                                                                                        </ul>
+                                                                                    </li>
+                                                                                    <li class="">
+                                                                                        <a class="dropdown-toggle" href="#">Entorno</a>
+                                                                                        <ul class="dropdown-menu" data-role="dropdown">
+                                                                                            <li><a href="cont5">Pertinencia</a></li>
+                                                                                            <li class="">
+                                                                                                <a class="dropdown-toggle" href="#">Plan Curricular</a>
+                                                                                                <ul class="dropdown-menu" data-role="dropdown">
+                                                                                                    <li><a href="cont6">Perfil de egreso</a></li>
+                                                                                                    <li><a href="cont7">Malla curricular</a></li>
+                                                                                                    <li><a href="cont8">Micro Currículo</a></li>
+                                                                                                </ul>
+                                                                                            </li>
+                                                                                            <li><a href="cont9">Ambiente institucional</a></li>
+                                                                                            <li><a href="cont10">Prácticas preprofesionales</a></li>
+
+                                                                                            <li>
+                                                                                                <a class="dropdown-toggle" href="#">Estadísticas</a>
+                                                                                                <ul class="dropdown-menu" data-role="dropdown">
+                                                                                                    <li><a href="cont11">Estudiantes</a></li>
+                                                                                                </ul>
+                                                                                            </li>
+                                                                                        </ul>
+                                                                                    </li>
+
+                                                                                    <li>
+                                                                                        <a class="dropdown-toggle" href="#">Academia</a>
+                                                                                        <ul class="dropdown-menu" data-role="dropdown">
+                                                                                            <li><a href="cont12">Políticas de Evalución Docente</a></li>
+                                                                                            <li><a href="cont13">Informe de evaluación docente</a></li>
+                                                                                            <li><a href="cont14">Intrumentos de evaluación docente</a></li>
+                                                                                            <li>
+                                                                                                <a class="dropdown-toggle" href="#">Estadísticas Docentes</a>
+                                                                                                <ul class="dropdown-menu" data-role="dropdown">
+                                                                                                    <li><a href="cont15">Matriz de número, sexo, <br />dedicación, categoría, <br />relación de dependencia<br /> de los docentes <br />de la UCE</a></li>
+                                                                                                </ul>
+                                                                                            </li>
+                                                                                        </ul>
+                                                                                    </li>
+
+                                                                                    <li>
+                                                                                        <a class="dropdown-toggle" href="#">Ambiente Institucional</a>
+                                                                                        <ul class="dropdown-menu" data-role="dropdown">
+                                                                                            <li><a href="cont16">Instalaciones</a></li>
+                                                                                            <li><a href="cont17">Biblioteca</a></li>
+                                                                                            <li><a href="cont18">Administración</a></li>
+                                                                                            <li><a href="cont19">Laboratorios</a></li>
+                                                                                        </ul>
+                                                                                    </li>
+
+                                                                                    <li>
+                                                                                        <a class="dropdown-toggle" href="#">Estudiantes</a>
+                                                                                        <ul class="dropdown-menu" data-role="dropdown">
+                                                                                            <li><a href="cont20">Estadísticas</a></li>
+                                                                                            <li><a href="cont21">Cogobierno Estudiantil</a></li>
+                                                                                            <li><a href="cont22">Círculos Estudiantiles</a></li>
+                                                                                        </ul>
+                                                                                    </li>
+
+                                                                                    <li>
+                                                                                        <a class="dropdown-toggle" href="#">Vinculación con la sociedad</a>
+                                                                                        <ul class="dropdown-menu" data-role="dropdown">
+                                                                                            <li><a href="cont23">Convenios</a></li>
+                                                                                            <li><a href="cont24">Prácticas Preprofesionales</a></li>
+                                                                                            <li><a href="cont25">Educación continua</a></li>
+                                                                                            <li><a href="cont26">Trabajo Comunitario</a></li>
+                                                                                            <li><a href="cont27">Resultados</a></li>
+                                                                                        </ul>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <a class="dropdown-toggle" href="#">Investigación</a>
+                                                                                        <ul class="dropdown-menu" data-role="dropdown">
+                                                                                            <li><a href="cont28">Programa de investigación</a></li>
+                                                                                            <li><a href="cont29">Producción científica</a></li>
+                                                                                            <li><a href="cont30">Proyectos</a></li>
+                                                                                            <li><a href="cont31">Publicaciones</a></li>
+                                                                                        </ul>
+                                                                                    </li>
+                                                                                </ul>
