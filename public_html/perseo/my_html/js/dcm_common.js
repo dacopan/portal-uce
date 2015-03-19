@@ -37,7 +37,9 @@
 
         }
     });
-
-
-
+    
 });
+
+if (window.location.href.indexOf("archive_noticias") == -1) {
+    $('meta[property=og\\:url]').attr('content', window.location.href);
+}
