@@ -1,12 +1,20 @@
 #set ($group_id = $getterUtil.getLong($groupId))
 #set( $count = 0)
 #set( $count1 = 0)
+#set($fav=0)
 
-#if (!$Noticia.getSiblings().isEmpty())
-    #foreach ($cn in $Noticia.getSiblings())
-    #set( $ix = ($Noticia.getSiblings().size() - $velocityCount))
-    #set($cur_Noticia=$Noticia.getSiblings().get($ix))
+#set($sizex=$Noticia.getSiblings().size())
+#set($slibx=$Noticia.getSiblings())
+
+#if (!$slibx.isEmpty())
+    #foreach ($cn in $slibx)
+
+    #set( $ix = ($sizex - $velocityCount))
+
+    #set($cur_Noticia=$slibx.get($ix))
+
     #if ($getterUtil.getBoolean($cur_Noticia.getData()))
+
         #if($count==0)
 <div class="slide" id="slide2" data-slide="2">
     <div class="contentwrapx noticiesWrap" style="padding-top:60px; padding-bottom:45px;">
@@ -14,17 +22,24 @@
         <div class="container2 featuredcontainer clearfix ">
             <div class="featured articlecontainer isofeatured isotope" id="isofeatured" style="position: relative; /*overflow: hidden;*/margin:auto;">
 
-                #end ##fin if noticia 0                
-                <div style="cursor:pointer;" class="one_col #if($count==0)double #elseif($count==1) half #else quarterx #end isobrick isotope-item noticeX">
+                #end ##fin if count 0
 
+                #if($fav==0)
+                <div style="cursor:pointer;" class="one_col double isobrick isotope-item noticeX">
+                    #set ($webcontent=$journalContentUtil.getContent($group_id, $noti_fav_id.getData(), "", "$locale", ""))
+                    $webcontent
+                </div>
+                #set($count=1)
+
+                #else
+                <div style="cursor:pointer;" class="one_col #if($count==0)double #elseif($count==1) half #else quarterx #end isobrick isotope-item noticeX">
                     #set ($webcontent=$journalContentUtil.getContent($group_id, $cur_Noticia.noti_id.getData(), "", "$locale", ""))
                     $webcontent
-                   
                 </div>
+                #end
 
-
-                #if($count==0)
-                #if (!$Noticia.getSiblings().isEmpty())
+                #if($count==0||$fav==0)
+                #if (!$Comunicado.getSiblings().isEmpty())
                 #foreach ($cu in $Comunicado.getSiblings())
 
                 #set( $ix = $Comunicado.getSiblings().size() - $velocityCount)
@@ -40,7 +55,7 @@
                     </div>
                     <div class="va-wrapper">
                         #end ##fin if comunic 0
-                       
+
                         #set ($webcontent=$journalContentUtil.getContent($group_id, $cur_Comunic.com_id.getData(), "", "$locale", ""))
                         $webcontent
 
@@ -48,6 +63,8 @@
                         #if($count1==10||!$velocityHasNext)
                     </div>
                 </div>
+                #set($count1=0)
+                #break
                 #end ##fin if comunic 10 o no siguiente
 
                 #end ##fin if comunicado visible
@@ -55,17 +72,18 @@
                 #end ##fin comunicados vacio
 
 
-
-
-
-
-
                 #end ##fin if noticia 0 print comunicados
 
-
+                #if($fav==0)
+                <div style="cursor:pointer;" class="one_col #if($count==0)double #elseif($count==1) half #else quarterx #end isobrick isotope-item noticeX">
+                    #set ($webcontent=$journalContentUtil.getContent($group_id, $cur_Noticia.noti_id.getData(), "", "$locale", ""))
+                    $webcontent
+                </div>
+                #set($fav=1)
+                #end
 
                 #if($count==3|| !$velocityHasNext || $velocityCount > 97)
-                #set($count=0)
+                #set($count=-1)
 
             </div>
             <div class="featured articlecontainer" style="position: relative; /*overflow: hidden;*/margin:auto;">

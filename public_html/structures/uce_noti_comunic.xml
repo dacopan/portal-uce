@@ -25,6 +25,19 @@
       </entry>
     </meta-data>
   </dynamic-element>
+  <dynamic-element dataType="string" indexType="keyword" name="noti_fav_id" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
+    <meta-data locale="es_ES">
+      <entry name="label">
+        <![CDATA[ID Noticia destacada (art ID)]]>
+      </entry>
+      <entry name="predefinedValue">
+        <![CDATA[]]>
+      </entry>
+      <entry name="tip">
+        <![CDATA[ID del articulo que contiene esta noticia (type:uce_noticia)]]>
+      </entry>
+    </meta-data>
+  </dynamic-element>
   <dynamic-element dataType="boolean" indexType="keyword" name="Noticia" readOnly="false" repeatable="true" required="true" showLabel="true" type="checkbox" width="">
     <dynamic-element dataType="string" indexType="keyword" name="noti_id" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
       <meta-data locale="es_ES">

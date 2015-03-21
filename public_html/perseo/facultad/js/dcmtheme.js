@@ -3273,15 +3273,17 @@ var CarreraFull = (function () {
                             $.Metro.initSidebars($item);
                             $.Metro.initBannerCircle(qq);
                             sidebarUpdate($item);
+                            $item.data('ajaxLoad', true);
                         },
                         error: function () {
                             alert("Ajax no activo, ha ocurrido un error.");
                             $.Metro.initSidebars($item);
                             $.Metro.initBannerCircle(qq);
                             sidebarUpdate($item);
+                            $item.data('ajaxLoad', true);
                         }
                     });
-                    $item.data('ajaxLoad', true);
+                   
                 }
                 if ($item.data('isExpanded')) {
                     return true;
@@ -3314,6 +3316,9 @@ var CarreraFull = (function () {
                 }
                 else {
                     $body.css('overflow-y', 'hidden');
+                }
+                if ($item.data('ajaxLoad')) {
+                    sidebarUpdate($item);
                 }
 
             });
@@ -5452,7 +5457,7 @@ function onloadX() {
     //scroll pagination
     if (window.location.search.indexOf("page=") > -1) {
         var q = $('.slide[data-slide="' + 4 + '"]').offset().top;
-        htmlbody.animate({
+        $('body').animate({
             scrollTop: q
         }, 3000, 'easeInOutBack');
     }
