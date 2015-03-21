@@ -4,6 +4,9 @@ pg_dump -U liferay liferay -f liferay_04-02-2015.sql
 tar -czvf /opt/backup/backup_04-02-2015.tar.gz /opt/lamp/apps
 /opt/lamp/mysql/bin/mysqldump --opt -u ucemedia -pUCEuce.1 ucemedia > /opt/backup/backup_04-02-2015.sql
 
+#output user from liferay
+psql -U liferay liferay
+COPY(select * from user_) TO '/tmp/query.csv' (format csv,delimiter ';');
 
 server port   ///http://mobiarch.wordpress.com/2013/02/25/running-jboss-as-7-on-port-80/
 server sandalone tiemout
