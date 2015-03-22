@@ -16,15 +16,21 @@
 <head prefix="og: http://ogp.me/ns#">
     <title>$the_title - $company_name</title>
     <meta content="initial-scale=1.0, width=device-width" name="viewport" />
-    <meta property="og:title" content="$site_name" />
-	<meta property="og:image" content="$html-com/img/logo.png" />
-	<meta property="og:url" content="$urlx" />
-	
+    
+	$theme.include($top_head_include)
 
+	<meta property="og:title" content="$site_name" />
+	<meta property="og:image" content="$html-com/img/logo.png" />
+	<meta property="og:url" content="$urlx" />	
 	<meta property="og:description" content="omnium potentior est sapientia" />
 	
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:site" content="@UCentralEcuador">
+	<meta name="twitter:title" content="$site_name">
+	<meta name="twitter:description" content="omnium potentior est sapientia">
+	<meta name="twitter:image" content="$html-com/img/logo.png">
+	<meta property="twitter:url" content="$urlx" />	
 	
-	$theme.include($top_head_include)
 
 	<link rel="stylesheet" href="$html-com/css/dcm-loader.min.css" type="text/css" id="loaderStyle" />
 	<link rel="stylesheet" href="$html-com/css/dcm-common.min.css" type="text/css" />
