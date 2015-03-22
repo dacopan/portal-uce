@@ -5452,15 +5452,7 @@ $(window).load(function () {
 
     }
 });
-function onloadX() {
-
-    //scroll pagination
-    if (window.location.search.indexOf("page=") > -1) {
-        var q = $('.slide[data-slide="' + 4 + '"]').offset().top;
-        $('body').animate({
-            scrollTop: q
-        }, 3000, 'easeInOutBack');
-    }
+function onloadX() {    
 
     $('.has-full-view').each(function () {
         var $overlay = $($(this).attr('href'));
@@ -5647,7 +5639,14 @@ function onloadX() {
 
     }
     //*/
-    //parallax
+   
+    //scroll pagination
+    if (window.location.search.indexOf("page=") > -1) {
+        var q = $('.slide[data-slide="' + 4 + '"]').offset().top;
+        $('body').animate({
+            scrollTop: q
+        }, 3000, 'easeInOutBack');
+    }
 }
 
 $(document).ready(function () {

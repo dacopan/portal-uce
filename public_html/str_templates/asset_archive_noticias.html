@@ -1,35 +1,84 @@
-﻿#set ($current_url = $request.get("attributes").CURRENT_COMPLETE_URL)
-#set($map=$httpUtil.getParameterMap($httpUtil.getQueryString($current_url)))
+﻿#set ($journalArticleService = $serviceLocator.findService('com.liferay.portlet.journal.service.JournalArticleLocalService'))
+#set($ddmService=$serviceLocator.findService('com.liferay.portlet.dynamicdatamapping.service.DDMStructureLocalService'))
+#set($structId=$getterUtil.getLong($portletPreferences.get("anyClassTypeJournalArticleAssetRendererFactory").get(0)))
+#set($structKey=$ddmService.getStructure($structId).getStructureKey())
+#set ($groupId = $getterUtil.getLong($themeDisplay.getLayout().getGroupId()))
+#set ($languageId = $locale)
 
-#set($artID=$map.artID.get(0))
-#set($month=$map.artID.get(0))
-#set($year=$map.artID.get(0))
 
+#set($date=$dateTool.getDate())
+#set($requestx=$themeDisplay.getRequest())
+#set($artID=$requestx.getParameter("artID"))
+#set($month=$requestx.getParameter("month"))
+#set($year=$requestx.getParameter("year"))
 #set($hasFull=$validator.isNotNull($artID))
 
-#if(!$validator.isNotNull($month))
-    #set($artID="0")
-#end
-
 #if($validator.isNotNull($month))
-#set($datex = "$month-$year")
+    #set($datex="${month}-${year}")
 #else
-#set($datex = $date.getCurrentDate("MM-yyyy", $locale))
+    #set($datex=$dateTool.format("MM-yyyy", $date))
+    #set($month=$dateTool.format("MM", $date))
+    #set($year=$dateTool.format("yyyy", $date))
 #end
 
+## Get all of the articles
+#set ($obcClass = $portal.getClass().forName("com.liferay.portlet.journal.util.comparator.ArticleCreateDateComparator"))
+#set ($booleanType = $portal.getClass().forName('java.lang.Boolean'))
+#set ($obcConstructor = $obcClass.getConstructor($booleanType.getField('TYPE').staticValue))
+#set ($obc = $obcConstructor.newInstance(false))
+#set ($articleHits = $journalArticleService.getStructureArticles($groupId, $structKey, -1, -1, $obc))
 
-#if (!$entries.isEmpty())
-	#foreach ($entry in $entries)
-        #set($renderer = $entry.getAssetRenderer() )
-        #set($className = $renderer.getClassName() )
+## Get full article
+#if($hasFull)
+    #set ($articlex = $journalArticleService.getArticle($groupId,$artID))
+        #if($validator.isNotNull($articlex))
+            #set($fullx={})
+            #set($fullx.render=1)
+            #set( $document = $saxReaderUtil.read($articlex.getContent()) )
+            #set( $root = $document.getRootElement() )
+            ## iterate over noticia's flieds
 
-        #if( $className == "com.liferay.portlet.journal.model.JournalArticle" )
-            #set( $journalArticle = $renderer.getArticle() )
-            #set( $document = $saxReaderUtil.read($journalArticle.getContent()) )
+            #foreach( $dynamicElement in $root.elements() )
+                #set($namex=$dynamicElement.attributeValue("name"))
+                #set($valx=$dynamicElement.element("dynamic-content").getText())
+
+                #if("noti_titulo" == $namex)
+                    #set($fullx.noti_titulo=$valx)
+                #elseif("noti_subtitulo" == $namex)
+                    #set($fullx.noti_subtitulo=$valx)
+                #elseif("noti_fecha" == $namex)
+                    #set($noti_fechax = $valx)
+                    #set ($FechaObj = $dateUtil.newDate($getterUtil.getLong($noti_fechax)))
+                    #set($fullx.noti_fecha=$dateUtil.getDate($FechaObj, "MMMM dd, yyyy", $locale))
+                #elseif("noti_autor" == $namex)
+                    #set($fullx.noti_autor=$valx)
+                #elseif("noti_imagen" == $namex)
+                    #set($fullx.noti_imagen=$valx)
+                #elseif("noti_video" == $namex)
+                    #set($fullx.noti_video=$valx)
+                #elseif("noti_contenido"==$namex)
+                    #set($fullx.noti_contenido=$valx)
+                #end
+            #end
+
+
+        #else
+            noticia solicitada no existe
+            #set($fullx.render=0)
+        #end
+
+#else
+
+#end
+
+#if (!$articleHits.isEmpty())
+	#foreach ($entry in $articleHits)
+
+            #set($cur_artID=$entry.articleId)
+            #set( $document = $saxReaderUtil.read($entry.getContent()) )
             #set( $root = $document.getRootElement() )
 
-            #set($cur_artID=$journalArticle.articleId)
-            #set($isrender="1")
+            #set($isrender=1)
 
             ## iterate over noticia's flieds
 
@@ -44,9 +93,10 @@
                 #elseif("noti_fecha" == $namex)
                     #set($noti_fechax = $valx)
                     #set ($FechaObj = $dateUtil.newDate($getterUtil.getLong($noti_fechax)))
-                    #set($noti_fecha=$dateUtil.getDate($FechaObj, "MM-yyyy", $locale))
-                    #if($cur_artID!=$artID && $noti_fecha!=$datex)
-                        #set($isrender="0")
+                    #set($noti_fecha1=$dateUtil.getDate($FechaObj, "MM-yyyy", $locale))
+                    #set($noti_fecha=$dateUtil.getDate($FechaObj, "MMMM dd, yyyy", $locale))
+                    #if($noti_fecha1!=$datex)
+                        #set($isrender=0)
                         #break
                     #end
                 #elseif("noti_autor" == $namex)
@@ -58,18 +108,15 @@
                 #elseif("noti_contenido"==$namex)
                     #set($noti_contenido = $valx)
                 #end
-                
-            #end
-            
-            $noti_fecha</br>
-            #if($isrender=="1")
-                #if($cur_artID==$artID)
-                    x
-                #else
-                    y
-                #end
             #end
 
-        #end
+
+            #if($isrender==1)
+                $noti_fecha<br />
+            #end
+
+
     #end
+#else
+no articulos en este mes
 #end

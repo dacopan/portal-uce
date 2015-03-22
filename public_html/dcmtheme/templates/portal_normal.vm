@@ -6,13 +6,21 @@
 
 #parse ($init)
 
+##geturl
+#set($completeURL=$portalUtil.getCurrentCompleteURL($request))
+#set($canonicalURL=$portalUtil.getCanonicalURL($completeURL, $themeDisplay, $layout))
+#set($urlx=$htmlUtil.escapeAttribute($canonicalURL))
+##fin get url
+
 <html class="$root_css_class" dir="#language (" lang.dir")" lang="$w3c_language_id" xmlns:og="http://opengraphprotocol.org/schema/">
 <head prefix="og: http://ogp.me/ns#">
     <title>$the_title - $company_name</title>
     <meta content="initial-scale=1.0, width=device-width" name="viewport" />
     <meta property="og:title" content="$site_name" />
 	<meta property="og:image" content="$html-com/img/logo.png" />
-	<meta property="og:url" content="$site_default_url" />
+	<meta property="og:url" content="$urlx" />
+	
+
 	<meta property="og:description" content="omnium potentior est sapientia" />
 	
 	

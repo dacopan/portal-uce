@@ -4790,14 +4790,12 @@ function onloadX() {
     });
 }
 
-$(document).ready(function () {
-
+$(document).ready(function () {    
     if (window.location.href.indexOf("archive_noticias") > -1) {
         var n = $(".full-noticies .rb-overlay");
         if (n.length > 0) {
             $('meta[property=og\\:title]').attr('content', $(n.find(".full-title")[0]).text());
-            $('meta[property=og\\:image]').attr('content', $(n.find(".img-full")[0]).data("urlx"));
-            $('meta[property=og\\:url]').attr('content', window.location);
+            $('meta[property=og\\:image]').attr('content', $(n.find(".img-full")[0]).data("urlx"));            
             $('meta[property=og\\:description]').attr('content', $(n.find(".full-html")[0]).data("summary"));
         }
     }
