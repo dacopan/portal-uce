@@ -4,7 +4,7 @@
 
         var that = $(this);
         fixedUrls(that);
-        that = this = null;
+        that = null;
     });
 
 });
