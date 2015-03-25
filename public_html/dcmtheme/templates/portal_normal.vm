@@ -29,7 +29,7 @@
 	<meta name="twitter:title" content="$site_name">
 	<meta name="twitter:description" content="omnium potentior est sapientia">
 	<meta name="twitter:image" content="$html-com/img/logo.png">
-	<meta property="twitter:url" content="$urlx" />	
+	<meta name="twitter:url" content="$urlx" />	
 	
 
 	<link rel="stylesheet" href="$html-com/css/dcm-loader.min.css" type="text/css" id="loaderStyle" />
