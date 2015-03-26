@@ -5444,7 +5444,7 @@ function onloadX() {
         $('.noticiesWrap .container2').addClass("oculto").each(function () {
             $(this).viewportChecker({
                 classToAdd: 'visible animated fadeInUpBig',
-                offset: 200,
+                offset: 100,
                 repeat: false
             });
         });
@@ -5453,7 +5453,7 @@ function onloadX() {
         $('.direcWrap .og-grid').each(function () {
             $(this).addClass("oculto").viewportChecker({
                 classToAdd: 'visible animated bounceInRight',
-                offset: 300,
+                offset: 100,
                 repeat: false
             });
         });
@@ -5473,19 +5473,19 @@ function onloadX() {
             if (i < 2)
                 $(this).addClass("oculto").viewportChecker({
                     classToAdd: 'visible animated fadeInLeftBig',
-                    offset: 150,
+                    offset: 100,
                     repeat: false
                 });
             else if (i > 2)
                 $(this).addClass("oculto").viewportChecker({
                     classToAdd: 'visible animated fadeInRightBig',
-                    offset: 150,
+                    offset: 100,
                     repeat: false
                 });
             else
                 $(this).addClass("oculto").viewportChecker({
                     classToAdd: 'visible animated fadeInUpBig',
-                    offset: 150,
+                    offset: 100,
                     repeat: false
                 });
         });
@@ -5493,7 +5493,7 @@ function onloadX() {
         $('.contentwrap .linksWrap').addClass("oculto").each(function () {
             $(this).viewportChecker({
                 classToAdd: 'visible animated fadeInUpBig',
-                offset: 200,
+                offset: 120,
                 repeat: false
             });
         });
@@ -5501,14 +5501,14 @@ function onloadX() {
         $('.footer .contentwrap').addClass("oculto").each(function () {
             $(this).viewportChecker({
                 classToAdd: 'visible animated fadeInUpBig',
-                offset: 200,
+                offset: 120,
                 repeat: false
             });
         });
         $('.footer .contentwrap .mapax').addClass("oculto").each(function () {
             $(this).viewportChecker({
                 classToAdd: 'visible animated bounceInRight',
-                offset: 200,
+                offset: 120,
                 repeat: false
             });
         });
@@ -5650,3 +5650,4 @@ jQuery('.top').click(function () {
 function isMobileBrowser() {
     return debug || (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
 }
+//youutube thumbail http://img.youtube.com/vi/qx89ylJyeKU/0.jpg
