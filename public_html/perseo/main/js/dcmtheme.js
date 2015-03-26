@@ -5296,9 +5296,13 @@ $(window).load(function () {
         var loadsx = $('[data-load]');
         var len = loadsx.length;
         loadsx.each(function (index, element) {
-
-            $(this).load($(this).data("load"), function () {
-                if (index == len - 1) {
+            var urix = $(this).data("load");
+            $(this).load(urix, function (response, status, xhr) {
+                console.log("load finish:" + urix + ";  -->" + xhr.status + " " + xhr.statusText);
+                len = len - 1;
+                if (len == 0) {
+                    console.log("loads terminados");
+                    console.log("mm-menu creando");
 
                     //mm-menu
                     $('#mm-nav-content').appendTo('#dcmmenu');
@@ -5307,13 +5311,29 @@ $(window).load(function () {
                         classes: "mm-slide"
                     });
 
+                    console.log("mm-menu creado");
+
                     $('#dcmmenu').before($('#loader'));
                     $('#loader').addClass('animated bounceOutUp');
+
+                    console.log("iniciando onloadX");
+
                     onloadX();
+
+                    console.log("fin onloadX");
+
+
                     setTimeout(function () {
+                        console.log("removiendo loader");
                         $('#loader').remove();
                         $('#loaderStyle').remove();
+
+                        console.log("iniciando innerNavigate");
+
                         innerNavigate();
+
+                        console.log("fin  innerNavigate");
+
                         $("body").animate({
                             scrollTop: 1
                         }, 1);
@@ -5326,7 +5346,7 @@ $(window).load(function () {
     }
 });
 function onloadX() {
-    
+
     //featured isotope
     var $container3 = jQuery('div.isofeatured');
     if ($container3.length) {
@@ -5526,7 +5546,7 @@ function onloadX() {
          //*/
     }
     //*/
-    
+
     //scroll pagination
     if (window.location.search.indexOf("page=") > -1) {
         var q = $('.slide[data-slide="' + 2 + '"]').offset().top;
