@@ -95,14 +95,16 @@
 
 
 
+
+		$theme.include($body_bottom_include)
+
+        $theme.include($bottom_include)
+
         <!--Full views para .has-full-view-->
         <div class="full-views-wrap" data-load="$html-com/full_view_01.html"></div>
         <!--Fin Full views -->
         <script src="$theme-type/js/dcmtheme.min.js" type="text/javascript"></script>
 		<script src="$html-com/js/dcm_common.min.js" type="text/javascript"></script>
-        $theme.include($body_bottom_include)
-
-        $theme.include($bottom_include)
     </div>
 </body>
 </html>
