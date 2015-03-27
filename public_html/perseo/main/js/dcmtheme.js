@@ -5283,7 +5283,7 @@ ClubFull.init();
 //#endregion 
 
 $(window).load(function () {
-    console.log("window on load event");
+    console.log("window on load eventx");
     if (debug) {
         //mm-menu
         $('#mm-nav-content').appendTo('#dcmmenu');
