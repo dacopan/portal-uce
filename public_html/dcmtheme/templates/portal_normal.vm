@@ -42,9 +42,9 @@
     <link rel="stylesheet" href="$theme-type/css/dcmtheme.min.css" type="text/css" />
     <link rel="stylesheet" href="$theme-type/css/dcmtheme-responsive.min.css" type="text/css" />
 	   
-	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-	<script src="$theme-type/js/dcmtheme.min.js" type="text/javascript" async="async"></script>
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">	
 	<script src="$html-com/js/dcm_common.min.js" type="text/javascript" async="async"></script>
+	<script src="$theme-type/js/dcmtheme.min.js" type="text/javascript" async="async"></script>
 
     
 </head>
