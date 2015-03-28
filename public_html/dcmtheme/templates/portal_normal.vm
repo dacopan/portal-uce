@@ -16,6 +16,7 @@
 <head prefix="og: http://ogp.me/ns#">
     <title>$the_title - $company_name</title>
     <meta content="initial-scale=1.0, width=device-width" name="viewport" />
+	<link rel="dns-prefetch" href="http://aka-cdn.uce.edu.ec">
     
 	$theme.include($top_head_include)
 
@@ -42,6 +43,9 @@
     <link rel="stylesheet" href="$theme-type/css/dcmtheme-responsive.min.css" type="text/css" />
 	   
 	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+	<script src="$theme-type/js/dcmtheme.min.js" type="text/javascript" async="async"></script>
+	<script src="$html-com/js/dcm_common.min.js" type="text/javascript" async="async"></script>
+
     
 </head>
 <body class="$css_class container-fluid metro" style="background-color:#fff;">
@@ -71,7 +75,7 @@
         #end
 
 
-        <div class="topBar bg-blue" id="topBar" style="position: fixed;" data-load="$html-com/uce_topBar_mmmenu.html">
+        <div class="topBar bg-blue" id="topBar" style="position: fixed;" data-load="$html-com/uce_topBar_mmmenu.txt">
         </div>
         <div class="dcm top">
             <a class="scrollto" href="#main-content">Scroll to top</a>
@@ -95,16 +99,13 @@
 
 
 
+		<!--Full views para .has-full-view-->
+        <div class="full-views-wrap" data-load="$html-com/full_view_01.txt"></div>
+        <!--Fin Full views -->
 
 		$theme.include($body_bottom_include)
-
         $theme.include($bottom_include)
-
-        <!--Full views para .has-full-view-->
-        <div class="full-views-wrap" data-load="$html-com/full_view_01.html"></div>
-        <!--Fin Full views -->
-        <script src="$theme-type/js/dcmtheme.min.js" type="text/javascript"></script>
-		<script src="$html-com/js/dcm_common.min.js" type="text/javascript"></script>
+        
     </div>
 </body>
 </html>
