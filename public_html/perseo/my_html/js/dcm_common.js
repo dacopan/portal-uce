@@ -25,6 +25,7 @@ $(document).ready(function () {
     });
 
 });
+
 function fixedUrls(that) {
     var reg = /.*\/.*\//g;
     if (typeof Liferay === 'undefined') {
