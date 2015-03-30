@@ -7,15 +7,15 @@
                 #if (!$Link_de_Interes.getSiblings().isEmpty())
                 #foreach ($cur_Link_de_Interes in $Link_de_Interes.getSiblings())
                 <li>
-                    <a href="$Link_de_Interes.getData()" target="_blank">
-                        <i class="fa $Link_de_Interes.icono.getData()"></i> <span class="title">$Link_de_Interes.titulo.getData()</span>
+                    <a href="$cur_Link_de_Interes.getData()" target="_blank">
+                        <i class="fa $cur_Link_de_Interes.icono.getData()"></i> <span class="title">$cur_Link_de_Interes.titulo.getData()</span>
                     </a>
-                    <span class="sub-title">$Link_de_Interes.titulo.getData()</span>
+                    <span class="sub-title">$cur_Link_de_Interes.titulo.getData()</span>
                     #end
                 </li>
                 #end
             </ul>
         </div>
 
-    </div>    
+    </div>
 </div>
