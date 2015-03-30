@@ -1,4 +1,4 @@
-var debug = false;
+var debug = false, noti_slide_num=2;
 
 //#region modernizer
 //<editor-fold  defaultstate="collapsed" desc="modernizer"> #region modernizer
@@ -5266,8 +5266,101 @@ var ClubFull = (function () {
 //#endregion 
 
 $(window).load(function () {
-   
+    console.log("window on load eventx");
 });
+
+$(document).ready(function () {
+    console.log("document ready and Liferay is: " + typeof Liferay);
+    //from load
+   
+    if (debug) {
+        //mm-menu
+        $('#mm-nav-content').appendTo('#dcmmenu');
+        $("#dcmmenu").mmenu({
+            classes: "mm-slide"
+        });
+        innerNavigate();
+    } else {
+        ///*
+        var loadsx = $('[data-load]');
+        var len = loadsx.length;
+        loadsx.each(function (index, element) {
+            var urix = $(this).data("load");
+            console.log("load start:" + urix);
+            $(this).load(urix, function (response, status, xhr) {
+                len = len - 1;
+                console.log("load finish:" + urix + ";  -->" + xhr.status + " " + xhr.statusText + " len:" + len);
+                if (len == 0) {
+                    console.log("loads terminados");
+                    console.log("mm-menu creando");
+
+                    //mm-menu
+                    $('#mm-nav-content').appendTo('#dcmmenu');
+                    $('#loader').appendTo('#dcmmenu');
+                    $("#dcmmenu").mmenu({
+                        classes: "mm-slide"
+                    });
+
+                    console.log("mm-menu creado");
+
+                    $('#dcmmenu').before($('#loader'));
+                    $('#loader').addClass('animated bounceOutUp');
+
+                    console.log("iniciando onloadX");
+
+                    onloadX();
+
+                    console.log("fin onloadX");
+
+
+                    setTimeout(function () {
+                        console.log("removiendo loader");
+                        $('#loader').remove();
+                        $('#loaderStyle').remove();
+
+                        console.log("iniciando innerNavigate");
+
+                        innerNavigate();
+
+                        console.log("fin  innerNavigate");
+
+                        $("body").animate({
+                            scrollTop: 1
+                        }, 1);
+
+                        //scroll pagination
+                        if (window.location.search.indexOf("page=") > -1) {
+                            var q = $('.slide[data-slide="' + noti_slide_num + '"]').offset().top;
+                            $('body').animate({
+                                scrollTop: q
+                            }, 3000, 'easeInOutBack');
+                        }
+                    }, 1300);
+
+                }
+            });
+        });
+
+    }
+    //from load end
+
+    //liferay-user-login/admin    
+    if (typeof Liferay != 'undefined') {
+        console.log("liferay defined");
+        Liferay.on(
+    'allPortletsReady',
+    /*
+    This function gets loaded when everything, including the portlets, is on
+    the page.
+    */
+    function () {
+        console.log("liferay allPortletsReady.");
+    }
+    );
+    }
+
+});
+
 function onloadX() {
 
     NoticiasFull.init();
@@ -5468,101 +5561,8 @@ function onloadX() {
          });
          //*/
     }
-    //*/
-
-    //scroll pagination
-    if (window.location.search.indexOf("page=") > -1) {
-        var q = $('.slide[data-slide="' + 2 + '"]').offset().top;
-        $('body').animate({
-            scrollTop: q
-        }, 3000, 'easeInOutBack');
-    }
+    //*/    
 }
-$(document).ready(function () {
-    console.log("document ready and Liferay is: " + typeof Liferay);
-    //from load
-    console.log("window on load eventx");
-    if (debug) {
-        //mm-menu
-        $('#mm-nav-content').appendTo('#dcmmenu');
-        $("#dcmmenu").mmenu({
-            classes: "mm-slide"
-        });
-        innerNavigate();
-    } else {
-        ///*
-        var loadsx = $('[data-load]');
-        var len = loadsx.length;
-        loadsx.each(function (index, element) {
-            var urix = $(this).data("load");
-            console.log("load start:" + urix);
-            $(this).load(urix, function (response, status, xhr) {
-                len = len - 1;
-                console.log("load finish:" + urix + ";  -->" + xhr.status + " " + xhr.statusText + " len:" + len);
-                if (len == 0) {
-                    console.log("loads terminados");
-                    console.log("mm-menu creando");
-
-                    //mm-menu
-                    $('#mm-nav-content').appendTo('#dcmmenu');
-                    $('#loader').appendTo('#dcmmenu');
-                    $("#dcmmenu").mmenu({
-                        classes: "mm-slide"
-                    });
-
-                    console.log("mm-menu creado");
-
-                    $('#dcmmenu').before($('#loader'));
-                    $('#loader').addClass('animated bounceOutUp');
-
-                    console.log("iniciando onloadX");
-
-                    onloadX();
-
-                    console.log("fin onloadX");
-
-
-                    setTimeout(function () {
-                        console.log("removiendo loader");
-                        $('#loader').remove();
-                        $('#loaderStyle').remove();
-
-                        console.log("iniciando innerNavigate");
-
-                        innerNavigate();
-
-                        console.log("fin  innerNavigate");
-
-                        $("body").animate({
-                            scrollTop: 1
-                        }, 1);
-                    }, 1300);
-
-                }
-            });
-        });
-
-    }
-    //from load end
-
-    //liferay-user-login/admin    
-    if (typeof Liferay != 'undefined') {
-        console.log("liferay defined");
-        Liferay.on(
-    'allPortletsReady',
-    /*
-    This function gets loaded when everything, including the portlets, is on
-    the page.
-    */
-    function () {
-        console.log("liferay allPortletsReady.");
-    }
-    );
-    }
-
-});
-
-
 /* #innerNavigate
  ================================================== */
 //#region 

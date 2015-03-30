@@ -7785,7 +7785,7 @@ span.date {
     padding-bottom: 50%;
 }
 
-.rb-overlay .img-full {
+.rb-overlay .img-full, .noticeX .img-0 {
     margin-right: 20px;
     /* max-width: 500px; */
     width: 100%;
@@ -7818,7 +7818,7 @@ span.date {
 
 .rb-overlay span.date {
     text-align: right;
-    font-family:"Open Sans";
+    font-family: "Open Sans";
 }
 
 .rb-overlay .full-content {
@@ -9184,11 +9184,15 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
     color: #fff;
     font-size: 2rem;
 }
+
     #slide1 .membrete div {
-    margin: auto;width: auto; margin-bottom:20px;
+        margin: auto;
+        width: auto;
+        margin-bottom: 20px;
     }
-    #slide1 .membrete h3,#slide1 .membrete h2 {
-    font-weight:normal;
+
+    #slide1 .membrete h3, #slide1 .membrete h2 {
+        font-weight: normal;
     }
 
 .topBanner .banx, .topBanner .banx img {
@@ -9209,7 +9213,7 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
     font-family: 'Adequate ExtraLight','Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
     font-weight: bold;
     /*padding-top: 150px;*/
-    padding-top:45px;
+    padding-top: 45px;
     letter-spacing: 1px;
     /*padding-bottom: 150px;*/
     z-index: 3;
@@ -9419,9 +9423,11 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
 .metro .grilla-dark {
     background-image: url(../images/grilla_dark.jpg) !important;
 }
+
 .metro .bg-circle {
     background-image: url(../images/bg-circle.png) !important;
 }
+
 .metro .img-cover {
     background-size: cover;
     background-position: 50% 50%;
@@ -9485,13 +9491,15 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
         width: 300px;
     }
 
-        .noticies .noticeX img.img-0 {
+        .noticies .noticeX .img-0 {
             position: relative;
             display: block;
             margin: -10px 0 0 -10px;
             max-width: none;
             width: -webkit-calc(100% + 10px);
             width: calc(100% + 10px);
+            height: -webkit-calc(100% + 10px);
+            height: calc(100% + 10px);            
             opacity: 0.9;
             -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
             transition: opacity 0.35s, transform 0.35s;
@@ -9499,6 +9507,7 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
             transform: translate3d(10px,10px,0);
             -webkit-backface-visibility: hidden;
             backface-visibility: hidden;
+            
         }
 
         .noticies .noticeX .figcaption {
@@ -9540,7 +9549,7 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
     transform-origin: 50% 50%;
 }
 
-.noticeX:hover img.img-0 {
+.noticeX:hover .img-0 {
     opacity: 0.6;
     -webkit-transform: translate3d(0,0,0);
     transform: translate3d(0,0,0);
@@ -9700,13 +9709,14 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
 .metro .footer {
     background-color: #343434 !important;
 }
+
 .aui #footer {
-    text-align:left;
+    text-align: left;
 }
 
-    .metro .footer span {
-        display: block;
-    }
+.metro .footer span {
+    display: block;
+}
 
 .aui .footer .span4 {
     border-right: 2px solid #fff;

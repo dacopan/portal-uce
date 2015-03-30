@@ -1,6 +1,7 @@
 ﻿ #set ($FechaObj = $dateUtil.newDate($getterUtil.getLong($noti_fecha.getData())))
     #if ($validator.isNotNull($noti_imagen.getData()))
-<img class="img-0" src="$noti_imagen.getData()" alt="notice" />
+<div class="img-0" style="background-image: url($noti_imagen.getData());">
+</div>
     #else
 <div class="relleno"><div class="clear"></div></div>
     #end

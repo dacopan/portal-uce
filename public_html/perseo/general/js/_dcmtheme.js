@@ -4656,6 +4656,12 @@ $(function () {
 //#endregion 
 
 $(window).load(function () {
+    console.log("window on load eventx");
+});
+
+$(document).ready(function () {
+    console.log("document ready and Liferay is: " + typeof Liferay);
+    //from load
 
     if (debug) {
         //mm-menu
@@ -4666,11 +4672,17 @@ $(window).load(function () {
         innerNavigate();
     } else {
         ///*
-        var len = $('[data-load]').length;
-        $("[data-load]").each(function (index, element) {
-
-            $(this).load($(this).data("load"), function () {
-                if (index == len - 1) {
+        var loadsx = $('[data-load]');
+        var len = loadsx.length;
+        loadsx.each(function (index, element) {
+            var urix = $(this).data("load");
+            console.log("load start:" + urix);
+            $(this).load(urix, function (response, status, xhr) {
+                len = len - 1;
+                console.log("load finish:" + urix + ";  -->" + xhr.status + " " + xhr.statusText + " len:" + len);
+                if (len == 0) {
+                    console.log("loads terminados");
+                    console.log("mm-menu creando");
 
                     //mm-menu
                     $('#mm-nav-content').appendTo('#dcmmenu');
@@ -4679,15 +4691,26 @@ $(window).load(function () {
                         classes: "mm-slide"
                     });
 
+                    console.log("mm-menu creado");
+
                     $('#dcmmenu').before($('#loader'));
                     $('#loader').addClass('animated bounceOutUp');
+
+                    console.log("iniciando onloadX");
+
                     onloadX();
+
+                    console.log("fin onloadX");
+
+
                     setTimeout(function () {
+                        console.log("removiendo loader");
                         $('#loader').remove();
                         $('#loaderStyle').remove();
+                        
                         $("body").animate({
                             scrollTop: 1
-                        }, 1);
+                        }, 1);                        
                     }, 1300);
 
                 }
@@ -4695,7 +4718,25 @@ $(window).load(function () {
         });
 
     }
+    //from load end
+
+    //liferay-user-login/admin    
+    if (typeof Liferay != 'undefined') {
+        console.log("liferay defined");
+        Liferay.on(
+    'allPortletsReady',
+    /*
+    This function gets loaded when everything, including the portlets, is on
+    the page.
+    */
+    function () {
+        console.log("liferay allPortletsReady.");
+    }
+    );
+    }
+
 });
+
 function onloadX() {
 
     //scroll pagination
@@ -4774,16 +4815,6 @@ function onloadX() {
     });
 }
 
-$(document).ready(function () {    
-    if (window.location.href.indexOf("archive_noticias") > -1) {
-        var n = $(".full-noticies .rb-overlay");
-        if (n.length > 0) {
-            $('meta[property=og\\:title]').attr('content', $(n.find(".full-title")[0]).text());
-            $('meta[property=og\\:image]').attr('content', $(n.find(".img-full")[0]).data("urlx"));            
-            $('meta[property=og\\:description]').attr('content', $(n.find(".full-html")[0]).data("summary"));
-        }
-    }
-});
 
 ///////////////////////////////
 // Parallax
