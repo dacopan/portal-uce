@@ -4827,7 +4827,7 @@ a {
     font-family: "Adequate ExtraLight";
     font-style: normal;
     font-weight: 300;
-    src: url('fonts/Adequate-ExtraLight.ttf') format('truetype'), local("Segoe UI Bold"), local("Open Sans Bold"), local("OpenSans-Bold"), url(https://themes.googleusercontent.com/static/fonts/opensans/v8/k3k702ZOKiLJc3WVjuplzJ1r3JsPcQLi8jytr04NNhU.woff) format('woff');
+    src: url('fonts/Adequate-ExtraLight.woff') format('woff'), url('fonts/Adequate-ExtraLight.ttf') format('truetype'), local("Segoe UI Bold"), local("Open Sans Bold"), local("OpenSans-Bold"), url(https://themes.googleusercontent.com/static/fonts/opensans/v8/k3k702ZOKiLJc3WVjuplzJ1r3JsPcQLi8jytr04NNhU.woff) format('woff');
 }
 
 .metro .adequate {
