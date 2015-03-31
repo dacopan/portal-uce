@@ -54,7 +54,7 @@
         <div id="loader2" class="" style="">
             <div id="div1">
                 <div id="div2">
-                    <img src="$html-com/img/logo.png" alt="logo">
+                    <img src="$html-com/images/logo.png" alt="logo">
                 </div>
             </div>
             <div class="spinner">
