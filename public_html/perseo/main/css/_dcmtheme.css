@@ -937,17 +937,6 @@ span.date {
     max-width: 1200px;
 }
 
-.metro .grilla {
-    background-image: url(../images/panel2_grilla.png);
-    background-size: cover;
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-}
-
-.metro .grilla-dark {
-    background-image: url(../images/grilla_dark.jpg) !important;
-}
-
 .metro .img-cover {
     background-size: cover;
     background-position: 50% 50%;

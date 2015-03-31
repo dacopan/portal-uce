@@ -5353,6 +5353,16 @@ body.metro {
 /*#region Sidebar*/
 /* #Sidebar
 ================================================== */
+.metro .grilla, .metro .grilla-dark {
+    background-image: url(../../my_html/images/grilla.png);
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+
+.metro .grilla-dark {
+    background-image: url(../../my_html/images/grilla_dark.jpg) !important;
+}
 .docs .doc {
     margin: 5px;
     width: 134px;

@@ -1718,16 +1718,6 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
 
 /* #Contenido generalidades
 ================================================== */
-.metro .grilla, .metro .grilla-dark {
-    background-image: url(../images/panel2_grilla.png);
-    background-size: cover;
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-}
-
-.metro .grilla-dark {
-    background-image: url(../images/grilla_dark.jpg) !important;
-}
 
 .metro .bg-circle {
     background-image: url(../images/bg-circle.png) !important;

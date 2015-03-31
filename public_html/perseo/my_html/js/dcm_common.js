@@ -69,3 +69,16 @@ function fixedUrls(that) {
     }
     portal = icox = t1 = t2 = t3 = f1 = service = reg = qq = that = null;
 }
+
+if (typeof Liferay === 'undefined' && window.location.href.indexOf("public_html") > -1) {
+    console.log("mode HTML: on");
+    var Liferay = {
+        ThemeDisplay: {
+            getLayoutId: function () { return "1" }, getLayoutURL: function () { return "http://www.uce.edu.ec/web/guest/home" },
+            getPortalURL: function () { return "http://www.uce.edu.ec" }
+        },
+        on: function (A, G) {
+
+        }
+    };
+}

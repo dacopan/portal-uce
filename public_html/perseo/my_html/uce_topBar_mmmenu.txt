@@ -6,7 +6,7 @@
     <a class="fg-white" data-hint="x|y" href="#user"><i class="icon-user"></i></a>
     <a class="fg-white" href="#radio" id="radiox"><i class="icon-microphone"></i></a>
     <a class="fg-white has-full-view" href="#full-view-01">
-        <i class="icon-bookx img-cover" style="background-image:url(http://aka-cdn.uce.edu.ec/ares/perseo/my_html/img/tmp/icono_sello.png);width: 33px;height: 33px;margin-top: -5px;"></i>
+        <i class="icon-bookx img-cover" style="background-image:url(http://aka-cdn.uce.edu.ec/ares/perseo/my_html/images/tmp/icono_sello.png);width: 33px;height: 33px;margin-top: -5px;"></i>
     </a>
 </div>
 <!--mmMenu nav content-->
@@ -17,7 +17,7 @@
     <li>
         <a href="/facultad/" class="toSlide" data-slide="3">
             <figure class="effect-layla visible-desktop">
-                <img src="http://aka-cdn.uce.edu.ec/ares/perseo/my_html/img/logo.png" alt="img04">
+                <img src="http://aka-cdn.uce.edu.ec/ares/perseo/my_html/images/logo.png" alt="img04">
                 <figcaption>
                     <h2>Facultades<span>.</span></h2>
                     <p>Descripción</p>
