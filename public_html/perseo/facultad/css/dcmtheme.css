@@ -5169,7 +5169,7 @@ body.metro {
 
 .metro .topBar {
     position: absolute;
-    z-index: 88888;
+    z-index: 99;
     width: 100%;
     height: 45px;
     background-size: 100%;
@@ -5363,6 +5363,7 @@ body.metro {
 .metro .grilla-dark {
     background-image: url(../../my_html/images/grilla_dark.jpg) !important;
 }
+
 .docs .doc {
     margin: 5px;
     width: 134px;
@@ -7640,102 +7641,20 @@ html > body .metro .sidebar a.dropdown-toggle:after {
 .visible {
     opacity: 1 !important;
 }
-
-/*# transition
-============================*/
-.metro .club, .metro .club i, .footer .blogs a:hover h5, .metro .linksWrap .link, .metro .sharex i, .metro .uri {
-    -moz-transition: all 0.3s ease 0s;
-    -webkit-transition: all 0.3s ease 0s;
-    -o-transition: all 0.3s ease 0s;
-    transition: all 0.3s ease 0s;
-}
-
-.metro .max-1024 {
-    max-width: 900px !important;
-}
-
-
-.metro .sharex {
-    /*float: right;*/
-    margin-right: 5px;
-}
-
-    .metro .sharex i {
-        font-size: 20px;
-        -moz-border-radius: 50%;
-        -webkit-border-radius: 50%;
-        border-radius: 50%;
-        background-color: #000;
-        width: 36px;
-        height: 36px;
-        color: #d5d5d5;
-        padding: 8px;
-        text-align: center;
-    }
-
-    .metro .sharex:hover i {
-        background-color: rgb(0,150,240);
-        color: #fff;
-    }
-
-.metro .uri {
-    border: 1px solid #ccc;
-    color: #878787;
-    font-size: 12px;
-    /*padding: 5px 14px;*/
-    font-weight: normal;
-    display: inline-block;
-    padding: 2px 14px;
-}
-
-    .metro .uri:hover {
-        border-color: rgba(82,168,236,0.8);
-        outline: 0;
-        outline: thin dotted \9;
-        -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(82,168,236,0.6);
-        -moz-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(82,168,236,0.6);
-        box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(82,168,236,0.6);        
-    }
-
-.metro .short-link {
-    text-align: right;
-    margin-right: 10px;
-    width: 90%;
-    margin: auto;
-}
-
-/* #rb-overlay
-======================================================*/
-/*<editor-fold defaultstate="collapsed" desc="rb-overlay">*/
-.isotope {
-    min-width: 300px !important;
-}
-
-.home .two_third, .home .one_third {
-    margin: 0;
-}
-
-span.date {
-    font-size: 10px;
-    line-height: 10px;
-    display: block;
-    font-weight: normal;
-    position: relative;
-}
-
-    span.date, span.date a {
-        color: #555;
-    }
-
-        span.date a.bubble, span.date a.bubble:hover {
-            position: absolute;
-            right: 0;
-            bottom: 0;
-            color: #fff !important;
-        }
+/*#region rv-overlay*/
 
 /* #Notices expander
 ================================================== */
+/**has Full view**/
+.has-full-view-content {
+    opacity: 0;
+    height: 0px;
+    width: 0px;
+}
+
+    .has-full-view-content .rb-overlay {
+    }
+
 .rb-overlay {
     opacity: 0;
     position: fixed;
@@ -7743,8 +7662,11 @@ span.date {
     left: 0;
     width: 100%;
     height: 100%;
+    -moz-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+    -webkit-transition: all 0.4s ease;
     transition: all 0.4s ease;
-    z-index: 99999 !important;
+    /*z-index: 9999;*/
     pointer-events: none;
     cursor: default;
     /*border:30px rgba(0,0,0,0.6) solid;
@@ -7795,7 +7717,7 @@ span.date {
     padding-bottom: 50%;
 }
 
-.rb-overlay .img-full, .noticeX .img-0 {
+.rb-overlay .img-full {
     margin-right: 20px;
     /* max-width: 500px; */
     width: 100%;
@@ -7818,6 +7740,7 @@ span.date {
     font-family: 'Adequate ExtraLight','Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
     font-weight: 900;
     padding-bottom: 10px;
+    left: 0px !important;
 }
 
 .rb-overlay h3.sub-title {
@@ -7828,7 +7751,6 @@ span.date {
 
 .rb-overlay span.date {
     text-align: right;
-    font-family: "Open Sans";
 }
 
 .rb-overlay .full-content {
@@ -7836,7 +7758,10 @@ span.date {
     position: relative;
     padding: 10px;
     height: 100%;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
+    z-index: 100 !important;
+    margin-right: 10px;
 }
 
 .rb-overlay .full-html {
@@ -7844,17 +7769,244 @@ span.date {
     padding-top: 20px;
 }
 /*TMP*/
-.nivoSlider {
+.metro .nivoSlider {
     position: relative;
     width: 100%;
     height: 100%;
     overflow: hidden;
 }
 
-.featured a.isobrick {
-    background: none;
+/*#endregion*/
+/*#region scroll*/
+/*#Scroll
+================================================== */
+.ps-container .ps-scrollbar-x-rail {
+    position: absolute;
+    bottom: 3px;
+    height: 8px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    -o-transition: background-color .2s linear,opacity .2s linear;
+    -webkit-transition: background-color .2s linear,opacity .2s linear;
+    -moz-transition: background-color .2s linear,opacity .2s linear;
+    transition: background-color .2s linear,opacity .2s linear;
 }
-/*</editor-fold>*/
+
+.ps-container:hover .ps-scrollbar-x-rail, .ps-container.hover .ps-scrollbar-x-rail {
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+.ps-container .ps-scrollbar-x-rail:hover, .ps-container .ps-scrollbar-x-rail.hover {
+    background-color: #eee;
+    opacity: .9;
+    filter: alpha(opacity=90);
+}
+
+.ps-container .ps-scrollbar-x-rail.in-scrolling {
+    background-color: #eee;
+    opacity: .9;
+    filter: alpha(opacity=90);
+}
+
+.ps-container .ps-scrollbar-y-rail {
+    position: absolute;
+    right: 3px;
+    width: 8px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    -o-transition: background-color .2s linear,opacity .2s linear;
+    -webkit-transition: background-color .2s linear,opacity .2s linear;
+    -moz-transition: background-color .2s linear,opacity .2s linear;
+    transition: background-color .2s linear,opacity .2s linear;
+}
+
+.ps-container .ps-scrollbar-y-rail, .ps-container.hover .ps-scrollbar-y-rail {
+    opacity: .6;
+    filter: alpha(opacity=60);
+}
+
+    .ps-container .ps-scrollbar-y-rail, .ps-container .ps-scrollbar-y-rail.hover {
+        background-color: #eee;
+        opacity: .9;
+        filter: alpha(opacity=90);
+        margin-top: 20px;
+    }
+
+        .ps-container .ps-scrollbar-y-rail.in-scrolling {
+            background-color: #eee;
+            opacity: .9;
+            filter: alpha(opacity=90);
+        }
+
+.ps-container .ps-scrollbar-x {
+    position: absolute;
+    bottom: 0;
+    height: 8px;
+    background-color: #aaa;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    -o-transition: background-color .2s linear;
+    -webkit-transition: background-color.2s linear;
+    -moz-transition: background-color .2s linear;
+    transition: background-color .2s linear;
+}
+
+.ps-container.ie6 .ps-scrollbar-x {
+    font-size: 0;
+}
+
+.ps-container .ps-scrollbar-x-rail:hover .ps-scrollbar-x, .ps-container .ps-scrollbar-x-rail.hover .ps-scrollbar-x {
+    background-color: #999;
+}
+
+.ps-container .ps-scrollbar-y {
+    position: absolute;
+    right: 0;
+    width: 8px;
+    background-color: #aaa;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    -o-transition: background-color .2s linear;
+    -webkit-transition: background-color.2s linear;
+    -moz-transition: background-color .2s linear;
+    transition: background-color .2s linear;
+}
+
+.ps-container.ie6 .ps-scrollbar-y {
+    font-size: 0;
+}
+
+.ps-container .ps-scrollbar-y-rail:hover .ps-scrollbar-y, .ps-container .ps-scrollbar-y-rail.hover .ps-scrollbar-y {
+    background-color: #999;
+}
+
+.ps-container.ie .ps-scrollbar-x, .ps-container.ie .ps-scrollbar-y {
+    visibility: hidden;
+}
+
+.ps-container.ie:hover .ps-scrollbar-x, .ps-container.ie:hover .ps-scrollbar-y, .ps-container.ie.hover .ps-scrollbar-x, .ps-container.ie.hover .ps-scrollbar-y {
+    visibility: visible;
+}
+
+::-webkit-scrollbar {
+    height: 18px;
+    width: 10px;
+    background-color:rgba(0,0,0,.3);
+    border-radius: 9px;
+}
+    ::-webkit-scrollbar:hover {
+    background-color:rgba(0,0,0,.5);
+    }
+
+    ::-webkit-scrollbar:disabled {
+        display: none;
+    }
+
+::-webkit-scrollbar-button,::-webkit-scrollbar-corner,::-webkit-scrollbar-track-piece {
+    display:none;
+    background-color:transparent;
+}
+    
+
+::-webkit-scrollbar-track {
+    border-radius: 9px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 9px;
+    background-color: rgba(0,0,0,.4);
+    
+}
+
+    ::-webkit-scrollbar-thumb:vertical {
+        min-height: 50px;
+    }
+
+    ::-webkit-scrollbar-thumb:horizontal {
+        min-width: 50px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {                
+        background-color: rgba(0,0,0,.5)
+    }
+
+::-webkit-scrollbar-corner {
+    background-color: blue;
+}
+/*#endregion*/
+/*# transition
+============================*/
+.metro .club, .metro .club i, .footer .blogs a:hover h5, .metro .linksWrap .link, .metro .sharex i, .metro .uri; {
+    -moz-transition: all 0.3s ease 0s;
+    -webkit-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+}
+
+.metro .max-1024 {
+    max-width: 900px !important;
+}
+
+
+.metro .sharex {
+    /*float: right;*/
+    margin-right: 5px;
+}
+
+    .metro .sharex i {
+        font-size: 20px;
+        -moz-border-radius: 50%;
+        -webkit-border-radius: 50%;
+        border-radius: 50%;
+        background-color: #000;
+        width: 36px;
+        height: 36px;
+        color: #d5d5d5;
+        padding: 8px;
+        text-align: center;
+    }
+
+    .metro .sharex:hover i {
+        background-color: rgb(0,150,240);
+        color: #fff;
+    }
+
+.metro .uri {
+    border: 1px solid #ccc;
+    color: #878787;
+    font-size: 12px;
+    /*padding: 5px 14px;*/
+    font-weight: normal;
+    display: inline-block;
+    padding: 2px 14px;
+}
+
+    .metro .uri:hover {
+        border-color: rgba(82,168,236,0.8);
+        outline: 0;
+        outline: thin dotted \9;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(82,168,236,0.6);
+        -moz-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(82,168,236,0.6);
+        box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(82,168,236,0.6);
+    }
+
+.metro .short-link {
+    text-align: right;
+    margin-right: 10px;
+    width: 90%;
+    margin: auto;
+}
+
+
 
 /* #Vacordion
 ================================================== */
@@ -8222,149 +8374,6 @@ span.date {
     position: relative;
 }
 
-.og-details {
-}
-
-.og-fullimg {
-    text-align: center;
-}
-
-    .og-fullimg img {
-        display: inline-block;
-        max-height: 100%;
-        max-width: 100%;
-    }
-
-.og-details h3 {
-    font-weight: 300;
-    font-size: 52px;
-    padding: 40px 0 10px;
-    margin-bottom: 10px;
-}
-
-.og-details p {
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 22px;
-    color: #000;
-}
-
-.og-details .og-a {
-    font-weight: 700;
-    font-size: 16px;
-    color: #333;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    padding: 10px 20px;
-    border: 3px solid #333;
-    display: inline-block;
-    margin: 30px 0 0;
-    outline: none;
-    text-decoration: none !important;
-}
-
-    .og-details .og-a::before {
-        content: '\2192';
-        display: inline-block;
-        margin-right: 10px;
-    }
-
-    .og-details .og-a:hover {
-        border-color: #999;
-        color: #999;
-    }
-
-.og-loading {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background: #ddd;
-    box-shadow: 0 0 1px #ccc, 15px 30px 1px #ccc, -15px 30px 1px #ccc;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin: -25px 0 0 -25px;
-    -webkit-animation: loader 0.5s infinite ease-in-out both;
-    -moz-animation: loader 0.5s infinite ease-in-out both;
-    animation: loader 0.5s infinite ease-in-out both;
-}
-
-@-webkit-keyframes loader {
-    0% {
-        background: #ddd;
-    }
-
-    33% {
-        background: #ccc;
-        box-shadow: 0 0 1px #ccc, 15px 30px 1px #ccc, -15px 30px 1px #ddd;
-    }
-
-    66% {
-        background: #ccc;
-        box-shadow: 0 0 1px #ccc, 15px 30px 1px #ddd, -15px 30px 1px #ccc;
-    }
-}
-
-@-moz-keyframes loader {
-    0% {
-        background: #ddd;
-    }
-
-    33% {
-        background: #ccc;
-        box-shadow: 0 0 1px #ccc, 15px 30px 1px #ccc, -15px 30px 1px #ddd;
-    }
-
-    66% {
-        background: #ccc;
-        box-shadow: 0 0 1px #ccc, 15px 30px 1px #ddd, -15px 30px 1px #ccc;
-    }
-}
-
-@keyframes loader {
-    0% {
-        background: #ddd;
-    }
-
-    33% {
-        background: #ccc;
-        box-shadow: 0 0 1px #ccc, 15px 30px 1px #ccc, -15px 30px 1px #ddd;
-    }
-
-    66% {
-        background: #ccc;
-        box-shadow: 0 0 1px #ccc, 15px 30px 1px #ddd, -15px 30px 1px #ccc;
-    }
-}
-
-@media screen and (max-width: 850px) {
-
-    .og-expander h3 {
-        font-size: 32px;
-    }
-
-    .og-expander p {
-        font-size: 13px;
-    }
-
-    .og-expander .og-a {
-        font-size: 12px;
-    }
-}
-
-@media screen and (max-width: 650px) {
-
-    .og-fullimg {
-        display: none;
-    }
-
-    .og-details {
-        float: none;
-        width: 100%;
-    }
-}
-
-
 .og-grid.fac .og-box {
     -webkit-box-shadow: 0px 9px 16px 1px rgba(50, 50, 50, 0.97);
     -moz-box-shadow: 0px 9px 16px 1px rgba(50, 50, 50, 0.97);
@@ -8594,130 +8603,6 @@ span.date {
 }
 /*</editor-fold>*/
 
-/**has Full view**/
-.has-full-view-content {
-    opacity: 0;
-    height: 0px;
-    width: 0px;
-}
-/*#Scroll
-================================================== */
-.ps-container .ps-scrollbar-x-rail {
-    position: absolute;
-    bottom: 3px;
-    height: 8px;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    border-radius: 4px;
-    opacity: 0;
-    filter: alpha(opacity=0);
-    -o-transition: background-color .2s linear,opacity .2s linear;
-    -webkit-transition: background-color .2s linear,opacity .2s linear;
-    -moz-transition: background-color .2s linear,opacity .2s linear;
-    transition: background-color .2s linear,opacity .2s linear;
-}
-
-    .ps-container .ps-scrollbar-x-rail:hover, .ps-container .ps-scrollbar-x-rail.hover {
-        background-color: #eee;
-        opacity: 0;
-        filter: alpha(opacity=0);
-    }
-
-    .ps-container .ps-scrollbar-x-rail.in-scrolling {
-        background-color: #eee;
-        opacity: .9;
-        filter: alpha(opacity=90);
-    }
-
-.ps-container:hover .ps-scrollbar-x-rail, .ps-container.hover .ps-scrollbar-x-rail {
-    opacity: 0;
-    filter: alpha(opacity=0);
-}
-
-.ps-container .ps-scrollbar-y-rail {
-    position: absolute;
-    right: 3px;
-    width: 8px;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    border-radius: 4px;
-    opacity: 0;
-    filter: alpha(opacity=0);
-    -o-transition: background-color .2s linear,opacity .2s linear;
-    -webkit-transition: background-color .2s linear,opacity .2s linear;
-    -moz-transition: background-color .2s linear,opacity .2s linear;
-    transition: background-color .2s linear,opacity .2s linear;
-}
-
-.ps-container .ps-scrollbar-y-rail, .ps-container.hover .ps-scrollbar-y-rail {
-    opacity: .6;
-    filter: alpha(opacity=60);
-}
-
-    .ps-container .ps-scrollbar-y-rail, .ps-container .ps-scrollbar-y-rail.hover {
-        background-color: #eee;
-        opacity: .9;
-        filter: alpha(opacity=90);
-        margin-top: 20px;
-    }
-
-        .ps-container .ps-scrollbar-y-rail.in-scrolling {
-            background-color: #eee;
-            opacity: .9;
-            filter: alpha(opacity=90);
-        }
-
-.ps-container .ps-scrollbar-x {
-    position: absolute;
-    bottom: 0;
-    height: 8px;
-    background-color: #aaa;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    border-radius: 4px;
-    -o-transition: background-color .2s linear;
-    -webkit-transition: background-color.2s linear;
-    -moz-transition: background-color .2s linear;
-    transition: background-color .2s linear;
-}
-
-.ps-container.ie6 .ps-scrollbar-x {
-    font-size: 0;
-}
-
-.ps-container .ps-scrollbar-x-rail:hover .ps-scrollbar-x, .ps-container .ps-scrollbar-x-rail.hover .ps-scrollbar-x {
-    background-color: #999;
-}
-
-.ps-container .ps-scrollbar-y {
-    position: absolute;
-    right: 0;
-    width: 8px;
-    background-color: #aaa;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    border-radius: 4px;
-    -o-transition: background-color .2s linear;
-    -webkit-transition: background-color.2s linear;
-    -moz-transition: background-color .2s linear;
-    transition: background-color .2s linear;
-}
-
-.ps-container.ie6 .ps-scrollbar-y {
-    font-size: 0;
-}
-
-.ps-container .ps-scrollbar-y-rail:hover .ps-scrollbar-y, .ps-container .ps-scrollbar-y-rail.hover .ps-scrollbar-y {
-    background-color: #999;
-}
-
-.ps-container.ie .ps-scrollbar-x, .ps-container.ie .ps-scrollbar-y {
-    visibility: hidden;
-}
-
-.ps-container.ie:hover .ps-scrollbar-x, .ps-container.ie:hover .ps-scrollbar-y, .ps-container.ie.hover .ps-scrollbar-x, .ps-container.ie.hover .ps-scrollbar-y {
-    visibility: visible;
-}
 
 /**from view.html**/
 /*CSS Document*/

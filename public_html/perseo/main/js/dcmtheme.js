@@ -3693,9 +3693,9 @@ function touch2Mouse(e) {
                             } else {
                                 o.onExpand();
                                 //mayra2
-                                $('.full-content').each(function () {
-                                    $(this).perfectScrollbar("update");
-                                });
+                                //$('.full-content').each(function () {
+                                //    $(this).perfectScrollbar("update");
+                                //});
                             }
                         }
                 );
@@ -4261,7 +4261,7 @@ $(function () {
     function t(e) {
         return "string" == typeof e ? parseInt(e, 10) : ~~e
     }
-    var o = { wheelSpeed: 1, wheelPropagation: !1, swipePropagation: !0, minScrollbarLength: null, maxScrollbarLength: null, useBothWheelAxes: !1, useKeyboard: !0, suppressScrollX: !1, suppressScrollY: !1, scrollXMarginOffset: 0, scrollYMarginOffset: 0, includePadding: !1 }, n = 0, r = function () {
+    var o = { wheelSpeed: 1, wheelPropagation: !1, swipePropagation: !1, minScrollbarLength: null, maxScrollbarLength: null, useBothWheelAxes: !1, useKeyboard: !0, suppressScrollX: !1, suppressScrollY: !1, scrollXMarginOffset: 0, scrollYMarginOffset: 0, includePadding: !1 }, n = 0, r = function () {
         var e = n++;
         return function (t) {
             var o = ".perfect-scrollbar-" + e;
@@ -4930,7 +4930,7 @@ $.Metro.initDropdowns();
                 }
 
                 //reiniciamos scrollbar
-                fullview.perfectScrollbar('update');
+                //fullview.perfectScrollbar('update');
                 fullview.scrollTop(0);
                 //apagamos nivo
                 var first_frame = $(fullview.find("[data-cont=cont0]"));
@@ -5523,9 +5523,9 @@ function onloadX() {
             $overlay.css('z-index', -1);
         });
     });
-    $('.full-content').each(function () {
-        $(this).perfectScrollbar();
-    });
+    //$('.full-content').each(function () {
+    //   // $(this).perfectScrollbar();
+    //});
     //container2 featuredcontainer clearfix 
     //noticies add pagination
     $(".noticiesWrap").parent().parent().parent().find(".taglib-page-iterator").css({ "margin-top": "30px" }).appendTo(".noticiesWrap .container2.featuredcontainer.clearfix");

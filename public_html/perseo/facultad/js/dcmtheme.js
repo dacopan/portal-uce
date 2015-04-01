@@ -3914,9 +3914,9 @@ function touch2Mouse(e) {
                             } else {
                                 o.onExpand();
                                 //mayra2
-                                $('.full-content').each(function () {
-                                    $(this).perfectScrollbar("update");
-                                });
+                                //$('.full-content').each(function () {
+                                //    $(this).perfectScrollbar("update");
+                                //});
                             }
                         }
                 );
@@ -5270,7 +5270,7 @@ $.Metro.initDropdowns();
                 }
 
                 //reiniciamos scrollbar
-                fullview.perfectScrollbar('update');
+                //fullview.perfectScrollbar('update');
                 fullview.scrollTop(0);
                 //apagamos nivo
                 var first_frame = $(fullview.find("[data-cont=cont0]"));
@@ -5647,9 +5647,9 @@ function onloadX() {
     });
 
     //scrollbar
-    $('.full-content').each(function () {
-        $(this).perfectScrollbar();
-    });
+    //$('.full-content').each(function () {
+    //    $(this).perfectScrollbar();
+    //});
 
     //docs issuu
     $(".posgrados .doc").each(function () {

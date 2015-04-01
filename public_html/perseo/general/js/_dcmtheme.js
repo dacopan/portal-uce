@@ -2672,9 +2672,9 @@ var METRO_DIALOG = false;
                             } else {
                                 o.onExpand();
                                 //mayra2
-                                $('.full-content').each(function () {
-                                    $(this).perfectScrollbar("update");
-                                });
+                                //$('.full-content').each(function () {
+                                //    $(this).perfectScrollbar("update");
+                                //});
                             }
                         }
                 );
@@ -4446,7 +4446,7 @@ $.Metro.initDropdowns();
                 }
 
                 //reiniciamos scrollbar
-                fullview.perfectScrollbar('update');
+                //fullview.perfectScrollbar('update');
                 fullview.scrollTop(0);
                 //apagamos nivo
                 var first_frame = $(fullview.find("[data-cont=cont0]"));
@@ -4780,9 +4780,9 @@ function onloadX() {
     });
 
     //scrollbar
-    $('.full-content').each(function () {
-        $(this).perfectScrollbar();
-    });
+    //$('.full-content').each(function () {
+    //    $(this).perfectScrollbar();
+    //});
 
     //noticies add pagination
     //$(".noticiesWrap").parent().parent().parent().find(".taglib-page-iterator").appendTo(".noticiesWrap");
