@@ -134,14 +134,6 @@
     z-index: 9;
 }
 
-span.date {
-    font-size: 11px;
-    line-height: 10px;
-    display: block;
-    opacity: .9;
-    font-weight: normal;
-    position: relative;
-}
 
     span.date a.bubble, span.date a.bubble:hover {
         position: absolute;
