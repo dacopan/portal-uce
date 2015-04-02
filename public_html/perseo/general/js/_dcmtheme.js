@@ -1,4 +1,4 @@
-var debug = false;
+var debug = false, allPortletsReady = false;
 
 //#region modernizer
 //<editor-fold defaultstate="collapsed" desc="modernizer">
@@ -4659,10 +4659,22 @@ $(window).load(function () {
     console.log("window on load eventx");
 });
 
-$(document).ready(function () {
-    console.log("document ready and Liferay is: " + typeof Liferay);
-    //from load
 
+if (isLocalHost) {
+    $(document).ready(function () {
+        console.log("document ready and Liferay is: " + typeof Liferay);
+        initx();
+    });
+} else {
+    $(document).ready(function () {
+        console.log("document ready and Liferay is: " + typeof Liferay);
+    });
+    Liferay.on('allPortletsReady', function () {
+        console.log("liferay allPortletsReady. iniciando initx");
+        initx();
+    });
+}
+function initx() {
     if (debug) {
         //mm-menu
         $('#mm-nav-content').appendTo('#dcmmenu');
@@ -4707,10 +4719,18 @@ $(document).ready(function () {
                         console.log("removiendo loader");
                         $('#loader').remove();
                         $('#loaderStyle').remove();
-                        
+
                         $("body").animate({
                             scrollTop: 1
-                        }, 1);                        
+                        }, 1);
+
+                        //scroll pagination
+                        if (window.location.search.indexOf("page=") > -1) {
+                            var q = $('.slide[data-slide="' + noti_slide_num + '"]').offset().top;
+                            $('body').animate({
+                                scrollTop: q
+                            }, 3000, 'easeInOutBack');
+                        }
                     }, 1300);
 
                 }
@@ -4718,24 +4738,7 @@ $(document).ready(function () {
         });
 
     }
-    //from load end
-
-    //liferay-user-login/admin    
-    if (typeof Liferay != 'undefined') {
-        console.log("liferay defined");
-        Liferay.on(
-    'allPortletsReady',
-    /*
-    This function gets loaded when everything, including the portlets, is on
-    the page.
-    */
-    function () {
-        console.log("liferay allPortletsReady.");
-    }
-    );
-    }
-
-});
+}
 
 function onloadX() {
 

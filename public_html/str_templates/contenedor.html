@@ -43,7 +43,7 @@
 </div>
                             #if (!$cont_id.getSiblings().isEmpty())
                             #foreach ($cur_content in $cont_id.getSiblings())
-<div class="slic" data-cont="$cur_content.menu_id.getData()">
+<div class="slic" data-cont="cont$cur_content.menu_id.getData()">
     #set ($webcontent=$journalContentUtil.getContent($group_id, $cur_content.getData(), "", "$locale", ""))
     $webcontent
 </div>

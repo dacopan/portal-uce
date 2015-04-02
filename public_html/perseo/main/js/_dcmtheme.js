@@ -1,4 +1,4 @@
-var debug = false, noti_slide_num=2;
+var debug = false, noti_slide_num = 2, allPortletsReady = false;
 
 //#region modernizer
 //<editor-fold  defaultstate="collapsed" desc="modernizer"> #region modernizer
@@ -3190,7 +3190,7 @@ var NoticiasFull = (function () {
     }
 
     return { init: init };
-})();
+});
 //</editor-fold>
 //#endregion 
 
@@ -5261,7 +5261,7 @@ var ClubFull = (function () {
     }
 
     return { init: init };
-})();
+});//();
 //</editor-fold>
 //#endregion 
 
@@ -5269,10 +5269,29 @@ $(window).load(function () {
     console.log("window on load eventx");
 });
 
-$(document).ready(function () {
-    console.log("document ready and Liferay is: " + typeof Liferay);
-    //from load
-   
+
+if (isLocalHost) {
+    $(document).ready(function () {
+        console.log("document ready and Liferay is: " + typeof Liferay);
+        initx();
+    });
+} else {
+    $(document).ready(function () {
+        console.log("document ready and Liferay is: " + typeof Liferay);
+    });
+    Liferay.on(
+    'allPortletsReady',
+    /*
+    This function gets loaded when everything, including the portlets, is on
+    the page.
+    */
+    function () {
+        console.log("liferay allPortletsReady. iniciando initx");
+        initx();
+    }
+    );
+}
+function initx() {
     if (debug) {
         //mm-menu
         $('#mm-nav-content').appendTo('#dcmmenu');
@@ -5342,29 +5361,11 @@ $(document).ready(function () {
         });
 
     }
-    //from load end
-
-    //liferay-user-login/admin    
-    if (typeof Liferay != 'undefined') {
-        console.log("liferay defined");
-        Liferay.on(
-    'allPortletsReady',
-    /*
-    This function gets loaded when everything, including the portlets, is on
-    the page.
-    */
-    function () {
-        console.log("liferay allPortletsReady.");
-    }
-    );
-    }
-
-});
-
+}
 function onloadX() {
 
-    NoticiasFull.init();
-    ClubFull.init();
+    NoticiasFull().init();
+    ClubFull().init();
     //featured isotope
     var $container3 = jQuery('div.isofeatured');
     if ($container3.length) {
