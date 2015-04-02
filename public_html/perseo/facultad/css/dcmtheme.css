@@ -4167,8 +4167,9 @@ html.mm-opening #hamburger:after {
     padding-left: 0px;
     padding-right: 0px;
 }
+
 .aui #hrefFm {
-margin: 0;
+    margin: 0;
 }
 /* #Metro copy&paste
 ================================================== */
@@ -7754,6 +7755,7 @@ html > body .metro .sidebar a.dropdown-toggle:after {
 .rb-overlay span.date {
     text-align: right;
 }
+
 span.date {
     font-size: 11px;
     line-height: 10px;
@@ -7910,22 +7912,23 @@ span.date {
 ::-webkit-scrollbar {
     height: 18px;
     width: 10px;
-    background-color:rgba(0,0,0,.3);
+    background-color: rgba(0,0,0,.3);
     border-radius: 9px;
 }
+
     ::-webkit-scrollbar:hover {
-    background-color:rgba(0,0,0,.5);
+        background-color: rgba(0,0,0,.5);
     }
 
     ::-webkit-scrollbar:disabled {
         display: none;
     }
 
-::-webkit-scrollbar-button,::-webkit-scrollbar-corner,::-webkit-scrollbar-track-piece {
-    display:none;
-    background-color:transparent;
+::-webkit-scrollbar-button, ::-webkit-scrollbar-corner, ::-webkit-scrollbar-track-piece {
+    display: none;
+    background-color: transparent;
 }
-    
+
 
 ::-webkit-scrollbar-track {
     border-radius: 9px;
@@ -7934,7 +7937,6 @@ span.date {
 ::-webkit-scrollbar-thumb {
     border-radius: 9px;
     background-color: rgba(0,0,0,.4);
-    
 }
 
     ::-webkit-scrollbar-thumb:vertical {
@@ -7945,12 +7947,36 @@ span.date {
         min-width: 50px;
     }
 
-    ::-webkit-scrollbar-thumb:hover {                
-        background-color: rgba(0,0,0,.5)
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: rgba(0,0,0,.5);
     }
 
 ::-webkit-scrollbar-corner {
     background-color: blue;
+}
+/*#endregion*/
+/*#region slide collapse*/
+.metro .slidecollapse .panel-header {
+    text-align: center;
+}
+
+.metro [data-role=panel] .panel-header:after {
+    display: none;
+}
+
+.metro .slidecollapse .panel-header .stat:after {
+    /*content: "\f138";*/
+    content: "\f078";
+}
+
+.metro .slidecollapse.collapsed .panel-header .stat:after {
+    /*content: "\f13a";*/
+    content: "\f054";
+}
+
+.metro .slidecollapse .contentwrap {
+    max-width: 1064px;
+    text-align: justify;
 }
 /*#endregion*/
 /*# transition
@@ -8015,9 +8041,6 @@ span.date {
     width: 90%;
     margin: auto;
 }
-
-
-
 /* #Vacordion
 ================================================== */
 /*<editor-fold defaultstate="collapsed" desc="Vacordion">*/
@@ -9244,7 +9267,7 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
     width: 140px !important;
     height: 105px;
     font-family: "Segoe UI Light_","Open Sans Light",Verdana,Arial,Helvetica,sans-serif;
-    font-size: 21px;
+    font-size: 20px;
     font-weight: normal;
     color: white;
     padding-left: 5px;
@@ -9696,17 +9719,12 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
 /*#endregion
     </editor-fold>*/
 
-
 .clclc {
     background-color: #a28f23;
 }
 
 .grayx {
     background-color: #dedede;
-}
-
-.metro span, .aui span {
-    font-family: "Segoe UI Light_","Open Sans Light",Verdana,Arial,Helvetica,sans-serif;
 }
 
 .clear {

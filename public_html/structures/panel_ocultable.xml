@@ -1,0 +1,54 @@
+<root available-locales="es_ES" default-locale="es_ES">
+  <dynamic-element dataType="string" indexType="keyword" name="background" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
+    <meta-data locale="es_ES">
+      <entry name="label">
+        <![CDATA[Background Image o color]]>
+      </entry>
+      <entry name="predefinedValue">
+        <![CDATA[background-color: #dedede;]]>
+      </entry>
+      <entry name="tip">
+        <![CDATA[{background-color:#XXYYZZ;} o {background-image:url(http://aka-cdn.uce.edu.ec/atenea/perseo/XXX/YY.jpg);} sin {} no png;)]]>
+      </entry>
+    </meta-data>
+  </dynamic-element>
+  <dynamic-element dataType="string" indexType="keyword" name="title" readOnly="false" repeatable="false" required="false" showLabel="true" type="text" width="small">
+    <dynamic-element dataType="string" indexType="keyword" name="background_title" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
+      <meta-data locale="es_ES">
+        <entry name="label">
+          <![CDATA[Background Image o color]]>
+        </entry>
+        <entry name="predefinedValue">
+          <![CDATA[]]>
+        </entry>
+        <entry name="tip">
+          <![CDATA[{background-color:#XXYYZZ;} o {background-image:url(http://aka-cdn.uce.edu.ec/atenea/perseo/XXX/YY.jpg);} sin {} no png;)]]>
+        </entry>
+      </meta-data>
+    </dynamic-element>
+    <meta-data locale="es_ES">
+      <entry name="label">
+        <![CDATA[título]]>
+      </entry>
+      <entry name="predefinedValue">
+        <![CDATA[]]>
+      </entry>
+      <entry name="tip">
+        <![CDATA[Título del panel]]>
+      </entry>
+    </meta-data>
+  </dynamic-element>
+  <dynamic-element dataType="html" fieldNamespace="ddm" indexType="keyword" name="content" readOnly="false" repeatable="false" required="false" showLabel="true" type="ddm-text-html" width="small">
+    <meta-data locale="es_ES">
+      <entry name="label">
+        <![CDATA[Contenido]]>
+      </entry>
+      <entry name="predefinedValue">
+        <![CDATA[]]>
+      </entry>
+      <entry name="tip">
+        <![CDATA[Contenido del panel]]>
+      </entry>
+    </meta-data>
+  </dynamic-element>
+</root>
