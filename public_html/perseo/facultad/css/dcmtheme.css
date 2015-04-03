@@ -9417,7 +9417,7 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
             width: -webkit-calc(100% + 10px);
             width: calc(100% + 10px);
             height: -webkit-calc(100% + 10px);
-            height: calc(100% + 10px);            
+            height: calc(100% + 10px);
             opacity: 0.9;
             -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
             transition: opacity 0.35s, transform 0.35s;
@@ -9425,7 +9425,6 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
             transform: translate3d(10px,10px,0);
             -webkit-backface-visibility: hidden;
             backface-visibility: hidden;
-            
         }
 
         .noticies .noticeX .figcaption {
@@ -9556,7 +9555,7 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
     /* padding: 27px; */
     display: block;
     vertical-align: middle;
-    line-height: 80px;
+    /*line-height: 80px;*/
     position: relative;
     /* overflow: hidden; */
 }
@@ -9564,6 +9563,10 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
 .metro .links li {
     padding: 0px;
     margin-bottom: 0px;
+}
+
+.metro .links a > i {
+  line-height: 82px;
 }
 
 .metro .links .og-grid {

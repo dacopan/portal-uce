@@ -5398,21 +5398,32 @@ $(window).load(function () {
     console.log("window on load eventx");
 });
 
-
 if (isLocalHost) {
-    $(document).ready(function () {
-        console.log("document ready and Liferay is: " + typeof Liferay);
+    if ($(".slide").length > 0) {
+        console.log("slides > 0; --> initx()");
         initx();
-    });
+    } else {
+
+        console.log("slides <= 0; initx on liferay allPortletsReady");
+        $(document).ready(function () {
+            console.log("document ready");
+            initx();
+        });
+    }
 } else {
-    $(document).ready(function () {
-        console.log("document ready and Liferay is: " + typeof Liferay);
-    });
-    Liferay.on('allPortletsReady', function () {
-        console.log("liferay allPortletsReady. iniciando initx");
+    if ($(".slide").length > 0) {
+        console.log("slides > 0; --> initx()");
         initx();
-    });
+    } else {
+        console.log("slides <= 0; initx on liferay allPortletsReady");
+        Liferay.on('allPortletsReady', function () {
+            console.log("liferay allPortletsReady. iniciando initx");
+            initx();
+        });
+    }
+
 }
+
 function initx() {
     if (debug) {
         //mm-menu

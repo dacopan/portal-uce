@@ -1,4 +1,4 @@
-var debug = false, noti_slide_num = 2, allPortletsReady = false;
+var debug = false, noti_slide_num = 2;
 
 //#region modernizer
 //<editor-fold  defaultstate="collapsed" desc="modernizer"> #region modernizer
@@ -5271,26 +5271,31 @@ $(window).load(function () {
 
 
 if (isLocalHost) {
-    $(document).ready(function () {
-        console.log("document ready and Liferay is: " + typeof Liferay);
+    if ($(".slide").length > 0) {
+        console.log("slides > 0; --> initx()");
         initx();
-    });
-} else {
-    $(document).ready(function () {
-        console.log("document ready and Liferay is: " + typeof Liferay);
-    });
-    Liferay.on(
-    'allPortletsReady',
-    /*
-    This function gets loaded when everything, including the portlets, is on
-    the page.
-    */
-    function () {
-        console.log("liferay allPortletsReady. iniciando initx");
-        initx();
+    } else {
+
+        console.log("slides <= 0; initx on liferay allPortletsReady");
+        $(document).ready(function () {
+            console.log("document ready");
+            initx();
+        });
     }
-    );
+} else {
+    if ($(".slide").length > 0) {
+        console.log("slides > 0; --> initx()");
+        initx();
+    } else {
+        console.log("slides <= 0; initx on liferay allPortletsReady");
+        Liferay.on('allPortletsReady', function () {
+            console.log("liferay allPortletsReady. iniciando initx");
+            initx();
+        });
+    }
+
 }
+
 function initx() {
     if (debug) {
         //mm-menu
@@ -5362,6 +5367,7 @@ function initx() {
 
     }
 }
+
 function onloadX() {
 
     NoticiasFull().init();
@@ -5652,4 +5658,4 @@ function isMobileBrowser() {
     return debug || (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
 }
 //youutube thumbail http://img.youtube.com/vi/qx89ylJyeKU/0.jpg
-console.log("dcmtheme read and execute; and Liferay is: " + typeof Liferay);
+console.log("dcmtheme read and execute; and porlets: " + typeof Liferay.allPortletsReady);
