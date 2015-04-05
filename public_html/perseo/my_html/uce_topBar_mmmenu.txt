@@ -2,9 +2,7 @@
     <span class="todayX fg-yellow no-phones" style="font-size: 80%;margin-left: 80px;">
         Miércoles 01/09/2014
     </span>
-    <a id="hamburger" class="" href="#dcmmenu"><span></span></a>
-    <!--<a class="fg-white" data-hint="x|y" href="#user"><i class="icon-user"></i></a>-->
-    <!--<a class="fg-white" href="#radio" id="radiox"><i class="icon-microphone"></i></a>-->
+    <a id="hamburger" class="" href="#dcmmenu"><span></span></a>       
 	<a class="fg-white" data-hint="x|y" href="#user"><i class="fa fa-book"></i></a>
     <a class="fg-white has-full-view" href="#full-view-01">
         <i class="icon-bookx img-cover" style="background-image:url(http://aka-cdn.uce.edu.ec/ares/perseo/my_html/images/tmp/icono_sello.png);width: 33px;height: 33px;margin-top: -5px;"></i>

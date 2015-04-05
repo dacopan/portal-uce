@@ -46,10 +46,8 @@
 
     
 </head>
-<body class="$css_class container-fluid metro" style="background-color:#fff;">
-    <a href="#main-content" id="skip-to-content">#language ("skip-to-content")</a>
+<body class="$css_class container-fluid metro" style="background-color:#fff;">    
     $theme.include($body_top_include)
-
 	<div id="loader" style="">
         <div id="loader2" class="" style="">
             <div id="div1">
