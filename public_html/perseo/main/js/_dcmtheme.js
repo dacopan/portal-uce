@@ -5265,109 +5265,35 @@ var ClubFull = (function () {
 //</editor-fold>
 //#endregion 
 
-$(window).load(function () {
-    console.log("window on load eventx");
-});
+//$(window).load(function () {
 
+//});
 
-if (isLocalHost) {
-    if ($(".slide").length > 0) {
-        console.log("slides > 0; --> initx()");
-        initx();
-    } else {
+//if (isLocalHost) {
+//    if ($(".slide").length > 0) {
+//        console.log("slides > 0; --> initx()");
+//        initx();
+//    } else {
 
-        console.log("slides <= 0; initx on liferay allPortletsReady");
-        $(document).ready(function () {
-            console.log("document ready");
-            initx();
-        });
-    }
-} else {
-    if ($(".slide").length > 0) {
-        console.log("slides > 0; --> initx()");
-        initx();
-    } else {
-        console.log("slides <= 0; initx on liferay allPortletsReady");
-        Liferay.on('allPortletsReady', function () {
-            console.log("liferay allPortletsReady. iniciando initx");
-            initx();
-        });
-    }
+//        console.log("slides <= 0; initx on liferay allPortletsReady");
+//        $(document).ready(function () {
+//            console.log("document ready");
+//            initx();
+//        });
+//    }
+//} else {
+//    if ($(".slide").length > 0) {
+//        console.log("slides > 0; --> initx()");
+//        initx();
+//    } else {
+//        console.log("slides <= 0; initx on liferay allPortletsReady");
+//        Liferay.on('allPortletsReady', function () {
+//            console.log("liferay allPortletsReady. iniciando initx");
+//            initx();
+//        });
+//    }
 
-}
-
-function initx() {
-    if (debug) {
-        //mm-menu
-        $('#mm-nav-content').appendTo('#dcmmenu');
-        $("#dcmmenu").mmenu({
-            classes: "mm-slide"
-        });
-        innerNavigate();
-    } else {
-        ///*
-        var loadsx = $('[data-load]');
-        var len = loadsx.length;
-        loadsx.each(function (index, element) {
-            var urix = $(this).data("load");
-            console.log("load start:" + urix);
-            $(this).load(urix, function (response, status, xhr) {
-                len = len - 1;
-                console.log("load finish:" + urix + ";  -->" + xhr.status + " " + xhr.statusText + " len:" + len);
-                if (len == 0) {
-                    console.log("loads terminados");
-                    console.log("mm-menu creando");
-
-                    //mm-menu
-                    $('#mm-nav-content').appendTo('#dcmmenu');
-                    $('#loader').appendTo('#dcmmenu');
-                    $("#dcmmenu").mmenu({
-                        classes: "mm-slide"
-                    });
-
-                    console.log("mm-menu creado");
-
-                    $('#dcmmenu').before($('#loader'));
-                    $('#loader').addClass('animated bounceOutUp');
-
-                    console.log("iniciando onloadX");
-
-                    onloadX();
-
-                    console.log("fin onloadX");
-
-
-                    setTimeout(function () {
-                        console.log("removiendo loader");
-                        $('#loader').remove();
-                        $('#loaderStyle').remove();
-
-                        console.log("iniciando innerNavigate");
-
-                        innerNavigate();
-
-                        console.log("fin  innerNavigate");
-
-                        $("body").animate({
-                            scrollTop: 1
-                        }, 1);
-
-                        //scroll pagination
-                        if (window.location.search.indexOf("page=") > -1) {
-                            var q = $('.slide[data-slide="' + noti_slide_num + '"]').offset().top;
-                            $('body').animate({
-                                scrollTop: q
-                            }, 3000, 'easeInOutBack');
-                        }
-                    }, 1300);
-
-                }
-            });
-        });
-
-    }
-}
-
+//}
 function onloadX() {
 
     NoticiasFull().init();
@@ -5458,7 +5384,7 @@ function onloadX() {
         $('.og-grid.fac img').each(function () {
             $(this).addClass("oculto").viewportChecker({
                 classToAdd: 'visible scale',
-                offset: 100,
+                offset: 70,
                 repeat: false
             });
         });
@@ -5467,7 +5393,7 @@ function onloadX() {
         $('.noticiesWrap .container2').addClass("oculto").each(function () {
             $(this).viewportChecker({
                 classToAdd: 'visible animated fadeInUpBig',
-                offset: 100,
+                offset: 70,
                 repeat: false
             });
         });
@@ -5476,7 +5402,7 @@ function onloadX() {
         $('.direcWrap .og-grid').each(function () {
             $(this).addClass("oculto").viewportChecker({
                 classToAdd: 'visible animated bounceInRight',
-                offset: 100,
+                offset: 70,
                 repeat: false
             });
         });
@@ -5485,7 +5411,7 @@ function onloadX() {
         $('.slide h1.adequate').each(function () {
             $(this).addClass("oculto").viewportChecker({
                 classToAdd: 'visible animated boingInUp',
-                offset: 250,
+                offset: 80,
                 repeat: false
             });
         });
@@ -5496,19 +5422,19 @@ function onloadX() {
             if (i < 2)
                 $(this).addClass("oculto").viewportChecker({
                     classToAdd: 'visible animated fadeInLeftBig',
-                    offset: 100,
+                    offset: 60,
                     repeat: false
                 });
             else if (i > 2)
                 $(this).addClass("oculto").viewportChecker({
                     classToAdd: 'visible animated fadeInRightBig',
-                    offset: 100,
+                    offset: 60,
                     repeat: false
                 });
             else
                 $(this).addClass("oculto").viewportChecker({
                     classToAdd: 'visible animated fadeInUpBig',
-                    offset: 100,
+                    offset: 60,
                     repeat: false
                 });
         });
@@ -5516,7 +5442,7 @@ function onloadX() {
         $('.contentwrap .linksWrap').addClass("oculto").each(function () {
             $(this).viewportChecker({
                 classToAdd: 'visible animated fadeInUpBig',
-                offset: 120,
+                offset: 60,
                 repeat: false
             });
         });
@@ -5524,14 +5450,14 @@ function onloadX() {
         $('.footer .contentwrap').addClass("oculto").each(function () {
             $(this).viewportChecker({
                 classToAdd: 'visible animated fadeInUpBig',
-                offset: 120,
+                offset: 60,
                 repeat: false
             });
         });
         $('.footer .contentwrap .mapax').addClass("oculto").each(function () {
             $(this).viewportChecker({
                 classToAdd: 'visible animated bounceInRight',
-                offset: 120,
+                offset: 60,
                 repeat: false
             });
         });
@@ -5570,92 +5496,6 @@ function onloadX() {
     }
     //*/    
 }
-/* #innerNavigate
- ================================================== */
-//#region 
-//<editor-fold  defaultstate="collapsed" desc="innerNavigate">
-//Create a function that will be passed a slide number and then will scroll to that slide using jquerys animate. The Jquery
-//easing plugin is also used, so we passed in the easing method of 'easeInOutQuint' which is available throught the plugin.
-function goToByScroll(dataslide) {
-    //alert(dataslide);
-    var htmlbody = $('html,body');
-    var q = $('.slide[data-slide="' + dataslide + '"]').offset().top - 45;
-    htmlbody.animate({
-        scrollTop: q
-    }, 2500, 'easeInOutBack');
-    q = htmlbody = null;
-}
-function innerNavigate() {
-    //  /*
-    var links = $('a.toSlide'),
-            button = $('.scrollbut');
 
-    //When the user clicks on the navigation links, get the data-slide attribute value of the link and pass that variable to the goToByScroll function
-    links.click(function (e) {
-        e.preventDefault();
-        $('#dcmmenu').trigger('close.mm');
-        var dataslide = $(this).attr('data-slide'); //alert(dataslide);
-        goToByScroll(dataslide);
-        return false;
-    });
-    links = null;
-    //When the user clicks on the button, get the get the data-slide attribute value of the button and pass that variable to the goToByScroll function
-    button.click(function (e) {
-        e.preventDefault();
-        var dataslide = $(this).attr('data-slide');
-        goToByScroll(dataslide);
-        dataslide = null;
-    });
-    button = null;
-    //  TweenMax.to($("#navBar"), 1.5, {delay: 0.2, scaleX: "-=0.02", scaleY: "-=0.02", repeat: -1, yoyo: true, ease: Linear.easeNone});
-    //  TweenMax.to($(".one_col"), 1.5, {delay: 0.2, scaleX: "-=0.02", scaleY: "-=0.02", repeat: -1, yoyo: true, ease: Linear.easeNone});                                                                                                                                
-    //  var scene = document.getElementById('scene');
-    //var parallax = new Parallax(scene);
-}
-//</editor-fold>
-//#endregion 
-
-
-
-///////////////////////////////
-// Parallax
-///////////////////////////////
-$(window).scroll(function () {
-    ///*
-    var y_scroll_pos = window.pageYOffset;
-    var scroll_pos_test = 50;
-    if (y_scroll_pos > scroll_pos_test) {
-        jQuery('.top').fadeIn(1000);
-        //        jQuery('.iphone').children('.top').css('display', 'none !important');
-    } else {
-        jQuery('.top').fadeOut(500);
-    }
-    y_scroll_pos = scroll_pos_test = null;
-    //headerPosition();
-    //*/
-
-
-    //parrallax
-    /*
-     var scrollPos = $(this).scrollTop();
-     
-     var elemx = $('#slide4 .img-cover');
-     //Scroll the background of the banner
-     elemx.css({
-     'background-position': 'center ' + ((scrollPos - elemx.offset().top) / 3) + "px"
-     });
-     scrollPos = elemx = null;
-     
-     // */
-});
-jQuery('.top').click(function () {
-    jQuery('html, body').animate({ scrollTop: 0 }, 1000, 'easeOutCubic'); //return false;
-});
-
-//hover_overlay();
-
-function isMobileBrowser() {
-    return debug || (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
-}
 //youutube thumbail http://img.youtube.com/vi/qx89ylJyeKU/0.jpg
 console.log("dcmtheme read and execute; and porlets: " + typeof Liferay.allPortletsReady);

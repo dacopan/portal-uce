@@ -16,17 +16,192 @@ var isLocalHost = false;
 });
 //#endregion
 
+if (typeof Liferay === 'undefined' && window.location.href.indexOf("public_html") > -1) {
+    isLocalHost = true;
+    console.log("mode HTML: on");
+    var Liferay = {
+        ThemeDisplay: {
+            getLayoutId: function () { return "1" }, getLayoutURL: function () { return "http://www.uce.edu.ec/web/guest/home" },
+            getPortalURL: function () { return "http://www.uce.edu.ec" }
+        },
+        on: function (A, G) {
 
-$(document).ready(function () {
+        }
+    };
+}
 
+$(window).load(function () {
+    console.log("window on load eventx");
+    initx();
+    createSharex();
+});
+
+function initx() {
+    var loadsx = $('[data-load]');
+    var len = loadsx.length;
+    loadsx.each(function (index, element) {
+        var that = $(this);
+        var urix = that.data("load");
+        console.log("load start:" + urix);
+
+        $.ajax({
+            type: "get",
+            url: urix,
+            contentType: 'text/plain',
+            success: function (data, textStatus, xhr) {
+                that.html(data);
+                that = null;
+                len = len - 1;
+                console.log("load finish:" + urix + ";  -->" + xhr.status + " " + xhr.statusText + " len:" + len);
+                if (len == 0) {
+                    console.log("loads terminados");
+                    console.log("mm-menu creando");
+
+                    //mm-menu
+                    $('#mm-nav-content').appendTo('#dcmmenu');
+                    $('#loader').appendTo('#dcmmenu');
+                    $("#dcmmenu").mmenu({
+                        classes: "mm-slide"
+                    });
+
+                    console.log("mm-menu creado");
+
+                    $('#dcmmenu').before($('#loader'));
+                    $('#loader').addClass('animated bounceOutUp');
+
+                    console.log("iniciando onloadX");
+
+                    onloadX();
+
+                    console.log("fin onloadX");
+
+
+                    setTimeout(function () {
+                        console.log("removiendo loader");
+                        $('#loader').remove();
+                        $('#loaderStyle').remove();
+
+                        console.log("iniciando innerNavigate");
+
+                        innerNavigate();
+
+                        console.log("fin  innerNavigate");
+
+                        $("body").animate({
+                            scrollTop: 1
+                        }, 1);
+
+                        //scroll pagination
+                        if (window.location.search.indexOf("page=") > -1) {
+                            var q = $('.slide[data-slide="' + noti_slide_num + '"]').offset().top;
+                            $('body').animate({
+                                scrollTop: q
+                            }, 3000, 'easeInOutBack');
+                        }
+                    }, 1300);
+
+                }
+            },
+            error: function (xhr, textStatus, errorThrown) {
+                len = len - 1;
+                console.log("load finish:" + urix + ";  -->" + xhr.status + " " + xhr.statusText + " : " + errorThrown + " len:" + len);
+            }
+        });
+    });
+
+
+}
+
+//#region innerNavigate
+//<editor-fold  defaultstate="collapsed" desc="innerNavigate">
+//Create a function that will be passed a slide number and then will scroll to that slide using jquerys animate. The Jquery
+//easing plugin is also used, so we passed in the easing method of 'easeInOutQuint' which is available throught the plugin.
+function goToByScroll(dataslide) {
+    //alert(dataslide);
+    var htmlbody = $('html,body');
+    var q = $('.slide[data-slide="' + dataslide + '"]').offset().top - 45;
+    htmlbody.animate({
+        scrollTop: q
+    }, 2500, 'easeInOutBack');
+    q = htmlbody = null;
+}
+function innerNavigate() {
+    //  /*
+    var links = $('a.toSlide'),
+            button = $('.scrollbut');
+    if (links.length > 0) {
+        //When the user clicks on the navigation links, get the data-slide attribute value of the link and pass that variable to the goToByScroll function
+        links.click(function (e) {
+            e.preventDefault();
+            $('#dcmmenu').trigger('close.mm');
+            var dataslide = $(this).attr('data-slide'); //alert(dataslide);
+            goToByScroll(dataslide);
+            return false;
+        });
+        links = null;
+        //When the user clicks on the button, get the get the data-slide attribute value of the button and pass that variable to the goToByScroll function
+        button.click(function (e) {
+            e.preventDefault();
+            var dataslide = $(this).attr('data-slide');
+            goToByScroll(dataslide);
+            dataslide = null;
+        });
+        button = null;
+        //  TweenMax.to($("#navBar"), 1.5, {delay: 0.2, scaleX: "-=0.02", scaleY: "-=0.02", repeat: -1, yoyo: true, ease: Linear.easeNone});
+        //  TweenMax.to($(".one_col"), 1.5, {delay: 0.2, scaleX: "-=0.02", scaleY: "-=0.02", repeat: -1, yoyo: true, ease: Linear.easeNone});                                                                                                                                
+        //  var scene = document.getElementById('scene');
+        //var parallax = new Parallax(scene);
+    }
+}
+//</editor-fold>
+//#endregion 
+
+//#region scroll top
+$(window).scroll(function () {
+    ///*
+    var y_scroll_pos = window.pageYOffset;
+    var scroll_pos_test = 50;
+    if (y_scroll_pos > scroll_pos_test) {
+        jQuery('.top').fadeIn(1000);
+        //        jQuery('.iphone').children('.top').css('display', 'none !important');
+    } else {
+        jQuery('.top').fadeOut(500);
+    }
+    y_scroll_pos = scroll_pos_test = null;
+    //headerPosition();
+    //*/
+
+
+    //parrallax
+    /*
+     var scrollPos = $(this).scrollTop();
+     
+     var elemx = $('#slide4 .img-cover');
+     //Scroll the background of the banner
+     elemx.css({
+     'background-position': 'center ' + ((scrollPos - elemx.offset().top) / 3) + "px"
+     });
+     scrollPos = elemx = null;
+     
+     // */
+});
+jQuery('.top').click(function () {
+    jQuery('html, body').animate({ scrollTop: 0 }, 1000, 'easeOutCubic'); //return false;
+});
+//#endregion
+
+function isMobileBrowser() {
+    return debug || (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
+}
+
+function createSharex() {
     $('[data-role=sharex]').each(function () {
 
         var that = $(this);
         fixedUrls(that);
         that = null;
     });
-
-});
+}
 
 function fixedUrls(that) {
     var reg = /.*\/.*\//g;
@@ -72,19 +247,7 @@ function fixedUrls(that) {
     portal = icox = t1 = t2 = t3 = f1 = service = reg = qq = that = null;
 }
 
-if (typeof Liferay === 'undefined' && window.location.href.indexOf("public_html") > -1) {
-    isLocalHost = true;
-    console.log("mode HTML: on");
-    var Liferay = {
-        ThemeDisplay: {
-            getLayoutId: function () { return "1" }, getLayoutURL: function () { return "http://www.uce.edu.ec/web/guest/home" },
-            getPortalURL: function () { return "http://www.uce.edu.ec" }
-        },
-        on: function (A, G) {
 
-        }
-    };
-}
 ///#source 1 1 /public_html/perseo/facultad/js/_dcmtheme.js
 var debug = false, noti_slide_num = 5, allPortletsReady = false;
 
@@ -5486,103 +5649,31 @@ $(window).load(function () {
     console.log("window on load eventx");
 });
 
-if (isLocalHost) {
-    if ($(".slide").length > 0) {
-        console.log("slides > 0; --> initx()");
-        initx();
-    } else {
+//if (isLocalHost) {
+//    if ($(".slide").length > 0) {
+//        console.log("slides > 0; --> initx()");
+//        initx();
+//    } else {
 
-        console.log("slides <= 0; initx on liferay allPortletsReady");
-        $(document).ready(function () {
-            console.log("document ready");
-            initx();
-        });
-    }
-} else {
-    if ($(".slide").length > 0) {
-        console.log("slides > 0; --> initx()");
-        initx();
-    } else {
-        console.log("slides <= 0; initx on liferay allPortletsReady");
-        Liferay.on('allPortletsReady', function () {
-            console.log("liferay allPortletsReady. iniciando initx");
-            initx();
-        });
-    }
+//        console.log("slides <= 0; initx on liferay allPortletsReady");
+//        $(document).ready(function () {
+//            console.log("document ready");
+//            initx();
+//        });
+//    }
+//} else {
+//    if ($(".slide").length > 0) {
+//        console.log("slides > 0; --> initx()");
+//        initx();
+//    } else {
+//        console.log("slides <= 0; initx on liferay allPortletsReady");
+//        Liferay.on('allPortletsReady', function () {
+//            console.log("liferay allPortletsReady. iniciando initx");
+//            initx();
+//        });
+//    }
 
-}
-
-function initx() {
-    if (debug) {
-        //mm-menu
-        $('#mm-nav-content').appendTo('#dcmmenu');
-        $("#dcmmenu").mmenu({
-            classes: "mm-slide"
-        });
-        innerNavigate();
-    } else {
-        ///*
-        var loadsx = $('[data-load]');
-        var len = loadsx.length;
-        loadsx.each(function (index, element) {
-            var urix = $(this).data("load");
-            console.log("load start:" + urix);
-            $(this).load(urix, function (response, status, xhr) {
-                len = len - 1;
-                console.log("load finish:" + urix + ";  -->" + xhr.status + " " + xhr.statusText + " len:" + len);
-                if (len == 0) {
-                    console.log("loads terminados");
-                    console.log("mm-menu creando");
-
-                    //mm-menu
-                    $('#mm-nav-content').appendTo('#dcmmenu');
-                    $('#loader').appendTo('#dcmmenu');
-                    $("#dcmmenu").mmenu({
-                        classes: "mm-slide"
-                    });
-
-                    console.log("mm-menu creado");
-
-                    $('#dcmmenu').before($('#loader'));
-                    $('#loader').addClass('animated bounceOutUp');
-
-                    console.log("iniciando onloadX");
-
-                    onloadX();
-
-                    console.log("fin onloadX");
-
-
-                    setTimeout(function () {
-                        console.log("removiendo loader");
-                        $('#loader').remove();
-                        $('#loaderStyle').remove();
-
-                        console.log("iniciando innerNavigate");
-
-                        innerNavigate();
-
-                        console.log("fin  innerNavigate");
-
-                        $("body").animate({
-                            scrollTop: 1
-                        }, 1);
-
-                        //scroll pagination
-                        if (window.location.search.indexOf("page=") > -1) {
-                            var q = $('.slide[data-slide="' + noti_slide_num + '"]').offset().top;
-                            $('body').animate({
-                                scrollTop: q
-                            }, 3000, 'easeInOutBack');
-                        }
-                    }, 1300);
-
-                }
-            });
-        });
-
-    }
-}
+//}
 
 function onloadX() {
 
@@ -5807,108 +5898,5 @@ function onloadX() {
 
     }
     //*/    
-}
-
-/* #Radial menu
- ================================================== */
-//#region 
-//<editor-fold defaultstate="collapsed" desc="radial menu">
-
-//</editor-fold>
-//#endregion 
-
-
-/* #innerNavigate
- ================================================== */
-//#region 
-//<editor-fold defaultstate="collapsed" desc="innerNavigate">
-//Create a function that will be passed a slide number and then will scroll to that slide using jquerys animate. The Jquery
-//easing plugin is also used, so we passed in the easing method of 'easeInOutQuint' which is available throught the plugin.
-function goToByScroll(dataslide) {
-    //alert(dataslide);
-    var htmlbody = $('html,body');
-    var q = $('.slide[data-slide="' + dataslide + '"]').offset().top - 45;
-    htmlbody.animate({
-        scrollTop: q
-    }, 2500, 'easeInOutBack');
-    q = htmlbody = null;
-}
-function innerNavigate() {
-    //  /*
-    var links = $('a.toSlide'),
-            button = $('.scrollbut');
-
-    //When the user clicks on the navigation links, get the data-slide attribute value of the link and pass that variable to the goToByScroll function
-    links.click(function (e) {
-        e.preventDefault();
-        $('#dcmmenu').trigger('close.mm');
-        var dataslide = $(this).attr('data-slide'); //alert(dataslide);
-        goToByScroll(dataslide);
-        return false;
-    });
-    links = null;
-    //When the user clicks on the button, get the get the data-slide attribute value of the button and pass that variable to the goToByScroll function
-    button.click(function (e) {
-        e.preventDefault();
-        var dataslide = $(this).attr('data-slide');
-        goToByScroll(dataslide);
-        dataslide = null;
-    });
-    button = null;
-    //  TweenMax.to($("#navBar"), 1.5, {delay: 0.2, scaleX: "-=0.02", scaleY: "-=0.02", repeat: -1, yoyo: true, ease: Linear.easeNone});
-    //  TweenMax.to($(".one_col"), 1.5, {delay: 0.2, scaleX: "-=0.02", scaleY: "-=0.02", repeat: -1, yoyo: true, ease: Linear.easeNone});                                                                                                                                
-    //  var scene = document.getElementById('scene');
-    //var parallax = new Parallax(scene);
-}
-//</editor-fold>
-//#endregion 
-
-/* #Title
- ================================================== */
-//#region 
-//<editor-fold defaultstate="collapsed" desc="title">
-
-//</editor-fold>
-//#endregion 
-
-
-
-
-
-///////////////////////////////
-// Parallax
-///////////////////////////////
-$(window).scroll(function () {
-    var y_scroll_pos = window.pageYOffset;
-    var scroll_pos_test = 50;
-    if (y_scroll_pos > scroll_pos_test) {
-        jQuery('.top').fadeIn(1000);
-        //        jQuery('.iphone').children('.top').css('display', 'none !important');
-        //jQuery('.top').fadeIn().removeClass("fadeOutDownBig").addClass("fadeInUpBig");
-
-    } else {
-        jQuery('.top').fadeOut(500);
-        //jQuery('.top').fadeOut().removeClass("fadeInUpBig").addClass("fadeOutDownBig");
-    }
-    //headerPosition();
-
-    //parrallax
-    /*
-     scrollPos = jQuery(this).scrollTop();
-     
-     var x = jQuery('#slide3');
-     //Scroll the background of the banner
-     x.css({
-     'background-position': 'center ' + ((-scrollPos + x.offset().top) / 7) + "px"
-     });
-     
-     // */
-});
-jQuery('.top').click(function () {
-    jQuery('html, body').animate({ scrollTop: 0 }, 1000, 'easeOutCubic'); //return false;
-});
-
-function isMobileBrowser() {
-    return debug || (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
 }
 

@@ -7763,6 +7763,8 @@ span.date {
     opacity: .9;
     font-weight: normal;
     position: relative;
+    -ms-word-break: normal;
+    word-break: normal;
 }
 
 .rb-overlay .full-content {
