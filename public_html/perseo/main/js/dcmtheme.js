@@ -520,7 +520,7 @@ window.Modernizr = function (a, b, c) {
 
 //#region isotope
 //<editor-fold  defaultstate="collapsed" desc="isotope">
-/*!
+/*
  * Isotope PACKAGED v2.0.0
  * Filter & sort magical layouts
  * http://isotope.metafizzy.co
@@ -1649,7 +1649,7 @@ window.Modernizr = function (a, b, c) {
 
 //#region jquery widget
 //<editor-fold  defaultstate="collapsed" desc="jquery widget">
-/*! jQuery UI - v1.10.3 - 2013-05-28
+/* jQuery UI - v1.10.3 - 2013-05-28
  * http://jqueryui.com
  * Includes: jquery.ui.widget.js
  * Copyright 2013 jQuery Foundation and other contributors Licensed MIT */
@@ -1799,7 +1799,7 @@ window.Modernizr = function (a, b, c) {
 //#region jquery mousewheel
 //<editor-fold  defaultstate="collapsed" desc="jquery mousewheel">
 
-/*! Copyright (c) 2013 Brandon Aaron (http://brandonaaron.net)
+/* Copyright (c) 2013 Brandon Aaron (http://brandonaaron.net)
  * Licensed under the MIT License (LICENSE.txt).
  *
  * Thanks to: http://adomas.org/javascript-mouse-wheel/ for some pointers.
@@ -4415,7 +4415,7 @@ $(function () {
 
 //#region perfect-scrollbar
 //<editor-fold  defaultstate="collapsed" desc="perfect-scrollbar">
-/*! perfect-scrollbar - v0.5.8
+/* perfect-scrollbar - v0.5.8
  * http://noraesae.github.com/perfect-scrollbar/
  * Copyright (c) 2014 Hyunje Alex Jun; Licensed MIT */
 (function (e) {
