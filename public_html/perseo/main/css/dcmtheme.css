@@ -3410,8 +3410,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         transition: all 0.2s linear;
     }
 
-/*#region MM menu
-================================================== */
+/*#region MM menu*/
 /*<editor-fold defaultstate="collapsed" desc="MM menu">*/
 /*
         jQuery.mmenu CSS
@@ -4028,8 +4027,7 @@ html.mm-opening #hamburger:after {
 }
 /*#endregion </editor-fold>*/
 
-/* #Liferay article add overrides/ drop cogs 
-================================================== */
+/* #region Liferay article add overrides/ drop cogs*/
 .metro a, .metro a:hover {
     text-decoration: none !important;
 }
@@ -4171,8 +4169,9 @@ html.mm-opening #hamburger:after {
 .aui #hrefFm {
     margin: 0;
 }
-/* #Metro copy&paste
-================================================== */
+/*#endregion*/
+
+/* #region Metro copy&paste*/
 /*<editor-fold defaultstate="collapsed" desc="Metro copy&paste">*/
 html, html.aui {
     font-size: 70%;
@@ -4795,8 +4794,10 @@ a {
             .metro .grid .row [class*="span"]:first-child {
                 margin-left: 0;
             }
-/*</editor-fold>*/
+/*#endregion
+</editor-fold>*/
 
+/*#region font*/
 /*<editor-fold defaultstate="collpased" desc="font styles">*/
 @font-face {
     font-family: "PT Serif Caption";
@@ -5143,10 +5144,10 @@ a {
         line-height: normal;
         font-family: 'Segoe UI_', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
     }
-/*</editor-fold>*/
+/*#endregion
+    </editor-fold>*/
 
-/* #General Styles
-================================================== */
+/* #region General Styles topbar, contentwrap*/
 /*<editor-fold defaultstate="collapsed" desc="General styles">*/
 
 body.metro {
@@ -5230,10 +5231,10 @@ body.metro {
     position: fixed !important;
     top: 0px;
 }
-/*</editor-fold>*/
+/*#endregion
+    </editor-fold>*/
 
-/* #The Nivo Slider styles
-================================================== */
+/* #region Nivo slider*/
 /*<editor-fold defaultstate="collapsed" desc="General styles">*/
 
 .nivoSlider {
@@ -5351,7 +5352,9 @@ body.metro {
         .nivo-controlNav a.active {
             font-weight: bold;
         }
-/*</editor-fold>*/
+
+/*#endregion
+</editor-fold>*/
 
 /*#region Sidebar*/
 /* #Sidebar
@@ -5988,7 +5991,7 @@ html > body .metro .sidebar a.dropdown-toggle:after {
 
 /*#endregion*/
 
-
+/*#region metro accordion*/
 /*<editor-fold defaultstate="collapsed" desc="accordion">*/
 .metro .accordion > .accordion-frame {
 }
@@ -6040,8 +6043,9 @@ html > body .metro .sidebar a.dropdown-toggle:after {
     margin-left: -4px;
 }
 
-/*#Metro Panel
-==================================================== */
+/*#endregion*/
+
+/*#region Metro Panel*/
 .metro .panel {
     border: none;
     margin-bottom: 10px;
@@ -6098,9 +6102,10 @@ html > body .metro .sidebar a.dropdown-toggle:after {
     -o-transform: rotate(90deg);
     transform: rotate(90deg);
 }
-/*</editor-fold>*/
-/* #Metro slider
-================================================== */
+/*#endregion 
+    </editor-fold>*/
+
+/*#region Metro slider*/
 /*<editor-fold defaultstate="collapsed" desc="Metro slider">*/
 .metro .carousel {
     display: block;
@@ -6223,10 +6228,10 @@ html > body .metro .sidebar a.dropdown-toggle:after {
             width: 24px;
             height: 24px;
         }
-
 /*</editor-fold>*/
+/*#endregion*/
 
-
+/*#region colors*/
 /*Colores*/
 /* #Cromaticos
 ================================================== */
@@ -7644,8 +7649,14 @@ html > body .metro .sidebar a.dropdown-toggle:after {
 .visible {
     opacity: 1 !important;
 }
-/*#region rv-overlay*/
+/*#endregion*/
 
+/*#region rv-overlay*/
+.full-views-wrap .rb-overlay {
+    opacity: 0;
+    position: fixed;
+    overflow:hidden;
+}
 /* #Notices expander
 ================================================== */
 /**has Full view**/
@@ -7791,6 +7802,7 @@ span.date {
 }
 
 /*#endregion*/
+
 /*#region scroll*/
 /*#Scroll
 ================================================== */
@@ -7957,6 +7969,7 @@ span.date {
     background-color: blue;
 }
 /*#endregion*/
+
 /*#region slide collapse*/
 .metro .slidecollapse .panel-header {
     text-align: center;
@@ -7981,6 +7994,7 @@ span.date {
     text-align: justify;
 }
 /*#endregion*/
+
 /*# transition
 ============================*/
 .metro .club, .metro .club i, .footer .blogs a:hover h5, .metro .linksWrap .link, .metro .sharex i, .metro .uri {
