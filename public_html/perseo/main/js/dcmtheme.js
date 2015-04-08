@@ -3284,6 +3284,7 @@ $special = $event.special.debouncedresize = {
     threshold: 50
 };
 var NoticiasFull = (function () {
+    //mayra
     var $items = $('.noticeX'),
             transEndEventNames = {
                 'WebkitTransition': 'webkitTransitionEnd',
@@ -3329,7 +3330,7 @@ var NoticiasFull = (function () {
                 $linkNext = $items[ix + 1];
                 $linkPrev = $items[ix - 1];
             }
-
+            $close.css('display', 'none');
             $next.on('click', function (event) {
                 $($linkNext).trigger("click");
                 $close.trigger("click");
@@ -3341,7 +3342,7 @@ var NoticiasFull = (function () {
             $item.on('click', function (event) {
                 //if (event.target != this) return;
                 //event.preventDefault();
-                $('.noticiesWrap').removeClass("oculto visible animated fadeInUp");
+                $('.og-grid.noticies').removeClass("oculto visible animated bounceInRight");
                 if ($item.data('isExpanded')) {
                     return true;
                 }
@@ -3369,15 +3370,21 @@ var NoticiasFull = (function () {
                                 $body.css('overflow-y', 'hidden');
                             });
                         }, 25);
+                        /*setTimeout(function() {
+                         $overlay.css('clip', clipPropLast).on(transEndEventName, function() {
+                         $overlay.off(transEndEventName);
+                         $body.css('overflow-y', 'hidden');
+                         });
+                         }, 25);*/
                     });
                 }
                 else {
                     $body.css('overflow-y', 'hidden');
                 }
+                $close.css('display', 'block');
 
             });
             $close.on('click', function () {
-
                 $body.css('overflow-y', 'auto');
                 var layoutProp = getItemLayoutProp($item),
                         clipPropFirst = 'rect(' + layoutProp.top + 'px ' + (layoutProp.left + layoutProp.width) + 'px ' + (layoutProp.top + layoutProp.height) + 'px ' + layoutProp.left + 'px)',
@@ -3405,7 +3412,7 @@ var NoticiasFull = (function () {
                     $overlay.css('z-index', -1);
                     $item.data('isExpanded', false);
                 }
-
+                $close.css('display', 'none');
                 return false;
             });
         });
@@ -3441,7 +3448,7 @@ var NoticiasFull = (function () {
     }
 
     return { init: init };
-});
+});//();
 //</editor-fold>
 //#endregion 
 

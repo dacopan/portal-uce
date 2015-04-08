@@ -3332,7 +3332,7 @@ var NoticiasFull = (function () {
                 $linkNext = $items[ix + 1];
                 $linkPrev = $items[ix - 1];
             }
-
+            $close.css('display', 'none');
             $next.on('click', function (event) {
                 $($linkNext).trigger("click");
                 $close.trigger("click");
@@ -3383,6 +3383,7 @@ var NoticiasFull = (function () {
                 else {
                     $body.css('overflow-y', 'hidden');
                 }
+                $close.css('display', 'block');
 
             });
             $close.on('click', function () {
@@ -3413,7 +3414,7 @@ var NoticiasFull = (function () {
                     $overlay.css('z-index', -1);
                     $item.data('isExpanded', false);
                 }
-
+                $close.css('display', 'none');
                 return false;
             });
         });
