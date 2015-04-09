@@ -2281,7 +2281,7 @@ var NoticiasFull = (function () {
             winsize = getWindowSize();
             // todo : cache the current item
             if (current !== -1) {
-                $items.eq(current).children('div.rb-overlay').css('clip', 'rect(0px ' + winsize.width + 'px ' + winsize.height + 'px 0px)');
+                $($items.eq(current).find('div.rb-overlay')).css('clip', 'rect(0px ' + winsize.width + 'px ' + winsize.height + 'px 0px)');
             }
         });
     }
@@ -2309,7 +2309,7 @@ var NoticiasFull = (function () {
     }
 
     return { init: init };
-})();
+});//();
 
 //</editor-fold>
 //#endregion 
@@ -4693,7 +4693,7 @@ function onloadX() {
     //        scrollTop: q
     //    }, 3000, 'easeInOutBack');
     //}
-    NoticiasFull.init();
+    NoticiasFull().init();
     $('.has-full-view').each(function () {
         var $overlay = $($(this).attr('href'));
         var $window = $(window);
@@ -4737,9 +4737,7 @@ function onloadX() {
     ///*
     if (!isMobileBrowser()) {
         //animated on scroll
-
         $('#radiox').remove();
-
     }
     $(".full-noticies .rb-close").each(function () {
         $(this).click(function (e) {
