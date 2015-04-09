@@ -104,7 +104,7 @@ function initx() {
             },
             error: function (xhr, textStatus, errorThrown) {
                 len = len - 1;
-                console.log("load finish:" + urix + ";  -->" + xhr.status + " " + xhr.statusText + " : " + errorThrown + " len:" + len);
+                console.log("error load finish:" + urix + ";  -->" + xhr.status + " " + xhr.statusText + " : " + errorThrown + " len:" + len);
             }
         });
     });
@@ -4988,9 +4988,7 @@ function onloadX() {
     ///*
     if (!isMobileBrowser()) {
         //animated on scroll
-
         $('#radiox').remove();
-
     }
     $(".full-noticies .rb-close").each(function () {
         $(this).click(function (e) {

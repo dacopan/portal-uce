@@ -7651,12 +7651,20 @@ html > body .metro .sidebar a.dropdown-toggle:after {
 }
 /*#endregion*/
 
-/*#region rv-overlay*/
+/*#region rb-overlay*/
 .full-views-wrap .rb-overlay {
     opacity: 0;
     position: fixed;
-    overflow:hidden;
+    overflow: hidden;
 }
+
+    .full-views-wrap .rb-overlay .rb-close {
+        display: none;
+    }
+
+    .full-views-wrap .rb-overlay.fadeIn .rb-close {
+        display: block;
+    }
 /* #Notices expander
 ================================================== */
 /**has Full view**/
@@ -8067,6 +8075,9 @@ span.date {
 /* #Notices Featured
 ======================================================*/
 /*<editor-fold defaultstate="collapsed" desc="Notices Featured">*/
+.metro .noticiesWrap .rb-close {
+display:none;
+}
 .metro .noticiesWrap {
     position: relative;
     margin: auto;

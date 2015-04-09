@@ -104,7 +104,7 @@ function initx() {
             },
             error: function (xhr, textStatus, errorThrown) {
                 len = len - 1;
-                console.log("load finish:" + urix + ";  -->" + xhr.status + " " + xhr.statusText + " : " + errorThrown + " len:" + len);
+                console.log("error load finish:" + urix + ";  -->" + xhr.status + " " + xhr.statusText + " : " + errorThrown + " len:" + len);
             }
         });
     });
@@ -3444,8 +3444,7 @@ var NoticiasFull = (function () {
         var w = $window.width(), h = $window.height();
         if (current === -1) {
             $body.css('overflow-y', 'auto');
-        }
-        alert("winsize call: w="+w);
+        }        
         return { width: w, height: h };
     }
 

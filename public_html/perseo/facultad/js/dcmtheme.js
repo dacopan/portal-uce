@@ -104,7 +104,7 @@ function initx() {
             },
             error: function (xhr, textStatus, errorThrown) {
                 len = len - 1;
-                console.log("load finish:" + urix + ";  -->" + xhr.status + " " + xhr.statusText + " : " + errorThrown + " len:" + len);
+                console.log("error load finish:" + urix + ";  -->" + xhr.status + " " + xhr.statusText + " : " + errorThrown + " len:" + len);
             }
         });
     });
@@ -3609,8 +3609,7 @@ var CarreraFull = (function () {
         $(window).on('debouncedresize', function () {
             winsize = getWindowSize();
             // todo : cache the current item
-            if (current !== -1) {
-                $items.eq(current).children('div.rb-overlay').css('clip', 'rect(0px ' + winsize.width + 'px ' + winsize.height + 'px 0px)');
+            if (current !== -1) {                
                 $($items.eq(current).find('div.rb-overlay')).css('clip', 'rect(0px ' + winsize.width + 'px ' + winsize.height + 'px 0px)');
             }
         });

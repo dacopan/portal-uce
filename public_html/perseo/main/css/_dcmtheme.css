@@ -8,6 +8,9 @@
 /* #Notices Featured
 ======================================================*/
 /*<editor-fold defaultstate="collapsed" desc="Notices Featured">*/
+.metro .noticiesWrap .rb-close {
+display:none;
+}
 .metro .noticiesWrap {
     position: relative;
     margin: auto;

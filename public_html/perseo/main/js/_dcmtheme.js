@@ -3193,8 +3193,7 @@ var NoticiasFull = (function () {
         var w = $window.width(), h = $window.height();
         if (current === -1) {
             $body.css('overflow-y', 'auto');
-        }
-        alert("winsize call: w="+w);
+        }        
         return { width: w, height: h };
     }
 
