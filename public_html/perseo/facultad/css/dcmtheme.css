@@ -5165,7 +5165,11 @@ body.metro {
     overflow: hidden;
 }
 
-
+.metro .img-cover {
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
 
 .controls-visible.signed-in.metro .topBar {
     display: none;
@@ -9271,11 +9275,6 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
     background-image: url(../images/bg-circle.png) !important;
 }
 
-.metro .img-cover {
-    background-size: cover;
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-}
 /*</editor-fold>*/
 
 /* #Slide3
@@ -9350,6 +9349,7 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
             transform: translate3d(10px,10px,0);
             -webkit-backface-visibility: hidden;
             backface-visibility: hidden;
+            background-size: cover;
         }
 
         .noticies .noticeX .figcaption {
@@ -9491,7 +9491,7 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
 }
 
 .metro .links a > i {
-  line-height: 82px;
+    line-height: 82px;
 }
 
 .metro .links .og-grid {

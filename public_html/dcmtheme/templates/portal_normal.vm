@@ -21,20 +21,25 @@
 	$theme.include($top_head_include)
 
 	#if(!$urlx.contains("noticia"))
-	<meta property="og:title" content="$site_name" />
-	<meta property="og:image" content="$html-com/img/logo.png" />
 	<meta property="og:url" content="$urlx" />	
-	<meta property="og:description" content="omnium potentior est sapientia" />
+
+	<meta property="og:title" content="$site_name" />
+	<meta property="og:image" content="$html-com/img/logo.png" />	
+	<meta property="og:description" content="Omnium Potentior est Sapientia" />
 	
-	<meta name="twitter:card" content="summary">
-	<meta name="twitter:site" content="@UCentralEcuador">
-	<meta name="twitter:title" content="$site_name">
-	<meta name="twitter:description" content="omnium potentior est sapientia">
-	<meta name="twitter:image" content="$html-com/img/logo.png">
 	<meta name="twitter:url" content="$urlx" />	
+	<meta name="twitter:card" content="summary"/>
+	<meta name="twitter:site" content="@UCentralEcuador"/>
+
+	<meta name="twitter:title" content="$site_name"/>	
+	<meta name="twitter:image" content="$html-com/img/logo.png"/>
+	<meta name="twitter:description" content="Omnium Potentior est Sapientia"/>
+	
 	#else
 	<meta property="og:url" content="$urlx" />	
 	<meta name="twitter:url" content="$urlx" />	
+	<meta name="twitter:card" content="summary_large_image"/>
+	<meta name="twitter:site" content="@UCentralEcuador"/>
 	#end
 
 	<link rel="stylesheet" href="$html-com/css/dcm-loader.min.css" type="text/css" id="loaderStyle" />	
@@ -47,7 +52,11 @@
     
 </head>
 <body class="$css_class container-fluid metro" style="background-color:#fff;">    
-    $theme.include($body_top_include)
+    $theme.include($body_top_include)	
+
+    <nav id="dcmmenu" style="z-index: 88889;">
+    </nav>
+    <div id="page">
 	<div id="loader" style="">
         <div id="loader2" class="" style="">
             <div id="div1">
@@ -63,9 +72,6 @@
         </div>
     </div>
 
-    <nav id="dcmmenu" style="z-index: 88889;">
-    </nav>
-    <div id="page">
         #if ($is_signed_in)
         <div id="dcmdockbar" style="display:block;">#dockbar()</div>
         #end

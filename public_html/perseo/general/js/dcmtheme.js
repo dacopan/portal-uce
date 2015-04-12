@@ -21,7 +21,7 @@ if (typeof Liferay === 'undefined' && window.location.href.indexOf("public_html"
     console.log("mode HTML: on");
     var Liferay = {
         ThemeDisplay: {
-            getLayoutId: function () { return "1" }, getLayoutURL: function () { return "http://www.uce.edu.ec/web/guest/home" },
+            getLayoutId: function () { return "1" }, getLayoutURL: function () { return "http://localhost:49976/public_html/ajax/home" },
             getPortalURL: function () { return "http://www.uce.edu.ec" }
         },
         on: function (A, G) {
@@ -31,7 +31,7 @@ if (typeof Liferay === 'undefined' && window.location.href.indexOf("public_html"
 }
 
 $(window).load(function () {
-    console.log("window on load eventx");
+    console.log("window on load eventx body:" + $('body').length);
     initx();
     createSharex();
 });
@@ -50,31 +50,25 @@ function initx() {
             contentType: 'text/plain',
             success: function (data, textStatus, xhr) {
                 that.html(data);
-                that = null;
+                //that = null;
                 len = len - 1;
                 console.log("load finish:" + urix + ";  -->" + xhr.status + " " + xhr.statusText + " len:" + len);
                 if (len == 0) {
                     console.log("loads terminados");
-                    console.log("mm-menu creando");
+                    console.log("mm-menu creando: body:" +$('body').length);
 
                     //mm-menu
                     $('#mm-nav-content').appendTo('#dcmmenu');
-                    $('#loader').appendTo('#dcmmenu');
+                    //$('#loader').appendTo('#dcmmenu');
                     $("#dcmmenu").mmenu({
                         classes: "mm-slide"
                     });
 
-                    console.log("mm-menu creado");
+                    console.log("mm-menu creado body:" + $('body').length);
 
-                    $('#dcmmenu').before($('#loader'));
+                    //$('#dcmmenu').before($('#loader'));
+                    //$('#loader').appendTo("body");
                     $('#loader').addClass('animated bounceOutUp');
-
-                    console.log("iniciando onloadX");
-
-                    onloadX();
-
-                    console.log("fin onloadX");
-
 
                     setTimeout(function () {
                         console.log("removiendo loader");
@@ -94,11 +88,21 @@ function initx() {
                         //scroll pagination
                         if (window.location.search.indexOf("page=") > -1) {
                             var q = $('.slide[data-slide="' + noti_slide_num + '"]').offset().top;
-                            $('body').animate({
+                            $("body").animate({
                                 scrollTop: q
-                            }, 3000, 'easeInOutBack');
+                            }, 1000, 'easeInOutBack');
                         }
                     }, 1300);
+
+
+                    console.log("iniciando onloadX");
+
+                    onloadX();
+
+                    console.log("fin onloadX");
+
+
+
 
                 }
             },
@@ -247,9 +251,9 @@ function fixedUrls(that) {
     portal = icox = t1 = t2 = t3 = f1 = service = reg = qq = that = null;
 }
 
-
+console.log("fin dcm_common, body: " + $('body').length);
 ///#source 1 1 /public_html/perseo/general/js/_dcmtheme.js
-var debug = false, allPortletsReady = false;
+var debug = false, allPortletsReady = false,reg = /.*\/.*\//g;
 
 //#region modernizer
 //<editor-fold defaultstate="collapsed" desc="modernizer">
@@ -2451,14 +2455,49 @@ var NoticiasFull = (function () {
             $prev.on('click', function (event) {
                 $($linkPrev).trigger("click");
                 $close.trigger("click");
-            });
+            });            
             $item.on('click', function (event) {
-                event.preventDefault();
-                $('.og-grid.noticies').removeClass("oculto visible animated bounceInRight");
+                //event.preventDefault();
                 if ($item.data('isExpanded')) {
-                    return false;
+                    return true;
                 }
                 $item.data('isExpanded', true);
+
+                if (!$item.data('ajaxLoad')) {
+                    var qq = $($item.find(".full-content"));
+
+                    $.ajax({
+                        type: "get",
+                        //url: Liferay.ThemeDisplay.getLayoutURL().match(reg)[0] + 'ajax?artID=' + qq.data('ajax-artid') + '&groupID=' + qq.data('ajax-groupid'),
+                        url: 'http://localhost:49976/public_html/ajax/noticia.html',
+                        //url:'http://200.93.225.30/ajax?artID=11841&groupID=10181',
+                        success: function (data) {
+                            var sss = $(data);
+
+                            qq.html(sss.find('.full-content').html());
+                            sss = data = null;
+                            $(qq.find('[data-role=sharex]')).each(function () {
+
+                                var that = $(this);
+                                fixedUrls(that);
+                                that = null;
+                            });
+                            $item.data('ajaxLoad', true);
+                        },
+                        error: function () {
+                            alert("Ajax no activo, ha ocurrido un error.");
+                            $(qq.find('[data-role=sharex]')).each(function () {
+                                var that = $(this);
+                                fixedUrls(that);
+                                that = null;
+                            });
+                            $item.data('ajaxLoad', true);
+                        }
+                    });
+
+                }
+
+
                 // save current item's index
                 current = $item.index();
                 var layoutProp = getItemLayoutProp($item),
@@ -3375,6 +3414,143 @@ var METRO_DIALOG = false;
         }
     })
 })(jQuery);
+/*
+ * Date Format 1.2.3
+ * (c) 2007-2009 Steven Levithan <stevenlevithan.com>
+ * MIT license
+ *
+ * Includes enhancements by Scott Trenda <scott.trenda.net>
+ * and Kris Kowal <cixar.com/~kris.kowal/>
+ *
+ * Accepts a date, a mask, or a date and a mask.
+ * Returns a formatted version of the given date.
+ * The date defaults to the current date/time.
+ * The mask defaults to dateFormat.masks.default.
+ */
+// this is a temporary solution
+
+var dateFormat = function () {
+    var token = /d{1,4}|m{1,4}|yy(?:yy)?|([HhMsTt])\1?|[LloSZ]|"[^"]*"|'[^']*'/g,
+        timezone = /\b(?:[PMCEA][SDP]T|(?:Pacific|Mountain|Central|Eastern|Atlantic) (?:Standard|Daylight|Prevailing) Time|(?:GMT|UTC)(?:[-+]\d{4})?)\b/g,
+        timezoneClip = /[^-+\dA-Z]/g,
+        pad = function (val, len) {
+            val = String(val);
+            len = len || 2;
+            while (val.length < len) val = "0" + val;
+            return val;
+        };
+
+    // Regexes and supporting functions are cached through closure
+    return function (date, mask, utc) {
+        var dF = dateFormat;
+
+        // You can't provide utc if you skip other args (use the "UTC:" mask prefix)
+        if (arguments.length == 1 && Object.prototype.toString.call(date) == "[object String]" && !/\d/.test(date)) {
+            mask = date;
+            date = undefined;
+        }
+
+        //console.log(arguments);
+
+        // Passing date through Date applies Date.parse, if necessary
+        date = date ? new Date(date) : new Date;
+        //if (isNaN(date)) throw SyntaxError("invalid date");
+
+        mask = String(dF.masks[mask] || mask || dF.masks["default"]);
+
+        // Allow setting the utc argument via the mask
+        if (mask.slice(0, 4) == "UTC:") {
+            mask = mask.slice(4);
+            utc = true;
+        }
+
+        //console.log(locale);
+
+        locale = $.Metro.currentLocale;
+
+        var _ = utc ? "getUTC" : "get",
+            d = date[_ + "Date"](),
+            D = date[_ + "Day"](),
+            m = date[_ + "Month"](),
+            y = date[_ + "FullYear"](),
+            H = date[_ + "Hours"](),
+            M = date[_ + "Minutes"](),
+            s = date[_ + "Seconds"](),
+            L = date[_ + "Milliseconds"](),
+            o = utc ? 0 : date.getTimezoneOffset(),
+            flags = {
+                d: d,
+                dd: pad(d),
+                ddd: $.Metro.Locale[locale].days[D],
+                dddd: $.Metro.Locale[locale].days[D + 7],
+                m: m + 1,
+                mm: pad(m + 1),
+                mmm: $.Metro.Locale[locale].months[m],
+                mmmm: $.Metro.Locale[locale].months[m + 12],
+                yy: String(y).slice(2),
+                yyyy: y,
+                h: H % 12 || 12,
+                hh: pad(H % 12 || 12),
+                H: H,
+                HH: pad(H),
+                M: M,
+                MM: pad(M),
+                s: s,
+                ss: pad(s),
+                l: pad(L, 3),
+                L: pad(L > 99 ? Math.round(L / 10) : L),
+                t: H < 12 ? "a" : "p",
+                tt: H < 12 ? "am" : "pm",
+                T: H < 12 ? "A" : "P",
+                TT: H < 12 ? "AM" : "PM",
+                Z: utc ? "UTC" : (String(date).match(timezone) || [""]).pop().replace(timezoneClip, ""),
+                o: (o > 0 ? "-" : "+") + pad(Math.floor(Math.abs(o) / 60) * 100 + Math.abs(o) % 60, 4),
+                S: ["th", "st", "nd", "rd"][d % 10 > 3 ? 0 : (d % 100 - d % 10 != 10) * d % 10]
+            };
+
+        return mask.replace(token, function ($0) {
+            return $0 in flags ? flags[$0] : $0.slice(1, $0.length - 1);
+        });
+    };
+}();
+
+// Some common format strings
+dateFormat.masks = {
+    "default": "ddd mmm dd yyyy HH:MM:ss",
+    shortDate: "m/d/yy",
+    mediumDate: "mmm d, yyyy",
+    longDate: "mmmm d, yyyy",
+    fullDate: "dddd, mmmm d, yyyy",
+    shortTime: "h:MM TT",
+    mediumTime: "h:MM:ss TT",
+    longTime: "h:MM:ss TT Z",
+    isoDate: "yyyy-mm-dd",
+    isoTime: "HH:MM:ss",
+    isoDateTime: "yyyy-mm-dd'T'HH:MM:ss",
+    isoUtcDateTime: "UTC:yyyy-mm-dd'T'HH:MM:ss'Z'"
+};
+
+// Internationalization strings
+dateFormat.i18n = {
+    dayNames: [
+        "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat",
+        "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"
+    ],
+    monthNames: [
+        "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
+        "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"
+    ]
+};
+
+// For convenience...
+Date.prototype.format = function (mask, utc) {
+    return dateFormat(this, mask, utc);
+};
+
+/*
+ * End date format
+ */
+
 (function ($) {
     $.widget("metro.calendar", {
         version: "1.0.0",
@@ -3731,8 +3907,11 @@ var METRO_DIALOG = false;
                     that._renderCalendar();
 
                     //added by me                    
-                    var d = (new Date(that._year, that._month, 1)).format(that.options.format, null);
-                    var d0 = (new Date(that._year, that._month, 1));
+                    //var d = (new Date(that._year, that._month, 2)).format(that.options.format, null);                    
+                    //var d0 = (new Date(that._year, that._month, 2));
+                    var datex = (new Date(that._year, that._month, 2)).format("mm-yyyy", null).split('-');
+                    var d = datex[0];
+                    var d0 = datex[1];
 
                     if (that.options.multiSelect) {
                         $(this).toggleClass("selected");
@@ -4910,40 +5089,9 @@ $(window).load(function () {
     console.log("window on load eventx");
 });
 
-//if (isLocalHost) {
-//    if ($(".slide").length > 0) {
-//        console.log("slides > 0; --> initx()");
-//        initx();
-//    } else {
-
-//        console.log("slides <= 0; initx on liferay allPortletsReady");
-//        $(document).ready(function () {
-//            console.log("document ready");
-//            initx();
-//        });
-//    }
-//} else {
-//    if ($(".slide").length > 0) {
-//        console.log("slides > 0; --> initx()");
-//        initx();
-//    } else {
-//        console.log("slides <= 0; initx on liferay allPortletsReady");
-//        Liferay.on('allPortletsReady', function () {
-//            console.log("liferay allPortletsReady. iniciando initx");
-//            initx();
-//        });
-//    }
-//}
-
 function onloadX() {
 
-    //scroll pagination
-    //if (window.location.search.indexOf("page=") > -1) {
-    //    var q = $('.slide[data-slide="' + 4 + '"]').offset().top;
-    //    htmlbody.animate({
-    //        scrollTop: q
-    //    }, 3000, 'easeInOutBack');
-    //}
+
     NoticiasFull().init();
     $('.has-full-view').each(function () {
         var $overlay = $($(this).attr('href'));
@@ -4988,15 +5136,9 @@ function onloadX() {
     ///*
     if (!isMobileBrowser()) {
         //animated on scroll
-        $('#radiox').remove();
+        // $('#radiox').remove();
     }
-    $(".full-noticies .rb-close").each(function () {
-        $(this).click(function (e) {
-            var q = $(".full-noticies .rb-overlay");
-            q.addClass("animated fadeOut");
-            setTimeout(function () { q.remove(); q = null; }, 1000);
-        });
-    });
+
     //calendar
     $("#calendar").calendar({
         format: 'yyyy-mm-dd', //default 'yyyy-mm-dd'
@@ -5007,7 +5149,22 @@ function onloadX() {
         otherDays: false, // show days for previous and next months,
         weekStart: 0, //start week from sunday - 0 or monday - 1
 
-        click: function (d, d0) { alert(d + "/" + d0); }, // fired when user clicked on day, in "d" stored date
+        click: function (m, y) {
+            alert(m + "/" + y);
+            var qq = Liferay.ThemeDisplay.getLayoutURL();
+            var portal = qq.match(reg)[0] + "archive_noticias?month=";
+            var srcx = portal + m + "&year=" + y;
+            window.location = srcx;
+
+        }, // fired when user clicked on day, in "d" stored date
+    });
+    //autoclick
+
+    $('[data-role=autoclick]').each(function () {
+
+        var that = $(this);
+        that.trigger('click');
+        that = null;
     });
 }
 

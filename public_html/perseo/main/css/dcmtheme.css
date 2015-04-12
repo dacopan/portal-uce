@@ -5165,7 +5165,11 @@ body.metro {
     overflow: hidden;
 }
 
-
+.metro .img-cover {
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
 
 .controls-visible.signed-in.metro .topBar {
     display: none;
@@ -8878,12 +8882,6 @@ html > body .featured a.isobrick {
 /*<editor-fold defaultstate="collapsed" desc="direcciones">*/
 .metro .contentwrap.direcWrap {
     max-width: 1200px;
-}
-
-.metro .img-cover {
-    background-size: cover;
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
 }
 
 .metro .direcWrap .og-grid > li {

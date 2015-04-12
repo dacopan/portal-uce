@@ -813,12 +813,6 @@ html > body .featured a.isobrick {
     max-width: 1200px;
 }
 
-.metro .img-cover {
-    background-size: cover;
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-}
-
 .metro .direcWrap .og-grid > li {
     margin: 10px 10px 5px 10px;
 }

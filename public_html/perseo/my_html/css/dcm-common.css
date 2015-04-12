@@ -5165,7 +5165,11 @@ body.metro {
     overflow: hidden;
 }
 
-
+.metro .img-cover {
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
 
 .controls-visible.signed-in.metro .topBar {
     display: none;

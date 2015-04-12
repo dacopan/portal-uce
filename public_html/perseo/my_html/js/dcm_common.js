@@ -20,7 +20,7 @@ if (typeof Liferay === 'undefined' && window.location.href.indexOf("public_html"
     console.log("mode HTML: on");
     var Liferay = {
         ThemeDisplay: {
-            getLayoutId: function () { return "1" }, getLayoutURL: function () { return "http://www.uce.edu.ec/web/guest/home" },
+            getLayoutId: function () { return "1" }, getLayoutURL: function () { return "http://localhost:49976/public_html/ajax/home" },
             getPortalURL: function () { return "http://www.uce.edu.ec" }
         },
         on: function (A, G) {
@@ -30,7 +30,7 @@ if (typeof Liferay === 'undefined' && window.location.href.indexOf("public_html"
 }
 
 $(window).load(function () {
-    console.log("window on load eventx");
+    console.log("window on load eventx body:" + $('body').length);
     initx();
     createSharex();
 });
@@ -49,31 +49,25 @@ function initx() {
             contentType: 'text/plain',
             success: function (data, textStatus, xhr) {
                 that.html(data);
-                that = null;
+                //that = null;
                 len = len - 1;
                 console.log("load finish:" + urix + ";  -->" + xhr.status + " " + xhr.statusText + " len:" + len);
                 if (len == 0) {
                     console.log("loads terminados");
-                    console.log("mm-menu creando");
+                    console.log("mm-menu creando: body:" +$('body').length);
 
                     //mm-menu
                     $('#mm-nav-content').appendTo('#dcmmenu');
-                    $('#loader').appendTo('#dcmmenu');
+                    //$('#loader').appendTo('#dcmmenu');
                     $("#dcmmenu").mmenu({
                         classes: "mm-slide"
                     });
 
-                    console.log("mm-menu creado");
+                    console.log("mm-menu creado body:" + $('body').length);
 
-                    $('#dcmmenu').before($('#loader'));
+                    //$('#dcmmenu').before($('#loader'));
+                    //$('#loader').appendTo("body");
                     $('#loader').addClass('animated bounceOutUp');
-
-                    console.log("iniciando onloadX");
-
-                    onloadX();
-
-                    console.log("fin onloadX");
-
 
                     setTimeout(function () {
                         console.log("removiendo loader");
@@ -93,11 +87,21 @@ function initx() {
                         //scroll pagination
                         if (window.location.search.indexOf("page=") > -1) {
                             var q = $('.slide[data-slide="' + noti_slide_num + '"]').offset().top;
-                            $('body').animate({
+                            $("body").animate({
                                 scrollTop: q
-                            }, 3000, 'easeInOutBack');
+                            }, 1000, 'easeInOutBack');
                         }
                     }, 1300);
+
+
+                    console.log("iniciando onloadX");
+
+                    onloadX();
+
+                    console.log("fin onloadX");
+
+
+
 
                 }
             },
@@ -246,3 +250,4 @@ function fixedUrls(that) {
     portal = icox = t1 = t2 = t3 = f1 = service = reg = qq = that = null;
 }
 
+console.log("fin dcm_common, body: " + $('body').length);

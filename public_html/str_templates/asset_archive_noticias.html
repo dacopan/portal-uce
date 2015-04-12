@@ -29,10 +29,11 @@
 #set ($articleHits = $journalArticleService.getStructureArticles($groupId, $structKey, -1, -1, $obc))
 
 ## Get full article
+#set($fullx={})
 #if($hasFull)
     #set ($articlex = $journalArticleService.getArticle($groupId,$artID))
+
         #if($validator.isNotNull($articlex))
-            #set($fullx={})
             #set($fullx.render=1)
             #set( $document = $saxReaderUtil.read($articlex.getContent()) )
             #set( $root = $document.getRootElement() )
@@ -58,6 +59,8 @@
                     #set($fullx.noti_video=$valx)
                 #elseif("noti_contenido"==$namex)
                     #set($fullx.noti_contenido=$valx)
+                #elseif("noti_summary"==$namex)
+                    #set($fullx.noti_summary=$valx)
                 #end
             #end
 
@@ -68,13 +71,35 @@
         #end
 
 #else
+#set($fullx.render=2)
+#end
 
+## full article render
+
+#if($fullx.render==1)
+
+articulo encontrado renderizando aquí, poner cards en base a articulo<br />
+#metatags( $fullx.noti_titulo $fullx.noti_imagen $fullx.noti_summary)
+
+#elseif($fullx.render==0)
+
+no se encontró el articulo solicitado, poner cards por defecto<br />
+#set($site_namex=$htmlUtil.escape($themeDisplay.getLayout().getGroup().getDescriptiveName()))
+#metatags( "UCE-$site_namex" "http://aka-cdn.uce.edu.ec/ares/perseo/my_html/images/logo.png" "Omnium Potentior est Sapientia")
+#else
+
+no se solicitó ningun articulo, poner cards por defectox<br />
+#set($site_namex=$htmlUtil.escape($themeDisplay.getLayout().getGroup().getDescriptiveName()))
+#metatags( "UCE-$site_namex" "http://aka-cdn.uce.edu.ec/ares/perseo/my_html/images/logo.png" "Omnium Potentior est Sapientia")
 #end
 
 #if (!$articleHits.isEmpty())
 	#foreach ($entry in $articleHits)
 
             #set($cur_artID=$entry.articleId)
+            #set($isLastVersion =$journalArticleService.isLatestVersion($entry.getGroupId(), $entry.getArticleId() , $entry.getVersion() ) )
+            #if($isLastVersion)
+
             #set( $document = $saxReaderUtil.read($entry.getContent()) )
             #set( $root = $document.getRootElement() )
 
@@ -107,16 +132,62 @@
                     #set($noti_video = $valx)
                 #elseif("noti_contenido"==$namex)
                     #set($noti_contenido = $valx)
+                #elseif("noti_summary"==$namex)
+                    #set($fullx.noti_summary=$valx)
                 #end
-            #end
+            #end ##foreach xml entry
 
 
             #if($isrender==1)
                 $noti_fecha<br />
             #end
+        $noti_titulo
+        #end ## if last version
 
-
-    #end
+    #end ##foreach
 #else
 no articulos en este mes
+#end
+
+
+
+
+
+
+##macros
+
+#macro( metatags $title $img $desc )
+
+#set($titletag="title")
+#set($imgtag="image")
+#set($desctag="description")
+
+#facetag( $titletag $title)
+#facetag( $imgtag $img)
+#facetag( $desctag $desc)
+
+#twittertag( $titletag $title)
+#twittertag( $imgtag $img)
+#twittertag( $desctag $desc)
+#end
+
+#macro (facetag $keyx $valxx )
+
+#set($el=$renderResponse.createElement("meta"))
+#set($void=$el.setAttribute("property","og:$keyx"))
+#set($void=$el.setAttribute("content",$valxx))
+##set($void=$el.setTextContent(" "))
+#set($void=$renderResponse.addProperty("javax.portlet.markup.head.element",$el ))
+
+#end
+
+
+#macro (twittertag $keyx $valxx )
+
+#set($el=$renderResponse.createElement("meta"))
+#set($void=$el.setAttribute("name","twitter:$keyx"))
+#set($void=$el.setAttribute("content",$valxx))
+##set($void=$el.setTextContent(" "))
+#set($void=$renderResponse.addProperty("javax.portlet.markup.head.element",$el ))
+
 #end
