@@ -8081,12 +8081,13 @@ span.date {
     background-repeat: no-repeat;
 }
 
-    #wrapperscroll .slide:first-child ,#breadcrumbs{
-          padding-top: 45px;
+    #wrapperscroll .slide:first-child, #breadcrumbs {
+        padding-top: 45px;
     }
-#breadcrumbs {
 
+#breadcrumbs {
 }
+
 .metro .slide {
     background-color: #fff;
 }
