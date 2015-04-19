@@ -5865,6 +5865,7 @@ body.metro {
 
     .metro .sidebar span.date {
         font-family: "Adequate ExtraLight";
+        text-transform:uppercase;
     }
 
     .metro .sidebar > ul ul, .metro .sidebar, .metro .sidebar > ul li a {

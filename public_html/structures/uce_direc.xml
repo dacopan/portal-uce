@@ -13,6 +13,47 @@
     </meta-data>
   </dynamic-element>
   <dynamic-element dataType="boolean" indexType="keyword" name="direc" readOnly="false" repeatable="true" required="false" showLabel="true" type="checkbox" width="">
+    <dynamic-element dataType="string" indexType="keyword" multiple="false" name="direc_tipo" readOnly="false" repeatable="false" required="true" showLabel="true" type="select" width="">
+      <dynamic-element name="option7879" type="option" value="dirección">
+        <meta-data locale="es_ES">
+          <entry name="label">
+            <![CDATA[dirección]]>
+          </entry>
+        </meta-data>
+      </dynamic-element>
+      <dynamic-element name="option7880" type="option" value="comisión">
+        <meta-data locale="es_ES">
+          <entry name="label">
+            <![CDATA[comisión]]>
+          </entry>
+        </meta-data>
+      </dynamic-element>
+      <dynamic-element name="option7881" type="option" value="secretaría">
+        <meta-data locale="es_ES">
+          <entry name="label">
+            <![CDATA[secretaría]]>
+          </entry>
+        </meta-data>
+      </dynamic-element>
+      <dynamic-element name="option7882" type="option" value="comité">
+        <meta-data locale="es_ES">
+          <entry name="label">
+            <![CDATA[comité]]>
+          </entry>
+        </meta-data>
+      </dynamic-element>
+      <meta-data locale="es_ES">
+        <entry name="label">
+          <![CDATA[Tipo]]>
+        </entry>
+        <entry name="predefinedValue">
+          <![CDATA[["dirección"]]]>
+        </entry>
+        <entry name="tip">
+          <![CDATA[]]>
+        </entry>
+      </meta-data>
+    </dynamic-element>
     <dynamic-element dataType="string" indexType="keyword" name="direc_nombre" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
       <meta-data locale="es_ES">
         <entry name="label">
@@ -53,19 +94,19 @@
       </meta-data>
     </dynamic-element>
     <dynamic-element dataType="string" indexType="keyword" name="sidebar" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
-			<meta-data locale="es_ES">
-				<entry name="label">
-					<![CDATA[Contenido ID]]>
-				</entry>
-				<entry name="predefinedValue">
-					<![CDATA[]]>
-				</entry>
-				<entry name="tip">
-					<![CDATA[(sidebar)Coloque el ID del articulo que pertenece a esta direccion (contentID)]]>
-				</entry>
-			</meta-data>
-		</dynamic-element>		
       <meta-data locale="es_ES">
+        <entry name="label">
+          <![CDATA[Contenido ID]]>
+        </entry>
+        <entry name="predefinedValue">
+          <![CDATA[]]>
+        </entry>
+        <entry name="tip">
+          <![CDATA[(sidebar)Coloque el ID del articulo que pertenece a esta direccion (contentID)]]>
+        </entry>
+      </meta-data>
+    </dynamic-element>
+    <meta-data locale="es_ES">
       <entry name="label">
         <![CDATA[direc]]>
       </entry>

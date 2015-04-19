@@ -15,6 +15,7 @@
 });
 //#endregion
 
+jQuery.support.cors = true;
 if (typeof Liferay === 'undefined' && window.location.href.indexOf("public_html") > -1) {
     isLocalHost = true;
     console.log("mode HTML: on");
