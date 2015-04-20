@@ -3362,6 +3362,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 /* #Top Scroll
 ================================================== */
+/*#region dcm-top*/
 .dcm.top {
     position: fixed;
     bottom: 20px;
@@ -3409,6 +3410,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         -o-transition: all 0.2s linear;
         transition: all 0.2s linear;
     }
+/*#endregion*/
 
 /*#region MM menu*/
 /*<editor-fold defaultstate="collapsed" desc="MM menu">*/
@@ -5865,7 +5867,7 @@ body.metro {
 
     .metro .sidebar span.date {
         font-family: "Adequate ExtraLight";
-        text-transform:uppercase;
+        text-transform: uppercase;
     }
 
     .metro .sidebar > ul ul, .metro .sidebar, .metro .sidebar > ul li a {
@@ -8008,15 +8010,20 @@ span.date {
 }
 /*#endregion*/
 
-/*# transition
-============================*/
+/*#region taglib pagination*/
+
+/*#endregion*/
+
+/*#region transition*/
 .metro .club, .metro .club i, .footer .blogs a:hover h5, .metro .linksWrap .link, .metro .sharex i, .metro .uri {
     -moz-transition: all 0.3s ease 0s;
     -webkit-transition: all 0.3s ease 0s;
     -o-transition: all 0.3s ease 0s;
     transition: all 0.3s ease 0s;
 }
+/*#endregion*/
 
+/*#region sharex*/
 .metro .max-1024 {
     max-width: 900px !important;
 }
@@ -8070,3 +8077,5 @@ span.date {
     width: 90%;
     margin: auto;
 }
+/*#endregion*/
+

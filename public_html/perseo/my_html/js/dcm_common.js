@@ -46,6 +46,7 @@ function initx() {
 
         $.ajax({
             type: "get",
+            crossDomain: true,
             url: urix,
             contentType: 'text/plain',
             success: function (data, textStatus, xhr) {
