@@ -9,8 +9,9 @@
 ======================================================*/
 /*<editor-fold defaultstate="collapsed" desc="Notices Featured">*/
 .metro .noticiesWrap .rb-close {
-display:none;
+    display: none;
 }
+
 .metro .noticiesWrap {
     position: relative;
     margin: auto;
@@ -138,12 +139,12 @@ display:none;
 }
 
 
-    span.date a.bubble, span.date a.bubble:hover {
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        color: #fff !important;
-    }
+span.date a.bubble, span.date a.bubble:hover {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    color: #fff !important;
+}
 
 .featured .noti-title span.date {
     margin-top: 5px;
@@ -200,6 +201,8 @@ display:none;
 
 .featured .one_col, .featured .two_col {
     margin: 1px;
+    margin-right: 1px;
+    margin-bottom: 1px;
     margin-top: 3px;
 }
 
@@ -210,10 +213,10 @@ display:none;
 }
 
 .one_col.half.comunicWraper {
-    height: 375px !important;
+    height: 378px !important;
     background: transparent;
     padding-left: 10px !important;
-    padding-right: 4px !important;
+    /*padding-right: 4px !important;*/
     margin-top: 0px;
     overflow: visible;
 }
@@ -284,16 +287,16 @@ html > body .featured a.isobrick {
 
 .va-nav span {
     width: 40px;
-  height: 25px;
-  position: absolute;
-  top: -35px;
-  left: 50%;
-  margin-left: -20px;  
-  opacity: .7;
-  cursor: pointer;
-  display: none;
-  z-index: 100;
-  font-size: 30px;
+    height: 25px;
+    position: absolute;
+    top: -35px;
+    left: 50%;
+    margin-left: -20px;
+    opacity: .7;
+    cursor: pointer;
+    display: none;
+    z-index: 100;
+    font-size: 30px;
 }
 
     .va-nav span.va-nav-next {
@@ -451,7 +454,7 @@ html > body .featured a.isobrick {
     width: 100%;
 }
 
-    .og-grid >li {
+    .og-grid > li {
         display: inline-block;
         /*margin: 10px 5px 0 5px;*/
         margin: 10px 10px 40px 10px;
@@ -468,51 +471,51 @@ html > body .featured a.isobrick {
         transition: all 0.3s ease 0s;
     }
 
+    .og-grid li > .og-a span {
+        vertical-align: middle !important;
+        position: relative;
+        display: inline-block !important;
+    }
+    /**Responive facultades**/
+    .og-grid li > .og-a span, .og-grid li > .og-a, .og-grid li > .og-a img {
+        width: 230px !important;
+        /*height: 200px!important;*/
+    }
+
         .og-grid li > .og-a span {
-            vertical-align: middle !important;
+            font-size: 150px;
+            color: white !important;
+            padding-top: 25px;
+            text-decoration: none !important;
+        }
+
+        /**Fin resposive**/
+
+        .og-grid li > .og-a,
+        .og-grid li > .og-a img {
+            border: none;
+            outline: none;
+            display: block;
             position: relative;
-            display: inline-block !important;
-        }
-        /**Responive facultades**/
-        .og-grid li > .og-a span, .og-grid li > .og-a, .og-grid li > .og-a img {
-            width: 230px !important;
-            /*height: 200px!important;*/
+            text-decoration: none !important;
         }
 
-            .og-grid li > .og-a span {
-                font-size: 150px;
-                color: white !important;
-                padding-top: 25px;
-                text-decoration: none !important;
+            .og-grid li > .og-a:hover {
             }
 
-            /**Fin resposive**/
-
-            .og-grid li > .og-a,
-            .og-grid li > .og-a img {
-                border: none;
-                outline: none;
-                display: block;
-                position: relative;
-                text-decoration: none !important;
-            }
-
-                .og-grid li > .og-a:hover {
-                }
-
-        .og-grid li.og-expanded > .og-a::after {
-            top: auto;
-            border: solid transparent;
-            content: " ";
-            height: 0;
-            width: 0;
-            position: absolute;
-            pointer-events: none;
-            border-bottom-color: #ddd;
-            border-width: 15px;
-            left: 50%;
-            margin: -20px 0 0 -15px;
-        }
+    .og-grid li.og-expanded > .og-a::after {
+        top: auto;
+        border: solid transparent;
+        content: " ";
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+        border-bottom-color: #ddd;
+        border-width: 15px;
+        left: 50%;
+        margin: -20px 0 0 -15px;
+    }
 
 .og-expander {
     position: absolute;
@@ -903,17 +906,19 @@ html > body .featured a.isobrick {
 
 /*#region links*/
 .metro .linksWrap.og-grid {
-max-width:1000px;
+    max-width: 1000px;
 }
+
 .metro .linksWrap .link {
     display: block;
     width: 160px;
-    height: 120px;    
+    height: 120px;
     position: relative;
     cursor: pointer;
 }
+
 .metro .linksWrap.og-grid li {
-margin:20px 40px;
+    margin: 20px 40px;
 }
 /*#endregion*/
 
@@ -1184,13 +1189,13 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
 
     #navBar li {
         width: 150px;
-        height: 38px/*45px*/;
+        height: 38px /*45px*/;
         margin: 2px;
     }
 
         #navBar li .bloc {
             width: 10px;
-            height: 37px/*45*/;
+            height: 37px /*45*/;
             background-color: black;
             position: absolute;
             -ms-transition: all 0.4s linear;
