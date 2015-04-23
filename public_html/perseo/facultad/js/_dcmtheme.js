@@ -4990,7 +4990,7 @@ $.Metro.initDropdowns();
                 $(doc.find('.download')).on('click', function () {
                     window.open(doc.data("idown"), '_blank');
                 });
-                doc = null;
+                //doc = null;
             });
 
             this.init(tabs, frames);

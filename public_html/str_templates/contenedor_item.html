@@ -26,7 +26,7 @@
             #end
 
             <ul class="og-grid docs">
-                #foreach ($cur_doc in $cur_carrera.cont_doc.getSiblings())
+                #foreach ($cur_doc in $cont_doc.getSiblings())
                 #if ($getterUtil.getBoolean($cur_doc.getData()))
                 <li>
                     <div data-iview="$cur_doc.doc_link1.getData()" data-idown="$cur_doc.doc_link2.getData()" data-role="idoc" class="doc desc">
