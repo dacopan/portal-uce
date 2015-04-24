@@ -5476,20 +5476,21 @@ function onloadX() {
         var w = $window.width(), h = $window.height();
         var winsize = { width: w, height: h };
         var $body = $('BODY');
-        var clipPropLast = 'rect(0px ' + winsize.width + 'px ' + winsize.height + 'px 0px)';
+        
         $(this).click(function (e) {
             e.preventDefault();
+            $body.css('overflow-y', 'hidden');
+            var clipPropLast = 'rect(0px ' + $window.width() + 'px ' + $window.height() + 'px 0px)';
             $overlay.css({
                 clip: clipPropLast,
                 opacity: 1,
                 zIndex: 9999,
                 pointerEvents: 'auto'
-            });
-            $body.css('overflow-y', 'hidden');
+            });            
             $overlay.removeClass("animated fadeIn fadeOut").addClass("animated fadeIn").css({ width: '100%', height: '100%' });
         });
         $($overlay.find('span.rb-close')).click(function (e) {
-            //alert(' mayra');
+            
             $overlay.removeClass("animated fadeIn fadeOut").addClass("animated fadeOut").css({ width: '0px', height: '0px' });
             $body.css('overflow-y', 'auto');
             clipPropLast = 'auto';

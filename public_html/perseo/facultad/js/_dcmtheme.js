@@ -5260,7 +5260,6 @@ $(function () {
 //</editor-fold>
 //#endregion 
 
-
 $(window).load(function () {
     console.log("window on load eventx");
 });
