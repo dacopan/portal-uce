@@ -200,7 +200,7 @@ span.date a.bubble, span.date a.bubble:hover {
 /****/
 
 .featured .one_col, .featured .two_col {
-    margin: 1px;
+    /*margin: 1px;*/
     margin-right: 1px;
     margin-bottom: 1px;
     margin-top: 3px;
