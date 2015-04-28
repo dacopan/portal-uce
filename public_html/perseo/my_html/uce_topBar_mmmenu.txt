@@ -2,8 +2,8 @@
     <span class="todayX fg-yellow no-phones" style="font-size: 80%;margin-left: 80px;">
         Miércoles 01/09/2014
     </span>
-    <a id="hamburger" class="" href="#dcmmenu"><span></span></a>       
-	<a class="fg-white" data-hint="x|y" href="#book"><i class="fa fa-book"></i></a>
+    <a id="hamburger" class="" href="#dcmmenu"><span></span></a>
+    <a class="fg-white" data-hint="x|y" href="#book"><i class="fa fa-book"></i></a>
     <a class="fg-white has-full-view" href="#full-view-01">
         <i class="icon-bookx img-cover" style="background-image:url(http://aka-cdn.uce.edu.ec/ares/perseo/my_html/images/tmp/icono_sello.png);width: 33px;height: 33px;margin-top: -5px;"></i>
     </a>
@@ -16,7 +16,7 @@
     <li>
         <a href="/facultad/" class="toSlide" data-slide="3">
             <figure class="effect-layla visible-desktop">
-                <img src="http://aka-cdn.uce.edu.ec/ares/perseo/my_html/images/logo.png" alt="img04">
+                <img src="http://aka-cdn.uce.edu.ec/ares/tmp/facs.jpg" alt="img04">
                 <figcaption>
                     <h2>Facultades<span>.</span></h2>
                     <p>Descripción</p>
@@ -25,9 +25,23 @@
             <span class="hidden-desktop">Facultades</span>
         </a>
         <ul>
-            <li><a href="facultad/facultad.html" target="_blank">Ingenieria Ciencias Fisicas y Matematica</a></li>
-            <li><a href="facultad/facultad.html" target="_blank">Ciencias Administrativas</a></li>
-            <li><a href="facultad/facultad.html" target="_blank">Odontología</a></li>
+            <li> <a href="http://200.93.225.30/web/artes" title="ver facultad" target="_blank">Artes</a> </li>
+            <li> <a href="http://200.93.225.30/web/arquitectura-y-urbanismo" title="ver facultad" target="_blank">Arquitectura y Urbanismo</a> </li>
+            <li> <a href="http://200.93.225.30/web/ciencias-administrativas" title="ver facultad" target="_blank">Ciencias Administrativas</a> </li>
+            <li> <a href="http://200.93.225.30/web/ciencias-agricolas" title="ver facultad" target="_blank">Ciencias Agrícolas</a> </li>
+            <li> <a href="http://200.93.225.30/web/ciencias-economicas" title="ver facultad" target="_blank">Ciencias Económicas</a> </li>
+            <li> <a href="http://200.93.225.30/web/ciencias-medicas" title="ver facultad" target="_blank">Ciencias Médicas</a> </li>
+            <li> <a href="http://200.93.225.30/web/ciencias-psicologicas" title="ver facultad" target="_blank">Ciencias Psicológicas</a> </li>
+            <li> <a href="http://200.93.225.30/web/ciencias-quimicas" title="ver facultad" target="_blank">Ciencias Químicas</a> </li>
+            <li> <a href="http://200.93.225.30/web/comunicacion-social" title="ver facultad" target="_blank">Comunicación Social</a> </li>
+            <li> <a href="http://200.93.225.30/web/cultura-fisica" title="ver facultad" target="_blank">Cultura Física</a> </li>
+            <li> <a href="http://200.93.225.30/web/ingenieria-ciencias-fisicas-y-matematica" title="ver facultad" target="_blank">Ingeniería Ciencias Físicas y Matemática</a> </li>
+            <li> <a href="http://200.93.225.30/web/filosofia-letras-y-ciencias-de-la-educacion" title="ver facultad" target="_blank">Filosofía, Letras y Ciencias de la Educación</a> </li>
+            <li> <a href="http://200.93.225.30/web/ingenieria-en-geologia-minas-petroleo-y-ambiental" title="ver facultad" target="_blank">Ingeniería en Geología, Minas, Petróleo y Ambiental</a> </li>
+            <li> <a href="http://200.93.225.30/web/ingenieria-quimica" title="ver facultad" target="_blank">Ingeniería Química</a> </li>
+            <li> <a href="http://200.93.225.30/web/jurisprudencia-ciencias-politicas-y-sociales/home" title="ver facultad" target="_blank">Jurisprudencia, Ciencias Políticas y Sociales</a> </li>
+            <li> <a href="http://200.93.225.30/web/medicina-veterinaria-y-zootecnia" title="ver facultad" target="_blank">Medicina Veterinaria y Zootecnia</a> </li>
+            <li> <a href="http://200.93.225.30/web/odontologia" title="ver facultad" target="_blank">Odontología</a> </li>
         </ul>
     </li>
     <li>
