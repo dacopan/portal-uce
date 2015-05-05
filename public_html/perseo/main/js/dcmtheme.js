@@ -4268,6 +4268,7 @@ $(window).resize(function () {
         $.Metro.initPanels(area);
         $.Metro.initCarousels(area);
         $.Metro.initPulls(area);
+        $.Metro.initDropdowns(area);
         //$.Metro.initAccordions(area);
 
     }
@@ -4885,7 +4886,7 @@ if (typeof jQuery === 'undefined') {
 
 //#region sidebar
 //<editor-fold defaultstate="collapsed" desc="sidebar">
-$.Metro.initDropdowns();
+
 (function ($) {
     $.widget("metro.sidebar", {
         version: "1.0.0",

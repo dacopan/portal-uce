@@ -4483,6 +4483,7 @@ $(window).resize(function () {
         $.Metro.initCarousels(area);
         $.Metro.initPulls(area);
         //$.Metro.initAccordions(area);
+        $.Metro.initDropdowns(area);
 
     }
 })(jQuery);
@@ -5218,7 +5219,7 @@ $(function () {
 
 //#region sidebar
 //<editor-fold defaultstate="collapsed" desc="sidebar">
-$.Metro.initDropdowns();
+//$.Metro.initDropdowns();
 (function ($) {
     $.widget("metro.sidebar", {
         version: "1.0.0",
