@@ -5173,7 +5173,7 @@ body.metro {
     background-repeat: no-repeat;
 }
 
-.controls-visible.signed-in.metro .topBar {
+.controls-visible.signed-in.metro .topBar,.controls-visible.signed-in.metro #navigation {
     display: none;
 }
 
@@ -8078,6 +8078,20 @@ span.date {
     margin: auto;
 }
 /*#endregion*/
+
+.metro .slide .normal, .metro .slide .slic .content1 {
+    text-transform: none;
+    text-align: justify;
+    -webkit-font-smoothing: antialiased;
+    padding: 20px 10% 10px 40px;
+    font-family: "Open Sans",Verdana,Arial,Helvetica,sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.metro .slic > h1, .metro .slic > h2, .metro .slic > h3, .metro .slic > h2, .metro .slic > h4 {
+    padding: 0;
+}
 /* #Tabs
 ================================================== */
 /*<editor-fold defaultstate="collapsed" desc="Tabs">*/
@@ -9092,7 +9106,7 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
     margin-left: 540px;
 }
 
-    #slide1 .detail h2, .og-expander-inner h2, .postgrados h2.h2, h2.h2, h3.h3, h4.h4, .metro .panel .panel-header {
+    #slide1 .detail h2,#slide1 .detail h1,#slide1 .detail h4 .og-expander-inner h2, .postgrados h2.h2, h2.h2, h3.h3, h4.h4, .metro .panel .panel-header {
         color: #4275b9;
         font-family: "Adequate ExtraLight",'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
         -webkit-font-smoothing: antialiased;
@@ -9103,7 +9117,7 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
         line-height: normal;
     }
 
-    #slide1 .detail p, .og-expander-inner p, .ipp {
+    /*#slide1 .detail p, .og-expander-inner p, .ipp {
         text-transform: none;
         text-align: justify;
         padding-right: 10%;
@@ -9114,7 +9128,7 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
         font-family: "Segoe UI Light_","Open Sans Light",Verdana,Arial,Helvetica,sans-serif;
         font-size: 16px;
         font-weight: normal;
-    }
+    }*/
 
     #slide1 .detail .jefes {
         width: auto;

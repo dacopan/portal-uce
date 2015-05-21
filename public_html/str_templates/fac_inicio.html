@@ -95,24 +95,23 @@
         <div class="detail">
             <div class="carousel" style="" data-role="carousel" data-auto="false" data-effect="switch" data-markers-show="true" data-markers-type="square" data-markers-position="bottom-right">
                 <div class="slic">
-                    <div class="content1">
-                        <h2>Misión:</h2>
-                        <p>
-                            $fac_mision.getData()
-                        </p>
-                        <h2>Visión:</h2>
-                        <p>
-                            $fac_mision.getData()
-                        </p>
-                        <div class="jefes">
-                            <h2>Autoridades:</h2>
-                            <h3>$fac_decano.getData()</h3>
-                            <h3 class="cargox">$fac_decano.dec_sex.getData()</h3>
-                            <br />
-                            <h3>$fac_subdecano.getData()</h3>
-                            <h3 class="cargox">$fac_subdecano.subdec_sex.getData()</h3>
 
-                        </div>
+                    <h2>Misión:</h2>
+                    <div class="content1">
+                        $fac_mision.getData()
+                    </div>
+                    <h2>Visión:</h2>
+                    <div class="content1">
+                        $fac_mision.getData()
+                    </div>
+                    <div class="jefes">
+                        <h2>Autoridades:</h2>
+                        <h3>$fac_decano.getData()</h3>
+                        <h3 class="cargox">$fac_decano.dec_sex.getData()</h3>
+                        <br />
+                        <h3>$fac_subdecano.getData()</h3>
+                        <h3 class="cargox">$fac_subdecano.subdec_sex.getData()</h3>
+
                     </div>
                 </div>
                 #if (!$slide.getSiblings().isEmpty())
@@ -122,6 +121,7 @@
                     <div class="content1">
                         $cur_slide.getData()
                     </div>
+                    <br /><br /><br /><br /><br /><br />
                 </div>
                 #end
                 #end

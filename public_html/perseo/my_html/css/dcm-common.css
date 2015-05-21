@@ -5173,7 +5173,7 @@ body.metro {
     background-repeat: no-repeat;
 }
 
-.controls-visible.signed-in.metro .topBar {
+.controls-visible.signed-in.metro .topBar,.controls-visible.signed-in.metro #navigation {
     display: none;
 }
 
@@ -8079,3 +8079,16 @@ span.date {
 }
 /*#endregion*/
 
+.metro .slide .normal, .metro .slide .slic .content1 {
+    text-transform: none;
+    text-align: justify;
+    -webkit-font-smoothing: antialiased;
+    padding: 20px 10% 10px 40px;
+    font-family: "Open Sans",Verdana,Arial,Helvetica,sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.metro .slic > h1, .metro .slic > h2, .metro .slic > h3, .metro .slic > h2, .metro .slic > h4 {
+    padding: 0;
+}
