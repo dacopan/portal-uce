@@ -5174,7 +5174,7 @@ body.metro {
 }
 
 .controls-visible.signed-in.metro .topBar,.controls-visible.signed-in.metro #navigation {
-    display: none;
+    display: none!important;
 }
 
 .metro .topBar {

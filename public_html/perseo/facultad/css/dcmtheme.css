@@ -5174,7 +5174,7 @@ body.metro {
 }
 
 .controls-visible.signed-in.metro .topBar,.controls-visible.signed-in.metro #navigation {
-    display: none;
+    display: none!important;
 }
 
 .metro .topBar {
@@ -9069,10 +9069,12 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
         margin: auto;
         width: auto;
         margin-bottom: 20px;
+        margin-left: 20px;
     }
 
     #slide1 .membrete h3, #slide1 .membrete h2 {
         font-weight: normal;
+        padding: 10px;
     }
 
 .topBanner .banx, .topBanner .banx img {
@@ -9106,7 +9108,7 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
     margin-left: 540px;
 }
 
-    #slide1 .detail h2,#slide1 .detail h1,#slide1 .detail h4 .og-expander-inner h2, .postgrados h2.h2, h2.h2, h3.h3, h4.h4, .metro .panel .panel-header {
+    #slide1 .detail h2, #slide1 .detail h1, #slide1 .detail h4 .og-expander-inner h2, .postgrados h2.h2, h2.h2, h3.h3, h4.h4, .metro .panel .panel-header {
         color: #4275b9;
         font-family: "Adequate ExtraLight",'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
         -webkit-font-smoothing: antialiased;
