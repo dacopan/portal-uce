@@ -8084,13 +8084,9 @@ span.date {
     text-align: justify;
     -webkit-font-smoothing: antialiased;
     padding: 20px 10% 10px 40px;
-    font-family: "Open Sans",Verdana,Arial,Helvetica,sans-serif;
+    font-family: "Open Sans Light",Verdana,Arial,Helvetica,sans-serif;
     font-size: 16px;
     font-weight: normal;
-}
-
-.metro .slic > h1, .metro .slic > h2, .metro .slic > h3, .metro .slic > h2, .metro .slic > h4 {
-    padding: 0;
 }
 /* #Tabs
 ================================================== */
@@ -9149,6 +9145,11 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
         line-height: 18px;
     }
 
+.metro .slic > h1, .metro .slic > h2, .metro .slic > h3, .metro .slic > h2, .metro .slic > h4 {
+    padding: 0;
+}
+
+
 .marginT10 {
     margin-top: 10px;
 }
@@ -9511,12 +9512,16 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
 }
 
 .metro .links li {
-    padding: 0px;
-    margin-bottom: 0px;
+    padding: 0;
+    margin-bottom: 0;
 }
 
 .metro .links a > i {
     line-height: 82px;
+}
+
+.metro .links a > img {
+    margin-top: 18%;
 }
 
 .metro .links .og-grid {
@@ -9529,7 +9534,7 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
     vertical-align: top;
     display: none;
     position: absolute;
-    top: 0px;
+    top: 0;
     padding: 5px;
     background-color: rgba(0,0,0,.7);
     height: 100%;

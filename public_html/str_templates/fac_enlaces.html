@@ -7,8 +7,9 @@
                 #if (!$Link_de_Interes.getSiblings().isEmpty())
                 #foreach ($cur_Link_de_Interes in $Link_de_Interes.getSiblings())
                 <li>
-                    <a href="$cur_Link_de_Interes.getData()" target="_blank">
-                        <i class="fa $cur_Link_de_Interes.icono.getData()"></i> <span class="title">$cur_Link_de_Interes.titulo.getData()</span>
+                    <a href="$cur_Link_de_Interes.getData()" target="_blank">                        
+                        <img src="$cur_Link_de_Interes.icono.getData()" alt="$cur_Link_de_Interes.titulo.getData()" />
+                        <span class="title">$cur_Link_de_Interes.titulo.getData()</span>
                     </a>
                     <span class="sub-title">$cur_Link_de_Interes.titulo.getData()</span>
                     #end
