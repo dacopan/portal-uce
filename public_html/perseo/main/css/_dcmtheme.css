@@ -457,7 +457,7 @@ html > body .featured a.isobrick {
     .og-grid > li {
         display: inline-block;
         /*margin: 10px 5px 0 5px;*/
-        margin: 10px 10px 40px 10px;
+        margin: 10px 10px 14.5px 10px;
         vertical-align: top;
         -webkit-transition-property: top, left, opacity;
         -moz-transition-property: top, left, opacity;

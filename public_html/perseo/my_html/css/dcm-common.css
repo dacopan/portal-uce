@@ -7942,7 +7942,7 @@ span.date {
     height: 18px;
     width: 10px;
     background-color: rgba(0,0,0,.3);
-    border-radius: 9px;
+    /*border-radius: 9px;*/
 }
 
     ::-webkit-scrollbar:hover {
@@ -7960,11 +7960,11 @@ span.date {
 
 
 ::-webkit-scrollbar-track {
-    border-radius: 9px;
+    /*border-radius: 9px;*/
 }
 
 ::-webkit-scrollbar-thumb {
-    border-radius: 9px;
+    /*border-radius: 9px;*/
     background-color: rgba(0,0,0,.4);
 }
 
