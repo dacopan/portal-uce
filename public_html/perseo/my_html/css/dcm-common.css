@@ -5192,13 +5192,13 @@ body.metro {
     margin: auto;
 }
 
-    .metro .topBar-content span.todayX, .metro .topBar-content a {
+    .metro .topBar-content span.todayX, .metro .topBar-content > a {
         height: 45px;
         line-height: 45px;
         vertical-align: middle;
     }
 
-    .metro .topBar-content a {
+    .metro .topBar-content > a {
         padding-top: 11px;
         line-height: 15px;
         color: inherit;
@@ -6352,7 +6352,7 @@ html > body .metro .sidebar a.dropdown-toggle:after {
 }
 
 .metro .fg-gray, .metro .fg-hover-gray:hover, .metro .fg-focus-gray:focus, .metro .fg-active-gray:active {
-    color: rgb(0,118,189) !important; /*#0076fg!important;*/
+    color: #868686 !important; /*#0076fg!important;*/
 }
 
 .metro .fg-lightgray, .metro .fg-hover-lightgray:hover, .metro .fg-focus-lightgray:focus, .metro .fg-active-lightgray:active {
@@ -7802,6 +7802,15 @@ span.date {
     overflow-y: auto;
     z-index: 100 !important;
     margin-right: 10px;
+      /*text-align: justify;
+  position: relative;
+  padding: 10px 0 10px 10px;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  z-index: 100 !important;
+  margin-right: -5px;
+  margin-top: 5px;*/
 }
 
 .rb-overlay .full-html {

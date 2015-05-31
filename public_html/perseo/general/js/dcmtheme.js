@@ -16,249 +16,8 @@ var isLocalHost = false;
 });
 //#endregion
 
-jQuery.support.cors = true;
-if (typeof Liferay === 'undefined' && window.location.href.indexOf("public_html") > -1) {
-    isLocalHost = true;
-    console.log("mode HTML: on");
-    var Liferay = {
-        ThemeDisplay: {
-            getLayoutId: function () { return "1" }, getLayoutURL: function () { return "http://localhost:49976/public_html/ajax/home" },
-            getPortalURL: function () { return "http://www.uce.edu.ec" }
-        },
-        on: function (A, G) {
-
-        }
-    };
-}
-
-$(window).load(function () {
-    console.log("window on load eventx body:" + $('body').length);
-    initx();
-    createSharex();
-});
-
-function initx() {
-    var loadsx = $('[data-load]');
-    var len = loadsx.length;
-    loadsx.each(function (index, element) {
-        var that = $(this);
-        var urix = that.data("load");
-        console.log("load start:" + urix);
-
-        $.ajax({
-            type: "get",
-            crossDomain: true,
-            url: urix,
-            contentType: 'text/plain',
-            success: function (data, textStatus, xhr) {
-                that.html(data);
-                //that = null;
-                len = len - 1;
-                console.log("load finish:" + urix + ";  -->" + xhr.status + " " + xhr.statusText + " len:" + len);
-                if (len == 0) {
-                    console.log("loads terminados");
-                    console.log("mm-menu creando: body:" +$('body').length);
-
-                    //mm-menu
-                    $('#mm-nav-content').appendTo('#dcmmenu');
-                    //$('#loader').appendTo('#dcmmenu');
-                    $("#dcmmenu").mmenu({
-                        classes: "mm-slide"
-                    });
-
-                    console.log("mm-menu creado body:" + $('body').length);
-
-                    //$('#dcmmenu').before($('#loader'));
-                    //$('#loader').appendTo("body");
-                    $('#loader').addClass('animated bounceOutUp');
-
-                    setTimeout(function () {
-                        console.log("removiendo loader");
-                        $('#loader').remove();
-                        $('#loaderStyle').remove();
-
-                        console.log("iniciando innerNavigate");
-
-                        innerNavigate();
-
-                        console.log("fin  innerNavigate");
-
-                        $("body").animate({
-                            scrollTop: 1
-                        }, 1);
-
-                        //scroll pagination
-                        if (window.location.search.indexOf("page=") > -1) {
-                            var q = $('.slide[data-slide="' + noti_slide_num + '"]').offset().top;
-                            $("body").animate({
-                                scrollTop: q
-                            }, 1000, 'easeInOutBack');
-                        }
-                    }, 1300);
-
-
-                    console.log("iniciando onloadX");
-
-                    onloadX();
-
-                    console.log("fin onloadX");
-
-
-
-
-                }
-            },
-            error: function (xhr, textStatus, errorThrown) {
-                len = len - 1;
-                console.log("error load finish:" + urix + ";  -->" + xhr.status + " " + xhr.statusText + " : " + errorThrown + " len:" + len);
-            }
-        });
-    });
-
-
-}
-
-//#region innerNavigate
-//<editor-fold  defaultstate="collapsed" desc="innerNavigate">
-//Create a function that will be passed a slide number and then will scroll to that slide using jquerys animate. The Jquery
-//easing plugin is also used, so we passed in the easing method of 'easeInOutQuint' which is available throught the plugin.
-function goToByScroll(dataslide) {
-    //alert(dataslide);
-    var htmlbody = $('html,body');
-    var q = $('.slide[data-slide="' + dataslide + '"]').offset().top - 45;
-    htmlbody.animate({
-        scrollTop: q
-    }, 2500, 'easeInOutBack');
-    q = htmlbody = null;
-}
-function innerNavigate() {
-    //  /*
-    var links = $('a.toSlide'),
-            button = $('.scrollbut');
-    if (links.length > 0) {
-        //When the user clicks on the navigation links, get the data-slide attribute value of the link and pass that variable to the goToByScroll function
-        links.click(function (e) {
-            e.preventDefault();
-            $('#dcmmenu').trigger('close.mm');
-            var dataslide = $(this).attr('data-slide'); //alert(dataslide);
-            goToByScroll(dataslide);
-            return false;
-        });
-        links = null;
-        //When the user clicks on the button, get the get the data-slide attribute value of the button and pass that variable to the goToByScroll function
-        button.click(function (e) {
-            e.preventDefault();
-            var dataslide = $(this).attr('data-slide');
-            goToByScroll(dataslide);
-            dataslide = null;
-        });
-        button = null;
-        //  TweenMax.to($("#navBar"), 1.5, {delay: 0.2, scaleX: "-=0.02", scaleY: "-=0.02", repeat: -1, yoyo: true, ease: Linear.easeNone});
-        //  TweenMax.to($(".one_col"), 1.5, {delay: 0.2, scaleX: "-=0.02", scaleY: "-=0.02", repeat: -1, yoyo: true, ease: Linear.easeNone});                                                                                                                                
-        //  var scene = document.getElementById('scene');
-        //var parallax = new Parallax(scene);
-    }
-}
-//</editor-fold>
-//#endregion 
-
-//#region scroll top
-$(window).scroll(function () {
-    ///*
-    var y_scroll_pos = window.pageYOffset;
-    var scroll_pos_test = 50;
-    if (y_scroll_pos > scroll_pos_test) {
-        jQuery('.top').fadeIn(1000);
-        //        jQuery('.iphone').children('.top').css('display', 'none !important');
-    } else {
-        jQuery('.top').fadeOut(500);
-    }
-    y_scroll_pos = scroll_pos_test = null;
-    //headerPosition();
-    //*/
-
-
-    //parrallax
-    /*
-     var scrollPos = $(this).scrollTop();
-     
-     var elemx = $('#slide4 .img-cover');
-     //Scroll the background of the banner
-     elemx.css({
-     'background-position': 'center ' + ((scrollPos - elemx.offset().top) / 3) + "px"
-     });
-     scrollPos = elemx = null;
-     
-     // */
-});
-jQuery('.top').click(function () {
-    jQuery('html, body').animate({ scrollTop: 0 }, 1000, 'easeOutCubic'); //return false;
-});
-//#endregion
-
-function isMobileBrowser() {
-    return debug || (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
-}
-
-function createSharex() {
-    $('[data-role=sharex]').each(function () {
-
-        var that = $(this);
-        fixedUrls(that);
-        that = null;
-    });
-}
-
-function fixedUrls(that) {
-    var reg = /.*\/.*\//g;
-    if (typeof Liferay === 'undefined') {
-        var qq = 'http://www.uce.edu.ec/home';
-    } else {
-        var qq = Liferay.ThemeDisplay.getLayoutURL();
-    }
-    var portal = qq.match(reg)[0] + "archive_noticias?artID=";
-    var icox = '<i class="fa fa-share-alt"></i>';
-    var t1 = 'https://twitter.com/intent/tweet?text=%E2%80%9C';
-    var t2 = '%E2%80%9D&url=';
-    var t3 = '&via=UCentralEcuador';
-    var f1 = 'http://www.facebook.com/sharer.php?u=';
-
-    var service = that.data("sharex-service");
-    if (typeof service === 'undefined') {
-        service = "u"
-    }
-
-    if (service == "f") {
-        var urlx = encodeURI(portal + that.data("sharex-artid"));
-        var srcx = f1 + urlx;
-        that.attr("href", srcx);
-
-    } else if (service == "t") {
-
-        var urlx = encodeURI(portal + that.data("sharex-artid"));
-        var title = encodeURI(that.data("sharex-title"));
-        var srcx = t1 + title + t2 + urlx + t3;
-        that.attr("href", srcx);
-
-    } else if (service == "l") {
-
-        //http://www.uce.edu.ec/archive_noticias?artID=0001
-        var srcx = portal + that.data("sharex-artid");
-        that.attr("href", srcx);
-        that.html(icox + " " + srcx);
-    } else {
-        var srcx = portal + that.data("sharex-artid");
-        that.attr("href", srcx);
-    }
-    portal = icox = t1 = t2 = t3 = f1 = service = reg = qq = that = null;
-}
-
-console.log("fin dcm_common, body: " + $('body').length);
-///#source 1 1 /public_html/perseo/general/js/_dcmtheme.js
-var debug = false, allPortletsReady = false,reg = /.*\/.*\//g;
-
 //#region modernizer
-//<editor-fold defaultstate="collapsed" desc="modernizer">
+//<editor-fold  defaultstate="collapsed" desc="modernizer"> #region modernizer
 /* Modernizr 2.6.2 (Custom Build) | MIT & BSD
  * Build: http://modernizr.com/download/#-csstransitions-shiv-cssclasses-prefixed-testprop-testallprops-domprefixes-load
  */
@@ -525,7 +284,7 @@ window.Modernizr = function (a, b, c) {
 //#endregion 
 
 //#region isotope
-//<editor-fold defaultstate="collapsed" desc="isotope">
+//<editor-fold  defaultstate="collapsed" desc="isotope">
 /*
  * Isotope PACKAGED v2.0.0
  * Filter & sort magical layouts
@@ -1654,7 +1413,7 @@ window.Modernizr = function (a, b, c) {
 //#endregion 
 
 //#region jquery widget
-//<editor-fold defaultstate="collapsed" desc="jquery widget">
+//<editor-fold  defaultstate="collapsed" desc="jquery widget">
 /* jQuery UI - v1.10.3 - 2013-05-28
  * http://jqueryui.com
  * Includes: jquery.ui.widget.js
@@ -1803,7 +1562,7 @@ window.Modernizr = function (a, b, c) {
 //#endregion 
 
 //#region jquery mousewheel
-//<editor-fold defaultstate="collapsed" desc="jquery mousewheel">
+//<editor-fold  defaultstate="collapsed" desc="jquery mousewheel">
 
 /* Copyright (c) 2013 Brandon Aaron (http://brandonaaron.net)
  * Licensed under the MIT License (LICENSE.txt).
@@ -1929,7 +1688,7 @@ window.Modernizr = function (a, b, c) {
 //#endregion 
 
 //#region MM menu
-//<editor-fold defaultstate="collapsed" desc="MM menu js">
+//<editor-fold  defaultstate="collapsed" desc="MM menu js">
 
 !function (e) {
     function n(n, s, t) {
@@ -2178,7 +1937,7 @@ window.Modernizr = function (a, b, c) {
 //#endregion 
 
 //#region jquery easing
-//<editor-fold defaultstate="collapsed" desc="jquery easing">
+//<editor-fold  defaultstate="collapsed" desc="jquery easing">
 jQuery.easing['jswing'] = jQuery.easing['swing'];
 jQuery.extend(jQuery.easing,
         {
@@ -2362,8 +2121,8 @@ jQuery.extend(jQuery.easing,
 //</editor-fold>
 //#endregion 
 
-//#region notices full
-//<editor-fold defaultstate="collapsed" desc="notices full">
+//#region debouncedresize
+//<editor-fold  defaultstate="collapsed" desc="notices full">
 /*
  * debouncedresize: special jQuery event that happens once after a window resize
  *
@@ -2402,6 +2161,729 @@ $special = $event.special.debouncedresize = {
     },
     threshold: 50
 };
+//#endregion
+
+//#region dock popup
+var DockPopUp = (function () {
+    var $items = $('.dock-popup'),
+            transEndEventNames = {
+                'WebkitTransition': 'webkitTransitionEnd',
+                'MozTransition': 'transitionend',
+                'OTransition': 'oTransitionEnd',
+                'msTransition': 'MSTransitionEnd',
+                'transition': 'transitionend'
+            },
+    // transition end event name
+    transEndEventName = transEndEventNames[Modernizr.prefixed('transition')],
+            // window and body elements
+            $window = $(window),
+            $body = $('BODY'),
+            // transitions support
+            supportTransitions = Modernizr.csstransitions,
+            // current item's index
+            current = -1,
+            // window width and height
+            winsize = getWindowSize();
+    function init(options) {
+        // apply fittext plugin
+        //$items.find( 'div.rb-week > div span' ).fitText( 0.3 ).end().find( 'span.rb-city' ).fitText( 0.5 );
+        initEvents();
+    }
+    var reg = /.*\/.*\//g;
+    function initEvents() {
+
+        $items.each(function (ix) {
+
+            var $item = $(this),
+                    $close = $item.find('span.rb-close'),
+                    $overlay = $item.find('div.rb-overlay');
+
+            $item.on('click', function (event) {
+
+                //if (event.target != this) return;
+                //event.preventDefault();
+                // $('.carreraWrap').removeClass("oculto visible animated bounceInRight");
+                if (!$item.data('ajaxLoad')) {
+                    var qq = $($item.find(".full-content"));
+
+                    $.ajax({
+                        type: "get",
+                        url: Liferay.ThemeDisplay.getLayoutURL().match(reg)[0] + 'ajax?artID=' + qq.data('ajax-artid') + '&groupID=' + qq.data('ajax-groupid'),
+                        success: function (data) {
+                            var sss = $('#ajax-dcm', data);
+                            qq.append(sss.html());
+                            sss = data = null;
+                            //$.Metro.initSidebars($item);
+                            //$.Metro.initBannerCircle(qq);
+                            //sidebarUpdate($item);
+                            $item.data('ajaxLoad', true);
+                        },
+                        error: function () {
+                            //alert("Ajax no activo, ha ocurrido un error.");
+                            //$.Metro.initSidebars($item);
+                            //$.Metro.initBannerCircle(qq);
+                            //sidebarUpdate($item);
+                            $item.data('ajaxLoad', true);
+                            yearGrid().init();
+                        }
+                    });
+
+                }
+                if ($item.data('isExpanded')) {
+                    return true;
+                }
+                $item.data('isExpanded', true);
+                // save current item's index
+                current = $item.index();
+                var layoutProp = getItemLayoutProp($item),
+                        clipPropFirst = 'rect(' + layoutProp.top + 'px ' + (layoutProp.left + layoutProp.width) + 'px ' + (layoutProp.top + layoutProp.height) + 'px ' + layoutProp.left + 'px)',
+                        clipPropLast = 'rect(0px ' + winsize.width + 'px ' + winsize.height + 'px 0px)';
+                $overlay.css({
+                    transformOrigin: layoutProp.left + 'px ' + layoutProp.top + 'px',
+                    clip: supportTransitions ? clipPropFirst : clipPropLast,
+                    transform: supportTransitions ? 'rotate(45deg)' : 'none',
+                    opacity: 1,
+                    zIndex: 9999,
+                    pointerEvents: 'auto'
+                });
+                if (supportTransitions) {
+                    $overlay.on(transEndEventName, function () {
+
+                        $overlay.off(transEndEventName);
+                        setTimeout(function () {
+                            $overlay.css({ clip: clipPropLast, transform: 'rotate(0deg)' }).on(transEndEventName, function () {
+                                $overlay.off(transEndEventName);
+                                $body.css('overflow-y', 'hidden');
+                            });
+                        }, 25);
+                    });
+                }
+                else {
+                    $body.css('overflow-y', 'hidden');
+                }
+                if ($item.data('ajaxLoad')) {
+                    // sidebarUpdate($item);
+                }
+
+            });
+
+            $close.on('click', function () {
+                $body.css('overflow-y', 'auto');
+                var layoutProp = getItemLayoutProp($item),
+                        clipPropFirst = 'rect(' + layoutProp.top + 'px ' + (layoutProp.left + layoutProp.width) + 'px ' + (layoutProp.top + layoutProp.height) + 'px ' + layoutProp.left + 'px)',
+                        clipPropLast = 'auto';
+                // reset current
+                current = -1;
+                $overlay.css({
+                    clip: supportTransitions ? clipPropFirst : clipPropLast,
+                    opacity: supportTransitions ? 1 : 0,
+                    pointerEvents: 'none'
+                });
+                if (supportTransitions) {
+                    $overlay.on(transEndEventName, function () {
+
+                        //$overlay.off(transEndEventName);
+                        setTimeout(function () {
+                            $overlay.css('opacity', 0).on(transEndEventName, function () {
+                                $overlay.off(transEndEventName).css({ clip: clipPropLast, zIndex: -1 });
+                                $item.data('isExpanded', false);
+                            });
+                        }, 25);
+                    });
+                }
+                else {
+                    $overlay.css('z-index', -1);
+                    $item.data('isExpanded', false);
+                }
+
+                return false;
+            });
+        });
+        $(window).on('debouncedresize', function () {
+            winsize = getWindowSize();
+            // todo : cache the current item
+            if (current !== -1) {
+                $($items.eq(current).find('div.rb-overlay')).css('clip', 'rect(0px ' + winsize.width + 'px ' + winsize.height + 'px 0px)');
+            }
+        });
+    }
+
+    function getItemLayoutProp($item) {
+
+        var scrollT = $window.scrollTop(),
+                scrollL = $window.scrollLeft(),
+                itemOffset = $item.offset();
+        return {
+            left: itemOffset.left - scrollL,
+            top: itemOffset.top - scrollT,
+            width: $item.outerWidth(),
+            height: $item.outerHeight()
+        };
+    }
+
+    function getWindowSize() {
+        $body.css('overflow-y', 'hidden');
+        var w = $window.width(), h = $window.height();
+        if (current === -1) {
+            $body.css('overflow-y', 'auto');
+        }
+        return { width: w, height: h };
+    }
+
+    return { init: init };
+});//();
+var yearGrid = (function () {
+    // grid selector
+    //var $selector = '.ley .',
+    // list of items
+    //$grid = $($selector),
+    // the items
+    $items = $('.ley .yearsx > li'),
+    // current expanded item's index
+    current = -1,
+    // position (top) of the expanded item
+    // used to know if the preview will expand in a different row
+    previewPos = -1,
+    // extra amount of pixels to scroll the window
+    scrollExtra = 0,
+    // extra margin when expanded (between preview overlay and the next items)
+    marginExpanded = 10,
+    //$window = $(window), winsize = getWinSize(),
+    $window = $(window), winsize = getWinSize(),
+    $body = $('.full-content.ley'),
+    // transitionend events
+    transEndEventNames = {
+        'WebkitTransition': 'webkitTransitionEnd',
+        'MozTransition': 'transitionend',
+        'OTransition': 'oTransitionEnd',
+        'msTransition': 'MSTransitionEnd',
+        'transition': 'transitionend'
+    },
+    transEndEventName = transEndEventNames[Modernizr.prefixed('transition')],
+    // support for csstransitions
+    support = Modernizr.csstransitions,
+    // default settings
+    settings = {
+        minHeight: 500,
+        speed: 350,
+        easing: 'ease',
+        showVisitButton: true
+    };
+
+    function init(config) {
+
+        // the settings..
+        settings = $.extend(true, {}, settings, config);
+        // save item´s size and offset
+        saveItemInfo(true);
+        // get window´s size
+        getWinSize();
+        // initialize some events
+        initEvents();
+
+    }
+
+
+    // saves the item´s offset top and height (if saveheight is true)
+    function saveItemInfo(saveheight) {
+        $items.each(function () {
+            var $item = $(this);
+            $item.data('offsetTop', $item.offset().top);
+            if (saveheight) {
+                $item.data('height', $item.height());
+            }
+        });
+    }
+
+    function initEvents() {
+
+        // when clicking an item, show the preview with the item´s info and large image.
+        // close the item if already expanded.
+        // also close if clicking on the item´s cross
+        initItemsEvents($items);
+
+        // on window resize get the window´s size again
+        // reset some values..
+        $window.on('debouncedresize', function () {
+
+            scrollExtra = 0;
+            previewPos = -1;
+            // save item´s offset
+            saveItemInfo();
+            getWinSize();
+            var preview = $.data(this, 'preview');
+            if (typeof preview != 'undefined') {
+                hidePreview();
+            }
+
+        });
+
+    }
+
+    function initItemsEvents($items) {
+        $items.on('click', 'span.og-close', function () {
+            hidePreview();
+            return false;
+        }).children('a').on('click', function (e) {
+
+            var $item = $(this).parent();
+            // check if item already opened
+            current === $item.index() ? hidePreview() : showPreview($item);
+            return false;
+
+        });
+    }
+
+    function getWinSize() {
+        winsize = { width: $window.width(), height: $window.height() };
+    }
+
+    function showPreview($item) {
+
+        var preview = $.data(this, 'preview'),
+			// item´s offset top
+			position = $item.data('offsetTop');
+
+        scrollExtra = 0;
+
+        // if a preview exists and previewPos is different (different row) from item´s top then close it
+        if (typeof preview != 'undefined') {
+
+            // not in the same row
+            if (previewPos !== position) {
+                // if position > previewPos then we need to take te current preview´s height in consideration when scrolling the window
+                if (position > previewPos) {
+                    scrollExtra = preview.height;
+                }
+                hidePreview();
+            }
+                // same row
+            else {
+                preview.update($item);
+                //preview.open();
+                return false;
+            }
+
+        }
+
+        // update previewPos
+        previewPos = position;
+        // initialize new preview for the clicked item
+        preview = $.data(this, 'preview', new Preview($item));
+        // expand preview overlay
+        // preview.open();
+
+    }
+
+    function hidePreview() {
+        current = -1;
+        var preview = $.data(this, 'preview');
+        preview.close();
+        $.removeData(this, 'preview');
+    }
+
+    // the preview obj / overlay
+    function Preview($item) {
+        this.$item = $item;
+        this.expandedIdx = this.$item.index();
+        this.create();
+        this.update();
+    }
+
+    Preview.prototype = {
+        create: function () {
+            // create Preview structure:
+            //this.$title = $('<h3></h3>');
+            //this.$description = $('<p></p>');
+            //var detailAppends = [this.$title, this.$description];
+            //if (settings.showVisitButton === true) {
+            //    this.$href = $('<a href="#">Visit website</a>');
+            //    detailAppends.push(this.$href);
+            //}
+            //this.$details = $('<div class="og-details"></div>').append(detailAppends);
+            //this.$loading = $('<div class="og-loading"></div>');
+            //this.$fullimage = $('<div class="og-fullimg"></div>').append(this.$loading);
+            //this.$closePreview = $('<span class="og-close"></span>');
+            //this.$previewInner = $('<div class="og-expander-inner"></div>').append(this.$closePreview, this.$fullimage, this.$details);
+            this.$previewEl = this.$item.find('.og-expander');//$('<div class="og-expander"></div>').append(this.$previewInner);
+            //// append preview element to the item
+            //this.$item.append(this.getEl());
+            // set the transitions for the preview and the item
+            if (support) {
+                this.setTransition();
+            }
+        },
+        update: function ($item) {
+
+            if ($item) {
+                this.$item = $item;
+            }
+            var oldcurrent = current;
+            var oldprev = this.$previewEl;
+            // update current value
+            current = this.$item.index();
+            this.expandedIdx = current;
+            this.$previewEl = this.$item.find('.og-expander');
+            if (support) {
+                this.setTransition();
+            }
+
+            this.open();
+            // if already expanded remove class "og-expanded" from current item and add it to new item
+            setTimeout($.proxy(function () {
+                if (oldcurrent !== -1) {
+                    var $currentItem = $items.eq(oldcurrent);
+                    $currentItem.removeClass('og-expanded');
+
+                    oldprev.css('height', 0);
+                    $currentItem.css('height', $currentItem.data('height'));
+                    oldprev = null;
+
+                }
+            }, this), 150);
+
+        },
+        open: function () {
+
+            setTimeout($.proxy(function () {
+                // set the height for the preview and the item
+                this.setHeights();
+                // scroll to position the preview in the right place
+                this.positionPreview();
+            }, this), 25);
+
+        },
+        close: function () {
+
+            var self = this,
+				onEndFn = function () {
+				    if (support) {
+				        $(this).off(transEndEventName);
+				    }
+				    self.$item.removeClass('og-expanded');
+				    //self.$previewEl.remove();
+				};
+
+            setTimeout($.proxy(function () {
+
+                this.$previewEl.css('height', 0);
+                // the current expanded item (might be different from this.$item)
+                var $expandedItem = $items.eq(this.expandedIdx);
+                $expandedItem.css('height', $expandedItem.data('height')).on(transEndEventName, onEndFn);
+
+                if (!support) {
+                    onEndFn.call();
+                }
+
+            }, this), 25);
+
+            return false;
+
+        },
+        calcHeight: function () {
+
+            var heightPreview = winsize.height - this.$item.data('height') - marginExpanded,
+				itemHeight = winsize.height;
+
+            if (heightPreview < settings.minHeight) {
+                heightPreview = settings.minHeight;
+                itemHeight = settings.minHeight + this.$item.data('height') + marginExpanded;
+            }
+
+            this.height = heightPreview;
+            this.itemHeight = itemHeight;
+
+        },
+        setHeights: function () {
+
+            var self = this,
+				onEndFn = function () {
+				    if (support) {
+				        self.$item.off(transEndEventName);
+				    }
+				    self.$item.addClass('og-expanded');
+				};
+
+            this.calcHeight();
+            this.$previewEl.css('height', this.height);
+            this.$item.css('height', this.itemHeight).on(transEndEventName, onEndFn);
+
+            if (!support) {
+                onEndFn.call();
+            }
+
+        },
+        positionPreview: function () {
+
+            // scroll page
+            // case 1 : preview height + item height fits in window´s height
+            // case 2 : preview height + item height does not fit in window´s height and preview height is smaller than window´s height
+            // case 3 : preview height + item height does not fit in window´s height and preview height is bigger than window´s height
+            var position = this.$item.data('offsetTop'),
+				previewOffsetT = this.$previewEl.offset().top - scrollExtra,
+				//scrollVal = this.height + this.$item.data('height') + marginExpanded <= winsize.height ? position : this.height < winsize.height ? previewOffsetT - (winsize.height - this.height) : previewOffsetT;
+                scrollVal = position - 60;
+            $body.animate({ scrollTop: scrollVal }, settings.speed);
+
+        },
+        setTransition: function () {
+            this.$previewEl.css('transition', 'height ' + settings.speed + 'ms ' + settings.easing);
+            this.$item.css('transition', 'height ' + settings.speed + 'ms ' + settings.easing);
+        },
+        getEl: function () {
+            return this.$previewEl;
+        }
+    }
+
+    return {
+        init: init
+    };
+
+});//();
+//#endregion
+
+jQuery.support.cors = true;
+if (typeof Liferay === 'undefined' && window.location.href.indexOf("public_html") > -1) {
+    isLocalHost = true;
+    console.log("mode HTML: on");
+    var Liferay = {
+        ThemeDisplay: {
+            getLayoutId: function () { return "1" }, getLayoutURL: function () { return "http://localhost:49976/public_html/ajax/home" },
+            getPortalURL: function () { return "http://www.uce.edu.ec" }
+        },
+        on: function (A, G) {
+
+        }
+    };
+}
+
+$(window).load(function () {
+    console.log("window on load eventx body:" + $('body').length);
+    initx();
+    createSharex();
+});
+
+function initx() {
+    var loadsx = $('[data-load]');
+    var len = loadsx.length;
+    loadsx.each(function (index, element) {
+        var that = $(this);
+        var urix = that.data("load");
+        console.log("load start:" + urix);
+
+        $.ajax({
+            type: "get",
+            crossDomain: true,
+            url: urix,
+            contentType: 'text/plain',
+            success: function (data, textStatus, xhr) {
+                that.html(data);
+                //that = null;
+                len = len - 1;
+                console.log("load finish:" + urix + ";  -->" + xhr.status + " " + xhr.statusText + " len:" + len);
+                if (len == 0) {
+                    console.log("loads terminados");
+                    console.log("mm-menu creando: body:" + $('body').length);
+
+                    //mm-menu
+                    $('#mm-nav-content').appendTo('#dcmmenu');
+                    //$('#loader').appendTo('#dcmmenu');
+                    $("#dcmmenu").mmenu({
+                        classes: "mm-slide"
+                    });
+
+                    console.log("mm-menu creado body:" + $('body').length);
+
+                    //$('#dcmmenu').before($('#loader'));
+                    //$('#loader').appendTo("body");
+                    $('#loader').addClass('animated bounceOutUp');
+
+                    setTimeout(function () {
+                        console.log("removiendo loader");
+                        $('#loader').remove();
+                        $('#loaderStyle').remove();
+
+                        console.log("iniciando innerNavigate");
+
+                        innerNavigate();
+
+                        console.log("fin  innerNavigate");
+
+                        $("body").animate({
+                            scrollTop: 1
+                        }, 1);
+
+                        //scroll pagination
+                        if (window.location.search.indexOf("page=") > -1) {
+                            var q = $('.slide[data-slide="' + noti_slide_num + '"]').offset().top;
+                            $("body").animate({
+                                scrollTop: q
+                            }, 1000, 'easeInOutBack');
+                        }
+                    }, 1300);
+
+
+                    console.log("iniciando onloadX");
+                    DockPopUp().init();
+                    onloadX();
+
+                    console.log("fin onloadX");
+
+
+
+
+                }
+            },
+            error: function (xhr, textStatus, errorThrown) {
+                len = len - 1;
+                console.log("error load finish:" + urix + ";  -->" + xhr.status + " " + xhr.statusText + " : " + errorThrown + " len:" + len);
+            }
+        });
+    });
+
+
+}
+
+//#region innerNavigate
+//<editor-fold  defaultstate="collapsed" desc="innerNavigate">
+//Create a function that will be passed a slide number and then will scroll to that slide using jquerys animate. The Jquery
+//easing plugin is also used, so we passed in the easing method of 'easeInOutQuint' which is available throught the plugin.
+function goToByScroll(dataslide) {
+    //alert(dataslide);
+    var htmlbody = $('html,body');
+    var q = $('.slide[data-slide="' + dataslide + '"]').offset().top - 45;
+    htmlbody.animate({
+        scrollTop: q
+    }, 2500, 'easeInOutBack');
+    q = htmlbody = null;
+}
+function innerNavigate() {
+    //  /*
+    var links = $('a.toSlide'),
+            button = $('.scrollbut');
+    if (links.length > 0) {
+        //When the user clicks on the navigation links, get the data-slide attribute value of the link and pass that variable to the goToByScroll function
+        links.click(function (e) {
+            e.preventDefault();
+            $('#dcmmenu').trigger('close.mm');
+            var dataslide = $(this).attr('data-slide'); //alert(dataslide);
+            goToByScroll(dataslide);
+            return false;
+        });
+        links = null;
+        //When the user clicks on the button, get the get the data-slide attribute value of the button and pass that variable to the goToByScroll function
+        button.click(function (e) {
+            e.preventDefault();
+            var dataslide = $(this).attr('data-slide');
+            goToByScroll(dataslide);
+            dataslide = null;
+        });
+        button = null;
+        //  TweenMax.to($("#navBar"), 1.5, {delay: 0.2, scaleX: "-=0.02", scaleY: "-=0.02", repeat: -1, yoyo: true, ease: Linear.easeNone});
+        //  TweenMax.to($(".one_col"), 1.5, {delay: 0.2, scaleX: "-=0.02", scaleY: "-=0.02", repeat: -1, yoyo: true, ease: Linear.easeNone});                                                                                                                                
+        //  var scene = document.getElementById('scene');
+        //var parallax = new Parallax(scene);
+    }
+}
+//</editor-fold>
+//#endregion 
+
+//#region scroll top
+$(window).scroll(function () {
+    ///*
+    var y_scroll_pos = window.pageYOffset;
+    var scroll_pos_test = 50;
+    if (y_scroll_pos > scroll_pos_test) {
+        jQuery('.top').fadeIn(1000);
+        //        jQuery('.iphone').children('.top').css('display', 'none !important');
+    } else {
+        jQuery('.top').fadeOut(500);
+    }
+    y_scroll_pos = scroll_pos_test = null;
+    //headerPosition();
+    //*/
+
+
+    //parrallax
+    /*
+     var scrollPos = $(this).scrollTop();
+     
+     var elemx = $('#slide4 .img-cover');
+     //Scroll the background of the banner
+     elemx.css({
+     'background-position': 'center ' + ((scrollPos - elemx.offset().top) / 3) + "px"
+     });
+     scrollPos = elemx = null;
+     
+     // */
+});
+jQuery('.top').click(function () {
+    jQuery('html, body').animate({ scrollTop: 0 }, 1000, 'easeOutCubic'); //return false;
+});
+//#endregion
+
+function isMobileBrowser() {
+    return debug || (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
+}
+
+function createSharex() {
+    $('[data-role=sharex]').each(function () {
+
+        var that = $(this);
+        fixedUrls(that);
+        that = null;
+    });
+}
+
+function fixedUrls(that) {
+    var reg = /.*\/.*\//g;
+    if (typeof Liferay === 'undefined') {
+        var qq = 'http://www.uce.edu.ec/home';
+    } else {
+        var qq = Liferay.ThemeDisplay.getLayoutURL();
+    }
+    var portal = qq.match(reg)[0] + "archive_noticias?artID=";
+    var icox = '<i class="fa fa-share-alt"></i>';
+    var t1 = 'https://twitter.com/intent/tweet?text=%E2%80%9C';
+    var t2 = '%E2%80%9D&url=';
+    var t3 = '&via=UCentralEcuador';
+    var f1 = 'http://www.facebook.com/sharer.php?u=';
+
+    var service = that.data("sharex-service");
+    if (typeof service === 'undefined') {
+        service = "u"
+    }
+
+    if (service == "f") {
+        var urlx = encodeURI(portal + that.data("sharex-artid"));
+        var srcx = f1 + urlx;
+        that.attr("href", srcx);
+
+    } else if (service == "t") {
+
+        var urlx = encodeURI(portal + that.data("sharex-artid"));
+        var title = encodeURI(that.data("sharex-title"));
+        var srcx = t1 + title + t2 + urlx + t3;
+        that.attr("href", srcx);
+
+    } else if (service == "l") {
+
+        //http://www.uce.edu.ec/archive_noticias?artID=0001
+        var srcx = portal + that.data("sharex-artid");
+        that.attr("href", srcx);
+        that.html(icox + " " + srcx);
+    } else {
+        var srcx = portal + that.data("sharex-artid");
+        that.attr("href", srcx);
+    }
+    portal = icox = t1 = t2 = t3 = f1 = service = reg = qq = that = null;
+}
+
+console.log("fin dcm_common, body: " + $('body').length);
+///#source 1 1 /public_html/perseo/general/js/_dcmtheme.js
+var debug = false, allPortletsReady = false,reg = /.*\/.*\//g;
+
+//#region notices full
 var NoticiasFull = (function () {
     //mayra
     var $items = $('.noticeX'),
