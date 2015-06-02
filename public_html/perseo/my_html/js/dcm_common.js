@@ -2216,14 +2216,26 @@ var DockPopUp = (function () {
                             //$.Metro.initBannerCircle(qq);
                             //sidebarUpdate($item);
                             $item.data('ajaxLoad', true);
+                            switch (qq.data('func')) {
+                                case "years": {
+                                    yearGrid().init();
+                                } break;
+                                default:
+
+                            }
                         },
                         error: function () {
                             //alert("Ajax no activo, ha ocurrido un error.");
-                            //$.Metro.initSidebars($item);
-                            //$.Metro.initBannerCircle(qq);
-                            //sidebarUpdate($item);
                             $item.data('ajaxLoad', true);
-                            yearGrid().init();
+                            switch (qq.data('func')) {
+                                case "years": {
+                                    yearGrid().init();
+                                    $.Metro.initPdfStack(qq);
+                                } break;
+                                default:
+
+                            }
+
                         }
                     });
 
@@ -2331,6 +2343,7 @@ var DockPopUp = (function () {
 
     return { init: init };
 });//();
+
 var yearGrid = (function () {
     // grid selector
     //var $selector = '.ley .',
@@ -2640,6 +2653,94 @@ var yearGrid = (function () {
 
 });//();
 //#endregion
+
+//#region pdfStack
+//<editor-fold defaultstate="collapsed" desc="sidebar">
+
+(function ($) {
+    $.widget("metro.pdfStack", {
+        version: "1.0.0",
+        options: {
+            effect: 'switch'
+            , _index: 0
+        },
+        _create: function () {
+            var that = this,
+                current = 0,
+                element = this.element,
+                docs = $(element.children("a")),
+                navL = $(element.find(".leftx")),
+                navR = $(element.find(".rigthtx")),
+                count = $(element.find(".date")),
+                len = docs.length;
+
+            docs.addClass("inactive");
+            docs.eq(current).toggleClass("inactive");
+            count.text((current + 1) + '/' + len);
+            //navL.css('opacity', 0);
+
+            navL.on("click", function (e) {
+
+                e.preventDefault();
+                e.stopPropagation();
+                var currentItem = docs.eq(current);
+
+                current = current - 1 < 0 ? len - 1 : current - 1;
+                //if (current == 0) { navL.css('opacity', 0); }
+                //if (current != len - 1) { navR.css('opacity', 1); }                
+                var newitem = docs.eq(current);
+
+                currentItem.addClass("inactive");
+                newitem.removeClass("inactive");
+                count.text((current + 1) + '/' + len);
+
+            });
+            navR.on("click", function (e) {
+
+                e.preventDefault();
+                e.stopPropagation();
+                var currentItem = docs.eq(current);
+
+                current = current + 1 >= len ? 0 : current + 1;
+                //if (current == len - 1) { navR.css('opacity', 0); }
+                //if (current != 0) { navL.css('opacity', 1); }
+                var newitem = docs.eq(current);
+
+                currentItem.addClass("inactive").removeClass("animated fadeInDown");
+                newitem.removeClass("inactive").addClass("animated fadeInDown");
+                count.text((current + 1) + '/' + len);
+            });
+        },
+        _destroy: function () {
+
+        },
+        _setOption: function (key, value) {
+            this._super('_setOption', key, value);
+        }
+    })
+})(jQuery);
+
+$(function () {
+    $.Metro.initPdfStack = function (area) {
+        if (area != undefined) {
+            var d = $(area).find('.docs');
+            d.each(function () {
+                var dd = $(this);
+                if ($(dd.children("a")).length > 1) {
+                    dd.pdfStack();
+                } else { dd.addClass("empty"); }
+            });
+
+
+        } else {
+            //$('[data-role=sidebar]').sidebar();
+        }
+    };
+    //$.Metro.initSidebars();
+});
+
+//</editor-fold>
+//#endregion 
 
 jQuery.support.cors = true;
 if (typeof Liferay === 'undefined' && window.location.href.indexOf("public_html") > -1) {

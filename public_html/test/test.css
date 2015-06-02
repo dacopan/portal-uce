@@ -201,6 +201,11 @@
 /*#region trasparencia*/
 .ley .divider {
     height: 3px !important;
+    margin-top: 30px !important;
+}
+
+.ley h1 {
+    margin-top: 100px;
 }
 
 .metro .ley .contentwrap {
@@ -213,7 +218,7 @@
 .ley .og-grid .year {
     width: 140px !important;
     height: 140px !important;
-    background-color: #056293;
+    background-color: rgb(0,118,189);
     color: #ffffff;
     line-height: 140px;
     text-align: left;
@@ -225,8 +230,10 @@
     list-style: none;
     padding: 20px 0;
     margin: 0 auto;
-    text-align: center;
+    text-align: left;
     width: 100%;
+    max-width: 1080px;
+    margin: auto;
 }
 
     .ley .og-grid li {
@@ -336,42 +343,92 @@
 }
 
 .ley .ley-item {
-    height: 150px;
+    /*height: 92px;*/
+    height: 103px;
     margin-bottom: 20px;
-    border-bottom: 1px #868686 solid;
+    border-bottom: 1px #4275b8 solid;
     position: relative;
 }
 
-    .ley .ley-item h2 {
+    .ley .ley-item h4 {
         position: absolute;
         bottom: 0;
+        font-weight: normal;
+        font-family: "Open Sans";
+        text-align: left;
+        margin-bottom: 0;
+        min-height: 25px !important;
+    }
+
+    .ley .ley-item .pdfx h5 {
+        font-weight: normal;
+        font-family: "Open Sans";
+        position: absolute;
+        right: 90px;
+        min-width: 200px;
+        text-align: right;
+        top: -10px;
+        font-size: 13px;
+        opacity: 1;
+    }
+
+    .ley .ley-item .pdfx.inactive h5 {
+        opacity: 0;
     }
 
 .ley .docs {
-    width: 140px;
-    height: 140px;
+    width: 80px;
+    height: 80px;
     margin-right: 0;
     margin-left: auto;
     position: relative;
 }
 
-    .ley .docs .leftx,.ley .docs .rigthtx {
-        position: absolute;
-        vertical-align: middle;
-        left: -20px;
-        top: 60px;
-        cursor:pointer;
-    }
-    .ley .docs .rigthtx {    
-        right: -20px;  
-        left: auto;      
+.ley .date {
+    color: #818181;
+}
+
+.ley .docs .leftx, .ley .docs .rigthtx {
+    position: absolute;
+    vertical-align: middle;
+    left: -20px;
+    top: 33px;
+    cursor: pointer;
+    opacity: .7;
+}
+
+    .ley .docs .leftx:hover, .ley .docs .rigthtx:hover {
+        opacity: 1;
     }
 
-.ley .doc {
-    background-color: green;
+.ley .docs .rigthtx {
+    right: -11px;
+    left: auto;
+}
+
+.ley .docs.empty .leftx, .ley .docs.empty .rigthtx {
+    opacity: 0 !important;
+    display: none !important;
+}
+
+.ley .pdfx {
+    margin: 5px;
+    width: 80px;
+    height: 80px;
+    display: inline-block;
+    background-size: cover;
     position: absolute;
     right: 0;
+    z-index: 2;
+    background-image: url(../dcmtheme/images/carrera_info.jpg);
+    cursor: pointer;
 }
+
+    .ley .pdfx.inactive {
+        z-index: 1;
+        margin-top: 2px;
+        right: -3px;
+    }
 
 .og-details {
     padding: 0 40px 0 20px;
@@ -468,7 +525,7 @@
         counter-increment: li;
         font-size: 14px;
         color: #ffffff;
-        background-color: #59cde2;
+        background-color: #dedede;
         width: 25px;
         height: 22px;
         /* border-radius: 50%; */

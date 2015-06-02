@@ -8024,7 +8024,7 @@ span.date {
 /*#endregion*/
 
 /*#region transition*/
-.metro .club, .metro .club i, .footer .blogs a:hover h5, .metro .linksWrap .link, .metro .sharex i, .metro .uri {
+.metro .club, .metro .club i, .footer .blogs a:hover h5, .metro .linksWrap .link, .metro .sharex i, .metro .uri,.ley .ley-item .pdfx h5 {
     -moz-transition: all 0.3s ease 0s;
     -webkit-transition: all 0.3s ease 0s;
     -o-transition: all 0.3s ease 0s;

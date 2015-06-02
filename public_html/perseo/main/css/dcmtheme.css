@@ -8024,7 +8024,7 @@ span.date {
 /*#endregion*/
 
 /*#region transition*/
-.metro .club, .metro .club i, .footer .blogs a:hover h5, .metro .linksWrap .link, .metro .sharex i, .metro .uri {
+.metro .club, .metro .club i, .footer .blogs a:hover h5, .metro .linksWrap .link, .metro .sharex i, .metro .uri,.ley .ley-item .pdfx h5 {
     -moz-transition: all 0.3s ease 0s;
     -webkit-transition: all 0.3s ease 0s;
     -o-transition: all 0.3s ease 0s;
@@ -8579,7 +8579,25 @@ html > body .featured a.isobrick {
         position: relative;
         text-decoration: none !important;
     }
-
+    .og-grid.fac .og-box {
+    /*    -webkit-box-shadow: 0px 9px 16px 1px rgba(50, 50, 50, 0.97);
+    -moz-box-shadow:    0px 9px 16px 1px rgba(50, 50, 50, 0.97);
+    box-shadow:         0px 9px 16px 1px rgba(50, 50, 50, 0.97);*/
+    box-shadow: none;
+    width: 230px;
+    height: 134px;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    -moz-animation-duration: 1s;
+    -moz-animation-fill-mode: both;
+    -ms-animation-duration: 1s;
+    -ms-animation-fill-mode: both;
+    -o-animation-duration: 1s;
+    -o-animation-fill-mode: both;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    background-color: #fff;
+}
 
     .og-grid.fac h5, .og-grid.fac h4, .og-grid.fac .spreview {
         padding: 12px 12px 1px 12px;
