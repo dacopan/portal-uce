@@ -130,48 +130,6 @@
         outline: 0;
     }
 
-    .tile-small.no-outline {
-        outline-color: transparent;
-    }
-
-    .tile-small.small-tile {
-        width: 70px;
-        height: 70px;
-    }
-
-    .tile-small.wide-tile {
-        width: 310px;
-        height: 150px;
-    }
-
-    .tile-small.wide-tile-v {
-        height: 310px;
-        width: 150px;
-    }
-
-    .tile-small.large-tile {
-        width: 310px;
-        height: 310px;
-    }
-
-    .tile-small.big-tile {
-        width: 470px;
-        height: 470px;
-    }
-
-    .tile-small.super-tile {
-        width: 630px;
-        height: 630px;
-    }
-
-    .tile-small .tile-label {
-        position: absolute;
-        bottom: 0;
-        left: .625rem;
-        padding: .425rem .25rem;
-        z-index: 999;
-    }
-
 .tile-content:first-child {
     display: block;
 }
@@ -286,8 +244,8 @@
     position: absolute;
     width: 40px;
     height: 40px;
-    top: 20px;
-    right: 20px;
+    top: 5px;
+    right: 15px;
     cursor: pointer;
 }
 
@@ -533,7 +491,6 @@
         padding-top: 3px;
     }
 /*#endregion*/
-
 
 
 
