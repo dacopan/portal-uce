@@ -2087,7 +2087,7 @@ $(window).resize(function () {
     }
 })(jQuery);
 $(function () {
-    $.Metro.initAll($('body.metro'));
+    //$.Metro.initAll($('body.metro'));
 });
 METRO_AUTO_REINIT = false;
 $(function () {

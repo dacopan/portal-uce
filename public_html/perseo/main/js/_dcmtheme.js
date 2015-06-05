@@ -1872,9 +1872,7 @@ $(window).resize(function () {
 
     }
 })(jQuery);
-$(function () {
-    $.Metro.initAll($('body.metro'));
-});
+
 METRO_AUTO_REINIT = false;
 $(function () {
     if (METRO_AUTO_REINIT) {
@@ -3230,4 +3228,4 @@ function onloadX() {
 }
 
 //youutube thumbail http://img.youtube.com/vi/qx89ylJyeKU/0.jpg
-console.log("dcmtheme read and execute; and porlets: " + typeof Liferay.allPortletsReady + ", and body: " + $('body').length);
+console.log("dcmtheme reand execute; and porlets: " + typeof Liferay.allPortletsReady + ", and body: " + $('body').length);

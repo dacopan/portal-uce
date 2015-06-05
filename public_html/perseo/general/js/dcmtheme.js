@@ -2826,6 +2826,9 @@ function initx() {
 
                     console.log("iniciando onloadX");
                     DockPopUp().init();
+
+                    $.Metro.initAll($('body.metro'));
+
                     onloadX();
 
                     console.log("fin onloadX");

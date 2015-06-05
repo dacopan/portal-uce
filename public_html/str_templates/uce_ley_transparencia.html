@@ -1,0 +1,82 @@
+﻿<div class="contentwrap">
+    <h1 class="text-center adequate fg-blue">Ley de Transparencia</h1>
+    <div class="divider bg-gray"></div>
+    <p class="fg-lightgray adequate" style="font-weight: 600;margin-top: 50px;margin-bottom: 20px;">
+        Difusión de la información pública
+    </p>
+    <p class="text-justify" style="max-width: 1065px;margin-left: auto;margin-right: auto;">
+        Por la transparencia en la gestión administrativa que están obligadas a observar todas las instituciones del Estado que conforman el sector público en
+        los términos del artículo 118 de la Constitución Política de la República y demás entes señalados en el artículo 1 de la presente Ley, difundirán a través
+        de un portal de información o página web, así como de los medios necesarios a disposición del público, implementados en la misma institución, la siguiente
+        información mínima actualizada, que para efectos de esta Ley se la considera de naturaleza obligatoria:
+    </p>
+    #if (!$yearx.getSiblings().isEmpty())
+    #foreach ($cur_yearx in $yearx.getSiblings())
+
+    <ul class="og-grid yearsx">
+        #if ($getterUtil.getBoolean($cur_yearx.getData()))
+        <li>
+            <a href="#">
+                <div class="year">
+                    $cur_yearx.year_title.getData()
+                </div>
+            </a>
+            <div class="og-expander">
+                <div class="og-expander-inner">
+                    <span class="og-close"></span>
+
+                    <div class="og-details">
+                        <div class="row-fluid">
+                            <ul class="og-grid ley-docs">
+                                #foreach ($cur_item in $yearx.year_item.getSiblings())
+                                <li>
+                                    <div class="ley-item">
+                                        <h4 class="span8">$cur_item.getData()</h4>
+                                        <div class="docs">
+                                            <span class="date">1/1</span>
+                                            <i class="fa fa-angle-left leftx"></i>
+                                            <i class="fa fa-angle-right rigthtx"></i>
+                                            #foreach ($cur_doc in $cur_item.getSiblings())
+                                            <a class="pdfx" href="$cur_doc.item_doc.item_doc_url.getData()" target="_blank">
+                                                <h5>$cur_doc.item_doc.getData()</h5>
+                                            </a>
+                                            #end
+                                        </div>
+                                    </div>
+                                </li>
+                                #end
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        #end
+    </ul>
+    #end
+    #end
+    <ol class="abc-list" style="  max-width: 1050px;margin-left: auto;margin-right: auto;text-align: justify;margin-top: 20px;">
+        <li>Estructura orgánica funcional, base legal que la rige, regulaciones y procedimientos internos aplicables a la entidad; las metas y objetivos de las unidades administrativas de conformidad con sus programas operativos;</li>
+        <li>El directorio completo de la institución, así como su distributivo de personal;
+        <li>La remuneración mensual por puesto administrativo, docente y todo ingreso adicional, incluso el sistema de compensación, según lo establezcan las disposiciones correspondientes;</li>
+        <li>Los servicios que ofrece y las formas de acceder a ellos, horarios de atención y demás indicaciones necesarias, para que la ciudadanía pueda ejercer sus derechos y cumplir sus obligaciones;</li>
+        <li>Texto íntegro de todos los contratos colectivos vigentes en la institución, así como sus anexos y reformas;</li>
+        <li>Se publicarán los formularios o formatos de solicitudes que se requieran para los trámites inherentes a su campo de acción;</li>
+        <li>Información total sobre el presupuesto anual que administra la institución, especificando ingresos, gastos, financiamiento y resultados operativos de conformidad con los clasificadores presupuestales, así como liquidación del presupuesto, especificando destinatarios de la entrega de recursos públicos;</li>
+        <li>Los resultados de las auditorías internas y gubernamentales al ejercicio presupuestal;</li>
+        <li>Información completa y detallada sobre los procesos precontractuales, contractuales, de adjudicación y liquidación, de las contrataciones de obras,adquisición de bienes, prestación de servicios, arrendamientos mercantiles, etc., celebrados por la institución con personas naturales o jurídicas, incluidos concesiones, permisos o autorizaciones;</li>
+        <li>Un listado de las empresas y personas que han incumplido contratos con dicha institución;</li>
+        <li>Planes y programas de la institución en ejecución;</li>
+        <li>El detalle de los contratos de crédito externos o internos; se señalará la fuente de los fondos con los que se pagarán esos créditos. Cuando se trate de préstamos o contratos de financiamiento, se hará constar, como lo prevé la Ley Orgánica de Administración Financiera y Control, la Ley Orgánica de la Contraloría General del Estado y la Ley Orgánica de Responsabilidad y Transparencia Fiscal, las operaciones y contratos de crédito, los montos, plazo, costos financieros o tipos de interés; La Universidad Central del Ecuador no realiza créditos Externos o internos</li>
+        <li>Mecanismos de rendición de cuentas a la ciudadanía, tales como metas e informes de gestión e indicadores de desempeño;</li>
+        <li>Los viáticos, informes de trabajo y justificativos de movilización nacional o internacional de las autoridades, dignatarios y funcionarios públicos;</li>
+        <li>El nombre, dirección de la oficina, apartado postal y dirección electrónica del responsable de atender la información pública de que trata esta Ley;</li>
+        <li>La Función Judicial y el Tribunal Constitucional, adicionalmente, publicarán el texto íntegro de las sentencias ejecutoriadas, producidas en todas sus jurisdicciones;</li>
+        <li>Los organismos de control del Estado, adicionalmente, publicarán el texto íntegro de las resoluciones ejecutoriadas, así como sus informes, producidos en todas sus jurisdicciones;</li>
+        <li>El Banco Central, adicionalmente, publicará los indicadores e información relevante de su competencia de modo asequible y de fácil comprensión para la población en general;</li>
+        <li>Los organismos seccionales informarán oportunamente a la ciudadanía de las resoluciones que adoptaren, mediante la publicación de las actas de las respectivas sesiones de estos cuerpos colegiados, así como sus planes de desarrollo local; y,</li>
+        <li>El Tribunal de lo Contencioso Administrativo, adicionalmente, publicará el texto íntegro de sus sentencias ejecutoriadas, producidas en todas sus jurisdicciones. La información deberá ser publicada, organizándola por temas, ítems, orden secuencial o cronológico, etc, sin agrupar o generalizar, de tal manera que el ciudadano pueda ser informado correctamente y sin confusiones.</li>
+    </ol>
+</div>
+
+

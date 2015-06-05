@@ -1,4 +1,4 @@
-/*#region animated css*/
+﻿/*#region animated css*/
 /*file:///C:/Users/DarwinAlejandro/Downloads/Flareget/Applications/dcm_uce/web/liferay2/liferay2.html*/
 /*http://www.3dcsstext.com/
 * animate css
@@ -8097,3 +8097,514 @@ span.date {
     font-size: 16px;
     font-weight: normal;
 }
+
+.metro .ctc h4, .metro .ctc h2, .metro .ctc h1, .metro .ctc h3, .metro .ctc h5 {
+  font-family: 'Segoe UI Light','Open Sans Light',Verdana,Arial,Helvetica,sans-serif;
+  font-weight: 300;
+  font-size: 2.5rem;
+  line-height: 2.5rem;
+  letter-spacing: .01em;
+  color: #0096f0!important;
+  margin-top: 40px;
+  text-transform: uppercase;
+}
+/*#region dockbar*/
+
+.app-bar .app-bar-drop-container {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 10px;
+    border: 2px solid #005696;
+    border-radius: 0;
+}
+
+    .app-bar .app-bar-drop-container:before {
+        content: '';
+        position: absolute;
+        background-color: #ffffff;
+        width: 10px;
+        height: 10px;
+        border: 2px #005696 solid;
+        top: 1px;
+        left: 1rem;
+        margin: -8px 0;
+        border-bottom: none;
+        border-right: none;
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+
+    .app-bar .app-bar-drop-container:before {
+        z-index: 0;
+    }
+
+    .app-bar .app-bar-drop-container.place-right {
+        right: 6%;
+        left: auto;
+    }
+
+        .app-bar .app-bar-drop-container.place-right:before {
+            left: auto;
+            right: 1rem;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.tile-container {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+    .tile-container:before,
+    .tile-container:after {
+        display: table;
+        content: "";
+    }
+
+    .tile-container:after {
+        clear: both;
+    }
+
+.tile {
+    width: 150px;
+    height: 150px;
+    display: block;
+    float: left;
+    margin: 5px;
+    background-color: #eeeeee;
+    box-shadow: inset 0 0 1px #FFFFCC;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+    .tile:hover {
+        outline: #999999 solid 3px;
+    }
+
+    .tile:active {
+        outline: 0;
+    }
+
+.tile-small {
+    width: 150px;
+    height: 150px;
+    display: block;
+    float: left;
+    margin: 5px;
+    background-color: #eeeeee;
+    box-shadow: inset 0 0 1px #FFFFCC;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    overflow: visible;
+    width: 70px;
+    height: 70px;
+}
+
+    .tile-small:hover {
+        outline: #999999 solid 3px;
+    }
+
+    .tile-small:active {
+        outline: 0;
+    }
+
+.tile-content:first-child {
+    display: block;
+}
+
+.tile-content.iconic .icon {
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    font-size: 64px;
+    top: 50%;
+    margin-top: -40px;
+    left: 50%;
+    margin-left: -32px;
+    text-align: center;
+    color: white;
+}
+
+.tile-small .tile-content.iconic .icon {
+    width: 32px;
+    height: 32px;
+    font-size: 32px;
+    margin-left: -16px;
+    margin-top: -16px;
+}
+/*#endregion*/
+
+/*#region trasparencia*/
+.ley .divider {
+    height: 3px !important;
+    margin-top: 30px !important;
+}
+
+.ley h1 {
+    margin-top: 100px;
+}
+
+.metro .ley .contentwrap {
+    padding-top: 0;
+}
+
+.metro .ley .og-grid {
+}
+
+.ley .og-grid .year {
+    width: 140px !important;
+    height: 140px !important;
+    background-color: rgb(0,118,189);
+    color: #ffffff;
+    line-height: 140px;
+    text-align: left;
+    font-size: 25px;
+    font-family: 'Adequate ExtraLight';
+}
+
+.ley .og-grid {
+    list-style: none;
+    padding: 20px 0;
+    margin: 0 auto;
+    text-align: left;
+    width: 100%;
+    max-width: 1080px;
+    margin: auto;
+}
+
+    .ley .og-grid li {
+        display: inline-block;
+        margin: 10px 5px 5px 5px;
+        vertical-align: top;
+        /*height: 250px;*/
+    }
+
+        .ley .og-grid li > a,
+        .og-grid li > a img {
+            border: none;
+            outline: none;
+            display: block;
+            position: relative;
+        }
+
+.og-grid li.og-expanded > a::after {
+    top: auto;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-bottom-color: #ddd;
+    border-width: 15px;
+    left: 50%;
+    margin: -20px 0 0 -15px;
+}
+
+.og-expander {
+    position: absolute;
+    background: #ddd;
+    top: auto;
+    left: 0;
+    width: 100%;
+    margin-top: 10px;
+    text-align: left;
+    height: 0;
+    overflow: hidden;
+}
+
+.og-expander-inner {
+    padding: 50px 30px;
+    height: 100%;
+}
+
+.og-close {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: 5px;
+    right: 15px;
+    cursor: pointer;
+}
+
+    .og-close::before,
+    .og-close::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        top: 50%;
+        height: 1px;
+        background: #888;
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+
+    .og-close::after {
+        -webkit-transform: rotate(-45deg);
+        -moz-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+    }
+
+    .og-close:hover::before,
+    .og-close:hover::after {
+        background: #333;
+    }
+
+.og-fullimg,
+.og-details {
+    width: 100%;
+    /*float: left;*/
+    height: 100%;
+    overflow: hidden;
+    overflow-y: auto;
+    position: relative;
+}
+
+
+@media screen and (max-width:650px) {
+    .rb-overlay {
+        border-width: 4px;
+    }
+
+    .rb-week {
+        max-width: 98%;
+    }
+}
+
+.ley .og-grid.ley-docs li {
+    width: 40%;
+    min-width: 280px;
+    margin: 10px 30px;
+}
+
+.ley .ley-item {
+    /*height: 92px;*/
+    height: 103px;
+    margin-bottom: 20px;
+    border-bottom: 1px #4275b8 solid;
+    position: relative;
+}
+
+    .ley .ley-item h4 {
+        position: absolute;
+        bottom: 0;
+        font-weight: normal;
+        font-family: "Open Sans";
+        text-align: left;
+        margin-bottom: 0;
+        min-height: 25px !important;
+    }
+
+    .ley .ley-item .pdfx h5 {
+        font-weight: normal;
+        font-family: "Open Sans";
+        position: absolute;
+        right: 90px;
+        min-width: 200px;
+        text-align: right;
+        top: -10px;
+        font-size: 13px;
+        opacity: 1;
+    }
+
+    .ley .ley-item .pdfx.inactive h5 {
+        opacity: 0;
+    }
+
+.ley .docs {
+    width: 80px;
+    height: 80px;
+    margin-right: 0;
+    margin-left: auto;
+    position: relative;
+}
+
+.ley .date {
+    color: #818181;
+}
+
+.ley .docs .leftx, .ley .docs .rigthtx {
+    position: absolute;
+    vertical-align: middle;
+    left: -20px;
+    top: 33px;
+    cursor: pointer;
+    opacity: .7;
+}
+
+    .ley .docs .leftx:hover, .ley .docs .rigthtx:hover {
+        opacity: 1;
+    }
+
+.ley .docs .rigthtx {
+    right: -11px;
+    left: auto;
+}
+
+.ley .docs.empty .leftx, .ley .docs.empty .rigthtx {
+    opacity: 0 !important;
+    display: none !important;
+}
+
+.ley .pdfx {
+    margin: 5px;
+    width: 80px;
+    height: 80px;
+    display: inline-block;
+    background-size: cover;
+    position: absolute;
+    right: 0;
+    z-index: 2;
+    background-image: url(../dcmtheme/images/carrera_info.jpg);
+    cursor: pointer;
+}
+
+    .ley .pdfx.inactive {
+        z-index: 1;
+        margin-top: 2px;
+        right: -3px;
+    }
+
+.og-details {
+    padding: 0 40px 0 20px;
+}
+/*#endregion*/
+
+/*#region abc-list*/
+.og-loading {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #ddd;
+    box-shadow: 0 0 1px #ccc, 15px 30px 1px #ccc, -15px 30px 1px #ccc;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -25px 0 0 -25px;
+    -webkit-animation: loader 0.5s infinite ease-in-out both;
+    -moz-animation: loader 0.5s infinite ease-in-out both;
+    animation: loader 0.5s infinite ease-in-out both;
+}
+
+@-webkit-keyframes loader {
+    0% {
+        background: #ddd;
+    }
+
+    33% {
+        background: #ccc;
+        box-shadow: 0 0 1px #ccc, 15px 30px 1px #ccc, -15px 30px 1px #ddd;
+    }
+
+    66% {
+        background: #ccc;
+        box-shadow: 0 0 1px #ccc, 15px 30px 1px #ddd, -15px 30px 1px #ccc;
+    }
+}
+
+@-moz-keyframes loader {
+    0% {
+        background: #ddd;
+    }
+
+    33% {
+        background: #ccc;
+        box-shadow: 0 0 1px #ccc, 15px 30px 1px #ccc, -15px 30px 1px #ddd;
+    }
+
+    66% {
+        background: #ccc;
+        box-shadow: 0 0 1px #ccc, 15px 30px 1px #ddd, -15px 30px 1px #ccc;
+    }
+}
+
+@keyframes loader {
+    0% {
+        background: #ddd;
+    }
+
+    33% {
+        background: #ccc;
+        box-shadow: 0 0 1px #ccc, 15px 30px 1px #ccc, -15px 30px 1px #ddd;
+    }
+
+    66% {
+        background: #ccc;
+        box-shadow: 0 0 1px #ccc, 15px 30px 1px #ddd, -15px 30px 1px #ccc;
+    }
+}
+
+
+.abc-list {
+    list-style: none;
+    counter-reset: li;
+    padding-left: 0;
+    margin-left: .625rem;
+}
+
+    .abc-list li {
+        position: relative;
+        list-style: none;
+        color: #262626;
+        padding: 6px 12px 20px 18px;
+        font-size: 14px;
+    }
+
+
+    .abc-list > li:before {
+        position: absolute;
+        margin-top: 3px;
+        left: -10px;
+        vertical-align: middle;
+        content: counter(li);
+        counter-increment: li;
+        font-size: 14px;
+        color: #ffffff;
+        background-color: #dedede;
+        width: 25px;
+        height: 22px;
+        /* border-radius: 50%; */
+        text-align: center;
+        padding-top: 3px;
+    }
+/*#endregion*/
+
+
+
+
+
+
+
