@@ -1,6 +1,4 @@
-/* #Tabs
-================================================== */
-/*<editor-fold defaultstate="collapsed" desc="Tabs">*/
+/*#region Tabs*/
 .metro .tab-control .tabs {
     padding-left: 0;
     list-style: none;
@@ -101,10 +99,9 @@
     /*max-width: 80%;*/
     margin: auto;
 }
-/*</editor-fold>*/
-/* #Facultades
-================================================== */
-/*<editor-fold defaultstate="collapsed" desc="og-grid slide down">*/
+/*#endregion*/
+
+/* #region carreras*/
 .og-grid, .carreraWrap {
     list-style: none;
     padding: 20px 0 !important;
@@ -130,7 +127,7 @@
         -moz-transition: all 0.3s ease 0s;
     }
 
-   
+
 .fac-title.span1 {
     height: 100%;
     /* margin-left: 10%!important; */
@@ -154,9 +151,7 @@
     -ms-word-break: normal !important;
     -o-word-break: normal !important;
 }
-/*</editor-fold>*/
-
-
+/*#endregion*/
 
 /**from view.html**/
 /*CSS Document*/
@@ -315,20 +310,6 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
     width: 100%;
 }
 
-#slide2xx:after {
-    bottom: 0;
-    background: url('http://static9.cdn.ubi.com/resource/es-ES/game/tomclancy-thedivision/game/cache_bottom_agents.png') no-repeat;
-    height: 214px;
-    content: '';
-    width: 100%;
-    height: 77px;
-    display: block;
-    position: absolute;
-    bottom: 0px;
-    left: 0;
-    background: url('http://static9.cdn.ubi.com/resource/es-ES/game/tomclancy-thedivision/game/cache_bottom_bloc_top.png') no-repeat;
-}
-
 .metro .pregradox {
     background-color: #dedede;
     min-height: 300px;
@@ -345,9 +326,7 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
 
 
 /**New**/
-/* #Slick js
-================================================== */
-/*<editor-fold defaultstate="collapsed" desc="slick js">*/
+/* #region Slick js*/
 /* Slider */
 .slick-slider {
     position: relative;
@@ -603,11 +582,9 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
 .slick-slide.slick-active.slick-center {
     opacity: 1;
 }
-/*</editor-fold>*/
+/*#endregion*/
 
-/* #Slide1
-================================================== */
-/*<editor-fold defaultstate="collapsed" desc="Slide1">*/
+/*#region Slide1*/
 .metro #wrapperscroll .slide {
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
@@ -688,19 +665,6 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
         line-height: normal;
     }
 
-    /*#slide1 .detail p, .og-expander-inner p, .ipp {
-        text-transform: none;
-        text-align: justify;
-        padding-right: 10%;
-        padding-left: 40px;
-        -webkit-font-smoothing: antialiased;
-        padding-top: 20px;
-        padding-bottom: 10px;
-        font-family: "Segoe UI Light_","Open Sans Light",Verdana,Arial,Helvetica,sans-serif;
-        font-size: 16px;
-        font-weight: normal;
-    }*/
-
     #slide1 .detail .jefes {
         width: auto;
         float: right;
@@ -775,15 +739,12 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
         margin-top: 30px;
         float: right;
     }
-/*</editor-fold>*/
+/*#endregion*/
 
-/* #Carreras
-================================================== */
-/*<editor-fold defaultstate="collapsed" desc="#Carreras">*/
+/*#region Carreras*/
 #slide2 .fac-title, #slide3 .fac-title, .metro .fac-title {
     margin-right: 0 !important;
 }
-
 
 .metro .carreraWrap {
     max-width: 900px;
@@ -794,7 +755,7 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
     background-color: #a28f23;
     width: 140px !important;
     height: 105px;
-    font-family: "Segoe UI Light_","Open Sans Light",Verdana,Arial,Helvetica,sans-serif;
+    font-family: "Segoe UI Light","Open Sans Light",Verdana,Arial,Helvetica,sans-serif;
     font-size: 20px;
     font-weight: normal;
     color: white;
@@ -874,31 +835,26 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
     background-image: url(../images/bg-circle.png) !important;
 }
 
-/*</editor-fold>*/
+/*#endregion*/
 
-/* #Slide3
-================================================== */
-/*<editor-fold defaultstate="collapsed" desc="Slide3">*/
+/*#region Slide3*/
 #slide3 .ipp {
-    padding-left: 0px;
-    padding-right: 0px;
+    padding-left: 0;
+    padding-right: 0;
     border-bottom: 5px solid #a28f23;
 }
 
-.og-grid.posgrados {
+.og-grid.posgrados li {
+    width: 100%;
+    border-bottom: 1px solid #000;
+    padding: 10px;
+    margin: 0;
+    padding-bottom: 20px;
 }
 
-    .og-grid.posgrados li {
-        width: 100%;
-        border-bottom: 1px solid #000;
-        padding: 10px;
-        margin: 0px;
-        padding-bottom: 20px;
+    .og-grid.posgrados li:last-child {
+        border: none;
     }
-
-        .og-grid.posgrados li:last-child {
-            border: none;
-        }
 
 .metro h4.sub {
     letter-spacing: normal;
@@ -910,12 +866,9 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
     margin: auto !important;
     float: none;
 }
-/*</editor-fold>*/
+/*#endregion*/
 
-/* #Noticias
-================================================== */
-/*<editor-fold defaultstate="collapsed" desc="Noticias">*/
-
+/*#region Noticias*/
 .noticies .noticeX {
     /*width: 280px;*/
     height: 280px;
@@ -959,9 +912,6 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
             height: 100%;
             color: #fff;
         }
-
-
-
 
 /*---------------*/
 /***** Lexi *****/
@@ -1046,16 +996,9 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
     transform: translate3d(0,0,0);
 }
 
-.noticies {
-}
+/*#endregion*/
 
-.noticies {
-}
-/*</editor-fold>*/
-
-/* #links de interes
-================================================== */
-/*<editor-fold defaultstate="collapsed" desc="Links">*/
+/*#region links de interes*/
 .metro .links h2 {
     text-transform: uppercase;
     text-align: center;
@@ -1095,6 +1038,9 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
 
 .metro .links a > img {
     margin-top: 18%;
+    line-height: 82px;
+    padding-top: 15px;
+    margin: auto;
 }
 
 .metro .links .og-grid {
@@ -1144,17 +1090,15 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
     -o-transition: all 0.3s ease 0s;
     transition: all 0.3s ease 0s;
     -moz-transition: all 0.3s ease 0s;
-    border-radius: 50%;
     line-height: 15px;
 }
 
 .metro .links li:hover > .sub-title {
     opacity: 0;
 }
-/*</editor-fold>*/
-/* #region Footer
-================================================== */
-/*<editor-fold defaultstate="collapsed" desc="Footer">*/
+/*#endregion*/
+
+/*#region Footer*/
 .metro .footer {
     background-color: #343434 !important;
 }
@@ -1247,8 +1191,7 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
     margin-bottom: 20px;
     color: #fff;
 }
-/*#endregion
-    </editor-fold>*/
+/*#endregion*/
 
 .clclc {
     background-color: #a28f23;

@@ -3360,8 +3360,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 }
 /*#endregion </editor-fold>*/
 
-/* #Top Scroll
-================================================== */
 /*#region dcm-top*/
 .dcm.top {
     position: fixed;
@@ -4802,13 +4800,6 @@ a {
 /*#region font*/
 /*<editor-fold defaultstate="collpased" desc="font styles">*/
 @font-face {
-    font-family: "PT Serif Caption";
-    font-style: normal;
-    font-weight: 400;
-    src: local("Cambria"), local("PT Serif Caption"), local("PTSerif-Caption"), url(https://themes.googleusercontent.com/static/fonts/ptserifcaption/v6/7xkFOeTxxO1GMC1suOUYWWhBabBbEjGd1iRmpyoZukE.woff) format('woff');
-}
-
-@font-face {
     font-family: "Open Sans Light";
     font-style: normal;
     font-weight: 300;
@@ -4875,36 +4866,20 @@ a {
 }
 
 .metro #font .segoe {
-    font-family: 'Segoe UI_', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
+    font-family: 'Segoe UI', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
 }
 
 .metro #font .segoe-bold {
-    font-family: 'Segoe UI Semibold_', 'Open Sans Bold', Verdana, Arial, Helvetica, sans-serif;
+    font-family: 'Segoe UI Semibold', 'Open Sans Bold', Verdana, Arial, Helvetica, sans-serif;
 }
 
 .metro #font .segoe-light {
-    font-family: 'Segoe UI Light_', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
-}
-
-.metro #font .cambria {
-    font-family: 'Cambria_', 'PT Serif Caption', Verdana, Arial, Helvetica, sans-serif;
-}
-
-.metro #font .mono {
-    font-family: 'Courier New', monospace;
-}
-
-.metro #font .serif {
-    font-family: Georgia, "Times New Roman", Times, serif;
-}
-
-.metro #font .sans {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: 'Segoe UI Light', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
 }
 
 .metro .header,
 .metro .subheader {
-    font-family: 'Segoe UI Light_', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
+    font-family: 'Segoe UI Light', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
     font-weight: 300;
     color: #000000;
     letter-spacing: 0.00em;
@@ -4922,7 +4897,7 @@ a {
 }
 
 .metro .subheader-secondary {
-    font-family: 'Segoe UI Light_', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
+    font-family: 'Segoe UI Light', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
     font-weight: 300;
     letter-spacing: 0.00em;
     font-size: 2.5rem;
@@ -4934,7 +4909,7 @@ a {
 }
 
 .metro .item-title {
-    font-family: 'Segoe UI Semibold_', 'Open Sans Bold', Verdana, Arial, Helvetica, sans-serif;
+    font-family: 'Segoe UI Semibold', 'Open Sans Bold', Verdana, Arial, Helvetica, sans-serif;
     font-weight: bold;
     color: #000000;
     font-size: 1.6rem;
@@ -4943,7 +4918,7 @@ a {
 }
 
 .metro .item-title-secondary {
-    font-family: 'Segoe UI Semibold_', 'Open Sans Bold', Verdana, Arial, Helvetica, sans-serif;
+    font-family: 'Segoe UI Semibold', 'Open Sans Bold', Verdana, Arial, Helvetica, sans-serif;
     font-weight: bold;
     font-size: 1.6rem;
     line-height: 1.6rem;
@@ -4954,7 +4929,7 @@ a {
 }
 
 .metro .navigation {
-    font-family: 'Segoe UI_', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
+    font-family: 'Segoe UI', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
     font-weight: normal;
     font-style: normal;
     color: #000000;
@@ -4964,7 +4939,7 @@ a {
 }
 
 .metro .body-text {
-    font-family: 'Segoe UI_', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
+    font-family: 'Segoe UI', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
     font-weight: normal;
     font-style: normal;
     color: #000000;
@@ -4973,19 +4948,9 @@ a {
     letter-spacing: 0.02em;
 }
 
-.metro .code-text {
-    font-family: 'Segoe UI_', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
-    font-weight: normal;
-    font-style: normal;
-    color: #000000;
-    font-size: 11pt;
-    line-height: 15pt;
-    letter-spacing: 0.02em;
-    font-family: 'Courier New', monospace;
-}
 
 .metro .tertiary-text {
-    font-family: 'Segoe UI_', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
+    font-family: 'Segoe UI', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
     color: #000000;
     font-size: 1.3rem;
     line-height: 1.5rem;
@@ -4993,7 +4958,7 @@ a {
 }
 
 .metro .tertiary-text-secondary {
-    font-family: 'Segoe UI_', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
+    font-family: 'Segoe UI', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
     font-size: 1.3rem;
     line-height: 1.5rem;
     font-weight: normal !important;
@@ -5009,7 +4974,7 @@ a {
 }
 
 .metro .menu-title {
-    font-family: 'Segoe UI Light_', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
+    font-family: 'Segoe UI Light', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
     font-weight: 300;
     color: #000000;
     letter-spacing: 0.00em;
@@ -5020,7 +4985,7 @@ a {
 }
 
 .metro .menu-item {
-    font-family: 'Segoe UI Light_', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
+    font-family: 'Segoe UI Light', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
     font-weight: 300;
     letter-spacing: 0.00em;
     font-size: 2.5rem;
@@ -5032,7 +4997,7 @@ a {
 }
 
 .metro .menu-item-secondary {
-    font-family: 'Segoe UI Semibold_', 'Open Sans Bold', Verdana, Arial, Helvetica, sans-serif;
+    font-family: 'Segoe UI Semibold', 'Open Sans Bold', Verdana, Arial, Helvetica, sans-serif;
     font-weight: bold;
     color: #000000;
     font-size: 1.6rem;
@@ -5054,14 +5019,14 @@ a {
 }
 
 .aui, .metro {
-    font-family: 'Segoe UI Light_', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
+    font-family: 'Segoe UI Light', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
     font-weight: normal;
     color: #000;
 }
 
     .metro p {
         margin: 0 0 7pt;
-        font-family: 'Segoe UI_', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
+        font-family: 'Segoe UI', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
         font-weight: normal;
         font-style: normal;
         color: #000000;
@@ -5071,7 +5036,7 @@ a {
     }
 
     .metro h1 {
-        font-family: 'Segoe UI Light_', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
+        font-family: 'Segoe UI Light', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
         font-weight: 300;
         color: #000000;
         letter-spacing: 0.00em;
@@ -5080,7 +5045,7 @@ a {
     }
 
     .metro h2 {
-        font-family: 'Segoe UI Light_', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
+        font-family: 'Segoe UI Light', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
         font-weight: 300;
         color: #000000;
         font-size: 2.5rem;
@@ -5089,7 +5054,7 @@ a {
     }
 
     .metro h3 {
-        font-family: 'Segoe UI Light_', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
+        font-family: 'Segoe UI Light', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
         letter-spacing: 0.01em;
         color: #000000;
         font-size: 2.2rem;
@@ -5098,7 +5063,7 @@ a {
     }
 
     .metro h4 {
-        font-family: 'Segoe UI Semibold_', 'Open Sans Bold', Verdana, Arial, Helvetica, sans-serif;
+        font-family: 'Segoe UI Semibold', 'Open Sans Bold', Verdana, Arial, Helvetica, sans-serif;
         font-weight: bold;
         color: #000000;
         font-size: 1.6rem;
@@ -5107,7 +5072,7 @@ a {
     }
 
     .metro h5 {
-        font-family: 'Segoe UI Semibold_', 'Open Sans Bold', Verdana, Arial, Helvetica, sans-serif;
+        font-family: 'Segoe UI Semibold', 'Open Sans Bold', Verdana, Arial, Helvetica, sans-serif;
         font-weight: bold;
         letter-spacing: 0.02em;
         color: #000000;
@@ -5116,7 +5081,7 @@ a {
     }
 
     .metro h6 {
-        font-family: 'Segoe UI_', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
+        font-family: 'Segoe UI', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
         font-style: normal;
         color: #000000;
         line-height: 15pt;
@@ -5144,10 +5109,9 @@ a {
     .metro p, .metro .ctc, .metro .full-html {
         font-size: 1.4rem;
         line-height: normal;
-        font-family: 'Segoe UI_', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
+        font-family: 'Segoe UI', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
     }
-/*#endregion
-    </editor-fold>*/
+/*#endregion*/
 
 /* #region General Styles topbar, contentwrap*/
 /*<editor-fold defaultstate="collapsed" desc="General styles">*/
@@ -5173,8 +5137,8 @@ body.metro {
     background-repeat: no-repeat;
 }
 
-.controls-visible.signed-in.metro .topBar,.controls-visible.signed-in.metro #navigation {
-    display: none!important;
+.controls-visible.signed-in.metro .topBar, .controls-visible.signed-in.metro #navigation {
+    display: none !important;
 }
 
 .metro .topBar {
@@ -5237,130 +5201,12 @@ body.metro {
     position: fixed !important;
     top: 0px;
 }
+.aui .portlet-topper .portlet-title {
+height:0;
+}
+
 /*#endregion
     </editor-fold>*/
-
-/* #region Nivo slider*/
-/*<editor-fold defaultstate="collapsed" desc="General styles">*/
-
-.nivoSlider {
-    position: relative;
-    width: 100%;
-    height: auto;
-    overflow: hidden;
-}
-
-    .nivoSlider img {
-        position: absolute;
-        top: 0px;
-        left: 0px;
-        max-width: none;
-    }
-
-.nivo-main-image {
-    display: block !important;
-    position: relative !important;
-    width: 100% !important;
-}
-
-/* If an image is wrapped in a link */
-.nivoSlider a.nivo-imageLink {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    height: 100%;
-    border: 0;
-    padding: 0;
-    margin: 0;
-    z-index: 6;
-    display: none;
-    background: white;
-    filter: alpha(opacity=0);
-    opacity: 0;
-}
-/* The slices and boxes in the Slider */
-.nivo-slice {
-    display: block;
-    position: absolute;
-    z-index: 5;
-    height: 100%;
-    top: 0;
-}
-
-.nivo-box {
-    display: block;
-    position: absolute;
-    z-index: 5;
-    overflow: hidden;
-}
-
-    .nivo-box img {
-        display: block;
-    }
-
-/* Caption styles */
-.nivo-caption {
-    position: absolute;
-    left: 0px;
-    bottom: 0px;
-    background: #000;
-    color: #fff;
-    width: 100%;
-    z-index: 8;
-    padding: 5px 10px;
-    overflow: hidden;
-    display: none;
-    opacity: 0.8;
-    filter: alpha(opacity=8);
-    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-    -moz-box-sizing: border-box; /* Firefox, other Gecko */
-    box-sizing: border-box; /* Opera/IE 8+ */
-}
-
-    .nivo-caption p {
-        padding: 5px;
-        margin: 0;
-    }
-
-    .nivo-caption a {
-        display: inline !important;
-    }
-
-.nivo-html-caption {
-    display: none;
-}
-/* Direction nav styles (e.g. Next & Prev) */
-.nivo-directionNav a {
-    position: absolute;
-    top: 45%;
-    z-index: 9;
-    cursor: pointer;
-}
-
-.nivo-prevNav {
-    left: 0px;
-}
-
-.nivo-nextNav {
-    right: 0px;
-}
-/* Control nav styles (e.g. 1,2,3...) */
-.nivo-controlNav {
-    text-align: center;
-    padding: 15px 0;
-}
-
-    .nivo-controlNav a {
-        cursor: pointer;
-    }
-
-        .nivo-controlNav a.active {
-            font-weight: bold;
-        }
-
-/*#endregion
-</editor-fold>*/
 
 /*#region Sidebar*/
 /* #Sidebar
@@ -7802,7 +7648,7 @@ span.date {
     overflow-y: auto;
     z-index: 100 !important;
     margin-right: 10px;
-      /*text-align: justify;
+    /*text-align: justify;
   position: relative;
   padding: 10px 0 10px 10px;
   height: 100%;
@@ -8019,12 +7865,8 @@ span.date {
 }
 /*#endregion*/
 
-/*#region taglib pagination*/
-
-/*#endregion*/
-
 /*#region transition*/
-.metro .club, .metro .club i, .footer .blogs a:hover h5, .metro .linksWrap .link, .metro .sharex i, .metro .uri,.ley .ley-item .pdfx h5 {
+.metro .club, .metro .club i, .footer .blogs a:hover h5, .metro .linksWrap .link, .metro .sharex i, .metro .uri, .ley .ley-item .pdfx h5 {
     -moz-transition: all 0.3s ease 0s;
     -webkit-transition: all 0.3s ease 0s;
     -o-transition: all 0.3s ease 0s;
@@ -8099,15 +7941,16 @@ span.date {
 }
 
 .metro .ctc h4, .metro .ctc h2, .metro .ctc h1, .metro .ctc h3, .metro .ctc h5 {
-  font-family: 'Segoe UI Light','Open Sans Light',Verdana,Arial,Helvetica,sans-serif;
-  font-weight: 300;
-  font-size: 2.5rem;
-  line-height: 2.5rem;
-  letter-spacing: .01em;
-  color: #0096f0!important;
-  margin-top: 40px;
-  text-transform: uppercase;
+    font-family: 'Segoe UI Light','Open Sans Light',Verdana,Arial,Helvetica,sans-serif;
+    font-weight: 300;
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+    letter-spacing: .01em;
+    color: #0096f0 !important;
+    margin-top: 40px;
+    text-transform: uppercase;
 }
+
 /*#region dockbar*/
 
 .app-bar .app-bar-drop-container {
@@ -8608,9 +8451,7 @@ span.date {
 
 /*</editor-fold>*/
 
-/* #Notices Featured
-======================================================*/
-/*<editor-fold defaultstate="collapsed" desc="Notices Featured">*/
+/*#region Notices Featured*/
 .metro .noticiesWrap .rb-close {
     display: none;
 }
@@ -8827,11 +8668,9 @@ span.date a.bubble, span.date a.bubble:hover {
 html > body .featured a.isobrick {
     background: none;
 }
-/*</editor-fold>*/
+/*#endregion*/
 
-/* #Vacordion
-================================================== */
-/*<editor-fold defaultstate="collapsed" desc="Vacordion">*/
+/* #region Vacordion*/
 /* Vertical Accordion Style */
 .va-container {
     position: relative;
@@ -8933,11 +8772,9 @@ html > body .featured a.isobrick {
     -o-transform: scale(1.1);
     -ms-transform: scale(1.1);
 }
-/*</editor-fold>*/
+/*#endregion*/
 
-/* #Tabs
-================================================== */
-/*<editor-fold defaultstate="collapsed" desc="Tabs">*/
+/* #region Tabs*/
 .metro .tab-control .tabs {
     padding-left: 0;
     list-style: none;
@@ -9038,10 +8875,9 @@ html > body .featured a.isobrick {
     /*max-width: 80%;*/
     margin: auto;
 }
-/*</editor-fold>*/
-/* #Facultades
-================================================== */
-/*<editor-fold defaultstate="collapsed" desc="Facultades">*/
+/*#endregion*/
+
+/* #region panel facs*/
 .og-grid .detailx {
     height: 0px;
     width: 0px;
@@ -9083,10 +8919,7 @@ html > body .featured a.isobrick {
         position: relative;
         text-decoration: none !important;
     }
-    .og-grid.fac .og-box {
-    /*    -webkit-box-shadow: 0px 9px 16px 1px rgba(50, 50, 50, 0.97);
-    -moz-box-shadow:    0px 9px 16px 1px rgba(50, 50, 50, 0.97);
-    box-shadow:         0px 9px 16px 1px rgba(50, 50, 50, 0.97);*/
+    .og-grid.fac .og-box {    
     box-shadow: none;
     width: 230px;
     height: 134px;
@@ -9169,9 +9002,9 @@ html > body .featured a.isobrick {
     transform: scale(1.1);
 }
 
-/*</editor-fold>*/
+/*#endregion*/
 
-/*<editor-fold defaultstate="collapsed" desc="direcciones">*/
+/*#region direcs*/
 .metro .contentwrap.direcWrap {
     max-width: 1200px;
 }
@@ -9223,11 +9056,9 @@ html > body .featured a.isobrick {
     transform: scale(1.1);
     border-top-left-radius: 75%;
 }
-/*</editor-fold>*/
+/*#endregion*/
 
-
-/*#region Club
-================================================== */
+/*#region Club*/
 .metro .clubWrap {
     /*max-width:*/
 }
@@ -9282,10 +9113,7 @@ html > body .featured a.isobrick {
 }
 /*#endregion*/
 
-/* #region Footer
-================================================== */
-/*<editor-fold defaultstate="collapsed" desc="Footer">*/
-
+/*#region Footer*/
 .metro .footer span {
     display: block;
 }
@@ -9359,160 +9187,7 @@ html > body .featured a.isobrick {
     transition: all 0.3s ease 0s;
 }
 
-
-/*#endregion
-    </editor-fold>*/
-
-
-
-
-/**END**/
-/*<editor-fold defaultstate="collapsed" desc="hint">*/
-.metro .hint {
-    position: fixed;
-    color: #1d1d1d;
-    padding: 10px;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 12px;
-    width: auto;
-    max-width: 220px;
-    margin-top: 10px;
-    z-index: 1030;
-    display: none;
-    border: 1px solid;
-    border-color: #6a6a6a;
-    margin-left: 30px;
-}
-
-    .metro .hint .hint-title,
-    .metro .hint .hint-text {
-        color: inherit;
-        text-align: left;
-    }
-
-    .metro .hint .hint-title {
-        font-size: 1.2em;
-        font-weight: bold;
-    }
-
-    .metro .hint:before,
-    .metro .hint:after {
-        content: '';
-        position: absolute;
-        width: 0;
-        height: 0;
-        -webkit-animation-duration: 0.5s;
-        -moz-animation-duration: 0.5s;
-        -ms-animation-duration: 0.5s;
-        -o-animation-duration: 0.5s;
-        animation-duration: 0.5s;
-        -webkit-animation-fill-mode: both;
-        -moz-animation-fill-mode: both;
-        -ms-animation-fill-mode: both;
-        -o-animation-fill-mode: both;
-        animation-fill-mode: both;
-        -webkit-animation-delay: 0.1s;
-        -moz-animation-delay: 0.1s;
-        -ms-animation-delay: 0.1s;
-        -o-animation-delay: 0.1s;
-        animation-delay: 0.1s;
-        -webkit-animation-name: hintx;
-        -moz-animation-name: hintx;
-        -ms-animation-name: hintx;
-        -o-animation-name: hintx;
-        animation-name: hintx;
-    }
-
-@-webkit-keyframes hintx {
-    0% {
-        height: 0px;
-        width: 0px;
-    }
-}
-
-.metro .hint:before {
-    z-index: 2;
-    top: -1px;
-    left: 12px;
-    /* border-top: 5px solid black; */
-    /* border-right: 4px solid black; */
-    width: 12px;
-    /* margin-left: -30px; */
-    background: black;
-    height: 4px;
-    margin-left: -25px;
-}
-
-.metro .hint:after {
-    z-index: 1;
-    top: -1px;
-    left: 12px;
-    width: 5px;
-    background: black;
-    height: 10px;
-    margin-left: -25px;
-    margin-top: -18px;
-}
-
-.metro .hint.bottom:before,
-.metro .hint.bottom:after {
-}
-
-.metro .hint.bottom:after {
-    top: 0;
-    border-bottom: 10px solid;
-}
-
-
-
-
-.metro .hint.top:before,
-.metro .hint.top:after {
-    top: 100%;
-    margin-top: -1px;
-    left: 5px;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-top: 10px solid #fffcc0;
-}
-
-.metro .hint.top:after {
-    margin-top: 1px;
-    border-top: 10px solid;
-}
-
-.metro .hint.left:before,
-.metro .hint.left:after {
-    top: 5px;
-    left: 100%;
-    margin-left: -1px;
-    border-top: 5px solid transparent;
-    border-bottom: 5px solid transparent;
-    border-left: 10px solid #fffcc0;
-}
-
-.metro .hint.left:after {
-    margin-left: 0;
-    border-left: 10px solid;
-}
-
-.metro .hint.right:before,
-.metro .hint.right:after {
-    top: 5px;
-    left: -9px;
-    margin: 0;
-    border-top: 5px solid transparent;
-    border-bottom: 5px solid transparent;
-    border-right: 10px solid #fffcc0;
-}
-
-.metro .hint.right:after {
-    left: -10px;
-    border-right: 10px solid;
-}
-/*</editor-fold>*/
-
-
+/*#endregion*/
 
 /**from view.html**/
 /*CSS Document*/

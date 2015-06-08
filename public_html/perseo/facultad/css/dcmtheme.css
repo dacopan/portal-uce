@@ -3360,8 +3360,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 }
 /*#endregion </editor-fold>*/
 
-/* #Top Scroll
-================================================== */
 /*#region dcm-top*/
 .dcm.top {
     position: fixed;
@@ -4802,13 +4800,6 @@ a {
 /*#region font*/
 /*<editor-fold defaultstate="collpased" desc="font styles">*/
 @font-face {
-    font-family: "PT Serif Caption";
-    font-style: normal;
-    font-weight: 400;
-    src: local("Cambria"), local("PT Serif Caption"), local("PTSerif-Caption"), url(https://themes.googleusercontent.com/static/fonts/ptserifcaption/v6/7xkFOeTxxO1GMC1suOUYWWhBabBbEjGd1iRmpyoZukE.woff) format('woff');
-}
-
-@font-face {
     font-family: "Open Sans Light";
     font-style: normal;
     font-weight: 300;
@@ -4875,36 +4866,20 @@ a {
 }
 
 .metro #font .segoe {
-    font-family: 'Segoe UI_', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
+    font-family: 'Segoe UI', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
 }
 
 .metro #font .segoe-bold {
-    font-family: 'Segoe UI Semibold_', 'Open Sans Bold', Verdana, Arial, Helvetica, sans-serif;
+    font-family: 'Segoe UI Semibold', 'Open Sans Bold', Verdana, Arial, Helvetica, sans-serif;
 }
 
 .metro #font .segoe-light {
-    font-family: 'Segoe UI Light_', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
-}
-
-.metro #font .cambria {
-    font-family: 'Cambria_', 'PT Serif Caption', Verdana, Arial, Helvetica, sans-serif;
-}
-
-.metro #font .mono {
-    font-family: 'Courier New', monospace;
-}
-
-.metro #font .serif {
-    font-family: Georgia, "Times New Roman", Times, serif;
-}
-
-.metro #font .sans {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: 'Segoe UI Light', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
 }
 
 .metro .header,
 .metro .subheader {
-    font-family: 'Segoe UI Light_', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
+    font-family: 'Segoe UI Light', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
     font-weight: 300;
     color: #000000;
     letter-spacing: 0.00em;
@@ -4922,7 +4897,7 @@ a {
 }
 
 .metro .subheader-secondary {
-    font-family: 'Segoe UI Light_', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
+    font-family: 'Segoe UI Light', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
     font-weight: 300;
     letter-spacing: 0.00em;
     font-size: 2.5rem;
@@ -4934,7 +4909,7 @@ a {
 }
 
 .metro .item-title {
-    font-family: 'Segoe UI Semibold_', 'Open Sans Bold', Verdana, Arial, Helvetica, sans-serif;
+    font-family: 'Segoe UI Semibold', 'Open Sans Bold', Verdana, Arial, Helvetica, sans-serif;
     font-weight: bold;
     color: #000000;
     font-size: 1.6rem;
@@ -4943,7 +4918,7 @@ a {
 }
 
 .metro .item-title-secondary {
-    font-family: 'Segoe UI Semibold_', 'Open Sans Bold', Verdana, Arial, Helvetica, sans-serif;
+    font-family: 'Segoe UI Semibold', 'Open Sans Bold', Verdana, Arial, Helvetica, sans-serif;
     font-weight: bold;
     font-size: 1.6rem;
     line-height: 1.6rem;
@@ -4954,7 +4929,7 @@ a {
 }
 
 .metro .navigation {
-    font-family: 'Segoe UI_', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
+    font-family: 'Segoe UI', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
     font-weight: normal;
     font-style: normal;
     color: #000000;
@@ -4964,7 +4939,7 @@ a {
 }
 
 .metro .body-text {
-    font-family: 'Segoe UI_', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
+    font-family: 'Segoe UI', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
     font-weight: normal;
     font-style: normal;
     color: #000000;
@@ -4973,19 +4948,9 @@ a {
     letter-spacing: 0.02em;
 }
 
-.metro .code-text {
-    font-family: 'Segoe UI_', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
-    font-weight: normal;
-    font-style: normal;
-    color: #000000;
-    font-size: 11pt;
-    line-height: 15pt;
-    letter-spacing: 0.02em;
-    font-family: 'Courier New', monospace;
-}
 
 .metro .tertiary-text {
-    font-family: 'Segoe UI_', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
+    font-family: 'Segoe UI', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
     color: #000000;
     font-size: 1.3rem;
     line-height: 1.5rem;
@@ -4993,7 +4958,7 @@ a {
 }
 
 .metro .tertiary-text-secondary {
-    font-family: 'Segoe UI_', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
+    font-family: 'Segoe UI', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
     font-size: 1.3rem;
     line-height: 1.5rem;
     font-weight: normal !important;
@@ -5009,7 +4974,7 @@ a {
 }
 
 .metro .menu-title {
-    font-family: 'Segoe UI Light_', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
+    font-family: 'Segoe UI Light', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
     font-weight: 300;
     color: #000000;
     letter-spacing: 0.00em;
@@ -5020,7 +4985,7 @@ a {
 }
 
 .metro .menu-item {
-    font-family: 'Segoe UI Light_', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
+    font-family: 'Segoe UI Light', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
     font-weight: 300;
     letter-spacing: 0.00em;
     font-size: 2.5rem;
@@ -5032,7 +4997,7 @@ a {
 }
 
 .metro .menu-item-secondary {
-    font-family: 'Segoe UI Semibold_', 'Open Sans Bold', Verdana, Arial, Helvetica, sans-serif;
+    font-family: 'Segoe UI Semibold', 'Open Sans Bold', Verdana, Arial, Helvetica, sans-serif;
     font-weight: bold;
     color: #000000;
     font-size: 1.6rem;
@@ -5054,14 +5019,14 @@ a {
 }
 
 .aui, .metro {
-    font-family: 'Segoe UI Light_', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
+    font-family: 'Segoe UI Light', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
     font-weight: normal;
     color: #000;
 }
 
     .metro p {
         margin: 0 0 7pt;
-        font-family: 'Segoe UI_', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
+        font-family: 'Segoe UI', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
         font-weight: normal;
         font-style: normal;
         color: #000000;
@@ -5071,7 +5036,7 @@ a {
     }
 
     .metro h1 {
-        font-family: 'Segoe UI Light_', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
+        font-family: 'Segoe UI Light', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
         font-weight: 300;
         color: #000000;
         letter-spacing: 0.00em;
@@ -5080,7 +5045,7 @@ a {
     }
 
     .metro h2 {
-        font-family: 'Segoe UI Light_', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
+        font-family: 'Segoe UI Light', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
         font-weight: 300;
         color: #000000;
         font-size: 2.5rem;
@@ -5089,7 +5054,7 @@ a {
     }
 
     .metro h3 {
-        font-family: 'Segoe UI Light_', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
+        font-family: 'Segoe UI Light', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
         letter-spacing: 0.01em;
         color: #000000;
         font-size: 2.2rem;
@@ -5098,7 +5063,7 @@ a {
     }
 
     .metro h4 {
-        font-family: 'Segoe UI Semibold_', 'Open Sans Bold', Verdana, Arial, Helvetica, sans-serif;
+        font-family: 'Segoe UI Semibold', 'Open Sans Bold', Verdana, Arial, Helvetica, sans-serif;
         font-weight: bold;
         color: #000000;
         font-size: 1.6rem;
@@ -5107,7 +5072,7 @@ a {
     }
 
     .metro h5 {
-        font-family: 'Segoe UI Semibold_', 'Open Sans Bold', Verdana, Arial, Helvetica, sans-serif;
+        font-family: 'Segoe UI Semibold', 'Open Sans Bold', Verdana, Arial, Helvetica, sans-serif;
         font-weight: bold;
         letter-spacing: 0.02em;
         color: #000000;
@@ -5116,7 +5081,7 @@ a {
     }
 
     .metro h6 {
-        font-family: 'Segoe UI_', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
+        font-family: 'Segoe UI', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
         font-style: normal;
         color: #000000;
         line-height: 15pt;
@@ -5144,10 +5109,9 @@ a {
     .metro p, .metro .ctc, .metro .full-html {
         font-size: 1.4rem;
         line-height: normal;
-        font-family: 'Segoe UI_', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
+        font-family: 'Segoe UI', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
     }
-/*#endregion
-    </editor-fold>*/
+/*#endregion*/
 
 /* #region General Styles topbar, contentwrap*/
 /*<editor-fold defaultstate="collapsed" desc="General styles">*/
@@ -5173,8 +5137,8 @@ body.metro {
     background-repeat: no-repeat;
 }
 
-.controls-visible.signed-in.metro .topBar,.controls-visible.signed-in.metro #navigation {
-    display: none!important;
+.controls-visible.signed-in.metro .topBar, .controls-visible.signed-in.metro #navigation {
+    display: none !important;
 }
 
 .metro .topBar {
@@ -5237,130 +5201,12 @@ body.metro {
     position: fixed !important;
     top: 0px;
 }
+.aui .portlet-topper .portlet-title {
+height:0;
+}
+
 /*#endregion
     </editor-fold>*/
-
-/* #region Nivo slider*/
-/*<editor-fold defaultstate="collapsed" desc="General styles">*/
-
-.nivoSlider {
-    position: relative;
-    width: 100%;
-    height: auto;
-    overflow: hidden;
-}
-
-    .nivoSlider img {
-        position: absolute;
-        top: 0px;
-        left: 0px;
-        max-width: none;
-    }
-
-.nivo-main-image {
-    display: block !important;
-    position: relative !important;
-    width: 100% !important;
-}
-
-/* If an image is wrapped in a link */
-.nivoSlider a.nivo-imageLink {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    height: 100%;
-    border: 0;
-    padding: 0;
-    margin: 0;
-    z-index: 6;
-    display: none;
-    background: white;
-    filter: alpha(opacity=0);
-    opacity: 0;
-}
-/* The slices and boxes in the Slider */
-.nivo-slice {
-    display: block;
-    position: absolute;
-    z-index: 5;
-    height: 100%;
-    top: 0;
-}
-
-.nivo-box {
-    display: block;
-    position: absolute;
-    z-index: 5;
-    overflow: hidden;
-}
-
-    .nivo-box img {
-        display: block;
-    }
-
-/* Caption styles */
-.nivo-caption {
-    position: absolute;
-    left: 0px;
-    bottom: 0px;
-    background: #000;
-    color: #fff;
-    width: 100%;
-    z-index: 8;
-    padding: 5px 10px;
-    overflow: hidden;
-    display: none;
-    opacity: 0.8;
-    filter: alpha(opacity=8);
-    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-    -moz-box-sizing: border-box; /* Firefox, other Gecko */
-    box-sizing: border-box; /* Opera/IE 8+ */
-}
-
-    .nivo-caption p {
-        padding: 5px;
-        margin: 0;
-    }
-
-    .nivo-caption a {
-        display: inline !important;
-    }
-
-.nivo-html-caption {
-    display: none;
-}
-/* Direction nav styles (e.g. Next & Prev) */
-.nivo-directionNav a {
-    position: absolute;
-    top: 45%;
-    z-index: 9;
-    cursor: pointer;
-}
-
-.nivo-prevNav {
-    left: 0px;
-}
-
-.nivo-nextNav {
-    right: 0px;
-}
-/* Control nav styles (e.g. 1,2,3...) */
-.nivo-controlNav {
-    text-align: center;
-    padding: 15px 0;
-}
-
-    .nivo-controlNav a {
-        cursor: pointer;
-    }
-
-        .nivo-controlNav a.active {
-            font-weight: bold;
-        }
-
-/*#endregion
-</editor-fold>*/
 
 /*#region Sidebar*/
 /* #Sidebar
@@ -7802,7 +7648,7 @@ span.date {
     overflow-y: auto;
     z-index: 100 !important;
     margin-right: 10px;
-      /*text-align: justify;
+    /*text-align: justify;
   position: relative;
   padding: 10px 0 10px 10px;
   height: 100%;
@@ -8019,12 +7865,8 @@ span.date {
 }
 /*#endregion*/
 
-/*#region taglib pagination*/
-
-/*#endregion*/
-
 /*#region transition*/
-.metro .club, .metro .club i, .footer .blogs a:hover h5, .metro .linksWrap .link, .metro .sharex i, .metro .uri,.ley .ley-item .pdfx h5 {
+.metro .club, .metro .club i, .footer .blogs a:hover h5, .metro .linksWrap .link, .metro .sharex i, .metro .uri, .ley .ley-item .pdfx h5 {
     -moz-transition: all 0.3s ease 0s;
     -webkit-transition: all 0.3s ease 0s;
     -o-transition: all 0.3s ease 0s;
@@ -8099,15 +7941,16 @@ span.date {
 }
 
 .metro .ctc h4, .metro .ctc h2, .metro .ctc h1, .metro .ctc h3, .metro .ctc h5 {
-  font-family: 'Segoe UI Light','Open Sans Light',Verdana,Arial,Helvetica,sans-serif;
-  font-weight: 300;
-  font-size: 2.5rem;
-  line-height: 2.5rem;
-  letter-spacing: .01em;
-  color: #0096f0!important;
-  margin-top: 40px;
-  text-transform: uppercase;
+    font-family: 'Segoe UI Light','Open Sans Light',Verdana,Arial,Helvetica,sans-serif;
+    font-weight: 300;
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+    letter-spacing: .01em;
+    color: #0096f0 !important;
+    margin-top: 40px;
+    text-transform: uppercase;
 }
+
 /*#region dockbar*/
 
 .app-bar .app-bar-drop-container {
@@ -8601,9 +8444,7 @@ span.date {
         padding-top: 3px;
     }
 /*#endregion*/
-/* #Tabs
-================================================== */
-/*<editor-fold defaultstate="collapsed" desc="Tabs">*/
+/*#region Tabs*/
 .metro .tab-control .tabs {
     padding-left: 0;
     list-style: none;
@@ -8704,10 +8545,9 @@ span.date {
     /*max-width: 80%;*/
     margin: auto;
 }
-/*</editor-fold>*/
-/* #Facultades
-================================================== */
-/*<editor-fold defaultstate="collapsed" desc="og-grid slide down">*/
+/*#endregion*/
+
+/* #region carreras*/
 .og-grid, .carreraWrap {
     list-style: none;
     padding: 20px 0 !important;
@@ -8733,7 +8573,7 @@ span.date {
         -moz-transition: all 0.3s ease 0s;
     }
 
-   
+
 .fac-title.span1 {
     height: 100%;
     /* margin-left: 10%!important; */
@@ -8757,9 +8597,7 @@ span.date {
     -ms-word-break: normal !important;
     -o-word-break: normal !important;
 }
-/*</editor-fold>*/
-
-
+/*#endregion*/
 
 /**from view.html**/
 /*CSS Document*/
@@ -8918,20 +8756,6 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
     width: 100%;
 }
 
-#slide2xx:after {
-    bottom: 0;
-    background: url('http://static9.cdn.ubi.com/resource/es-ES/game/tomclancy-thedivision/game/cache_bottom_agents.png') no-repeat;
-    height: 214px;
-    content: '';
-    width: 100%;
-    height: 77px;
-    display: block;
-    position: absolute;
-    bottom: 0px;
-    left: 0;
-    background: url('http://static9.cdn.ubi.com/resource/es-ES/game/tomclancy-thedivision/game/cache_bottom_bloc_top.png') no-repeat;
-}
-
 .metro .pregradox {
     background-color: #dedede;
     min-height: 300px;
@@ -8948,9 +8772,7 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
 
 
 /**New**/
-/* #Slick js
-================================================== */
-/*<editor-fold defaultstate="collapsed" desc="slick js">*/
+/* #region Slick js*/
 /* Slider */
 .slick-slider {
     position: relative;
@@ -9206,11 +9028,9 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
 .slick-slide.slick-active.slick-center {
     opacity: 1;
 }
-/*</editor-fold>*/
+/*#endregion*/
 
-/* #Slide1
-================================================== */
-/*<editor-fold defaultstate="collapsed" desc="Slide1">*/
+/*#region Slide1*/
 .metro #wrapperscroll .slide {
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
@@ -9291,19 +9111,6 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
         line-height: normal;
     }
 
-    /*#slide1 .detail p, .og-expander-inner p, .ipp {
-        text-transform: none;
-        text-align: justify;
-        padding-right: 10%;
-        padding-left: 40px;
-        -webkit-font-smoothing: antialiased;
-        padding-top: 20px;
-        padding-bottom: 10px;
-        font-family: "Segoe UI Light_","Open Sans Light",Verdana,Arial,Helvetica,sans-serif;
-        font-size: 16px;
-        font-weight: normal;
-    }*/
-
     #slide1 .detail .jefes {
         width: auto;
         float: right;
@@ -9378,15 +9185,12 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
         margin-top: 30px;
         float: right;
     }
-/*</editor-fold>*/
+/*#endregion*/
 
-/* #Carreras
-================================================== */
-/*<editor-fold defaultstate="collapsed" desc="#Carreras">*/
+/*#region Carreras*/
 #slide2 .fac-title, #slide3 .fac-title, .metro .fac-title {
     margin-right: 0 !important;
 }
-
 
 .metro .carreraWrap {
     max-width: 900px;
@@ -9397,7 +9201,7 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
     background-color: #a28f23;
     width: 140px !important;
     height: 105px;
-    font-family: "Segoe UI Light_","Open Sans Light",Verdana,Arial,Helvetica,sans-serif;
+    font-family: "Segoe UI Light","Open Sans Light",Verdana,Arial,Helvetica,sans-serif;
     font-size: 20px;
     font-weight: normal;
     color: white;
@@ -9477,31 +9281,26 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
     background-image: url(../images/bg-circle.png) !important;
 }
 
-/*</editor-fold>*/
+/*#endregion*/
 
-/* #Slide3
-================================================== */
-/*<editor-fold defaultstate="collapsed" desc="Slide3">*/
+/*#region Slide3*/
 #slide3 .ipp {
-    padding-left: 0px;
-    padding-right: 0px;
+    padding-left: 0;
+    padding-right: 0;
     border-bottom: 5px solid #a28f23;
 }
 
-.og-grid.posgrados {
+.og-grid.posgrados li {
+    width: 100%;
+    border-bottom: 1px solid #000;
+    padding: 10px;
+    margin: 0;
+    padding-bottom: 20px;
 }
 
-    .og-grid.posgrados li {
-        width: 100%;
-        border-bottom: 1px solid #000;
-        padding: 10px;
-        margin: 0px;
-        padding-bottom: 20px;
+    .og-grid.posgrados li:last-child {
+        border: none;
     }
-
-        .og-grid.posgrados li:last-child {
-            border: none;
-        }
 
 .metro h4.sub {
     letter-spacing: normal;
@@ -9513,12 +9312,9 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
     margin: auto !important;
     float: none;
 }
-/*</editor-fold>*/
+/*#endregion*/
 
-/* #Noticias
-================================================== */
-/*<editor-fold defaultstate="collapsed" desc="Noticias">*/
-
+/*#region Noticias*/
 .noticies .noticeX {
     /*width: 280px;*/
     height: 280px;
@@ -9562,9 +9358,6 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
             height: 100%;
             color: #fff;
         }
-
-
-
 
 /*---------------*/
 /***** Lexi *****/
@@ -9649,16 +9442,9 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
     transform: translate3d(0,0,0);
 }
 
-.noticies {
-}
+/*#endregion*/
 
-.noticies {
-}
-/*</editor-fold>*/
-
-/* #links de interes
-================================================== */
-/*<editor-fold defaultstate="collapsed" desc="Links">*/
+/*#region links de interes*/
 .metro .links h2 {
     text-transform: uppercase;
     text-align: center;
@@ -9698,6 +9484,9 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
 
 .metro .links a > img {
     margin-top: 18%;
+    line-height: 82px;
+    padding-top: 15px;
+    margin: auto;
 }
 
 .metro .links .og-grid {
@@ -9747,17 +9536,15 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
     -o-transition: all 0.3s ease 0s;
     transition: all 0.3s ease 0s;
     -moz-transition: all 0.3s ease 0s;
-    border-radius: 50%;
     line-height: 15px;
 }
 
 .metro .links li:hover > .sub-title {
     opacity: 0;
 }
-/*</editor-fold>*/
-/* #region Footer
-================================================== */
-/*<editor-fold defaultstate="collapsed" desc="Footer">*/
+/*#endregion*/
+
+/*#region Footer*/
 .metro .footer {
     background-color: #343434 !important;
 }
@@ -9850,8 +9637,7 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
     margin-bottom: 20px;
     color: #fff;
 }
-/*#endregion
-    </editor-fold>*/
+/*#endregion*/
 
 .clclc {
     background-color: #a28f23;

@@ -5,9 +5,7 @@
 
 /*</editor-fold>*/
 
-/* #Notices Featured
-======================================================*/
-/*<editor-fold defaultstate="collapsed" desc="Notices Featured">*/
+/*#region Notices Featured*/
 .metro .noticiesWrap .rb-close {
     display: none;
 }
@@ -224,11 +222,9 @@ span.date a.bubble, span.date a.bubble:hover {
 html > body .featured a.isobrick {
     background: none;
 }
-/*</editor-fold>*/
+/*#endregion*/
 
-/* #Vacordion
-================================================== */
-/*<editor-fold defaultstate="collapsed" desc="Vacordion">*/
+/* #region Vacordion*/
 /* Vertical Accordion Style */
 .va-container {
     position: relative;
@@ -330,11 +326,9 @@ html > body .featured a.isobrick {
     -o-transform: scale(1.1);
     -ms-transform: scale(1.1);
 }
-/*</editor-fold>*/
+/*#endregion*/
 
-/* #Tabs
-================================================== */
-/*<editor-fold defaultstate="collapsed" desc="Tabs">*/
+/* #region Tabs*/
 .metro .tab-control .tabs {
     padding-left: 0;
     list-style: none;
@@ -435,10 +429,9 @@ html > body .featured a.isobrick {
     /*max-width: 80%;*/
     margin: auto;
 }
-/*</editor-fold>*/
-/* #Facultades
-================================================== */
-/*<editor-fold defaultstate="collapsed" desc="Facultades">*/
+/*#endregion*/
+
+/* #region panel facs*/
 .og-grid .detailx {
     height: 0px;
     width: 0px;
@@ -480,10 +473,7 @@ html > body .featured a.isobrick {
         position: relative;
         text-decoration: none !important;
     }
-    .og-grid.fac .og-box {
-    /*    -webkit-box-shadow: 0px 9px 16px 1px rgba(50, 50, 50, 0.97);
-    -moz-box-shadow:    0px 9px 16px 1px rgba(50, 50, 50, 0.97);
-    box-shadow:         0px 9px 16px 1px rgba(50, 50, 50, 0.97);*/
+    .og-grid.fac .og-box {    
     box-shadow: none;
     width: 230px;
     height: 134px;
@@ -566,9 +556,9 @@ html > body .featured a.isobrick {
     transform: scale(1.1);
 }
 
-/*</editor-fold>*/
+/*#endregion*/
 
-/*<editor-fold defaultstate="collapsed" desc="direcciones">*/
+/*#region direcs*/
 .metro .contentwrap.direcWrap {
     max-width: 1200px;
 }
@@ -620,11 +610,9 @@ html > body .featured a.isobrick {
     transform: scale(1.1);
     border-top-left-radius: 75%;
 }
-/*</editor-fold>*/
+/*#endregion*/
 
-
-/*#region Club
-================================================== */
+/*#region Club*/
 .metro .clubWrap {
     /*max-width:*/
 }
@@ -679,10 +667,7 @@ html > body .featured a.isobrick {
 }
 /*#endregion*/
 
-/* #region Footer
-================================================== */
-/*<editor-fold defaultstate="collapsed" desc="Footer">*/
-
+/*#region Footer*/
 .metro .footer span {
     display: block;
 }
@@ -756,160 +741,7 @@ html > body .featured a.isobrick {
     transition: all 0.3s ease 0s;
 }
 
-
-/*#endregion
-    </editor-fold>*/
-
-
-
-
-/**END**/
-/*<editor-fold defaultstate="collapsed" desc="hint">*/
-.metro .hint {
-    position: fixed;
-    color: #1d1d1d;
-    padding: 10px;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 12px;
-    width: auto;
-    max-width: 220px;
-    margin-top: 10px;
-    z-index: 1030;
-    display: none;
-    border: 1px solid;
-    border-color: #6a6a6a;
-    margin-left: 30px;
-}
-
-    .metro .hint .hint-title,
-    .metro .hint .hint-text {
-        color: inherit;
-        text-align: left;
-    }
-
-    .metro .hint .hint-title {
-        font-size: 1.2em;
-        font-weight: bold;
-    }
-
-    .metro .hint:before,
-    .metro .hint:after {
-        content: '';
-        position: absolute;
-        width: 0;
-        height: 0;
-        -webkit-animation-duration: 0.5s;
-        -moz-animation-duration: 0.5s;
-        -ms-animation-duration: 0.5s;
-        -o-animation-duration: 0.5s;
-        animation-duration: 0.5s;
-        -webkit-animation-fill-mode: both;
-        -moz-animation-fill-mode: both;
-        -ms-animation-fill-mode: both;
-        -o-animation-fill-mode: both;
-        animation-fill-mode: both;
-        -webkit-animation-delay: 0.1s;
-        -moz-animation-delay: 0.1s;
-        -ms-animation-delay: 0.1s;
-        -o-animation-delay: 0.1s;
-        animation-delay: 0.1s;
-        -webkit-animation-name: hintx;
-        -moz-animation-name: hintx;
-        -ms-animation-name: hintx;
-        -o-animation-name: hintx;
-        animation-name: hintx;
-    }
-
-@-webkit-keyframes hintx {
-    0% {
-        height: 0px;
-        width: 0px;
-    }
-}
-
-.metro .hint:before {
-    z-index: 2;
-    top: -1px;
-    left: 12px;
-    /* border-top: 5px solid black; */
-    /* border-right: 4px solid black; */
-    width: 12px;
-    /* margin-left: -30px; */
-    background: black;
-    height: 4px;
-    margin-left: -25px;
-}
-
-.metro .hint:after {
-    z-index: 1;
-    top: -1px;
-    left: 12px;
-    width: 5px;
-    background: black;
-    height: 10px;
-    margin-left: -25px;
-    margin-top: -18px;
-}
-
-.metro .hint.bottom:before,
-.metro .hint.bottom:after {
-}
-
-.metro .hint.bottom:after {
-    top: 0;
-    border-bottom: 10px solid;
-}
-
-
-
-
-.metro .hint.top:before,
-.metro .hint.top:after {
-    top: 100%;
-    margin-top: -1px;
-    left: 5px;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-top: 10px solid #fffcc0;
-}
-
-.metro .hint.top:after {
-    margin-top: 1px;
-    border-top: 10px solid;
-}
-
-.metro .hint.left:before,
-.metro .hint.left:after {
-    top: 5px;
-    left: 100%;
-    margin-left: -1px;
-    border-top: 5px solid transparent;
-    border-bottom: 5px solid transparent;
-    border-left: 10px solid #fffcc0;
-}
-
-.metro .hint.left:after {
-    margin-left: 0;
-    border-left: 10px solid;
-}
-
-.metro .hint.right:before,
-.metro .hint.right:after {
-    top: 5px;
-    left: -9px;
-    margin: 0;
-    border-top: 5px solid transparent;
-    border-bottom: 5px solid transparent;
-    border-right: 10px solid #fffcc0;
-}
-
-.metro .hint.right:after {
-    left: -10px;
-    border-right: 10px solid;
-}
-/*</editor-fold>*/
-
-
+/*#endregion*/
 
 /**from view.html**/
 /*CSS Document*/

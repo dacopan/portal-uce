@@ -43,11 +43,11 @@
 	#end
 
 	<link rel="stylesheet" href="$html-com/css/dcm-loader.min.css" type="text/css" id="loaderStyle" />	
-    <link rel="stylesheet" href="$theme-type/css/dcmtheme.min.css" type="text/css" />
+    <link rel="stylesheet" href="$theme-type/css/dcmtheme.min.css?v=0.1" type="text/css" />
     
 	   
 	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-	<script src="$theme-type/js/dcmtheme.min.js" type="text/javascript" async="async"></script>
+	<script src="$theme-type/js/dcmtheme.min.js?v=0.1" type="text/javascript" async="async"></script>
 
     
 </head>
@@ -77,7 +77,7 @@
         #end
 
 
-        <div class="topBar bg-blue" id="topBar" style="position: fixed;" data-load="$html-com/uce_topBar_mmmenu.txt">
+        <div class="topBar bg-blue app-bar" id="topBar" style="position: fixed;" data-load="$html-com/uce_topBar_mmmenu.txt">
         </div>
         <div class="dcm top">
             <a class="scrollto" href="#main-content">Scroll to top</a>

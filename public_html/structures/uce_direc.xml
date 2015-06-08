@@ -1,121 +1,128 @@
 <root available-locales="es_ES" default-locale="es_ES">
-  <dynamic-element dataType="string" indexType="keyword" name="background" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
-    <meta-data locale="es_ES">
-      <entry name="label">
-        <![CDATA[Background Image o color]]>
-      </entry>
-      <entry name="predefinedValue">
-        <![CDATA[]]>
-      </entry>
-      <entry name="tip">
-        <![CDATA[{background-color:#XXYYZZ;} o {background-image:url(http://aka-cdn.uce.edu.ec/atenea/perseo/XXX/YY.jpg);} sin {} no png;)]]>
-      </entry>
-    </meta-data>
-  </dynamic-element>
-  <dynamic-element dataType="boolean" indexType="keyword" name="direc" readOnly="false" repeatable="true" required="false" showLabel="true" type="checkbox" width="">
-    <dynamic-element dataType="string" indexType="keyword" multiple="false" name="direc_tipo" readOnly="false" repeatable="false" required="true" showLabel="true" type="select" width="">
-      <dynamic-element name="option7879" type="option" value="dirección">
-        <meta-data locale="es_ES">
-          <entry name="label">
-            <![CDATA[dirección]]>
-          </entry>
-        </meta-data>
-      </dynamic-element>
-      <dynamic-element name="option7880" type="option" value="comisión">
-        <meta-data locale="es_ES">
-          <entry name="label">
-            <![CDATA[comisión]]>
-          </entry>
-        </meta-data>
-      </dynamic-element>
-      <dynamic-element name="option7881" type="option" value="secretaría">
-        <meta-data locale="es_ES">
-          <entry name="label">
-            <![CDATA[secretaría]]>
-          </entry>
-        </meta-data>
-      </dynamic-element>
-      <dynamic-element name="option7882" type="option" value="comité">
-        <meta-data locale="es_ES">
-          <entry name="label">
-            <![CDATA[comité]]>
-          </entry>
-        </meta-data>
-      </dynamic-element>
-      <meta-data locale="es_ES">
-        <entry name="label">
-          <![CDATA[Tipo]]>
-        </entry>
-        <entry name="predefinedValue">
-          <![CDATA[["dirección"]]]>
-        </entry>
-        <entry name="tip">
-          <![CDATA[]]>
-        </entry>
-      </meta-data>
-    </dynamic-element>
-    <dynamic-element dataType="string" indexType="keyword" name="direc_nombre" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
-      <meta-data locale="es_ES">
-        <entry name="label">
-          <![CDATA[Nombre dirección]]>
-        </entry>
-        <entry name="predefinedValue">
-          <![CDATA[]]>
-        </entry>
-        <entry name="tip">
-          <![CDATA[]]>
-        </entry>
-      </meta-data>
-    </dynamic-element>
-    <dynamic-element dataType="string" indexType="keyword" name="direc_abbr" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
-      <meta-data locale="es_ES">
-        <entry name="label">
-          <![CDATA[Siglas direc]]>
-        </entry>
-        <entry name="predefinedValue">
-          <![CDATA[]]>
-        </entry>
-        <entry name="tip">
-          <![CDATA[(máx 5 caracteres)]]>
-        </entry>
-      </meta-data>
-    </dynamic-element>
-    <dynamic-element dataType="string" indexType="keyword" name="direc_menu" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
-      <meta-data locale="es_ES">
-        <entry name="label">
-          <![CDATA[Menu de la dirección]]>
-        </entry>
-        <entry name="predefinedValue">
-          <![CDATA[]]>
-        </entry>
-        <entry name="tip">
-          <![CDATA[ul HTML]]>
-        </entry>
-      </meta-data>
-    </dynamic-element>
-    <dynamic-element dataType="string" indexType="keyword" name="sidebar" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
-      <meta-data locale="es_ES">
-        <entry name="label">
-          <![CDATA[Contenido ID]]>
-        </entry>
-        <entry name="predefinedValue">
-          <![CDATA[]]>
-        </entry>
-        <entry name="tip">
-          <![CDATA[(sidebar)Coloque el ID del articulo que pertenece a esta direccion (contentID)]]>
-        </entry>
-      </meta-data>
-    </dynamic-element>
-    <meta-data locale="es_ES">
-      <entry name="label">
-        <![CDATA[direc]]>
-      </entry>
-      <entry name="predefinedValue">
-        <![CDATA[true]]>
-      </entry>
-      <entry name="tip">
-        <![CDATA[]]>
-      </entry>
-    </meta-data>
-  </dynamic-element>
+	<dynamic-element dataType="string" indexType="keyword" name="background" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
+		<meta-data locale="es_ES">
+			<entry name="label">
+				<![CDATA[Background Image o color]]>
+			</entry>
+			<entry name="predefinedValue">
+				<![CDATA[]]>
+			</entry>
+			<entry name="tip">
+				<![CDATA[{background-color:#XXYYZZ;} o {background-image:url(http://aka-cdn.uce.edu.ec/atenea/perseo/XXX/YY.jpg);} sin {} no png;)]]>
+			</entry>
+		</meta-data>
+	</dynamic-element>
+	<dynamic-element dataType="boolean" indexType="keyword" name="direc" readOnly="false" repeatable="true" required="false" showLabel="true" type="checkbox" width="">
+		<dynamic-element dataType="string" indexType="keyword" multiple="false" name="direc_tipo" readOnly="false" repeatable="false" required="true" showLabel="true" type="select" width="">
+			<dynamic-element name="option7789" type="option" value="Dirección">
+				<meta-data locale="es_ES">
+					<entry name="label">
+						<![CDATA[dirección]]>
+					</entry>
+				</meta-data>
+			</dynamic-element>
+			<dynamic-element name="option7790" type="option" value="Comisión">
+				<meta-data locale="es_ES">
+					<entry name="label">
+						<![CDATA[comisión]]>
+					</entry>
+				</meta-data>
+			</dynamic-element>
+			<dynamic-element name="option7791" type="option" value="Secretaría">
+				<meta-data locale="es_ES">
+					<entry name="label">
+						<![CDATA[secretaría]]>
+					</entry>
+				</meta-data>
+			</dynamic-element>
+			<dynamic-element name="option7792" type="option" value="Comité">
+				<meta-data locale="es_ES">
+					<entry name="label">
+						<![CDATA[comité]]>
+					</entry>
+				</meta-data>
+			</dynamic-element>
+			<dynamic-element name="option7793" type="option" value="Coordinación">
+				<meta-data locale="es_ES">
+					<entry name="label">
+						<![CDATA[Coordinación]]>
+					</entry>
+				</meta-data>
+			</dynamic-element>
+			<meta-data locale="es_ES">
+				<entry name="label">
+					<![CDATA[Tipo]]>
+				</entry>
+				<entry name="predefinedValue">
+					<![CDATA[["dirección"]]]>
+				</entry>
+				<entry name="tip">
+					<![CDATA[]]>
+				</entry>
+			</meta-data>
+		</dynamic-element>
+		<dynamic-element dataType="string" indexType="keyword" name="direc_nombre" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
+			<meta-data locale="es_ES">
+				<entry name="label">
+					<![CDATA[Nombre dirección]]>
+				</entry>
+				<entry name="predefinedValue">
+					<![CDATA[]]>
+				</entry>
+				<entry name="tip">
+					<![CDATA[]]>
+				</entry>
+			</meta-data>
+		</dynamic-element>
+		<dynamic-element dataType="string" indexType="keyword" name="direc_abbr" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
+			<meta-data locale="es_ES">
+				<entry name="label">
+					<![CDATA[Siglas direc]]>
+				</entry>
+				<entry name="predefinedValue">
+					<![CDATA[]]>
+				</entry>
+				<entry name="tip">
+					<![CDATA[(máx 5 caracteres)]]>
+				</entry>
+			</meta-data>
+		</dynamic-element>
+		<dynamic-element dataType="string" indexType="keyword" name="direc_menu" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
+			<meta-data locale="es_ES">
+				<entry name="label">
+					<![CDATA[Menu de la dirección]]>
+				</entry>
+				<entry name="predefinedValue">
+					<![CDATA[]]>
+				</entry>
+				<entry name="tip">
+					<![CDATA[ul HTML]]>
+				</entry>
+			</meta-data>
+		</dynamic-element>
+		<dynamic-element dataType="string" indexType="keyword" name="sidebar" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
+			<meta-data locale="es_ES">
+				<entry name="label">
+					<![CDATA[Contenido ID]]>
+				</entry>
+				<entry name="predefinedValue">
+					<![CDATA[]]>
+				</entry>
+				<entry name="tip">
+					<![CDATA[(sidebar)Coloque el ID del articulo que pertenece a esta direccion (contentID)]]>
+				</entry>
+			</meta-data>
+		</dynamic-element>
+		<meta-data locale="es_ES">
+			<entry name="label">
+				<![CDATA[direc]]>
+			</entry>
+			<entry name="predefinedValue">
+				<![CDATA[true]]>
+			</entry>
+			<entry name="tip">
+				<![CDATA[]]>
+			</entry>
+		</meta-data>
+	</dynamic-element>
 </root>
