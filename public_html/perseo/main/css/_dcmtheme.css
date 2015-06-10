@@ -222,6 +222,9 @@ span.date a.bubble, span.date a.bubble:hover {
 html > body .featured a.isobrick {
     background: none;
 }
+.featuredcontainer .homeslider img {
+    max-width:120%;
+}
 /*#endregion*/
 
 /* #region Vacordion*/
@@ -595,6 +598,7 @@ html > body .featured a.isobrick {
         padding-right: 40px;
         text-align: left;
         font-size: 1.2rem;
+        line-height: 17px;
     }
 
 .metro .direcWrap:hover .direc {

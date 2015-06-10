@@ -5841,7 +5841,12 @@ html > body .metro .sidebar a.dropdown-toggle:after {
     padding-top: 80px;
     padding-left: 60px;
 }
-
+    .metro .sidebarWrap .sidebar span.date {
+    font-size: 18px!important;
+    }
+.metro .sidebarWrap .sidebar h1.fg-white.text-left.font3r{
+      padding-left: 0!important;
+}
 /*#endregion*/
 
 /*#region metro accordion*/
