@@ -3,7 +3,7 @@
 <div class="slide pregradox" id="slide2" data-slide="2">
     <div class="contentwrap row-fluid">
         <div class="fac-title span1">
-            <h1 class="title">Pregrado</h1>
+            <h1 class="title">Grado</h1>
         </div>
         <ul class="og-grid carreraWrap">
             #if (!$carrera.getSiblings().isEmpty())
@@ -32,6 +32,36 @@
             #end
             #end
         </ul>
+        #if($validator.isNotNull($distancia.getSiblings().get(0).data)
+        <h2 class="title text-center">Carreras a Distancia</h2>
+        <ul class="og-grid carreraWrap">
+            #if (!$distancia.getSiblings().isEmpty())
+            #foreach ($cur_dist in $distancia.getSiblings())
+            #if ($getterUtil.getBoolean($cur_dist.getData()))
+            <li>
+                <div class="carrera">
+                    $cur_dist.dst_nombre.getData()
+                    <span class="btox"></span>
+                </div>
+                <div class="rb-overlay">
+                    <div class="row-fluid rb-week sidebarWrap grilla grilla-dark" data-role="sidebar">
+                        <span class="rb-close">close</span>
+                        <nav class="sidebar span3 navx" data-role="sidebar-nav">
+                            <a class="pull-menu" href="#"></a>
+                            <span class="date" style="color: #fff;text-align: left;font-size: 14px;">CARRERA</span>
+                            <h1 class="fg-white text-left padding10R font3r"><a class="fg-white font3r" href="cont0">$cur_dist.dst_nombre.getData()</a></h1>
+                            $cur_dist.dst_menu.getData()
+                        </nav>
+                        <div class="full-content carousel" data-role="sidebar-content" data-ajax-artid="$cur_dist.dst_sidebar.getData()" data-ajax-groupid="$group_id" data-ajax-url="$current_url">
+                        </div>
+                    </div>
+                </div>
+            </li>
+            #end
+            #end
+            #end
+        </ul>
+        #end
     </div>
     <a class="scrollbut" data-slide="3" title=""></a>
 </div>

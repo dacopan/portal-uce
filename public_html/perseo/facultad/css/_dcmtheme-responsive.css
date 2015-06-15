@@ -300,7 +300,8 @@
         transform-origin: 50% 50%;
         /*top: 10rem;
         min-width: 200px;*/
-        top: 15rem;
+        /*top: 15rem;*/
+        top: 8rem;
         font-size: 3rem;
         color: black;
     }

@@ -3,7 +3,7 @@
                     Miércoles 01/09/2014
                 </span>
                 <a id="hamburger" class="" href="#dcmmenu"><span></span></a>
-                <a class="fg-white dropdown-toggle" href="#" id="dock"><i class="fa fa-th"></i></a>
+                <a class="fg-white dropdown-toggle" href="#" id="dock"><i class="fa fa-uce_aplicaciones" style="font-size: 40px;"></i></a>
 
                 <div class="app-bar-drop-container dropdown-menu place-right" data-role="dropdown" style="width: 324px;  float: right;">
                     <div class="tile-container bg-white">
@@ -20,11 +20,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="tile-small bg-yellow">
+                        <a class="tile-small bg-yellow has-full-view" href="#full-view-01" >
                             <div class="tile-content iconic">
                                 <span class="icon fa fa-mail"></span>
                             </div>
-                        </div>
+                        </a>
                         <div class="tile-small bg-red">
                             <div class="tile-content iconic">
                                 <span class="icon fa fa-envelope-o"></span>
@@ -37,12 +37,7 @@
                         </div>
                     </div>
                 </div>
-
-
-                <a class="fg-white" data-hint="x|y" href="#book"><i class="fa fa-book"></i></a>
-                <a class="fg-white has-full-view" href="#full-view-01">
-                    <i class="icon-bookx img-cover" style="background-image:url(http://aka-cdn.uce.edu.ec/ares/perseo/my_html/images/tmp/icono_sello.png);width: 33px;height: 33px;margin-top: -5px;"></i>
-                </a>
+                              
             </div>
 <!--mmMenu nav content-->
 <ul id="mm-nav-content">

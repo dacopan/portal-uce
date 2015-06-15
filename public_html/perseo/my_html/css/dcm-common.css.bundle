@@ -14,5 +14,6 @@
   <files>
     <file>/public_html/perseo/my_html/css/_dcm-common.css</file>
     <file>/public_html/perseo/my_html/css/dockbar.css</file>
+    <file>/public_html/perseo/my_html/css/font-dcm-uce.css</file>
   </files>
 </bundle>

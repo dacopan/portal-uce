@@ -532,7 +532,7 @@ html > body .featured a.isobrick {
 }
 
 .fac-title .title {
-    font-size: 7rem;
+    /*font-size: 7rem;*/
     text-transform: uppercase;
     position: relative;
     vertical-align: top;
@@ -543,6 +543,7 @@ html > body .featured a.isobrick {
     -moz-word-break: normal !important;
     -ms-word-break: normal !important;
     -o-word-break: normal !important;
+      /*line-height: 8rem;*/
 }
 
 .metro .og-grid.fac .og-a .og-box {
@@ -917,14 +918,6 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
     bottom: 0px;
     left: 0;
     background: url('http://static9.cdn.ubi.com/resource/es-ES/game/tomclancy-thedivision/game/cache_bottom_bloc_top.png') no-repeat;*/
-}
-
-.taglib-page-iterator {
-    /* width: 100%; */
-    /* width: 100%; */
-    max-width: 650px;
-    /* margin: auto; */
-    left: 0;
 }
 
 .video-full:after {
