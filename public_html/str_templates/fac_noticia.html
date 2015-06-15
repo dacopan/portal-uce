@@ -28,14 +28,19 @@
                 <h3 class="sub-title">
                     $noti_subtitulo.getData()
                 </h3>
-                <h3 class="text-right">
-                    <a href="#" class="sharex" target="_blank" data-role="sharex" data-sharex-service="t" data-sharex-title="$noti_titulo.getData()" data-sharex-artid="$reserved-article-id.data">
-                        <i class="fa fa-twitter"></i>
-                    </a>
-                    <a href="#" class="sharex" target="_blank" data-role="sharex" data-sharex-service="f" data-sharex-artid="$reserved-article-id.data">
-                        <i class="bg-hover-darkBlue fa fa-facebook"></i>
-                    </a>
-                </h3>
+                <ul class="og-grid sharewrap">
+                    <li>
+                        <a href="#" class="sharex" target="_blank" data-role="sharex" data-sharex-service="f" data-sharex-artid="$reserved-article-id.data">
+                            <i class="bg-hover-darkBlue fa fa-uce_facebook"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="sharex" target="_blank" data-role="sharex" data-sharex-service="t" data-sharex-title="$noti_titulo.getData()" data-sharex-artid="$reserved-article-id.data">
+                            <i class="fa fa-uce_twiter"></i>
+                        </a>
+                    </li>
+
+                </ul>                
                 #if ($validator.isNotNull($noti_video.getData()))
                 <div class="video-full" style="">
                     <iframe style="width:100%;height:500px;" src="$noti_video.getData()" frameborder="0" allowfullscreen></iframe>

@@ -7607,7 +7607,7 @@ html > body .metro .sidebar a.dropdown-toggle:after {
     z-index: 1000;
 }
 
-    .rb-close:before {
+    /*.rb-close:before {
         content: 'x';
         font-weight: 100;
         position: absolute;
@@ -7619,6 +7619,20 @@ html > body .metro .sidebar a.dropdown-toggle:after {
         line-height: 0.6;
         text-align: center;
         text-indent: 0px;
+    }*/
+    .rb-close:before {
+        content: "\e604";
+        font-family: 'dcmuce';
+        font-weight: 100;
+        position: absolute;
+        top: 10px;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        font-size: 1.8em;
+        line-height: .6;
+        text-align: center;
+        text-indent: 0;
     }
 
 .rb-week {
@@ -7673,6 +7687,7 @@ html > body .metro .sidebar a.dropdown-toggle:after {
 
 .rb-overlay span.date {
     text-align: right;
+    font-family:"Segoe UI","Open Sans";
 }
 
 span.date {
@@ -7989,28 +8004,32 @@ span.date {
 }
 
 
-.metro .sharex {
-    /*float: right;*/
-    margin-right: 5px;
+.metro .contentwrap .og-grid.sharewrap {
+    text-align: right;
+    padding: 0 !important;
 }
 
-    .metro .sharex i {
-        font-size: 20px;
-        -moz-border-radius: 50%;
-        -webkit-border-radius: 50%;
-        border-radius: 50%;
-        background-color: #000;
-        width: 36px;
-        height: 36px;
-        color: #d5d5d5;
-        padding: 8px;
-        text-align: center;
-    }
+.og-grid.sharewrap li {
+    margin: 0;
+    margin-left: 5px;
+}
 
-    .metro .sharex:hover i {
-        background-color: rgb(0,150,240);
-        color: #fff;
-    }
+.metro .sharex i {
+    font-size: 30px;
+    border-radius: 50%;
+    background-color: #000;
+    width: 46px;
+    height: 46px;
+    color: #d5d5d5;
+    padding: 8px;
+    display: block;
+    text-align: center;
+}
+
+.metro .sharex:hover i {
+    background-color: rgb(0,150,240);
+    color: #fff;
+}
 
 .metro .uri {
     border: 1px solid #ccc;
@@ -8210,11 +8229,16 @@ span.date {
 }
 
 .tile-small .tile-content.iconic .icon {
-    width: 32px;
+    /*width: 32px;
     height: 32px;
     font-size: 32px;
     margin-left: -16px;
-    margin-top: -16px;
+    margin-top: -16px;*/
+    width: 50px;
+    height: 50px;
+    font-size: 60px;
+    margin-left: -30px;
+    margin-top: -30px;
 }
 /*#endregion*/
 

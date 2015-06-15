@@ -22,7 +22,24 @@
             #end
             #end
 
+            #if (!$sede.getSiblings().isEmpty())
+            #foreach ($cur_sede in $sede.getSiblings())
+
+            #if ($getterUtil.getBoolean($cur_sede.getData()))
+            <li>
+                <a class="og-a" href="$cur_sede.sede_uri.getData()" title="ver sede" target="_blank">
+                    <img src="$cur_sede.sede_imagen.getData()" alt="img01" />
+                    <div class="og-box">
+                        <h5>SEDE</h5>
+                        <h4>$cur_sede.sede_nombre.getData()</h4>
+                    </div>
+                </a>
+            </li>
+            #end
+
+            #end
+            #end
+
         </ul>
     </div>
-    <a class="scrollbut" data-slide="4" title=""></a>
 </div>

@@ -3168,14 +3168,14 @@ function onloadX() {
         $('.footer .contentwrap').addClass("oculto").each(function () {
             $(this).viewportChecker({
                 classToAdd: 'visible animated fadeInUpBig',
-                offset: 60,
+                offset: 20,
                 repeat: false
             });
         });
         $('.footer .contentwrap .mapax').addClass("oculto").each(function () {
             $(this).viewportChecker({
                 classToAdd: 'visible animated bounceInRight',
-                offset: 60,
+                offset: 20,
                 repeat: false
             });
         });

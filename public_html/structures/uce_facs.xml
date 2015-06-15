@@ -1,6 +1,6 @@
-<root available-locales="en_US" default-locale="en_US">
+<root available-locales="es_ES" default-locale="es_ES">
   <dynamic-element dataType="string" indexType="keyword" name="background" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
-    <meta-data locale="en_US">
+    <meta-data locale="es_ES">
       <entry name="label">
         <![CDATA[Background Image o color]]>
       </entry>
@@ -12,10 +12,9 @@
       </entry>
     </meta-data>
   </dynamic-element>
-  
   <dynamic-element dataType="boolean" indexType="keyword" name="facultad" readOnly="false" repeatable="true" required="true" showLabel="true" type="checkbox" width="">
     <dynamic-element dataType="string" indexType="keyword" name="nombre" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
-      <meta-data locale="en_US">
+      <meta-data locale="es_ES">
         <entry name="label">
           <![CDATA[Nombre]]>
         </entry>
@@ -28,7 +27,7 @@
       </meta-data>
     </dynamic-element>
     <dynamic-element dataType="string" indexType="keyword" name="uri" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
-      <meta-data locale="en_US">
+      <meta-data locale="es_ES">
         <entry name="label">
           <![CDATA[URL de la Facultad]]>
         </entry>
@@ -41,7 +40,7 @@
       </meta-data>
     </dynamic-element>
     <dynamic-element dataType="string" indexType="keyword" name="imagen" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
-      <meta-data locale="en_US">
+      <meta-data locale="es_ES">
         <entry name="label">
           <![CDATA[Imagen]]>
         </entry>
@@ -53,9 +52,61 @@
         </entry>
       </meta-data>
     </dynamic-element>
-    <meta-data locale="en_US">
+    <meta-data locale="es_ES">
       <entry name="label">
         <![CDATA[Facultad]]>
+      </entry>
+      <entry name="predefinedValue">
+        <![CDATA[true]]>
+      </entry>
+      <entry name="tip">
+        <![CDATA[]]>
+      </entry>
+    </meta-data>
+  </dynamic-element>
+  <dynamic-element dataType="boolean" indexType="keyword" name="sede" readOnly="false" repeatable="true" required="false" showLabel="true" type="checkbox" width="">
+    <dynamic-element dataType="string" indexType="keyword" name="sede_nombre" readOnly="false" repeatable="false" required="false" showLabel="true" type="text" width="small">
+      <meta-data locale="es_ES">
+        <entry name="label">
+          <![CDATA[Nombre]]>
+        </entry>
+        <entry name="predefinedValue">
+          <![CDATA[]]>
+        </entry>
+        <entry name="tip">
+          <![CDATA[]]>
+        </entry>
+      </meta-data>
+    </dynamic-element>
+    <dynamic-element dataType="string" indexType="keyword" name="sede_uri" readOnly="false" repeatable="false" required="false" showLabel="true" type="text" width="small">
+      <meta-data locale="es_ES">
+        <entry name="label">
+          <![CDATA[URL de la Facultad]]>
+        </entry>
+        <entry name="predefinedValue">
+          <![CDATA[]]>
+        </entry>
+        <entry name="tip">
+          <![CDATA[]]>
+        </entry>
+      </meta-data>
+    </dynamic-element>
+    <dynamic-element dataType="string" indexType="keyword" name="sede_imagen" readOnly="false" repeatable="false" required="false" showLabel="true" type="text" width="small">
+      <meta-data locale="es_ES">
+        <entry name="label">
+          <![CDATA[Imagen]]>
+        </entry>
+        <entry name="predefinedValue">
+          <![CDATA[]]>
+        </entry>
+        <entry name="tip">
+          <![CDATA[]]>
+        </entry>
+      </meta-data>
+    </dynamic-element>
+    <meta-data locale="es_ES">
+      <entry name="label">
+        <![CDATA[Sede]]>
       </entry>
       <entry name="predefinedValue">
         <![CDATA[true]]>

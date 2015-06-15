@@ -9,7 +9,7 @@
                     <div class="tile-container bg-white">
                         <div class="tile-small bg-blue dock-popup" data-ajax-artid="000" data-ajax-groupid="">
                             <div class="tile-content iconic">
-                                <span class="icon fa fa-book"></span>
+                                <span class="icon fa fa-uce_ley_transparencia"></span>
                             </div>
                             <div class="rb-overlay">
                                 <div class="row-fluid rb-week" style="max-width:90%; border-width: 10px;">
@@ -22,17 +22,17 @@
                         </div>
                         <a class="tile-small bg-yellow has-full-view" href="#full-view-01" >
                             <div class="tile-content iconic">
-                                <span class="icon fa fa-mail"></span>
+                                <span class="icon fa fa-uce_biblioteca"></span>
                             </div>
                         </a>
                         <div class="tile-small bg-red">
                             <div class="tile-content iconic">
-                                <span class="icon fa fa-envelope-o"></span>
+                                <span class="icon fa fa-uce_biblioteca"></span>
                             </div>
                         </div>
                         <div class="tile-small bg-green">
                             <div class="tile-content iconic">
-                                <span class="icon mif-twitter"></span>
+                                <span class="icon fa fa-uce_mail"></span>
                             </div>
                         </div>
                     </div>
