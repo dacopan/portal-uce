@@ -11,7 +11,7 @@
                 #if (!$proyecto.getSiblings().isEmpty())
                 #foreach ($cur_pry in $proyecto.getSiblings())
 
-                #if ($getterUtil.getBoolean($cur_pry.getData()))                
+                #if ($getterUtil.getBoolean($cur_pry.getData()))
                 <li>
                     <div class="row-fluid">
                         <div class="span12">
@@ -21,14 +21,14 @@
                                 #if (!$cur_pry.doc.getSiblings().isEmpty())
                                 #foreach ($cur_doc in $cur_pry.doc.getSiblings())
 
-                                #if ($getterUtil.getBoolean($cur_doc.getData())) 
+                                #if ($getterUtil.getBoolean($cur_doc.getData()))
 
                                 <div data-iview="$cur_doc.link1.getData()" data-idown="$cur_doc.link2.getData()" data-role="idoc" class="doc">
                                     <span class="hintx">
                                         Ver ahora
                                     </span>
-                                    <img alt="$cur_doc.nombre.getData()" src="/html/themes/dcmtheme/images/doc_img_${cur_doc.imagen.getData()}.jpg"/>
-                                    <span class="download"><i class="icon-download-alt"></i></span>
+                                    <i class="fa fa-uce_pdf"></i>
+                                    <span class="download"><i class="fa fa-uce_bajar_archivo"></i></span>
                                 </div>
                                 #end
                                 #end

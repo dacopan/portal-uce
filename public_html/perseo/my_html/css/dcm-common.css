@@ -5276,6 +5276,17 @@ body.metro {
         z-index: 1;
     }
 
+    .docs .doc i.fa-uce_pdf {
+        display: inline;
+        /*width: 134px;
+        height: 134px;*/
+        font-size: 126px;
+        padding: 3px;
+        vertical-align: middle;
+        border: 1px solid #c1c1c1;
+        line-height: 134px;
+    }
+
     .docs .doc .download {
         position: absolute;
         bottom: 1px;
@@ -5284,7 +5295,7 @@ body.metro {
         height: 25px;
         background-color: #fff;
         color: red;
-        font-size: 20px;
+        font-size: 25px;/*font-size: 20px;*/
         text-align: center;
         line-height: 25px;
         -webkit-animation-duration: 1s;
@@ -7687,7 +7698,7 @@ html > body .metro .sidebar a.dropdown-toggle:after {
 
 .rb-overlay span.date {
     text-align: right;
-    font-family:"Segoe UI","Open Sans";
+    font-family: "Segoe UI","Open Sans";
 }
 
 span.date {
@@ -8467,6 +8478,16 @@ span.date {
     background-image: url(../dcmtheme/images/carrera_info.jpg);
     cursor: pointer;
 }
+
+    .ley .pdfx i {
+        display: inline;
+        font-size: 80px;
+        background-color: #ddd;
+        vertical-align: middle;
+        border: 1px solid #c1c1c1;
+        line-height: 80px;
+        color: #000;
+    }
 
     .ley .pdfx.inactive {
         z-index: 1;

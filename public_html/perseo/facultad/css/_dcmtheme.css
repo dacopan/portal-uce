@@ -977,7 +977,7 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
     /*padding: 0 1.5em 1.5em 0;*/
     width: 100%;
     text-align: right;
-    opacity: 0;
+    opacity: 0.9;
     /*-webkit-transform: translate3d(20px,20px,0);
     transform: translate3d(20px,20px,0);*/
     background: rgba(0,0,0,0.7);

@@ -387,6 +387,16 @@
     cursor: pointer;
 }
 
+    .ley .pdfx i {
+        display: inline;
+        font-size: 80px;
+        background-color: #ddd;
+        vertical-align: middle;
+        border: 1px solid #c1c1c1;
+        line-height: 80px;
+        color: #000;
+    }
+
     .ley .pdfx.inactive {
         z-index: 1;
         margin-top: 2px;
