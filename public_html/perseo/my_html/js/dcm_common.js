@@ -2754,7 +2754,7 @@ $.fn.imagesLoaded = function (callback) {
 		loaded = [],
 		proper = [],
 		broken = [];
-
+    //alert($images.length);
     // Register deferred callbacks
     if ($.isPlainObject(callback)) {
         $.each(callback, function (key, value) {

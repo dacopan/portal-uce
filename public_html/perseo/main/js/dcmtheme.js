@@ -2755,7 +2755,7 @@ $.fn.imagesLoaded = function (callback) {
 		loaded = [],
 		proper = [],
 		broken = [];
-
+    //alert($images.length);
     // Register deferred callbacks
     if ($.isPlainObject(callback)) {
         $.each(callback, function (key, value) {
@@ -5766,8 +5766,8 @@ $(function () {
 
             _caption = $(element.find(".row-cap .cap"));
 
-            if (_slides.length <= 1)
-                return;
+            //if (_slides.length <= 1)
+            //    return;
             _slides = null;
 
             // preload all images
@@ -5775,6 +5775,7 @@ $(function () {
                 //alert("images loaded");
                 that._changeSlide('next');
                 setTimeout(function () {
+                   // alert("remove spinner");
                     element.find(".spinner").remove();
                 }, 500);
 
@@ -5950,7 +5951,7 @@ var ClubFull = (function () {
                             $item.data('ajaxLoad', true);
                         },
                         error: function () {
-                            alert("Ajax no activo, ha ocurrido un error.");
+                            console.log("Ajax no activo, ha ocurrido un error. club/direc");
                             $.Metro.initSidebars($item);
                             $.Metro.initBannerCircle(qq);
                             sidebarUpdate($item);
