@@ -5193,6 +5193,7 @@ body.metro {
         height: 45px;
         line-height: 45px;
         vertical-align: middle;
+        font-family:"Open Sans","Segoe UI";
     }
 
     .metro .topBar-content > a {

@@ -2220,6 +2220,7 @@ var DockPopUp = (function () {
                             switch (qq.data('func')) {
                                 case "years": {
                                     yearGrid().init();
+                                    $.Metro.initPdfStack(qq);
                                 } break;
                                 default:
 
@@ -2911,8 +2912,10 @@ function initx() {
 
                     setTimeout(function () {
                         console.log("removiendo loader");
+
                         $('#loader').remove();
                         $('#loaderStyle').remove();
+
 
                         console.log("iniciando innerNavigate");
 
@@ -2936,6 +2939,11 @@ function initx() {
 
                     console.log("iniciando onloadX");
                     DockPopUp().init();
+                    //date update
+                    var dd = new Date();
+                    var days = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
+                    var dtx = days[dd.getDay()] + " " + dd.toLocaleDateString("ec");
+                    $('#dcm-date').text(dtx);
 
                     $.Metro.initAll($('body.metro'));
 

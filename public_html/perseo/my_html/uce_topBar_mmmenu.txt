@@ -1,5 +1,5 @@
 ﻿<div class="topBar-content">
-                <span class="todayX fg-yellow no-phones" style="font-size: 80%;margin-left: 80px;">
+                <span class="todayX fg-yellow no-phones" style="font-size: 80%;margin-left: 80px;" id="dcm-date">
                     Miércoles 01/09/2014
                 </span>
                 <a id="hamburger" class="" href="#dcmmenu"><span></span></a>

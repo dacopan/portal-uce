@@ -2221,6 +2221,7 @@ var DockPopUp = (function () {
                             switch (qq.data('func')) {
                                 case "years": {
                                     yearGrid().init();
+                                    $.Metro.initPdfStack(qq);
                                 } break;
                                 default:
 
@@ -2912,8 +2913,10 @@ function initx() {
 
                     setTimeout(function () {
                         console.log("removiendo loader");
+
                         $('#loader').remove();
                         $('#loaderStyle').remove();
+
 
                         console.log("iniciando innerNavigate");
 
@@ -2937,6 +2940,11 @@ function initx() {
 
                     console.log("iniciando onloadX");
                     DockPopUp().init();
+                    //date update
+                    var dd = new Date();
+                    var days = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
+                    var dtx = days[dd.getDay()] + " " + dd.toLocaleDateString("ec");
+                    $('#dcm-date').text(dtx);
 
                     $.Metro.initAll($('body.metro'));
 
@@ -3096,7 +3104,8 @@ function fixedUrls(that) {
 
 console.log("fin dcm_common, body: " + $('body').length);
 ///#source 1 1 /public_html/perseo/main/js/_dcmtheme.js
-var debug = false, noti_slide_num = 2;
+var debug = false, noti_slide_num = 2, versionx = 1;
+console.log("version script: "+versionx);
 
 //#region nivo slider
 //<editor-fold  defaultstate="collapsed" desc="nivo slider">
@@ -6107,6 +6116,12 @@ var ClubFull = (function () {
 //#endregion 
 
 function onloadX() {
+    setTimeout(function () {
+        $('#logo1').addClass("animated zoomOutUp");
+        $('#logo2').removeClass("oculto");
+        $('#logo2').addClass("animated zoomIn");
+    }, 2000);
+    
 
     NoticiasFull().init();
     ClubFull().init();
@@ -6209,8 +6224,8 @@ function onloadX() {
         //animate noticies
         $('.noticiesWrap .container2').addClass("oculto").each(function () {
             $(this).viewportChecker({
-                classToAdd: 'visible animated fadeInUpBig',
-                offset: 70,
+                classToAdd: 'visible animated fadeInUp',
+                offset: 30,
                 repeat: false
             });
         });

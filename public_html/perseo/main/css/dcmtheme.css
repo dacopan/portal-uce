@@ -5193,6 +5193,7 @@ body.metro {
         height: 45px;
         line-height: 45px;
         vertical-align: middle;
+        font-family:"Open Sans","Segoe UI";
     }
 
     .metro .topBar-content > a {
@@ -8487,6 +8488,10 @@ span.date {
         border: 1px solid #c1c1c1;
         line-height: 80px;
         color: #000;
+    }
+
+    .ley .pdfx:hover i {
+        border-color: #555555;
     }
 
     .ley .pdfx.inactive {

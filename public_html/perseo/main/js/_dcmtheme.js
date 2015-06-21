@@ -1,4 +1,5 @@
-var debug = false, noti_slide_num = 2;
+var debug = false, noti_slide_num = 2, versionx = 1;
+console.log("version script: "+versionx);
 
 //#region nivo slider
 //<editor-fold  defaultstate="collapsed" desc="nivo slider">
@@ -3009,6 +3010,12 @@ var ClubFull = (function () {
 //#endregion 
 
 function onloadX() {
+    setTimeout(function () {
+        $('#logo1').addClass("animated zoomOutUp");
+        $('#logo2').removeClass("oculto");
+        $('#logo2').addClass("animated zoomIn");
+    }, 2000);
+    
 
     NoticiasFull().init();
     ClubFull().init();
@@ -3111,8 +3118,8 @@ function onloadX() {
         //animate noticies
         $('.noticiesWrap .container2').addClass("oculto").each(function () {
             $(this).viewportChecker({
-                classToAdd: 'visible animated fadeInUpBig',
-                offset: 70,
+                classToAdd: 'visible animated fadeInUp',
+                offset: 30,
                 repeat: false
             });
         });

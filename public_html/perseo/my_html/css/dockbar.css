@@ -397,6 +397,10 @@
         color: #000;
     }
 
+    .ley .pdfx:hover i {
+        border-color: #555555;
+    }
+
     .ley .pdfx.inactive {
         z-index: 1;
         margin-top: 2px;

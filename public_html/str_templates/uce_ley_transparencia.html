@@ -11,9 +11,8 @@
         información mínima actualizada, que para efectos de esta Ley se la considera de naturaleza obligatoria:
     </p>
     #if (!$yearx.getSiblings().isEmpty())
-    #foreach ($cur_yearx in $yearx.getSiblings())
-
     <ul class="og-grid yearsx">
+        #foreach ($cur_yearx in $yearx.getSiblings())
         #if ($getterUtil.getBoolean($cur_yearx.getData()))
         <li>
             <a href="#">
@@ -28,7 +27,7 @@
                     <div class="og-details">
                         <div class="row-fluid">
                             <ul class="og-grid ley-docs">
-                                #foreach ($cur_item in $yearx.year_item.getSiblings())
+                                #foreach ($cur_item in $cur_yearx.year_item.getSiblings())
                                 <li>
                                     <div class="ley-item">
                                         <h4 class="span8">$cur_item.getData()</h4>
@@ -36,10 +35,10 @@
                                             <span class="date">1/1</span>
                                             <i class="fa fa-angle-left leftx"></i>
                                             <i class="fa fa-angle-right rigthtx"></i>
-                                            #foreach ($cur_doc in $cur_item.getSiblings())
-                                            <a class="pdfx" href="$cur_doc.item_doc.item_doc_url.getData()" target="_blank">
+                                            #foreach ($cur_doc in $cur_item.item_doc.getSiblings())
+                                            <a class="pdfx" href="$cur_doc.item_doc_url.getData()" target="_blank">
                                                 <i class="fa fa-uce_pdf"></i>
-                                                <h5>$cur_doc.item_doc.getData()</h5>
+                                                <h5>$cur_doc.getData()</h5>
                                             </a>
                                             #end
                                         </div>
@@ -53,9 +52,10 @@
             </div>
         </li>
         #end
+        #end
     </ul>
     #end
-    #end
+
     <ol class="abc-list" style="  max-width: 1050px;margin-left: auto;margin-right: auto;text-align: justify;margin-top: 20px;">
         <li>Estructura orgánica funcional, base legal que la rige, regulaciones y procedimientos internos aplicables a la entidad; las metas y objetivos de las unidades administrativas de conformidad con sus programas operativos;</li>
         <li>El directorio completo de la institución, así como su distributivo de personal;
@@ -79,5 +79,3 @@
         <li>El Tribunal de lo Contencioso Administrativo, adicionalmente, publicará el texto íntegro de sus sentencias ejecutoriadas, producidas en todas sus jurisdicciones. La información deberá ser publicada, organizándola por temas, ítems, orden secuencial o cronológico, etc, sin agrupar o generalizar, de tal manera que el ciudadano pueda ser informado correctamente y sin confusiones.</li>
     </ol>
 </div>
-
-
