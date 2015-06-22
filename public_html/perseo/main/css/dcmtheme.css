@@ -4898,8 +4898,8 @@ a {
     font-style: italic;
 }
 
-.metro #font .segoe {
-    font-family: 'Segoe UI', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
+.metro .segoe {
+    font-family: 'Segoe UI', 'Open Sans', Verdana, Arial, Helvetica, sans-serif!important;
 }
 
 .metro #font .segoe-bold {
@@ -8002,7 +8002,7 @@ span.date {
 /*#region loader*/
 
 /*#region transition*/
-.metro .club, .metro .club i, .footer .blogs a:hover h5, .metro .linksWrap .link, .metro .sharex i, .metro .uri, .ley .ley-item .pdfx h5, .metro .topBar-content > a {
+.metro .club, .metro .club i, .footer .blogs a:hover h5, .metro .linksWrap .link, .metro .sharex i, .metro .uri, .ley .ley-item .pdfx h5, .metro .topBar-content > a,.va-slice:after {
     -moz-transition: all 0.3s ease 0s;
     -webkit-transition: all 0.3s ease 0s;
     -o-transition: all 0.3s ease 0s;
@@ -10737,8 +10737,9 @@ span.date a.bubble, span.date a.bubble:hover {
 html > body .featured a.isobrick {
     background: none;
 }
+
 .featuredcontainer .homeslider img {
-    max-width:120%;
+    max-width: 120%;
 }
 /*#endregion*/
 
@@ -10765,6 +10766,20 @@ html > body .featured a.isobrick {
     overflow: hidden;
     border-bottom: 1px solid #FFFFFF;
 }
+
+    .va-slice:after {
+        background-color: rgba(0,0,0,.3);
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        content: '';
+        z-index: 7;
+    }
+
+    .va-slice:hover:after {
+        background-color: transparent;
+    }
 
 .metro .va-title {
     font-family: 'Open Sans', sans-serif !important;
@@ -10991,22 +11006,23 @@ html > body .featured a.isobrick {
         position: relative;
         text-decoration: none !important;
     }
-    .og-grid.fac .og-box {    
-    box-shadow: none;
-    width: 230px;
-    height: 134px;
-    -webkit-animation-duration: 1s;
-    -webkit-animation-fill-mode: both;
-    -moz-animation-duration: 1s;
-    -moz-animation-fill-mode: both;
-    -ms-animation-duration: 1s;
-    -ms-animation-fill-mode: both;
-    -o-animation-duration: 1s;
-    -o-animation-fill-mode: both;
-    animation-duration: 1s;
-    animation-fill-mode: both;
-    background-color: #fff;
-}
+
+    .og-grid.fac .og-box {
+        box-shadow: none;
+        width: 230px;
+        height: 134px;
+        -webkit-animation-duration: 1s;
+        -webkit-animation-fill-mode: both;
+        -moz-animation-duration: 1s;
+        -moz-animation-fill-mode: both;
+        -ms-animation-duration: 1s;
+        -ms-animation-fill-mode: both;
+        -o-animation-duration: 1s;
+        -o-animation-fill-mode: both;
+        animation-duration: 1s;
+        animation-fill-mode: both;
+        background-color: #fff;
+    }
 
     .og-grid.fac h5, .og-grid.fac h4, .og-grid.fac .spreview {
         padding: 12px 12px 1px 12px;
@@ -11058,7 +11074,7 @@ html > body .featured a.isobrick {
     -moz-word-break: normal !important;
     -ms-word-break: normal !important;
     -o-word-break: normal !important;
-      /*line-height: 8rem;*/
+    /*line-height: 8rem;*/
 }
 
 .metro .og-grid.fac .og-a .og-box {
@@ -11188,6 +11204,10 @@ html > body .featured a.isobrick {
 /*#endregion*/
 
 /*#region Footer*/
+.aui #footer {
+    text-align: left;
+}
+
 .metro .footer span {
     display: block;
 }

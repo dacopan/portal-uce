@@ -43,9 +43,9 @@
 	#end
 
 	<link rel="stylesheet" href="$html-com/css/dcm-loader.min.css" type="text/css" id="loaderStyle" />	
-    <link rel="stylesheet" href="$theme-type/css/dcmtheme.min.css?v=0.1.2" type="text/css" />
+    <link rel="stylesheet" href="$theme-type/css/dcmtheme.min.css?v=0.1.3" type="text/css" />
     	  	
-	<script src="$theme-type/js/dcmtheme.min.js?v=0.1.2" type="text/javascript" async="async"></script>
+	<script src="$theme-type/js/dcmtheme.min.js?v=0.1.3" type="text/javascript" async="async"></script>
 
     
 </head>

@@ -4898,8 +4898,8 @@ a {
     font-style: italic;
 }
 
-.metro #font .segoe {
-    font-family: 'Segoe UI', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
+.metro .segoe {
+    font-family: 'Segoe UI', 'Open Sans', Verdana, Arial, Helvetica, sans-serif!important;
 }
 
 .metro #font .segoe-bold {
@@ -8002,7 +8002,7 @@ span.date {
 /*#region loader*/
 
 /*#region transition*/
-.metro .club, .metro .club i, .footer .blogs a:hover h5, .metro .linksWrap .link, .metro .sharex i, .metro .uri, .ley .ley-item .pdfx h5, .metro .topBar-content > a {
+.metro .club, .metro .club i, .footer .blogs a:hover h5, .metro .linksWrap .link, .metro .sharex i, .metro .uri, .ley .ley-item .pdfx h5, .metro .topBar-content > a,.va-slice:after {
     -moz-transition: all 0.3s ease 0s;
     -webkit-transition: all 0.3s ease 0s;
     -o-transition: all 0.3s ease 0s;
