@@ -4899,7 +4899,7 @@ a {
 }
 
 .metro .segoe {
-    font-family: 'Segoe UI', 'Open Sans', Verdana, Arial, Helvetica, sans-serif!important;
+    font-family: 'Segoe UI', 'Open Sans', Verdana, Arial, Helvetica, sans-serif !important;
 }
 
 .metro #font .segoe-bold {
@@ -5193,7 +5193,7 @@ body.metro {
         height: 45px;
         line-height: 45px;
         vertical-align: middle;
-        font-family:"Open Sans","Segoe UI";
+        font-family: "Open Sans","Segoe UI";
     }
 
     .metro .topBar-content > a {
@@ -5296,7 +5296,7 @@ body.metro {
         height: 25px;
         background-color: #fff;
         color: red;
-        font-size: 25px;/*font-size: 20px;*/
+        font-size: 25px; /*font-size: 20px;*/
         text-align: center;
         line-height: 25px;
         -webkit-animation-duration: 1s;
@@ -7711,6 +7711,7 @@ span.date {
     position: relative;
     -ms-word-break: normal;
     word-break: normal;
+    font-family: "Segoe UI","Open Sans";
 }
 
 .rb-overlay .full-content {
@@ -7999,10 +8000,10 @@ span.date {
     }
 }
 
-/*#region loader*/
+/*#endregion loader*/
 
 /*#region transition*/
-.metro .club, .metro .club i, .footer .blogs a:hover h5, .metro .linksWrap .link, .metro .sharex i, .metro .uri, .ley .ley-item .pdfx h5, .metro .topBar-content > a,.va-slice:after {
+.metro .club, .metro .club i, .footer .blogs a:hover h5, .metro .linksWrap .link, .metro .sharex i, .metro .uri, .ley .ley-item .pdfx h5, .metro .topBar-content > a, .va-slice:after {
     -moz-transition: all 0.3s ease 0s;
     -webkit-transition: all 0.3s ease 0s;
     -o-transition: all 0.3s ease 0s;
@@ -8089,6 +8090,34 @@ span.date {
     color: #0096f0 !important;
     margin-top: 40px;
     text-transform: uppercase;
+}
+
+
+.aui blockquote p {
+    color: #616161 !important;
+}
+
+.aui blockquote {
+    margin-left: 40px !important;
+    margin-top: 20px;
+    border-color: rgb(226,6,19) !important;
+    color: #eee !important;
+}
+
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 30px;
+  height: 0;
+  overflow: hidden;
+}
+
+.video-container iframe, .video-container object, .video-container embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 /*#region dockbar*/
@@ -10800,7 +10829,7 @@ html > body .featured a.isobrick {
     width: 100%;
     height: 100%;
     /*background-image: url(../images/linebg-fade.png);*/
-    background-color: rgba(255,255,255,.84);
+    background-color: rgba(255,255,255,.92);
     background-position: top;
     background-repeat: repeat-x;
     color: #000;
@@ -11755,6 +11784,12 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
     .carrearWrap {
         text-align: left;
     }
+    .metro .sidebarWrap .navx h1 .abbr {
+            display: none;
+        }
+         .metro .sidebarWrap .navx h1 a {
+            display: block;
+        }
 }
 
 @media (max-width: 979px) {
@@ -11822,6 +11857,11 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
 
         .metro .sidebarWrap .navx h1 .abbr {
             display: block;
+            font-size: 20px;
+
+        }
+         .metro .sidebarWrap .navx h1 a {
+            display: none;
         }
 
     .metro .sidebarWrap {

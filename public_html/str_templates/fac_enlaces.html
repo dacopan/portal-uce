@@ -1,3 +1,4 @@
+#set($tipox="0")
 <div class="slide bg-lightBlue" id="slide5" data-slide="5" style="min-height: 300px;height: auto;padding-bottom: 30px;">
     <div class="contentwrap" style="">
         <div class="links">
@@ -7,8 +8,14 @@
                 #if (!$Link_de_Interes.getSiblings().isEmpty())
                 #foreach ($cur_Link_de_Interes in $Link_de_Interes.getSiblings())
                 <li>
-                    <a href="$cur_Link_de_Interes.getData()" target="_blank">                        
+                    <a href="$cur_Link_de_Interes.getData()" target="_blank">
+
+                        #if($cur_Link_de_Interes.tipo.getData()==$tipox)
                         <img src="$cur_Link_de_Interes.icono.getData()" alt="$cur_Link_de_Interes.titulo.getData()" />
+                        #else
+                        <i class="fa $cur_Link_de_Interes.icono.getData()"></i>
+                        #end
+                        
                         <span class="title">$cur_Link_de_Interes.titulo.getData()</span>
                     </a>
                     <span class="sub-title">$cur_Link_de_Interes.titulo.getData()</span>

@@ -3,6 +3,7 @@
 #set ($html-com = "$cdn/my_html")
 #set ($x3=$theme.getSetting("theme-type"))
 #set ($theme-type = "$cdn/$x3")
+#set ($verx = "?v=0.1.3")
 
 #parse ($init)
 
@@ -42,10 +43,10 @@
 	<meta name="twitter:site" content="@UCentralEcuador"/>
 	#end
 
-	<link rel="stylesheet" href="$html-com/css/dcm-loader.min.css" type="text/css" id="loaderStyle" />	
-    <link rel="stylesheet" href="$theme-type/css/dcmtheme.min.css?v=0.1.3" type="text/css" />
+	<link rel="stylesheet" href="$html-com/css/dcm-loader.min.css${verx}" type="text/css" id="loaderStyle" />	
+    <link rel="stylesheet" href="$theme-type/css/dcmtheme.min.css?${verx}" type="text/css" />
     	  	
-	<script src="$theme-type/js/dcmtheme.min.js?v=0.1.3" type="text/javascript" async="async"></script>
+	<script src="$theme-type/js/dcmtheme.min.js${verx}" type="text/javascript" async="async"></script>
 
     
 </head>
@@ -75,7 +76,7 @@
         #end
 
 
-        <div class="topBar bg-blue app-bar" id="topBar" style="position: fixed;" data-load="$html-com/uce_topBar_mmmenu.txt">
+        <div class="topBar bg-blue app-bar" id="topBar" style="position: fixed;" data-load="$html-com/uce_topBar_mmmenu.txt${verx}">
         </div>
         <div class="dcm top">
             <a class="scrollto" href="#main-content">Scroll to top</a>
@@ -101,7 +102,7 @@
 
 
 		<!--Full views para .has-full-view-->
-        <div class="full-views-wrap" data-load="$html-com/full_view_01.txt"></div>
+        <div class="full-views-wrap" data-load="$html-com/full_view_01.txt${verx}"></div>
         <!--Fin Full views -->
 
 		$theme.include($body_bottom_include)

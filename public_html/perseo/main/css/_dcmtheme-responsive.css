@@ -292,6 +292,12 @@
     .carrearWrap {
         text-align: left;
     }
+    .metro .sidebarWrap .navx h1 .abbr {
+            display: none;
+        }
+         .metro .sidebarWrap .navx h1 a {
+            display: block;
+        }
 }
 
 @media (max-width: 979px) {
@@ -359,6 +365,11 @@
 
         .metro .sidebarWrap .navx h1 .abbr {
             display: block;
+            font-size: 20px;
+
+        }
+         .metro .sidebarWrap .navx h1 a {
+            display: none;
         }
 
     .metro .sidebarWrap {

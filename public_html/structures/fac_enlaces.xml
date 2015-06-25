@@ -1,5 +1,32 @@
 <root available-locales="es_ES" default-locale="es_ES">
     <dynamic-element dataType="string" indexType="keyword" name="Link_de_Interes" readOnly="false" repeatable="true" required="true" showLabel="true" type="text" width="small">
+      <dynamic-element dataType="string" indexType="keyword" multiple="false" name="tipo" readOnly="false" repeatable="false" required="true" showLabel="true" type="select" width="">
+        <dynamic-element name="option8815" type="option" value="0">
+          <meta-data locale="es_ES">
+            <entry name="label">
+              <![CDATA[Imagen]]>
+            </entry>
+          </meta-data>
+        </dynamic-element>
+        <dynamic-element name="option8816" type="option" value="1">
+          <meta-data locale="es_ES">
+            <entry name="label">
+              <![CDATA[Icono]]>
+            </entry>
+          </meta-data>
+        </dynamic-element>
+        <meta-data locale="es_ES">
+          <entry name="label">
+            <![CDATA[Tipo]]>
+          </entry>
+          <entry name="predefinedValue">
+            <![CDATA[["0"]]]>
+          </entry>
+          <entry name="tip">
+            <![CDATA[]]>
+          </entry>
+        </meta-data>
+      </dynamic-element>
         <dynamic-element dataType="string" indexType="keyword" name="icono" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
             <meta-data locale="es_ES">
                 <entry name="label">

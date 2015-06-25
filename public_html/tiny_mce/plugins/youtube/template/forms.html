@@ -1,5 +1,4 @@
-﻿
-<form action="#" class="form-horizontal">
+﻿<form action="#" class="form-horizontal">
     <input id="hidPage" type="hidden" value="1">
 
     <div class="form-group">
@@ -7,7 +6,7 @@
 
         <div class="input-append">
             <div class="input-group-btn">
-                <input class="form-control" id="inpKeywords" style="width:300px;float:left;" type="text">
+                <input class="form-control" id="inpKeywords" style="width:300px;float:left;" type="text" autocomplete="off">
                 <input class="btn-default btn" id="btnSearch" type="submit" value=" {{youtubeSearch}} ">
             </div>
         </div>
@@ -35,7 +34,7 @@
                 <label class="col-xs-5 control-label" for="widthURL">{{youtubeWidth}}:</label>
 
                 <div class="col-xs-7">
-                    <input type="text" class="span2" value="640" data-slider-min="200" data-slider-max="1280" data-slider-step="5" data-slider-value="640" id="widthURL">
+                    <input type="text" class="span2 form-control" value="{{width}}" data-slider-min="200" data-slider-max="1280" data-slider-step="5" data-slider-value="{{width}}" id="widthURL">
                 </div>
             </div>
 
@@ -43,7 +42,7 @@
                 <label class="col-xs-5 control-label" for="heightURL">{{youtubeHeight}}:</label>
 
                 <div class="col-xs-7">
-                    <input type="text" class="span2" value="385" data-slider-min="113" data-slider-max="720" data-slider-step="5" data-slider-value="385" id="heightURL">
+                    <input type="text" class="span2 form-control" value="{{height}}" data-slider-min="113" data-slider-max="720" data-slider-step="5" data-slider-value="{{height}}" id="heightURL">
                 </div>
             </div>
 

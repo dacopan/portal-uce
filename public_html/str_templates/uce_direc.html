@@ -22,7 +22,10 @@
                                 <nav class="sidebar span3 navx" data-role="sidebar-nav">
                                     <a class="pull-menu" href="#"></a>
                                     <span class="date" style="color: #fff;text-align: left;font-size: 14px;">$cur_direc.direc_tipo.getData()</span>
-                                    <h1 class="fg-white text-left padding10R font3r"><a class="fg-white font3r" href="cont0">$cur_direc.direc_nombre.getData()</a></h1>
+                                    <h1 class="fg-white text-left padding10R font3r">
+                                        <span class="fg-white font3r hidden-desktop abbr">$cur_direc.direc_abbr.getData()</span>
+                                        <a class="fg-white font3r visible-desktop" href="cont0">$cur_direc.direc_nombre.getData()</a>
+                                    </h1>
                                     $cur_direc.direc_menu.getData()
                                 </nav>
 
@@ -39,5 +42,4 @@
             </div>
         </div>
     </div>
-    <a class="scrollbut" data-slide="5"></a>
 </div>
