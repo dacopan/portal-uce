@@ -29,14 +29,14 @@
                 #foreach ($cur_doc in $cont_doc.getSiblings())
                 #if ($getterUtil.getBoolean($cur_doc.getData()))
                 <li>
-                    <div data-iview="$cur_doc.doc_link1.getData()" data-idown="$cur_doc.doc_link2.getData()" data-role="idoc" class="doc desc">
+                    <a href="$cur_doc.doc_link1.getData()" target="_blank" class="doc desc">
                         <span class="hintx">
                             Ver Documento
                         </span>
                         <i class="fa fa-uce_pdf"></i>
                         <span class="download"><i class="fa fa-uce_bajar_archivo"></i></span>
                         <p style="display: inline-block; position: absolute;">$cur_doc.doc_desc.getData()</p>
-                    </div>
+                    </a>
                 </li>
                 #end
                 #end

@@ -5204,8 +5204,8 @@ body.metro {
         font-size: 14px;
         position: relative;
         float: right;
-        padding-left: 10px;
-        padding-right: 10px;
+        /*padding-left: 10px;*/
+        /*padding-right: 10px;*/
         margin-right: 10px;
     }
 
@@ -5462,6 +5462,7 @@ body.metro {
                 color: #eeeeee;
                 background-color: #3D3D3D;
                 text-align: left;
+                text-rendering: optimizelegibility;
             }
 
                 .metro .sidebar > ul li a.dropdown-toggle:after {
@@ -7664,7 +7665,7 @@ html > body .metro .sidebar a.dropdown-toggle:after {
     padding-bottom: 50%;
 }
 
-.rb-overlay .img-full {
+.rb-overlay .img-full, .metro .img-full {
     margin-right: 20px;
     /* max-width: 500px; */
     width: 100%;
@@ -7734,7 +7735,7 @@ span.date {
   margin-top: 5px;*/
 }
 
-.rb-overlay .full-html {
+.rb-overlay .full-html, .metro .full-html {
     padding-bottom: 20px;
     padding-top: 20px;
 }
@@ -7869,9 +7870,10 @@ span.date {
 }
 
 ::-webkit-scrollbar {
-    height: 18px;
+    height: 10px;
     width: 10px;
-    background-color: rgba(0,0,0,.3);
+    /*background-color: rgba(0,0,0,.3);*/
+    background-color: #9C9B9B;
     /*border-radius: 9px;*/
 }
 
@@ -7895,7 +7897,8 @@ span.date {
 
 ::-webkit-scrollbar-thumb {
     /*border-radius: 9px;*/
-    background-color: rgba(0,0,0,.4);
+    /*background-color: rgba(0,0,0,.4);*/
+    background-color: #e20613;
 }
 
     ::-webkit-scrollbar-thumb:vertical {
@@ -8003,7 +8006,8 @@ span.date {
 /*#endregion loader*/
 
 /*#region transition*/
-.metro .club, .metro .club i, .footer .blogs a:hover h5, .metro .linksWrap .link, .metro .sharex i, .metro .uri, .ley .ley-item .pdfx h5, .metro .topBar-content > a, .va-slice:after {
+.metro .club, .metro .club i, .footer .blogs a:hover h5, .metro .linksWrap .link, .metro .sharex i, .metro .uri, .ley .ley-item .pdfx h5, .metro .topBar-content > a, .va-slice:after, .metro .rb-overlay .rb-prev, .metro .rb-overlay .rb-next,
+.centrosWrap .sidebar > ul li, .centrosWrap .span8 .full-content, .paginacion .rb-next, .paginacion .rb-prev, .centrosWrap .item-evento a {
     -moz-transition: all 0.3s ease 0s;
     -webkit-transition: all 0.3s ease 0s;
     -o-transition: all 0.3s ease 0s;
@@ -8105,20 +8109,124 @@ span.date {
 }
 
 .video-container {
-  position: relative;
-  padding-bottom: 56.25%;
-  padding-top: 30px;
-  height: 0;
-  overflow: hidden;
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px;
+    height: 0;
+    overflow: hidden;
 }
 
-.video-container iframe, .video-container object, .video-container embed {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+    .video-container iframe, .video-container object, .video-container embed {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+.metro .rb-overlay .rb-prev, .metro .rb-overlay .rb-next {
+    width: 50px;
+    height: 50px;
+    padding: 5px;
+    position: absolute;
+    top: 50%;
+    display: block;
+    left: 15%;
+    cursor: pointer;
+    opacity: 0.65;
 }
+
+.metro .rb-overlay .rb-next {
+    right: 15%;
+    left: auto;
+}
+
+    .metro .rb-overlay .rb-prev:hover, .metro .rb-overlay .rb-next:hover {
+        opacity: 1;
+    }
+
+
+    .metro .rb-overlay .rb-prev > i, .metro .rb-overlay .rb-next > i {
+        color: #fff;
+        border: 1px solid #fff;
+        border-radius: 50%;
+        padding: 3px;
+        font-size: 30px;
+    }
+
+.metro .full-html, .metro .full-html p, .metro p, .metro .panelRight p {
+    text-align: justify;
+}
+
+.metro .img-full:before {
+    content: "";
+    display: block;
+    padding-bottom: 50%;
+}
+
+/*#region margins*/
+.metro .upper {
+    text-transform: uppercase;
+}
+
+.metro .margin20B {
+    margin-bottom: 20px;
+}
+
+.metro .margin10L {
+    margin-left: 20px;
+}
+/*#endregion*/
+
+
+/*#region DCM Pagination*/
+.paginacion {
+    display: block;
+    width: 100%;
+    position: relative;
+    min-height: 100px;
+    /*overflow: hidden;*/
+}
+
+    .paginacion .page {
+        position: absolute;
+        display: none;
+        width: 100%;
+        height: 100%;
+        min-height: 100%;
+        display: none;
+        overflow-y: auto;
+    }
+
+    .paginacion .rb-next, .paginacion .rb-prev, .paginacion .counter {
+        text-decoration: none;
+        margin-top: -2rem;
+        top: 50%;
+        font-weight: 300;
+        cursor: pointer;
+        vertical-align: middle;
+        color: #000;
+        padding: 3px;
+        font-size: 20px;
+        position: absolute;
+        display: block;
+    }
+
+
+    .paginacion .rb-next {
+        right: 5px;
+        left: auto;
+    }
+
+    .paginacion .rb-prev {
+        left: 5px;
+        right: auto;
+    }
+
+    .paginacion .counter {
+        left: 40%;
+    }
+/*#endregion*/
 
 /*#region dockbar*/
 

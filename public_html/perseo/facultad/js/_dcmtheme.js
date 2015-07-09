@@ -924,8 +924,8 @@ var NoticiasFull = (function () {
             var $item = $(this),
                     $close = $item.find('span.rb-close'),
                     $overlay = $item.find('div.rb-overlay'),
-                    $prev = $('<span class="rb-prev">Prebv</span>').appendTo($overlay),
-                    $next = $('<span class="rb-next">Next</span>').appendTo($overlay),
+                    $prev = $('<span class="rb-prev"><i class="fa fa-uce_anterior"></i></span>').appendTo($overlay),
+                    $next = $('<span class="rb-next"><i class="fa fa-uce_siguiente"></i></span>').appendTo($overlay),
                     $linkNext, $linkPrev;
             if ($item.is(':last-child')) {
                 $linkPrev = $items[ix - 1];
@@ -2839,16 +2839,7 @@ $(function () {
             }
 
             $(element.children("nav")).perfectScrollbar(); //scrolllbar nav
-            element.find('.doc').each(function () {
-                var doc = $(this);
-                $(doc.find('.hintx')).on('click', function () {
-                    window.open(doc.data("iview"), '_blank');
-                });
-                $(doc.find('.download')).on('click', function () {
-                    window.open(doc.data("idown"), '_blank');
-                });
-                //doc = null;
-            });
+            
 
             this.init(tabs, frames);
             tabs.on("click", function (e) {
@@ -3094,7 +3085,7 @@ $(function () {
 
 
                 //a.element.styyle.backgroundImage = 'url(' + b.attr('src') + ')';
-               // b = null;
+                // b = null;
             })(item1, slide1, ix1);
             slide1 = item1 = ix1 = null;
             // 
@@ -3136,6 +3127,8 @@ $(window).load(function () {
 
 
 function onloadX() {
+
+    $('#logo3').removeClass("oculto zoomOut").addClass("animated zoomIn");
 
     //top banner rotator
     $('.topBanner').slick({

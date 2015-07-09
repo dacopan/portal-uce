@@ -3105,7 +3105,7 @@ function fixedUrls(that) {
 console.log("fin dcm_common, body: " + $('body').length);
 ///#source 1 1 /public_html/perseo/main/js/_dcmtheme.js
 var debug = false, noti_slide_num = 2, versionx = 1;
-console.log("version script: "+versionx);
+console.log("version script: " + versionx);
 
 //#region nivo slider
 //<editor-fold  defaultstate="collapsed" desc="nivo slider">
@@ -4029,8 +4029,8 @@ var NoticiasFull = (function () {
             var $item = $(this),
                     $close = $item.find('span.rb-close'),
                     $overlay = $item.find('div.rb-overlay'),
-                    $prev = $('<span class="rb-prev">Prebv</span>').appendTo($overlay),
-                    $next = $('<span class="rb-next">Next</span>').appendTo($overlay),
+                    $prev = $('<span class="rb-prev"><i class="fa fa-uce_anterior"></i></span>').appendTo($overlay),
+                    $next = $('<span class="rb-next"><i class="fa fa-uce_siguiente"></i></span>').appendTo($overlay),
                     $linkNext, $linkPrev;
             if ($item.is(':last-child')) {
                 $linkPrev = $items[ix - 1];
@@ -4896,7 +4896,184 @@ function touch2Mouse(e) {
         }
     })
 })(jQuery);
+(function ($) {
+    $.widget("metro.paginacion", {
+        version: "1.0.0",
+        options: {
+            duration: 500,
+            effect: 'slowdown', // slide, fade, switch, slowdown
+            direction: 'left',
+        },
+        _slides: {},
+        _counter: '',
+        _currentIndex: -1,
+        _outPosition: 0,
+        _create: function () {
+            var that = this, o = this.options,
+                    element = carousel = this.element,
+                    controls = carousel.find('.controls'),
+                        prev = carousel.find('.controls .rb-prev'),
+                        next = carousel.find('.controls .rb-next');
+            this._counter = carousel.find('.controls .counter');
 
+            this._slides = carousel.find('.page');
+
+            if (this._slides.length <= 1)
+                return;
+
+
+            prev.on('click', function () {
+                that._slideTo('prior');
+            });
+            next.on('click', function () {
+                that._slideTo('next');
+            });
+            that._slideTo('next');
+
+        },
+        _slideTo: function (direction) {
+            var currentSlide = this._slides[this._currentIndex],
+                    nextSlide, slidesN = this._slides.length;
+
+            if (direction == undefined)
+                direction = 'next';
+
+            if (direction === 'prior') {
+                this._currentIndex -= 1;
+                if (this._currentIndex < 0) {
+                    //circular
+                    if (!1) {
+                        this._currentIndex = slidesN - 1;
+                    }
+                    else {
+                        //no circular
+                        this._currentIndex += 1;
+                        return;
+                    }
+
+                }
+
+            } else if (direction === 'next') {
+                this._currentIndex += 1;
+                if (this._currentIndex >= slidesN) {
+                    //circular
+                    if (!1) {
+                        this._currentIndex = 0;
+                    }
+                    else {
+                        //no circular
+                        this._currentIndex -= 1;
+                        return;
+                    }
+                }
+
+
+            }
+            this._counter.text(this._currentIndex + 1 + "/" + slidesN);
+            this._outPosition = -this.element.width();
+            nextSlide = this._slides[this._currentIndex];
+
+            switch (this.options.effect) {
+                case 'switch':
+                    this._effectSwitch(currentSlide, nextSlide);
+                    break;
+                case 'slowdown':
+                    this._effectSlowdown(currentSlide, nextSlide, this.options.duration);
+                    break;
+                case 'fade':
+                    this._effectFade(currentSlide, nextSlide, this.options.duration);
+                    break;
+                default:
+                    this._effectSlide(currentSlide, nextSlide, this.options.duration);
+            }
+
+        },
+        _slideToSlide: function (slideIndex) {
+            var
+                    currentSlide = this._slides[this._currentIndex],
+                    nextSlide = this._slides[slideIndex];
+
+            if (slideIndex > this._currentIndex) {
+                this._outPosition = -this.element.width();
+            } else {
+                this._outPosition = this.element.width();
+            }
+
+            switch (this.options.effect) {
+                case 'switch':
+                    this._effectSwitch(currentSlide, nextSlide);
+                    break;
+                case 'slowdown':
+                    this._effectSlowdown(currentSlide, nextSlide, this.options.duration);
+                    break;
+                case 'fade':
+                    this._effectFade(currentSlide, nextSlide, this.options.duration);
+                    break;
+                default:
+                    this._effectSlide(currentSlide, nextSlide, this.options.duration);
+            }
+
+            this._currentIndex = slideIndex;
+        },
+
+        _effectSwitch: function (currentSlide, nextSlide) {
+            $(currentSlide)
+                    .hide();
+            $(nextSlide)
+                    .css({ left: 0 })
+                    .show();
+            $(nextSlide)
+                    .css('left', this._outPosition * -1)
+                    .show()
+                    .animate({ left: 0 }, this.options.duration);
+        },
+        _effectSlide: function (currentSlide, nextSlide, duration) {
+            $(currentSlide)
+                    .animate({ left: this._outPosition }, duration);
+            $(nextSlide)
+                    .css('left', this._outPosition * -1)
+                    .show()
+                    .animate({ left: 0 }, duration);
+        },
+        _effectSlowdown: function (currentSlide, nextSlide, duration) {
+            var options = {
+                'duration': duration,
+                'easing': 'doubleSqrt'
+            };
+            $.easing.doubleSqrt = function (t) {
+                return Math.sqrt(Math.sqrt(t));
+            };
+
+            $(currentSlide)
+                    .animate({ left: this._outPosition }, options).hide();
+
+
+            //$(nextSlide).find('.subslide').hide();
+            $(nextSlide)
+                    .css('left', this._outPosition * -1)
+                    .show()
+                    .animate({ left: 0 }, options);
+
+            //setTimeout(function(){
+            //    $(nextSlide).find('.subslide').fadeIn();
+            //}, 500);
+
+        },
+        _effectFade: function (currentSlide, nextSlide, duration) {
+            $(currentSlide)
+                    .fadeOut(duration);
+            $(nextSlide)
+                    .css({ left: 0 })
+                    .fadeIn(duration);
+        },
+        _destroy: function () {
+
+        },
+        _setOption: function (key, value) {
+            this._super('_setOption', key, value);
+        }
+    });
+})(jQuery);
 $(window).resize(function () {
     var device_width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
     if (device_width > 1200) {
@@ -4934,8 +5111,7 @@ $(window).resize(function () {
     $.Metro.initPanels = function (area) {
         if (area != undefined) {
             $(area).find('[data-role=panel]').panel();
-        }
-        {
+        } else {
             $('[data-role=panel]').panel();
         }
     };
@@ -4963,9 +5139,15 @@ $(window).resize(function () {
     $.Metro.initPulls = function (area) {
         if (area != undefined) {
             $(area).find('[data-role=pull-menu], .pull-menu').pullmenu();
-        }
-        {
+        } else {
             $('[data-role=pull-menu], .pull-menu').pullmenu();
+        }
+    };
+    $.Metro.initPagination = function (area) {
+        if (area != undefined) {
+            $(area).find('[data-role=dcm-pagination]').paginacion();
+        } else {
+            $('[data-role=dcm-pagination]').paginacion();
         }
     };
     $.Metro.initAll = function (area) {
@@ -5596,7 +5778,8 @@ if (typeof jQuery === 'undefined') {
         version: "1.0.0",
         options: {
             effect: 'switch'
-            , _index: 0
+            , _index: 0,
+            typex: 0
         },
         _create: function () {
             var that = this,
@@ -5609,18 +5792,12 @@ if (typeof jQuery === 'undefined') {
             if (element.data('effect') != undefined) {
                 this.options.effect = element.data('effect');
             }
+            if (element.data('sidebar-typex') != undefined) {
+                this.options.typex = element.data('typex');
+            }
 
             $(element.children("nav")).perfectScrollbar(); //scrolllbar nav
-            element.find('.doc').each(function () {
-                var doc = $(this);
-                $(doc.find('.hintx')).on('click', function () {
-                    window.open(doc.data("iview"), '_blank');
-                });
-                $(doc.find('.download')).on('click', function () {
-                    window.open(doc.data("idown"), '_blank');
-                });
-                //doc = null;
-            });
+
 
             this.init(tabs, frames);
             tabs.on("click", function (e) {
@@ -5684,22 +5861,29 @@ if (typeof jQuery === 'undefined') {
                 fullview.scrollTop(0);
                 //apagamos nivo
                 var first_frame = $(fullview.find("[data-cont=cont0]"));
-                if (current_frame.index() == 0) {
-                    $(fullview.parent()).addClass("grilla-dark");
+                if (that.options.typex == 0) {
+                    if (current_frame.index() == 0) {
+                        $(fullview.parent()).addClass("grilla-dark");
 
-                    if (!isMobileBrowser()) {
-                        first_frame.find(".bannerCircle").each(function () {
-                            $(this).data('bannerCircle').start();
-                        });
+                        if (!isMobileBrowser()) {
+                            first_frame.find(".bannerCircle").each(function () {
+                                $(this).data('bannerCircle').start();
+                            });
+                        }
+
+                    } else {
+                        $(fullview.parent()).removeClass("grilla-dark");
+                        if (!isMobileBrowser()) {
+                            first_frame.find(".bannerCircle").each(function () {
+                                $(this).data('bannerCircle').stop();
+                            });
+                        }
                     }
-
                 } else {
-                    $(fullview.parent()).removeClass("grilla-dark");
-                    if (!isMobileBrowser()) {
-                        first_frame.find(".bannerCircle").each(function () {
-                            $(this).data('bannerCircle').stop();
-                        });
-                    }
+                    var cssx = $(this).css("background-color");
+                    element.css("background-color", cssx);
+                    fullview.css("background-color", cssx);
+                    cssx = null;
                 }
 
                 hrefx = current_frame = device_width = first_frame = null;
@@ -5784,7 +5968,7 @@ $(function () {
                 //alert("images loaded");
                 that._changeSlide('next');
                 setTimeout(function () {
-                   // alert("remove spinner");
+                    // alert("remove spinner");
                     element.find(".spinner").remove();
                 }, 500);
 
@@ -6115,16 +6299,432 @@ var ClubFull = (function () {
 //</editor-fold>
 //#endregion 
 
+//#region centros investigacion
+var centrosInvestigacion = (function () {
+
+    $items = $('.centrosWrap > li'),
+    // current expanded item's index
+    current = -1,
+    // position (top) of the expanded item
+    // used to know if the preview will expand in a different row
+    previewPos = -1,
+    // extra amount of pixels to scroll the window
+    scrollExtra = 0,
+    // extra margin when expanded (between preview overlay and the next items)
+    marginExpanded = 10,
+    //$window = $(window), winsize = getWinSize(),
+    $window = $(window), winsize = getWinSize(),
+    $body = $('BODY'),
+    // transitionend events
+    transEndEventNames = {
+        'WebkitTransition': 'webkitTransitionEnd',
+        'MozTransition': 'transitionend',
+        'OTransition': 'oTransitionEnd',
+        'msTransition': 'MSTransitionEnd',
+        'transition': 'transitionend'
+    },
+    transEndEventName = transEndEventNames[Modernizr.prefixed('transition')],
+    // support for csstransitions
+    support = Modernizr.csstransitions,
+    // default settings
+    settings = {
+        minHeight: 500,
+        speed: 350,
+        easing: 'ease',
+        showVisitButton: true
+    };
+
+    function init(config) {
+
+        // the settings..
+        settings = $.extend(true, {}, settings, config);
+        // save item�s size and offset
+        saveItemInfo(true);
+        // get window�s size
+        getWinSize();
+        // initialize some events
+        initEvents();
+
+    }
+
+
+    // saves the item�s offset top and height (if saveheight is true)
+    function saveItemInfo(saveheight) {
+        $items.each(function () {
+            var $item = $(this);
+            $item.data('offsetTop', $item.offset().top);
+            if (saveheight) {
+                $item.data('height', $item.height());
+            }
+        });
+    }
+
+    function initEvents() {
+
+        // when clicking an item, show the preview with the item�s info and large image.
+        // close the item if already expanded.
+        // also close if clicking on the item�s cross
+        initItemsEvents($items);
+
+        // on window resize get the window�s size again
+        // reset some values..
+        $window.on('debouncedresize', function () {
+
+            scrollExtra = 0;
+            previewPos = -1;
+            // save item�s offset
+            saveItemInfo();
+            getWinSize();
+            var preview = $.data(this, 'preview');
+            if (typeof preview != 'undefined') {
+                hidePreview();
+            }
+
+        });
+
+    }
+
+    function initItemsEvents($items) {
+        $items.on('click', 'span.og-close', function () {
+            hidePreview();
+            return false;
+        }).children('a').on('click', function (e) {
+
+            var $item = $(this).parent();
+            // check if item already opened
+            current === $item.index() ? hidePreview() : showPreview($item);
+            return false;
+
+        });
+    }
+
+    function getWinSize() {
+        winsize = { width: $window.width(), height: $window.height() };
+    }
+
+    function showPreview($item) {
+
+        var preview = $.data(this, 'preview'),
+			// item�s offset top
+			position = $item.data('offsetTop');
+
+        scrollExtra = 0;
+
+        // if a preview exists and previewPos is different (different row) from item�s top then close it
+        if (typeof preview != 'undefined') {
+
+            // not in the same row
+            if (previewPos !== position) {
+                // if position > previewPos then we need to take te current preview�s height in consideration when scrolling the window
+                if (position > previewPos) {
+                    scrollExtra = preview.height;
+                }
+                hidePreview();
+            }
+                // same row
+            else {
+                preview.update($item);
+                //preview.open();
+                return false;
+            }
+
+        }
+
+        // update previewPos
+        previewPos = position;
+        // initialize new preview for the clicked item
+        preview = $.data(this, 'preview', new Preview($item));
+        // expand preview overlay
+        // preview.open();
+
+    }
+
+    function hidePreview() {
+        current = -1;
+        var preview = $.data(this, 'preview');
+        preview.close();
+        $.removeData(this, 'preview');
+    }
+
+    // the preview obj / overlay
+    function Preview($item) {
+        this.$item = $item;
+        this.expandedIdx = this.$item.index();
+        this.create();
+        this.update();
+    }
+
+    Preview.prototype = {
+        create: function () {
+            this.$previewEl = this.$item.find('.og-expander');
+            if (support) {
+                this.setTransition();
+            }
+        },
+        update: function ($item) {
+
+            if ($item) {
+                this.$item = $item;
+            }
+            var oldcurrent = current;
+            var oldprev = this.$previewEl;
+            // update current value
+            current = this.$item.index();
+            this.expandedIdx = current;
+            this.$previewEl = this.$item.find('.og-expander');
+            if (support) {
+                this.setTransition();
+            }
+
+            if (!this.$item.data('ajaxLoad')) {
+                var qq = $(this.$item.find(".og-details"));
+                var qq3 = this.$item;
+                $.ajax({
+                    type: "get",
+                    url: Liferay.ThemeDisplay.getLayoutURL().match(reg)[0] + 'ajax?artID=' + qq.data('ajax-artid') + '&groupID=' + qq.data('ajax-groupid'),
+                    success: function (data) {
+                        var sss = $('#ajax-dcm', data);
+                        qq.html(sss.html());
+                        sss = data = null;
+                        //$.Metro.initSidebars($item);
+                        //$.Metro.initBannerCircle(qq);
+                        //sidebarUpdate($item);
+                        qq3.data('ajaxLoad', true);
+
+                        //init componentets
+                        sidebarUpdate(qq3);
+                        qq3 = null;
+                    },
+                    error: function () {
+                        console.log("error ajax on centro investigaci�n");
+                        qq3.data('ajaxLoad', true);
+                        //init componentets
+                        $.Metro.initSidebars(qq3);
+                        $.Metro.initPagination(qq3);
+                        initNotiAndvents(qq3);
+                        sidebarUpdate(qq3);
+                        qq3 = null;
+                    }
+                });
+            }
+
+            if (this.$item.data('ajaxLoad')) {
+                sidebarUpdate(this.$item);
+            }
+
+            this.open();
+            // if already expanded remove class "og-expanded" from current item and add it to new item
+            setTimeout($.proxy(function () {
+                if (oldcurrent !== -1) {
+                    var $currentItem = $items.eq(oldcurrent);
+                    $currentItem.removeClass('og-expanded');
+
+                    oldprev.css('height', 0);
+                    $currentItem.css('height', $currentItem.data('height'));
+                    oldprev = null;
+
+                }
+            }, this), 150);
+
+        },
+        open: function () {
+
+            setTimeout($.proxy(function () {
+                // set the height for the preview and the item
+                this.setHeights();
+                // scroll to position the preview in the right place
+                this.positionPreview();
+            }, this), 25);
+
+        },
+        close: function () {
+
+            var self = this,
+				onEndFn = function () {
+				    if (support) {
+				        $(this).off(transEndEventName);
+				    }
+				    self.$item.removeClass('og-expanded');
+				    //added
+				    var position = self.$item.data('offsetTop'),
+                        scrollVal = position - 180;
+				    $body.animate({ scrollTop: scrollVal }, settings.speed);
+
+				    //self.$previewEl.remove();
+				};
+
+            setTimeout($.proxy(function () {
+
+                this.$previewEl.css('height', 0);
+                // the current expanded item (might be different from this.$item)
+                var $expandedItem = $items.eq(this.expandedIdx);
+                $expandedItem.css('height', $expandedItem.data('height')).on(transEndEventName, onEndFn);
+
+                if (!support) {
+                    onEndFn.call();
+                }
+
+            }, this), 25);
+
+            return false;
+
+        },
+        calcHeight: function () {
+
+            //var heightPreview = winsize.height - 80,// - this.$item.data('height') - marginExpanded,
+            var heightPreview = winsize.height;
+            itemHeight = heightPreview + this.$item.data('height') + 30;
+
+            //if (heightPreview < settings.minHeight) {
+            //    heightPreview = settings.minHeight;
+            //    itemHeight = settings.minHeight + this.$item.data('height') + marginExpanded;
+            //}
+
+            this.height = heightPreview;
+            this.itemHeight = itemHeight;
+
+        },
+        setHeights: function () {
+
+            var self = this,
+				onEndFn = function () {
+				    if (support) {
+				        self.$item.off(transEndEventName);
+				    }
+				    self.$item.addClass('og-expanded');
+				};
+
+            this.calcHeight();
+            this.$previewEl.css('height', this.height);
+            this.$item.css('height', this.itemHeight).on(transEndEventName, onEndFn);
+
+            if (!support) {
+                onEndFn.call();
+            }
+
+        },
+        positionPreview: function () {
+
+            // scroll page
+            // case 1 : preview height + item height fits in window�s height
+            // case 2 : preview height + item height does not fit in window�s height and preview height is smaller than window�s height
+            // case 3 : preview height + item height does not fit in window�s height and preview height is bigger than window�s height
+            var position = this.$item.data('offsetTop'),
+				previewOffsetT = this.$previewEl.offset().top - scrollExtra,
+				//scrollVal = this.height + this.$item.data('height') + marginExpanded <= winsize.height ? position : this.height < winsize.height ? previewOffsetT - (winsize.height - this.height) : previewOffsetT;
+               // scrollVal = position + 20;
+               scrollVal = $(this.$item.find(".og-details")).offset().top - 50;
+            $body.animate({ scrollTop: scrollVal }, settings.speed);
+
+        },
+        setTransition: function () {
+            this.$previewEl.css('transition', 'height ' + settings.speed + 'ms ' + settings.easing);
+            this.$item.css('transition', 'height ' + settings.speed + 'ms ' + settings.easing);
+        },
+        getEl: function () {
+            return this.$previewEl;
+        }
+
+    }
+    function sidebarUpdate(itemx) {
+
+        //sidebar update
+        var sidebar = itemx.find('[data-role=sidebar]'),
+                tabs = $(sidebar.children("nav")).find("a"),
+                full_viewx = $(sidebar.children(".full-content")),
+                frames = full_viewx.children(".slic");
+        tabs.each(function () {
+            $(this).parent().removeClass("active");
+        });
+
+        frames.hide();
+        $(frames.get(0)).show();
+
+        var cssx = $(tabs.get(1)).css("background-color");
+
+        sidebar.css("background-color", cssx);
+        full_viewx.css("background-color", cssx);
+
+
+        sidebar = full_viewx = tabs = cssx = null;
+
+    }
+    function initNotiAndvents(itemx) {
+        var notiWrap = itemx.find('.noticiasWrap'),
+            notiViewer = notiWrap.find('.noti-viewer'),
+            noti_items = notiWrap.find('.noti-item'),
+
+            eventWrap = itemx.find('.eventosWrap'),
+            event_items = eventWrap.find('.item-evento');
+
+
+        notiWrap.find('[data-role=sharex]').each(function () {
+            var that = $(this);
+            fixedUrls(that);
+            that = null;
+        });
+
+        //init notis
+        noti_items.each(function () {
+            var that = $(this);
+            that.click(function () {
+                var that2 = $(this);
+                notiViewer.fadeOut(function () {
+                    notiViewer.html(that2.find('.oculto').html()).fadeIn();
+                    that2 = null;
+                });
+
+            });
+            that = null;
+        });
+        notiViewer.html($(noti_items.get(0)).find('.oculto').html());
+        //init events
+        event_items.each(function () {
+            var that = $(this), openclose = that.find('a.fg-yellow'),
+                openx = $(openclose.get(0)),
+                closex = $(openclose.get(1));
+
+            openx.click(function () {
+                var event_desc = that.find('.event-desc');
+                that.data("opened", true);
+                that.addClass("active");
+                event_desc.slideToggle();
+                event_desc = null;
+                return false;
+            });
+            closex.click(function () {
+                var event_desc = that.find('.event-desc');
+                that.data("opened", false);
+
+                event_desc.slideToggle(function () {
+                    that.removeClass("active");
+                });
+                event_desc = null;
+                return false;
+            });
+
+            openx = closex = null;
+        });
+
+        noti_items = eventWrap = event_items = notiWrap = null;
+    }
+    return {
+        init: init
+    };
+
+});//();
+//#endregion
+
 function onloadX() {
     setTimeout(function () {
         $('#logo1').addClass("animated zoomOutUp");
         $('#logo2').removeClass("oculto");
         $('#logo2').addClass("animated zoomIn");
     }, 2000);
-    
 
     NoticiasFull().init();
     ClubFull().init();
+    centrosInvestigacion().init();
     //featured isotope
     var $container3 = jQuery('div.isofeatured');
     if ($container3.length) {
@@ -6211,7 +6811,32 @@ function onloadX() {
     }
     ///*
     if (!isMobileBrowser()) {
-        //animated on scroll
+        $('#logo3').removeClass("oculto zoomOut").addClass("animated zoomIn");
+
+        /*
+        animated on scroll
+        $(window).scroll(function () {
+            var scrollPos = $(this).scrollTop();
+            var elemx = $('#logo2');
+            var log2 = $('#logo3');
+            w2 = 230 - scrollPos
+            if (w2 < 30) {
+                //w2 = 30;
+                if (scrollPos > 50)
+                    $('#logo3').removeClass("oculto zoomOut").addClass("animated zoomIn");
+            } else {
+                if (log2.hasClass("zoomIn")) log2.removeClass("zoomIn").addClass("zoomOut");
+                elemx.css({
+                    'width': w2 + "px",
+                    'height': w2 + "px"
+                });
+            }
+
+
+            scrollPos = elemx = w2 = null;
+
+        });
+        //*/
 
         $('.og-grid.fac img').each(function () {
             $(this).addClass("oculto").viewportChecker({

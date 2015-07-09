@@ -306,9 +306,9 @@
         color: black;
     }
 
-    .fac-title .title.investiga {
-        top: 21rem;
-    }
+        .fac-title .title.investiga {
+            top: 21rem;
+        }
 
 
 
@@ -402,6 +402,7 @@
             padding: 20px !important;
             max-width: 800px;
         }
+    
 }
 
 /*<editor-fold defaultstate="collapsed" desc="menu figure">*/

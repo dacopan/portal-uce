@@ -140,11 +140,7 @@
     .fac-title .title {
         font-size: 4.8rem;
     }
-    /*direcciones*/
-    .metro .direc {
-        width: 200px;
-        height: 150px;
-    }
+
     /*Sidebar*/
     .metro .sidebarWrap .full-content .col1 {
         width: 100%;
@@ -238,7 +234,28 @@
     }
 }
 
-@media only screen and (max-width: 360px) {
+@media only screen and (max-width: 878px) {
+    /*direcciones*/
+    .metro .contentwrap.direcWrap, .metro .contentwrap.facWrap, .metro .centrosWrap {
+        max-width: 610px;
+        text-align: center;
+    }
+
+        .metro .contentwrap.direcWrap .og-grid, .metro .contentwrap.facWrap .og-grid, .metro .og-grid {
+            text-align: center;
+        }
+
+            .metro .og-grid.fac .og-a, .metro .direc, .centrosWrap .centro {
+                width: 200px !important;
+            }
+
+                .centrosWrap .centro:hover > div {
+                    width: 190px;
+                }
+
+    .metro .direc {
+        height: 150px;
+    }
 }
 
 @media only screen and (min-width: 1200px) {
@@ -268,22 +285,22 @@
         text-align: left;
     }
 
-    .fac-title.span1 .title:before {
-        position: absolute;
-        content: 'facultades y sedes';
-        left: 1.5rem;
-        top: 13rem;
-        display: block;
-        height: 1rem;
-        text-align: right;
-        white-space: nowrap;
-        direction: ltr;
-        width: 12.5rem;
-        -webkit-transform: rotate(-90deg);
-        transform: rotate(-90deg);
-        -webkit-transform-origin: 0 100%;
-        transform-origin: 0 100%;
-    }
+        .fac-title.span1 .title:before {
+            position: absolute;
+            content: 'facultades y sedes';
+            left: 1.5rem;
+            top: 13rem;
+            display: block;
+            height: 1rem;
+            text-align: right;
+            white-space: nowrap;
+            direction: ltr;
+            width: 12.5rem;
+            -webkit-transform: rotate(-90deg);
+            transform: rotate(-90deg);
+            -webkit-transform-origin: 0 100%;
+            transform-origin: 0 100%;
+        }
 
     .og-grid.fac {
         float: left;
@@ -292,12 +309,14 @@
     .carrearWrap {
         text-align: left;
     }
+
     .metro .sidebarWrap .navx h1 .abbr {
-            display: none;
-        }
-         .metro .sidebarWrap .navx h1 a {
-            display: block;
-        }
+        display: none;
+    }
+
+    .metro .sidebarWrap .navx h1 a {
+        display: block;
+    }
 }
 
 @media (max-width: 979px) {
@@ -366,9 +385,9 @@
         .metro .sidebarWrap .navx h1 .abbr {
             display: block;
             font-size: 20px;
-
         }
-         .metro .sidebarWrap .navx h1 a {
+
+        .metro .sidebarWrap .navx h1 a {
             display: none;
         }
 
@@ -380,6 +399,44 @@
             padding: 20px !important;
             max-width: 800px;
         }
+
+    /*centros sidebar*/
+    .centrosWrap .sidebar > ul li a {
+        font-size: 14px;
+        line-height: 40px;
+        text-indent: 0;
+    }
+
+        .centrosWrap .sidebar > ul li a:before {
+            content: none;
+        }
+
+    .centrosWrap .sidebar > ul li {
+        float: none;
+        width: 100% !important;
+        height: 40px;
+        border: none;
+        text-align: center;
+    }
+
+    .centrosWrap .sidebar, .centrosWrap .sidebar > ul li {
+        background-image: none !important;
+    }
+
+        .centrosWrap .sidebar > ul li.active a {
+            width: 100% !important;
+        }
+
+        .centrosWrap .sidebar .element-menu {
+            display: none;
+            margin-top: 45px;
+            width: 100%;
+            max-width: 100%;
+        }
+
+    .centrosWrap .pan-l .full-content {
+        margin-top: 40px;
+    }
 }
 
 /*<editor-fold defaultstate="collapsed" desc=" menu figure ">*/

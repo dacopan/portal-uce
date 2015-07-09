@@ -3,6 +3,11 @@
                     Miércoles 01/09/2014
                 </span>
                 <a id="hamburger" class="" href="#dcmmenu"><span></span></a>
+
+
+				<a class="fg-white oculto" href="#" id="logo3" style="float: none;position: absolute;left: calc(50% - 23px);"><i class="fa fa-uce_aplicaciones" style="font-size: 40px;"></i></a>
+
+
                 <a class="fg-white dropdown-toggle" href="#" id="dock"><i class="fa fa-uce_aplicaciones" style="font-size: 40px;"></i></a>
 
                 <div class="app-bar-drop-container dropdown-menu place-right" data-role="dropdown" style="width: 324px;  float: right;">
