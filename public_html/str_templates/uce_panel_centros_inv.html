@@ -6,7 +6,9 @@
             #if (!$centro_contenedor_id.getSiblings().isEmpty())
             #foreach ($cur_centro_contenedor_id in $centro_contenedor_id.getSiblings())
 
-            $cur_centro_contenedor_id.getData()
+            #set ($webcontent=$journalContentUtil.getContent($group_id, $cur_centro_contenedor_id.getData(), "", "$locale", ""))
+            $webcontent
+
 
             #end
             #end

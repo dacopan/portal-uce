@@ -8223,6 +8223,10 @@ span.date {
         right: auto;
     }
 
+        .paginacion .rb-next i, .paginacion .rb-prev i {
+            font-size: 30px;
+        }
+
     .paginacion .counter {
         left: 40%;
     }
@@ -12089,7 +12093,7 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
 
     .centrosWrap .item-evento .img-full {
         width: 150px;
-        height: 150px;
+        height: 140px;
         float: left;
         margin: 10px 0 10px 10px;
     }
@@ -12116,6 +12120,7 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
     .centrosWrap .item-evento.active > a:last-child {
         display: inline;
         float: left;
+        clear: both;
     }
 
     .centrosWrap .item-evento.active .noti-detail {
@@ -12190,7 +12195,9 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
     background-color: red;
 }
 
-
+.centrosWrap .noti-detail > h5 {
+    font-weight: bold;
+}
 /*#endregion*/
 
 

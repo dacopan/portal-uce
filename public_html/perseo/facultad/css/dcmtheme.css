@@ -8223,6 +8223,10 @@ span.date {
         right: auto;
     }
 
+        .paginacion .rb-next i, .paginacion .rb-prev i {
+            font-size: 30px;
+        }
+
     .paginacion .counter {
         left: 40%;
     }
