@@ -1107,12 +1107,24 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
     background: #fff;
 }
 
-.centrosWrap .height100, .centrosWrap .span12, .centrosWrap .span12 .full-content {
+.centrosWrap .height100, .centrosWrap .pan-l, .centrosWrap .pan-l .full-content {
     height: 100%;
 }
 
 .centrosWrap .og-close {
     z-index: 88;
+}
+
+
+
+
+.centrosWrap .rb-overlay {
+    border: 10px rgba(0,0,0,0) solid;
+}
+
+.centrosWrap .rb-week {
+    max-width: 1046px;
+    padding: 0;
 }
 /*sidebar*/
 .metro .centrosWrap nav.sidebar.navx {
@@ -1481,7 +1493,9 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
     left: calc(50% - 75px);
     opacity: .55;
 }
-
+    .centrosWrap .eventosWrap .controls .rb-next {
+    
+    }
 .centrosWrap .eventosWrap .contentwrap {
     width: 98%;
     padding-top: 10px;

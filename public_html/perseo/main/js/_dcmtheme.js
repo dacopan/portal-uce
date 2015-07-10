@@ -3194,7 +3194,7 @@ var ClubFull = (function () {
 //#endregion 
 
 //#region centros investigacion
-var centrosInvestigacion = (function () {
+var centrosInvestigacionz = (function () {
 
     $items = $('.centrosWrap > li'),
     // current expanded item's index
@@ -3608,6 +3608,272 @@ var centrosInvestigacion = (function () {
 
 });//();
 //#endregion
+
+//#region centros investigación
+var centrosInvestigacion = (function () {
+
+    var $items = $('.centrosWrap > li'),
+            transEndEventNames = {
+                'WebkitTransition': 'webkitTransitionEnd',
+                'MozTransition': 'transitionend',
+                'OTransition': 'oTransitionEnd',
+                'msTransition': 'MSTransitionEnd',
+                'transition': 'transitionend'
+            },
+    // transition end event name
+    transEndEventName = transEndEventNames[Modernizr.prefixed('transition')],
+            // window and body elements
+            $window = $(window),
+            $body = $('BODY'),
+            // transitions support
+            supportTransitions = Modernizr.csstransitions,
+            // current item's index
+            current = -1,
+            // window width and height
+            winsize = getWindowSize();
+    function init(options) {
+        // apply fittext plugin
+        //$items.find( 'div.rb-week > div span' ).fitText( 0.3 ).end().find( 'span.rb-city' ).fitText( 0.5 );
+        initEvents();
+    }
+    var reg = /.*\/.*\//g;
+    function initEvents() {
+
+        $items.each(function (ix) {
+
+            var $item = $(this),
+                    $close = $item.find('span.rb-close'),
+                    $overlay = $item.find('div.rb-overlay');
+
+            $item.on('click', function (event) {
+                //if (event.target != this) return;
+                //event.preventDefault();
+                // $('.carreraWrap').removeClass("oculto visible animated bounceInRight");
+                if (!$item.data('ajaxLoad')) {
+                    var qq = $($item.find(".full-content"));
+
+                    $.ajax({
+                        type: "get",
+                        url: Liferay.ThemeDisplay.getLayoutURL().match(reg)[0] + 'ajax?artID=' + qq.data('ajax-artid') + '&groupID=' + qq.data('ajax-groupid'),
+                        //url: 'http://181.113.57.115/ajax?artID=11841&groupID=10181',
+                        success: function (data) {
+                            var sss = $('#ajax-dcm', data);
+                            qq.html(sss.html());
+                            sss = data = null;
+                            $.Metro.initSidebars($item);
+                            $.Metro.initPagination($item);
+                            initNotiAndvents($item);
+                            sidebarUpdate($item);
+                            $item.data('ajaxLoad', true);
+                            qq = null;
+                        },
+                        error: function () {
+                            console.log("error ajax on centro investigación");
+                            $item.data('ajaxLoad', true);
+                            //init componentets
+                            $.Metro.initSidebars($item);
+                            $.Metro.initPagination($item);
+                            initNotiAndvents($item);
+                            sidebarUpdate($item);
+                            qq = null;
+                        }
+                    });
+
+                }
+                if ($item.data('isExpanded')) {
+                    return true;
+                }
+                $item.data('isExpanded', true);
+                // save current item's index
+                current = $item.index();
+                var layoutProp = getItemLayoutProp($item),
+                        clipPropFirst = 'rect(' + layoutProp.top + 'px ' + (layoutProp.left + layoutProp.width) + 'px ' + (layoutProp.top + layoutProp.height) + 'px ' + layoutProp.left + 'px)',
+                        clipPropLast = 'rect(0px ' + winsize.width + 'px ' + winsize.height + 'px 0px)';
+                $overlay.css({
+                    transformOrigin: layoutProp.left + 'px ' + layoutProp.top + 'px',
+                    clip: supportTransitions ? clipPropFirst : clipPropLast,
+                    transform: supportTransitions ? 'rotate(45deg)' : 'none',
+                    opacity: 1,
+                    zIndex: 9999,
+                    pointerEvents: 'auto'
+                });
+                if (supportTransitions) {
+                    $overlay.on(transEndEventName, function () {
+
+                        $overlay.off(transEndEventName);
+                        setTimeout(function () {
+                            $overlay.css({ clip: clipPropLast, transform: 'rotate(0deg)' }).on(transEndEventName, function () {
+                                $overlay.off(transEndEventName);
+                                $body.css('overflow-y', 'hidden');
+                            });
+                        }, 25);
+                    });
+                }
+                else {
+                    $body.css('overflow-y', 'hidden');
+                }
+                if ($item.data('ajaxLoad')) {
+                    sidebarUpdate($item);
+                }
+                return false;
+
+            });
+
+            $close.on('click', function () {
+                $body.css('overflow-y', 'auto');
+                var layoutProp = getItemLayoutProp($item),
+                        clipPropFirst = 'rect(' + layoutProp.top + 'px ' + (layoutProp.left + layoutProp.width) + 'px ' + (layoutProp.top + layoutProp.height) + 'px ' + layoutProp.left + 'px)',
+                        clipPropLast = 'auto';
+                // reset current
+                current = -1;
+                $overlay.css({
+                    clip: supportTransitions ? clipPropFirst : clipPropLast,
+                    opacity: supportTransitions ? 1 : 0,
+                    pointerEvents: 'none'
+                });
+                if (supportTransitions) {
+                    $overlay.on(transEndEventName, function () {
+
+                        //$overlay.off(transEndEventName);
+                        setTimeout(function () {
+                            $overlay.css('opacity', 0).on(transEndEventName, function () {
+                                $overlay.off(transEndEventName).css({ clip: clipPropLast, zIndex: -1 });
+                                $item.data('isExpanded', false);
+                            });
+                        }, 25);
+                    });
+                }
+                else {
+                    $overlay.css('z-index', -1);
+                    $item.data('isExpanded', false);
+                }
+                //sidebar update
+                var sidebar = $item.find('[data-role=sidebar]'),
+                        tabs = $(sidebar.children("nav")).find("a"),
+                        frames = $(sidebar.children(".full-content")).children(".slic");
+
+                frames.hide();
+
+                sidebar = tabs = frames = null;
+                return false;
+            });
+        });
+        $(window).on('debouncedresize', function () {
+            winsize = getWindowSize();
+            // todo : cache the current item
+            if (current !== -1) {
+                $($items.eq(current).find('div.rb-overlay')).css('clip', 'rect(0px ' + winsize.width + 'px ' + winsize.height + 'px 0px)');
+            }
+        });
+    }
+    function sidebarUpdate(itemx) {
+
+        //sidebar update
+        var sidebar = itemx.find('[data-role=sidebar]'),
+                tabs = $(sidebar.children("nav")).find("a"),
+                full_viewx = $(sidebar.children(".full-content")),
+                frames = full_viewx.children(".slic");
+        tabs.each(function () {
+            $(this).parent().removeClass("active");
+        });
+
+        frames.hide();
+        $(frames.get(0)).show();
+
+        var cssx = $(tabs.get(1)).css("background-color");
+
+        sidebar.css("background-color", cssx);
+        full_viewx.css("background-color", cssx);
+
+
+        sidebar = full_viewx = tabs = cssx = null;
+
+    }
+    function initNotiAndvents(itemx) {
+        var notiWrap = itemx.find('.noticiasWrap'),
+            notiViewer = notiWrap.find('.noti-viewer'),
+            noti_items = notiWrap.find('.noti-item'),
+
+            eventWrap = itemx.find('.eventosWrap'),
+            event_items = eventWrap.find('.item-evento');
+
+
+        notiWrap.find('[data-role=sharex]').each(function () {
+            var that = $(this);
+            fixedUrls(that);
+            that = null;
+        });
+
+        //init notis
+        noti_items.each(function () {
+            var that = $(this);
+            that.click(function () {
+                var that2 = $(this);
+                notiViewer.fadeOut(function () {
+                    notiViewer.html(that2.find('.oculto').html()).fadeIn();
+                    that2 = null;
+                });
+
+            });
+            that = null;
+        });
+        notiViewer.html($(noti_items.get(0)).find('.oculto').html());
+        //init events
+        event_items.each(function () {
+            var that = $(this), openclose = that.find('a.fg-yellow'),
+                openx = $(openclose.get(0)),
+                closex = $(openclose.get(1));
+
+            openx.click(function () {
+                var event_desc = that.find('.event-desc');
+                that.data("opened", true);
+                that.addClass("active");
+                event_desc.slideToggle();
+                event_desc = null;
+                return false;
+            });
+            closex.click(function () {
+                var event_desc = that.find('.event-desc');
+                that.data("opened", false);
+
+                event_desc.slideToggle(function () {
+                    that.removeClass("active");
+                });
+                event_desc = null;
+                return false;
+            });
+
+            openx = closex = null;
+        });
+
+        noti_items = eventWrap = event_items = notiWrap = null;
+    }
+    function getItemLayoutProp($item) {
+
+        var scrollT = $window.scrollTop(),
+                scrollL = $window.scrollLeft(),
+                itemOffset = $item.offset();
+        return {
+            left: itemOffset.left - scrollL,
+            top: itemOffset.top - scrollT,
+            width: $item.outerWidth(),
+            height: $item.outerHeight()
+        };
+    }
+
+    function getWindowSize() {
+        $body.css('overflow-y', 'hidden');
+        var w = $window.width(), h = $window.height();
+        if (current === -1) {
+            $body.css('overflow-y', 'auto');
+        }
+        return { width: w, height: h };
+    }
+
+    return { init: init };
+});//();
+//</editor-fold>
+//#endregion 
 
 function onloadX() {
     setTimeout(function () {
