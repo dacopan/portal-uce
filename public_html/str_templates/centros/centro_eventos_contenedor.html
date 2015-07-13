@@ -1,0 +1,25 @@
+﻿#set ($group_id = $getterUtil.getLong($groupId))
+
+<div class="slic height100 eventosWrap" data-cont="cont2">
+    <div class="contentwrap paginacion" data-role="dcm-pagination">
+
+        $cur_noticia_id.getData()
+        #set($sizex=$Noticia.getSiblings().size())
+        #if (!$noticia_id.getSiblings().isEmpty())
+        #foreach ($cur_evento_id in $evento_id.getSiblings())
+
+        #if($velocityCount > 12)
+        #break
+        #end
+
+        #set( $ix = $sizex - $velocityCount)
+        #set($cur_evento=$evento_id.getSiblings().get($ix))
+
+        #set ($webcontent=$journalContentUtil.getContent($group_id, $cur_evento.getData(), "53488", "$locale", ""))
+        $webcontent
+        #set( $count1 = $count%2)
+        #end
+        #end
+
+    </div>
+</div>

@@ -1,0 +1,29 @@
+﻿#set ($group_id = $getterUtil.getLong($groupId))
+<div class="slic" data-cont="cont1">
+    <div class="contentwrap noticiasWrap">
+        <div class="span8 noti-viewer">
+        </div>
+
+        <div class="span4">
+
+            $cur_noticia_id.getData()
+            #set($sizex=$Noticia.getSiblings().size())
+            #if (!$noticia_id.getSiblings().isEmpty())
+            #foreach ($cur_noticia_id in $noticia_id.getSiblings())
+
+            #if($velocityCount > 12)
+            #break
+            #end
+
+            #set( $ix = $sizex - $velocityCount)
+            #set($cur_Noticia=$noticia_id.getSiblings().get($ix))
+
+            #set ($webcontent=$journalContentUtil.getContent($group_id, $cur_Noticia.getData(), "53488", "$locale", ""))
+            $webcontent
+
+            #end
+            #end
+
+        </div>
+    </div>
+</div>

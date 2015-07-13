@@ -20,13 +20,12 @@
                                                                                                     <li><a href="cont8">Micro Currículo</a></li>
                                                                                                 </ul>
                                                                                             </li>
-                                                                                            <li><a href="cont9">Ambiente institucional</a></li>
-                                                                                            <li><a href="cont10">Prácticas preprofesionales</a></li>
+                                                                                            <li><a href="cont9">Ambiente institucional</a></li>                                                                                            
 
                                                                                             <li>
                                                                                                 <a class="dropdown-toggle" href="#">Estadísticas</a>
                                                                                                 <ul class="dropdown-menu" data-role="dropdown">
-                                                                                                    <li><a href="cont11">Estudiantes</a></li>
+                                                                                                    <li><a href="cont10">Estudiantes</a></li>
                                                                                                 </ul>
                                                                                             </li>
                                                                                         </ul>

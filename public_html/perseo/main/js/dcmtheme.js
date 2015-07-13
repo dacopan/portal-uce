@@ -6885,6 +6885,7 @@ var centrosInvestigacion = (function () {
 
         frames.hide();
         $(frames.get(0)).show();
+        $(tabs.get(1)).parent().addClass("active");
 
         var cssx = $(tabs.get(1)).css("background-color");
 
