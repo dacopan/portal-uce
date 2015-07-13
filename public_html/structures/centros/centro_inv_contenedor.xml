@@ -1,0 +1,171 @@
+﻿<root available-locales="es_ES" default-locale="es_ES">
+  <dynamic-element dataType="string" indexType="keyword" name="title" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
+    <meta-data locale="es_ES">
+      <entry name="label">
+        <![CDATA[Título (menu)]]>
+      </entry>
+      <entry name="predefinedValue">
+        <![CDATA[]]>
+      </entry>
+      <entry name="tip">
+        <![CDATA[]]>
+      </entry>
+    </meta-data>
+  </dynamic-element>
+  <dynamic-element dataType="string" indexType="keyword" name="subtitle" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
+    <meta-data locale="es_ES">
+      <entry name="label">
+        <![CDATA[Subtitulo (menu)]]>
+      </entry>
+      <entry name="predefinedValue">
+        <![CDATA[]]>
+      </entry>
+      <entry name="tip">
+        <![CDATA[]]>
+      </entry>
+    </meta-data>
+  </dynamic-element>
+  <dynamic-element dataType="string" indexType="" name="imgx" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
+    <meta-data locale="es_ES">
+      <entry name="label">
+        <![CDATA[Imagen (Menú)]]>
+      </entry>
+      <entry name="predefinedValue">
+        <![CDATA[]]>
+      </entry>
+      <entry name="tip">
+        <![CDATA[]]>
+      </entry>
+    </meta-data>
+  </dynamic-element>
+  <dynamic-element dataType="string" indexType="keyword" name="desc_long" readOnly="false" repeatable="false" required="true" showLabel="true" type="textarea" width="small">
+    <meta-data locale="es_ES">
+      <entry name="label">
+        <![CDATA[Descripción Larga]]>
+      </entry>
+      <entry name="predefinedValue">
+        <![CDATA[]]>
+      </entry>
+      <entry name="tip">
+        <![CDATA[]]>
+      </entry>
+    </meta-data>
+  </dynamic-element>
+  <dynamic-element dataType="string" indexType="keyword" name="img_main" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
+    <meta-data locale="es_ES">
+      <entry name="label">
+        <![CDATA[Imagen Principal]]>
+      </entry>
+      <entry name="predefinedValue">
+        <![CDATA[]]>
+      </entry>
+      <entry name="tip">
+        <![CDATA[]]>
+      </entry>
+    </meta-data>
+  </dynamic-element>
+  <dynamic-element dataType="string" indexType="keyword" name="ctr_mision" readOnly="false" repeatable="false" required="true" showLabel="true" type="textarea" width="small">
+    <meta-data locale="es_ES">
+      <entry name="label">
+        <![CDATA[Misión]]>
+      </entry>
+      <entry name="predefinedValue">
+        <![CDATA[]]>
+      </entry>
+      <entry name="tip">
+        <![CDATA[]]>
+      </entry>
+    </meta-data>
+  </dynamic-element>
+  <dynamic-element dataType="string" indexType="keyword" name="ctr_vision" readOnly="false" repeatable="false" required="true" showLabel="true" type="textarea" width="small">
+    <meta-data locale="es_ES">
+      <entry name="label">
+        <![CDATA[Visión]]>
+      </entry>
+      <entry name="predefinedValue">
+        <![CDATA[]]>
+      </entry>
+      <entry name="tip">
+        <![CDATA[]]>
+      </entry>
+    </meta-data>
+  </dynamic-element>
+  <dynamic-element dataType="string" indexType="keyword" name="noticias_id" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
+    <meta-data locale="es_ES">
+      <entry name="label">
+        <![CDATA[Contenedor noticias ID]]>
+      </entry>
+      <entry name="predefinedValue">
+        <![CDATA[]]>
+      </entry>
+      <entry name="tip">
+        <![CDATA[]]>
+      </entry>
+    </meta-data>
+  </dynamic-element>
+  <dynamic-element dataType="string" indexType="keyword" name="eventos_id" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
+    <meta-data locale="es_ES">
+      <entry name="label">
+        <![CDATA[Contenedor eventos ID]]>
+      </entry>
+      <entry name="predefinedValue">
+        <![CDATA[]]>
+      </entry>
+      <entry name="tip">
+        <![CDATA[]]>
+      </entry>
+    </meta-data>
+  </dynamic-element>
+  <dynamic-element dataType="string" indexType="keyword" name="proyectos_id" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
+    <meta-data locale="es_ES">
+      <entry name="label">
+        <![CDATA[proyectos ID]]>
+      </entry>
+      <entry name="predefinedValue">
+        <![CDATA[]]>
+      </entry>
+      <entry name="tip">
+        <![CDATA[]]>
+      </entry>
+    </meta-data>
+  </dynamic-element>
+  <dynamic-element dataType="string" indexType="keyword" name="publicaciones_id" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
+    <meta-data locale="es_ES">
+      <entry name="label">
+        <![CDATA[publicaciones ID]]>
+      </entry>
+      <entry name="predefinedValue">
+        <![CDATA[]]>
+      </entry>
+      <entry name="tip">
+        <![CDATA[]]>
+      </entry>
+    </meta-data>
+  </dynamic-element>
+  <dynamic-element dataType="string" indexType="keyword" name="investigadores_id" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
+    <meta-data locale="es_ES">
+      <entry name="label">
+        <![CDATA[investigadores ID]]>
+      </entry>
+      <entry name="predefinedValue">
+        <![CDATA[]]>
+      </entry>
+      <entry name="tip">
+        <![CDATA[]]>
+      </entry>
+    </meta-data>
+  </dynamic-element>
+  <dynamic-element dataType="string" indexType="keyword" name="servicios_id" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
+    <meta-data locale="es_ES">
+      <entry name="label">
+        <![CDATA[servicios ID]]>
+      </entry>
+      <entry name="predefinedValue">
+        <![CDATA[]]>
+      </entry>
+      <entry name="tip">
+        <![CDATA[]]>
+      </entry>
+    </meta-data>
+  </dynamic-element>
+</root>

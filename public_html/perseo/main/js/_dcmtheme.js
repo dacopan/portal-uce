@@ -3650,7 +3650,7 @@ var centrosInvestigacion = (function () {
                 //event.preventDefault();
                 // $('.carreraWrap').removeClass("oculto visible animated bounceInRight");
                 if (!$item.data('ajaxLoad')) {
-                    var qq = $($item.find(".full-content"));
+                    var qq = $($item.find(".pan-l"));
 
                     $.ajax({
                         type: "get",

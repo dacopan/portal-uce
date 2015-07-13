@@ -8007,7 +8007,14 @@ span.date {
 
 /*#region transition*/
 .metro .club, .metro .club i, .footer .blogs a:hover h5, .metro .linksWrap .link, .metro .sharex i, .metro .uri, .ley .ley-item .pdfx h5, .metro .topBar-content > a, .va-slice:after, .metro .rb-overlay .rb-prev, .metro .rb-overlay .rb-next,
-.centrosWrap .sidebar > ul li, .centrosWrap .span8 .full-content, .paginacion .rb-next, .paginacion .rb-prev, .centrosWrap .item-evento a {
+.centrosWrap .sidebar > ul li, .paginacion .rb-next, .paginacion .rb-prev, .centrosWrap .item-evento a, .centrosWrap .item-evento > a i, .centrosWrap .abc-list.revista-list a > h5 span {
+    -moz-transition: all 0.3s ease 0s;
+    -webkit-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+}
+
+.tranx {
     -moz-transition: all 0.3s ease 0s;
     -webkit-transition: all 0.3s ease 0s;
     -o-transition: all 0.3s ease 0s;

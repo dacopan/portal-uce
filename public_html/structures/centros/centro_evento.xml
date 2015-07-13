@@ -1,0 +1,67 @@
+﻿<root available-locales="es_ES" default-locale="es_ES">
+  <dynamic-element dataType="string" indexType="keyword" name="evt_titulo" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
+    <meta-data locale="es_ES">
+      <entry name="label">
+        <![CDATA[Título evento]]>
+      </entry>
+      <entry name="predefinedValue">
+        <![CDATA[]]>
+      </entry>
+      <entry name="tip">
+        <![CDATA[]]>
+      </entry>
+    </meta-data>
+  </dynamic-element>
+  <dynamic-element dataType="date" fieldNamespace="ddm" indexType="keyword" name="evt_fecha" readOnly="false" repeatable="false" required="false" showLabel="true" type="ddm-date" width="small">
+    <meta-data locale="es_ES">
+      <entry name="label">
+        <![CDATA[Fecha]]>
+      </entry>
+      <entry name="predefinedValue">
+        <![CDATA[]]>
+      </entry>
+      <entry name="tip">
+        <![CDATA[]]>
+      </entry>
+    </meta-data>
+  </dynamic-element>
+  <dynamic-element dataType="string" indexType="keyword" name="evt_img" readOnly="false" repeatable="false" required="false" showLabel="true" type="text" width="small">
+    <meta-data locale="es_ES">
+      <entry name="label">
+        <![CDATA[Imagen del evento (opcional)]]>
+      </entry>
+      <entry name="predefinedValue">
+        <![CDATA[]]>
+      </entry>
+      <entry name="tip">
+        <![CDATA[]]>
+      </entry>
+    </meta-data>
+  </dynamic-element>
+  <dynamic-element dataType="string" indexType="keyword" name="evt_desc" readOnly="false" repeatable="false" required="true" showLabel="true" type="textarea" width="small">
+    <meta-data locale="es_ES">
+      <entry name="label">
+        <![CDATA[Descripción corta del evento]]>
+      </entry>
+      <entry name="predefinedValue">
+        <![CDATA[]]>
+      </entry>
+      <entry name="tip">
+        <![CDATA[]]>
+      </entry>
+    </meta-data>
+  </dynamic-element>
+  <dynamic-element dataType="html" fieldNamespace="ddm" indexType="keyword" name="evt_detalle" readOnly="false" repeatable="false" required="true" showLabel="true" type="ddm-text-html" width="small">
+    <meta-data locale="es_ES">
+      <entry name="label">
+        <![CDATA[Detalle del evento]]>
+      </entry>
+      <entry name="predefinedValue">
+        <![CDATA[]]>
+      </entry>
+      <entry name="tip">
+        <![CDATA[]]>
+      </entry>
+    </meta-data>
+  </dynamic-element>
+</root>

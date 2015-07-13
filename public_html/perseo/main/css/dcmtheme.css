@@ -8007,7 +8007,14 @@ span.date {
 
 /*#region transition*/
 .metro .club, .metro .club i, .footer .blogs a:hover h5, .metro .linksWrap .link, .metro .sharex i, .metro .uri, .ley .ley-item .pdfx h5, .metro .topBar-content > a, .va-slice:after, .metro .rb-overlay .rb-prev, .metro .rb-overlay .rb-next,
-.centrosWrap .sidebar > ul li, .centrosWrap .span8 .full-content, .paginacion .rb-next, .paginacion .rb-prev, .centrosWrap .item-evento a {
+.centrosWrap .sidebar > ul li, .paginacion .rb-next, .paginacion .rb-prev, .centrosWrap .item-evento a, .centrosWrap .item-evento > a i, .centrosWrap .abc-list.revista-list a > h5 span {
+    -moz-transition: all 0.3s ease 0s;
+    -webkit-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+}
+
+.tranx {
     -moz-transition: all 0.3s ease 0s;
     -webkit-transition: all 0.3s ease 0s;
     -o-transition: all 0.3s ease 0s;
@@ -12018,9 +12025,13 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
     }
 
     .centrosWrap .noti-item > div {
-        float: left;
+        float: right;
         display: inline-block;
         position: relative;
+    }
+
+    .centrosWrap .noti-item .oculto {
+        display: none !important;
     }
 
     .centrosWrap .noti-item .noti-detail {
@@ -12031,7 +12042,7 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
     .centrosWrap .noti-item .img-full {
         width: 110px;
         height: 100px;
-        margin: 10px 0 10px 5px;
+        margin: 15px 0 10px 5px;
     }
 
     .centrosWrap .noti-item h5 {
@@ -12099,23 +12110,34 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
     .centrosWrap .item-evento .noti-detail {
         width: calc(100% - 160px);
         float: left;
-        overflow: hidden;
+        overflowx: hidden;
         height: 150px;
     }
+
+        .centrosWrap .item-evento .noti-detail.full-width {
+            width: 100%;
+        }
 
     .centrosWrap .item-evento .img-full {
         width: 150px;
         height: 140px;
         float: left;
-        margin: 10px 0 10px 10px;
+        /*margin: 10px 0 10px 10px;*/
+        margin: 1px 0 0 10px;
     }
 
     .centrosWrap .item-evento > a {
-        opacity: .7;
+        opacity: .8;
+        float: left;
+        clear: both;
     }
 
     .centrosWrap .item-evento a:hover {
         opacity: 1;
+    }
+
+    .centrosWrap .item-evento > a:hover i:first-child {
+        margin-left: 8px;
     }
 
     .centrosWrap .item-evento > div > p {
@@ -12149,9 +12171,10 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
     left: calc(50% - 75px);
     opacity: .55;
 }
+
     .centrosWrap .eventosWrap .controls .rb-next {
-    
     }
+
 .centrosWrap .eventosWrap .contentwrap {
     width: 98%;
     padding-top: 10px;
@@ -12174,7 +12197,7 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
     background-color: #0096f0 !important;
 }
 
-.centrosWrap .abc-list.revista-list > li:hover:before {
+.centrosWrap .abc-list.revista-list > li:hover:before, .centrosWrap .abc-list > li:hover:before {
     background-color: #004671 !important;
 }
 
@@ -12183,6 +12206,10 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
     padding-bottom: 5px;
     display: block;
 }
+
+    .centrosWrap .abc-list.revista-list a:hover > h5 span {
+        margin-left: 8px;
+    }
 
 .centrosWrap .contentwrap .abc-list.revista-list > li h5 {
     font-weight: bold;
