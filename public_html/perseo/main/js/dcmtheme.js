@@ -2309,6 +2309,7 @@ var DockPopUp = (function () {
                     $overlay.css('z-index', -1);
                     $item.data('isExpanded', false);
                 }
+                $('#dock').trigger("click");
 
                 return false;
             });
@@ -6992,6 +6993,13 @@ function onloadX() {
     NoticiasFull().init();
     ClubFull().init();
     centrosInvestigacion().init();
+    //ley transparencia hyperlink
+    $('#ley-tras-launch').on("click", function () {
+        $('#dock').trigger("click");
+        $('#popup-ley-trans').trigger("click");
+        
+    });
+
     //featured isotope
     var $container3 = jQuery('div.isofeatured');
     if ($container3.length) {

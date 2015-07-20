@@ -3886,6 +3886,13 @@ function onloadX() {
     NoticiasFull().init();
     ClubFull().init();
     centrosInvestigacion().init();
+    //ley transparencia hyperlink
+    $('#ley-tras-launch').on("click", function () {
+        $('#dock').trigger("click");
+        $('#popup-ley-trans').trigger("click");
+        
+    });
+
     //featured isotope
     var $container3 = jQuery('div.isofeatured');
     if ($container3.length) {

@@ -12,7 +12,7 @@
 
                 <div class="app-bar-drop-container dropdown-menu place-right" data-role="dropdown" style="width: 324px;  float: right;">
                     <div class="tile-container bg-white">
-                        <div class="tile-small bg-blue dock-popup" data-ajax-artid="000" data-ajax-groupid="">
+                        <div class="tile-small bg-blue dock-popup" data-ajax-artid="000" data-ajax-groupid="" id="popup-ley-trans">
                             <div class="tile-content iconic">
                                 <span class="icon fa fa-uce_ley_transparencia"></span>
                             </div>

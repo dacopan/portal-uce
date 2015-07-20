@@ -18,7 +18,7 @@
             #set( $ix = $sizex - $velocityCount)
             #set($cur_Noticia=$noticia_id.getSiblings().get($ix))
 
-            #set ($webcontent=$journalContentUtil.getContent($group_id, $cur_Noticia.getData(), "53488", "$locale", ""))
+            #set ($webcontent=$journalContentUtil.getContent($group_id, $cur_Noticia.getData(), "53488","", "$locale", ""))
             $webcontent
 
             #end

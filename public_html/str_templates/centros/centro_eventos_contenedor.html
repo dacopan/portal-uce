@@ -1,25 +1,39 @@
 ﻿#set ($group_id = $getterUtil.getLong($groupId))
-
+#set($sizex=$evento_id.getSiblings().size())
+#set($count1 = 1)
 <div class="slic height100 eventosWrap" data-cont="cont2">
     <div class="contentwrap paginacion" data-role="dcm-pagination">
 
-        $cur_noticia_id.getData()
-        #set($sizex=$Noticia.getSiblings().size())
-        #if (!$noticia_id.getSiblings().isEmpty())
         #foreach ($cur_evento_id in $evento_id.getSiblings())
+
+        #set($count1 = $velocityCount%2)
 
         #if($velocityCount > 12)
         #break
         #end
 
-        #set( $ix = $sizex - $velocityCount)
-        #set($cur_evento=$evento_id.getSiblings().get($ix))
+        #if($count1==1)
+        <div class="page">
+            <ul class="abc-list simple-list">
+                #end
 
-        #set ($webcontent=$journalContentUtil.getContent($group_id, $cur_evento.getData(), "53488", "$locale", ""))
-        $webcontent
-        #set( $count1 = $count%2)
-        #end
+                #set($ix = $sizex - $velocityCount)
+                #set($cur_evento=$evento_id.getSiblings().get($ix))
+
+                #set ($webcontent=$journalContentUtil.getContent($group_id, $cur_evento.getData(), "", "$locale", ""))
+                $webcontent
+
+
+                #if($count1==0|| !$velocityHasNext || $velocityCount > 11)
+            </ul>
+        </div>
         #end
 
+        #end
+        <div class="controls" style="">
+            <span class="rb-prev"><i class="fa fa-uce_anterior"></i></span>
+            <span class="rb-next"><i class="fa fa-uce_siguiente"></i></span>
+            <span class="counter">:)</span>
+        </div>
     </div>
 </div>

@@ -2308,6 +2308,7 @@ var DockPopUp = (function () {
                     $overlay.css('z-index', -1);
                     $item.data('isExpanded', false);
                 }
+                $('#dock').trigger("click");
 
                 return false;
             });

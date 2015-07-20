@@ -226,6 +226,45 @@ html > body .featured a.isobrick {
 .featuredcontainer .homeslider img {
     max-width: 120%;
 }
+
+.metro .og-grid.noti-links {
+    margin-top: 75px !important;
+    margin-bottom: 50px !important;
+    text-align: center;
+}
+
+.metro .noticiesWrap .noti-links > li > div {
+    font-family: 'Adequate ExtraLight','Segoe UI_','Open Sans',Verdana,Arial,Helvetica,sans-serif;
+    color: #555;
+    padding: 5px;
+    padding-bottom: 20px;
+    padding-top: 15px;
+    font-weight: bold;
+    text-align: center;
+    margin-left: 0 !important;
+    font-size: 18px;
+    height: 100px;
+    vertical-align: middle;
+    line-height: normal;
+    width: 260px;
+    cursor: pointer;
+}
+
+.metro .noticiesWrap .noti-links > li {
+    border-left: 2px solid #e20613;
+}
+
+    .metro .noticiesWrap .noti-links > li:hover {
+        border-left: 2px solid #0076bd;
+    }
+
+    .metro .noticiesWrap .noti-links > li > div:hover {
+        color: #0076bd;
+    }
+
+    .metro .noticiesWrap .noti-links > li:last-child {
+        border-right: 2px solid #e20613;
+    }
 /*#endregion*/
 
 /* #region Vacordion*/
@@ -1567,6 +1606,9 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
     font-size: 14px;
 }
 
+/*equipo de trabajo*/
+.metro .centrosWrap .ctc h3, .metro .centrosWrap .ctc h4, .metro .centrosWrap .ctc h5, .metro .centrosWrap .ctc h5 {
+    margin-top: 0 !important;
 }
 /*contacto*/
 .centrosWrap .contacto {

@@ -1,0 +1,20 @@
+﻿<div class="slic" data-cont="cont4">
+    <div class="contentwrap ">
+        #if (!$publicacionx.getSiblings().isEmpty())
+        <ul class="abc-list simple-list revista-list">
+            #foreach ($cur_publicacionx in $publicacionx.getSiblings())
+
+            #if ($getterUtil.getBoolean($cur_publicacionx.getData()))
+            <li>
+                <a href="$cur_publicacionx.pub_uri.getData()" target="_blank">
+                    <h5 class="adequate upper">$cur_publicacionx.pub_tipo.getData() <span>$cur_publicacionx.pub_subtipo.getData()</span></h5>
+                    <p>$cur_publicacionx.pub_ref.getData()</p>
+                </a>
+            </li>
+            #end
+
+            #end
+        </ul>
+        #end
+    </div>
+</div>

@@ -1,0 +1,80 @@
+﻿<root available-locales="es_ES" default-locale="es_ES">
+  <dynamic-element dataType="boolean" indexType="" name="publicacionx" readOnly="false" repeatable="true" required="false" showLabel="true" type="checkbox" width="">
+    <dynamic-element dataType="string" indexType="" name="pub_tipo" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
+      <meta-data locale="es_ES">
+        <entry name="label">
+          <![CDATA[Tipo Publicación]]>
+        </entry>
+        <entry name="predefinedValue">
+          <![CDATA[]]>
+        </entry>
+        <entry name="tip">
+          <![CDATA[]]>
+        </entry>
+      </meta-data>
+    </dynamic-element>
+    <dynamic-element dataType="string" indexType="" name="pub_subtipo" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
+      <meta-data locale="es_ES">
+        <entry name="label">
+          <![CDATA[Subtipo Publicación]]>
+        </entry>
+        <entry name="predefinedValue">
+          <![CDATA[]]>
+        </entry>
+        <entry name="tip">
+          <![CDATA[]]>
+        </entry>
+      </meta-data>
+    </dynamic-element>
+    <dynamic-element dataType="string" indexType="" name="pub_titulo" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
+      <meta-data locale="es_ES">
+        <entry name="label">
+          <![CDATA[Título Publicación]]>
+        </entry>
+        <entry name="predefinedValue">
+          <![CDATA[]]>
+        </entry>
+        <entry name="tip">
+          <![CDATA[]]>
+        </entry>
+      </meta-data>
+    </dynamic-element>
+    <dynamic-element dataType="string" indexType="" name="pub_ref" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
+      <meta-data locale="es_ES">
+        <entry name="label">
+          <![CDATA[Referencia APA]]>
+        </entry>
+        <entry name="predefinedValue">
+          <![CDATA[]]>
+        </entry>
+        <entry name="tip">
+          <![CDATA[]]>
+        </entry>
+      </meta-data>
+    </dynamic-element>
+    <dynamic-element dataType="string" indexType="" name="pub_uri" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
+      <meta-data locale="es_ES">
+        <entry name="label">
+          <![CDATA[URL]]>
+        </entry>
+        <entry name="predefinedValue">
+          <![CDATA[]]>
+        </entry>
+        <entry name="tip">
+          <![CDATA[]]>
+        </entry>
+      </meta-data>
+    </dynamic-element>
+    <meta-data locale="es_ES">
+      <entry name="label">
+        <![CDATA[Mostrar Publicación]]>
+      </entry>
+      <entry name="predefinedValue">
+        <![CDATA[true]]>
+      </entry>
+      <entry name="tip">
+        <![CDATA[]]>
+      </entry>
+    </meta-data>
+  </dynamic-element>
+</root>

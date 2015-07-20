@@ -1,0 +1,15 @@
+﻿<root available-locales="es_ES" default-locale="es_ES">
+  <dynamic-element dataType="html" fieldNamespace="ddm" indexType="keyword" name="investigadores" readOnly="false" repeatable="false" required="true" showLabel="true" type="ddm-text-html" width="large">
+    <meta-data locale="es_ES">
+      <entry name="label">
+        <![CDATA[Equipo de Trabajo]]>
+      </entry>
+      <entry name="predefinedValue">
+        <![CDATA[<h5>equipo de trabajo</h5><div class="row-fluid"><div class="span4"> imagen </div><div class="span8"><h5>Jhon Doe</h5><p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sed tortor et tortor laoreet luctus ac sit amet urna. Nulla neque elit, hendrerit eget leo nec, mattis bibendum dui. Donec gravida augue venenatis pretium iaculis. Mauris interdum ante condimentum, fermentum orci in, tincidunt sapien. Mauris nunc mi, aliquam vel viverra quis, volutpat a nunc. Phasellus ullamcorper enim at ornare pharetra. Aenean tempor ullamcorper nibh, eu pulvinar lectus molestie quis. Phasellus eget commodo odio. Phasellus a massa nunc. </p></div></div><br /><div class="row-fluid"><div class="span4"> imagen </div><div class="span8"><h5>Jhon Doe</h5><p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sed tortor et tortor laoreet luctus ac sit amet urna. Nulla neque elit, hendrerit eget leo nec, mattis bibendum dui. Donec gravida augue venenatis pretium iaculis. Mauris interdum ante condimentum, fermentum orci in, tincidunt sapien. Mauris nunc mi, aliquam vel viverra quis, volutpat a nunc. Phasellus ullamcorper enim at ornare pharetra. Aenean tempor ullamcorper nibh, eu pulvinar lectus molestie quis. Phasellus eget commodo odio. Phasellus a massa nunc. </p></div></div>]]>
+      </entry>
+      <entry name="tip">
+        <![CDATA[]]>
+      </entry>
+    </meta-data>
+  </dynamic-element>
+</root>
