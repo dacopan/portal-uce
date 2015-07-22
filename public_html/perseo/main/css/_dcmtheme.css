@@ -215,7 +215,7 @@ span.date a.bubble, span.date a.bubble:hover {
     background: transparent;
     padding-left: 10px !important;
     /*padding-right: 4px !important;*/
-    margin-top: 0px;
+    margin-top: 0;
     overflow: visible;
 }
 
@@ -1422,7 +1422,6 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
     }
 
     .centrosWrap .noti-item h5 {
-        line-height: 2rem;
         font-size: 14px;
         line-height: 17px;
     }
@@ -1486,7 +1485,7 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
     .centrosWrap .item-evento .noti-detail {
         width: calc(100% - 160px);
         float: left;
-        overflowx: hidden;
+        /*overflowx: hidden;*/
         height: 150px;
     }
 

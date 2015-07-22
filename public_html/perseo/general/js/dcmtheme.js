@@ -2260,6 +2260,7 @@ var DockPopUp = (function () {
                     zIndex: 9999,
                     pointerEvents: 'auto'
                 });
+
                 if (supportTransitions) {
                     $overlay.on(transEndEventName, function () {
 
@@ -2301,6 +2302,7 @@ var DockPopUp = (function () {
                             $overlay.css('opacity', 0).on(transEndEventName, function () {
                                 $overlay.off(transEndEventName).css({ clip: clipPropLast, zIndex: -1 });
                                 $item.data('isExpanded', false);
+                                $('#dock').trigger("click");
                             });
                         }, 25);
                     });
@@ -2308,8 +2310,9 @@ var DockPopUp = (function () {
                 else {
                     $overlay.css('z-index', -1);
                     $item.data('isExpanded', false);
+                    $('#dock').trigger("click");
                 }
-                $('#dock').trigger("click");
+
 
                 return false;
             });
@@ -3105,12 +3108,12 @@ function fixedUrls(that) {
 
 console.log("fin dcm_common, body: " + $('body').length);
 ///#source 1 1 /public_html/perseo/general/js/_dcmtheme.js
-var debug = false, allPortletsReady = false,reg = /.*\/.*\//g;
+var debug = false, allPortletsReady = false, reg = /.*\/.*\//g;
 
 //#region notices full
 var NoticiasFull = (function () {
     //mayra
-    var $items = $('.noticeX'),
+    var $items = $('.noti-item'),
             transEndEventNames = {
                 'WebkitTransition': 'webkitTransitionEnd',
                 'MozTransition': 'transitionend',
@@ -3142,8 +3145,8 @@ var NoticiasFull = (function () {
             var $item = $(this),
                     $close = $item.find('span.rb-close'),
                     $overlay = $item.find('div.rb-overlay'),
-                    $prev = $('<span class="rb-prev">Prebv</span>').appendTo($overlay),
-                    $next = $('<span class="rb-next">Next</span>').appendTo($overlay),
+                    $prev = $('<span class="rb-prev"><i class="fa fa-uce_anterior"></i></span>').appendTo($overlay),
+                    $next = $('<span class="rb-next"><i class="fa fa-uce_siguiente"></i></span>').appendTo($overlay),
                     $linkNext, $linkPrev;
             if ($item.is(':last-child')) {
                 $linkPrev = $items[ix - 1];
@@ -3155,7 +3158,7 @@ var NoticiasFull = (function () {
                 $linkNext = $items[ix + 1];
                 $linkPrev = $items[ix - 1];
             }
-
+            fixedUrls($item);
             $next.on('click', function (event) {
                 $($linkNext).trigger("click");
                 $close.trigger("click");
@@ -3163,7 +3166,7 @@ var NoticiasFull = (function () {
             $prev.on('click', function (event) {
                 $($linkPrev).trigger("click");
                 $close.trigger("click");
-            });            
+            });
             $item.on('click', function (event) {
                 //event.preventDefault();
                 if ($item.data('isExpanded')) {
@@ -3171,7 +3174,7 @@ var NoticiasFull = (function () {
                 }
                 $item.data('isExpanded', true);
 
-                if (!$item.data('ajaxLoad')) {
+                /*if (!$item.data('ajaxLoad')) {
                     var qq = $($item.find(".full-content"));
 
                     $.ajax({
@@ -3204,7 +3207,7 @@ var NoticiasFull = (function () {
                     });
 
                 }
-
+                */
 
                 // save current item's index
                 current = $item.index();
@@ -5801,7 +5804,7 @@ function onloadX() {
 
 
     NoticiasFull().init();
-    
+
     $('.has-full-view').each(function () {
 
         var $overlay = $($(this).attr('href'));

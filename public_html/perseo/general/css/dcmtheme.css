@@ -10661,7 +10661,7 @@ span.date {
 	content: "\f23a";
 }
 /* FOR ALL SLIDES */
-
+/*#region com*/
 #wrapperscroll .slide {
     width: 100%;
     min-height: 100%;
@@ -10713,7 +10713,7 @@ span.date {
             color: #fff !important;
         }
 
-/*</editor-fold>*/
+/*#endregion*/
 
 /*#region metro calendar*/
 .metro .calendar {
@@ -10865,6 +10865,97 @@ span.date {
 /*#endregion*/
 
 /*#region noticies*/
+/*noticias*/
+.og-grid .detailx {
+    height: 0px;
+    width: 0px;
+    opacity: 0;
+    line-height: 0px;
+}
+
+.og-grid {
+    list-style: none;
+    padding: 20px 0 !important;
+    margin: 0 auto !important;
+    text-align: left;
+    width: 100%;
+}
+
+    .og-grid > li {
+        display: inline-block;
+        /*margin: 10px 10px 14.5px 10px;*/
+        margin: 1px -1px;
+        vertical-align: top;
+        -webkit-transition-property: top, left, opacity;
+        -moz-transition-property: top, left, opacity;
+        -ms-transition-property: top, left, opacity;
+        -o-transition-property: top, left, opacity;
+        transition-property: top, left, opacity;
+        -moz-transition: all 0.3s ease 0s;
+        -webkit-transition: all 0.3s ease 0s;
+        -o-transition: all 0.3s ease 0s;
+        -moz-transition: all 0.3s ease 0s;
+        transition: all 0.3s ease 0s;
+    }
+
+
+
+
+
+.noticiesWrap .noti-item {
+    width: 100%;
+    max-width: 300px;
+    margin: auto;
+    border-bottom: 1px solid #fff;
+    cursor: pointer;
+    height: 145px;
+    overflow: hidden;
+    float: left;
+    padding-right: 10px;
+    margin-left: 10px;
+    margin-top: -1px;
+    border-right: 1px solid #000;
+}
+
+    .noticiesWrap .noti-item:hover {
+        opacity: 1;
+    }
+
+    .noticiesWrap .noti-item .noti-detail, .noticiesWrap .noti-item > .img-full {
+        float: right;
+        display: inline-block;
+        position: relative;
+    }
+
+    .noticiesWrap .noti-item .oculto {
+        display: none !important;
+    }
+
+    .noticiesWrap .noti-item .noti-detail {
+        width: 170px;
+        padding-right: 4px;
+    }
+
+    .noticiesWrap .noti-item > .img-full {
+        width: 110px;
+        height: 100px;
+        margin: 15px 0 10px 5px;
+    }
+
+    .noticiesWrap .noti-item .noti-detail > h5 {
+        font-size: 14px;
+        line-height: 17px;
+    }
+
+    .noticiesWrap .noti-item .noti-detail p {
+        font-size: 12px;
+        height: 50px;
+        overflow: hidden;
+    }
+
+.noticiesWrap span.date {
+    margin-bottom: 10px;
+}
 
 /*#endregion*/
 

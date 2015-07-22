@@ -2259,6 +2259,7 @@ var DockPopUp = (function () {
                     zIndex: 9999,
                     pointerEvents: 'auto'
                 });
+
                 if (supportTransitions) {
                     $overlay.on(transEndEventName, function () {
 
@@ -2300,6 +2301,7 @@ var DockPopUp = (function () {
                             $overlay.css('opacity', 0).on(transEndEventName, function () {
                                 $overlay.off(transEndEventName).css({ clip: clipPropLast, zIndex: -1 });
                                 $item.data('isExpanded', false);
+                                $('#dock').trigger("click");
                             });
                         }, 25);
                     });
@@ -2307,8 +2309,9 @@ var DockPopUp = (function () {
                 else {
                     $overlay.css('z-index', -1);
                     $item.data('isExpanded', false);
+                    $('#dock').trigger("click");
                 }
-                $('#dock').trigger("click");
+
 
                 return false;
             });

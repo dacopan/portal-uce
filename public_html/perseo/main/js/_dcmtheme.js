@@ -3890,7 +3890,7 @@ function onloadX() {
     $('#ley-tras-launch').on("click", function () {
         $('#dock').trigger("click");
         $('#popup-ley-trans').trigger("click");
-        
+
     });
 
     //featured isotope

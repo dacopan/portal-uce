@@ -132,8 +132,6 @@ no se solicitó ningun articulo, poner cards por defectox<br />
                     #set($noti_video = $valx)
                 #elseif("noti_contenido"==$namex)
                     #set($noti_contenido = $valx)
-                #elseif("noti_summary"==$namex)
-                    #set($fullx.noti_summary=$valx)
                 #end
             #end ##foreach xml entry
 
@@ -171,22 +169,23 @@ no articulos en este mes
 #twittertag( $desctag $desc)
 #end
 
-#macro (facetag $keyx $valxx )
+#macro (facetag $keyx $valx )
 
 #set($el=$renderResponse.createElement("meta"))
 #set($void=$el.setAttribute("property","og:$keyx"))
-#set($void=$el.setAttribute("content",$valxx))
+#set($void=$el.setAttribute("content",$valx))
 ##set($void=$el.setTextContent(" "))
 #set($void=$renderResponse.addProperty("javax.portlet.markup.head.element",$el ))
 
 #end
 
 
-#macro (twittertag $keyx $valxx )
+#macro (twittertag $keyx $valx )
 
 #set($el=$renderResponse.createElement("meta"))
 #set($void=$el.setAttribute("name","twitter:$keyx"))
-#set($void=$el.setAttribute("content",$valxx))
+"twitter:$keyx"
+#set($void=$el.setAttribute("content",$valx))
 ##set($void=$el.setTextContent(" "))
 #set($void=$renderResponse.addProperty("javax.portlet.markup.head.element",$el ))
 
