@@ -48,7 +48,7 @@ var NoticiasFull = (function () {
                 $linkNext = $items[ix + 1];
                 $linkPrev = $items[ix - 1];
             }
-            fixedUrls($item);
+
             $next.on('click', function (event) {
                 $($linkNext).trigger("click");
                 $close.trigger("click");
@@ -166,6 +166,13 @@ var NoticiasFull = (function () {
                 }
 
                 return false;
+            });
+
+            //added
+            $($item.find('[data-role=sharex]')).each(function () {
+                var that = $(this);
+                fixedUrls(that);
+                that = null;
             });
         });
         $(window).on('debouncedresize', function () {
@@ -1199,6 +1206,7 @@ Date.prototype.format = function (mask, utc) {
             this._year = this.options.date.getFullYear();
             this._distance = parseInt(this.options.date.getFullYear()) - 4;
             this._month = this.options.date.getMonth();
+
             this._day = this.options.date.getDate();
             this._mode = this.options.startMode;
 
@@ -2745,16 +2753,16 @@ function onloadX() {
 
     //calendar
     $("#calendar").calendar({
-        format: 'yyyy-mm-dd', //default 'yyyy-mm-dd'
+        format: 'dd-mm-yyyy', //default 'yyyy-mm-dd'
         multiSelect: false, //default true (multi select date)
         startMode: 'year', //year, month, day
-        date: '2013-01-01', //the init calendar date (example: '2013-01-01' or '2012-01')
+        date: '20-11-1994', //the init calendar date (example: '2013-01-01' or '2012-01')
         locale: 'en', // 'ru', 'ua', 'fr' or 'en', default is $.Metro.currentLocale
         otherDays: false, // show days for previous and next months,
         weekStart: 0, //start week from sunday - 0 or monday - 1
 
         click: function (m, y) {
-            alert(m + "/" + y);
+            //alert(m + "/" + y);
             var qq = Liferay.ThemeDisplay.getLayoutURL();
             var portal = qq.match(reg)[0] + "archive_noticias?month=";
             var srcx = portal + m + "&year=" + y;

@@ -1,2 +1,37 @@
-﻿body {
+﻿@media (min-width: 998px) and (max-width:1343px) {
+
+    .metro .full-noticies .contentwrap {
+        max-width: 900px;
+    }
+}
+
+@media (max-width: 998px) {
+
+    .metro .full-noticies .contentwrap {
+        max-width: 800px;
+    }
+
+    .full-noticies .noticiesWrap, .metro .calendarWrap {
+        float: none;
+        margin: auto;
+    }
+
+    .full-noticies .noticiesWrap {
+        width: 100%;
+        max-width: 630px;
+        margin-top: 60px;
+    }
+}
+
+@media (max-width: 698px) {
+
+    .full-noticies .noticiesWrap {
+        width: 100%;
+        max-width: 300px;
+    }
+
+        .full-noticies .noticiesWrap .noti-item {
+            border-bottom: 1px solid #000;
+            border-right: none;
+        }
 }

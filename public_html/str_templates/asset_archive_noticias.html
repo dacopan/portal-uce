@@ -15,10 +15,12 @@
 
 #if($validator.isNotNull($month))
     #set($datex="${month}-${year}")
+    #set($datex2="${year}-${month}-20")
 #else
     #set($datex=$dateTool.format("MM-yyyy", $date))
     #set($month=$dateTool.format("MM", $date))
     #set($year=$dateTool.format("yyyy", $date))
+    #set($datex2=$dateTool.format("yyyy-MM-20", $date))
 #end
 
 ## Get all of the articles
@@ -51,6 +53,11 @@
                     #set($noti_fechax = $valx)
                     #set ($FechaObj = $dateUtil.newDate($getterUtil.getLong($noti_fechax)))
                     #set($fullx.noti_fecha=$dateUtil.getDate($FechaObj, "MMMM dd, yyyy", $locale))
+
+                    #set($datex=$dateTool.format("MM-yyyy", $FechaObj))
+                    #set($datex2=$dateTool.format("yyyy-MM-20", $FechaObj))
+
+
                 #elseif("noti_autor" == $namex)
                     #set($fullx.noti_autor=$valx)
                 #elseif("noti_imagen" == $namex)
@@ -66,127 +73,259 @@
 
 
         #else
-            noticia solicitada no existe
+            ##noticia solicitada no existe
             #set($fullx.render=0)
         #end
 
 #else
 #set($fullx.render=2)
 #end
+## end get article
 
-## full article render
 
-#if($fullx.render==1)
 
-articulo encontrado renderizando aquí, poner cards en base a articulo<br />
-#metatags( $fullx.noti_titulo $fullx.noti_imagen $fullx.noti_summary)
+<div class="slide" id="slide2" data-slide="2">
+    <div class="contentwrapx full-noticies">
 
-#elseif($fullx.render==0)
+        <h2 class="text-center adequate">Repositorio de Noticias</h2>
 
-no se encontró el articulo solicitado, poner cards por defecto<br />
-#set($site_namex=$htmlUtil.escape($themeDisplay.getLayout().getGroup().getDescriptiveName()))
-#metatags( "UCE-$site_namex" "http://aka-cdn.uce.edu.ec/ares/perseo/my_html/images/logo.png" "Omnium Potentior est Sapientia")
-#else
+        <div class="contentwrap row-fluid">
+            <div class="calendarWrap">
+                <h3>Noticias de </h3>
+                <i class="fa fa-calendar"></i> ${datex}
+                <div class="calendar" id="calendar" data-locale='en' data-date="${datex2}"></div>
+            </div>
 
-no se solicitó ningun articulo, poner cards por defectox<br />
-#set($site_namex=$htmlUtil.escape($themeDisplay.getLayout().getGroup().getDescriptiveName()))
-#metatags( "UCE-$site_namex" "http://aka-cdn.uce.edu.ec/ares/perseo/my_html/images/logo.png" "Omnium Potentior est Sapientia")
-#end
+            <div class="noticiesWrap row-fluid">
 
-#if (!$articleHits.isEmpty())
-	#foreach ($entry in $articleHits)
+                ## full article render
 
-            #set($cur_artID=$entry.articleId)
-            #set($isLastVersion =$journalArticleService.isLatestVersion($entry.getGroupId(), $entry.getArticleId() , $entry.getVersion() ) )
-            #if($isLastVersion)
+                #if($fullx.render==1)
 
-            #set( $document = $saxReaderUtil.read($entry.getContent()) )
-            #set( $root = $document.getRootElement() )
+                ##articulo encontrado renderizando aquí, poner cards en base a articulo
+                #metatags( $fullx.noti_titulo $fullx.noti_imagen $fullx.noti_summary)
+                <div class="noti-item row-fluid" data-role="autoclick">
+                    <div class="img-full" style="background-image:url($fullx.noti_imagen);"></div>
+                    <div class="noti-detail">
+                        <h5 class="adequate">$fullx.noti_titulo</h5>
+                        <p>$fullx.noti_summary</p>
+                        <span class="date text-right">$fullx.noti_fecha</span>
+                    </div>
+                    <div class="rb-overlay">
+                        <div class="rb-week">
+                            <span class="rb-close">close</span>
+                            <div class="full-content">
+                                <h3 class="short-link">
+                                    <a href="#" class="uri text-right" target="_blank" data-role="sharex" data-sharex-service="l" data-sharex-artid="$artID">
+                                    </a>
+                                </h3>
+                                <div class="contentwrap">
+                                    <h2 class="full-title">
+                                        $fullx.noti_titulo
+                                    </h2>
+                                    <span class="date">$fullx.noti_fecha | $fullx.noti_autor</span>
+                                    <h3 class="sub-title">
+                                        $fullx.noti_subtitulo
+                                    </h3>
+                                    <ul class="og-grid sharewrap">
+                                        <li>
+                                            <a href="#" class="sharex" target="_blank" data-role="sharex" data-sharex-service="f" data-sharex-artid="$artID">
+                                                <i class="bg-hover-darkBlue fa fa-uce_facebook"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="sharex" target="_blank" data-role="sharex" data-sharex-service="t" data-sharex-title="$fullx.noti_titulo" data-sharex-artid="$artID">
+                                                <i class="fa fa-uce_twiter"></i>
+                                            </a>
+                                        </li>
 
-            #set($isrender=1)
+                                    </ul>
+                                    #if($validator.isNotNull($fullx.noti_video))
+                                    <div class="video-full" style="">
+                                        <iframe style="width:100%;height:500px;" src="$fullx.noti_video" frameborder="0" allowfullscreen></iframe>
+                                    </div>
+                                    #elseif($validator.isNotNull($fullx.noti_imagen))
+                                    <div class="img-full" style="background-image: url($fullx.noti_imagen);">
+                                    </div>
+                                    #end
 
-            ## iterate over noticia's flieds
+                                    <div class="full-html">
+                                        $fullx.noti_contenido
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-            #foreach( $dynamicElement in $root.elements() )
+                #elseif($fullx.render==0)
+
+                ##no se encontró el articulo solicitado, poner cards por defecto
+                no se encontró el articulo solicitado<br />
+                #set($site_namex=$htmlUtil.escape($themeDisplay.getLayout().getGroup().getDescriptiveName()))
+                #metatags( "UCE-$site_namex" "http://aka-cdn.uce.edu.ec/ares/perseo/my_html/images/logo.png" "Noticias")
+
+                #else
+
+                ##no se solicitó ningun articulo, poner cards por defectox
+                #set($site_namex=$htmlUtil.escape($themeDisplay.getLayout().getGroup().getDescriptiveName()))
+                #metatags( "UCE-$site_namex" "http://aka-cdn.uce.edu.ec/ares/perseo/my_html/images/logo.png" "Noticias")
+                #end
+
+                ##resto de noticias
+
+                #if ($articleHits.size()>0)
+                #foreach ($entry in $articleHits)
+
+                #set($cur_artID=$entry.articleId)
+                #set($isLastVersion =$journalArticleService.isLatestVersion($entry.getGroupId(), $entry.getArticleId() , $entry.getVersion() ) )
+                #if($isLastVersion&&$cur_artID!=$artID)
+
+                #set( $document = $saxReaderUtil.read($entry.getContent()) )
+                #set( $root = $document.getRootElement() )
+
+                #set($isrender=1)
+
+                ## iterate over noticia's flieds
+
+                #foreach( $dynamicElement in $root.elements() )
                 #set($namex=$dynamicElement.attributeValue("name"))
                 #set($valx=$dynamicElement.element("dynamic-content").getText())
 
                 #if("noti_titulo" == $namex)
-                    #set($noti_titulo = $valx)
+                #set($noti_titulo = $valx)
                 #elseif("noti_subtitulo" == $namex)
-                    #set($noti_subtitulo =$valx)
+                #set($noti_subtitulo =$valx)
                 #elseif("noti_fecha" == $namex)
-                    #set($noti_fechax = $valx)
-                    #set ($FechaObj = $dateUtil.newDate($getterUtil.getLong($noti_fechax)))
-                    #set($noti_fecha1=$dateUtil.getDate($FechaObj, "MM-yyyy", $locale))
-                    #set($noti_fecha=$dateUtil.getDate($FechaObj, "MMMM dd, yyyy", $locale))
-                    #if($noti_fecha1!=$datex)
-                        #set($isrender=0)
-                        #break
-                    #end
-                #elseif("noti_autor" == $namex)
-                    #set($noti_autor = $valx)
-                #elseif("noti_imagen" == $namex)
-                    #set($noti_imagen = $valx)
-                #elseif("noti_video" == $namex)
-                    #set($noti_video = $valx)
-                #elseif("noti_contenido"==$namex)
-                    #set($noti_contenido = $valx)
+                #set($noti_fechax = $valx)
+                #set ($FechaObj = $dateUtil.newDate($getterUtil.getLong($noti_fechax)))
+                #set($noti_fecha1=$dateUtil.getDate($FechaObj, "MM-yyyy", $locale))
+                #set($noti_fecha=$dateUtil.getDate($FechaObj, "MMMM dd, yyyy", $locale))
+                #if($noti_fecha1!=$datex)
+                #set($isrender=0)
+                #break
                 #end
-            #end ##foreach xml entry
+                #elseif("noti_autor" == $namex)
+                #set($noti_autor = $valx)
+                #elseif("noti_imagen" == $namex)
+                #set($noti_imagen = $valx)
+                #elseif("noti_video" == $namex)
+                #set($noti_video = $valx)
+                #elseif("noti_contenido"==$namex)
+                #set($noti_contenido = $valx)
+                #elseif("noti_summary"==$namex)
+                #set($noti_summary=$valx)                
+                #end
+                #end ##foreach xml entry
 
 
-            #if($isrender==1)
-                $noti_fecha<br />
-            #end
-        $noti_titulo
-        #end ## if last version
+                #if($isrender==1)
+                <div class="noti-item row-fluid">
+                    <div class="img-full" style="background-image:url($noti_imagen);"></div>
+                    <div class="noti-detail">
+                        <h5 class="adequate">$noti_titulo</h5>
+                        <p>$noti_summary</p>
+                        <span class="date text-right">$noti_fecha</span>
+                    </div>
+                    <div class="rb-overlay">
+                        <div class="rb-week">
+                            <span class="rb-close">close</span>
+                            <div class="full-content">
+                                <h3 class="short-link">
+                                    <a href="#" class="uri text-right" target="_blank" data-role="sharex" data-sharex-service="l" data-sharex-artid="$cur_artID">
+                                    </a>
+                                </h3>
+                                <div class="contentwrap">
+                                    <h2 class="full-title">
+                                        $noti_titulo
+                                    </h2>
+                                    <span class="date">$noti_fecha | $noti_autor</span>
+                                    <h3 class="sub-title">
+                                        $noti_subtitulo
+                                    </h3>
+                                    <ul class="og-grid sharewrap">
+                                        <li>
+                                            <a href="#" class="sharex" target="_blank" data-role="sharex" data-sharex-service="f" data-sharex-artid="$cur_artID">
+                                                <i class="bg-hover-darkBlue fa fa-uce_facebook"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="sharex" target="_blank" data-role="sharex" data-sharex-service="t" data-sharex-title="$noti_titulo" data-sharex-artid="$cur_artID">
+                                                <i class="fa fa-uce_twiter"></i>
+                                            </a>
+                                        </li>
 
-    #end ##foreach
-#else
-no articulos en este mes
-#end
+                                    </ul>
+                                    #if ($validator.isNotNull($noti_video))
+                                    <div class="video-full" style="">
+                                        <iframe style="width:100%;height:500px;" src="$noti_video" frameborder="0" allowfullscreen></iframe>
+                                    </div>
+                                    #elseif($validator.isNotNull($noti_imagen))
+                                    <div class="img-full" style="background-image: url($noti_imagen);">
+                                    </div>
+                                    #end
+
+                                    <div class="full-html">
+                                        $noti_contenido
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                #end
+
+                #end ## if last version
+
+                #end ##foreach
+                #else
+                no articulos en este mes
+                #end
 
 
 
+            </div>
+
+        </div>
+    </div>
+</div>
 
 
 
-##macros
+                    ##macros
 
-#macro( metatags $title $img $desc )
+                    #macro( metatags $title $img $desc )
 
-#set($titletag="title")
-#set($imgtag="image")
-#set($desctag="description")
+                    #set($titletag="title")
+                    #set($imgtag="image")
+                    #set($desctag="description")
 
-#facetag( $titletag $title)
-#facetag( $imgtag $img)
-#facetag( $desctag $desc)
+                    #facetag( $titletag $title)
+                    #facetag( $imgtag $img)
+                    #facetag( $desctag $desc)
 
-#twittertag( $titletag $title)
-#twittertag( $imgtag $img)
-#twittertag( $desctag $desc)
-#end
+                    #twittertag( $titletag $title)
+                    #twittertag( $imgtag $img)
+                    #twittertag( $desctag $desc)
+                    #end
 
-#macro (facetag $keyx $valx )
+                    #macro (facetag $keyx $valx )
 
-#set($el=$renderResponse.createElement("meta"))
-#set($void=$el.setAttribute("property","og:$keyx"))
-#set($void=$el.setAttribute("content",$valx))
-##set($void=$el.setTextContent(" "))
-#set($void=$renderResponse.addProperty("javax.portlet.markup.head.element",$el ))
+                    #set($el=$renderResponse.createElement("meta"))
+                    #set($void=$el.setAttribute("property","og:$keyx"))
+                    #set($void=$el.setAttribute("content",$valx))
+                    ##set($void=$el.setTextContent(" "))
+                    #set($void=$renderResponse.addProperty("javax.portlet.markup.head.element",$el ))
 
-#end
+                    #end
 
 
-#macro (twittertag $keyx $valx )
+                    #macro (twittertag $keyx $valx )
 
-#set($el=$renderResponse.createElement("meta"))
-#set($void=$el.setAttribute("name","twitter:$keyx"))
-"twitter:$keyx"
-#set($void=$el.setAttribute("content",$valx))
-##set($void=$el.setTextContent(" "))
-#set($void=$renderResponse.addProperty("javax.portlet.markup.head.element",$el ))
+                    #set($el=$renderResponse.createElement("meta"))
+                    #set($void=$el.setAttribute("name","twitter:$keyx"))
+                    #set($void=$el.setAttribute("content",$valx))
+                    ##set($void=$el.setTextContent(" "))
+                    #set($void=$renderResponse.addProperty("javax.portlet.markup.head.element",$el ))
 
-#end
+                    #end

@@ -7724,6 +7724,8 @@ span.date {
     overflow-y: auto;
     z-index: 100 !important;
     margin-right: 10px;
+    margin-top: 10px;
+    padding-top: 0;
     /*text-align: justify;
   position: relative;
   padding: 10px 0 10px 10px;

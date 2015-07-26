@@ -239,6 +239,34 @@ span.date {
 
 
 
+.metro .full-noticies {
+    margin-top: 60px;
+}
+
+.full-noticies .noticiesWrap, .metro .calendarWrap {
+    float: left;
+}
+
+.full-noticies .noticiesWrap {
+    width: calc(100% - 270px);
+    margin-left: 20px;
+}
+
+.full-noticies .calendarWrap {
+    min-width: 250px;
+    width: 250px;
+    margin: auto;
+}
+
+.metro .full-noticies .contentwrap {
+    max-width: 1200px;
+}
+
+
+
+.full-noticies .calendarWrap {
+    text-align: center;
+}
 
 .noticiesWrap .noti-item {
     width: 100%;
@@ -281,8 +309,9 @@ span.date {
     }
 
     .noticiesWrap .noti-item .noti-detail > h5 {
-        font-size: 14px;
+        font-size: 15px;
         line-height: 17px;
+        font-weight: bold;
     }
 
     .noticiesWrap .noti-item .noti-detail p {
