@@ -1812,8 +1812,12 @@ function touch2Mouse(e) {
 
             this._slides = carousel.find('.page');
 
-            if (this._slides.length <= 1)
+            if (this._slides.length <= 1) {
+                that._slideTo('next');
+                controls.hide();
+                //next.hide();
                 return;
+            }
 
 
             prev.on('click', function () {
@@ -3193,7 +3197,7 @@ var ClubFull = (function () {
 //</editor-fold>
 //#endregion 
 
-//#region centros investigacion
+//#region centros investigacion no funca
 var centrosInvestigacionz = (function () {
 
     $items = $('.centrosWrap > li'),
@@ -3380,13 +3384,13 @@ var centrosInvestigacionz = (function () {
                         var sss = $('#ajax-dcm', data);
                         qq.html(sss.html());
                         sss = data = null;
-                        //$.Metro.initSidebars($item);
-                        //$.Metro.initBannerCircle(qq);
-                        //sidebarUpdate($item);
-                        qq3.data('ajaxLoad', true);
-
                         //init componentets
+                        $.Metro.initSidebars(qq3);
+                        $.Metro.initPagination(qq3);
+                        initNotiAndvents(qq3);
                         sidebarUpdate(qq3);
+                        //set loaded
+                        qq3.data('ajaxLoad', true);
                         qq3 = null;
                     },
                     error: function () {

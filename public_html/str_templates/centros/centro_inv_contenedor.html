@@ -1,4 +1,4 @@
-﻿#set ($group_id = $getterUtil.getLong($request.theme-display.scope-group-id))
+﻿#set($group_id = $getterUtil.getLong($groupId))
 <nav class="sidebar row-fluid navx" data-role="sidebar-nav" style="background-image: url(tmp/fac_banner01.jpg);background-size: cover;">
     <a class="pull-menu" href="#"></a>
     <ul class="element-menu row-fluid">
@@ -15,59 +15,58 @@
         <li style="background-image:url($imgx.getData())"><a href="cont5" class="bg-red" data-text="Investigadores">Investigadores</a></li>
         <li style="background-image:url($imgx.getData())"><a href="cont6" class="bg-dark" data-text="Servicios">Servicios</a></li>
     </ul>
-    <div class="full-content carousel" data-role="sidebar-content">
+</nav>
+<div class="full-content carousel" data-role="sidebar-content">
 
-        <div class="slic" data-cont="cont0">
-            <div class="panelRight">
-                <div class="row-fluid">
-                    <div class="span6">
-                        <h5 class="upper">Descripción del centro de investigación</h5>
-                        <p>
-                            $desc_long.getData()
-                        </p>
-                    </div>
-                    <div class="span6">
-                        <div class="img-full" style="background-image:url($img_main.getData())"></div>
-                        <p><strong>Misión. </strong> $ctr_mision.getData()</p>
-                        <p><strong>Visión. </strong> $ctr_vision.getData()</p>
-                    </div>
+    <div class="slic" data-cont="cont0">
+        <div class="panelRight">
+            <div class="row-fluid">
+                <div class="span6">
+                    <h5 class="upper">Descripción del centro de investigación</h5>
+                    <p>
+                        $desc_long.getData()
+                    </p>
                 </div>
-            </div>
-            <div class="tabsservWrap">
-                <h5 class="upper adequate fg-gray">Links de Interés</h5>
-                <div class="paginacion" data-role="dcm-pagination">
-                    <div class="page">
-                        <ul class="tabsserv">
-                            <li>
-                                <a class="link">
-                                    <img src="tmp/l3.jpg" />
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <span class="rb-prev"><i class="fa fa-chevron-left"></i></span>
-                    <span class="rb-next"><i class="fa fa-chevron-right"></i></span>
+                <div class="span6">
+                    <div class="img-full" style="background-image:url($img_main.getData())"></div>
+                    <p><strong>Misión. </strong> $ctr_mision.getData()</p>
+                    <p><strong>Visión. </strong> $ctr_vision.getData()</p>
                 </div>
             </div>
         </div>
-
-        #set ($webcontent=$journalContentUtil.getContent($group_id, $noticias_id.getData(), "", "$locale", ""))
-        $webcontent
-
-        #set ($webcontent=$journalContentUtil.getContent($group_id, $eventos_id.getData(), "", "$locale", ""))
-        $webcontent
-
-        #set ($webcontent=$journalContentUtil.getContent($group_id, $proyectos_id.getData(), "", "$locale", ""))
-        $webcontent
-
-        #set ($webcontent=$journalContentUtil.getContent($group_id, $publicaciones_id.getData(), "", "$locale", ""))
-        $webcontent
-
-        #set ($webcontent=$journalContentUtil.getContent($group_id, $investigadores_id.getData(), "", "$locale", ""))
-        $webcontent
-
-        #set ($webcontent=$journalContentUtil.getContent($group_id, $servicios_id.getData(), "", "$locale", ""))
-        $webcontent
+        <div class="tabsservWrap">
+            <h5 class="upper adequate fg-gray">Links de Interés</h5>
+            <div class="paginacion" data-role="dcm-pagination2">
+                <div class="page">
+                    <ul class="tabsserv">
+                        <li>
+                            <a class="link">
+                                <img src="tmp/l3.jpg" />
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <span class="rb-prev"><i class="fa fa-chevron-left"></i></span>
+                <span class="rb-next"><i class="fa fa-chevron-right"></i></span>
+            </div>
+        </div>
     </div>
 
-</nav>
+    #set($webcontent=$journalContentUtil.getContent($group_id, $noticias_id.getData(), "", "$locale", ""))
+    $webcontent
+
+    #set($webcontent=$journalContentUtil.getContent($group_id, $eventos_id.getData(), "", "$locale", ""))
+    $webcontent
+
+    #set($webcontent=$journalContentUtil.getContent($group_id, $proyectos_id.getData(), "", "$locale", ""))
+    $webcontent
+
+    #set($webcontent=$journalContentUtil.getContent($group_id, $publicaciones_id.getData(), "", "$locale", ""))
+    $webcontent
+
+    #set($webcontent=$journalContentUtil.getContent($group_id, $investigadores_id.getData(), "", "$locale", ""))
+    $webcontent
+
+    #set($webcontent=$journalContentUtil.getContent($group_id, $servicios_id.getData(), "", "$locale", ""))
+    $webcontent
+</div>

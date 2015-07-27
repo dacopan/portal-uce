@@ -3,7 +3,7 @@
 #set ($html-com = "$cdn/my_html")
 #set ($x3=$theme.getSetting("theme-type"))
 #set ($theme-type = "$cdn/$x3")
-#set ($verx = "?v=0.1.4")
+#set ($verx = "?v=0.1.5")
 
 #parse ($init)
 

@@ -1,10 +1,10 @@
-﻿#set ($group_id = $getterUtil.getLong($groupId))
+﻿#set($group_id = $getterUtil.getLong($groupId))
 #set($sizex=$evento_id.getSiblings().size())
 #set($count1 = 1)
 <div class="slic height100 eventosWrap" data-cont="cont2">
     <div class="contentwrap paginacion" data-role="dcm-pagination">
 
-        #foreach ($cur_evento_id in $evento_id.getSiblings())
+        #foreach($cur_evento_id in $evento_id.getSiblings())
 
         #set($count1 = $velocityCount%2)
 
@@ -18,9 +18,10 @@
                 #end
 
                 #set($ix = $sizex - $velocityCount)
+                
                 #set($cur_evento=$evento_id.getSiblings().get($ix))
-
-                #set ($webcontent=$journalContentUtil.getContent($group_id, $cur_evento.getData(), "", "$locale", ""))
+                
+                #set($webcontent=$journalContentUtil.getContent($group_id, $cur_evento.getData(), "", "$locale", ""))
                 $webcontent
 
 
