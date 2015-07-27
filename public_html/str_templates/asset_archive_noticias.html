@@ -173,7 +173,7 @@
                 #end
 
                 ##resto de noticias
-
+                #set($monthHasNotis=0)
                 #if ($articleHits.size()>0)
                 #foreach ($entry in $articleHits)
 
@@ -214,12 +214,13 @@
                 #elseif("noti_contenido"==$namex)
                 #set($noti_contenido = $valx)
                 #elseif("noti_summary"==$namex)
-                #set($noti_summary=$valx)                
+                #set($noti_summary=$valx)
                 #end
                 #end ##foreach xml entry
 
 
                 #if($isrender==1)
+                #set($monthHasNotis=1)
                 <div class="noti-item row-fluid">
                     <div class="img-full" style="background-image:url($noti_imagen);"></div>
                     <div class="noti-detail">
@@ -282,6 +283,10 @@
                 no articulos en este mes
                 #end
 
+                #if($monthHasNotis==0)
+                
+                <h2 class="text-center">Ninguna noticia en este mes...</h2>
+                #end
 
 
             </div>

@@ -2700,6 +2700,7 @@ $(window).load(function () {
 
 function onloadX() {
 
+    $('#logo3').removeClass("oculto zoomOut").addClass("animated zoomIn");
 
     NoticiasFull().init();
 
