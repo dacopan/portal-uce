@@ -1,0 +1,41 @@
+#set ($group_id = $getterUtil.getLong($request.theme-display.scope-group-id))
+<div class="slide bg-white" id="slide6" data-slide="6" style="$background.getData()">
+    <div class="contentwrap centrosPanel">
+        <h1 class="text-center adequate fg-white">Centros de Investigación</h1>
+        <ul class="centrosWrap og-grid">
+            #if (!$centro_contenedor_id.getSiblings().isEmpty())
+            #foreach ($cur_centro in $centro_contenedor_id.getSiblings())
+
+            <li>
+
+                #if ($validator.isNotNull($cur_centro.imgx.getData()))
+                <a href="#" class="centro has-img" style="background-image:url($cur_centro.imgx.getData())">
+                    <div>
+                        <h2>$cur_centro.title.getData()</h2>
+                        <p>$cur_centro.desc_short.getData()</p>
+                    </div>
+                </a>
+                #else
+                <a href="#" class="centro">
+                    <div>
+                        <h2>$cur_centro.title.getData()</h2>
+                        <p>$cur_centro.desc_short.getData()</p>
+                    </div>
+                </a>
+                #end
+
+                <div class="rb-overlay">
+                    <div class="row-fluid rb-week" data-role="sidebar">
+                        <span class="rb-close"></span>
+                        <div class="pan-l" data-role="sidebar" data-sidebar-typex="1" data-ajax-artid="$cur_centro.getData()" data-ajax-groupid="$group_id">
+                            <div class="spinner"><div></div><div></div><div></div></div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+            #end
+            #end
+        </ul>
+    </div>
+</div>
