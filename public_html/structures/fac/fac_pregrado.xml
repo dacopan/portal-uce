@@ -1,6 +1,5 @@
 <root available-locales="es_ES" default-locale="es_ES">
   <dynamic-element dataType="boolean" indexType="keyword" name="carrera" readOnly="false" repeatable="true" required="false" showLabel="true" type="checkbox" width="">
-
     <dynamic-element dataType="string" indexType="keyword" name="carrera_nombre" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
       <meta-data locale="es_ES">
         <entry name="label">
@@ -14,21 +13,19 @@
         </entry>
       </meta-data>
     </dynamic-element>
-
     <dynamic-element dataType="string" indexType="keyword" name="carrera_menu" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
       <meta-data locale="es_ES">
         <entry name="label">
           <![CDATA[Menu de la Carrera]]>
         </entry>
         <entry name="predefinedValue">
-          <![CDATA[]]>
+          <![CDATA[﻿]]>
         </entry>
         <entry name="tip">
           <![CDATA[]]>
         </entry>
       </meta-data>
     </dynamic-element>
-
     <dynamic-element dataType="string" indexType="keyword" name="sidebar" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
       <meta-data locale="es_ES">
         <entry name="label">
@@ -42,13 +39,64 @@
         </entry>
       </meta-data>
     </dynamic-element>
-
     <meta-data locale="es_ES">
       <entry name="label">
         <![CDATA[carrera]]>
       </entry>
       <entry name="predefinedValue">
         <![CDATA[true]]>
+      </entry>
+      <entry name="tip">
+        <![CDATA[]]>
+      </entry>
+    </meta-data>
+  </dynamic-element>
+  <dynamic-element dataType="boolean" indexType="keyword" name="distancia" readOnly="false" repeatable="true" required="false" showLabel="true" type="checkbox" width="">
+    <dynamic-element dataType="string" indexType="keyword" name="dst_nombre" readOnly="false" repeatable="false" required="false" showLabel="true" type="text" width="small">
+      <meta-data locale="es_ES">
+        <entry name="label">
+          <![CDATA[Nombre Carrera]]>
+        </entry>
+        <entry name="predefinedValue">
+          <![CDATA[]]>
+        </entry>
+        <entry name="tip">
+          <![CDATA[]]>
+        </entry>
+      </meta-data>
+    </dynamic-element>
+    <dynamic-element dataType="string" indexType="keyword" name="dst_menu" readOnly="false" repeatable="false" required="false" showLabel="true" type="text" width="small">
+      <meta-data locale="es_ES">
+        <entry name="label">
+          <![CDATA[Menu de la Carrera]]>
+        </entry>
+        <entry name="predefinedValue">
+          <![CDATA[]]>
+        </entry>
+        <entry name="tip">
+          <![CDATA[]]>
+        </entry>
+      </meta-data>
+    </dynamic-element>
+    <dynamic-element dataType="string" indexType="keyword" name="dst_id" readOnly="false" repeatable="false" required="false" showLabel="true" type="text" width="small">
+      <meta-data locale="es_ES">
+        <entry name="label">
+          <![CDATA[Contenido ID]]>
+        </entry>
+        <entry name="predefinedValue">
+          <![CDATA[]]>
+        </entry>
+        <entry name="tip">
+          <![CDATA[(sidebar)Coloque el ID del articulo que pertenece a este carrera (contentID)]]>
+        </entry>
+      </meta-data>
+    </dynamic-element>
+    <meta-data locale="es_ES">
+      <entry name="label">
+        <![CDATA[distancia]]>
+      </entry>
+      <entry name="predefinedValue">
+        <![CDATA[false]]>
       </entry>
       <entry name="tip">
         <![CDATA[]]>

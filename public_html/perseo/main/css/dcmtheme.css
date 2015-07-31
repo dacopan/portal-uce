@@ -12229,7 +12229,11 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
 .centrosWrap .eventosWrap .paginacion .page {
     height: calc(100% - 50px);
     min-height: calc(100% - 50px);
+    /*overflow: hidden;
+    height: auto;*/
 }
+/*proyectos*/
+
 /*revistas*/
 
 .centrosWrap .abc-list.revista-list > li:before {
