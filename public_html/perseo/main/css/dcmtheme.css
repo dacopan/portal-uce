@@ -12233,7 +12233,20 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
     height: auto;*/
 }
 /*proyectos*/
+.metro .proyectosWrap {
+}
 
+    .metro .proyectosWrap > div {
+        border: 2px solid #fff;
+    }
+
+        .metro .proyectosWrap > div h3 {
+            font-family: "Segoe UI Ligth";
+        }
+
+        .metro .proyectosWrap > div h4 {
+            font-family: "Segoe UI Ligth";
+        }
 /*revistas*/
 
 .centrosWrap .abc-list.revista-list > li:before {
