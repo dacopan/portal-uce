@@ -6327,7 +6327,7 @@ html > body .metro .sidebar a.dropdown-toggle:after {
     color: yellow !important;
 }
 
-.metro .bg-trans,.metro .tile-small {
+.metro .bg-trans, .metro .tile-small {
     background-color: transparent;
 }
 /**/
@@ -8020,7 +8020,7 @@ span.date {
     transition: all 0.3s ease 0s;
 }
 
-.tranx, .metro .tile-small {
+.tranx, .metro .tile-small, .metro .dock-more {
     -moz-transition: all 0.3s ease 0s;
     -webkit-transition: all 0.3s ease 0s;
     -o-transition: all 0.3s ease 0s;

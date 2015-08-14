@@ -2957,6 +2957,8 @@ function initx() {
                     $.Metro.initAll($('body.metro'));
 
                     onloadX();
+                    //show popup
+                    $('#popup01').trigger("click");
 
                     console.log("fin onloadX");
 

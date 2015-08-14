@@ -5,43 +5,81 @@
     <a id="hamburger" class="" href="#dcmmenu"><span></span></a>
 
 
-    <a class="fg-white animated zoomIn" href="#" id="logo3" style="float: none;position: absolute;left: calc(50% - 28px);padding: 5px;"><i class="fa fa-uce_sello" style="font-size: 40px;"></i></a>
+    <a class="fg-white animated zoomIn" href="http://www.uce.edu.ec" id="logo3" style="float: none;position: absolute;left: calc(50% - 28px);padding: 5px;"><i class="fa fa-uce_sello" style="font-size: 40px;"></i></a>
 
 
     <a class="fg-white dropdown-toggle" href="#" id="dock"><i class="fa fa-uce_aplicaciones" style="font-size: 40px;"></i></a>
 
     <div class="app-bar-drop-container dropdown-menu place-right" data-role="dropdown" style="width: 324px;  float: right;">
-        <div class="tile-container bg-white">
-            <div class="tile-small dock-popup" id="popup-ley-trans">
-                <div class="tile-content iconic">
-                    <span class="icon fa fa-uce_ley_transparencia"></span>
-                    <span class="tile-label">Ley de Transparencia</span>
-                </div>
-                <div class="rb-overlay">
-                    <div class="row-fluid rb-week" style="max-width:90%; border-width: 10px;">
-                        <span class="rb-close">close</span>
-                        <div class="full-content ley" data-ajax-artid="37159" data-ajax-groupid="10181" data-func="years">
+        <ul class="tile-container og-grid">
+            <li>
+                <div class="tile-small dock-popup" id="popup-ley-trans">
+                    <div class="tile-content iconic">
+                        <span class="icon fa fa-uce_ley_transparencia"></span>
+                        <span class="tile-label">Ley de Transparencia</span>
+                    </div>
+                    <div class="rb-overlay">
+                        <div class="row-fluid rb-week" style="max-width:90%; border-width: 10px;">
+                            <span class="rb-close">close</span>
+                            <div class="full-content ley" data-ajax-artid="37159" data-ajax-groupid="10181" data-func="years">
 
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <a class="tile-small bg-blue has-full-view" href="#full-view-01">
-                <div class="tile-content iconic">
-                    <span class="icon fa fa-uce_biblioteca"></span>
+            </li>
+            <li>
+                <a class="tile-small has-full-view" href="#full-view-01">
+                    <div class="tile-content iconic">
+                        <span class="icon fa fa-uce_biblioteca"></span>
+                        <span class="tile-label">Reseña Histórica UCE</span>
+                    </div>
+                </a>
+            </li>
+            <!--<li>
+                <div class="tile-small">
+                    <div class="tile-content iconic">
+                        <span class="icon fa fa-uce_biblioteca"></span>
+                        <span class="tile-label">Biblioteca</span>
+                    </div>
                 </div>
-            </a>
-            <div class="tile-small bg-blue">
-                <div class="tile-content iconic">
-                    <span class="icon fa fa-uce_biblioteca"></span>
-                </div>
-            </div>
-            <a class="tile-small bg-blue" href="http://mail.uce.edu.ec" target="_blank">
-                <div class="tile-content iconic">
-                    <span class="icon fa fa-uce_mail"></span>
-                </div>
-            </a>
-        </div>
+            </li>-->
+            <li>
+                <a class="tile-small" href="http://mail.uce.edu.ec" target="_blank">
+                    <div class="tile-content iconic">
+                        <span class="icon fa fa-uce_mail"></span>
+                        <span class="tile-label">Mail</span>
+                    </div>
+                </a>
+            </li>
+        </ul>
+        <span class="dock-more">Aplicaciones UCE</span>
+        <ul class="tile-container og-grid">
+            <li>
+                <a class="tile-small" href="http://registrofuncionarios.uce.edu.ec/" target="_blank">
+                    <div class="tile-content iconic">
+                        <span class="icon fa fa-uce_biblioteca"></span>
+                        <span class="tile-label">Registro Funcionarios</span>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a class="tile-small" href="http://registrofuncionarios.uce.edu.ec/" target="_blank">
+                    <div class="tile-content iconic">
+                        <span class="icon fa fa-uce_biblioteca"></span>
+                        <span class="tile-label">Facturación electrónica</span>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a class="tile-small" href="http://academico.uce.edu.ec" target="_blank">
+                    <div class="tile-content iconic">
+                        <span class="icon fa fa-uce_mail"></span>
+                        <span class="tile-label">SAU</span>
+                    </div>
+                </a>
+            </li>
+        </ul>
     </div>
 
 </div>
@@ -56,7 +94,7 @@
                 <img src="http://aka-cdn.uce.edu.ec/ares/tmp/facs.jpg" alt="img04">
                 <figcaption>
                     <h2>Facultades<span>.</span></h2>
-                    <p>Descripción</p>
+                    <p>Ir a</p>
                 </figcaption>
             </figure>
             <span class="hidden-desktop">Facultades</span>
@@ -80,19 +118,6 @@
             <li> <a href="http://200.93.225.30/web/medicina-veterinaria-y-zootecnia" title="ver facultad" target="_blank">Medicina Veterinaria y Zootecnia</a> </li>
             <li> <a href="http://200.93.225.30/web/odontologia" title="ver facultad" target="_blank">Odontología</a> </li>
         </ul>
-    </li>
-    <li>
-        <a href="/facultad/" class="toSlide" data-slide="4">Panel4</a>
-        <ul>
-            <li><a href="/tutorial">Getting started</a></li>
-            <li><a href="/tutorial/setting-up-the-html.html">Setting up the html</a></li>
-            <li><a href="/tutorial/fire-the-plugin.html">Fire the plugin</a></li>
-            <li><a href="/tutorial/open-and-close-the-menu.html">Open and close the menu</a></li>
-            <li><a href="/tutorial/styling-lists.html">Styling lists</a></li>
-            <li><a href="/tutorial/fixed-elements.html">Fixed elements</a></li>
-            <li><a href="/tutorial/learn-more.html">Learn more</a></li>
-        </ul>
-
     </li>
 </ul>
 <!--fin mmMenu nav content-->
