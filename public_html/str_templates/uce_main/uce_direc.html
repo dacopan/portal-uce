@@ -1,9 +1,9 @@
 #set ($group_id = $getterUtil.getLong($request.theme-display.scope-group-id))
-<div class="slide bg-white" id="slide4" data-slide="4">
+<div class="slide bg-white" id="slide6" data-slide="6">
     <div class="img-cover" style="height: 100%; min-height: 100%;$background.getData()">
         <div class="" style="min-height: 100%;">
             <div class="contentwrap direcWrap">
-                <h1 class="text-center adequate fg-white">Área Administrativa</h1>
+                <h1 class="text-center adequate fg-dorado">Área Administrativa</h1>
                 <ul class="og-grid">
                     #if (!$direc.getSiblings().isEmpty())
                     #foreach ($cur_direc in $direc.getSiblings())
@@ -23,8 +23,8 @@
                                     <a class="pull-menu" href="#"></a>
                                     <span class="date" style="color: #fff;text-align: left;font-size: 14px;">$cur_direc.direc_tipo.getData()</span>
                                     <h1 class="fg-white text-left padding10R font3r">
-                                        <span class="fg-white font3r hidden-desktop abbr">$cur_direc.direc_abbr.getData()</span>
-                                        <a class="fg-white font3r visible-desktop" href="cont0">$cur_direc.direc_nombre.getData()</a>
+                                        <span class="fg-white font3r abbr">$cur_direc.direc_abbr.getData()</span>
+                                        <a class="fg-white font3r" href="cont0">$cur_direc.direc_nombre.getData()</a>
                                     </h1>
                                     $cur_direc.direc_menu.getData()
                                 </nav>

@@ -6326,6 +6326,10 @@ html > body .metro .sidebar a.dropdown-toggle:after {
 .metro .fg-yellow, .metro .fg-hover-yellow:hover, .metro .fg-focus-yellow:focus, .metro .fg-active-yellow:active {
     color: yellow !important;
 }
+
+.metro .bg-trans,.metro .tile-small {
+    background-color: transparent;
+}
 /**/
 
 
@@ -8016,7 +8020,7 @@ span.date {
     transition: all 0.3s ease 0s;
 }
 
-.tranx {
+.tranx, .metro .tile-small {
     -moz-transition: all 0.3s ease 0s;
     -webkit-transition: all 0.3s ease 0s;
     -o-transition: all 0.3s ease 0s;
@@ -8344,7 +8348,7 @@ span.date {
         outline: 0;
     }
 
-.tile-small {
+.metro .tile-small {
     width: 150px;
     height: 150px;
     display: block;
@@ -8364,13 +8368,85 @@ span.date {
     height: 70px;
 }
 
-    .tile-small:hover {
-        outline: #999999 solid 3px;
+
+    .metro .tile-small:hover {
+        /*outline: #999999 solid 3px;
+        opacity: .75;
+        -webkit-transform: rotateY(10deg) translateZ(-12px);
+        -moz-transform: rotateY(10deg) translateZ(-12px);
+        -ms-transform: rotateY(10deg) translateZ(-12px);
+        -o-transform: rotateY(10deg) translateZ(-12px);
+        transform: rotateY(10deg) translateZ(-12px);*/
+        /*outline: #0076bd solid 2px;*/
+        /*transform: scale(1.05);*/
+        -moz-animation: latido 1.5s infinite ease-in-out;
+        -o-animation: latido 1.5s infinite ease-in-out;
+        -webkit-animation: latido 1.5s infinite ease-in-out;
+        animation: latido 1.5s infinite ease-in-out;
     }
 
-    .tile-small:active {
-        outline: 0;
+    .metro .tile-small.no-anim, .metro .tile-small.no-anim:hover {
+        -moz-animation: none;
+        -o-animation: none;
+        -webkit-animation: none;
+        animation: none;
     }
+
+@-ms-keyframes latido {
+    0% {
+        -moz-transform: scale(0.99);
+        -ms-transform: scale(0.99);
+        -o-transform: scale(0.99);
+        -webkit-transform: scale(0.99);
+        transform: scale(0.99);
+    }
+
+    60% {
+        -moz-transform: scale(1.05);
+        -ms-transform: scale(1.05);
+        -o-transform: scale(1.05);
+        -webkit-transform: scale(1.05);
+        transform: scale(1.05);
+    }
+
+    100% {
+        -moz-transform: scale(0.99);
+        -ms-transform: scale(0.99);
+        -o-transform: scale(0.99);
+        -webkit-transform: scale(0.99);
+        transform: scale(0.99);
+    }
+}
+
+@keyframes latido {
+    0% {
+        -moz-transform: scale(0.99);
+        -ms-transform: scale(0.99);
+        -o-transform: scale(0.99);
+        -webkit-transform: scale(0.99);
+        transform: scale(0.99);
+    }
+
+    60% {
+        -moz-transform: scale(1.05);
+        -ms-transform: scale(1.05);
+        -o-transform: scale(1.05);
+        -webkit-transform: scale(1.05);
+        transform: scale(1.05);
+    }
+
+    100% {
+        -moz-transform: scale(0.99);
+        -ms-transform: scale(0.99);
+        -o-transform: scale(0.99);
+        -webkit-transform: scale(0.99);
+        transform: scale(0.99);
+    }
+}
+
+.metro .tile-small:active {
+    outline: 0;
+}
 
 .tile-content:first-child {
     display: block;
@@ -8390,16 +8466,20 @@ span.date {
 }
 
 .tile-small .tile-content.iconic .icon {
-    /*width: 32px;
-    height: 32px;
-    font-size: 32px;
-    margin-left: -16px;
-    margin-top: -16px;*/
     width: 50px;
     height: 50px;
     font-size: 60px;
     margin-left: -30px;
-    margin-top: -30px;
+    /*margin-top: -30px;*/
+    /*margin-top: 0;*/
+}
+
+.tile-small .tile-label {
+    position: absolute;
+    bottom: -5px;
+    left: .625rem;
+    padding: .425rem .25rem;
+    z-index: 999;
 }
 /*#endregion*/
 
@@ -8761,11 +8841,11 @@ span.date {
 
 @font-face {
 	font-family: 'dcmuce';
-	src:url(../../my_html/css/fonts/dcmuce.eot?k4icg);
-	src:url(../../my_html/css/fonts/dcmuce.eot?#iefixk4icg) format('embedded-opentype'),
-		url(../../my_html/css/fonts/dcmuce.ttf?k4icg) format('truetype'),
-		url(../../my_html/css/fonts/dcmuce.woff?k4icg) format('woff'),
-		url(../../my_html/css/fonts/dcmuce.svg?k4icg#dcmuce) format('svg');
+	src:url(../../my_html/css/fonts/dcmuce.eot?-ryy0sj);
+	src:url(../../my_html/css/fonts/dcmuce.eot?#iefix-ryy0sj) format('embedded-opentype'),
+		url(../../my_html/css/fonts/dcmuce.ttf?-ryy0sj) format('truetype'),
+		url(../../my_html/css/fonts/dcmuce.woff?-ryy0sj) format('woff'),
+		url(../../my_html/css/fonts/dcmuce.svg?-ryy0sj#dcmuce) format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -8784,6 +8864,9 @@ span.date {
 	-moz-osx-font-smoothing: grayscale;
 }
 
+.fa-uce_sello:before {
+	content: "\e621";
+}
 .fa-uce_aplicaciones:before {
 	content: "\e600";
 }
@@ -11691,6 +11774,10 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
         display: block;
         position: relative;
     }
+
+    .centrosWrap .rb-close {
+        color: #fff;
+    }
 /*style:normal*/
 
 .centro > div {
@@ -12300,6 +12387,9 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
 }
 /*#endregion*/
 
+.metro .map-wrap .rb-week {
+    max-width: 100%;
+}
 
 /* #Media Queries================================================== */
 /*  Portrait size to standard 960 (devices and browsers) */

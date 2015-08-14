@@ -1027,6 +1027,10 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
         display: block;
         position: relative;
     }
+
+    .centrosWrap .rb-close {
+        color: #fff;
+    }
 /*style:normal*/
 
 .centro > div {
@@ -1636,3 +1640,6 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
 }
 /*#endregion*/
 
+.metro .map-wrap .rb-week {
+    max-width: 100%;
+}

@@ -2199,7 +2199,7 @@ var DockPopUp = (function () {
                     $overlay = $item.find('div.rb-overlay');
 
             $item.on('click', function (event) {
-
+                $item.addClass("no-anim");
                 //if (event.target != this) return;
                 //event.preventDefault();
                 // $('.carreraWrap').removeClass("oculto visible animated bounceInRight");
@@ -2282,7 +2282,7 @@ var DockPopUp = (function () {
             });
 
             $close.on('click', function () {
-
+               
                 $body.css('overflow-y', 'auto');
 
                 var layoutProp = getItemLayoutProp($item),
@@ -2306,6 +2306,7 @@ var DockPopUp = (function () {
                             $overlay.css('opacity', 0).on(transEndEventName, function () {
                                 $overlay.off(transEndEventName).css({ clip: clipPropLast, zIndex: -1 });
                                 $item.data('isExpanded', false);
+                                $item.removeClass("no-anim");
                             });
                         }, 25);
 

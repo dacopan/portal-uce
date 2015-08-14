@@ -2200,7 +2200,7 @@ var DockPopUp = (function () {
                     $overlay = $item.find('div.rb-overlay');
 
             $item.on('click', function (event) {
-
+                $item.addClass("no-anim");
                 //if (event.target != this) return;
                 //event.preventDefault();
                 // $('.carreraWrap').removeClass("oculto visible animated bounceInRight");
@@ -2283,7 +2283,7 @@ var DockPopUp = (function () {
             });
 
             $close.on('click', function () {
-
+               
                 $body.css('overflow-y', 'auto');
 
                 var layoutProp = getItemLayoutProp($item),
@@ -2307,6 +2307,7 @@ var DockPopUp = (function () {
                             $overlay.css('opacity', 0).on(transEndEventName, function () {
                                 $overlay.off(transEndEventName).css({ clip: clipPropLast, zIndex: -1 });
                                 $item.data('isExpanded', false);
+                                $item.removeClass("no-anim");
                             });
                         }, 25);
 
@@ -6999,7 +7000,8 @@ function onloadX() {
         $('#logo1').addClass("animated zoomOutUp");
         $('#logo2').removeClass("oculto");
         $('#logo2').addClass("animated zoomIn");
-    }, 2000);
+    }, 4500);
+
 
     NoticiasFull().init();
     ClubFull().init();
@@ -7099,8 +7101,8 @@ function onloadX() {
     if (!isMobileBrowser()) {
         $('#logo3').removeClass("oculto zoomOut").addClass("animated zoomIn");
 
-        /*
-        animated on scroll
+        // /*
+        //animated on scroll
         $(window).scroll(function () {
             var scrollPos = $(this).scrollTop();
             var elemx = $('#logo2');
@@ -7200,7 +7202,7 @@ function onloadX() {
         $('.footer .contentwrap .mapax').addClass("oculto").each(function () {
             $(this).viewportChecker({
                 classToAdd: 'visible animated bounceInRight',
-                offset: 20,
+                offset: 0,
                 repeat: false
             });
         });
