@@ -2958,7 +2958,7 @@ function initx() {
 
                     onloadX();
                     //show popup
-                    $('#popup01').trigger("click");
+                    //$('#popup01').trigger("click");
 
                     console.log("fin onloadX");
 

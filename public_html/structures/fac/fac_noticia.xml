@@ -51,7 +51,7 @@
       </entry>
     </meta-data>
   </dynamic-element>
-  <dynamic-element dataType="string" indexType="keyword" name="noti_imagen" readOnly="false" repeatable="false" required="false" showLabel="true" type="text" width="small">
+  <dynamic-element dataType="string" indexType="keyword" name="noti_imagen" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
     <meta-data locale="es_ES">
       <entry name="label">
         <![CDATA[Imagen]]>

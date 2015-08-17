@@ -217,6 +217,7 @@
     width: 100%;
     text-align: center;
     color: #000;
+    line-height:normal;
 }
 
 .metro .dock-more {

@@ -201,3 +201,7 @@
         -webkit-transform: scale(1.0);
     }
 }
+
+#dcmmenu {
+    height: 0;
+}
