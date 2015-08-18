@@ -7075,7 +7075,7 @@ function onloadX() {
     });
     //noticies add pagination
     var taglib = $(".noticiesWrap").parent().parent().parent().find(".taglib-page-iterator");
-    if (taglib.length > 0) {
+    if (taglib.length > 5) {
         taglib.css({ "margin-top": "30px" }).appendTo(".noticiesWrap .container2.featuredcontainer.clearfix");
         var buttons = taglib.find(".lfr-pagination-buttons li a");
         $(buttons[0]).html('<i class="fa fa-uce_anterior"></i>');
