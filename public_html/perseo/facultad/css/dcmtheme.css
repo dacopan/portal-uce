@@ -14,9 +14,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 .boingInUp {
     -webkit-animation-name: boingInUp;
     animation-name: boingInUp;
-}
+} 
 
-.animated.boingInUp {
+.animated.boingInUp { 
     -webkit-animation-duration: 1.3s;
     animation-duration: 1.3s;
 }
@@ -4857,7 +4857,7 @@ a {
     font-family: "Adequate ExtraLight";
     font-style: normal;
     font-weight: 300;
-    src: url(../../my_html/css/fonts/Adequate-ExtraLight.woff) format('woff'), url(../../my_html/css/fonts/Adequate-ExtraLight.ttf) format('truetype'), local("Segoe UI Bold"), local("Open Sans Bold"), local("OpenSans-Bold"), url(https://themes.googleusercontent.com/static/fonts/opensans/v8/k3k702ZOKiLJc3WVjuplzJ1r3JsPcQLi8jytr04NNhU.woff) format('woff');
+    src: url('fonts/Adequate-ExtraLight.woff') format('woff'), url('fonts/Adequate-ExtraLight.ttf') format('truetype'), local("Segoe UI Bold"), local("Open Sans Bold"), local("OpenSans-Bold"), url(https://themes.googleusercontent.com/static/fonts/opensans/v8/k3k702ZOKiLJc3WVjuplzJ1r3JsPcQLi8jytr04NNhU.woff) format('woff');
 }
 
 .metro .adequate {
@@ -5252,14 +5252,14 @@ body.metro {
 /* #Sidebar
 ================================================== */
 .metro .grilla, .metro .grilla-dark {
-    background-image: url(../../my_html/images/grilla.png);
+    background-image: url(../images/grilla.png);
     background-size: cover;
     background-position: 50% 50%;
     background-repeat: no-repeat;
 }
 
 .metro .grilla-dark {
-    background-image: url(../../my_html/images/grilla_dark.jpg) !important;
+    background-image: url(../images/grilla_dark.jpg) !important;
 }
 
 .docs .doc {
@@ -8623,7 +8623,7 @@ span.date {
     position: absolute;
     right: 0;
     z-index: 2;
-    background-image: url(../../my_html/dcmtheme/images/carrera_info.jpg);
+    background-image: url(../dcmtheme/images/carrera_info.jpg);
     cursor: pointer;
 }
 
@@ -8759,11 +8759,11 @@ span.date {
 
 @font-face {
 	font-family: 'dcmuce';
-	src:url(../../my_html/css/fonts/dcmuce.eot?k4icg);
-	src:url(../../my_html/css/fonts/dcmuce.eot?#iefixk4icg) format('embedded-opentype'),
-		url(../../my_html/css/fonts/dcmuce.ttf?k4icg) format('truetype'),
-		url(../../my_html/css/fonts/dcmuce.woff?k4icg) format('woff'),
-		url(../../my_html/css/fonts/dcmuce.svg?k4icg#dcmuce) format('svg');
+	src:url('fonts/dcmuce.eot?k4icg');
+	src:url('fonts/dcmuce.eot?#iefixk4icg') format('embedded-opentype'),
+		url('fonts/dcmuce.ttf?k4icg') format('truetype'),
+		url('fonts/dcmuce.woff?k4icg') format('woff'),
+		url('fonts/dcmuce.svg?k4icg#dcmuce') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -10660,6 +10660,8 @@ span.date {
 .fa-medium:before {
 	content: "\f23a";
 }
+
+
 /*#region Tabs*/
 .metro .tab-control .tabs {
     padding-left: 0;
@@ -10676,10 +10678,10 @@ span.date {
 
     .metro .tab-control .tabs:before,
     .metro .tab-control .tabs:after {
-        display: table;
+        display: table; 
         content: "";
     }
-
+     
     .metro .tab-control .tabs:after {
         clear: both;
     }

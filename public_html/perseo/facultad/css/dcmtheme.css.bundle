@@ -6,14 +6,14 @@
     <!--Determin whether to generate/re-generate this bundle on building the solution.-->
     <runOnBuild>false</runOnBuild>
     <!--Use absolute path in the generated CSS files. By default, the URLs are relative to generated bundled CSS file.-->
-    <adjustRelativePaths>true</adjustRelativePaths>
+    <adjustRelativePaths>false</adjustRelativePaths>
     <!--Specifies a custom subfolder to save files to. By default, compiled output will be placed in the same folder and nested under the original file.-->
     <outputDirectory />
   </settings>
   <!--The order of the <file> elements determines the order of the files in the bundle.-->
   <files>
-    <file>/public_html/perseo/my_html/css/dcm-common.css</file>
-    <file>/public_html/perseo/facultad/css/_dcmtheme.css</file>
-    <file>/public_html/perseo/facultad/css/_dcmtheme-responsive.css</file>
+    <file>C:/Users/EdGaR/Documents/GitHub/portal-uce/public_html/perseo/my_html/css/dcm-common.css</file>
+    <file>C:/Users/EdGaR/Documents/GitHub/portal-uce/public_html/perseo/facultad/css/_dcmtheme.css</file>
+    <file>C:/Users/EdGaR/Documents/GitHub/portal-uce/public_html/perseo/facultad/css/_dcmtheme-responsive.css</file>
   </files>
 </bundle>

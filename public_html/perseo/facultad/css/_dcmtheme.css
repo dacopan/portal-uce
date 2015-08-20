@@ -14,10 +14,10 @@
 
     .metro .tab-control .tabs:before,
     .metro .tab-control .tabs:after {
-        display: table;
+        display: table; 
         content: "";
     }
-
+     
     .metro .tab-control .tabs:after {
         clear: both;
     }

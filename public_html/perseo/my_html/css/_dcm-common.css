@@ -14,9 +14,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 .boingInUp {
     -webkit-animation-name: boingInUp;
     animation-name: boingInUp;
-}
+} 
 
-.animated.boingInUp {
+.animated.boingInUp { 
     -webkit-animation-duration: 1.3s;
     animation-duration: 1.3s;
 }

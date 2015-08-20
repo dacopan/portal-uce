@@ -265,6 +265,11 @@ html > body .featured a.isobrick {
     .metro .noticiesWrap .noti-links > li:last-child {
         border-right: 2px solid #e20613;
     }
+
+.metro .boletin {
+    color: rgb(0,118,189) !important;
+}
+
 /*#endregion*/
 
 /* #region Vacordion*/
@@ -680,8 +685,8 @@ html > body .featured a.isobrick {
 }
 /*#endregion*/
 
-/*#region Club*/
-.metro .clubWrap {
+/*#region Club*/ 
+.metro .clubWrap  {
     /*max-width:*/
     text-align: center;
 }
@@ -1566,6 +1571,12 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
 .centrosWrap .eventosWrap .paginacion .page {
     height: calc(100% - 50px);
     min-height: calc(100% - 50px);
+}
+/*proyectos*/
+.centrosWrap .proyectosWrap > div {
+    height: 100px;
+    width: 100px;
+    border: 2px #fff solid;
 }
 /*revistas*/
 
