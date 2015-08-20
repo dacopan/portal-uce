@@ -7694,6 +7694,7 @@ html > body .metro .sidebar a.dropdown-toggle:after {
     padding-bottom: 10px;
     left: 0 !important;
     line-height: 3.5rem;
+    text-align: left;
 }
 
 .rb-overlay h3.sub-title {
@@ -8013,14 +8014,14 @@ span.date {
 
 /*#region transition*/
 .metro .club, .metro .club i, .footer .blogs a:hover h5, .metro .linksWrap .link, .metro .sharex i, .metro .uri, .ley .ley-item .pdfx h5, .metro .topBar-content > a, .va-slice:after, .metro .rb-overlay .rb-prev, .metro .rb-overlay .rb-next,
-.centrosWrap .sidebar > ul li, .paginacion .rb-next, .paginacion .rb-prev, .centrosWrap .item-evento a, .centrosWrap .item-evento > a i, .centrosWrap .abc-list.revista-list a > h5 span {
+.centrosWrap .sidebar > ul li, .paginacion .rb-next, .paginacion .rb-prev, .centrosWrap .item-evento a, .centrosWrap .item-evento > a i, .abc-list.revista-list a > h5 span {
     -moz-transition: all 0.3s ease 0s;
     -webkit-transition: all 0.3s ease 0s;
     -o-transition: all 0.3s ease 0s;
     transition: all 0.3s ease 0s;
 }
 
-.tranx, .metro .tile-small, .metro .dock-more {
+.tranx, .metro .tile-small, .metro .dock-more, .biblioWrap .eventosWrap .item-evento {
     -moz-transition: all 0.3s ease 0s;
     -webkit-transition: all 0.3s ease 0s;
     -o-transition: all 0.3s ease 0s;
@@ -8243,3 +8244,10 @@ span.date {
     left: 40%;
 }
 /*#endregion*/
+
+
+.aui .portlet-asset-publisher .asset-content, .aui .portlet-asset-publisher .asset-summary, .aui .portlet-asset-publisher .asset-title, .aui .portlet-asset-publisher .header-title, .aui .portlet-asset-publisher li.title-list, .aui .portlet-blogs .entry-body, .aui .portlet-blogs .entry-title, .aui .portlet-blogs .header-title, .aui .portlet-journal-content .journal-content-article, .aui .portlet-message-boards .header-title, .aui .portlet-message-boards .thread-body {
+    -ms-word-break: normal;
+    word-break: normal;
+    word-break: normal;
+}

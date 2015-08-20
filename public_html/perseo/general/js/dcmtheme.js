@@ -2205,7 +2205,7 @@ var DockPopUp = (function () {
                 //event.preventDefault();
                 // $('.carreraWrap').removeClass("oculto visible animated bounceInRight");
                 if (!$item.data('ajaxLoad')) {
-                    var qq = $($item.find(".full-content"));
+                    var qq = $($item.find(".ajax-content"));
 
                     $.ajax({
                         type: "get",
@@ -2223,6 +2223,9 @@ var DockPopUp = (function () {
                                     yearGrid().init();
                                     $.Metro.initPdfStack(qq);
                                 } break;
+                                case "biblio": {
+
+                                } break;
                                 default:
 
                             }
@@ -2234,6 +2237,14 @@ var DockPopUp = (function () {
                                 case "years": {
                                     yearGrid().init();
                                     $.Metro.initPdfStack(qq);
+                                } break;
+                                case "biblio": {
+                                    //init componentets
+                                    $.Metro.initSidebars($item);
+                                    $.Metro.initPagination($item);
+                                    initNotiAndvents($item);
+                                    sidebarUpdate($item);
+
                                 } break;
                                 default:
 
@@ -2277,13 +2288,23 @@ var DockPopUp = (function () {
                     $body.css('overflow-y', 'hidden');
                 }
                 if ($item.data('ajaxLoad')) {
-                    // sidebarUpdate($item);
+                    var qq = $($item.find(".ajax-content"));
+                    switch (qq.data('func')) {
+                        case "years": {
+
+                        } break;
+                        case "biblio": {
+                            sidebarUpdate(qq);
+                        } break;
+                        default:
+
+                    }
                 }
 
             });
 
             $close.on('click', function () {
-               
+
                 $body.css('overflow-y', 'auto');
 
                 var layoutProp = getItemLayoutProp($item),
@@ -2353,6 +2374,89 @@ var DockPopUp = (function () {
         return { width: w, height: h };
     }
 
+    function sidebarUpdate(itemx) {
+
+        //sidebar update
+        var sidebar = itemx.find('[data-role=sidebar]'),
+                tabs = $(sidebar.children("nav")).find("a"),
+                full_viewx = $(sidebar.children(".full-content")),
+                frames = full_viewx.children(".slic");
+        tabs.each(function () {
+            $(this).parent().removeClass("active");
+        });
+
+        frames.hide();
+        $(frames.get(0)).show();
+        $(tabs.get(1)).parent().addClass("active");
+
+        var cssx = $(tabs.get(1)).css("background-color");
+
+        sidebar.css("background-color", cssx);
+        full_viewx.css("background-color", cssx);
+
+
+        sidebar = full_viewx = tabs = cssx = null;
+
+    }
+    function initNotiAndvents(itemx) {
+        var notiWrap = itemx.find('.noticiasWrap'),
+            notiViewer = notiWrap.find('.noti-viewer'),
+            noti_items = notiWrap.find('.noti-item'),
+
+            eventWrap = itemx.find('.eventosWrap'),
+            event_items = eventWrap.find('.item-evento');
+
+
+        notiWrap.find('[data-role=sharex]').each(function () {
+            var that = $(this);
+            fixedUrls(that);
+            that = null;
+        });
+
+        //init notis
+        noti_items.each(function () {
+            var that = $(this);
+            that.click(function () {
+                var that2 = $(this);
+                notiViewer.fadeOut(function () {
+                    notiViewer.html(that2.find('.oculto').html()).fadeIn();
+                    that2 = null;
+                });
+
+            });
+            that = null;
+        });
+        notiViewer.html($(noti_items.get(0)).find('.oculto').html());
+        //init events
+        event_items.each(function () {
+            var that = $(this), openclose = that.find('a.fg-yellow'),
+                openx = $(openclose.get(0)),
+                closex = $(openclose.get(1));
+
+            openx.click(function () {
+                var event_desc = that.find('.event-desc');
+                that.data("opened", true);
+                that.addClass("active");
+                event_desc.slideToggle();
+                event_desc = null;
+                return false;
+            });
+            closex.click(function () {
+                var event_desc = that.find('.event-desc');
+                that.data("opened", false);
+
+                event_desc.slideToggle(function () {
+                    that.removeClass("active");
+                });
+                event_desc = null;
+                return false;
+            });
+
+            openx = closex = null;
+        });
+
+        noti_items = eventWrap = event_items = notiWrap = null;
+    }
     return { init: init };
 });//();
 
@@ -2864,6 +2968,357 @@ $.fn.imagesLoaded = function (callback) {
 };
 //#endregion
 
+//#region pagination
+(function ($) {
+    $.widget("metro.paginacion", {
+        version: "1.0.0",
+        options: {
+            duration: 500,
+            effect: 'slowdown', // slide, fade, switch, slowdown
+            direction: 'left',
+        },
+        _slides: {},
+        _counter: '',
+        _currentIndex: -1,
+        _outPosition: 0,
+        _create: function () {
+            var that = this, o = this.options,
+                    element = carousel = this.element,
+                    controls = carousel.find('.controls'),
+                        prev = carousel.find('.controls .rb-prev'),
+                        next = carousel.find('.controls .rb-next');
+            this._counter = carousel.find('.controls .counter');
+
+            this._slides = carousel.find('.page');
+
+            if (this._slides.length <= 1) {
+                that._slideTo('next');
+                controls.hide();
+                //next.hide();
+                return;
+            }
+
+
+            prev.on('click', function () {
+                that._slideTo('prior');
+            });
+            next.on('click', function () {
+                that._slideTo('next');
+            });
+            that._slideTo('next');
+
+        },
+        _slideTo: function (direction) {
+            var currentSlide = this._slides[this._currentIndex],
+                    nextSlide, slidesN = this._slides.length;
+
+            if (direction == undefined)
+                direction = 'next';
+
+            if (direction === 'prior') {
+                this._currentIndex -= 1;
+                if (this._currentIndex < 0) {
+                    //circular
+                    if (!1) {
+                        this._currentIndex = slidesN - 1;
+                    }
+                    else {
+                        //no circular
+                        this._currentIndex += 1;
+                        return;
+                    }
+
+                }
+
+            } else if (direction === 'next') {
+                this._currentIndex += 1;
+                if (this._currentIndex >= slidesN) {
+                    //circular
+                    if (!1) {
+                        this._currentIndex = 0;
+                    }
+                    else {
+                        //no circular
+                        this._currentIndex -= 1;
+                        return;
+                    }
+                }
+
+
+            }
+            this._counter.text(this._currentIndex + 1 + "/" + slidesN);
+            this._outPosition = -this.element.width();
+            nextSlide = this._slides[this._currentIndex];
+
+            switch (this.options.effect) {
+                case 'switch':
+                    this._effectSwitch(currentSlide, nextSlide);
+                    break;
+                case 'slowdown':
+                    this._effectSlowdown(currentSlide, nextSlide, this.options.duration);
+                    break;
+                case 'fade':
+                    this._effectFade(currentSlide, nextSlide, this.options.duration);
+                    break;
+                default:
+                    this._effectSlide(currentSlide, nextSlide, this.options.duration);
+            }
+
+        },
+        _slideToSlide: function (slideIndex) {
+            var
+                    currentSlide = this._slides[this._currentIndex],
+                    nextSlide = this._slides[slideIndex];
+
+            if (slideIndex > this._currentIndex) {
+                this._outPosition = -this.element.width();
+            } else {
+                this._outPosition = this.element.width();
+            }
+
+            switch (this.options.effect) {
+                case 'switch':
+                    this._effectSwitch(currentSlide, nextSlide);
+                    break;
+                case 'slowdown':
+                    this._effectSlowdown(currentSlide, nextSlide, this.options.duration);
+                    break;
+                case 'fade':
+                    this._effectFade(currentSlide, nextSlide, this.options.duration);
+                    break;
+                default:
+                    this._effectSlide(currentSlide, nextSlide, this.options.duration);
+            }
+
+            this._currentIndex = slideIndex;
+        },
+
+        _effectSwitch: function (currentSlide, nextSlide) {
+            $(currentSlide)
+                    .hide();
+            $(nextSlide)
+                    .css({ left: 0 })
+                    .show();
+            $(nextSlide)
+                    .css('left', this._outPosition * -1)
+                    .show()
+                    .animate({ left: 0 }, this.options.duration);
+        },
+        _effectSlide: function (currentSlide, nextSlide, duration) {
+            $(currentSlide)
+                    .animate({ left: this._outPosition }, duration);
+            $(nextSlide)
+                    .css('left', this._outPosition * -1)
+                    .show()
+                    .animate({ left: 0 }, duration);
+        },
+        _effectSlowdown: function (currentSlide, nextSlide, duration) {
+            var options = {
+                'duration': duration,
+                'easing': 'doubleSqrt'
+            };
+            $.easing.doubleSqrt = function (t) {
+                return Math.sqrt(Math.sqrt(t));
+            };
+
+            $(currentSlide)
+                    .animate({ left: this._outPosition }, options).hide();
+
+
+            //$(nextSlide).find('.subslide').hide();
+            $(nextSlide)
+                    .css('left', this._outPosition * -1)
+                    .show()
+                    .animate({ left: 0 }, options);
+
+            //setTimeout(function(){
+            //    $(nextSlide).find('.subslide').fadeIn();
+            //}, 500);
+
+        },
+        _effectFade: function (currentSlide, nextSlide, duration) {
+            $(currentSlide)
+                    .fadeOut(duration);
+            $(nextSlide)
+                    .css({ left: 0 })
+                    .fadeIn(duration);
+        },
+        _destroy: function () {
+
+        },
+        _setOption: function (key, value) {
+            this._super('_setOption', key, value);
+        }
+    });
+})(jQuery);
+
+$(function () {
+    $.Metro.initPagination = function (area) {
+        if (area != undefined) {
+            $(area).find('[data-role=dcm-pagination]').paginacion();
+        } else {
+            $('[data-role=dcm-pagination]').paginacion();
+        }
+    };
+});
+//#endregion
+
+//#region sidebar
+//<editor-fold defaultstate="collapsed" desc="sidebar">
+
+(function ($) {
+    $.widget("metro.sidebar", {
+        version: "1.0.0",
+        options: {
+            effect: 'switch'
+            , _index: 0,
+            typex: 0
+        },
+        _create: function () {
+            var that = this,
+                    element = this.element,
+                    tabs = $(element.children("nav")).find("a"),
+                    frames = $(element.children(".full-content")).children(".slic"),
+                    fullview = $(element.children(".full-content")),
+                    pull = $(element.children("nav")).find(".pull-menu");
+
+            if (element.data('effect') != undefined) {
+                this.options.effect = element.data('effect');
+            }
+            if (element.data('sidebar-typex') != undefined) {
+                this.options.typex = element.data('typex');
+            }
+
+            $(element.children("nav")).perfectScrollbar(); //scrolllbar nav
+
+
+            this.init(tabs, frames);
+            tabs.on("click", function (e) {
+
+                e.preventDefault();
+                e.stopPropagation();
+
+                if ($(this).parent().hasClass('disabled')) {
+                    return false;
+                }
+
+                var hrefx = $(this).attr("href");
+                if (hrefx === '#')
+                    return false;
+
+
+                var current_frame = $(fullview.find("[data-cont=" + hrefx + "]"));
+
+                if (current_frame.size() < 1)
+                    return false;
+
+                tabs.each(function () {
+                    $($(this).parent()).removeClass("active");
+                });
+
+
+                frames.hide();
+                $(this).parent().addClass("active");
+
+                //si es responsive cerramos menu cuando cambiamos contenido
+                var device_width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+                if (device_width <= 1200) {
+                    $(pull).click();
+                }
+
+
+                //alert(current_frame);
+                switch (that.options.effect) {
+                    case 'slide':
+                        current_frame.slideDown();
+                        break;
+                    case 'fade':
+                        current_frame.fadeIn();
+                        break;
+                    case 'switch':
+                        current_frame.fadeIn();
+                        $(current_frame)
+                                .css({ left: 0 })
+                                .show();
+                        $(current_frame)
+                                .css('left', current_frame.width())
+                                .show()
+                                .animate({ left: 0 }, 500);
+                        break;
+                    default:
+                        current_frame.show();
+                }
+
+                //reiniciamos scrollbar
+                //fullview.perfectScrollbar('update');
+                fullview.scrollTop(0);
+                //apagamos nivo
+                var first_frame = $(fullview.find("[data-cont=cont0]"));
+                if (that.options.typex == 0) {
+                    if (current_frame.index() == 0) {
+                        $(fullview.parent()).addClass("grilla-dark");
+
+                        if (!isMobileBrowser()) {
+                            first_frame.find(".bannerCircle").each(function () {
+                                $(this).data('bannerCircle').start();
+                            });
+                        }
+
+                    } else {
+                        $(fullview.parent()).removeClass("grilla-dark");
+                        if (!isMobileBrowser()) {
+                            first_frame.find(".bannerCircle").each(function () {
+                                $(this).data('bannerCircle').stop();
+                            });
+                        }
+                    }
+                } else {
+                    var cssx = $(this).css("background-color");
+                    element.css("background-color", cssx);
+                    fullview.css("background-color", cssx);
+                    cssx = null;
+                }
+
+                hrefx = current_frame = device_width = first_frame = null;
+
+                return true;
+            });
+
+        },
+        init: function (tabs, frames) {
+            tabs.each(function () {
+                if ($(this).hasClass("active")) {
+                    var current_frame = $($($(this).children("a")).attr("href"));
+                    frames.hide();
+                    current_frame.show();
+                }
+            });
+            tabs = null;
+            frames = null;
+        },
+        _destroy: function () {
+
+        },
+        _setOption: function (key, value) {
+            this._super('_setOption', key, value);
+        }
+    })
+})(jQuery);
+
+$(function () {
+    $.Metro.initSidebars = function (area) {
+        if (area != undefined) {
+            $(area).find('[data-role=sidebar]').sidebar();
+        } else {
+            $('[data-role=sidebar]').sidebar();
+        }
+    };
+    //$.Metro.initSidebars();
+});
+
+//</editor-fold>
+//#endregion 
+
 jQuery.support.cors = true;
 if (typeof Liferay === 'undefined' && window.location.href.indexOf("public_html") > -1) {
     isLocalHost = true;
@@ -2909,15 +3364,14 @@ function initx() {
 
                     //mm-menu
                     $('#mm-nav-content').appendTo('#dcmmenu');
-                    //$('#loader').appendTo('#dcmmenu');
+                    
                     $("#dcmmenu").mmenu({
                         classes: "mm-slide"
                     });
 
                     console.log("mm-menu creado body:" + $('body').length);
 
-                    //$('#dcmmenu').before($('#loader'));
-                    //$('#loader').appendTo("body");
+                   
                     $('#loader').addClass('animated bounceOutUp');
 
                     setTimeout(function () {
@@ -3113,6 +3567,21 @@ function fixedUrls(that) {
     portal = icox = t1 = t2 = t3 = f1 = service = qq = that = null;
 }
 
+$.fn.randomize = function (selector) {
+    var $elems = selector ? $(this).find(selector) : $(this).children(),
+        $parents = $elems.parent();
+
+    $parents.each(function () {
+        $(this).children(selector).sort(function () {
+            return Math.round(Math.random()) - 0.5;
+            // }). remove().appendTo(this); // 2014-05-24: Removed `random` but leaving for reference. See notes under 'ANOTHER EDIT'
+        }).detach().appendTo(this);
+    });
+
+    return this;
+};
+
+//$('ul').randomize();
 console.log("fin dcm_common, body: " + $('body').length);
 ///#source 1 1 /public_html/perseo/general/js/_dcmtheme.js
 var debug = false, allPortletsReady = false, reg = /.*\/.*\//g;

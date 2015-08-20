@@ -1,0 +1,41 @@
+﻿#set ($group_id = $getterUtil.getLong($groupId))
+<div id="boletinx" class="noticeX noti-links" data-role="boletinx">
+    <h2 class="boletin fg-blue fg-hover-lightBlue">
+        Boletines de Prensa
+    </h2>
+    <div class="rb-overlay">
+        <div class="rb-week">
+            <span class="rb-close">close</span>
+            <div class="full-content">
+                <div class="contentwrap">
+                    <h2 class="full-title fg-blue fg-hover-lightBlue">
+                        BOLETINES DE PRENSA
+                    </h2>
+
+
+                    <div class="full-html">
+                        <ul class="abc-list simple-list revista-list">
+                            #set($sisex=$com_id.getSiblings().size())
+
+                            #if (!$com_id.getSiblings().isEmpty())
+                            #foreach ($cur_com_idx in $com_id.getSiblings())
+
+                            #set( $ix =  $sisex - $velocityCount)
+                            #set($cur_com_id=$com_id.getSiblings().get($ix))
+
+                            #set ($webcontent=$journalContentUtil.getContent($group_id, $cur_com_id.getData(), "", "$locale", ""))
+                            $webcontent
+
+                            #if($velocityCount > 25)
+                            #break
+                            #end
+
+                            #end
+                            #end
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

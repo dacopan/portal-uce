@@ -1,4 +1,17 @@
 <root available-locales="es_ES" default-locale="es_ES">
+  <dynamic-element dataType="string" indexType="keyword" name="boletin_container" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
+    <meta-data locale="es_ES">
+      <entry name="label">
+        <![CDATA[ID Boletin contenedor (art ID)]]>
+      </entry>
+      <entry name="predefinedValue">
+        <![CDATA[]]>
+      </entry>
+      <entry name="tip">
+        <![CDATA[ID del articulo que contiene esta noticia (type:uce_noticia)]]>
+      </entry>
+    </meta-data>
+  </dynamic-element>
   <dynamic-element dataType="boolean" indexType="keyword" name="Comunicado" readOnly="false" repeatable="true" required="false" showLabel="true" type="checkbox" width="">
     <dynamic-element dataType="string" indexType="keyword" name="com_id" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
       <meta-data locale="es_ES">

@@ -1,0 +1,15 @@
+﻿<root available-locales="es_ES" default-locale="es_ES">
+  <dynamic-element dataType="string" indexType="keyword" name="com_id" readOnly="false" repeatable="true" required="true" showLabel="true" type="text" width="small">
+    <meta-data locale="es_ES">
+      <entry name="label">
+        <![CDATA[ID Boletin (art ID)]]>
+      </entry>
+      <entry name="predefinedValue">
+        <![CDATA[]]>
+      </entry>
+      <entry name="tip">
+        <![CDATA[ID del articulo que contiene este boletin (type:uce_boletin)]]>
+      </entry>
+    </meta-data>
+  </dynamic-element>
+</root>

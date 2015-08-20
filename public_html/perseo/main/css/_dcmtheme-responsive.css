@@ -136,6 +136,7 @@
         margin-left: 0px !important;
         padding-left: 0px !important;
     }
+
     /*facultades*/
     .fac-title .title {
         font-size: 4.8rem;
@@ -234,6 +235,15 @@
     }
 }
 
+
+@media (max-width: 1169px) {
+    /*direcciones*/
+    .metro .contentwrap.direcWrap, .metro .contentwrap.facWrap, .metro .centrosWrap {
+        max-width: 800px;
+    }
+}
+
+
 @media only screen and (max-width: 878px) {
     /*direcciones*/
     .metro .contentwrap.direcWrap, .metro .contentwrap.facWrap, .metro .centrosWrap {
@@ -324,12 +334,18 @@
         float: none;
         margin: auto;
     }
+
+    #boletinx {
+        float: none !important;
+        width: 100%;
+        text-align: center;
+    }
 }
 
 @media (max-width:1200px) {
     .metro .sidebar .pull-menu {
         display: block !important;
-        top: 0px;
+        top: 0;
     }
 
     .metro .sidebarWrap .navx .date {

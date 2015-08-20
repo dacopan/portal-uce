@@ -12,7 +12,7 @@
             #if ($getterUtil.getBoolean($cur_facultad.getData()))
             <li>
                 <a class="og-a" href="$cur_facultad.uri.getData()" title="ver facultad" target="_blank">
-                    <img src="$cur_facultad.imagen.getData()" alt="img01" />
+                    <img src="$cur_facultad.imagen.getData()" alt="$cur_facultad.nombre.getData()" />
                     <div class="og-box">
                         <h5>FACULTAD</h5>
                         <h4>$cur_facultad.nombre.getData()</h4>
@@ -30,7 +30,7 @@
             #if ($getterUtil.getBoolean($cur_sede.getData()))
             <li>
                 <a class="og-a" href="$cur_sede.sede_uri.getData()" title="ver sede" target="_blank">
-                    <img src="$cur_sede.sede_imagen.getData()" alt="img01" />
+                    <img src="$cur_sede.sede_imagen.getData()" alt="$cur_sede.sede_nombre.getData()" />
                     <div class="og-box">
                         <h5>SEDE</h5>
                         <h4>$cur_sede.sede_nombre.getData()</h4>

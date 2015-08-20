@@ -1,0 +1,6 @@
+﻿#set ($FechaObj = $dateUtil.newDate($getterUtil.getLong($boletin_fecha.getData())))
+<li>
+    <a href="$boletin_url.getData()" target="_blank">
+        <h5>$boletin_titulo.getData() <br />| <span> $dateUtil.getDate($FechaObj, "MMMM dd, yyyy", $locale)</span></h5>
+    </a>
+</li>

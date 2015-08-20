@@ -7,7 +7,7 @@
     <div class="featuredoverlay"></div>
     <div class="homeslider nivoSlider">
         #if ($validator.isNotNull($noti_imagen.getData()))
-        <img src="$noti_imagen.getData()" alt="Dress" />
+        <img src="$noti_imagen.getData()" alt="$noti_titulo.getData()" />
         #else
         <div class="relleno"><div class="clear"></div></div>
         #end
@@ -43,7 +43,7 @@
                     </ul>
                     #if ($validator.isNotNull($noti_video.getData()))
                     <div class="video-full" style="">
-                        <iframe style="width:100%;height:500px;" src="$noti_video.getData()" frameborder="0" allowfullscreen></iframe>
+                        <iframe style="width:100%;height:500px;" src="$noti_video.getData()" allowfullscreen></iframe>
                     </div>
                     #elseif($validator.isNotNull($noti_imagen.getData()))
                     <div class="img-full" style="background-image: url($noti_imagen.getData());">

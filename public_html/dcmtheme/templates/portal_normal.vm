@@ -3,7 +3,7 @@
 #set ($html-com = "$cdn/my_html")
 #set ($x3=$theme.getSetting("theme-type"))
 #set ($theme-type = "$cdn/$x3")
-#set ($verx = "?v=0.1.5")
+#set ($verx = "?v=0.1.9")
 
 #parse ($init)
 
@@ -13,10 +13,22 @@
 #set($urlx=$htmlUtil.escapeAttribute($canonicalURL))
 ##fin get url
 
-<html class="$root_css_class" dir="#language (" lang.dir")" lang="$w3c_language_id" xmlns:og="http://opengraphprotocol.org/schema/">
+<html class="$root_css_class" dir="ltr" lang="es" xmlns:og="http://opengraphprotocol.org/schema/">
 <head prefix="og: http://ogp.me/ns#">
     <title>$the_title - $company_name</title>
     <meta content="initial-scale=1.0, width=device-width" name="viewport" />
+	<meta name="description" content="Página web oficial de la Universidad Central del Ecuador. Omnium Potentior est Sapientia. Educando al Ecuador desde 1826. Al servicio de la juventud.">
+	<meta name="msvalidate.01" content="E4DD52F47D102DF2AC3F82E68E565CFD" />
+	<link href="http://www.uce.edu.ec/html/themes/dcmtheme/images/favicon.ico" rel="icon" />
+	
+	<link rel="apple-touch-icon" href="$html-com/images/logo/logo-min.png">
+	<meta name="application-name" content="UCE"/>
+	<meta name="msapplication-TileColor" content="#ffffff"/>
+	<meta name="msapplication-square70x70logo" content="$html-com/images/logo/tiny.png"/>
+	<meta name="msapplication-square150x150logo" content="$html-com/images/logo/square.png"/>
+	<meta name="msapplication-wide310x150logo" content="$html-com/images/logo/wide.png"/>
+	<meta name="msapplication-square310x310logo" content="$html-com/images/logo/large.png"/>
+
 	<link rel="dns-prefetch" href="http://aka-cdn.uce.edu.ec">
     
 	$theme.include($top_head_include)
@@ -25,7 +37,7 @@
 	<meta property="og:url" content="$urlx" />	
 
 	<meta property="og:title" content="$site_name" />
-	<meta property="og:image" content="$html-com/img/logo.png" />	
+	<meta property="og:image" content="$html-com/images/logo.png" />	
 	<meta property="og:description" content="Omnium Potentior est Sapientia" />
 	
 	<meta name="twitter:url" content="$urlx" />	
@@ -33,7 +45,7 @@
 	<meta name="twitter:site" content="@UCentralEcuador"/>
 
 	<meta name="twitter:title" content="$site_name"/>	
-	<meta name="twitter:image" content="$html-com/img/logo.png"/>
+	<meta name="twitter:image" content="$html-com/images/logo.png"/>
 	<meta name="twitter:description" content="Omnium Potentior est Sapientia"/>
 	
 	#else
@@ -44,7 +56,8 @@
 	#end
 
 	<link rel="stylesheet" href="$html-com/css/dcm-loader.min.css${verx}" type="text/css" id="loaderStyle" />	
-    <link rel="stylesheet" href="$theme-type/css/dcmtheme.min.css?${verx}" type="text/css" />
+    <link rel="stylesheet" href="$theme-type/css/dcmtheme.min.css${verx}" type="text/css" />
+	<link rel="stylesheet" href="$html-com/css/printerx.min.css${verx}" type="text/css" media="print"/>	
     	  	
 	<script src="$theme-type/js/dcmtheme.min.js${verx}" type="text/javascript" async="async"></script>
 
@@ -105,9 +118,10 @@
         <div class="full-views-wrap" data-load="$html-com/full_view_01.txt${verx}"></div>
         <!--Fin Full views -->
 
-		$theme.include($body_bottom_include)
+		
+        $theme.include($body_bottom_include)
         $theme.include($bottom_include)
-        
+
     </div>
 </body>
 </html>

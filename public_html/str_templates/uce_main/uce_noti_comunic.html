@@ -86,11 +86,13 @@
                 #set($count=-1)
 
             </div>
-            <div class="featured articlecontainer" style="position: relative; /*overflow: hidden;*/margin:auto;">
 
-            </div>
+            #set ($webcontent=$journalContentUtil.getContent($group_id, $boletin_container.getData(), "", "$locale", ""))
+            $webcontent
+
+
         </div>
-        <div class="list-notices" style="position: fixed; z-index: 999999;top:0;"></div>
+
     </div>
     <a class="scrollbut" data-slide="3" title=""></a>
 </div>

@@ -255,10 +255,6 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
     background-color: #fff;
 }
 
-#wrapperscroll .scrollbut:before {
-    content: "\f078";
-}
-
 #wrapperscroll .scrollbut {
     display: block;
     width: 50px;
@@ -271,8 +267,7 @@ html, body, #wrapperscroll, #porletwrap, .metro .mm-page {
     background-repeat: no-repeat;
     background-position: center center;
     transition-duration: 0.7s;
-    -webkit-transition-duration: 0.7s; /* Safari */
-    font-family: 'fontawesome-alloy';
+    -webkit-transition-duration: 0.7s; /* Safari */    
     speak: none;
     font-style: normal;
     font-weight: normal;
