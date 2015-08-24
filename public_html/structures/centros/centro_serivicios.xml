@@ -1,0 +1,15 @@
+﻿<root available-locales="es_ES" default-locale="es_ES">
+  <dynamic-element dataType="html" fieldNamespace="ddm" indexType="keyword" name="servicios" readOnly="false" repeatable="false" required="true" showLabel="true" type="ddm-text-html" width="large">
+    <meta-data locale="es_ES">
+      <entry name="label">
+        <![CDATA[Servicios]]>
+      </entry>
+      <entry name="predefinedValue">
+        <![CDATA[]]>
+      </entry>
+      <entry name="tip">
+        <![CDATA[]]>
+      </entry>
+    </meta-data>
+  </dynamic-element>
+</root>

@@ -1,25 +1,74 @@
 ﻿<root available-locales="es_ES" default-locale="es_ES">
   <dynamic-element dataType="boolean" indexType="" name="publicacionx" readOnly="false" repeatable="true" required="false" showLabel="true" type="checkbox" width="">
-    <dynamic-element dataType="string" indexType="" name="pub_tipo" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
+    <dynamic-element dataType="string" indexType="keyword" multiple="false" name="pub_tipo" readOnly="false" repeatable="false" required="true" showLabel="true" type="select" width="">
+      <dynamic-element name="option12038" type="option" value="Revista">
+        <meta-data locale="es_ES">
+          <entry name="label">
+            <![CDATA[Revista]]>
+          </entry>
+        </meta-data>
+      </dynamic-element>
+      <dynamic-element name="option12039" type="option" value="Abstracto">
+        <meta-data locale="es_ES">
+          <entry name="label">
+            <![CDATA[Abstracto]]>
+          </entry>
+        </meta-data>
+      </dynamic-element>
+      <dynamic-element name="option12040" type="option" value="Poster">
+        <meta-data locale="es_ES">
+          <entry name="label">
+            <![CDATA[Poster]]>
+          </entry>
+        </meta-data>
+      </dynamic-element>
       <meta-data locale="es_ES">
         <entry name="label">
           <![CDATA[Tipo Publicación]]>
         </entry>
         <entry name="predefinedValue">
-          <![CDATA[]]>
+          <![CDATA[[""]]]>
         </entry>
         <entry name="tip">
           <![CDATA[]]>
         </entry>
       </meta-data>
     </dynamic-element>
-    <dynamic-element dataType="string" indexType="" name="pub_subtipo" readOnly="false" repeatable="false" required="true" showLabel="true" type="text" width="small">
+    <dynamic-element dataType="string" indexType="keyword" multiple="false" name="pub_subtipo" readOnly="false" repeatable="false" required="true" showLabel="true" type="select" width="">
+      <dynamic-element name="option12299" type="option" value="Indexada">
+        <meta-data locale="es_ES">
+          <entry name="label">
+            <![CDATA[Indexada]]>
+          </entry>
+        </meta-data>
+      </dynamic-element>
+      <dynamic-element name="option12300" type="option" value="Internacional">
+        <meta-data locale="es_ES">
+          <entry name="label">
+            <![CDATA[Internacional]]>
+          </entry>
+        </meta-data>
+      </dynamic-element>
+      <dynamic-element name="option12301" type="option" value="Nacional">
+        <meta-data locale="es_ES">
+          <entry name="label">
+            <![CDATA[Nacional]]>
+          </entry>
+        </meta-data>
+      </dynamic-element>
+      <dynamic-element name="option12302" type="option" value="y Presentacion">
+        <meta-data locale="es_ES">
+          <entry name="label">
+            <![CDATA[Presentacion]]>
+          </entry>
+        </meta-data>
+      </dynamic-element>
       <meta-data locale="es_ES">
         <entry name="label">
           <![CDATA[Subtipo Publicación]]>
         </entry>
         <entry name="predefinedValue">
-          <![CDATA[]]>
+          <![CDATA[[""]]]>
         </entry>
         <entry name="tip">
           <![CDATA[]]>
